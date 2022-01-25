@@ -12,16 +12,16 @@ tasks.withType(Jar::class) {
         attributes["Sealed"] = "true"
         attributes["Name"] = "/org/xvm/util"
         attributes["Specification-Title"] = "xvm"
-        attributes["Specification-Version"] = "0.1.0"
+        attributes["Specification-Version"] = "0.3.0"
         attributes["Specification-Vendor"] = "xtclang.org"
-        attributes["Implementation-Title"] = "xvm-utils"
-        attributes["Implementation-Version"] = "0.1.0"
+        attributes["Implementation-Title"] = "xvm-javatools_utils"
+        attributes["Implementation-Version"] = "0.3.0"
         attributes["Implementation-Vendor"] = "xtclang.org"
     }
 }
 
 java {
-    // Java 11 is the latest "Long Term Support" (LTS) release, as of 2020
+    // Java 17 is the latest "Long Term Support" (LTS) release, as of late 2021
     sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_17
 }

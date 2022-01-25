@@ -14,7 +14,7 @@ dependencies {
     implementation("com.sun.activation:javax.activation:1.2.0")
     implementation("jakarta.xml.bind:jakarta.xml.bind-api:2.3.2")
     implementation("org.glassfish.jaxb:jaxb-runtime:2.3.2")
-    implementation("org.xtclang.xvm:utils:")
+    implementation("org.xtclang.xvm:javatools_utils:")
 }
 
 application {
