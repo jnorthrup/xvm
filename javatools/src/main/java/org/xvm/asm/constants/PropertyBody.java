@@ -22,7 +22,10 @@ public class PropertyBody
      * Construct a PropertyBody from the passed information.
      *
      * @param struct         the property structure that this body is derived from
-     * @param impl           one of Implicit, Declared, Delegating, or Explicit
+     * @param impl           one of FromInto, Declared (interface), Delegating, Explicit
+     *                       (declaration on a class), SansCode, or Native
+     *                       TODO we explicitly new PropertyBody in PropertyInfo using SansCode ... explain
+     *                       TODO we explicitly new PropertyBody in ?? using Native ... explain
      * @param constDelegate  the property constant that provides the reference to delegate to
      * @param type           the type of the property, including any type annotations (required)
      * @param fRO            true iff the property has any of a number of indicators that would
@@ -54,7 +57,8 @@ public class PropertyBody
             MethodConstant    constInitFunc) {
         assert struct    != null;
         assert type      != null;
-        assert     impl == Implementation.Implicit
+        assert     impl == Implementation.FromInto
+                || impl == Implementation.Union
                 || impl == Implementation.Declared
                 || impl == Implementation.Default
                 || impl == Implementation.Delegating
@@ -71,8 +75,8 @@ public class PropertyBody
         } else if (fConstant && constInitVal == null && constInitFunc == null && !struct.isInjected()) {
             // this can only happen when we're building the TypeInfo for a partially compiled class,
             // so we will need to invalidate the TypeInfo afterward;
-            // mark the implementation as "Implicit" just to assert it gets replaced later
-            impl = Implementation.Implicit;
+            // mark the implementation as "FromInto" just to assert it gets replaced later
+            impl = Implementation.FromInto;
         }
         assert effectGet != null && effectSet != null;
 
@@ -169,7 +173,7 @@ public class PropertyBody
      * Property body implementations are one of the following:
      * <p/>
      * <ul>
-     * <li><b>Implicit</b> - the method body represents a property known to exist for compilation
+     * <li><b>FromInto</b> - the method body represents a property known to exist for compilation
      * purposes, but is otherwise not present; this is the result of the {@code into} clause, or any
      * properties of {@code Object} in the context of an interface, for example;</li>
      * <li><b>Declared</b> - the property body represents an interface-declared property;</li>
@@ -366,7 +370,7 @@ public class PropertyBody
      */
     public boolean isExplicitAbstract() {
         PropertyStructure prop = m_structProp;
-        return prop != null && m_impl != Implementation.Implicit
+        return prop != null && m_impl != Implementation.FromInto
                 && TypeInfo.containsAnnotation(prop.getPropertyAnnotations(), "Abstract");
     }
 
@@ -376,7 +380,7 @@ public class PropertyBody
      */
     public boolean isImplicitAbstract() {
         PropertyStructure prop = m_structProp;
-        return prop != null && m_impl != Implementation.Implicit
+        return prop != null && m_impl != Implementation.FromInto
                 && !isInjected() && !hasGetter()
                 && isExplicitReadOnly() && prop.getContainingClass().isExplicitlyAbstract();
     }
@@ -386,7 +390,7 @@ public class PropertyBody
      */
     public boolean isExplicitOverride() {
         PropertyStructure prop = m_structProp;
-        return prop != null && m_impl != Implementation.Implicit && prop.isExplicitOverride();
+        return prop != null && m_impl != Implementation.FromInto && prop.isExplicitOverride();
     }
 
     /**
@@ -394,7 +398,7 @@ public class PropertyBody
      */
     public boolean isExplicitReadOnly() {
         PropertyStructure prop = m_structProp;
-        return prop != null && m_impl != Implementation.Implicit && prop.isExplicitReadOnly();
+        return prop != null && m_impl != Implementation.FromInto && prop.isExplicitReadOnly();
     }
 
     /**
@@ -402,7 +406,7 @@ public class PropertyBody
      */
     public boolean isInjected() {
         PropertyStructure prop = m_structProp;
-        return prop != null && m_impl != Implementation.Implicit && prop.isInjected();
+        return prop != null && m_impl != Implementation.FromInto && prop.isInjected();
     }
 
 
