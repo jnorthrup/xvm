@@ -1211,12 +1211,27 @@ public class MethodInfo
                     break;
                 }
                 sig = body.getSignature();
-            } else if (body.getImplementation() == Implementation.Implicit) {
-                // ignore
-            } else if (isJitEquivalent(body.getSignature(), sig)) {
-                id = body.getIdentity();
             } else {
-                break;
+                switch (body.getImplementation()) {
+                    case Implicit -> {} // ignore
+                    case Default, Declared -> {
+                        // an interface method doesn't allow a covariant return
+                        if (body.getSignature().equals(sig)) {
+                            id = body.getIdentity();
+                        }
+                        else {
+                            return id;
+                        }
+                    }
+                    default -> {
+                        if (isJitEquivalent(body.getSignature(), sig)) {
+                            id = body.getIdentity();
+                        }
+                        else {
+                            return id;
+                        }
+                    }
+                }
             }
         }
         return id;
