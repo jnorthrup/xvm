@@ -193,7 +193,7 @@ interface FieldOutput<ParentOutput extends (ElementOutput | FieldOutput)?>
      * @return this FieldOutput
      */
     FieldOutput addArray(String name, Iterable<Doc> values) {
-        return add(name, values.toArray());
+        return add(name, values.toArray().as(Doc));
     }
 
     /**
@@ -209,7 +209,7 @@ interface FieldOutput<ParentOutput extends (ElementOutput | FieldOutput)?>
         return add(name, new IntLiteral[values.size]((_) -> {
                 assert val num := iter.next();
                 return num.toIntLiteral();
-        }));
+        }).as(Doc));
     }
 
     /**
@@ -225,7 +225,7 @@ interface FieldOutput<ParentOutput extends (ElementOutput | FieldOutput)?>
         return add(name, new FPLiteral[values.size](_ -> {
                 assert val num := iter.next();
                 return num.toFPLiteral();
-        }));
+        }).as(Doc));
     }
 
     /**

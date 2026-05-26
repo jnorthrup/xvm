@@ -59,7 +59,7 @@ class JsonArrayBuilder
      * @return this `JsonArrayBuilder`
      */
     JsonArrayBuilder addObject(JsonObject value) {
-        values.add(value);
+        values.add(value.as(Doc));
         return this;
     }
 
@@ -71,7 +71,7 @@ class JsonArrayBuilder
      * @return this `JsonArrayBuilder`
      */
     JsonArrayBuilder addArray(JsonArray value) {
-        values.add(value);
+        values.add(value.as(Doc));
         return this;
     }
 
@@ -82,7 +82,10 @@ class JsonArrayBuilder
      *
      * @return this `JsonArrayBuilder`
      */
-    JsonArrayBuilder add(JsonBuilder builder) = add(builder.build());
+    JsonArrayBuilder add(JsonBuilder builder) {
+        values.add(builder.build().as(Doc));
+        return this;
+    }
 
     /**
      * Add all the values to the `JsonArray` being built by this builder.
@@ -113,7 +116,10 @@ class JsonArrayBuilder
      * @param builder  the `JsonBuilder` that will build the `Doc` value to set
      * @param value    the value to set at the specified index
      */
-    JsonArrayBuilder set(Int index, JsonBuilder builder) = set(index, builder.build());
+    JsonArrayBuilder set(Int index, JsonBuilder builder) {
+        values.replace(index, builder.build().as(Doc));
+        return this;
+    }
 
     /**
      * Build an immutable `JsonArray` from the values added to this builder.
@@ -137,19 +143,25 @@ class JsonArrayBuilder
     @Override
     protected void merge(Int index, Doc value) {
         if (index < 0) {
-            add(value);
+            values.add(value);
         } else {
             Doc existing = values[index];
             switch (existing.is(_), value.is(_)) {
             case (JsonObject, JsonStruct):
-                set(index, new JsonObjectBuilder(existing).deepMerge(value).build());
+                values.replace(index, new JsonObjectBuilder(existing.as(JsonObject))
+                        .deepMerge(value)
+                        .build()
+                        .as(Doc));
                 break;
             case (JsonArray, JsonStruct):
-                set(index, new JsonArrayBuilder(existing).deepMerge(value).build());
+                values.replace(index, new JsonArrayBuilder(existing.as(JsonArray))
+                        .deepMerge(value)
+                        .build()
+                        .as(Doc));
                 break;
             case (Doc, Primitive):
             case (Primitive, Doc):
-                set(index, value);
+                values.replace(index, value);
                 break;
             default:
                 assert as $"Cannot merge a {&value.type} into a {&existing.type}";

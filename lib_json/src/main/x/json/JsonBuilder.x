@@ -124,7 +124,7 @@ class JsonBuilder<JsonType extends JsonStruct, Id extends Int | String> {
     protected void mergeIntoObjectMember(JsonObject obj, JsonPointer path, Doc doc, Id id) {
         JsonPointer remainder = path.remainder ?: assert;
         JsonObject  updated   = new JsonObjectBuilder(obj).deepMerge(remainder, doc).build();
-        update(id, updated);
+        update(id, updated.as(Doc));
     }
 
     /**
@@ -150,7 +150,7 @@ class JsonBuilder<JsonType extends JsonStruct, Id extends Int | String> {
     protected void mergeIntoArrayMember(JsonArray array, JsonPointer path, Doc doc, Id id) {
         JsonPointer remainder = path.remainder ?: assert;
         JsonArray   updated   = new JsonArrayBuilder(array).deepMerge(remainder, doc).build();
-        update(id, updated);
+        update(id, updated.as(Doc));
     }
 
     /**
@@ -163,7 +163,7 @@ class JsonBuilder<JsonType extends JsonStruct, Id extends Int | String> {
     protected void replaceMember(JsonPointer path, Doc doc, Id id) {
         JsonPointer remainder = path.remainder ?: assert;
         JsonObject  updated   = new JsonObjectBuilder().deepMerge(remainder, doc).build();
-        update(id, updated);
+        update(id, updated.as(Doc));
     }
 
     /**

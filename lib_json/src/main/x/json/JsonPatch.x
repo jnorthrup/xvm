@@ -46,17 +46,13 @@ annotation JsonPatch
             };
         }
 
-        switch (doc.is(_)) {
-            case JsonObject:
-                if (!doc.inPlace) {
-                    doc.makeImmutable();
-                }
-                break;
-            case JsonArray:
-                if (!doc.inPlace) {
-                    doc.makeImmutable();
-                }
-                break;
+        if (doc.is(JsonObject)) {
+            JsonObject obj = doc.as(JsonObject);
+            if (!obj.inPlace) {
+                obj.makeImmutable();
+            }
+        } else if (doc.is(JsonArray) && !doc.inPlace) {
+            doc = docOf(new JsonArrayBuilder(doc).build());
         }
         return doc;
     }
@@ -84,6 +80,16 @@ annotation JsonPatch
     static Builder builder() = new Builder();
 
     // ----- helper methods ------------------------------------------------------------------------
+
+    private static Doc docOf(JsonObject obj) {
+        assert obj.is(Doc);
+        return obj;
+    }
+
+    private static Doc docOf(JsonArray array) {
+        assert array.is(Doc);
+        return array;
+    }
 
     /**
      * Perform an add operation.
@@ -126,7 +132,7 @@ annotation JsonPatch
             } else {
                 if (options.ensurePathExistsOnAdd) {
                     // we are allowing missing elements on add, we just need to add a new object
-                    mutable.put(path.key, applyAdd(json.newObject(), remainder, value, options));
+                    mutable.put(path.key, applyAdd(docOf(json.newObject()), remainder, value, options));
                 } else {
                     assert:arg as $"Cannot perform add operation on JSON object for path {path}, missing key '{path.key}'";
                 }
@@ -134,7 +140,7 @@ annotation JsonPatch
         } else {
             mutable.put(path.key, value);
         }
-        return mutable;
+        return docOf(mutable);
     }
 
     /**
@@ -156,7 +162,7 @@ annotation JsonPatch
 
         if (path.key == JsonPointer.AppendKey) {
             mutable.add(value);
-            return mutable;
+            return docOf(mutable);
         }
 
         assert:arg Int index := path.getValidIndex(array, options.supportNegativeIndices)
@@ -173,7 +179,7 @@ annotation JsonPatch
                 mutable.insert(index, value);
             }
         }
-        return mutable;
+        return docOf(mutable);
     }
 
     /**
@@ -230,12 +236,12 @@ annotation JsonPatch
             } else {
                 mutable.remove(path.key);
             }
-            return mutable;
+            return docOf(mutable);
         }
         // there is no element in the JsonObject for the path key
         if (options.allowMissingPathOnRemove) {
             // we are allowing missing elements on remove so return the unmodified original object
-            return obj;
+            return docOf(obj);
         }
         assert:arg as $"Cannot perform remove operation on JSON object, missing key '{path.key}' from path '{path}'";
     }
@@ -257,7 +263,7 @@ annotation JsonPatch
         if (index >= size || index <= -size) {
             if (options.allowMissingPathOnRemove) {
                 // the index is out of bounds, but the options allow this, so return the original, unmodified array
-                return array;
+                return docOf(array);
             } else {
                 // we are not allowing invalid indexes
                 assert:arg  as $|Cannot perform remove operation on JSON array, \
@@ -281,7 +287,7 @@ annotation JsonPatch
         } else {
             mutable.delete(index);
         }
-        return mutable;
+        return docOf(mutable);
     }
 
     /**
@@ -344,7 +350,7 @@ annotation JsonPatch
                                                  ;
             mutable.put(path.key, value);
         }
-        return mutable;
+        return docOf(mutable);
     }
 
     /**
@@ -377,7 +383,7 @@ annotation JsonPatch
         } else {
             mutable.replace(index, value);
         }
-        return mutable;
+        return docOf(mutable);
     }
 
     /**

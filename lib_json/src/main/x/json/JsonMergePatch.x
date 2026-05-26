@@ -96,7 +96,7 @@ class JsonMergePatch(Doc patch) {
                 // The mutability of the result will match the mutability of the original doc parameter
                 target.makeImmutable();
             }
-            return target;
+            return target.as(Doc);
         }
         return patch;
     }
@@ -145,7 +145,7 @@ class JsonMergePatch(Doc patch) {
                     builder.add(key, entry.value);
                 }
             }
-            return builder.build();
+            return builder.build().as(Doc);
         }
         // either the source or the target is something other than a JSON object
         return target;

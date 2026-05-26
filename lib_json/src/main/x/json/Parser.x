@@ -185,10 +185,14 @@ class Parser
             return takeToken().value;
 
         case ArrayEnter:
-            return parseArray();
+            JsonArray array = parseArray();
+            assert array.is(Doc);
+            return array;
 
         case ObjectEnter:
-            return parseObject();
+            JsonObject object = parseObject();
+            assert object.is(Doc);
+            return object;
         }
 
         throw eof
@@ -552,7 +556,7 @@ class Parser
         JsonObject map = json.newObject();
         expect(ObjectEnter);
         if (!match(ObjectExit)) {
-            @Volatile Set<String>? dups = Null;
+            @Volatile Map<String, Doc[]>? dups = Null;
             do {
                 String name = expect(StrVal).value.as(String);
                 Token  sep  = expect(Colon);
@@ -563,12 +567,18 @@ class Parser
                             // there is a duplicate name, which is not explicitly forbidden by the
                             // JSON spec, so store the values that share this name in an array
                             if (dups == Null) {
-                                dups = new HashSet<String>();
+                                dups = new HashMap<String, Doc[]>();
                             }
-                            Doc[] values = dups.addIfAbsent(entry.key)
-                                    ? (new Doc[]).add(entry.value)
-                                    : entry.value.as((Doc[]));
-                            entry.value = values.add(doc);
+                            Doc[] values;
+                            if (Doc[] existing := dups.get(entry.key)) {
+                                values = existing;
+                            } else {
+                                values = (new Doc[]).add(entry.value);
+                                dups.put(entry.key, values);
+                            }
+                            values.add(doc);
+                            assert values.is(Doc);
+                            entry.value = values;
                         } else {
                             entry.value = doc;
                         }

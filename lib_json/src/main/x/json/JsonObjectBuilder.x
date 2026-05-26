@@ -60,7 +60,10 @@ class JsonObjectBuilder
      *
      * @return this `JsonObjectBuilder`
      */
-    JsonObjectBuilder add(String key, JsonBuilder builder) = add(key, builder.build());
+    JsonObjectBuilder add(String key, JsonBuilder builder) {
+        values.put(key, builder.build().as(Doc));
+        return this;
+    }
 
     /**
      * Add all the values contained in the `JsonObject` being built by this builder.
@@ -98,14 +101,20 @@ class JsonObjectBuilder
         Doc existing = values[key];
         switch (existing.is(_), value.is(_)) {
         case (JsonObject, JsonStruct):
-            add(key, new JsonObjectBuilder(existing).deepMerge(value).build());
+            values.put(key, new JsonObjectBuilder(existing.as(JsonObject))
+                    .deepMerge(value)
+                    .build()
+                    .as(Doc));
             break;
         case (JsonArray, JsonStruct):
-            add(key, new JsonArrayBuilder(existing).deepMerge(value).build());
+            values.put(key, new JsonArrayBuilder(existing.as(JsonArray))
+                    .deepMerge(value)
+                    .build()
+                    .as(Doc));
             break;
         case (Doc, Primitive):
         case (Primitive, Doc):
-            add(key, value);
+            values.put(key, value);
             break;
         default:
             assert;
