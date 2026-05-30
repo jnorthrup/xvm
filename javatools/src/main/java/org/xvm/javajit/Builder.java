@@ -105,6 +105,16 @@ public abstract class Builder {
     }
 
     /**
+     * Compute the ClassDesc for the super class.
+     */
+    public ClassDesc getSuperCD() {
+        TypeConstant superType = getThisType().ensureTypeInfo().getExtends();
+        return superType == null
+            ? CD_nObj
+            : ensureClassDesc(superType);
+    }
+
+    /**
      * Ensure a unique Java class name for the specified type.
      */
     public String ensureJitClassName(TypeConstant type) {
@@ -1602,6 +1612,7 @@ public abstract class Builder {
     public static final String NEW            = "$new";    // the instance creation static method
     public static final String OPT            = "$p";      // methods that contains primitive types
     public static final String DELEGATE       = "$d";      // methods that delegates to an underlying property
+    public static final String SUPER          = "$s";      // a super bypass method
 
     // ----- well-known class descriptors ----------------------------------------------------------
 

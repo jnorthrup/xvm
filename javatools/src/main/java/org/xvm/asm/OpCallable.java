@@ -731,7 +731,15 @@ public abstract class OpCallable extends Op {
 
         if (fSpecial) {
             if (fInterface) {
-                code.invokevirtual(cdTarget, sJitName, mdCall);
+                if (bctx.isSpecialized) {
+                    // since the specialized method naturally "supers" to the base method
+                    // we must generate a bridge method at the base jit class to bypass it
+                    // TODO: generate the "bypass" super method on interface methods for
+                    //       parameterizable interfaces
+                    code.invokespecial(bctx.builder.getSuperCD(), sJitName+Builder.SUPER, mdCall);
+                } else {
+                    code.invokevirtual(cdTarget, sJitName, mdCall);
+                }
             } else {
                 code.invokespecial(cdTarget, sJitName, mdCall);
             }

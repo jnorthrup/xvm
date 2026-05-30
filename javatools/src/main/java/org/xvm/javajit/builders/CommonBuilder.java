@@ -181,13 +181,19 @@ public class CommonBuilder
         // see assembleStaticInitializer()
         ClassDesc CD_this = ClassDesc.of(className);
         code.getstatic(CD_this, "$type" + index, CD_TypeConstant);
+
+        if (type.containsFormalType(true)) {
+           // TODO: it appears that we're missing type resolution logic; for  example if the passed
+           //       in type is Array<Element>, we need to resolve it against "$type" at some point;
+           //       should we have call "resolveGeneric(pool, type)" right here?
+        }
     }
 
-    /**
-     * Compute the ClassDesc for the super class.
-     */
+    @Override
     public ClassDesc getSuperCD() {
-        TypeConstant superType = typeInfo.getExtends();
+        TypeConstant superType = isSpecialized
+                ? classStruct.getIdentityConstant().getType()
+                : typeInfo.getExtends();
         return superType == null
             ? CD_nObj
             : ensureClassDesc(superType);
@@ -285,7 +291,16 @@ public class CommonBuilder
      * Assemble interfaces for the "Impl" shape.
      */
     protected void assembleImplInterfaces(ClassBuilder classBuilder) {
-        List<ClassDesc> interfaces  = new ArrayList<>();
+        List<ClassDesc> interfaces = new ArrayList<>();
+
+        // specialized interfaces always extend canonical ones (e.g. List<Int> extends List)
+        if (isSpecialized && classStruct.getFormat() == Format.INTERFACE) {
+            TypeConstant canonicalType = classStruct.getIdentityConstant().getType();
+            if (shouldAddInterface(canonicalType)) {
+                interfaces.add(ensureClassDesc(canonicalType));
+            }
+        }
+
         for (Contribution contrib : typeInfo.getContributionList()) {
             switch (contrib.getComposition()) {
                 case Implements:
@@ -3172,7 +3187,7 @@ public class CommonBuilder
 
     @Override
     public String toString() {
-        return thisId.getValueString();
+        return thisType.removeAccess().getValueString();
     }
 
     private final static String[] CLASS_WHITE_LIST = new String[] {
