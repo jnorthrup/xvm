@@ -68,8 +68,7 @@ val coreBuilds = listOf(
     "plugin",
     "xdk",
     "docker",
-    "lib_cursor",
-    "lib_cursor_ksp"
+    "lib_cursor"
 )
 
 coreBuilds.forEach(::includeBuild)

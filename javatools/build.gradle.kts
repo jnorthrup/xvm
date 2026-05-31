@@ -38,9 +38,8 @@ dependencies {
     testCompileOnly(libs.jetbrains.annotations)
     testImplementation(libs.javatools.utils)
 
-    // cascade classes live in lib_cursor — test classpath needs the JAR
-    val libCursorJar = layout.projectDirectory.file("../lib_cursor/build/libs/lib_cursor-0.1.0-SNAPSHOT.jar")
-    testImplementation(files(libCursorJar))
+    // 6 pointcut tests (EndToEnd, FieldSynapse, TypedefCascade*) reference lib_cursor classes
+    testImplementation(files(layout.projectDirectory.file("../lib_cursor/build/libs/lib_cursor-0.1.0-SNAPSHOT.jar")))
 }
 
 /**

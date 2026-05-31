@@ -34,6 +34,27 @@ private class XdkBuildAggregator(val project: Project) : Runnable {
 
         aggregateTasks(lifeCycleTasks, BUILD_GROUP, "lifecycle", ignoredIncludedBuilds)
         aggregateTasks(diagnosticTasks, "help", "diagnostic", ignoredIncludedBuilds)
+
+        // javatools has 6 tests that reference lib_cursor classes via file dependency.
+        // Ensure lib_cursor:jar is built before javatools can run tests.
+        try {
+            val javatoolsBuild = gradle.includedBuild("javatools").task(":" + BUILD_TASK_NAME)
+            val libCursorJar = gradle.includedBuild("lib_cursor").task(":jar")
+            // javatools:build already depends on javatools:test which needs the jar.
+            // Adding lib_cursor:jar to root:build ensures it's in the graph, but
+            // we need ordering. Use a dedicated task that runs lib_cursor:jar first,
+            // then javatools:build.
+            val wireLibCursor = tasks.register("wireLibCursorBeforeJavatools") {
+                dependsOn(libCursorJar)
+            }
+            // Make javatools:build run after the wire task
+            tasks.named(BUILD_TASK_NAME).configure {
+                dependsOn(wireLibCursor)
+            }
+            logger.info("[aggregator] Cross-build wiring: lib_cursor:jar before javatools:build")
+        } catch (e: Exception) {
+            logger.info("[aggregator] Cross-build wiring skipped: ${e.message}")
+        }
     }
 
     private fun aggregateTasks(taskNames: List<String>, group: String, taskType: String, ignored: Set<String>) {

@@ -64,6 +64,11 @@
 - Query API: snapshot(), tableRowCount(), table()
 - fieldPublish() handles field opcodes alongside regular publish
 
+### xvm lifecycle enum
+- XvmLifecycle.java: INIT -> RUNNING -> DRAINING -> SHUTDOWN, no reverse transitions
+- Invalid transition throws IllegalStateException
+- 30 tests, every line >= 2 TDD red-green
+
 ## Not started
 
 - VM shutdown reification
@@ -72,11 +77,10 @@
 - .x source reverse engineering for typedef port with parameterized unification
 - Ported Cursor shapes to java, xtclang .x vtable and dsl builder creation
 - Vtable production from cascade rules → .x typedef parameterized mixins
-- xvm lifecycle enum
 - ● xvm drain -> pointcut drain -> file artifacts
 
 # next level-up
 
  * create a cmdline interface in order to show a gradle wrapped unit test of pointccutting both the redux timeseries  and the synapse spiking model ;  with full dumps performed between kotlin benchmark block timer bounds
  * adaptive Event rate speculation burst -> grow /shrink estimate MutableSeriesRingsize  -> more like Units/TimeUnits simulation ticker
- * timeseries parser lexer/tokenizers/ast/symbols cascade, inheritance and similar composition signals/facets , cascade
+ * time-series parser lexer/tokenizers/ast/symbols cascade, inheritance and similar composition signals/facets , cascade
