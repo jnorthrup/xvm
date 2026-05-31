@@ -1,0 +1,76 @@
+- Move op-code: "safe wrapper" logic
+
+- ServiceContext - the "register..." APIs are "fiber local" -- unless called from the outside
+
+-- tuple support
+   - InvocationExpression - needs to generate _xT ops (i.e. it must be able to testFit & validate for a tuple type)
+   - verify (and test) the logic in ReturnStatement that gens RETURN_T
+   - assignment w/ multi-LVal needs to testFit for Tuple if testFit for multi fails
+     (and use Expression.packedExpression and unpackedExpressions for code gen?)
+
+- compiler to verify that const properties are Orderable
+
+- compiler to verify "all or nothing" implementation for funky interfaces
+
+- use unique name for private properties
+    {
+    const Point(Int x, Int y)
+        protected/private Int x;
+        private Int y;
+
+        void report()
+            {
+            console.println($"x={x}; y={y}");
+            }
+        }
+
+    const NamedPoint(String name, Int x, Int y)
+            extends Point(2*y, x + 1)
+        {
+        @Override
+        void report()
+            {
+            console.println($"x={x}; y={y}"); // not the same y
+            super();
+            }
+        }
+    }
+
+- generic type resolution for a turtle type should be Tuple<Type<A>,Type<B>, ...>
+  instead of Tuple<A, B, ...>
+
+- When we resolve CompileType.Key (where CompileType is known to be Map), we produce
+    FormalTypeChildConstant based on the CompileType formal property.
+  When we resolve PublicType.OuterType formal type, we produce that same FormalTypeChildConstant even
+  though it now applies to the Type of the formal type.
+  To figure it out, FormalTypeChildConstant tries both paths to resolve itself.
+  In the second scenario we should produce TypeOfConstant(), which could be an IdentityConstant
+  based on a FormalConstant or a Register (for dynamic types);
+  it would return pool.clzType().getComponent() from getComponent() method, and resolve the
+  type according to the content as Type<X>.
+
+- optimize TypeConstant.resolveTypedef()
+
+- consider annotations for interfaces:
+    @NeverConsumes(types=["Element"])
+    @NeverProduces(types=["Element"])
+    @AlwaysConsumes(types=["Element"])
+    @AlwaysProduces(types=["Element"])
+  which would allow to override the consumes/produces computation by the compiler
+  This then would be used by Appender<Element> to indicate that it doesn't consume Element,
+  which in turn would allow Min/Max aggregators simplification (shelved)
+
+- when there are two invocations in the row or a new followed by an invocation, we could analyze the
+  expressions right-to-left and do the type inference if all those expression are "fluent" style
+  For example, consider OrderedMapSlice.reify() method:
+
+    @Override
+    OrderedMap<Key, Value> reify()
+        {
+        return new SkiplistMap<Key, Value>(size, orderer).putAll(this);
+        }
+
+  It would be quite nice if the compiler could infer the return type from the fluent method and
+  allowed as to skip the formal types:
+
+        return new SkiplistMap(size, orderer).putAll(this);

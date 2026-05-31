@@ -1,0 +1,322 @@
+/**
+ * You can run this module with or without port forwarding.
+ *
+ * Then start the server by the command:
+ *
+ *    xec build/Hello.xtc [routeName:httpPort/httpsPort] [bindName:bindHttpPort/bindHttpsPort]
+ *
+ * This is an internal test for development and not an "easy to use" example. Defaults assume port
+ * forwarding (80 -> 8080, 443 -> 8090).
+ */
+@WebApp
+module Hello {
+    package json  import json.xtclang.org;
+    package net   import net.xtclang.org;
+    package sec   import sec.xtclang.org;
+    package web   import web.xtclang.org;
+    package xenia import xenia.xtclang.org;
+
+    import ecstasy.io.FileInputStream;
+    import ecstasy.io.FileOutputStream;
+
+    import net.IPAddress;
+
+    import json.*;
+
+    import web.*;
+    import web.http.*;
+    import web.responses.*;
+    import web.security.*;
+
+    import xenia.CookieBroker;
+    import xenia.Http1Request;
+    import xenia.SessionManager;
+
+    void run(String[] args=["localhost", "localhost:8080/8090"]) {
+        @Inject Console console;
+
+        String      routeString = args.size > 0 ? args[0] : "localhost";
+        String      bindString  = args.size > 1 ? args[1] : "localhost:8080/8090";
+        IPAddress[] proxies     = args.size > 2 ? args[2]
+                .split(',', True, True).map(s->new IPAddress(s)).toArray(Constant) : [];
+
+        // optional third parameter specifies the IP address of the trusted reverse proxy
+        xenia.HttpServer.ProxyCheck isTrustedProxy = args.size > 2
+                ? (ip -> proxies.contains(ip))
+                : xenia.HttpServer.NoTrustedProxies;
+
+        HostInfo hostOf(String addressString) {
+            if (Int portOffset := addressString.indexOf(":")) {
+                String portsString = addressString.substring(portOffset+1);
+                addressString = addressString[0 ..< portOffset];
+
+                assert Int slashOffset := portsString.indexOf("/") as "Ports are missing";
+
+                UInt16 httpPort  = new UInt16(portsString[0 ..< slashOffset]);
+                UInt16 httpsPort = new UInt16(portsString.substring(slashOffset+1));
+                return new HostInfo(addressString, httpPort, httpsPort);
+            }
+            return new HostInfo(addressString);
+        }
+
+        HostInfo route   = hostOf(routeString);
+        HostInfo binding = hostOf(bindString);
+
+        @Inject Directory curDir;
+        Directory dataDir = curDir.dirFor("data");
+
+        xenia.createServer(this, route=route, binding=binding,
+                extras=[ExtraFiles = () -> new ExtraFiles(dataDir)],
+                isTrustedProxy=isTrustedProxy);
+
+        String portSuffix = route.httpPort == 80 ? "" : $":{route.httpPort}";
+        String uri        = $"http://{route.host}{portSuffix}";
+
+        console.print($|Hello server is bound to {binding}
+                       |
+                       |Use the curl command to test, for example:
+                       |
+                       |  curl -L -b cookies.txt -i -w '\\n' -X GET {uri}
+                       |
+                       | To activate the debugger:
+                       |
+                       |  curl -L -b cookies.txt -i -w '\\n' -X GET {uri}/e/debug
+                       |
+                       |Use Ctrl-C to stop.
+                     );
+    }
+
+    private @Lazy CookieBroker cookieBroker.calc() = new CookieBroker(this);
+
+    // ----- WebApp duck-type methods --------------------------------------------------------------
+
+    Authenticator createAuthenticator() =
+        new DigestAuthenticator(new FixedRealm("Hello", "admin", "addaya"));
+
+    sessions.Broker createSessionBroker() = cookieBroker;
+
+
+    // ----- Web services --------------------------------------------------------------------------
+
+    /**
+     * This service allows accessing files in the "resources/hello" directory.
+     */
+    @StaticContent("/static", /resources/hello)
+    service Content {}
+
+    /**
+     * This service allows accessing files in the "~/data" directory.
+     */
+    @WebService("/data")
+    service ExtraFiles
+            incorporates StaticContent.Mixin {
+        construct(Directory data){
+            construct StaticContent.Mixin(data);
+        }
+    }
+
+    package inner {
+        @WebService("/")
+        service Simple {
+            SimpleData simpleData.get() {
+                return session?.as(SimpleData) : assert;
+            }
+
+            @Get
+            ResponseOut home() {
+                return new HtmlResponse(File:/resources/hello/index.html);
+            }
+
+            @Get("hello")
+            String greeting() {
+                return "Hi";
+            }
+
+            @HttpsRequired(autoRedirect=True)
+            @Get("s")
+            ResponseOut secure() {
+                return home();
+            }
+
+            @Get("user")
+            @Produces(Text)
+            String getUser(Session session) {
+                return session.principal?.name : "";
+            }
+
+            @Post("login")
+            @HttpsRequired
+            @SessionRequired
+            HttpStatus login(@FormParam String username,  @FormParam("pwd") String password) {
+                if (username == "admin" && password == "addaya") {
+                    session?.authenticate(new sec.Principal(0, "admin")) : assert;
+                    return OK;
+                }
+                return Unauthorized;
+            }
+
+            @LoginRequired(autoRedirect=True)
+            @Get("l")
+            String logMeIn(Session session) {
+                return $"user={session.principal?.name : "<anonymous>"}";
+            }
+
+            @Get("d")
+            ResponseOut logMeOut() {
+                session?.deauthenticate();
+                return home();
+            }
+
+            @Get("c")
+            Int count(SimpleData sessionData) {
+                return sessionData.counter++;
+            }
+
+            @Post("upload")
+            String upload(RequestIn request) {
+                if (Body body ?= request.body) {
+                    FormDataFile[] fileData = http.extractFileData(body);
+                    if (!fileData.empty) {
+                        return fileData.map(fd ->
+                            $"{fd.name}; {fd.mediaType}; {fd.contents.size} bytes").toString();
+                    }
+                }
+                return "<No data>";
+            }
+
+            @StreamingRequest
+            @Post("stream{/name}")
+            String streamIn(RequestIn request, String name) {
+                if (Body body ?= request.body) {
+                    @Inject Directory curDir;
+                    File file = curDir.fileFor(name);
+                    if (file.exists) {
+                        file.truncate(0);
+                    }
+                    body.streamBodyTo(new FileOutputStream(file));
+                    return $"Created {file.name}; {file.size} bytes";
+                }
+                return "<No data>";
+            }
+
+            @Get("stream{/name}")
+            ResponseOut|HttpStatus streamOut(String name) {
+                @Inject Directory curDir;
+                File file = curDir.fileFor(name);
+                return file.exists
+                    ? new StreamResponse(OK, source=new FileInputStream(file))
+                    : NotFound;
+            }
+
+            @StreamingResponse
+            @Get("streamFile{/name}")
+            File streamOutFile(String name) {
+                @Inject Directory curDir;
+                return curDir.fileFor(name);
+            }
+
+            @StreamingResponse
+            @Get("streamStream{/name}")
+            BinaryInput|HttpStatus streamOutStream(String name) {
+                @Inject Directory curDir;
+                File file = curDir.fileFor(name);
+                return file.exists
+                    ? new FileInputStream(file)
+                    : NotFound;
+            }
+
+            @Default @Get
+            @Produces(Text)
+            String askWhat() {
+                return "what?";
+            }
+
+            @Intercept
+            ResponseOut measureGet(RequestIn request, Handler handler) {
+                @Inject Timer timer;
+                timer.start();
+                try {
+                    return handler(request);
+                } finally {
+                    @Inject Console console;
+                    timer.stop();
+                    console.print($"Request {request.uri} took {timer.elapsed} ms");
+                }
+            }
+
+            static annotation SimpleData
+                    into Session {
+                Int counter;
+            }
+        }
+
+        @WebService("/e")
+        service Echo {
+            @Get("{/path?}{?params*}")
+            String[] getEcho(String path="", Map<String, String> params=[]) {
+                assert:debug !path.indexOf("debug");
+
+                assert RequestIn request ?= this.request,
+                                 request := &request.revealAs((protected Http1Request));
+
+                Session? session = this.session;
+                return [
+                        $"url={request.url}",
+                        $"uri={request.uri}",
+                        $"scheme={request.scheme}",
+                        $"originator={request.originator}",
+                        $"client={request.client}",
+                        $"server={request.server}",
+                        $"route={request.info.routeTrace}",
+                        $"authority={request.authority}",
+                        $"path={request.path} ({path})",
+                        $"protocol={request.protocol}",
+                        $"accepts={request.accepts}",
+                        $"query={request.queryParams} ({params})",
+                        $"user={session?.principal?.name : "<anonymous>"}",
+                       ];
+            }
+        }
+
+        @WebService("/settings")
+        service Settings {
+            @LoginRequired(autoRedirect=True)
+            @Get("allow-cookies")
+            ResponseOut turnOnPersistentCookies(Session session) {
+                Boolean       oldExclusiveAgent = session.exclusiveAgent;
+                CookieConsent oldCookieConsent  = session.cookieConsent;
+
+                session.exclusiveAgent = True;
+                session.cookieConsent  = oldCookieConsent.with(necessary   = True,
+                                                               lastConsent = xenia.clock.now.date
+                                                              );
+
+                return new HtmlResponse($|Session cookies enabled=\
+                                         |{session.exclusiveAgent}\
+                                         | (was {oldExclusiveAgent});\
+                                         | consent={session.cookieConsent}\
+                                         | (was {oldCookieConsent})
+                                         |<br><a href="/">home</a>
+                                       );
+            }
+
+            @HttpsRequired(autoRedirect=True)
+            @Get("disallow-cookies")
+            ResponseOut turnOffPersistentCookies(Session session) {
+                Boolean       oldExclusiveAgent = session.exclusiveAgent;
+                CookieConsent oldCookieConsent  = session.cookieConsent;
+
+                session.exclusiveAgent = False;
+                session.cookieConsent  = new CookieConsent(lastConsent=xenia.clock.now.date);
+
+                return new HtmlResponse($|Session cookies enabled=\
+                                         |{session.exclusiveAgent}\
+                                         | (was {oldExclusiveAgent});\
+                                         | consent={session.cookieConsent}\
+                                         | (was {oldCookieConsent})
+                                         |<br><a href="/">home</a>
+                                       );
+            }
+        }
+    }
+}

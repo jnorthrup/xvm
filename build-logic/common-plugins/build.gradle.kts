@@ -1,0 +1,45 @@
+/**
+ * Unified build script for all build-logic convention plugins.
+ */
+
+plugins {
+    `kotlin-dsl`
+}
+
+// Access properties from XdkPropertiesService for toolchain configuration
+// Note: Can't use xdk.properties plugin here since it's defined in this project
+val xdkPropertiesService = gradle.sharedServices.registrations.named("xdkPropertiesService").get().service.get() as XdkPropertiesService
+val jdkVersion = providers.provider {
+    xdkPropertiesService.get("org.xtclang.java.jdk")?.toInt()
+        ?: error("org.xtclang.java.jdk not found")
+}
+
+// Kotlin auto-inherits this toolchain (Kotlin Gradle plugin reads java.toolchain
+// when no explicit kotlin.jvmToolchain is set), so a separate kotlin block would
+// be redundant.
+java {
+    toolchain {
+        languageVersion.set(jdkVersion.map { JavaLanguageVersion.of(it) })
+    }
+}
+
+repositories {
+    mavenCentral()
+    gradlePluginPortal()
+}
+
+dependencies {
+    implementation("org.xtclang.build:settings-plugins")
+
+    // Publishing plugin dependencies - versions from libs.versions.toml
+    implementation("com.vanniktech:gradle-maven-publish-plugin:${libs.versions.vanniktech.maven.publish.get()}")
+
+    // Archive handling for native library builds (XZ/tar support)
+    implementation("org.apache.commons:commons-compress:${libs.versions.apache.commons.compress.get()}")
+    implementation("org.tukaani:xz:${libs.versions.tukaani.xz.get()}")
+
+    // git-version: compileOnly so the convention plugin can reference the
+    // public VersionDetails interface directly (no reflection). The plugin
+    // itself is applied by consumers (e.g. docker/build.gradle.kts).
+    compileOnly("com.palantir.gradle.gitversion:gradle-git-version:${libs.versions.palantir.git.version.get()}")
+}

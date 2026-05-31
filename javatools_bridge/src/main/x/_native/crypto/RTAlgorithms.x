@@ -1,0 +1,157 @@
+import libcrypto.Algorithm;
+import libcrypto.Algorithm.Category;
+import libcrypto.Algorithms;
+import libcrypto.KeyForm;
+
+/**
+ * Helper service for native functionality.
+ */
+service RTAlgorithms {
+    typedef Int|Int[] as KeySize;
+
+    enum AlgorithmMethod {Hasher, SymmetricCipher, AsymmetricCipher, MAC, Signature, KeyGen}
+
+    /**
+     * Create the Algorithms object based on the supported algorithm information.
+     *
+     * @see [Java Security Standard Algorithm Names](https://docs.oracle.com/javase/9/docs/specs/security/standard-names.html)
+     */
+    Algorithms createAlgorithms() {
+        Algorithm[] algorithms = new Array<Algorithm>
+            (hashers.size + encryptions.size + macs.size + signers.size + keyGenerators.size);
+
+        for ((String name, String hasherName, Int hashSize) : hashers) {
+            (_, Object implementation) = getAlgorithmInfo(hasherName, Hasher);
+
+            Algorithm alg = new RTHasher(name, hashSize, implementation);
+            algorithms.add(&alg.maskAs(Algorithm));
+        }
+
+        for ((AlgorithmMethod method, String name, KeySize keySize) : encryptions) {
+            (Int blockSize, Object implementation) = getAlgorithmInfo(name, method);
+
+            KeyForm   keyForm = method == SymmetricCipher ? Secret : Pair;
+            Algorithm alg     = new RTEncryptionAlgorithm(name, blockSize, keySize, keyForm, implementation);
+            algorithms.add(&alg.maskAs(Algorithm));
+        }
+
+        for ((String name, KeySize keySize) : macs) {
+            (_, Object implementation) = getAlgorithmInfo(name, MAC);
+
+            Algorithm alg = new RTMacAlgorithm(name, keySize, implementation);
+            algorithms.add(&alg.maskAs(Algorithm));
+        }
+
+        for ((String name, KeySize keySize, Int sigSize) : signers) {
+            (Int blockSize, Object implementation) = getAlgorithmInfo(name, Signature);
+
+            Algorithm alg = new RTSigningAlgorithm(name, blockSize, keySize, sigSize, implementation);
+            algorithms.add(&alg.maskAs(Algorithm));
+        }
+
+        for (String name : keyGenerators) {
+            (_, Object implementation) = getAlgorithmInfo(name, KeyGen);
+
+            Algorithm alg = new RTKeyGenerator(name, implementation);
+            algorithms.add(&alg.maskAs(Algorithm));
+        }
+
+        return new Algorithms(algorithms.toArray(Constant, inPlace=True));
+    }
+
+
+    // ----- native methods ------------------------------------------------------------------------
+
+    static (Int blockSize, Int formId, Int keySize, Object implementation)
+        getAlgorithmInfo(String name, AlgorithmMethod method) {TODO("Native");}
+
+
+    // ----- constants -----------------------------------------------------------------------------
+
+    /**
+     * Supported hasher algorithms (digest name, hash name, hash size).
+     *
+     * - The "digest name" is the name of the digest algorithm as defined by the
+     *   [RFC 7616 HTTP: Digest Access Authentication](https://datatracker.ietf.org/doc/html/rfc7616).
+     * - The "hash name" is the name of the hash algorithm as defined by the
+     *   [NIST PUB 180-4: Secure Hash Standard](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf)
+     */
+    static Tuple<String, String, Int>[] hashers = [
+        ("MD5"        , "MD5"        , 128 >> 3),
+        ("SHA-1"      , "SHA-1"      , 160 >> 3),
+        ("SHA-256"    , "SHA-256"    , 256 >> 3),
+        ("SHA-512"    , "SHA-512"    , 512 >> 3),
+        ("SHA-512-256", "SHA-512/256", 512 >> 3),
+    ];
+
+    /**
+     * Supported encryption algorithms (name, key sizes).
+     */
+    static Tuple<AlgorithmMethod, String, KeySize>[] encryptions = [
+        // Symmetrical key ciphers require a symmetrical secret key (not private)
+        // (we don't include "NoPadding", since it requires that data size to be a multiple of 8)
+
+        // Advanced Encryption Standard as specified by NIST in FIPS 197.
+        // AES is a 128-bit block cipher supporting keys of 128, 192, and 256 bits.
+        (SymmetricCipher, "AES"                 , AES_SIZES),
+        (SymmetricCipher, "AES/CBC/PKCS5Padding", AES_SIZES),
+        (SymmetricCipher, "AES/ECB/PKCS5Padding", AES_SIZES),
+
+        // The Digital Encryption Standard.
+        // Despite the doc claim of the key size of 56 bits, the Java implementation
+        // requires 64 (DESKeySpec.DES_KEY_LEN = 8)
+        (SymmetricCipher, "DES"                 , 8),
+        (SymmetricCipher, "DES/CBC/PKCS5Padding", 8),
+        (SymmetricCipher, "DES/ECB/PKCS5Padding", 8),
+
+        // Triple DES Encryption.
+        // Despite the doc claim of the key size of 168 bits, the Java implementation
+        // requires 192 (DESedeKeySpec.DES_EDE_KEY_LEN = 24)
+        (SymmetricCipher, "DESede"                 , 24),
+        (SymmetricCipher, "DESede/CBC/PKCS5Padding", 24),
+        (SymmetricCipher, "DESede/ECB/PKCS5Padding", 24),
+
+        // Asymmetrical key ciphers require a key pair and used only for small chunks of data,
+        // such as shared secret key
+        (AsymmetricCipher, "RSA"                 , RSA_SIZES),
+        (AsymmetricCipher, "RSA/ECB/PKCS1Padding", RSA_SIZES),
+    ];
+
+    /**
+     * Supported Message Authentication Code (MAC) algorithms as specified in RFC 2104.
+     *
+     * (a.k.a "Keyed-Hashing for Message Authentication", a.k.a symmetric private key cryptography).
+     */
+    static Tuple<String, KeySize>[] macs = [
+        ("HmacSHA1",    16),
+        ("HmacSHA256", [16, 32, 44]),
+        ("HmacSHA512", [32, 64]),
+    ];
+
+    /**
+     * Supported signing algorithms (name, key sizes, signature size).
+     *
+     * (a.k.a. "Digital Signatures", asymmetric public/private key cryptography).
+     */
+    static Tuple<String, KeySize, Int>[] signers = [
+        ("SHA1withDSA"  , 1024 >> 3, 160 >> 3),
+        ("SHA256withDSA", 1024 >> 3, 256 >> 3),
+        ("SHA1withRSA"  , RSA_SIZES, 160 >> 3),
+        ("SHA256withRSA", RSA_SIZES, 256 >> 3),
+    ];
+
+    /**
+     * Supported key generation algorithms.
+     */
+    static String[] keyGenerators = [
+        "AES",
+        "DES",
+        "DESede",
+        "HmacSHA1"  ,
+        "HmacSHA256",
+        "HmacSHA512",
+    ];
+
+    static Int[] AES_SIZES = [128 >> 3, 192 >> 3, 256 >> 3];
+    static Int[] RSA_SIZES = [1024 >> 3, 2048 >> 3, 4096 >> 3];
+}

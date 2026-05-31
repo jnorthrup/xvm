@@ -1,0 +1,94 @@
+# Dependabot configuration for dependabot inspections for the repo on GitHub.
+#
+# ─── Local validation ────────────────────────────────────────────────────────
+# Schema validation (catches typos, wrong keys, invalid values) can be run
+# locally without pushing. Two options:
+#
+#   1. check-jsonschema (recommended — uses the official SchemaStore schema
+#      bundled with the tool, so it knows about `directories:` + globs):
+#        uvx check-jsonschema --builtin-schema vendor.dependabot .github/dependabot.yml
+#        # or, if you prefer pipx:
+#        pipx install check-jsonschema
+#        check-jsonschema --builtin-schema vendor.dependabot .github/dependabot.yml
+#
+#   2. yamllint (YAML syntax only — no semantic checks):
+#        brew install yamllint   # or: pipx install yamllint
+#        yamllint .github/dependabot.yml
+#
+# Behavior validation (does Dependabot actually find the files under each
+# configured directory?) is not doable offline — GitHub's Dependabot engine
+# runs server-side. To verify:
+#
+#   - Push the change, then visit
+#     https://github.com/xtclang/xvm/network/updates  (Insights → Dependency
+#     graph → Dependabot) and watch the next scheduled run, or click
+#     "Check for updates" on any ecosystem row to force one immediately.
+#   - Or run the repo's `Validate Dependabot Configuration` workflow:
+#        gh workflow run validate-dependabot.yml
+# ─────────────────────────────────────────────────────────────────────────────
+
+version: 2
+updates:
+    # Enable version updates for GitHub Actions.
+    #
+    # `directories:` (plural, glob-capable — added to the Dependabot schema in
+    # 2024) scans both the default workflow location and every composite
+    # action under .github/actions/*. Without the glob entry, `uses:` pins
+    # inside composite action.yml files (e.g. actions/setup-java in
+    # setup-xvm-project/action.yml) would NOT be tracked — only the `uses:`
+    # lines in .github/workflows/*.yml would.
+    - package-ecosystem: "github-actions"
+      directories:
+          - "/"
+          - "/.github/actions/**"
+      schedule:
+          interval: "weekly"
+          day: "saturday"
+          time: "06:00"
+      open-pull-requests-limit: 5
+      commit-message:
+          prefix: "ci"
+          include: "scope"
+
+    # Enable version updates for Docker
+    - package-ecosystem: "docker"
+      directory: "/docker"
+      schedule:
+          interval: "weekly"
+          day: "saturday"
+          time: "06:00"
+      open-pull-requests-limit: 5
+      commit-message:
+          prefix: "docker"
+          include: "scope"
+
+    # Enable version updates for Gradle dependencies
+    #
+    # NOTE: Ignore org.xtclang.* dependencies as they use
+    # dynamic version resolution from version.properties.
+    #
+    - package-ecosystem: "gradle"
+      directory: "/"
+      schedule:
+          interval: "weekly"
+          day: "saturday"
+          time: "06:00"
+      open-pull-requests-limit: 3
+      groups:
+          # Group all dependency updates into a single PR
+          gradle-dependencies:
+              patterns:
+                  - "*"
+      commit-message:
+          prefix: "deps"
+          include: "scope"
+      ignore:
+          # Ignore XDK internal dependencies
+          # (use dynamic versioning)
+          - dependency-name: "org.xtclang.*"
+          # Ignore major and minor updates (too risky, require manual review)
+          # Only allow patch updates
+          - dependency-name: "*"
+            update-types: ["version-update:semver-major", "version-update:semver-minor"]
+            # But allow security updates even for major/minor
+            # (GitHub automatically overrides this for security updates)

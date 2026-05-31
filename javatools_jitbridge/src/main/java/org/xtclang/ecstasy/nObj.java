@@ -1,0 +1,156 @@
+package org.xtclang.ecstasy;
+
+import org.xvm.asm.constants.TypeConstant;
+
+import org.xvm.javajit.Container;
+import org.xvm.javajit.Ctx;
+import org.xvm.javajit.Xvm;
+
+public abstract class nObj implements Object {
+    public nObj(Ctx ctx) {
+        super();
+        $meta = ctx == null ? -1 : ctx.container.id;
+    }
+
+    /**
+     * (Helper)
+     *
+     * @return the current context object
+     */
+    public static Ctx $ctx() {
+        return Ctx.get();
+    }
+
+    /**
+     * (Helper)
+     *
+     * @return the XVM that this object exists within
+     */
+    public static Xvm $xvm() {
+        return $ctx().xvm;
+    }
+
+    /**
+     * A bunch of "header bits" used to encode information about this object, including:
+     *
+     * * Container ID
+     * * immutability flag
+     * * construction state
+     * * some bits available to native subclasses
+     */
+    public long $meta;
+
+    /**
+     * (Helper)
+     *
+     * @return the container that "pays for" this object
+     */
+    public Container $owner() {
+        return $xvm().getContainer($ownerId());
+    }
+
+    /**
+     * @return container ID that "pays for" this object
+     */
+    public long $ownerId() {
+        return $meta; // TODO: ($meta & ID_MASK)
+    }
+
+    /**
+     * Auto-generated for all classes.
+     */
+    public TypeConstant $xvmType(Ctx ctx) {
+        return $type(ctx).$dataType;
+    }
+
+    /**
+     * Auto-generated for classes that represent generic types.
+     */
+    public nType $type(Ctx ctx) {
+        return nType.$ensureType(ctx, $xvmType(ctx));
+    }
+
+    /**
+     * Helper method to resolve generic types.
+     *
+     * @see {@link org.xvm.javajit.builders.CommonBuilder#assembleGenericProperty}
+     */
+    public nType $type(Ctx ctx, String name) {
+        return nType.$ensureType(ctx, $xvmType(ctx).resolveGenericType(name));
+    }
+
+    public abstract boolean $isImmut();
+
+    public void $makeImmut(Ctx ctx) {
+        if (!$isImmut()) {
+            throw new UnsupportedOperationException();
+        }
+    }
+
+    /**
+     * This should be overridden by duck-type wrappers.
+     */
+    public boolean $isA(Ctx ctx, nType t) {
+        return $type(ctx).$dataType.isA(t.$dataType);
+    }
+
+    /**
+     * {@code static <CompileType extends Object> Boolean equals(CompileType o1, CompileType o2)}
+     */
+    public static boolean equals$p(Ctx ctx, nType CompileType, Object o1, Object o2) {
+        return o1 == o2; // TODO CP: check unwrap
+    }
+
+    // ----- static helpers for when references may be non-xObj classes ----------------------------
+
+    public static java.lang.Object $makeImmut(Ctx ctx, java.lang.Object ref) {
+        if (ref instanceof nObj xRef) {
+            xRef.$makeImmut(ctx);
+            return xRef;
+        }
+
+        // handle all of the intrinsic types
+        // TODO
+
+        // not an Ecstasy ref
+        throw new IllegalStateException();
+    }
+
+    public static boolean $isA(Ctx ctx, java.lang.Object ref, nType t) {
+        if (ref instanceof nObj xRef) {
+            return xRef.$isA(ctx, t);
+        }
+
+        // handle all of the intrinsic types
+        if (ref instanceof long[] longs) {
+            long meta = longs[0]; // encodes type info, size, "Mutability" enum value, etc.
+            // TODO
+        }
+        // TODO
+
+        return false;
+    }
+
+    public static boolean $isImmut(java.lang.Object ref) {
+        if (ref instanceof nObj xRef) {
+            return xRef.$isImmut();
+        }
+
+        // handle all of the **mutable** intrinsic types (note: might not be any)
+        // TODO
+
+        return true;
+    }
+
+    public static nType $type(Ctx ctx, java.lang.Object ref) {
+        if (ref instanceof nObj xRef) {
+            return xRef.$type(ctx);
+        }
+
+        // handle all of the intrinsic types
+        // TODO
+
+        // not an Ecstasy ref
+        throw new IllegalStateException();
+    }
+}

@@ -1,0 +1,114 @@
+/**
+ * A fluent API to build instances of `JsonObject`.
+ */
+class JsonObjectBuilder
+        extends JsonBuilder<JsonObject, String> {
+
+    /**
+     * A type that is a function that can create a new instance of a mutable `JsonObject`.
+     */
+    typedef function JsonObject () as Factory;
+
+    /**
+     * Create a JSON object builder.
+     *
+     * @param template  (optional) an optional `Map<String, Doc>` to use to populate the builder
+     *                  with an initial set of values
+     * @param factory   (optional) a factory to create a new mutable `JsonArray`
+     */
+    construct(JsonObject? template = Null, Factory factory = () -> json.newObject()) {
+        this.factory = factory;
+        values = json.newObject();
+        if (template.is(JsonObject)) {
+            values.putAll(template);
+        }
+    }
+
+    /**
+     * The factory to create a new mutable `JsonObject`.
+     */
+    private Factory factory;
+
+    /**
+     * The map of values to be used to create a JSON object.
+     */
+    private Map<String, Doc> values;
+
+    /**
+     * @return the number of values that have been added to the builder.
+     */
+    Int size.get() = values.size;
+
+    /**
+     * Add a value to the `JsonObject` being built by this builder.
+     *
+     * @param key    the key representing the path in the `JsonObject` to add the value
+     * @param value  the `Doc` value to add
+     *
+     * @return this `JsonObjectBuilder`
+     */
+    JsonObjectBuilder add(String key, Doc value) {
+        values.put(key, value);
+        return this;
+    }
+
+    /**
+     * Add the value created by a `JsonBuilder` to the `JsonObject` being built by this builder.
+     *
+     * @param key      the `JsonPointer` representing the path in the `JsonObject` to add the value
+     * @param builder  the `JsonBuilder` that was used to build the `Doc` value to add
+     *
+     * @return this `JsonObjectBuilder`
+     */
+    JsonObjectBuilder add(String key, JsonBuilder builder) = add(key, builder.build());
+
+    /**
+     * Add all the values contained in the `JsonObject` being built by this builder.
+     *
+     * @param map  the map of values to add
+     *
+     * @return this `JsonObjectBuilder`
+     */
+    JsonObjectBuilder addAll(JsonObject map) {
+        values.putAll(map);
+        return this;
+    }
+
+    /**
+     * Build an immutable `JsonObject` from the values added to this builder.
+     */
+    @Override
+    JsonObject build() {
+        JsonObject o = factory();
+        o.putAll(values);
+        return o.makeImmutable();
+    }
+
+    @Override
+    protected String id(JsonPointer path) = path.key;
+
+    @Override
+    protected Doc get(String key) = values[key];
+
+    @Override
+    protected void update(String key, Doc doc) = add(key, doc);
+
+    @Override
+    protected void merge(String key, Doc value) {
+        Doc existing = values[key];
+        switch (existing.is(_), value.is(_)) {
+        case (JsonObject, JsonStruct):
+            add(key, new JsonObjectBuilder(existing).deepMerge(value).build());
+            break;
+        case (JsonArray, JsonStruct):
+            add(key, new JsonArrayBuilder(existing).deepMerge(value).build());
+            break;
+        case (Doc, Primitive):
+        case (Primitive, Doc):
+            add(key, value);
+            break;
+        default:
+            assert;
+        }
+    }
+}

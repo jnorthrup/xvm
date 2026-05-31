@@ -1,0 +1,142 @@
+- CP/GG: update the CookieBroker doc regarding the cookies (SameSite, Secure etc.)
+
+- CP/GG: prevent requests with "Sec-Fetch-Site=cross-site" from being processed except when an end point
+     explicitly allows it (e.g. @AllowCrossSite)
+
+- GG:
+        String str;
+        if (True) {
+            str = "Hello, world!";
+        }
+        // str is not definitely assigned
+
+- GG: Fix incorrect type inference: this should not compile:
+        if ((i1 != Null) != (i2 != Null)) {
+            return i1 + i2;
+        }
+
+- GG: allow super() call to have named arguments
+        class Base {
+            void f(String s, Int value = 1) = console.print($"{s=} {value=}");
+        }
+        class Derived extends Base {
+            @Override
+            void f(String s, Int value = 2) = super(s, value=3);
+        }
+
+- GG: allow type declarations for l-value to have "naked" annotations (without arguments), e.g.:
+        @Parsed ElementNode node = ...
+            instead of
+        Parsed+ElementNode node = ...
+
+    at the moment, the compiler doesn't allow it since there is no no-arg constructor for Parsed
+
+- CP:
+    void run() {
+        console.print("no semicolon")
+    }
+    // would be nice as to have a simple "`;` is missing" error
+
+- CP: Response.Cookie - not implemented and as such not used at all, do we still need it?
+
+- GG: fix HttpClient talking to raw address (127.0.0.1 instead of localhost)
+
+- GG: add batch commands support to cli
+
+- GG: group CLI commands into sections (one per class? @CommandGroup?)
+
+- GG: add compiler error for assigning non-transient properties for module or package
+
+- GG: add typeExpected, typeActual to TypeMismatch exception
+
+- consider an additional flavor of the createConnection API:
+    static <Schema extends RootSchema> (oodb.Connection<Schema>+Schema) createConnection(
+        Type<Schema> type, Directory dataDir, Directory buildDir,
+        oodb.DBUser? user = Null, Version? version = Null) {
+
+- GG: need to be able to do:
+    class Test {
+        String value = "a";
+        void test() { Test.value ref = &value; ref.set("b"); }
+    }
+    Currently, one can do
+        val ref = &value; ref.set("b");
+    and "&ref.type.toString()" produces "Test.value"
+
+- GG: BAST generation for "map[x] = y" is completely broken; additionally if a class has
+      only a setter @Op("[]="), but no getter (@Op"[]") the compiler barfs
+
+    class Test() {
+        void test() {
+            this["a"] = "A";
+        }
+        @Op("[]=") void put(String name, String value) {}
+    }
+
+- CP: how to prevent a DoS attack by a "curl" loop to overwhelm the session cache
+
+- CP: do we need a UrlEncoder (similar to Java's)?
+
+- CP: add API support for multi-part body, for example (Body.x):
+    conditional Body[] multipart() = False;
+
+- CP: add formatting control to FPNumber.toString() and/or introduce
+        "FPNumberFormat implements Format<FPNumber>" similar to Java's
+        DecimalFormat. Also, could add something like Java's CompactNumberFormat
+
+- GG: add the following method to Tuple
+        /**
+         * Obtain a `List` view of this Tuple. Note, that the type check will be performed only
+         * during element extraction, not when this call is made.
+         *
+         * @param  the type of the element in the list
+         *
+         * @return the list view
+         */
+        <ElementType> List<ElementType> asList(Type<ElementType> elementType = Object)
+
+- GG: consider allowing to debug an eval expression (debug eval)
+
+- GG: consider changing Service.callLater() API to
+    <Result> Future<Result> callLater(function Result doLater());
+
+- add a method to Map API to evaluate the "worst lookup cost" based on the current content
+  (Mark's suggestion to evaluated keys' hashCode distribution)
+
+- compiler to report on ambiguous type parameter name across a virtual child and its parent(s)
+
+- add deadlock detection
+
+- would be nice if we could figure out how to compute the inferred types for regular cases and the
+    residual type for the "default" switch case, e.g.:
+
+    Boolean test(Boolean|Int value)
+        {
+        switch (value)
+            {
+            case True, False:
+                return value;      // the compiler could figure out the value is a Boolean
+            default:
+                return value > 0;  // the compiler could figure out the value is an Int
+            }
+        }
+
+- CP: consider a compiler warning if a return value of Closeable type is ignored (@Adopt annotation)
+
+- add compiler support for conditional Tuple
+
+- consider adding a V_GET opcode that would combine the functionality of L_GET and MOVE_THIS for
+  dynamically inflated (via & ref) or non-inflated properties; it would eliminate the need for
+  corresponding compensation in ClassTemplate.getPropertyValue() and OpInvocable.getCallChain()
+  (submission "Fix Ref handling for non-inflated properties" of 8/9/2022)
+
+- GG: optimize-out unnecessary array cloning by changing getBytes() to copyBytes(arrayInto)
+
+- consider @Proxyable annotation for compiler to enforce proxy-ability of an interface
+
+// DEFERRED:
+- classes in methods don't support captures of formal types
+- @Atomic property with a mutable content needs to wrap
+- what if timer.schedule() lambda throws? (exception is invisible)
+- infinite loop detection
+- upon a Future's gc report if an exception has not been handled

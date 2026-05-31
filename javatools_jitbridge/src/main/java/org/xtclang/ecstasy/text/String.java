@@ -1,0 +1,466 @@
+package org.xtclang.ecstasy.text;
+
+import org.xtclang.ecstasy.Exception;
+import org.xtclang.ecstasy.IteratorᐸCharᐳ;
+import org.xtclang.ecstasy.Object;
+import org.xtclang.ecstasy.Ordered;
+import org.xtclang.ecstasy.nConst;
+import org.xtclang.ecstasy.nObj;
+import org.xtclang.ecstasy.nType;
+
+import org.xvm.asm.constants.TypeConstant;
+
+import org.xvm.javajit.Ctx;
+
+import static java.lang.Character.toCodePoint;
+import static org.xvm.util.Handy.require;
+
+/**
+ * An implementation of an arbitrarily-sized character string data type, using a 64-bit index and
+ * length, and  supporting all valid Unicode characters (21-bit codepoint values).
+ *
+ * A significant design question related to the `xStr` class was how to best represent its internal
+ * storage. The obvious default is to hold the contents as a Java String object, or as an array
+ * of Java primitive `char` values. The Java String has the benefits of (i) already existing in a
+ * well-tested and well-optimized form, (ii) internally optimizing to use ISO 8859-1 for single byte
+ * "compressed string" storage, and (iii) using the Java String class would make it quite easy to
+ * pass instances of `xStr` to/from any Java API as a Java String, by simply wrapping and unwrapping
+ * the Java String value as necessary. Java Strings are fundamentally UTF-16 strings, though, and
+ * not "real" Unicode strings; Java Strings can contain UTF-16 formatted surrogate pairs -- which
+ * are legal in a UTF-16 encoding, but illegal codepoints in Unicode! Java Strings can also contain
+ * badly formed UTF-16, including illegal codepoints and unmatched surrogates. Because of UTF-16,
+ * when a Java string has a `length()` of 16, that could mean any actual number of characters in the
+ * Unicode string length is somewhere between 8 and 16 inclusive. Similarly, requesting `charAt(5)`
+ * from a Java String can return the fifth character, but it can instead return either the third or
+ * the fourth character -- or worse, it can return just a half of one of those characters.
+ * Addressing these flaws would be a significant undertaking, with significant performance
+ * penalties. Furthermore, the internal data of a Java String is not directly accessible, which
+ * incurs an additional performance penalty, particularly when copies of that data are necessary.
+ * Lastly, Java Strings are limited to 2GB, since the JVM is fundamentally a 32-bit design. In
+ * summary, using the Java String class adds significant complexity and could negatively impact
+ * performance.
+ *
+ * An alternative experiment using UTF-8 data was attempted, using a read-only `byte[]` as the
+ * storage, and supporting strings >2GB. The engineering concern with this approach was the cost of
+ * random access (i.e. access by index). By caching the most recently accessed index and position
+ * within the UTF-8 data, the cost of common (e.g. sequential) access patterns was minimized, but
+ * still calculated to be significantly more costly than array-based access.
+ *
+ * The selected design is similar to the "compressed strings" approach in the Java String
+ * implementation, but instead of supporting a 1-byte vs 2-byte encoding, `xStr` implements an 8-bit
+ * (1-byte) vs 21-bit encoding, since Unicode codepoints are 21-bit values. The underlying data
+ * structure is a Java `long` (64-bit integer) array, allowing either 8x 8-bit (ISO 8859-1) or 3x
+ * 21-bit (Unicode) values to be stored in each `long`.
+ */
+public class String
+        extends nConst {
+    // ----- constructors --------------------------------------------------------------------------
+
+    /**
+     * Construct an Ecstasy string from a Java String.
+     *
+     * @param ctx  the XVM context
+     * @param s    a Java String
+     */
+    public String(Ctx ctx, java.lang.String s) {
+        super(ctx);
+
+        require("s", s);
+        next = null;
+        if (s.isEmpty()) {
+            data = EmptyString.data;
+            return;
+        }
+
+        // scan string for Unicode surrogate pairs
+        int utf16len = s.length();
+        int pairs    = 0;
+        for (int i = 0; i < utf16len; ++i) {
+            char ch = s.charAt(i);
+            if (ch > 0xFF) {
+                unicode = true;
+                if (ch >= 0xD800) {
+                    if (ch <= 0xDBFF) {
+                        if (i == utf16len - 1) {
+                            throw new IllegalArgumentException("The string ends with codepoint 0x"
+                                    + Integer.toString(ch, 16)
+                                    + ", which is the first half of a surrogate pair");
+                        }
+                        char low = s.charAt(++i);
+                        if (low < 0xDC00 || low > 0xDFFF) {
+                            throw new IllegalArgumentException("Character 0x"
+                                    + Integer.toString(low, 16) + " at offset " + i
+                                    + " follows the high surrogate 0x" + Integer.toString(ch, 16)
+                                    + ", but is not a low surrogate");
+                        }
+                        ++pairs;
+                    } else if (ch < 0xDFFF) {
+                        throw new IllegalArgumentException("Character 0x"
+                                + Integer.toString(ch, 16) + " at offset " + i
+                                + " is a low surrogate, but does not follow a high surrogate");
+                    }
+                }
+            }
+        }
+
+        if (unicode) {
+            int unicodeLen = utf16len - pairs;
+            data = new long[(unicodeLen + 2) / 3];
+            int  packed = 0;
+            int  dest   = 0;
+            long tri    = 0;
+            for (int src = 0; src < utf16len; ++src) {
+                char utf16 = s.charAt(src);
+                int  uni21 = utf16 < 0xD800 || utf16 > 0xDBFF
+                    ? utf16
+                    : toCodePoint(utf16, s.charAt(++src));      // combine the surrogate pair
+                tri = tri << 21 | uni21;
+                if (++packed == 3) {
+                    data[dest++] = tri;
+                    tri    = 0;
+                    packed = 0;
+                }
+            }
+            if (tri != 0) {
+                data[dest] = tri << (21 * (3 - packed));
+            }
+            end = unicodeLen;
+        } else {
+            data = new long[(utf16len + 7) >>> 3];
+            long octo = 0;
+            for (int src = 0; src < utf16len; ++src) {
+                char ch = s.charAt(src);
+                octo = octo << 8 | ch;
+                if ((src & 0b111) == 0b111) {
+                    data[src>>>3] = octo;
+                    octo = 0;
+                }
+            }
+            if (octo != 0) {
+                // use `last` as the `src` of the last char in the string
+                // if (last & 0b111) == 1, that means that we have 1 unflushed byte, so << 56
+                int last = utf16len - 1;
+                data[last>>>3] = octo << (~(last & 0b111) << 3);
+            }
+            end = utf16len;
+        }
+    }
+
+    /**
+     * Construct an Ecstasy String from UTF-8 data
+     *
+     * @param ctx   the XVM context
+     * @param utf8  UTF-8 data in a byte array
+     */
+    public String(Ctx ctx, byte[] utf8) {
+        // TODO
+        this(ctx, null, false, 0, 0, 0, null);
+    }
+
+    /**
+     * Internal constructor.
+     *
+     * @param ctx      the XVM context
+     * @param data
+     * @param unicode
+     * @param hash
+     * @param start
+     * @param end
+     * @param next
+     */
+    String(Ctx ctx, long[] data, boolean unicode, long hash, int start, int end, String next) {
+        super(ctx);
+        this.data       = data;
+        this.unicode    = unicode;
+        this.hash       = hash;
+        this.start      = start;
+        this.end        = end;
+        this.next       = next;
+    }
+
+    @Override
+    public TypeConstant $xvmType(Ctx ctx) {
+        return $xvm().nativeTypeSystem.pool().typeString();
+    }
+
+    // ----- fields --------------------------------------------------------------------------------
+
+    /**
+     * The storage for the string contents.
+     */
+    private final long[] data;
+
+    /**
+     * Index of the first character of the string.
+     */
+    private int start;
+
+    /**
+     * Index of the character following the last character of the string.
+     */
+    private int end;
+
+    /**
+     * Linked overflow for long strings.
+     */
+    private final String next;
+
+    /**
+     * `False` iff the contents are stored in an ISO 8859 (8-bit) format.
+     * `True` iff the contents are stored as complete 21-bit Unicode codepoints.
+     */
+    private boolean unicode;
+
+    /**
+     * The lazily computed and cached hash code. The value `0` indicates that the hash code has not
+     * yet been computed.
+     */
+    private long hash;
+
+    /**
+     * An empty string. All empty strings are identical.
+     */
+    public static final String EmptyString = new String(null, new long[0], true, 0, 0, 0, null);
+
+    // ----- String API ----------------------------------------------------------------------------
+
+    /**
+     * Native implementation of:
+     *
+     *     Boolean empty.get();
+     */
+    public boolean empty$get$p(Ctx ctx) {
+        return start == end;
+    }
+
+    /**
+     * Native implementation of:
+     *
+     *      Int size.get();
+     */
+    public long size$get$p(Ctx ctx) {
+        return end - start + (next == null ? 0 : next.size$get$p(ctx));
+    }
+
+    /**
+     * Native implementation of:
+     *   @Op("+") String! add(Object o) {
+     */
+    public String add(Ctx ctx, Object obj) {
+        // TODO CP: optimize
+        return of(ctx, this.toString() + obj.toString(ctx).toString());
+    }
+
+    /**
+     * Native implementation of:
+     *   @Op("[]") Char getElement(Int index)
+     */
+    public int getElement$p(Ctx ctx, long index) {
+        if (index < 0) {
+            oob(ctx, index);
+        }
+        return getContinued(ctx, 0, index);
+    }
+
+    /**
+     * Native implementation of:
+     *   Iterator<Char> iterator() = chars.iterator();
+     */
+    public IteratorᐸCharᐳ iterator(Ctx ctx) {
+        return new nIterator(ctx);
+    }
+
+    private class nIterator extends nObj implements IteratorᐸCharᐳ {
+        public nIterator(Ctx ctx) {
+            super(ctx);
+        }
+
+        private int index = 0;
+
+        @Override
+        public boolean $isImmut() {
+            return false;
+        }
+
+        @Override
+        public nType Element$get(Ctx ctx) {
+            return nType.$ensureType(ctx, ctx.container.typeSystem.pool().typeChar());
+        }
+
+        @Override
+        public boolean next$p(Ctx ctx) {
+            if (index < size$get$p(ctx)) {
+                ctx.i0 = getElement$p(ctx, index++);
+                return true;
+            }
+            return false;
+        }
+    }
+
+    /**
+     * (Internal) Get the codepoint located at the specified index within the string.
+     *
+     * @param skipped  the count of indexes that precede this string, in a linked list of strings
+     * @param index    the zero-based index into this string
+     *
+     * @return the codepoint of the character at the specified index in the string
+     */
+    private int getContinued(Ctx ctx, long skipped, long index) {
+        int len = end - start;
+        if (index > len) {
+            if (next == null) {
+                oob(ctx, skipped + index);
+            }
+            return next.getContinued(ctx, skipped + len, index - len);
+        }
+
+        index += start;
+        if (unicode) {
+            index *= 0x55555556L; // frdc algorithm: https://arxiv.org/abs/1902.01961
+            long tri = data[(int) (index >>> 32)];
+            return ((int) (tri >>> (21 * (2 - ((int) (((index & 0xFFFFFFFFL) * 3) >>> 32)))))) & 0x1FFFFF;
+        }
+
+        return (int) (data[(int) (index >>> 3)] >>> (8 * (~index & 0b111))) & 0xFF;
+    }
+
+    @Override
+    public String toString(Ctx ctx) {
+        return this;
+    }
+
+    @Override
+    public java.lang.String toString() {
+        long len = size$get$p(null);
+        if (len == 0) {
+            return "";
+        }
+
+        // way-too-big strings are obvious problems
+        if (len > Integer.MAX_VALUE - 8) {
+            oob(null, len);
+        }
+
+        // one-byte (ISO 8859-1) format is simple
+        return toStringContinued(new StringBuilder((int) utf16Size())).toString();
+    }
+
+    private long utf16Size() {
+        long localSize;
+        localSize = end - start;
+        if (unicode && localSize > 0) {
+            // count the surrogate pairs (two Java chars for one Unicode char)
+            int  next  = start / 3;
+            long tri   = data[next++];
+            int  shift = (2 - (start % 3)) * 21;
+            for (int c = end - start; c > 0; --c) {
+                if (shift < 0) {
+                    tri   = data[next++];
+                    shift = 42;
+                }
+                if (((tri >>> shift) & 0x1FFFFF) > 0xFFFF) {
+                    ++localSize;
+                }
+                shift -= 21;
+            }
+        }
+        return localSize + (next == null ? 0 : next.utf16Size());
+    }
+
+    /**
+     * Create a new Ecstasy `String` based on the specified Java `String`. Calls to this method are
+     * generated by the JIT's {@link org.xvm.javajit.TextSupport} "build*ToChar" methods.
+     *
+     * @return a new String object
+     */
+    public static String of(Ctx ctx, java.lang.String s) {
+        // TODO: intern Java style?
+        return new String(ctx, s);
+    }
+
+    private StringBuilder toStringContinued(StringBuilder buf) {
+        if (unicode) {
+            int  index = start / 3;
+            long tri   = data[index];
+            int  shift = (2 - (start % 3)) * 21;
+            for (int c = end - start; c > 0; --c) {
+                if (shift < 0) {
+                    tri   = data[++index];
+                    shift = 42;
+                }
+                buf.appendCodePoint((int) ((tri >>> shift) & 0x1FFFFF));
+                shift -= 21;
+            }
+        } else {
+            int  index = start >>> 3;
+            long octo  = data[index];
+            int  shift = (~start & 0b111) * 8;
+            for (int c = end - start; c > 0; --c) {
+                if (shift < 0) {
+                    octo  = data[++index];
+                    shift = 56;
+                }
+                buf.append((char) ((octo >>> shift) & 0xFF));
+                shift -= 8;
+            }
+        }
+        return next == null ? buf : next.toStringContinued(buf);
+    }
+
+    // ----- Hashable interface --------------------------------------------------------------------
+
+    /**
+     * The native implementation of String.x
+     *
+     *    private Int64 hash.get()
+     */
+    public long hash$get$p(Ctx ctx) {
+        return toString().hashCode();
+    }
+
+    // ----- Orderable interface -------------------------------------------------------------------
+
+    /**
+     * The native implementation of:
+     *
+     * static <CompileType extends Orderable> Ordered compare(CompileType value1, CompileType value2);
+     */
+    public static Ordered compare(Ctx ctx, nType type, String value1, String value2) {
+        // ToDo Optimize???
+        int i = value1.toString().compareTo(value2.toString());
+        return i < 0 ? Ordered.Lesser.$INSTANCE
+                     : i == 0 ? Ordered.Equal.$INSTANCE
+                     : Ordered.Greater.$INSTANCE;
+    }
+
+    /**
+     * Native implementation of:
+     *
+     *  static <CompileType extends String> Boolean equals(CompileType value1, CompileType value2)
+     */
+    public static boolean equals$p(Ctx ctx, nType type, String value1, String value2) {
+        // TODO CP: optimize
+        return value1.size$get$p(ctx) == value2.size$get$p(ctx) &&
+            value1.toString().equals(value2.toString());
+    }
+
+    /**
+     * TEMPORARY: Native implementation of
+     *
+     *      Boolean defined.get()
+     */
+    public boolean defined$get$p(Ctx ctx) {
+        return ctx.container.isSpecified(toString());
+    }
+
+    // ----- xObj internal -------------------------------------------------------------------------
+
+    /**
+     * @param index an illegal index
+     *
+     * @throws OutOfBounds
+     */
+    private boolean oob(Ctx ctx, long index) {
+        throw Exception.$oob(ctx, "String index out of range: " + index);
+    }
+}

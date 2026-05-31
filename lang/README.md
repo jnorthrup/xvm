@@ -1,0 +1,348 @@
+# Ecstasy Language Tooling
+
+Language tooling for the Ecstasy programming language, including LSP server, IDE plugins,
+and editor support.
+
+## Status: Alpha
+
+> **Note:** This code is currently in **alpha status** and is **unsupported**. It is under 
+> active development with the goal of reaching beta quality. You are welcome to evaluate 
+> and test it, but please be aware that:
+>
+> - APIs and functionality may change without notice
+> - Some features may be incomplete or unstable
+> - Bug reports and feedback are appreciated but support is limited
+>
+> We are actively working to improve stability and move toward a supported beta release.
+
+> **Note:** All `./gradlew :lang:*` commands below assume `-PincludeBuildLang=true -PincludeBuildAttachLang=true` are passed when running from the project root. See [Composite Build Properties](../CLAUDE.md) in the project CLAUDE.md for details.
+
+## Enabling the Lang Build
+
+By default, the lang build is **disabled** in `gradle.properties`. To include it in the XVM composite build,
+you need to set two properties:
+
+| Property | Purpose |
+|----------|---------|
+| `includeBuildLang` | Include lang as a build (for IDE visibility and `./gradlew lang:*` tasks) |
+| `includeBuildAttachLang` | Attach lang lifecycle tasks to root build (so `./gradlew build` includes lang) |
+
+### Option 1: Command Line (Temporary)
+
+```bash
+./gradlew build
+```
+
+### Option 2: Environment Variables (Session/Shell)
+
+```bash
+export ORG_GRADLE_PROJECT_includeBuildLang=true
+export ORG_GRADLE_PROJECT_includeBuildAttachLang=true
+./gradlew build
+```
+
+### Option 3: Edit gradle.properties (Persistent)
+
+In the root `gradle.properties`, change:
+
+```properties
+includeBuildLang=true
+includeBuildAttachLang=true
+```
+
+> **Note:** Do not commit `true/true` to the repository while lang is still in alpha.
+> The CI workflow automatically enables lang for builds.
+
+## Testing the Tree-sitter Parser
+
+The tree-sitter adapter is tested against the entire XDK corpus (692 `.x` files from `lib_*` directories).
+This ensures the grammar can parse real-world Ecstasy code.
+
+```bash
+# Run the full corpus test (requires lang build enabled)
+./gradlew :lang:tree-sitter:testTreeSitterParse 
+
+# Filter to specific files (comma-separated patterns)
+./gradlew :lang:tree-sitter:testTreeSitterParse -PtestFiles=ecstasy/numbers
+
+# Disable timing output
+./gradlew :lang:tree-sitter:testTreeSitterParse -PshowTiming=false
+```
+
+The test outputs parse timing sorted by slowest files, helping identify grammar bottlenecks.
+
+## Subprojects
+
+| Project | Description |
+|---------|-------------|
+| [dsl](./dsl/) | Language model DSL and editor support generators |
+| [tree-sitter](./tree-sitter/) | Tree-sitter grammar for incremental parsing |
+| [lsp-server](./lsp-server/) | Language Server Protocol implementation |
+| [intellij-plugin](./intellij-plugin/) | IntelliJ IDEA plugin |
+| [vscode-extension](./vscode-extension/) | VS Code extension |
+
+## Building
+
+```bash
+# Build everything
+./gradlew build
+
+# Build specific projects
+./gradlew :dsl:build
+./gradlew :lsp-server:build
+./gradlew :intellij-plugin:buildPlugin
+./gradlew :vscode-extension:build
+```
+
+## Native Library Build (Tree-sitter)
+
+The LSP server uses tree-sitter for fast, incremental parsing. This requires a native shared library
+compiled from the generated grammar. We use **Zig** for cross-compilation, enabling builds for all
+platforms from any development machine.
+
+### Quick Commands
+
+```bash
+# Build native library for current platform (auto-downloads Zig)
+./gradlew :lang:tree-sitter:ensureNativeLibraryUpToDate
+
+# Build for ALL platforms
+./gradlew :lang:tree-sitter:buildAllNativeLibraries
+
+# Run IDE with tree-sitter adapter
+./gradlew :lang:intellij-plugin:runIde -Plsp.adapter=treesitter
+```
+
+### Supported Platforms
+
+| Platform | Output | Architecture |
+|----------|--------|--------------|
+| darwin-arm64 | `libtree-sitter-xtc.dylib` | Mach-O arm64 |
+| darwin-x64 | `libtree-sitter-xtc.dylib` | Mach-O x86_64 |
+| linux-x64 | `libtree-sitter-xtc.so` | ELF x86-64 |
+| linux-arm64 | `libtree-sitter-xtc.so` | ELF aarch64 |
+| windows-x64 | `libtree-sitter-xtc.dll` | PE32+ x86-64 |
+
+For detailed documentation on native library builds, Zig cross-compilation, and LSP adapter integration,
+see **[tree-sitter/README.md → Native Library Build](./tree-sitter/README.md#native-library-build)**.
+
+## IntelliJ Plugin
+
+### Installing from JetBrains Marketplace (alpha channel)
+
+The plugin is published only to the JetBrains Marketplace **alpha channel**
+right now — there is no stable-channel build yet. The default marketplace
+search and the public plugin page filter to the stable channel only, so
+you cannot find or install the plugin through the normal "Install from
+Marketplace" flow. To install or auto-update from the alpha channel you
+need to add it as a **custom plugin repository** in IntelliJ:
+
+1. Open IntelliJ IDEA (2026.1 or later)
+2. **Settings → Plugins → ⚙ (gear icon) → Manage Plugin Repositories…**
+3. Click **+** and add:
+
+   ```
+   https://plugins.jetbrains.com/plugins/alpha/list
+   ```
+4. Click **OK** to close the dialog
+5. Back on the Plugins screen, switch to the **Marketplace** tab and search
+   for **Ecstasy Language Support** — the alpha builds will now appear
+6. Click **Install**, then restart the IDE when prompted
+
+After this is configured once, IntelliJ will automatically pick up new
+alpha-channel updates and prompt you to update through the normal Plugins
+UI. The "Not compatible with the version of your running IDE" warning that
+appears on the public marketplace web page (https://plugins.jetbrains.com/plugin/31202-xtc-language-support)
+is a **stable-channel-filter quirk** and does not reflect actual compatibility —
+the alpha builds are verified by JetBrains' Plugin Verifier against current
+2026.1.x releases. The in-IDE install flow above bypasses that warning.
+
+If you prefer not to add a custom repo, the same builds can be installed
+manually from a downloaded ZIP — see [Installing the ZIP Manually](#installing-the-zip-manually)
+below.
+
+### Running the Plugin in a Sandbox IDE
+
+To test the plugin during development, run a sandboxed IntelliJ IDEA instance with the plugin loaded:
+
+```bash
+./gradlew :lang:intellij-plugin:runIde
+```
+
+This launches a separate IntelliJ IDEA with:
+- The XTC plugin installed
+- A fresh sandbox environment (settings, caches, etc.)
+- Isolated from your main IDE installation
+
+The sandbox IDE data is stored in `lang/intellij-plugin/build/idea-sandbox/`.
+
+### Building a Distributable Plugin ZIP
+
+To create a plugin ZIP that can be installed in any IntelliJ IDEA 2026.1+ instance:
+
+```bash
+./gradlew :lang:intellij-plugin:buildPlugin
+```
+
+The ZIP is created at:
+```
+lang/intellij-plugin/build/distributions/intellij-plugin-<version>.zip
+```
+
+### Installing the ZIP Manually
+
+1. Open IntelliJ IDEA
+2. **Settings/Preferences → Plugins**
+3. Click the gear icon (⚙️) → **Install Plugin from Disk...**
+4. Select the ZIP file
+5. Restart IntelliJ IDEA
+
+### Other Useful Tasks
+
+| Task | Description |
+|------|-------------|
+| `./gradlew :lang:intellij-plugin:runIde` | Run plugin in sandbox IDE |
+| `./gradlew :lang:intellij-plugin:buildPlugin` | Build distributable ZIP |
+| `./gradlew :lang:intellij-plugin:verifyPlugin` | Check IDE compatibility |
+| `./gradlew :lang:intellij-plugin:clean` | Clear sandbox and build artifacts |
+
+### Publishing to JetBrains Marketplace
+
+For detailed publication instructions (creating tokens, signing, CI/CD setup), see:
+**[intellij-plugin/README.md → Publishing to JetBrains Marketplace](./intellij-plugin/README.md#publishing-to-jetbrains-marketplace-step-by-step)**
+
+## Generating Editor Support
+
+The DSL project generates syntax highlighting files for multiple editors:
+
+```bash
+# Generate all editor support files
+./gradlew :dsl:generateEditorSupport
+
+# Update the checked-in examples
+./gradlew updateGeneratedExamples
+```
+
+Generated files:
+- `xtc.tmLanguage.json` - TextMate grammar (VS Code, IntelliJ, Sublime)
+- `language-configuration.json` - VS Code language config
+- `xtc.vim` - Vim syntax file
+- `xtc-mode.el` - Emacs major mode
+- `grammar.js` - Tree-sitter grammar
+- `highlights.scm` - Tree-sitter highlights
+
+## Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                     IDE / Editor                                │
+│            (VSCode, IntelliJ, Vim, Emacs, etc.)                 │
+└─────────────────────────┬───────────────────────────────────────┘
+                          │ LSP (JSON-RPC)
+┌─────────────────────────▼───────────────────────────────────────┐
+│                   lsp-server                                    │
+│  ┌─────────────────────────────────────────────────────────┐    │
+│  │                  Adapter (interface)                    │    │
+│  │  ┌──────────────┬──────────────┬──────────────┐         │    │
+│  │  │ Mock         │ TreeSitter   │ Xdk          │         │    │
+│  │  │ (regex)      │ (syntax)     │ (future)     │         │    │
+│  │  └──────────────┴──────────────┴──────────────┘         │    │
+│  └─────────────────────────────────────────────────────────┘    │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### LSP Adapter Selection
+
+```bash
+# Tree-sitter (default) - syntax-aware, ~70% LSP features
+./gradlew :lang:lsp-server:fatJar -Plsp.adapter=treesitter
+
+# Mock - regex-based, for testing without native libraries
+./gradlew :lang:lsp-server:fatJar -Plsp.adapter=mock
+
+# XDK adapter stub - placeholder for future compiler / semantic integration
+./gradlew :lang:lsp-server:fatJar -Plsp.adapter=xdk
+```
+
+## Canonical Status Documents
+
+To avoid duplicating stale implementation matrices across multiple READMEs, the canonical
+status documents are:
+
+- [`doc/plans/PLAN_IDE_INTEGRATION.md`](./doc/plans/PLAN_IDE_INTEGRATION.md)
+  - current implementation matrix across adapters and IDE integration status
+- [`doc/plans/PLAN_TREE_SITTER.md`](./doc/plans/PLAN_TREE_SITTER.md)
+  - tree-sitter architecture and implementation status
+- [`doc/plans/existing-tree-sitter-functionality-missing.md`](./doc/plans/existing-tree-sitter-functionality-missing.md)
+  - current tree-sitter implemented vs remaining functionality
+- [`lsp-server/README.md`](./lsp-server/README.md)
+  - LSP-server-specific build, runtime, and configuration details
+- [`intellij-plugin/README.md`](./intellij-plugin/README.md)
+  - IntelliJ-plugin-specific build/testing/runtime details
+
+## Dependency Versions & Compatibility
+
+The lang tooling uses several interdependent libraries. This section documents version constraints and compatibility.
+
+### LSP Stack
+
+| Library | Version | Purpose | Notes |
+|---------|---------|---------|-------|
+| **lsp4j** | 0.24.0 | LSP protocol types & JSON-RPC | Eclipse's Java LSP implementation |
+| **lsp4ij** | 0.19.1 | IntelliJ LSP client plugin | Red Hat's plugin, uses lsp4j internally |
+
+**How they work together:**
+- **lsp4j** provides the LSP protocol implementation (types, JSON-RPC, message handling)
+- **lsp4ij** is an IntelliJ plugin that provides LSP client support for any language
+- Our IntelliJ plugin launches the LSP server out-of-process
+- lsp4ij connects to it over stdio via `ProcessStreamConnectionProvider`
+
+### Tree-sitter Stack
+
+| Library | Version | Purpose | Notes |
+|---------|---------|---------|-------|
+| **jtreesitter** | 0.26.0 | Java bindings for tree-sitter | JVM FFI to native tree-sitter |
+| **tree-sitter-cli** | 0.26.5 | Parser generator CLI | Must match jtreesitter major.minor |
+
+**Version Constraint (Java 25):**
+```
+⚠️  jtreesitter 0.26.x requires Java 23+ (FFM API)
+✅  IntelliJ 2026.1 ships with JBR 25, which supports FFM natively
+✅  The LSP server runs OUT-OF-PROCESS using IntelliJ's JBR for classloader isolation
+```
+
+The LSP server runs as a separate out-of-process Java 25 process using IntelliJ's own
+JBR 25 runtime (via LSP4IJ's `JavaProcessCommandBuilder`). Out-of-process execution
+provides classloader isolation (avoids lsp4j version conflicts with LSP4IJ) and
+crash/memory isolation.
+
+### IntelliJ Platform
+
+| Library | Version | Purpose |
+|---------|---------|---------|
+| **intellij-ide** | 2026.1 | Target IDE version |
+| **intellij-jdk** | 25 | Plugin JDK requirement |
+| **intellij-platform-gradle-plugin** | 2.14.0 | Build plugin for IntelliJ plugins |
+
+### Compatibility Matrix
+
+| Component | Requires | Provides |
+|-----------|----------|----------|
+| IntelliJ 2026.1 | JBR 25 | Plugin runtime |
+| lsp4ij 0.19.2 | IntelliJ 2024.2+ | LSP client |
+| lsp4j 1.0.0 | Java 11+ | LSP protocol |
+| jtreesitter 0.26.0 | Java 23+ | Native parsing (runs in out-of-process LSP server) |
+| tree-sitter-cli 0.26.5 | - | Parser generation |
+
+All versions are defined in `/gradle/libs.versions.toml`.
+
+## Documentation
+
+- [Implementation Plans](./doc/plans/README.md) - Current plans, status docs, and retained design notes for language tooling
+- [LSP Implementation Survey](./doc/LSP_IMPLEMENTATIONS_SURVEY.md) - Survey of how other languages implement language server support
+
+Architecture analysis and research documentation: *Internal documentation*
+
+## TODOs
+
+- [ ] **Language naming consistency**: The formal language name is "Ecstasy", but the codebase currently uses "xtc" for technical identifiers (scope names, language IDs, file names). A future PR should audit and unify the naming to use "Ecstasy" where appropriate for user-facing elements while keeping "xtc" for technical identifiers where consistency is important (e.g., `source.xtc` scope name, `xtc.tmLanguage.json` file names).

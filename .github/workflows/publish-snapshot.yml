@@ -1,0 +1,600 @@
+#
+# GitHub workflow for publishing snapshot artifacts
+#
+# This workflow publishes snapshots to:
+# - GitHub Packages (Maven artifacts)
+# - Maven Central Snapshots
+# - GitHub Releases (XDK snapshot release)
+# - GitHub Releases (optional IntelliJ plugin snapshot ZIP)
+#
+# Triggered by verify_commit workflow when:
+# - Running on master branch (automatic)
+# - Manually run with test-publishing=true (testing)
+# Can also be triggered manually via workflow_dispatch for testing.
+#
+name: Publish Snapshots
+
+permissions:
+    contents: write
+    packages: write
+    actions: read
+
+on:
+    # Triggered explicitly by verify_commit workflow (on master or when test-publishing=true)
+    # Can also be manually triggered for testing
+    workflow_dispatch:
+        inputs:
+            ci-run-id:
+                description: 'CI run ID to download artifact from (leave empty to skip artifact download)'
+                required: false
+            publish-xdk-snapshots:
+                description: 'Publish Maven and XDK GitHub snapshot artifacts'
+                required: false
+                default: 'true'
+            publish-intellij-plugin:
+                description: 'Also build and publish the IntelliJ plugin snapshot ZIP'
+                required: false
+                default: 'false'
+            extra-gradle-options:
+                description: 'Extra Gradle options to pass to the publish steps'
+                required: false
+
+# Concurrency settings: ensure only one publish runs at a time to avoid upload conflicts
+# Queue multiple triggers instead of cancelling in-progress uploads
+concurrency:
+    group: publish-snapshots
+    cancel-in-progress: false
+
+jobs:
+    publish-snapshots:
+        name: Publish snapshot artifacts
+        if: ${{ github.event.inputs.publish-xdk-snapshots != 'false' }}
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Fetch Sources
+              uses: actions/checkout@v6
+              with:
+                  fetch-depth: 1
+                  show-progress: true
+
+            - name: Setup XVM Project
+              id: versions
+              uses: ./.github/actions/setup-xvm-project
+              with:
+                  setup-build: false
+                  enable-debug: false
+
+            - name: Validate snapshot version
+              shell: bash
+              run: |
+                  VERSION="${{ steps.versions.outputs.xdk-version }}"
+                  if [[ "$VERSION" != *-SNAPSHOT ]]; then
+                      echo "❌ ERROR: Cannot publish snapshots for non-SNAPSHOT version"
+                      echo ""
+                      echo "Current version: $VERSION"
+                      echo ""
+                      echo "This workflow only publishes SNAPSHOT versions."
+                      echo "For release versions, use the publish-release workflow instead."
+                      echo ""
+                      exit 1
+                  fi
+                  echo "✅ Validated snapshot version: $VERSION"
+
+            - name: Determine commit and run ID
+              id: commit
+              shell: bash
+              env:
+                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: |
+                  # Use CI run ID from input if provided
+                  if [ -n "${{ github.event.inputs.ci-run-id }}" ]; then
+                      RUN_ID="${{ github.event.inputs.ci-run-id }}"
+                      # Get commit from the specified run
+                      GH_COMMIT=$(gh api /repos/${{ github.repository }}/actions/runs/$RUN_ID --jq '.head_sha')
+                      echo "📌 Using CI run from input: $RUN_ID (commit: $GH_COMMIT)"
+                      echo "has-artifact=true" >> $GITHUB_OUTPUT
+                  # Manual trigger without run-id
+                  else
+                      GH_COMMIT="${{ github.sha }}"
+                      echo "📌 Manual trigger - commit: $GH_COMMIT"
+                      echo "⚠️  No CI run-id provided"
+                      echo "⚠️  Will publish Maven snapshots but skip GitHub release"
+                      echo "has-artifact=false" >> $GITHUB_OUTPUT
+                  fi
+                  echo "commit=$GH_COMMIT" >> $GITHUB_OUTPUT
+                  echo "run-id=$RUN_ID" >> $GITHUB_OUTPUT
+
+            - name: Download XDK artifact from CI
+              if: steps.commit.outputs.has-artifact == 'true'
+              id: artifact
+              uses: ./.github/actions/download-ci-artifact
+              with:
+                  run-id: ${{ steps.commit.outputs.run-id }}
+                  commit: ${{ steps.commit.outputs.commit }}
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  repository: ${{ github.repository }}
+                  output-path: ./artifacts
+
+            - name: Download snapshot Maven publication bundle from CI
+              if: steps.commit.outputs.has-artifact == 'true'
+              uses: actions/download-artifact@v8
+              with:
+                  name: snapshot-maven-repo-${{ steps.commit.outputs.commit }}
+                  path: ./artifacts/snapshot-maven-repo
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  repository: ${{ github.repository }}
+                  run-id: ${{ steps.commit.outputs.run-id }}
+
+            - name: Validate snapshot Maven publication bundle
+              if: steps.commit.outputs.has-artifact == 'true'
+              id: snapshot-bundle
+              shell: bash
+              run: |
+                  ARTIFACT_ROOT="$PWD/artifacts/snapshot-maven-repo"
+                  METADATA_FILE=$(find "$ARTIFACT_ROOT" -maxdepth 3 -name snapshot-publish-artifacts.json | head -1)
+                  REPO_ROOT="$ARTIFACT_ROOT/snapshot-maven-repo"
+
+                  if [ -z "$METADATA_FILE" ] || [ ! -f "$METADATA_FILE" ]; then
+                      echo "❌ ERROR: snapshot-publish-artifacts.json not found in downloaded artifact"
+                      find "$ARTIFACT_ROOT" -maxdepth 4 -type f | sed -n '1,120p' || true
+                      exit 1
+                  fi
+
+                  if [ ! -d "$REPO_ROOT/org/xtclang" ]; then
+                      echo "❌ ERROR: Snapshot Maven repository root missing: $REPO_ROOT/org/xtclang"
+                      find "$ARTIFACT_ROOT" -maxdepth 4 -type f | sed -n '1,120p' || true
+                      exit 1
+                  fi
+
+                  ARTIFACT_COMMIT=$(jq -r '.commit' "$METADATA_FILE")
+                  ARTIFACT_BRANCH=$(jq -r '.branch' "$METADATA_FILE")
+                  ARTIFACT_VERSION=$(jq -r '.xdkVersion' "$METADATA_FILE")
+                  ARTIFACT_RUN_ID=$(jq -r '.runId' "$METADATA_FILE")
+                  ARTIFACT_NAME=$(jq -r '.artifact' "$METADATA_FILE")
+
+                  echo "📦 Snapshot publication bundle provenance"
+                  echo "  Metadata file : $METADATA_FILE"
+                  echo "  Commit        : $ARTIFACT_COMMIT"
+                  echo "  Branch        : $ARTIFACT_BRANCH"
+                  echo "  XDK Version   : $ARTIFACT_VERSION"
+                  echo "  Source Run ID : $ARTIFACT_RUN_ID"
+                  echo "  Artifact Name : $ARTIFACT_NAME"
+
+                  if [ "$ARTIFACT_COMMIT" != "${{ steps.commit.outputs.commit }}" ]; then
+                      echo "❌ ERROR: Snapshot publication bundle commit does not match requested commit"
+                      exit 1
+                  fi
+
+                  echo "repo-root=$REPO_ROOT" >> $GITHUB_OUTPUT
+                  echo "metadata-file=$METADATA_FILE" >> $GITHUB_OUTPUT
+                  echo "artifact-name=$ARTIFACT_NAME" >> $GITHUB_OUTPUT
+                  echo "✅ Snapshot publication bundle commit matches requested CI artifact"
+
+            - name: Setup build environment for source fallback
+              if: steps.commit.outputs.has-artifact != 'true'
+              uses: ./.github/actions/setup-xvm-project
+              with:
+                  setup-build: true
+                  cache-read-only: true
+                  enable-debug: false
+
+            - name: Publish staged Maven snapshots to GitHub Packages
+              if: steps.commit.outputs.has-artifact == 'true'
+              env:
+                  GITHUB_USERNAME: ${{ github.actor }}
+                  GITHUB_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+              run: |
+                  echo "📦 Publishing staged SNAPSHOT Maven repository to GitHub Packages..."
+                  ./.github/scripts/upload-maven-repo.sh \
+                    "${{ steps.snapshot-bundle.outputs.repo-root }}" \
+                    "https://maven.pkg.github.com/xtclang/xvm" \
+                    "$GITHUB_USERNAME" \
+                    "$GITHUB_PASSWORD" \
+                    "GitHub Packages (SNAPSHOT)"
+
+            - name: Publish staged Maven snapshots to Maven Central Snapshots
+              if: steps.commit.outputs.has-artifact == 'true'
+              env:
+                  MAVEN_CENTRAL_USERNAME: ${{ secrets.ORG_XTCLANG_MAVEN_CENTRAL_USERNAME }}
+                  MAVEN_CENTRAL_PASSWORD: ${{ secrets.ORG_XTCLANG_MAVEN_CENTRAL_PASSWORD }}
+              run: |
+                  echo "📦 Publishing staged SNAPSHOT Maven repository to Maven Central Snapshots..."
+                  ./.github/scripts/upload-maven-repo.sh \
+                    "${{ steps.snapshot-bundle.outputs.repo-root }}" \
+                    "https://central.sonatype.com/repository/maven-snapshots" \
+                    "$MAVEN_CENTRAL_USERNAME" \
+                    "$MAVEN_CENTRAL_PASSWORD" \
+                    "Maven Central Snapshots"
+
+            - name: Publish Maven snapshots from source fallback
+              if: steps.commit.outputs.has-artifact != 'true'
+              env:
+                  # GitHub CLI (used for GitHub API operations)
+                  GITHUB_ACTOR: ${{ github.actor }}
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  # GitHub Packages credentials (Gradle properties for Maven publishing)
+                  ORG_GRADLE_PROJECT_githubUsername: ${{ github.actor }}
+                  ORG_GRADLE_PROJECT_githubPassword: ${{ secrets.GITHUB_TOKEN }}
+                  # Gradle Plugin Portal credentials
+                  ORG_GRADLE_PROJECT_gradle_publish_key: ${{ secrets.ORG_XTCLANG_GRADLE_PLUGIN_PORTAL_PUBLISH_KEY }}
+                  ORG_GRADLE_PROJECT_gradle_publish_secret: ${{ secrets.ORG_XTCLANG_GRADLE_PLUGIN_PORTAL_PUBLISH_SECRET }}
+                  # Maven Central credentials
+                  ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.ORG_XTCLANG_MAVEN_CENTRAL_USERNAME }}
+                  ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.ORG_XTCLANG_MAVEN_CENTRAL_PASSWORD }}
+                  # Signing credentials
+                  ORG_GRADLE_PROJECT_signing_keyId: ${{ secrets.ORG_XTCLANG_SIGNING_KEY_ID }}
+                  ORG_GRADLE_PROJECT_signing_password: ${{ secrets.ORG_XTCLANG_SIGNING_PASSWORD }}
+                  ORG_GRADLE_PROJECT_signing_key: ${{ secrets.ORG_XTCLANG_SIGNING_KEY }}
+                  # SNAPSHOT versions automatically publish to GitHub Packages + Maven Central Snapshots
+                  # Gradle Plugin Portal is automatically skipped (doesn't accept snapshots)
+                  GRADLE_OPTS: ${{ steps.versions.outputs.gradle-jvm-opts }}
+              run: |
+                  echo "📦 Publishing SNAPSHOT Maven artifacts from source fallback..."
+                  echo "   Target repositories:"
+                  echo "   - GitHub Packages"
+                  echo "   - Maven Central Snapshots"
+                  echo "   (please note that gradlePluginPortal is skipped, since it does not support SNAPSHOT versions.)"
+                  ./gradlew ${{ steps.versions.outputs.gradle-options }} publish
+                  echo "✅ Maven snapshots published"
+
+            - name: Clean up old XDK package versions (keep 50 newest)
+              if: success()
+              uses: actions/delete-package-versions@v5
+              with:
+                  package-name: 'org.xtclang.xdk'
+                  package-type: 'maven'
+                  min-versions-to-keep: 30
+                  token: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Clean up old Plugin package versions (keep 50 newest)
+              if: success()
+              uses: actions/delete-package-versions@v5
+              with:
+                  package-name: 'org.xtclang.xtc-plugin'
+                  package-type: 'maven'
+                  min-versions-to-keep: 30
+                  token: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Clean up old Plugin Marker package versions (keep 50 newest)
+              if: success()
+              uses: actions/delete-package-versions@v5
+              with:
+                  package-name: 'org.xtclang.xtc-plugin.org.xtclang.xtc-plugin.gradle.plugin'
+                  package-type: 'maven'
+                  min-versions-to-keep: 30
+                  token: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Publish to GitHub snapshot release
+              if: success() && steps.commit.outputs.has-artifact == 'true'
+              uses: ./.github/actions/publish-github-release
+              with:
+                  artifact-path: ${{ steps.artifact.outputs.artifact-path }}
+                  xdk-version: ${{ steps.versions.outputs.xdk-version }}
+                  commit: ${{ steps.commit.outputs.commit }}
+                  repo: ${{ github.repository }}
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  release-type: snapshot
+
+            - name: Summary
+              if: success()
+              shell: bash
+              run: |
+                  echo "### ✅ Snapshots Published" >> $GITHUB_STEP_SUMMARY
+                  echo "" >> $GITHUB_STEP_SUMMARY
+                  echo "- **Version:** ${{ steps.versions.outputs.xdk-version }}" >> $GITHUB_STEP_SUMMARY
+                  echo "- **Commit:** ${{ steps.commit.outputs.commit }}" >> $GITHUB_STEP_SUMMARY
+                  echo "" >> $GITHUB_STEP_SUMMARY
+                  echo "**Published to:**" >> $GITHUB_STEP_SUMMARY
+                  echo "- ✅ GitHub Packages (Maven artifacts)" >> $GITHUB_STEP_SUMMARY
+                  echo "- ✅ Maven Central Snapshots" >> $GITHUB_STEP_SUMMARY
+                  if [ "${{ steps.commit.outputs.has-artifact }}" = "true" ]; then
+                      echo "- ✅ Publication mode: artifact promotion from \`${{ steps.snapshot-bundle.outputs.artifact-name }}\`" >> $GITHUB_STEP_SUMMARY
+                  else
+                      echo "- ⚠️ Publication mode: source fallback (no ci-run-id provided)" >> $GITHUB_STEP_SUMMARY
+                  fi
+                  if [ "${{ steps.commit.outputs.has-artifact }}" = "true" ]; then
+                      echo "- ✅ GitHub Releases (xdk-snapshots)" >> $GITHUB_STEP_SUMMARY
+                  else
+                      echo "- ⏭️ GitHub Releases (skipped - manual trigger)" >> $GITHUB_STEP_SUMMARY
+                  fi
+                  echo "" >> $GITHUB_STEP_SUMMARY
+                  echo "**Maven artifacts:**" >> $GITHUB_STEP_SUMMARY
+                  echo "- XDK distribution" >> $GITHUB_STEP_SUMMARY
+                  echo "- javatools JAR" >> $GITHUB_STEP_SUMMARY
+                  echo "- Gradle plugin" >> $GITHUB_STEP_SUMMARY
+
+    publish-intellij-plugin-snapshot:
+        name: Publish IntelliJ plugin snapshot
+        if: ${{ github.event.inputs.publish-intellij-plugin == 'true' }}
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Determine source CI run and commit
+              id: commit
+              shell: bash
+              env:
+                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: |
+                  if [ -n "${{ github.event.inputs.ci-run-id }}" ]; then
+                      RUN_ID="${{ github.event.inputs.ci-run-id }}"
+                      GH_COMMIT=$(gh api /repos/${{ github.repository }}/actions/runs/$RUN_ID --jq '.head_sha')
+                      echo "📌 Using CI run from input: $RUN_ID (commit: $GH_COMMIT)"
+                  else
+                      echo "❌ ERROR: ci-run-id is required for IntelliJ plugin snapshot publication"
+                      echo "This workflow now promotes the CI-built plugin artifact instead of rebuilding from source."
+                      exit 1
+                  fi
+                  echo "run-id=$RUN_ID" >> $GITHUB_OUTPUT
+                  echo "commit=$GH_COMMIT" >> $GITHUB_OUTPUT
+
+            - name: Download IntelliJ plugin artifact from CI
+              uses: actions/download-artifact@v8
+              with:
+                  name: intellij-plugin-dist-${{ steps.commit.outputs.commit }}
+                  path: ./artifacts/intellij-plugin
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  repository: ${{ github.repository }}
+                  run-id: ${{ steps.commit.outputs.run-id }}
+
+            - name: Validate IntelliJ plugin artifact
+              id: artifact
+              shell: bash
+              run: |
+                  ARTIFACT_ROOT="$PWD/artifacts/intellij-plugin"
+                  METADATA_FILE="$ARTIFACT_ROOT/intellij-plugin-metadata.json"
+
+                  if [ ! -f "$METADATA_FILE" ]; then
+                      echo "❌ ERROR: IntelliJ plugin metadata file not found"
+                      find "$PWD/artifacts/intellij-plugin" -maxdepth 4 -type f | sed -n '1,120p' || true
+                      exit 1
+                  fi
+
+                  ZIP_FILE=$(find "$ARTIFACT_ROOT" -maxdepth 1 -name "*.zip" | head -1)
+                  CHECKSUM_FILE="$ARTIFACT_ROOT/SHA256SUMS.txt"
+
+                  if [ -z "$ZIP_FILE" ] || [ ! -f "$CHECKSUM_FILE" ]; then
+                      echo "❌ ERROR: IntelliJ plugin artifact bundle is incomplete"
+                      find "$ARTIFACT_ROOT" -maxdepth 3 -type f | sed -n '1,120p' || true
+                      exit 1
+                  fi
+
+                  BASE_VERSION=$(jq -r '.baseVersion' "$METADATA_FILE")
+                  PUBLISH_VERSION=$(jq -r '.publishVersion' "$METADATA_FILE")
+                  RELEASE_CHANNEL=$(jq -r '.releaseChannel' "$METADATA_FILE")
+                  XML_ID=$(jq -r '.xmlId' "$METADATA_FILE")
+
+                  echo "artifact-root=$ARTIFACT_ROOT" >> $GITHUB_OUTPUT
+                  echo "zip-file=$ZIP_FILE" >> $GITHUB_OUTPUT
+                  echo "checksum-file=$CHECKSUM_FILE" >> $GITHUB_OUTPUT
+                  echo "metadata-file=$METADATA_FILE" >> $GITHUB_OUTPUT
+                  echo "base-version=$BASE_VERSION" >> $GITHUB_OUTPUT
+                  echo "publish-version=$PUBLISH_VERSION" >> $GITHUB_OUTPUT
+                  echo "release-channel=$RELEASE_CHANNEL" >> $GITHUB_OUTPUT
+                  echo "xml-id=$XML_ID" >> $GITHUB_OUTPUT
+
+                  echo "✅ IntelliJ plugin artifact validated"
+                  echo "  Base version:    $BASE_VERSION"
+                  echo "  Publish version: $PUBLISH_VERSION"
+                  echo "  Channel:         $RELEASE_CHANNEL"
+                  echo "  XML ID:          $XML_ID"
+                  echo "  ZIP:             $(basename "$ZIP_FILE")"
+
+            - name: Publish IntelliJ plugin to JetBrains Marketplace alpha
+              shell: bash
+              env:
+                  JETBRAINS_TOKEN: ${{ secrets.JETBRAINS_TOKEN }}
+              run: |
+                  if [ -z "$JETBRAINS_TOKEN" ]; then
+                      echo "❌ ERROR: JETBRAINS_TOKEN secret is not available to this workflow."
+                      echo "Check GitHub Actions secret scope for the xtclang organization secret:"
+                      echo "  - Secret name: JETBRAINS_TOKEN"
+                      echo "  - Repository access must include: xtclang/xvm"
+                      exit 1
+                  fi
+                  echo "✅ JETBRAINS_TOKEN is available"
+
+            - name: Publish IntelliJ plugin to JetBrains Marketplace alpha
+              shell: bash
+              env:
+                  JETBRAINS_TOKEN: ${{ secrets.JETBRAINS_TOKEN }}
+              run: |
+                  ZIP_FILE="${{ steps.artifact.outputs.zip-file }}"
+                  XML_ID="${{ steps.artifact.outputs.xml-id }}"
+                  CHANNEL="${{ steps.artifact.outputs.release-channel }}"
+                  PUBLISH_VERSION="${{ steps.artifact.outputs.publish-version }}"
+                  RESPONSE_FILE="$RUNNER_TEMP/jetbrains-upload-response.json"
+
+                  # Sanity-check what the build actually baked into plugin.xml. Marketplace
+                  # derives the upload version from the ZIP's META-INF/plugin.xml, NOT from
+                  # any form field, so a mismatch here means the build produced a stale or
+                  # bare-versioned ZIP and any "already contains version" response from
+                  # Marketplace is a real failure (silent regression) rather than an
+                  # idempotent re-publish. Fail fast before touching the API.
+                  TMP_EXTRACT=$(mktemp -d)
+                  trap 'rm -rf "$TMP_EXTRACT"' EXIT
+                  unzip -q "$ZIP_FILE" -d "$TMP_EXTRACT"
+                  INNER_JAR=$(find "$TMP_EXTRACT" -path '*/lib/intellij-plugin-*.jar' \
+                      -not -name '*searchableOptions*' | head -1)
+                  if [ -z "$INNER_JAR" ] || [ ! -f "$INNER_JAR" ]; then
+                      echo "❌ Could not locate inner plugin JAR in $ZIP_FILE — refusing to publish."
+                      echo "   Expected: */lib/intellij-plugin-*.jar (excluding *searchableOptions*)"
+                      echo ""
+                      echo "ZIP top-level layout:"
+                      ( cd "$TMP_EXTRACT" && find . -maxdepth 4 -type f | sort | head -40 )
+                      echo ""
+                      echo "This usually means the ZIP layout produced by the IntelliJ"
+                      echo "Platform Gradle Plugin changed (filename pattern, lib/ path,"
+                      echo "or sandbox structure). Update the find expression above to"
+                      echo "match the new layout before re-running."
+                      exit 1
+                  fi
+                  ZIP_PLUGIN_VERSION=$(unzip -p "$INNER_JAR" META-INF/plugin.xml 2>/dev/null \
+                      | sed -n 's|.*<version>\([^<]*\)</version>.*|\1|p' | head -1)
+                  if [ -z "$ZIP_PLUGIN_VERSION" ]; then
+                      echo "❌ Could not extract <version> from plugin.xml — refusing to publish."
+                      echo "   inner JAR: $INNER_JAR"
+                      echo ""
+                      echo "JAR contents (top 40 entries):"
+                      unzip -l "$INNER_JAR" 2>/dev/null | head -40
+                      echo ""
+                      echo "META-INF/plugin.xml contents (first 80 lines):"
+                      unzip -p "$INNER_JAR" META-INF/plugin.xml 2>/dev/null | head -80 \
+                          || echo "  (META-INF/plugin.xml not present in this JAR)"
+                      exit 1
+                  fi
+                  if [ "$ZIP_PLUGIN_VERSION" != "$PUBLISH_VERSION" ]; then
+                      echo "❌ Plugin ZIP version mismatch — refusing to publish."
+                      echo "   metadata publishVersion : $PUBLISH_VERSION"
+                      echo "   plugin.xml <version>    : $ZIP_PLUGIN_VERSION"
+                      echo "   inner JAR               : $INNER_JAR"
+                      echo ""
+                      echo "The CI build that produced this artifact did not bake the"
+                      echo "timestamped publish version into plugin.xml. Inspect the"
+                      echo "main build's :lang:intellij-plugin:patchPluginXml step and"
+                      echo "ensure -PenablePublish=true plus -Pjetbrains.publish.suffix"
+                      echo "are passed for every Gradle invocation that re-runs"
+                      echo "buildPlugin. Aborting before Marketplace upload — uploading"
+                      echo "the bare base version would collide with the existing"
+                      echo "0.4.4-SNAPSHOT entry on Marketplace."
+                      exit 1
+                  fi
+
+                  echo "🚀 Publishing IntelliJ plugin to JetBrains Marketplace alpha..."
+                  echo "   xmlId   : $XML_ID"
+                  echo "   channel : $CHANNEL"
+                  echo "   version : $PUBLISH_VERSION"
+                  if curl --fail-with-body --silent --show-error \
+                    -H "Authorization: Bearer $JETBRAINS_TOKEN" \
+                    -F "xmlId=$XML_ID" \
+                    -F "channel=$CHANNEL" \
+                    -F "file=@$ZIP_FILE" \
+                    https://plugins.jetbrains.com/api/updates/upload \
+                    >"$RESPONSE_FILE"; then
+                      echo "✅ JetBrains Marketplace upload completed"
+                  else
+                      STATUS=$?
+                      RESPONSE=$(cat "$RESPONSE_FILE" 2>/dev/null || true)
+                      # Treat the response as idempotent ONLY if Marketplace explicitly
+                      # references the version we just tried to upload. The looser
+                      # substring match used previously (any "already contains version"
+                      # message) silently masked a real regression where buildPlugin
+                      # re-patched plugin.xml with the bare base version after the main
+                      # build had staged the timestamped ZIP — Marketplace then said the
+                      # bare version already existed, the script declared success, and
+                      # no new alpha version landed for several days.
+                      if [[ "$RESPONSE" == *"already contains version"*"$PUBLISH_VERSION"* ]]; then
+                          echo "ℹ️ JetBrains Marketplace already has version '$PUBLISH_VERSION' in channel '$CHANNEL'."
+                          echo "ℹ️ Continuing so GitHub release assets can still be updated for this CI artifact."
+                          echo "Marketplace response:"
+                          echo "$RESPONSE"
+                      else
+                          echo "❌ JetBrains Marketplace upload failed"
+                          [ -n "$RESPONSE" ] && echo "$RESPONSE"
+                          exit "$STATUS"
+                      fi
+                  fi
+
+            - name: Prepare release assets
+              id: prepare
+              shell: bash
+              run: |
+                  VERSION="${{ steps.artifact.outputs.publish-version }}"
+                  BASE_VERSION="${{ steps.artifact.outputs.base-version }}"
+                  PLUGIN_ZIP="${{ steps.artifact.outputs.zip-file }}"
+                  CHECKSUM_FILE="${{ steps.artifact.outputs.checksum-file }}"
+                  # Keep the GitHub snapshot release asset stable within the base snapshot line.
+                  # The Marketplace artifact version remains timestamped and immutable, but the
+                  # GitHub release asset should be replaced in place instead of accumulating.
+                  PUBLIC_ZIP="xtc-intellij-plugin-${BASE_VERSION}.zip"
+                  PUBLIC_SUMS="${PUBLIC_ZIP}.sha256"
+
+                  cp "$PLUGIN_ZIP" "$PUBLIC_ZIP"
+                  awk '{print $1}' "$CHECKSUM_FILE" | {
+                      read -r SUM
+                      printf "%s  %s\n" "$SUM" "$PUBLIC_ZIP" > "$PUBLIC_SUMS"
+                  }
+
+                  echo "asset-name=$PUBLIC_ZIP" >> $GITHUB_OUTPUT
+                  echo "checksum-name=$PUBLIC_SUMS" >> $GITHUB_OUTPUT
+
+                  echo "📦 Prepared release assets:"
+                  ls -lh "$PUBLIC_ZIP" "$PUBLIC_SUMS"
+
+            - name: Publish IntelliJ plugin snapshot release
+              shell: bash
+              env:
+                  # NOTE: prefer the xtclang org-level PAT for GitHub release management because
+                  # the workflow GITHUB_TOKEN can be denied release creation in downstream runs.
+                  # Secret name: ORG_XTCLANG_GITHUB_RELEASE_TOKEN
+                  GH_TOKEN: ${{ secrets.ORG_XTCLANG_GITHUB_RELEASE_TOKEN }}
+              run: |
+                  if [ -z "$GH_TOKEN" ]; then
+                      echo "❌ ERROR: ORG_XTCLANG_GITHUB_RELEASE_TOKEN is required for IntelliJ GitHub release publication."
+                      exit 1
+                  fi
+
+                  RELEASE_TAG="intellij-plugin-snapshots"
+                  VERSION="${{ steps.artifact.outputs.publish-version }}"
+                  COMMIT="${{ steps.commit.outputs.commit }}"
+                  ASSET_NAME="${{ steps.prepare.outputs.asset-name }}"
+                  CHECKSUM_NAME="${{ steps.prepare.outputs.checksum-name }}"
+                  BUILD_DATE=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
+
+                  RELEASE_NOTES="**Automated IntelliJ plugin snapshot builds**
+
+                  Latest snapshot version: **${VERSION}**
+                  Build commit: \`${COMMIT}\`
+                  Build date: ${BUILD_DATE}
+
+                  Install in IntelliJ IDEA via Settings -> Plugins -> gear icon -> Install Plugin from Disk...
+
+                  Download the current GitHub snapshot ZIP: \`${ASSET_NAME}\`.
+                  Marketplace snapshot version: \`${VERSION}\`."
+
+                  echo "📥 Publishing IntelliJ plugin snapshot to: $RELEASE_TAG"
+
+                  if gh release view "$RELEASE_TAG" --repo "${{ github.repository }}" >/dev/null 2>&1; then
+                      echo "Updating existing IntelliJ plugin snapshot release..."
+                      gh release edit "$RELEASE_TAG" \
+                          --repo "${{ github.repository }}" \
+                          --title "XTC IntelliJ Plugin Snapshots" \
+                          --notes "$RELEASE_NOTES" \
+                          --prerelease \
+                          --latest=false \
+                          --target "$COMMIT"
+                      gh release upload "$RELEASE_TAG" \
+                          "$ASSET_NAME" \
+                          "$CHECKSUM_NAME" \
+                          --repo "${{ github.repository }}" \
+                          --clobber
+                  else
+                      echo "Creating IntelliJ plugin snapshot release..."
+                      gh release create "$RELEASE_TAG" \
+                          "$ASSET_NAME" \
+                          "$CHECKSUM_NAME" \
+                          --repo "${{ github.repository }}" \
+                          --title "XTC IntelliJ Plugin Snapshots" \
+                          --notes "$RELEASE_NOTES" \
+                          --prerelease \
+                          --latest=false \
+                          --target "$COMMIT"
+                  fi
+
+                  echo "✅ IntelliJ plugin snapshot published"
+
+            - name: Summary
+              if: success()
+              shell: bash
+              run: |
+                  echo "### ✅ IntelliJ Plugin Snapshot Published" >> $GITHUB_STEP_SUMMARY
+                  echo "" >> $GITHUB_STEP_SUMMARY
+                  echo "- **Base version:** ${{ steps.artifact.outputs.base-version }}" >> $GITHUB_STEP_SUMMARY
+                  echo "- **Published version:** ${{ steps.artifact.outputs.publish-version }}" >> $GITHUB_STEP_SUMMARY
+                  echo "- **Commit:** ${{ steps.commit.outputs.commit }}" >> $GITHUB_STEP_SUMMARY
+                  echo "- **Release tag:** intellij-plugin-snapshots" >> $GITHUB_STEP_SUMMARY
+                  echo "- **Marketplace channel:** ${{ steps.artifact.outputs.release-channel }}" >> $GITHUB_STEP_SUMMARY
+                  echo "" >> $GITHUB_STEP_SUMMARY
+                  echo "**Assets:**" >> $GITHUB_STEP_SUMMARY
+                  echo "- \`${{ steps.prepare.outputs.asset-name }}\`" >> $GITHUB_STEP_SUMMARY
+                  echo "- \`${{ steps.prepare.outputs.checksum-name }}\`" >> $GITHUB_STEP_SUMMARY

@@ -1,0 +1,92 @@
+/**
+ * `MappedCollection` is the deferred result of a `map()` operation on a `Collection`.
+ */
+class MappedCollection<Element, FromElement>
+        extends DeferredCollection<Element, FromElement> {
+    // ----- constructors --------------------------------------------------------------------------
+
+    /**
+     * Construct a MappedCollection based on an original collection and a transformer.
+     *
+     * @param original     the untransformed collection
+     * @param transform    the transformer
+     * @param fromService  if the [MappedCollection] is exposed over a service boundary
+     */
+    construct(Collection<FromElement>       original,
+              function Element(FromElement) transform,
+              Boolean                       fromService = False) {
+        construct DeferredCollection(original, fromService);
+        this.transform = transform;
+    }
+
+
+    // ----- internal ------------------------------------------------------------------------------
+
+    /**
+     * The mapping function, or Null after it has been applied (which allows memory to be
+     * collected).
+     */
+    protected function Element(FromElement)? transform;
+
+    @Override
+    protected Collection<Element> instantiateEmptyReified() {
+        assert Collection<FromElement> original ?= original;
+        return new Element[](original.knownSize() ?: 0);
+    }
+
+    @Override
+    protected void postReifyCleanup() {
+        transform = Null;
+        super();
+    }
+
+    @Override
+    protected Iterator<Element> unreifiedIterator() {
+        return original?.iterator().map(transform?) : assert;
+    }
+
+    @Override
+    protected void evaluateInto(Appender<Element> accumulator) {
+        if (DeferredCollection<FromElement> nextDeferred := original.is(DeferredCollection<FromElement>),
+                function Element(FromElement) transform ?= transform) {
+            static class ApplyTransform<To, From>(Appender<To> accumulator, function To(From) transform)
+                    implements Appender<From> {
+                @Override Appender<From> add(From v) {
+                    accumulator.add(transform(v));
+                    return this;
+                }
+            }
+            nextDeferred.evaluateInto(new ApplyTransform<Element, FromElement>(accumulator, transform));
+        } else {
+            super(accumulator);
+        }
+    }
+
+
+    // ----- Collection interface ------------------------------------------------------------------
+
+    @Override
+    @RO Int size.get() {
+        if (Int origSize := original?.knownSize()) {
+            return origSize;
+        }
+        return reified.size;
+    }
+
+    @Override
+    conditional Orderer? ordered() {
+        if (Collection<FromElement> original ?= original) {
+            return original.ordered()
+                    ? (True, Null)      // order is stable, but we cannot describe it post-transform
+                    : False;
+        }
+        return reified.ordered();
+    }
+
+    @Override
+    conditional Int knownSize() {
+        // while the `?:` operator would be ideal here, the two types differ (and who wants to deal
+        // with an unnecessary cast?)
+        return original?.knownSize() : reified.knownSize();
+    }
+}

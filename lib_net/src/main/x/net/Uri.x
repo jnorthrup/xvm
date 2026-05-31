@@ -1,0 +1,2187 @@
+/**
+ * A representation of a Uniform Resource Identifier (URI) reference.
+ *
+ * @see https://www.ietf.org/rfc/rfc2396.txt
+ */
+const Uri
+        implements Destringable {
+    // ----- constructors --------------------------------------------------------------------------
+
+    /**
+     * Construct a Uri from a String.
+     *
+     * @param text  the URI
+     *
+     * @throws IllegalArgument  if the URI string cannot be successfully parsed
+     */
+    @Override
+    construct(String text) {
+        assert (String?    scheme,
+                String?    authority,
+                String?    user,
+                String?    host,
+                IPAddress? ip,
+                UInt16?    port,
+                String?    path,
+                String?    query,
+                String?    opaque,
+                String?    fragment) := parse(text, s -> throw new IllegalArgument(s));
+        construct Uri(text, scheme, authority, user, host, ip, port, path, query, opaque, fragment);
+    }
+
+    /**
+     * Construct a Uri from its parts.
+     *
+     * If any of `user`, `host`, `ip`, or `port` are passed, then `authority` should be passed as
+     * `Null`. Similarly, either optionally pass the `host` or the `ip`, but not both.
+     *
+     * @param scheme     the scheme name, or Null if none
+     * @param authority  the entire authority string, which can be empty, or Null if none
+     * @param user       the user name, or Null if none
+     * @param host       the host string, or Null if none
+     * @param ip         the IP address, otherwise Null
+     * @param port       the port number, or Null if none
+     * @param path       the '/' path portion, or Null if none
+     * @param query      the '?' query portion, or Null if none
+     * @param opaque     the opaque portion, if the URI is not of the hierarchical form
+     * @param fragment   the '#' fragment portion, which may be blank, or Null if none
+     *
+     * @throws IllegalArgument  if any of the URI parts is not valid
+     */
+    construct(String?    scheme    = Null,
+              String?    authority = Null,
+              String?    user      = Null,
+              String?    host      = Null,
+              IPAddress? ip        = Null,
+              UInt16?    port      = Null,
+              String?    path      = Null,
+              String?    query     = Null,
+              String?    opaque    = Null,
+              String?    fragment  = Null,
+             ) {
+        // scheme can be Null, but cannot be blank or contain illegal characters
+        assert:arg scheme?.size > 0 as "scheme cannot be blank";
+        assert:arg scheme?.chars.all(schemeValid)
+                as $"scheme contains illegal character(s): {scheme.quoted()}";
+
+        // authority includes user, host, ip, and port; these all go together. authority and user
+        // can be blank, but host cannot be
+        assert:arg host?.size > 0 as "host cannot be blank";
+        if (authority == Null) {
+            if (host != Null || ip != Null) {
+                if (host == Null) {
+                    // populate the host from the ip
+                    host = ip.toString();
+                } else if (Byte[] bytes := IPAddress.parse(host)) {
+                    if (ip == Null) {
+                        // populate the ip from the host
+                        ip = new IPAddress(bytes);
+                    } else {
+                        assert:arg bytes == ip.bytes as $"IP Address ({ip}) does not match host ({host})";
+                    }
+                } else {
+                    assert:arg ip == Null as $|IP Address ({ip}) cannot be specified because the\
+                                              | host ({host}) is not a valid IP Address
+                                             ;
+                }
+
+                // build the authority string
+                authority = renderAuthority(new StringBuffer(), user, host, ip, port).toString();
+            } else {
+                // user and port are only allowed if there is a host or ip
+                assert:arg user == Null as "user cannot be specified without a host or ip";
+                assert:arg port == Null as "port cannot be specified without a host or ip";
+            }
+        } else if ((String? authUser, String? authHost, IPAddress? authIp, UInt16? authPort) :=
+                parseAuthority(authority, s -> throw new IllegalArgument(s))) {
+            // verify that passed user, host, ip, port are either Null or match the authority
+            if (user == Null) {
+                user = authUser;
+            } else {
+                assert:arg user == authUser as $|The user from the authority {authority.quoted()}\
+                                                | does not match the passed user {user.quoted()}
+                                               ;
+            }
+
+            if (host == Null) {
+                host = authHost;
+            } else {
+                assert:arg host == authHost as $|The host from the authority {authority.quoted()}\
+                                                | does not match the passed host {host.quoted()}
+                                               ;
+            }
+
+            if (ip == Null) {
+                ip = authIp;
+            } else {
+                assert:arg ip == authIp as $|The ip from the authority {authority.quoted()}\
+                                            | does not match the passed ip {ip}
+                                           ;
+            }
+
+            if (port == Null) {
+                port = authPort;
+            } else {
+                assert:arg port == authPort as $|The port from the authority {authority.quoted()}\
+                                                | does not match the passed port {port}
+                                               ;
+            }
+
+            if (host != Null || ip != Null) {
+                // re-build the authority string from its constituent pieces
+                authority = renderAuthority(new StringBuffer(), user, host, ip, port).toString();
+            }
+        } else {
+            assert:arg user == Null && host == Null && ip == Null && port == Null
+                    as $"Authority ({authority}) is not parsable, so user, host, ip, and port must be Null";
+        }
+
+        // opaque is only allowed in lieu of
+        if (opaque != Null) {
+            assert:arg authority == Null as "an opaque value cannot be specified with an authority";
+            assert:arg user      == Null as "an opaque value cannot be specified with an user";
+            assert:arg host      == Null as "an opaque value cannot be specified with an host";
+            assert:arg ip        == Null as "an opaque value cannot be specified with an ip";
+            assert:arg port      == Null as "an opaque value cannot be specified with an port";
+            assert:arg path      == Null as "an opaque value cannot be specified with an path";
+            assert:arg query     == Null as "an opaque value cannot be specified with an query";
+        }
+
+        // scheme requires at least one of: authority, path, or opaque
+        assert:arg scheme == Null || (authority != Null || path != Null || opaque != Null)
+                as "a scheme requires at least one of: authority, path, or opaque";
+
+        // some information is required or the URI is invalid (not everything can be Null)
+        assert:arg scheme != Null || authority != Null || path != Null || fragment != Null
+                as "the URI requires at least one of: scheme, authority, path, or fragment";
+
+        // the path cannot be relative if a scheme or authority is specified
+        assert:arg scheme == Null && authority == Null || path?.startsWith('/')
+                as "a relative path cannot be used in a URI that specifies a scheme or an authority";
+
+        construct Uri(Null, scheme, authority, user, host, ip, port, path, query, opaque, fragment);
+    }
+
+    /**
+     * Construct a Uri from its parts.
+     *
+     * If any of `user`, `host`, `ip`, or `port` are passed, then `authority` should be passed as
+     * `Null`. Similarly, either optionally pass the `host` or the `ip`, but not both.
+     *
+     * @param originalForm  the original URI string, or Null if none
+     * @param scheme        the scheme name, or Null if none
+     * @param authority     the entire authority string, which can be empty, or Null if none
+     * @param user          the user name, or Null if none
+     * @param host          the host string, or Null if none
+     * @param ip            the IP address, otherwise Null
+     * @param port          the port number, or Null if none
+     * @param path          the '/' path portion, or Null if none
+     * @param query         the '?' query portion, or Null if none
+     * @param opaque        the opaque portion, if the URI is not of the hierarchical form
+     * @param fragment      the '#' fragment portion, which may be blank, or Null if none
+     */
+    private construct(String?    originalForm,
+                      String?    scheme,
+                      String?    authority,
+                      String?    user,
+                      String?    host,
+                      IPAddress? ip,
+                      UInt16?    port,
+                      String?    path,
+                      String?    query,
+                      String?    opaque,
+                      String?    fragment,
+                     ) {
+        this.originalForm = originalForm;
+        this.scheme       = scheme;
+        this.authority    = authority;
+        this.user         = user;
+        this.host         = host;
+        this.ip           = ip;
+        this.port         = port;
+        this.path         = path;
+        this.query        = query;
+        this.opaque       = opaque;
+        this.fragment     = fragment;
+    }
+
+    // ----- properties ----------------------------------------------------------------------------
+
+    /**
+     * The optional scheme.
+     */
+    String? scheme;
+    /**
+     * The optional authority.
+     */
+    String? authority;
+    /**
+     * The optional user, which must match the user portion of the authority.
+     */
+    String? user;
+    /**
+     * The optional host, which must match the host portion of the authority.
+     */
+    String? host;
+    /**
+     * The optional ip, which must match the host, and also the host portion of the authority.
+     */
+    IPAddress? ip;
+    /**
+     * The optional port number, which must match the port portion of the authority.
+     */
+    UInt16? port;
+    /**
+     * The optional path.
+     */
+    String? path;
+    /**
+     * The optional query, which is the part that follows '?'.
+     */
+    String? query;
+    /**
+     * The optional opaque portion of the URI.
+     */
+    String? opaque;
+    /**
+     * The optional URI fragment, which is the part that follows '#'.
+     */
+    String? fragment;
+
+    /**
+     * The String used to construct the Uri, if any, which may differ from the String that the Uri
+     * would produce if it were requested to do so.
+     */
+    String? originalForm;
+
+    // ----- accessors -----------------------------------------------------------------------------
+
+    /**
+     * @return a [Map] whose keys are unescaped URI query parameter names and whose values are the
+     *         corresponding unescaped URI query parameter values
+     */
+    immutable Map<String, String> extractQueryParams() {
+        static MapCollector<String, String, ListMap<String, String>> toMap = new MapCollector();
+        static (String, String) decode(Map.Entry<String, String> entry) {
+            return decodeParam(entry.key), decodeParam(entry.value);
+        }
+        return query?.splitMap(entrySeparator='&').map(decode, toMap).freeze(inPlace=True) : [];
+    }
+
+    // ----- modifiers -----------------------------------------------------------------------------
+
+    enum Deletion {Delete}
+
+    /**
+     * Construct a new Uri from this Uri with specific changes. This is useful for _adding_
+     * information to a Uri, but is not designed to _remove_ information from an Uri.
+     *
+     * @param scheme     (optional) the scheme name to use
+     * @param authority  (optional) the entire authority string
+     * @param user       (optional) the user name
+     * @param host       (optional) the host string
+     * @param port       (optional) the port number
+     * @param path       (optional) the '/' path portion
+     * @param query      (optional) the '?' query portion
+     * @param fragment   (optional) the '#' fragment portion
+     */
+    Uri with((String   |Deletion)? scheme    = Null,
+             (String   |Deletion)? authority = Null,
+             (String   |Deletion)? user      = Null,
+             (String   |Deletion)? host      = Null,
+             (IPAddress|Deletion)? ip        = Null,
+             (UInt16   |Deletion)? port      = Null,
+             (String   |Deletion)? path      = Null,
+             (String   |Deletion)? query     = Null,
+             (String   |Deletion)? fragment  = Null,
+            ) {
+        if (authority == Null || authority.is(Deletion)) {
+            return new Uri(scheme    = scheme  .is(Deletion) ? Null : scheme   ?: this.scheme,
+                           user      = user    .is(Deletion) ? Null : user     ?: this.user,
+                           host      = host    .is(Deletion) ? Null : host     ?: this.host,
+                           ip        = ip      .is(Deletion) ? Null : ip       ?: this.ip,
+                           port      = port    .is(Deletion) ? Null : port     ?: this.port,
+                           path      = path    .is(Deletion) ? Null : path     ?: this.path,
+                           query     = query   .is(Deletion) ? Null : query    ?: this.query,
+                           fragment  = fragment.is(Deletion) ? Null : fragment ?: this.fragment,
+                          );
+        } else {
+            assert (user == Null || user.is(Deletion)) &&
+                   (host == Null || host.is(Deletion)) &&
+                   (ip   == Null || ip  .is(Deletion)) &&
+                   (port == Null || port.is(Deletion));
+            return new Uri(scheme    = scheme  .is(Deletion) ? Null : scheme   ?: this.scheme,
+                           authority = authority,
+                           path      = path    .is(Deletion) ? Null : path     ?: this.path,
+                           query     = query   .is(Deletion) ? Null : query    ?: this.query,
+                           fragment  = fragment.is(Deletion) ? Null : fragment ?: this.fragment,
+                          );
+        }
+    }
+
+    /**
+     * Apply parts from the passed Uri to this Uri, resulting in a new Uri.
+     *
+     * @param that  the Uri to "apply" to this Uri
+     *
+     * @return the result of applying the passed Uri to this Uri
+     */
+    Uri apply(Uri that) {
+        String? scheme = that.scheme;
+        if (scheme == Null || scheme == "url") {
+            scheme = this.scheme;
+        }
+
+        String? path = that.path ?: this.path;
+        if (!that.path?.startsWith('/'), Int baseUpTo := this.path?.lastIndexOf('/')) {
+            path = this.path?[0..baseUpTo] + that.path? : assert;
+            if (path.indexOf("./")) {
+                // TODO CP fix Path to allow explicit trailing '/' to indicate a directory
+                path = new Path(path).normalize().toString() + (path.endsWith('/') ? "/" : "");
+            }
+        }
+
+        return new Uri(scheme   = scheme,
+                       user     = that.user     ?: this.user,
+                       host     = that.host     ?: this.host,
+                       ip       = that.ip       ?: this.ip  ,
+                       port     = that.port     ?: this.port,
+                       path     = path,
+                       query    = that.query    ?: this.query,
+                       fragment = that.fragment ?: this.fragment,
+                      );
+    }
+
+    /**
+     * Return this same URI, but with no port.
+     *
+     * @return this URI, but with its port removed
+     */
+    Uri withoutPort() {
+        if (port == Null) {
+            return this;
+        }
+
+        return new Uri(originalForm = Null,
+                       scheme       = scheme,
+                       authority    = renderAuthority(new StringBuffer(), user, host, ip, Null).toString(),
+                       user         = user,
+                       host         = host,
+                       ip           = ip,
+                       port         = Null,
+                       path         = path,
+                       query        = query,
+                       opaque       = opaque,
+                       fragment     = fragment,
+                     );
+    }
+
+    // ----- searching -----------------------------------------------------------------------------
+
+    /**
+     * The Uri is divided into sections.
+     */
+    enum Section(String? prefix = Null, String? suffix = Null) {
+        Scheme(suffix=":") {
+            @Override
+            Appender<Char> escape(Appender<Char> buf, String text) = Uri.escape(text, schemeValid).appendTo(buf);
+        },
+        Authority("//"),
+        Path,                   // TODO escape
+        Query("?") {
+            @Override
+            Appender<Char> escape(Appender<Char> buf, String text) = Uri.escape(text, uricValid).appendTo(buf);
+        },
+        Fragment("#");
+
+        /**
+         * The [Position] representing the start of this `Section`.
+         */
+        @Lazy Position start.calc() = new Position(this, 0);
+
+        /**
+         * Calculate the ending [Position] for this `Section`, based on the text content of the
+         * `Section`.
+         *
+         * @param text  the text content of this `Section`
+         *
+         * @return the [Position] representing the end of this `Section`
+         */
+        Position end(String text) = new Position(this, (prefix?.size : 0) + text.size + (suffix?.size : 0));
+
+        /**
+         * Append this `Section`'s canonical form to the passed buffer, escaping the content as
+         * necessary.
+         *
+         * @param buf   the buffer to append to
+         * @param text  the text content of this `Section`
+         *
+         * @return the buffer
+         */
+        Appender<Char> escape(Appender<Char> buf, String text) = text.appendTo(buf);
+    }
+
+    /**
+     * Describes a position within the Uri. This data structure is directly related to the manner in
+     * which this Uri implementation stores its internal data, which may differ from how the Uri is
+     * rendered canonically.
+     */
+    static const Position(Section section, Int offset) {
+        Position with(Section? section = Null, Int? offset = Null) {
+            return new Position(section ?: this.section, offset ?: this.offset);
+        }
+
+        /**
+         * A pre-defined Position for the beginning of a Uri.
+         */
+        static Position Start = new Position(Scheme, 0);
+        /**
+         * A pre-defined Position for the beginning of the Scheme.
+         */
+        static Position StartScheme = Start;
+        /**
+         * A pre-defined Position for the beginning of the Authority.
+         */
+        static Position StartAuthority = new Position(Authority, 0);
+        /**
+         * A pre-defined Position for the beginning of the Path.
+         */
+        static Position StartPath = new Position(Path, 0);
+        /**
+         * A pre-defined Position for the beginning of the Query.
+         */
+        static Position StartQuery = new Position(Query, 0);
+        /**
+         * A pre-defined Position for the beginning of the Fragment.
+         */
+        static Position StartFragment = new Position(Fragment, 0);
+
+        /**
+         * Advance to the next position within the URI.
+         *
+         * @param uri  the [Uri]
+         *
+         * @return the new Position, which may be the end position of the URI
+         */
+        Position incrementWithin(Uri uri) {
+            if (offset < uri.sectionLength(section)) {
+                return new Position(section, offset+1);
+            }
+
+            for (Section nextSection = section; nextSection := section.next(); ) {
+                if (uri.sectionExists(nextSection)) {
+                    return section.start;
+                }
+            }
+
+            return uri.endPosition;
+        }
+    }
+
+    /**
+     * Determine if the specified section exists within the URI.
+     *
+     * @param section  the section to check the existence of
+     *
+     * @return `True` iff the section exists, which means that its content is non-`Null`
+     */
+    Boolean sectionExists(Section section) {
+        return switch (section) {
+            case Scheme:    scheme;
+            case Authority: authority;
+            case Path:      path;
+            case Query:     query;
+            case Fragment:  fragment;
+        } != Null;
+    }
+
+    /**
+     * Calculate the text of the specified section.
+     *
+     * @param section  the section to determine the textual content of
+     *
+     * @return the textual content of the section
+     */
+    String sectionText(Section section) {
+        @Lazy(() -> authority == Null ? "" : $"//{authority}") String cachedAuthority;
+        @Lazy(() -> query     == Null ? "" : $"?{query}")      String cachedQuery;
+        @Lazy(() -> fragment  == Null ? "" : $"#{fragment}")   String cachedFragment;
+
+        return switch (section) {
+            case Scheme:    scheme ?: "";
+            case Authority: cachedAuthority;
+            case Path:      path ?: "";
+            case Query:     cachedQuery;
+            case Fragment:  cachedFragment;
+        };
+    }
+
+    /**
+     * Calculate the length of the specified section.
+     *
+     * @param section  the section to determine the length of
+     *
+     * @return the length of the section
+     */
+    Int sectionLength(Section section) {
+        return switch (section) {
+            case Scheme:    scheme?.size        : 0;
+            case Authority: authority?.size + 2 : 0;
+            case Path:      path?.size          : 0;
+            case Query:     query?.size + 1     : 0;
+            case Fragment:  fragment?.size + 1  : 0;
+        };
+    }
+
+    /**
+     * The "at the start" (inclusive) position for this Uri.
+     */
+    @RO Position beginPosition.get() {
+        return scheme    != Null ? Section.Scheme   .start
+             : opaque    != Null ? assert
+             : authority != Null ? Section.Authority.start
+             : path      != Null ? Section.Path     .start
+             : query     != Null ? Section.Query    .start
+             : fragment  != Null ? Section.Fragment .start
+             : assert;
+    }
+
+    /**
+     * The "after the end" (exclusive) position for this Uri.
+     */
+    @RO Position endPosition.get() {
+        return fragment  != Null ? Section.Fragment .end(fragment)
+             : opaque    != Null ? assert
+             : query     != Null ? Section.Query    .end(query)
+             : path      != Null ? Section.Path     .end(path)
+             : authority != Null ? Section.Authority.end(authority)
+             : scheme    != Null ? Section.Scheme   .end(scheme)
+             : assert;
+    }
+
+    /**
+     * Regardless of what section the passed position is in, test to see if that position
+     * corresponds to a position within the specified section.
+     *
+     * Specifically, if the passed position is immediately after the last character of a section,
+     * and that section precedes the desired section, then the position is actually the same as the
+     * position of the first character of the following section. Similarly, the desired section may
+     * be separated from the specified position by empty sections, which can be ignored.
+     *
+     * @param position  the position to evaluate
+     * @param section   the section that the caller desires the position to be within
+     *
+     * @return True iff the passed position is within the specified section
+     * @return (conditional) the position object to use instead of the passed position object
+     */
+    conditional Position positionAt(Position position, Section section) {
+        switch (position.section <=> section) {
+        case Lesser:
+            Int offset = position.offset;
+            for (Section current : position.section ..< section) {
+                if (offset == sectionLength(current)) {
+                    // we were at the end of the previous section, so the offset in the next
+                    // section will be zero
+                    offset = 0;
+                } else {
+                    return False;
+                }
+            }
+            return True, section.start;
+
+        case Equal:
+            return True, position;
+
+        case Greater:
+            Int offset = position.offset;
+            for (Section current : position.section ..< section) {
+                if (offset == 0) {
+                    offset = sectionLength(current.prevValue());
+                } else {
+                    return False;
+                }
+            }
+            return True, new Position(section, offset);
+        }
+    }
+
+    /**
+     * Attempt to find the specified literal in this Uri.
+     *
+     * @param literal  the literal to search for
+     * @param from     (optional) the position (inclusive) to begin searching from
+     * @param to       (optional) the position (exclusive) to not search at or beyond
+     *
+     * @return `True` iff the literal is found
+     * @return (conditional) the position within the Uri that the literal is located
+     * @return (conditional) the position within the Uri that immediately follows the literal
+     */
+    conditional (Position found, Position next)
+            find(String literal, Position? from = Null, Position? to = Null) {
+        // start at the beginning if no "start from" specified
+        from ?:= Start;
+
+        Int literalLength = literal.size;
+        if (literalLength == 0) {
+            return True, from, from;
+        }
+
+        Char start = literal[0];
+
+        Section section = from.section;
+        Int     offset  = from.offset;
+        String  part    = sectionText(section);
+        while (True) {
+            // check if we need to stop looking for the literal before reaching the end of the part
+            Int partLength = part.size;
+            if (section == to?.section) {
+                partLength = partLength.notGreaterThan(to.offset - literalLength);
+            }
+
+            // scan for the first character of the literal
+            while (offset < partLength) {
+                if (Int nextOffset := matchCharacter(start, part, offset)) {
+                    if (Position afterLiteral := matchRemainder(
+                            literal, 1, literalLength, section, nextOffset, sectionText)) {
+                        // we found it, but before returning, make sure that we did not pass the
+                        // end of the region that we were allowed to match within
+                        if (afterLiteral > to?) {
+                            return False;
+                        }
+
+                        return True, new Position(section, offset), afterLiteral;
+                    }
+
+                    offset = nextOffset;
+                } else {
+                    ++offset;
+                }
+            }
+
+            // check if we have reached the end of the area to match within
+            if (section >= to?.section) {
+                return False;
+            }
+
+            // load the next section
+            if (section := section.next()) {
+                part   = sectionText(section);
+                offset = 0;
+            } else {
+                // "We're all out of roofs!" (The Tick vs. The Idea Men)
+                return False;
+            }
+        }
+    }
+
+    /**
+     * Attempt to match the specified literal at the specified position within this Uri.
+     *
+     * @param literal  the literal to match
+     * @param from     the exactly position that the literal must be located at
+     *
+     * @return `True` iff the literal is matched
+     * @return (conditional) the position within the Uri that immediately follows the literal
+     */
+    conditional (Position next) matches(String literal, Position from) {
+        Int literalLength = literal.size;
+        if (literalLength == 0) {
+            return True, from;
+        }
+
+        return matchRemainder(literal, 0, literalLength, from.section, from.offset, sectionText);
+    }
+
+    /**
+     * Match a single character.
+     *
+     * @param ch      the single character to match, which may be a UCS character
+     * @param part    the String to match the character within, which may contain `pct-encoded` data
+     * @param offset  the offset within the String at which to begin the matching
+     *
+     * @return `True` iff the character matches
+     * @return (conditional) the offset of the character following the matched character
+     */
+    protected static conditional (Int offset) matchCharacter(Char ch, String part, Int offset) {
+        if (ch == part[offset]) {
+            return True, offset+1;
+        }
+
+        // it's possible that the character needs to be UTF-8 encoded, or the Uri is pct-encoded
+        if (!ch.ascii || part[offset] == '%') {
+            // get the UTF8 bytes for the character and then try every possible encoding
+            Int length = part.size;
+            for (Byte byte : ch.utf8()) {
+                if (offset >= length) {
+                    return False;
+                }
+
+                if (byte.toChar() == part[offset]) {
+                    ++offset;
+                } else if (part[offset] == '%' && offset+2 < length
+                        && part[offset+1] == byte.highNibble.toChar()
+                        && part[offset+2] == byte.lowNibble.toChar()) {
+                    offset += 3;
+                } else {
+                    return False;
+                }
+            }
+            return True, offset;
+        }
+
+        return False;
+    }
+
+    /**
+     * Match the remaining portion of a literal string value.
+     *
+     * @param literal        the literal string value
+     * @param literalOffset  the offset within the literal string value continue matching from
+     * @param literalLength  the effective length of the literal string value (if the entire value
+     *                       is not being matched)
+     * @param section        the current section of the Uri being matched
+     * @param offset         the offset into the current section of the Uri that must match the next
+     *                       character ofo the literal string value
+     * @param partFor        the function to use to load subsequent sections of the Uri
+     */
+    protected static conditional (Position next) matchRemainder(
+            String                   literal,
+            Int                      literalOffset,
+            Int                      literalLength,
+            Section                  section,
+            Int                      offset,
+            function String(Section) partFor,
+           ) {
+        if (literalOffset >= literalLength) {
+            return True, new Position(section, offset);
+        }
+
+        while (True) {
+            String part       = partFor(section);
+            Int    partLength = part.size;
+            if (offset < partLength) {
+                while (True) {
+                    if (literalOffset >= literalLength) {
+                        return True, new Position(section, offset);
+                    }
+
+                    if (offset >= partLength) {
+                        break;
+                    }
+
+                    if (!(offset := matchCharacter(literal[literalOffset++], part, offset))) {
+                        return False;
+                    }
+                }
+            }
+
+            // load the next section
+            if (section := section.next()) {
+                part   = partFor(section);
+                offset = 0;
+            } else {
+                return False;
+            }
+        }
+    }
+
+    // ----- formatting ----------------------------------------------------------------------------
+
+    /**
+     * The URI in the String format selected by this implementation.
+     */
+    @Lazy
+    String canonicalForm.calc() {
+        StringBuffer buf = new StringBuffer();
+        if (String scheme ?= scheme) {
+            escape(scheme, schemeValid).appendTo(buf);
+            buf.add(':');
+        }
+
+        if (String opaque ?= opaque) {
+            escape(opaque, uricValid).appendTo(buf);
+        } else {
+            if (authority != Null) {
+                "//".appendTo(buf);
+                authority.appendTo(buf);
+            }
+
+            if (path != Null) {
+                // TODO escape
+                path.appendTo(buf);
+            }
+
+            if (String query ?= query) {
+                buf.add('?');
+                escape(query, uricValid).appendTo(buf);
+            }
+        }
+
+        if (String fragment ?= fragment) {
+            buf.add('#');
+            escape(fragment, uricValid).appendTo(buf);
+        }
+
+        return buf.toString();
+    }
+
+    /**
+     * Obtain a portion of the URI's canonical form starting from the specified [Position] and
+     * ending immediately before the `end` [Position].
+     *
+     * @param start  the position to start the slice from (inclusive)
+     * @param end    (optional) the position to end the slice at (exclusive)
+     *
+     * @return the specified slice of the URI in the URI's canonical format
+     */
+    String canonicalSlice(Position start, Position? end = Null) {
+        static Position WayBeyondTheEnd = new Position(Fragment, 1TB);
+        end ?:= WayBeyondTheEnd;
+
+        Section section    = start.section;
+        Int     offset     = start.offset;
+        Section endSection = end.section;
+        if (section > endSection || section == endSection && offset >= end.offset) {
+            return "";
+        }
+
+        /**
+         * Append the specified section's text to the buffer, and indicate if the buffer is now
+         * complete.
+         *
+         * @param buf      the buffer being appended to
+         * @param section  the current [Section] being appended
+         * @param text     the text of the [Section]
+         * @param offset   the offset within the [Section] to start appending from
+         * @param end      the end [Position] to keep appending up to
+         *
+         * @return `True` iff that was the last [Section] to append
+         */
+        static Boolean lastAppendSection(Appender<Char> buf,
+                                         Section      section,
+                                         String       text,
+                                         Int          offset,
+                                         Position     end,
+                                        ) {
+            Section endSection  = end.section;
+            Boolean isLast      = section == endSection;
+            Int     totalLength = (section.prefix?.size : 0) + text.size + (section.suffix?.size : 0);
+            if (offset > 0 || isLast && end.offset < totalLength) {
+                // calculate exactly how much of the section should be copied
+                Int endOffset = totalLength;
+                if (isLast && end.offset < endOffset) {
+                    endOffset = end.offset;
+                    if (offset == endOffset) {
+                        return True;
+                    }
+                }
+                if (String prefix ?= section.prefix) {
+                    Int partLen = prefix.size;
+                    if (offset < partLen) {
+                        prefix[offset..<endOffset.notGreaterThan(partLen)].appendTo(buf);
+                    }
+                    offset     = (offset-partLen).notLessThan(0);
+                    endOffset  = (endOffset-partLen).notLessThan(0);
+                }
+                if (offset < endOffset && !text.empty) {
+                    Int partLen = text.size;
+                    if (offset < partLen) {
+                        section.escape(buf, text[offset..<endOffset.notGreaterThan(partLen)]);
+                    }
+                    offset     = (offset-partLen).notLessThan(0);
+                    endOffset  = (endOffset-partLen).notLessThan(0);
+                }
+                if (offset < endOffset, String suffix ?= section.suffix) {
+                    Int partLen = suffix.size;
+                    if (offset < partLen) {
+                        suffix[offset..<endOffset.notGreaterThan(partLen)].appendTo(buf);
+                    }
+                }
+            } else {
+                // copy the entire section
+                section.prefix?.appendTo(buf);
+                section.escape(buf, text);
+                section.suffix?.appendTo(buf);
+            }
+            return isLast || (section.next()?.ordinal == endSection.ordinal && end.offset == 0) : True;
+        }
+
+        StringBuffer buf = new StringBuffer();
+        switch (section) {
+        case Scheme:
+            if (lastAppendSection(buf, Scheme, scheme?, offset, end)) {
+                break;
+            }
+            offset = 0;
+            continue;
+        case Authority:
+            assert opaque == Null;
+            if (lastAppendSection(buf, Authority, authority?, offset, end)) {
+                break;
+            }
+            offset = 0;
+            continue;
+        case Path:
+            if (lastAppendSection(buf, Path, path?, offset, end)) {
+                break;
+            }
+            offset = 0;
+            continue;
+        case Query:
+            if (lastAppendSection(buf, Query, query?, offset, end)) {
+                break;
+            }
+            offset = 0;
+            continue;
+        case Fragment:
+            assert lastAppendSection(buf, Fragment, fragment?, offset, end);
+            break;
+        }
+        return buf.toString();
+    }
+
+    /**
+     * Render the components of the authority into an authority string. This method does not attempt
+     * to validate the contents of the components of the authority string.
+     *
+     * @param user  an optional user name
+     * @param host  an optional host name or IP address string
+     * @param ip    an optional IPAddress, used in lieu of the host
+     * @param port  an optional port number
+     */
+    static StringBuffer renderAuthority(StringBuffer buf,
+                                        String?      user,
+                                        String?      host,
+                                        IPAddress?   ip,
+                                        UInt16?      port) {
+        if (host != Null || ip != Null) {
+            if (user != Null) {
+                escape(user, ch -> regnameValid(ch) && ch != '@').appendTo(buf);
+                buf.add('@');
+            }
+
+            if (ip != Null) {
+                if (ip.v6) {
+                    // the colons in the IPv6 address get confused with the colon before the port,
+                    // so the IPv6 address is wrapped in square brackets
+                    buf.add('[');
+                    ip.appendTo(buf);
+                    buf.add(']');
+                } else {
+                    ip.appendTo(buf);
+                }
+            } else {
+                host.appendTo(buf);
+            }
+
+            if (port != Null) {
+                buf.add(':');
+                port.appendTo(buf);
+            }
+        }
+
+        return buf;
+    }
+
+    @Override
+    String toString() {
+        return originalForm ?: canonicalForm;
+    }
+
+    // ----- parsing -------------------------------------------------------------------------------
+
+    /**
+     * Create a `Uri` from the passed `String`, iff the `String` contains a valid URI.
+     *
+     * @param text  the text containing a URI
+     *
+     * @return True if the text was successfully parsed into a Uri
+     * @return (conditional) the Uri
+     */
+    static conditional Uri fromString(String text) {
+        if ((String?    scheme,
+             String?    authority,
+             String?    user,
+             String?    host,
+             IPAddress? ip,
+             UInt16?    port,
+             String?    path,
+             String?    query,
+             String?    opaque,
+             String?    fragment) := parse(text)) {
+            return True, new Uri(text, scheme, authority, user, host, ip, port, path, query, opaque, fragment);
+        }
+
+        return False;
+    }
+
+    /**
+     * Parse URI information from a String, without relying on an exception to report failure.
+     *
+     * @param text    the String containing the URI
+     * @param report  (optional) the function to report a failure to, as a non-localized string
+     *
+     * @return True iff the parsing succeeded and the URI is lexically valid
+     * @return (conditional) the scheme name, or Null if none
+     * @return (conditional) the user name, or Null if none
+     * @return (conditional) the entire authority string, which can be empty, or Null if none
+     * @return (conditional) the host string (name or IP v4/v6 address), or Null if none
+     * @return (conditional) the parsed IP address iff the host is an IP address, otherwise Null
+     * @return (conditional) the port number, or Null if none
+     * @return (conditional) the '/' path portion, or Null if none
+     * @return (conditional) the '?' query portion, or Null if none
+     * @return (conditional) the opaque portion, if the URI is not of the hierarchical form
+     * @return (conditional) the '#' fragment portion, or Null if none
+     */
+    static conditional (String?    scheme,
+                        String?    authority,
+                        String?    user,
+                        String?    host,
+                        IPAddress? ip,
+                        UInt16?    port,
+                        String?    path,
+                        String?    query,
+                        String?    opaque,
+                        String?    fragment) parse(String text, function void (String)? report = Null) {
+        String?    scheme    = Null;
+        String?    user      = Null;
+        String?    authority = Null;
+        String?    host      = Null;
+        IPAddress? ip        = Null;
+        UInt16?    port      = Null;
+        String?    path      = Null;
+        String?    query     = Null;
+        String?    opaque    = Null;
+        String?    fragment  = Null;
+
+        Int offset = 0;
+        Int length = text.size;
+
+        // an empty URI is not legal
+        if (length == 0) {
+            report?($"Invalid URI {text.quoted()}: Empty URI");
+            return False;
+        }
+
+        // a Uri is either an absoluteURI or a relativeURI:
+        //
+        //   URI-reference = [ absoluteURI | relativeURI ] [ "#" fragment ]
+        //
+        // and an absolute URI always starts with a scheme and a colon:
+        //
+        //   absoluteURI = scheme ":" ( hier_part | opaque_part )
+        //   scheme = alpha *( alpha | digit | "+" | "-" | "." )
+        //   hier_part = ( net_path | abs_path ) [ "?" query ]
+        //   opaque_part = uric_no_slash *uric
+        //   uric_no_slash = unreserved | escaped | ";" | "?" | ":" | "@" | "&" | "=" | "+" | "$" | ","
+        //
+        // and a relative URI starts with either '/' or a rel_segment followed by '/'
+        //
+        //   relativeURI = ( net_path | abs_path | rel_path ) [ "?" query ]
+        //   net_path = "//" authority [ abs_path ]
+        //   abs_path = "/"  path_segments
+        //   rel_path = rel_segment [ abs_path ]
+        //   rel_segment = 1*( unreserved | escaped | ";" | "@" | "&" | "=" | "+" | "$" | "," )
+        String? error = Null;
+        if ((scheme, offset, error) := parseScheme(text, offset, error)) {
+            if ((authority, user, host, ip, port, path, offset, error) := parseNetPath(text, offset)) {
+                (query, offset, error) := parseQuery(text, offset, error);
+                (fragment, offset, error) := parseFragment(text, offset, error);
+            } else if ((path, offset, error) := parseAbsPath(text, offset, error)) {
+                (query, offset, error) := parseQuery(text, offset, error);
+                (fragment, offset, error) := parseFragment(text, offset, error);
+            } else {
+                (opaque, offset, error) := parseOpaque(text, offset, error);
+                (fragment, offset, error) := parseFragment(text, offset, error);
+            }
+        } else if ((authority, user, host, ip, port, path, offset, error) := parseNetPath(text, offset)) {
+            (query, offset, error) := parseQuery(text, offset, error);
+            (fragment, offset, error) := parseFragment(text, offset, error);
+        } else if ((path, offset, error) := parseAbsPath(text, offset, error)) {
+            (query, offset, error) := parseQuery(text, offset, error);
+            (fragment, offset, error) := parseFragment(text, offset, error);
+        } else if ((path, offset, error) := parseRelPath(text, offset, error)) {
+            (query, offset, error) := parseQuery(text, offset, error);
+            (fragment, offset, error) := parseFragment(text, offset, error);
+        } else if ((query, offset, error) := parseQuery(text, offset, error)) {
+            (fragment, offset, error) := parseFragment(text, offset, error);
+        } else if (!((fragment, offset, error) := parseFragment(text, offset, error))) {
+            error = $"Not an absolute (scheme-based) nor a relative (path-based) URI: {text.quoted()}";
+        }
+
+        // verify that the text was consumed
+        if (error == Null && offset < length) {
+            error = $"Unparsable URI portion: {text[offset ..< length].quoted()}";
+        }
+
+        report?(error?);
+        return error==Null, scheme, authority, user, host, ip, port, path, query, opaque, fragment;
+
+        /**
+         * Internal: Parse a URI "scheme", if there is one.
+         */
+        static (Boolean found, String? scheme, Int offset, String? error) parseScheme(
+                String text, Int offset, String? error) {
+            if (error != Null) {
+                return True, Null, offset, error;
+            }
+
+            // save some time and some allocations by explicitly testing for the most common schemes
+            Int length = text.size;
+            switch (text[offset]) {
+            case 'f':
+                if (match(text, offset+1, "ile:")) {
+                    return True, "file", offset+5, Null;
+                } else if (match(text, offset+1, "tp:")) {
+                    return True, "ftp", offset+4, Null;
+                }
+                break;
+
+            case 'h':
+                if (match(text, offset+1, "ttp")) {
+                    if (length > offset+4 && text[offset+4] == ':') {
+                        return True, "http", offset+5, Null;
+                    } else if (length > offset+5 && text[offset+4] == 's' && text[offset+5] == ':') {
+                        return True, "https", offset+6, Null;
+                    }
+                }
+                break;
+
+            case 'l':
+                if (match(text, offset+1, "dap")) {
+                    if (length > offset+4 && text[offset+4] == ':') {
+                        return True, "ldap", offset+5, Null;
+                    } else if (length > offset+5 && text[offset+4] == 's' && text[offset+5] == ':') {
+                        return True, "ldaps", offset+6, Null;
+                    }
+                }
+                break;
+
+            case 'm':
+                if (match(text, offset+1, "ailto:")) {
+                    return True, "mailto", offset+7, Null;
+                }
+                break;
+
+            case 'n':
+                if (match(text, offset+1, "ews:")) {
+                    return True, "news", offset+5, Null;
+                } else if (match(text, offset+1, "fs:")) {
+                    return True, "nfs", offset+4, Null;
+                }
+                break;
+
+            case 's':
+                if (match(text, offset+1, "sh:")) {
+                    return True, "ssh", offset+4, Null;
+                } else if (match(text, offset+1, "ftp:")) {
+                    return True, "sftp", offset+5, Null;
+                }
+                break;
+
+            case 't':
+                if (match(text, offset+1, "elnet:")) {
+                    return True, "telnet", offset+7, Null;
+                } else if (match(text, offset+1, "ftp:")) {
+                    return True, "tftp", offset+5, Null;
+                }
+                break;
+
+            case 'A'..'Z':
+            case 'a'..'z':
+                // this is a legal first character for a scheme
+                break;
+
+            case '/': // path
+            case '#': // fragment
+            default:
+                // scheme must start with an "alpha" character
+                return False, Null, offset, Null;
+            }
+
+            // attempt to parse a scheme; parse until we hit a ':'
+            //
+            //      scheme = alpha *( alpha | digit | "+" | "-" | "." )
+            //
+            // any other character would indicate "not a scheme", for example:
+            //
+            //      '/' - it is a relativeURI
+            //      '#' - it was a relativeURI, next is fragment
+            //      '?' - it was a relativeURI, next is query
+            //      '%' - an escape, as well as any symbol not '+', '-', or '.', indicates (i.e. is
+            //            only legal in) a path
+            for (Int i = offset+1; i < length; ++i) {
+                switch (text[i]) {
+                case 'A'..'Z', 'a'..'z':
+                case '0'..'9':
+                case '+', '-', '.':
+                    // this is a valid scheme character
+                    break;
+
+                case ':':
+                    // this is the separator that terminates the scheme
+                    return True, text[offset ..< i], i+1, Null;
+
+                default:
+                    // not a valid scheme character
+                    return False, Null, offset, Null;
+                }
+            }
+
+            // got to the end of the URI, and no colon was encountered, so it was not a scheme
+            return False, Null, offset, Null;
+        }
+
+        /**
+         * Internal: Parse a URI "net_path", if there is one.
+         */
+        static (Boolean found, String? authority, String? user, String? host, IPAddress? ip,
+                UInt16? port, String? path, Int offset, String? error)
+                    parseNetPath(String text, Int offset) {
+            // check for the leading "//"
+            Int length = text.size;
+            if (offset + 1 >= length || text[offset] != '/' || text[offset+1] != '/') {
+                return False, Null, Null, Null, Null, Null, Null, offset, Null;
+            }
+
+            // move past the "//"
+            offset += 2;
+
+            String?    authority = Null;
+            String?    user      = Null;
+            String?    host      = Null;
+            IPAddress? ip        = Null;
+            UInt16?    port      = Null;
+            String?    path      = Null;
+            String?    error     = Null;
+
+            Int     atSign       = -1;
+            Int     atSigns      = 0;
+            Int     leftSquare   = -1;
+            Int     leftSquares  = 0;
+            Int     rightSquare  = -1;
+            Int     rightSquares = 0;
+            Int     colon        = -1;
+            Int     colons       = 0;
+            Boolean escaped      = False;
+
+            // parse up to the '/' path, the '?' query, or the '#' fragment
+            Int start = offset;
+            EachChar: while (offset < length) {
+                Char ch = text[offset];
+                if (ch == '/' || ch == '?' || ch == '#') {
+                    break;
+                }
+
+                switch (ch) {
+                case '@':
+                    atSign = offset;
+                    ++atSigns;
+
+                    // it's legal for colons to appear in the user; the @ sign indicates the end of
+                    // the user info, and so all of those colons are ignored, because we're looking
+                    // for the colon(s) that come after the IPv6 address
+                    colon  = -1;
+                    colons = 0;
+                    break;
+
+                case '[':
+                    leftSquare = offset;
+                    ++leftSquares;
+                    break;
+
+                case ']':
+                    rightSquare = offset;
+                    ++rightSquares;
+                    break;
+
+                case ':':
+                    if (leftSquares == rightSquares) {
+                        colon = offset;
+                        ++colons;
+                    }
+                    break;
+
+                case '%':
+                    if ((_, offset) := decodeEscape(text, offset, allowUnicode=True)) {
+                        escaped = True;
+                        continue EachChar;
+                    } else {
+                        error ?:= $"Illegal escape in the net-path portion of {text.quoted()}";
+                        break;
+                    }
+
+                default:
+                    if (!regnameValid(ch)) {
+                        error ?:= $"Illegal character {ch.quoted()} in the net-path portion of {text.quoted()}";
+                    }
+                    break;
+                }
+
+            ++offset;
+            }
+
+            authority = text[start ..< offset];
+
+            // test if the authority appears to contain a "server" string, which can include user
+            // info, ip address, port, etc.
+            if (error == Null && atSigns <= 1 && leftSquares <= 1 && rightSquares == leftSquares
+                    && (leftSquares == 0 || rightSquare > leftSquare > atSign)
+                    && colons <= 1 && (colons == 0 || colon > rightSquare && colon > atSign)) {
+                (user, host, ip, port, error) = parseAuthority(authority, atSign-start, colon-start);
+                if (error == Null && host != Null) {
+                    user = unescape(user?);
+                } else {
+                    user = Null;
+                    host = Null;
+                    ip   = Null;
+                    port = Null;
+                }
+            }
+
+            if ((leftSquares > 0 || rightSquares > 0) && ip == Null && error == Null) {
+                // the only use for the '[' and ']' characters is to enclose an IPv6 address
+                error = $|Square brackets are only permitted in a URI authority string to enclose\
+                         | a valid IPv6 address: {authority.quoted()}
+                        ;
+            }
+
+            if (escaped) {
+                authority = unescape(authority);
+            }
+
+            (_, path, offset, error) = parseAbsPath(text, offset, error);
+
+            return error==Null, authority, user, host, ip, port, path, offset, error;
+        }
+
+        /**
+         * Internal: Parse a URI "abs_path", if there is one.
+         *
+         *     abs_path      = "/" path_segments
+         *     path_segments = segment *( "/" segment )
+         *     segment       = *pchar *( ";" param )
+         *     param         = *pchar
+         *     pchar         = unreserved | escaped | ":" | "@" | "&" | "=" | "+" | "$" | ","
+         */
+        static (Boolean found, String? path, Int offset, String? error) parseAbsPath(
+                String text, Int offset, String? error) {
+            if (error != Null) {
+                return True, Null, offset, error;
+            }
+
+            Int length = text.size;
+            if (offset >= length || text[offset] != '/') {
+                return False, Null, offset, error;
+            }
+
+            (String path, offset, error) = parsePath(text, offset, error);
+            return True, path, offset, error;
+        }
+
+        /**
+         * Internal: Parse a URI "rel_path", if there is one.
+         *
+         *     rel_path    = rel_segment [ abs_path ]
+         *     rel_segment = 1*( unreserved | escaped | ";" | "@" | "&" | "=" | "+" | "$" | "," )
+         */
+        static (Boolean found, String? path, Int offset, String? error) parseRelPath(
+                String text, Int offset, String? error) {
+            if (error != Null) {
+                return True, Null, offset, error;
+            }
+
+            // the path is followed by the query, the fragment, or nothing
+            Char next = offset < text.size ? text[offset] : '#';
+            if (next == '?' || next == '#') {
+                return False, Null, offset, error;
+            }
+
+            (String path, offset, error) = parsePath(text, offset, error);
+            return True, path, offset, error;
+        }
+
+        /**
+         * Internal: Parse a path.
+         */
+        static (String path, Int offset, String? error) parsePath(String text, Int offset, String? error) {
+            Int start  = offset;
+            Int length = text.size;
+            EachChar: while (offset < length) {
+                Char ch = text[offset];
+                switch (ch) {
+                case '?':   // query
+                case '#':   // fragment
+                    break EachChar;
+
+                case '/':
+                    break;
+
+                    // unreserved:
+                case 'A'..'Z', 'a'..'z':
+                case '0'..'9':
+                case '-', '_', '.', '!', '~', '*', '\'', '(', ')':
+                    // other
+                case ':', '@', '&', '=', '+', '$', ',':
+                    // param
+                case ';':
+                    break;
+
+                    // escaped (requires 2 digits to follow):
+                case '%':
+                    if ((_, offset) := decodeEscape(text, offset, allowUnicode=True)) {
+                        continue EachChar;
+                    } else {
+                        error ?:= $"Illegal escape sequence in the relative path of {text.quoted()}";
+                        break;
+                    }
+
+                default:
+                    error ?:= $"Illegal character {ch.quoted()} in the relative path of {text.quoted()}";
+                    break EachChar;
+                }
+
+                ++offset;
+            }
+
+            return text[start ..< offset], offset, error;
+        }
+
+        /**
+         * Internal: Parse a URI "query", if there is one.
+         */
+        static (Boolean found, String? query, Int offset, String? error) parseQuery(
+                String text, Int offset, String? error) {
+            if (error != Null) {
+                return True, Null, offset, error;
+            }
+
+            Int length = text.size;
+            if (offset >= length || text[offset] != '?') {
+                return False, Null, offset, error;
+            }
+
+            // the query is the last thing in the URI except for the '#' fragment
+            Int     start   = ++offset;
+            EachChar: while (offset < length) {
+                Char ch = text[offset];
+                if (ch == '#') {
+                    break;
+                }
+
+                if (error == Null) {
+                    if (!uricValid(ch)) {
+                        error = $"Illegal character {ch.quoted()} in the '?' query of {text.quoted()}";
+                    } else if (ch == '%') {
+                        if ((_, offset) := decodeEscape(text, offset, allowUnicode=True)) {
+                            continue EachChar;
+                        } else {
+                            error = $"Illegal escape sequence in the '?' query of {text.quoted()}";
+                        }
+                    }
+                }
+
+                ++offset;
+            }
+
+            String query = text[start ..< offset];
+            // note that the query cannot be unescaped, because delimiters within the query are
+            // unknown in the general URI case; for a particular scheme (like HTTP), the delimiters
+            // are known to be '=' and '&', but the URI specification is too open-ended to make any
+            // such assumption here
+            return True, query, offset, error;
+        }
+
+        /**
+         * Internal: Parse a URI "opaque_part", if there is one.
+         */
+        static (Boolean found, String? opaque, Int offset, String? error) parseOpaque(
+                String text, Int offset, String? error) {
+            if (error != Null) {
+                return True, Null, offset, error;
+            }
+
+            Int length = text.size;
+            if (offset >= length) {
+                return False, Null, offset, error;
+            }
+
+            // the opaque part is the last thing in the URI except for the '#' fragment
+            Int     start   = offset;
+            Boolean escaped = False;
+            EachChar: while (offset < length) {
+                Char ch = text[offset];
+                if (ch == '#') {
+                    break;
+                }
+
+                if (error == Null) {
+                    if (!uricValid(ch)) {
+                        error = $"Illegal character {ch.quoted()} in the opaque part of {text.quoted()}";
+                    } else if (ch == '%') {
+                        if ((_, offset) := decodeEscape(text, offset, allowUnicode=True)) {
+                            continue EachChar;
+                        } else {
+                            error = $"Illegal escape sequence in the relative path of {text.quoted()}";
+                        }
+                    } else if (ch == '/' && EachChar.first) {
+                        error = $"The opaque portion of the URI cannot start with a '/' character: {text.quoted()}";
+                    }
+                }
+
+                ++offset;
+            }
+
+            String opaque = text[start ..< offset];
+            if (escaped && error == Null) {
+                opaque = unescape(opaque);
+            }
+            return True, opaque, offset, error;
+        }
+
+        /**
+         * Internal: Parse a URI "fragment", if there is one.
+         */
+        static (Boolean found, String? fragment, Int offset, String? error) parseFragment(
+                String text, Int offset, String? error) {
+            if (error != Null) {
+                return True, Null, offset, error;
+            }
+
+            Int length = text.size;
+            if (offset >= length || text[offset] != '#') {
+                return False, Null, offset, error;
+            }
+
+            // the fragment is the last thing in the URI, so check all the way to the end
+            Int     start   = ++offset;
+            Boolean escaped = False;
+            EachChar: while (offset < length) {
+                Char ch = text[offset];
+                if (error == Null) {
+                    if (!uricValid(ch)) {
+                        error = $"Illegal character {ch.quoted()} in the '#' fragment of {text.quoted()}";
+                    } else if (ch == '%') {
+                        if ((_, offset) := decodeEscape(text, offset, allowUnicode=True)) {
+                            escaped = True;
+                            continue EachChar;
+                        } else {
+                            error = $"Illegal escape sequence in the '?' query of {text.quoted()}";
+                        }
+                    }
+                }
+
+            ++offset;
+            }
+
+            String fragment = text[start ..< offset];
+            if (escaped && error == Null) {
+                fragment = unescape(fragment, allowUnicode=True);
+            }
+            return True, fragment, offset, error;
+        }
+
+        /**
+         * Simple lexical exact match helper.
+         */
+        static Boolean match(String text, Int offset, String match) {
+            Int count = match.size;
+            Int end   = offset + count;
+            if (end > text.size) {
+                return False;
+            }
+
+            for (Int i : 0 ..< count) {
+                if (text[offset+i] != match[i]) {
+                    return False;
+                }
+            }
+
+            return True;
+        }
+    }
+
+    /**
+     * Helper for parsing an authority string.
+     *
+     * @param authority  the authority string
+     * @param report     (optional) the function to report a failure to, as a non-localized string
+     *
+     * @return True iff the parsing succeeded
+     * @return user  (conditional) the user name, if any
+     * @return host  (conditional) the host string, if any
+     * @return ip    (conditional) the IP address, if any
+     * @return port  (conditional) the port number, if any
+     */
+    static conditional (String? user, String? host, IPAddress? ip, UInt16? port)
+            parseAuthority(String authority, function void (String)? report = Null) {
+        if (authority.empty) {
+            report?($"Empty authority");
+            return False;
+        }
+
+        Int     atSign       = -1;
+        Int     leftSquare   = -1;
+        Int     rightSquare  = -1;
+        Int     colon        = -1;
+
+        Int offset = 0;
+        Int length = authority.size;
+        EachChar: while (offset < length) {
+            switch (Char ch = authority[offset]) {
+            case '@':
+                if (atSign >= 0 || leftSquare >= 0 || colon >= 0) {
+                    report?($"Illegal authority {authority.quoted()}: Unexpected '@' sign");
+                    return False;
+                }
+                atSign = EachChar.count;
+                break;
+
+            case '[':
+                if (leftSquare >= 0 || colon >= 0) {
+                    report?($"Illegal authority {authority.quoted()}: Unexpected '[' character");
+                    return False;
+                }
+                leftSquare = EachChar.count;
+                break;
+
+            case ']':
+                if (leftSquare < 0 || rightSquare >= 0 || colon >= 0) {
+                    report?($"Illegal authority {authority.quoted()}: Unexpected ']' character");
+                    return False;
+                }
+                rightSquare = EachChar.count;
+                break;
+
+            case ':':
+                if (leftSquare >= 0 == rightSquare >= 0) {
+                    if (colon >= 0) {
+                        report?($"Illegal authority {authority.quoted()}: Unexpected ':' character");
+                        return False;
+                    }
+                    colon = EachChar.count;
+                }
+                break;
+
+            case '%':
+                if ((_, offset) := decodeEscape(authority, offset)) {
+                    continue EachChar;
+                }
+                report?($"Illegal authority {authority.quoted()}: Unexpected '%' character");
+                return False;
+
+            default:
+                if (!regnameValid(ch)) {
+                    report?($|Illegal authority {authority.quoted()}: Illegal character in authority:\
+                             | {ch.quoted()}
+                             );
+                    return False;
+                }
+                break;
+            }
+
+            ++offset;
+        }
+
+        if (leftSquare >= 0 != rightSquare >= 0) {
+            report?($"Illegal authority {authority.quoted()}: Contains an unbalanced '[' character");
+            return False;
+        }
+
+        (String? user, String? host, IPAddress? ip, UInt16? port, String? error) =
+                parseAuthority(authority, atSign, colon);
+        if (error != Null) {
+            report?(error);
+            return False;
+        }
+
+        if (leftSquare >= 0 && ip == Null) {
+            // the only use for the '[' and ']' characters is to enclose an IPv6 address
+            report?($|Square brackets are only permitted in a URI authority string to enclose\
+                     | a valid IPv6 address: "{authority}"
+                   );
+            return False;
+        }
+
+        return True, user, host, ip, port;
+    }
+
+    /**
+     * Internal helper for parsing an authority string.
+     */
+    protected static (String? user, String? host, IPAddress? ip, UInt16? port, String? error)
+            parseAuthority(String text, Int atSign, Int colon) {
+        Int length = text.size;
+        if (length == 0) {
+            return Null, Null, Null, Null, "Authority string is blank";
+        }
+
+        String?    user   = Null;
+        String?    host   = Null;
+        IPAddress? ip     = Null;
+        UInt16?    port   = Null;
+
+        // per rfc2396, user is permitted to be blank (zero characters), and all of the
+        // regname characters are valid user characters, so there is nothing else to check
+        if (atSign >= 0) {
+            user = unescape(text[0 ..< atSign]);
+        }
+
+        // the host can be an IP address (either IPv4, or IPv6 inside square brackets), or:
+        //   hostname = *( domainlabel "." ) toplabel [ "." ]
+        //   domainlabel = alphanum | alphanum *( alphanum | "-" ) alphanum
+        //   toplabel = alpha | alpha *( alphanum | "-" ) alphanum
+        host = text[(atSign < 0 ? 0 : atSign+1) ..< (colon < 0 ? length : colon)];
+        if (host.size == 0) {
+            return Null, Null, Null, Null, "Host string is required for this to be an authority";
+        }
+
+        Char ch = host[0];
+        if (ch.asciiDigit() || ch == '[') {
+            // the host needs to be a legal IP address, or the authority is not a valid host
+            // format
+            if (Byte[] bytes := IPAddress.parse(host)) {
+                ip = new IPAddress(bytes);
+            } else {
+                // we do not treat the parsing failure as an error here; it just means that the
+                // authority is a "reg_name" (basically, it's opaque)
+                return Null, Null, Null, Null, Null;
+            }
+        } else {
+            // validate the host name
+            //   host        = hostname | IPv4address
+            //   hostname    = *( domainlabel "." ) toplabel [ "." ]
+            //   domainlabel = alphanum | alphanum *( alphanum | "-" ) alphanum
+            //   toplabel    = alpha | alpha *( alphanum | "-" ) alphanum
+            Boolean startedWithAlpha = False;
+            Boolean endedWithDash    = False;
+            Boolean firstChar        = True;
+            for (ch : host) {
+                switch (ch) {
+                case '.':
+                    if (firstChar || endedWithDash) {
+                        return Null, Null, Null, Null,
+                            "Name cannot start with a dot or have two dots in a row";
+                    }
+                    firstChar = True;
+                    break;
+
+                case 'A'..'Z', 'a'..'z':
+                    if (firstChar) {
+                        startedWithAlpha = True;
+                    }
+                    endedWithDash = False;
+                    firstChar     = False;
+                    break;
+
+                case '0'..'9':
+                    if (firstChar) {
+                        startedWithAlpha = False;
+                    }
+                    endedWithDash = False;
+                    firstChar     = False;
+                    break;
+
+                case '-':
+                    if (firstChar) {
+                        return Null, Null, Null, Null, "Name cannot start with a dash";
+                    }
+                    endedWithDash = True;
+                    firstChar     = False;
+                    break;
+
+                default:
+                    // nothing else (including escapes) are allowed in a host string
+                    return Null, Null, Null, Null, $"Invalid character in the name: {ch.quoted()}";
+                }
+            }
+
+            if (endedWithDash) {
+                return Null, Null, Null, Null, "No segment cannot end with a dash";
+            }
+            if (!startedWithAlpha) {
+                return Null, Null, Null, Null, "The last segment must start with an alpha char";
+            }
+        }
+
+        if (colon >= 0) {
+            Int offset = colon + 1;
+            if (offset >= length) {
+                // per rfc2396, port is permitted to be blank (zero characters), but with port
+                // being an integer type that poses a problem, so require at least 1 digit to
+                // break out the authority into its parts
+                return Null, Null, Null, Null, "Invalid port segment";
+            }
+
+            port = 0;
+            while (offset < length) {
+                if (Int n := text[offset++].asciiDigit()) {
+                    n += port.toInt64() * 10;
+                    if (n > UInt16.MaxValue) {
+                        // we could either treat this as an error or pretend that the entire
+                        // authority is just opaque
+                        return Null, Null, Null, Null, "Invalid port value";
+                    }
+                    port = n.toUInt16();
+                } else {
+                    // we do not treat the parsing failure as an error here; it just means that
+                    // the authority is a "reg_name" (basically, it's opaque)
+                    return Null, Null, Null, Null, Null;
+                }
+            }
+        }
+
+        return user, host, ip, port, Null;
+    }
+
+    /**
+     * A function that tests whether characters are valid in a URI "scheme".
+     *
+     * @param ch  a character
+     *
+     * @return True iff the character can be used in the "scheme" portion of a URI
+     */
+    static Boolean schemeValid(Char ch) {
+        return switch (ch) {
+            case 'A'..'Z', 'a'..'z':
+            case '0'..'9':
+            case '+', '-', '.': True;
+
+            default: False;
+        };
+    }
+
+    /**
+     * A function that tests whether characters are valid URI "reg_name" characters.
+     *
+     * The caller must validate escape sequences, since this function only examines one character.
+     *
+     * @param ch  a character
+     *
+     * @return True iff the character can be used in the "authority" portion of a URI "net_path"
+     */
+    static Boolean regnameValid(Char ch) {
+        return switch (ch) {
+            // unreserved:
+            case 'A'..'Z', 'a'..'z':
+            case '0'..'9':
+            case '-', '_', '.', '!', '~', '*', '\'', '(', ')':
+            // escaped (requires 2 digits to follow):
+            case '%':
+            // other
+            case '$', ',', ';', ':', '@', '&', '=', '+': True;
+
+            default: False;
+        };
+    }
+
+    /**
+     * A function that tests whether characters are valid URI "pchar" characters.
+     *
+     * The caller must validate escape sequences, since this function only examines one character.
+     *
+     * @param ch  a character
+     *
+     * @return True iff the character can be used in the "segment" and "param" portions of several
+     *         different URI path constructs
+     */
+    static Boolean pcharValid(Char ch) = switch (ch) {
+        // unreserved:
+        case 'A'..'Z', 'a'..'z':
+        case '0'..'9':
+        case '-', '_', '.', '!', '~', '*', '\'', '(', ')':
+        // escaped (requires 2 digits to follow):
+        case '%':
+        // other
+        case ':', '@', '&', '=', '+', '$', ',': True;
+
+        default: False;
+    };
+
+    /**
+     * A function that tests whether characters are valid URI "pchar" characters or the `'/'` or
+     * `'?'` characters:
+     *
+     *     query = *( pchar / "/" / "?" )
+     *
+     * The caller must validate escape sequences, since this function only examines one character.
+     *
+     * @param ch  a character
+     *
+     * @return True iff the character can be used in the "param" portion
+     */
+    static Boolean queryParamValid(Char ch) = switch (ch) {
+        // unreserved:
+        case 'A'..'Z', 'a'..'z':
+        case '0'..'9':
+        case '-', '_', '.', '!', '~', '*', '\'', '(', ')':
+        // escaped (requires 2 digits to follow):
+        case '%':
+        // query specific:
+        case '/', '?':
+        // other
+        case ':', '@', '&', '=', '+', '$', ',': True;
+
+        default: False;
+    };
+
+    /**
+     * A function that tests whether characters are valid URI "uric" characters. The "uric"
+     * designation is used in several URI constructs, including "query", "opaque", and "fragment".
+     * ("uric" is probably an abbreviation of "URI character".)
+     *
+     * The caller must validate escape sequences, since this function only examines one character.
+     *
+     * @param ch  a character
+     *
+     * @return True iff the character can be used in the "query", "opaque", and "fragment" portions
+     *         of a URI
+     */
+    static Boolean uricValid(Char ch) = switch (ch) {
+        // unreserved:
+        case 'A'..'Z', 'a'..'z':
+        case '0'..'9':
+        // mark:
+        case '-', '_', '.', '!', '~', '*', '\'', '(', ')':
+        // reserved:
+        case ';', '/', '?', ':', '@', '&', '=', '+', '$', ',', '[', ']':
+        // escape (requires 2 digits to follow):
+        case '%': True;
+
+        default: False;
+    };
+
+    /**
+     * Validate an escape sequence within a URI string.
+     *
+     * @param text          the text containing the escape sequence
+     * @param offset        the offset of the '%' character that begins the escape sequence
+     * @param allowUnicode  pass `True` if the sequence can be a UTF-8 encoded Unicode character
+     *
+     * @return True iff the string contains a valid escape at the specified offset
+     * @return (conditional) the unescaped character
+     * @return (conditional) the offset after the escape sequence
+     */
+    static conditional (Char ch, Int offset) decodeEscape(String text, Int offset, Boolean allowUnicode = False) {
+        assert:arg offset >= 0;
+        if (offset+3 <= text.size && text[offset] == '%',
+                Int n1 := text[offset+1].asciiHexit(),
+                Int n2 := text[offset+2].asciiHexit()) {
+            Int byte = (n1 << 4) + n2;
+            if (byte < 0x80) {
+                // ascii character
+                return True, byte.toChar(), offset+3;
+            } else if (!allowUnicode) {
+                // it's a unicode character, which is not allowed here
+                return False;
+            }
+
+            // decode a unicode character in UTF-8 format
+            Int codepoint;
+            Int trailing;
+            switch (n1) {
+            case 0b1100, 0b1101:
+                codepoint = byte & 0b11111;
+                trailing  = 1;
+                break;
+            case 0b1110:
+                codepoint = byte & 0b1111;
+                trailing  = 2;
+                break;
+            case 0b1111:
+                assert n2 & 0b1000 == 0;
+                codepoint = byte & 0b111;
+                trailing  = 3;
+                break;
+            default:
+                return False;
+            }
+
+            for (Int i : 1..trailing) {
+                offset += 3;
+                if (offset+3 <= text.size && text[offset] == '%',
+                        n1 := text[offset+1].asciiHexit(),
+                        n1 & 0b1100 == 0b1000,
+                        n2 := text[offset+2].asciiHexit()) {
+                    codepoint = codepoint << 2 | (n1 & 0b11) << 4 | n2;
+                } else {
+                    return False;
+                }
+            }
+            return True, codepoint.toChar(), offset+3;
+        }
+        return False;
+    }
+
+    /**
+     * Produce the unescaped form of the passed text, which may contain escape sequences. (For each
+     * `%xx` escape sequence, the equivalent ASCII character is used instead.)
+     *
+     * To avoid exceptions, this method should only be called when the escaped contents of the
+     * passed string have already been validated.
+     *
+     * @param text          a String that may contain `%xx` escape sequences
+     * @param except        (optional) a function that identifies specific characters to NOT
+     *                      unescape
+     * @param plusIsSpace   (optional) indicates that all `'+'` characters should be replaced with
+     *                      `' '`
+     * @param allowUnicode  (optional) pass `True` if the sequence can be a UTF-8 encoded Unicode
+     *                      character
+     *
+     * @return the passed String, but with escape sequences replaced with their ASCII equivalents
+     */
+    static String unescape(String                  text,
+                           function Boolean(Char)? except       = Null,
+                           Boolean                 plusIsSpace  = False,
+                           Boolean                 allowUnicode = False,
+                          ) {
+        Int offset = -1;
+        Scan: for (Char ch : text) {
+            if (ch == '%' || plusIsSpace && ch == '+') {
+                // this is the first character to escape
+                offset = Scan.count;
+                break;
+            }
+        }
+
+        if (offset < 0) {
+            return text;
+        }
+
+        StringBuffer buf = new StringBuffer();
+        if (offset > 0) {
+            text[0 ..< offset].appendTo(buf);
+        }
+
+        Int length = text.size;
+        while (offset < length) {
+            Char ch = text[offset];
+            if (ch == '%') {
+                assert (ch, offset) := decodeEscape(text, offset, allowUnicode=allowUnicode);
+            } else if (plusIsSpace && ch == '+') {
+                buf.add(' ');
+                ++offset;
+                continue;
+            } else {
+                ++offset;
+            }
+
+            if (except?(ch)) {
+                // don't unescape this character
+                buf.add('%').add(text[offset-2]).add(text[offset-1]);
+            } else {
+                buf.add(ch);
+            }
+        }
+
+        return buf.toString();
+    }
+
+    /**
+     * Using the passed function to identify characters that do not need to be escaped, produce a
+     * String that escapes all other characters in the form `%xx`, with `x` representing a
+     * hexadecimal digit ("hexit").
+     *
+     * @param text         the String to escape
+     * @param valid        the function that identifies characters that do **not** require escaping
+     * @param spaceIsPlus  indicates that all `' '` characters should be replaced with `'+'`
+     *
+     * @return the contents of the passed String, but escaped as necessary
+     */
+    static String escape(String text, function Boolean(Char) valid, Boolean spaceIsPlus = False) {
+        Int offset = -1;
+        Scan: for (Char ch : text) {
+            if (!valid(ch)) {
+                // this is the first character to escape
+                offset = Scan.count;
+                break;
+            }
+        }
+
+        if (offset < 0) {
+            return text;
+        }
+
+        StringBuffer buf = new StringBuffer();
+        if (offset > 0) {
+            text[0 ..< offset].appendTo(buf);
+        }
+
+        for (Int length = text.size; offset < length; ++offset) {
+            Char ch = text[offset];
+            if (valid(ch)) {
+                buf.add(ch);
+            } else if (spaceIsPlus && ch == ' ') {
+                buf.add('+');
+            } else {
+                if (ch.ascii) {
+                    UInt32 n = ch.codepoint;
+                    buf.add('%');
+                    buf.add((n >> 4).toHexit());
+                    buf.add(n.toHexit());
+                } else {
+                    Byte[] bytes = ch.utf8();
+                    for (Byte byte : bytes) {
+                        buf.add('%');
+                        buf.add((byte >> 4).toHexit());
+                        buf.add(byte.toHexit());
+                    }
+                }
+            }
+        }
+
+        return buf.toString();
+    }
+
+    /**
+     * Encode a parameter name or value into a string that can be placed directly into the query
+     * portion of a URI string.
+     *
+     * @param an unescaped query parameter name or value
+     *
+     * @return a string that can be placed into the query portion of a URI string
+     */
+    static String encodeParam(String text) = escape(text, queryParamValid, True);
+
+    /**
+     * Decode a parameter name or value from a string that uses the encoding specified for the query
+     * portion of a URI string.
+     *
+     * @param an escaped query parameter name or value
+     *
+     * @return the unescaped query parameter name or value
+     */
+    static String decodeParam(String text) = unescape(text, Null, plusIsSpace=True, allowUnicode=True);
+
+    // ----- Comparable, Orderable & Hashable funky interface implementations ----------------------
+
+    @Override
+    static <CompileType extends Uri> Int64 hashCode(CompileType value) = value.hashCache;
+
+    private @Lazy Int64 hashCache.calc() {
+        return (scheme?  .hashCode() : 481667)
+            ^ (authority?.hashCode() : 240073)
+            ^ (user?     .hashCode() : 778777)
+            ^ (host?     .hashCode() : 174263)
+            ^ (ip?       .hashCode() : 425857)
+            ^ (port?     .hashCode() : 855391)
+            ^ (path?     .hashCode() : 380447)
+            ^ (query?    .hashCode() : 273323)
+            ^ (opaque?   .hashCode() : 444487)
+            ^ (fragment? .hashCode() : 277373);
+    }
+
+    @Override
+    static <CompileType extends Uri> Boolean equals(CompileType value1, CompileType value2) {
+        return value1.scheme    == value2.scheme
+            && value1.authority == value2.authority
+            && value1.user      == value2.user
+            && value1.host      == value2.host
+            && value1.ip        == value2.ip
+            && value1.port      == value2.port
+            && value1.path      == value2.path
+            && value1.query     == value2.query
+            && value1.opaque    == value2.opaque
+            && value1.fragment  == value2.fragment;
+    }
+}

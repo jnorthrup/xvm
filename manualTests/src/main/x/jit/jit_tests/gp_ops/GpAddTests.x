@@ -1,0 +1,220 @@
+/**
+ * Tests for the JIT Op GP_Add.java.
+ */
+class GpAddTests {
+
+    @Inject Console console;
+
+    void run() {
+        console.print(">>>> Running GpAddTests >>>>");
+        testGpAddInt();
+        testGpAddIntConstants();
+        testGpAddUInt();
+        testGpAddInt8();
+        testGpAddUInt8();
+        testGpAddInt16();
+        testGpAddUInt16();
+        testGpAddInt32();
+        testGpAddUInt32();
+        testGpAddInt128();
+        testGpAddUInt128();
+        testGpAddDec();
+        testGpAddDec32();
+        testGpAddDec128();
+        testGpAddFloat32();
+        testGpAddFloat64();
+        testGpAddString();
+        testGpAddIntToChar();
+        testGpAddCharToChar();
+        testGpAddStringToChar();
+        testGpAddNibble();
+        console.print("<<<< Finished GpAddTests <<<<<");
+    }
+
+    void testGpAddInt() {
+        Int value1 = 0;
+        Int value2 = 10;
+        Int value3 = 19;
+        value1 = value2 + value3;
+        assert value1 == 29;
+    }
+
+    void testGpAddIntConstants() {
+        Int value1 = 10 + 19;
+        assert value1 == 29;
+    }
+
+    void testGpAddUInt() {
+        UInt value1 = 0;
+        UInt value2 = 0xFFFFFFFFFFFFFFF0;
+        UInt value3 = 1;
+        value1 = value2 + value3;
+        assert value1 == 0xFFFFFFFFFFFFFFF1;
+    }
+
+    void testGpAddInt8() {
+        Int8 value1 = 0;
+        Int8 value2 = 10;
+        Int8 value3 = 19;
+        value1 = value2 + value3;
+        assert value1 == 29;
+    }
+
+    void testGpAddUInt8() {
+        UInt8 value1 = 0;
+        UInt8 value2 = 0xF0;
+        UInt8 value3 = 1;
+        value1 = value2 + value3;
+        assert value1 == 0xF1;
+    }
+
+    void testGpAddInt16() {
+        Int16 value1 = 0;
+        Int16 value2 = 10;
+        Int16 value3 = 19;
+        value1 = value2 + value3;
+        assert value1 == 29;
+    }
+
+    void testGpAddUInt16() {
+        UInt16 value1 = 0;
+        UInt16 value2 = 0xFFF0;
+        UInt16 value3 = 1;
+        value1 = value2 + value3;
+        assert value1 == 0xFFF1;
+    }
+
+    void testGpAddInt32() {
+        Int32 value1 = 0;
+        Int32 value2 = 10;
+        Int32 value3 = 19;
+        value1 = value2 + value3;
+        assert value1 == 29;
+    }
+
+    void testGpAddUInt32() {
+        UInt32 value1 = 0;
+        UInt32 value2 = 0xFFFFFFF0;
+        UInt32 value3 = 1;
+        value1 = value2 + value3;
+        assert value1 == 0xFFFFFFF1;
+    }
+
+    void testGpAddInt128() {
+        Int128 value1 = 0;
+        Int128 value2 = 10;
+        Int128 value3 = 19;
+        value1 = value2 + value3;
+        assert value1 == 29;
+    }
+
+    void testGpAddUInt128() {
+        UInt128 value1 = 0;
+        UInt128 value2 = 0xFFFFFFF0;
+        UInt128 value3 = 1;
+        value1 = value2 + value3;
+        assert value1 == 0xFFFFFFF1;
+    }
+
+    void testGpAddDec() {
+        Dec value1 = 0.0;
+        Dec value2 = 2.5;
+        Dec value3 = 1.25;
+        value1 = value2 + value3;
+        assert value1 == 3.75;
+    }
+
+    void testGpAddDec32() {
+        Dec32 value1 = 0.0;
+        Dec32 value2 = 2.5;
+        Dec32 value3 = 1.25;
+        value1 = value2 + value3;
+        assert value1 == 3.75;
+    }
+
+    void testGpAddDec128() {
+        Dec128 value1 = 0.0;
+        Dec128 value2 = 2.5;
+        Dec128 value3 = 1.25;
+        value1 = value2 + value3;
+        assert value1 == 3.75;
+    }
+
+    void testGpAddFloat32() {
+        Float32 value1 = 0.0;
+        Float32 value2 = 2.5;
+        Float32 value3 = 1.25;
+        value1 = value2 + value3;
+        assert value1 == 3.75;
+    }
+
+    void testGpAddFloat64() {
+        Float64 value1 = 0.0;
+        Float64 value2 = 2.5;
+        Float64 value3 = 1.25;
+        value1 = value2 + value3;
+        assert value1 == 3.75;
+    }
+
+    void testGpAddString() {
+        String value1 = "";
+        String value2 = "a";
+        String value3 = "b";
+        value1 = value2 + value3;
+        assert value1 == "ab";
+    }
+
+    void testGpAddIntToChar() {
+        Char value1 = ' ';
+        Char value2 = 'a';
+        Int  value3 = 1;
+        value1 = value2 + value3;
+        assert value1 == 'b';
+    }
+
+    void testGpAddIntToCharConstants() {
+        Char value = 'a' + 3;
+        assert value == 'd';
+    }
+
+    void testGpAddCharToChar() {
+        String value1 = "";
+        Char   value2 = 'a';
+        Char   value3 = 'b';
+        value1 = value2 + value3;
+        assert value1 == "ab";
+    }
+
+    void testGpAddCharToCharConstants() {
+        String value = 'a' + 'b';
+        assert value == "ab";
+    }
+
+    void testGpAddStringToChar() {
+        String value1 = "";
+        Char   value2 = 'a';
+        String value3 = "bc";
+        value1 = value2 + value3;
+        assert value1 == "abc";
+    }
+
+    void testGpAddStringToCharConstants() {
+        String value = 'a' + "bc";
+        assert value == "abc";
+    }
+
+    void testGpAddNibble() {
+        Nibble value1 = 0;
+        Nibble value2 = 0x05;
+        Nibble value3 = 0x03;
+        value1 = value2 + value3;
+        assert value1 == 0x08;
+
+        value1 = 0x0A + 0x05;
+        assert value1 == 0x0F;
+
+        Nibble zero = 0;
+        value1 = zero + 0x01;
+        assert value1 == 0x01;
+    }
+}

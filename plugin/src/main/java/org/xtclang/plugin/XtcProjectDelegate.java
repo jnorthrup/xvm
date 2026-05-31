@@ -1,0 +1,899 @@
+package org.xtclang.plugin;
+
+import static org.gradle.api.attributes.Category.CATEGORY_ATTRIBUTE;
+import static org.gradle.api.attributes.Category.LIBRARY;
+import static org.gradle.api.attributes.LibraryElements.LIBRARY_ELEMENTS_ATTRIBUTE;
+import static org.gradle.api.plugins.ApplicationPlugin.APPLICATION_GROUP;
+import static org.gradle.api.tasks.SourceSet.MAIN_SOURCE_SET_NAME;
+
+import static org.xtclang.plugin.XtcPluginConstants.PLUGIN_BUILD_INFO_FILENAME;
+import static org.xtclang.plugin.XtcPluginConstants.PLUGIN_BUILD_INFO_RESOURCE_PATH;
+import static org.xtclang.plugin.XtcPluginConstants.PROPERTY_SKIP_ALL_TESTS;
+import static org.xtclang.plugin.XtcPluginConstants.PROPERTY_SKIP_TESTS;
+import static org.xtclang.plugin.XtcPluginConstants.PROPERTY_VERBOSE_LOGGING_OVERRIDE;
+import static org.xtclang.plugin.XtcPluginConstants.UNSPECIFIED;
+import static org.xtclang.plugin.XtcPluginConstants.XDK_CONFIG_NAME_ARTIFACT_JAVATOOLS_JAR;
+import static org.xtclang.plugin.XtcPluginConstants.XDK_CONFIG_NAME_CONTENTS;
+import static org.xtclang.plugin.XtcPluginConstants.XDK_CONFIG_NAME_INCOMING;
+import static org.xtclang.plugin.XtcPluginConstants.XDK_CONFIG_NAME_INCOMING_ZIP;
+import static org.xtclang.plugin.XtcPluginConstants.XDK_CONFIG_NAME_JAVATOOLS_INCOMING;
+import static org.xtclang.plugin.XtcPluginConstants.XDK_CONFIG_NAME_JAVATOOLS_OUTGOING;
+import static org.xtclang.plugin.XtcPluginConstants.XDK_EXTRACT_TASK_NAME;
+import static org.xtclang.plugin.XtcPluginConstants.XDK_LIBRARY_ELEMENT_TYPE;
+import static org.xtclang.plugin.XtcPluginConstants.XDK_LIBRARY_ELEMENT_TYPE_XDK_CONTENTS;
+import static org.xtclang.plugin.XtcPluginConstants.XDK_VERSION_GROUP_NAME;
+import static org.xtclang.plugin.XtcPluginConstants.XDK_VERSION_TASK_NAME;
+import static org.xtclang.plugin.XtcPluginConstants.XTC_CONFIG_NAME_INCOMING;
+import static org.xtclang.plugin.XtcPluginConstants.XTC_CONFIG_NAME_OUTGOING;
+import static org.xtclang.plugin.XtcPluginConstants.XTC_DEFAULT_RUN_METHOD_NAME_PREFIX;
+import static org.xtclang.plugin.XtcPluginConstants.XTC_EXTENSION_NAME_COMPILER;
+import static org.xtclang.plugin.XtcPluginConstants.XTC_EXTENSION_NAME_RUNTIME;
+import static org.xtclang.plugin.XtcPluginConstants.XTC_EXTENSION_NAME_TEST;
+import static org.xtclang.plugin.XtcPluginConstants.XTC_LANGUAGE_NAME;
+import static org.xtclang.plugin.XtcPluginConstants.XTC_TEST_TASK_NAME;
+import static org.xtclang.plugin.XtcPluginConstants.XTC_SOURCE_FILE_EXTENSION;
+import static org.xtclang.plugin.XtcPluginConstants.XTC_SOURCE_SET_DIRECTORY_ROOT_NAME;
+import static org.xtclang.plugin.XtcPluginUtils.capitalize;
+import static org.xtclang.plugin.XtcPluginUtils.failure;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+import org.gradle.StartParameter;
+import org.gradle.api.GradleException;
+import org.gradle.api.Project;
+import org.gradle.api.Task;
+import org.gradle.api.artifacts.Configuration;
+import org.gradle.api.artifacts.ConfigurationContainer;
+import org.gradle.api.artifacts.ModuleVersionSelector;
+import org.gradle.api.artifacts.type.ArtifactTypeDefinition;
+import org.gradle.api.attributes.Category;
+import org.gradle.api.attributes.LibraryElements;
+import org.gradle.api.component.AdhocComponentWithVariants;
+import org.gradle.api.file.Directory;
+import org.gradle.api.file.ProjectLayout;
+import org.gradle.api.internal.tasks.DefaultSourceSet;
+import org.gradle.api.logging.Logger;
+import org.gradle.api.model.ObjectFactory;
+import org.gradle.language.base.plugins.LifecycleBasePlugin;
+import org.gradle.api.plugins.JavaPlugin;
+import org.gradle.api.plugins.JavaPluginExtension;
+import org.gradle.api.provider.Provider;
+import org.gradle.api.tasks.Copy;
+import org.gradle.api.tasks.SourceSet;
+import org.gradle.api.tasks.SourceSetContainer;
+import org.gradle.api.tasks.SourceSetOutput;
+import org.gradle.api.tasks.TaskCollection;
+import org.gradle.api.tasks.TaskContainer;
+import org.gradle.api.tasks.TaskProvider;
+import org.gradle.jvm.toolchain.JavaLanguageVersion;
+
+import org.jetbrains.annotations.NotNull;
+
+import org.xtclang.plugin.internal.DefaultXtcCompilerExtension;
+import org.xtclang.plugin.internal.DefaultXtcExtension;
+import org.xtclang.plugin.internal.DefaultXtcRuntimeExtension;
+import org.xtclang.plugin.internal.DefaultXtcSourceDirectorySet;
+import org.xtclang.plugin.internal.DefaultXtcTestExtension;
+import org.xtclang.plugin.internal.GradlePhaseAssertions;
+import org.xtclang.plugin.tasks.XtcCompileTask;
+import org.xtclang.plugin.tasks.XtcExtractXdkTask;
+import org.xtclang.plugin.tasks.XtcRunTask;
+import org.xtclang.plugin.tasks.XtcTestTask;
+import org.xtclang.plugin.tasks.XtcVersionTask;
+
+// Plugin TODO: Implement test task with java like semantics tied to life cycle check.
+// Plugin TODO: Unify launchers under ServerLoader to get rid of brittle bridge crap.
+
+/**
+ * Delegate class for the Gradle XTC Plugin in a project context.
+ */
+public class XtcProjectDelegate {
+
+    protected final String projectName;
+    protected final ObjectFactory objects;
+    protected final Logger logger;
+    protected final StartParameter startParameter;
+    protected final ConfigurationContainer configs;
+    protected final AdhocComponentWithVariants component;
+    protected final TaskContainer tasks;
+    protected final ProjectLayout layout;
+    protected final boolean overrideVerboseLogging;
+
+    // Cached XDK version and semantic version read from plugin-build-info.properties (read once at construction)
+    private final String xdkVersion;
+    private final String xdkSemanticVersion;
+
+    private final Map<String, Set<SourceSet>> taskSourceSets = new HashMap<>();
+
+    @SuppressWarnings("unused")
+    public XtcProjectDelegate(final Project project) {
+        this(project, null);
+    }
+
+    public XtcProjectDelegate(final Project project, final AdhocComponentWithVariants component) {
+        // Assert that we're in configuration phase - XtcProjectDelegate should never be used during execution
+        GradlePhaseAssertions.assertProjectAccessDuringConfiguration(project, "XtcProjectDelegate construction");
+
+        this.projectName = project.getName();
+        this.objects = project.getObjects();
+        this.layout = project.getLayout();
+        this.startParameter = project.getGradle().getStartParameter();
+        this.configs = project.getConfigurations();
+        this.logger = project.getLogger();
+        // Even if we add tasks later, this refers to a task container, so it's fine to initialize it here, and it can be final
+        this.tasks = project.getTasks();
+        this.component = component;
+        this.overrideVerboseLogging = Boolean.parseBoolean(String.valueOf(project.findProperty(PROPERTY_VERBOSE_LOGGING_OVERRIDE)));
+
+        // Read XDK version once at construction time and compute semantic version
+        this.xdkVersion = readXdkVersionFromBuildInfo();
+        this.xdkSemanticVersion = "org.xtclang:xdk:" + xdkVersion;
+
+        // TODO: Fix the JavaTools resolution code, which is a bit hacky right now.
+        //   Enable calling the Launcher from the plugin to e.g. verify if an .x file defines a module
+        //     instead of relying on "top .x file level"-layout for module definitions.
+    }
+
+    /**
+     * Get the cached XDK version read from plugin-build-info.properties.
+     * This is read once at construction time and cached for the lifetime of the delegate.
+     *
+     * @return the XDK version
+     */
+    public String getXdkVersion() {
+        return xdkVersion;
+    }
+
+    /**
+     * Get the cached semantic version for this project.
+     * Format: org.xtclang:&lt;projectName&gt;:&lt;xdkVersion&gt;
+     * This is computed once at construction time and cached for the lifetime of the delegate.
+     *
+     * @return the semantic version string
+     */
+    public String getXdkSemanticVersion() {
+        return xdkSemanticVersion;
+    }
+
+    public boolean hasVerboseLogging() {
+        return switch (startParameter.getLogLevel()) {
+            case DEBUG, INFO -> true;
+            default -> overrideVerboseLogging;
+        };
+    }
+
+    /**
+     * Read the XDK version from the plugin's build-info.properties resource.
+     * This is called once at construction time - use getXdkVersion() to access the cached value.
+     *
+     * @return the XDK version
+     * @throws GradleException if the version cannot be read
+     */
+    private String readXdkVersionFromBuildInfo() {
+        final var version = readXdkVersion();
+        logger.info("[plugin] Read XDK version from {}: {}", PLUGIN_BUILD_INFO_FILENAME, version);
+        return version;
+    }
+
+    /**
+     * Static utility to read the XDK version from the plugin's build-info.properties.
+     * This reads directly from the classpath resource without needing an XtcProjectDelegate instance.
+     *
+     * @return the XDK version
+     * @throws GradleException if the version cannot be read
+     */
+    public static String readXdkVersion() {
+        return readBuildInfoProperty("xdk.version", "XDK version");
+    }
+
+    /**
+     * Static utility to read the JDK version from the plugin's build-info.properties.
+     * This reads directly from the classpath resource without needing an XtcProjectDelegate instance.
+     *
+     * @return the JDK version as an integer
+     * @throws GradleException if the version cannot be read
+     */
+    protected static int readJdkVersion() {
+        return Integer.parseInt(readBuildInfoProperty("jdk.version", "JDK version"));
+    }
+
+    /**
+     * Read a property from the plugin's build-info.properties resource.
+     * This is a unified implementation to avoid duplication.
+     *
+     * @param propertyKey the property key to read
+     * @param propertyDescription human-readable description for error messages
+     * @return the property value
+     * @throws GradleException if the property cannot be read
+     */
+    private static String readBuildInfoProperty(final String propertyKey, final String propertyDescription) {
+        try (final var resourceStream = XtcProjectDelegate.class.getResourceAsStream(PLUGIN_BUILD_INFO_RESOURCE_PATH)) {
+            if (resourceStream == null) {
+                throw new IllegalStateException("Cannot find " + PLUGIN_BUILD_INFO_FILENAME + " in plugin JAR");
+            }
+            final var props = new Properties();
+            props.load(resourceStream);
+            final var value = props.getProperty(propertyKey);
+            if (value == null || value.isBlank()) {
+                throw new IllegalStateException(propertyKey + " not found in " + PLUGIN_BUILD_INFO_FILENAME);
+            }
+            return value;
+        } catch (final IllegalArgumentException | IOException e) {
+            throw failure(e, "FATAL: Plugin build is broken - cannot read {}: {}", propertyDescription, e.getMessage());
+        }
+    }
+
+    protected static <E> E ensureExtension(final Project project, final String name, final Class<E> clazz) {
+        // Assert that we're in configuration phase - extensions can only be created during configuration
+        GradlePhaseAssertions.assertProjectAccessDuringConfiguration(project, "ensureExtension for " + name);
+
+        final var exts = project.getExtensions();
+        if (exts.findByType(clazz) == null) {
+            return exts.create(name, clazz);
+        }
+        return exts.getByType(clazz);
+    }
+
+    private static Set<String> resolveHiddenTaskNames(final TaskContainer tasks) {
+        final Set<String> hiddenTasks = new HashSet<>(Set.of("jar", "classes"));
+        hiddenTasks.addAll(tasks.stream().map(Task::getName).filter(name -> name.endsWith("java")).collect(Collectors.toSet()));
+        return hiddenTasks;
+    }
+
+    private void hideAndDisableTask(final String taskName) {
+        tasks.getByName(taskName, task -> {
+            // TODO: Just recreate a better lifecycle specific to XTC instead. This only adds complexity for now.
+            logger.info("[plugin] Hiding and disabling internal task: '{}' (dependencies are still maintained).", taskName);
+            task.setGroup(null);
+            task.setEnabled(false);
+        });
+    }
+
+    private void applyJavaPlugin(final TaskContainer tasks, final Project project) {
+        final var pluginManager = project.getPluginManager();
+        pluginManager.apply(JavaPlugin.class);
+
+        // Configure Java toolchain to match the JDK version from plugin-build-info.properties
+        final var jdkVersion = readJdkVersion();
+        final var javaExtension = getJavaExtensionContainer(project);
+        javaExtension.getToolchain().getLanguageVersion().set(JavaLanguageVersion.of(jdkVersion));
+        logger.info("[plugin] Configured Java toolchain to JDK {} (from plugin build-info)", jdkVersion);
+
+        // At the moment we piggyback on the extended build LifeCycle provided
+        // by the JavaPlugin, as well as the source sets, and other things that
+        // should really be language independent in Gradle, but arent (yet).
+        // However, tasks like "jar" and similar Java specific tasks, should
+        // be invisible to the user, as possible, in order to create less
+        // confusion. This is by no means a rare pattern in Gradle plugins,
+        // but we still don't have to like it.
+        //
+        // TODO: Given enough spare cycles, we will probably create our own
+        //   our own, fully XTC native, life cycle, with source set, and minimal
+        //   changes to semantics where applicable (for example, Java resources
+        //   are not compiled into the class file, and are taken from the build
+        //   director/processResources task outputs. Changing this little piece
+        //   to semantically conform to what XTC does should not be hard, but we
+        //   haven't had the cycles to figure out why the changed build graph
+        //   from doing that isn't 100% compatible with our builds.
+        resolveHiddenTaskNames(tasks).forEach(this::hideAndDisableTask);
+        if (hasVerboseLogging()) {
+            logger.info("[plugin] XTC plugin executing from location: '{}'", getPluginUrl());
+        }
+    }
+
+    /**
+     * Register a SoftwareComponent for XTC projects. We will use this like
+     * components["java"] is currently used for publishing Java artifacts.
+     */
+    private void createXtcComponents(final Project project) {
+        project.getComponents().add(component);
+    }
+
+    /**
+     * This method, "apply", is a delegate target call for an XTC project delegating plugin
+     */
+    public void apply(final Project project) {
+        // Assert that we're in configuration phase - all XTC plugin setup happens during configuration
+        GradlePhaseAssertions.assertProjectAccessDuringConfiguration(project, "XtcProjectDelegate.apply()");
+
+        applyJavaPlugin(tasks, project);
+        createXtcComponents(project);
+
+        // Add xtc extension.
+        resolveXtcExtension(project);
+
+        // Ensure extensions for configuring the xtc and xec exist.
+        resolveXtcCompileExtension(project);
+        resolveXtcRuntimeExtension(project);
+        resolveXtcTestExtension(project);
+
+        // This is all config phase. Warn if a project isn't versioned when the XTC plugin is applied, so that we
+        // are sure no skew/version conflicts exist for inter-module dependencies and cross publication.
+        checkProjectIsVersioned(project);
+        createDefaultSourceSets(project);
+        createXtcDependencyConfigs(project);
+
+        createDefaultRunTask(project);
+        createDefaultTestTask(project);
+
+        // Configure task dependencies
+        final TaskCollection<@NotNull XtcCompileTask> compileTasks = tasks.withType(XtcCompileTask.class);
+        configureRunTaskDependencies(compileTasks);
+        configureCompileTaskResourceDependencies(compileTasks);
+
+        createResolutionStrategy();
+        createVersioningTasks();
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + " (plugin: " + getPluginUrl() + ')';
+    }
+
+    public URL getPluginUrl() {
+        return getClass().getProtectionDomain().getCodeSource().getLocation();
+    }
+
+    @SuppressWarnings("UnusedReturnValue")
+    public XtcExtension resolveXtcExtension(final Project project) {
+        return ensureExtension(project, XTC_LANGUAGE_NAME, DefaultXtcExtension.class);
+    }
+
+    public static XtcCompilerExtension resolveXtcCompileExtension(final Project project) {
+        // TODO: Separate extensions for separate tasks, or just a global xtcRun applied to all?
+        //  Decide later if we are per-sourceSet. It's not necessarily better or something we need.
+        return ensureExtension(project, XTC_EXTENSION_NAME_COMPILER, DefaultXtcCompilerExtension.class);
+    }
+
+    public static XtcRuntimeExtension resolveXtcRuntimeExtension(final Project project) {
+        // TODO: Separate extensions for separate tasks, or just a global xtcRun applied to all?
+        //  Decide later if we are per-sourceSet. It's not necessarily better or something we need.
+        return ensureExtension(project, XTC_EXTENSION_NAME_RUNTIME, DefaultXtcRuntimeExtension.class);
+    }
+
+    public static XtcTestExtension resolveXtcTestExtension(final Project project) {
+        return ensureExtension(project, XTC_EXTENSION_NAME_TEST, DefaultXtcTestExtension.class);
+    }
+
+    private static String getXtcSourceDirectoryRootPath(final SourceSet sourceSet) {
+        return "src/" + sourceSet.getName() + '/' + XTC_SOURCE_SET_DIRECTORY_ROOT_NAME;
+    }
+
+    @SuppressWarnings({ "SameParameterValue", "unused" })
+    static String locationFor(final Class<?> clazz) {
+        return clazz.getProtectionDomain().getCodeSource().getLocation().toString();
+    }
+
+    // Configuration name for incoming dependencies, like xtcModule.
+    public static String incomingXtcModuleDependencies(final SourceSet sourceSet) {
+        return incomingXtcModuleDependencies(sourceSet.getName());
+    }
+
+    // Configuration name for incoming dependencies, like xtcModule (by source set name).
+    public static String incomingXtcModuleDependencies(final String sourceSetName) {
+        return MAIN_SOURCE_SET_NAME.equals(sourceSetName) ? XTC_CONFIG_NAME_INCOMING : XTC_CONFIG_NAME_INCOMING + capitalize(sourceSetName);
+    }
+
+    @SuppressWarnings("unused")
+    static String outgoingXtcModules(final SourceSet sourceSet) {
+        return SourceSet.isMain(sourceSet) ? XTC_CONFIG_NAME_OUTGOING : XTC_CONFIG_NAME_OUTGOING + capitalize(sourceSet.getName());
+    }
+
+    public static Provider<@NotNull Directory> getXdkContentsDir(final Project project) {
+        return project.getLayout().getBuildDirectory().dir("xtc/xdk/lib");
+    }
+
+    public Provider<@NotNull Directory> getXdkContentsDir() {
+        return layout.getBuildDirectory().dir("xtc/xdk/lib");
+    }
+
+    public static Provider<@NotNull Directory> getXtcSourceSetOutputDirectory(final Project project, final SourceSet sourceSet) {
+        return project.getLayout().getBuildDirectory().dir(XTC_LANGUAGE_NAME + '/' + sourceSet.getName() + "/lib");
+    }
+
+    public static Provider<@NotNull Directory> getXtcResourceOutputDirectory(final Project project, final SourceSet sourceSet) {
+        return project.getLayout().getBuildDirectory().dir(XTC_LANGUAGE_NAME + '/' + sourceSet.getName() + "/resources");
+    }
+
+    public static String getCompileTaskName(final SourceSet sourceSet) {
+        return sourceSet.getCompileTaskName(XTC_LANGUAGE_NAME);
+    }
+
+    public static String getRunTaskName() {
+        return XTC_DEFAULT_RUN_METHOD_NAME_PREFIX + capitalize(XTC_LANGUAGE_NAME);
+    }
+
+    private static String getClassesTaskName(final SourceSet sourceSet) {
+        return SourceSet.isMain(sourceSet) ? "classes" : sourceSet.getName() + "Classes";
+    }
+
+    private static String getProcessResourcesTaskName(final SourceSet sourceSet) {
+        return SourceSet.isMain(sourceSet) ? "processXtcResources" : "process" + capitalize(sourceSet.getName()) + "XtcResources";
+    }
+
+    private static String getJavaProcessResourcesTaskName(final SourceSet sourceSet) {
+        return SourceSet.isMain(sourceSet) ? "processResources" : "process" + capitalize(sourceSet.getName()) + "Resources";
+    }
+
+    /**
+     * Create a compile task with a source set. This subclasses a source task, and will add as source
+     * the "xtc" extension of a source set, regardless of its name, e.g. sourceSets.main.xtc.
+     * TODO: Resources?
+     */
+    private TaskProvider<@NotNull XtcCompileTask> createCompileTask(final SourceSet sourceSet, final Project project) {
+        final var compileTaskName = getCompileTaskName(sourceSet);
+        final var compileTask = tasks.register(compileTaskName, XtcCompileTask.class, project, sourceSet);
+        final var processResourcesTaskName = getProcessResourcesTaskName(sourceSet);
+        final var processResourcesTask = tasks.register(processResourcesTaskName, Copy.class);
+        final var classesTaskName = getClassesTaskName(sourceSet);
+        final var classesTask = tasks.getByName(classesTaskName);
+
+        // In Java, the classes task would depend on process resources. In XTC, it depends on the compile task, and the compile
+        // task needs to work with the output of process resources, so for XTC we attach the process resources task for this source
+        // set as a dependency to the compile task instead of to the classes task, which is the "assemble" for Java compilation.
+        // Capture values at configuration time for configuration cache compatibility
+        final var sourceSetName = sourceSet.getName();
+        final var resourceDirs = sourceSet.getResources().getSrcDirs();
+        // Resolve output directory without capturing SourceSet reference
+        final var outputDir = project.getLayout().getBuildDirectory().dir(XTC_LANGUAGE_NAME + '/' + sourceSetName + "/resources");
+
+        processResourcesTask.configure(task -> {
+            task.setDescription("Processes XTC resources for the " + sourceSetName + " source set.");
+            task.from(resourceDirs);
+            task.into(outputDir);
+            task.doLast(_ -> task.getLogger().info("[plugin] Processed XTC resources for source set: {} (srcDirs: {}, destination: {})",
+                sourceSetName, resourceDirs, outputDir.get()));
+        });
+
+        // Note, the rebuild extension flag is not the same thing as always rerunning this task. The fact that we call
+        // the compile task at all, is something we do if any of its inputs have changed, and that effectively means
+        // "this is already a rebuild" in xcc land. If we want to rerun the compile task for any reason, we should
+        // use the "--rerun-tasks" Gradle options, which ignores up-to-date checks for all tasks.
+        compileTask.configure(task -> {
+            task.setDescription("Compile an XTC source set, similar to the JavaCompile task for Java.");
+            task.dependsOn(XDK_EXTRACT_TASK_NAME);
+            task.setSource(sourceSet.getExtensions().getByName(XTC_LANGUAGE_NAME)); // Register this task as an XTC language compiler. Not a Java compiler.
+
+            // Test source set should depend on main source set compilation
+            // This mirrors Java's behavior where testCompileJava depends on compileJava
+            if (SourceSet.TEST_SOURCE_SET_NAME.equals(sourceSet.getName())) {
+                final var mainCompileTaskName = getCompileTaskName(getSourceSets(project).getByName(MAIN_SOURCE_SET_NAME));
+                task.dependsOn(mainCompileTaskName);
+                logger.info("[plugin] Added dependency: {} -> {}", compileTaskName, mainCompileTaskName);
+            }
+        });
+
+        // Find the "classes" task in the Java build life cycle that we reuse, and set the dependency correctly. This should
+        // wire in process resources too, but for some reason it seems to work differently. Basically this goes to the
+        // "assemble" task, but we want to reuse some of the Java life cycle internally.
+        classesTask.dependsOn(compileTask);
+
+        logger.info("[plugin] Mapping source set to compile task: {} -> {}", sourceSet.getName(), compileTaskName);
+        logger.info("[plugin] Registered and configured source set for compile task '{}' -> sourceSet: {}", compileTaskName, sourceSet.getName());
+
+        // Register the compile task as belonging to a specific source set.
+        final var sourceSets = taskSourceSets.computeIfAbsent(compileTaskName, _ -> new HashSet<>());
+        sourceSets.add(sourceSet);
+
+        logger.info("[plugin] Registered and configured compile task for sourceSet: {}", sourceSet.getName());
+
+        return compileTask;
+    }
+
+    /**
+     * Create the XTC run task. If there are no explicit modules in the xtcRun config, we don't create it,
+     * or we log an error or something. The run task will depend on the compile task, and make sure an XTC
+     * module in the source set is compiled.
+     */
+    private void createDefaultRunTask(final Project project) {
+        final var runTaskName = getRunTaskName();
+        // The run task depends on all compile tasks, for all source sets these days.
+        final var compileTaskNames = getSourceSets(project).stream().map(sourceSet -> sourceSet.getCompileTaskName(XTC_LANGUAGE_NAME));
+        final var runTask = tasks.register(runTaskName, XtcRunTask.class, project);
+        runTask.configure(task -> {
+            task.setGroup(APPLICATION_GROUP);
+            task.setDescription("Run an XTC program with a configuration supplying the module path(s).");
+            // Run tasks have side effects and should never be UP-TO-DATE or cached (like JavaExec)
+            task.considerNeverUpToDate();
+            logger.info("[plugin] Configured, dependency to tasks: {} -> {}", XDK_EXTRACT_TASK_NAME, compileTaskNames);
+        });
+        logger.info("[plugin] Created task: '{}'", runTask.getName());
+    }
+
+    /**
+     * Create the XTC test task. This task runs xunit tests for XTC modules.
+     * The test task depends on compile tasks and is wired into the Gradle check lifecycle.
+     * <p>
+     * The task can be skipped by setting the project property {@code -PskipXtcTests}.
+     * <p>
+     * <b>Lifecycle Design Note:</b> We intentionally wire {@code testXtc} to the {@code check}
+     * task rather than making the Java plugin's {@code test} task depend on it. This provides
+     * granularity for projects that have both Java and XTC tests:
+     * <ul>
+     *   <li>{@code ./gradlew testXtc} - runs only XTC tests</li>
+     *   <li>{@code ./gradlew test} - runs only Java tests</li>
+     *   <li>{@code ./gradlew check} or {@code ./gradlew build} - runs both</li>
+     * </ul>
+     */
+    private void createDefaultTestTask(final Project project) {
+        final var compileTaskNames = getSourceSets(project).stream()
+            .map(sourceSet -> sourceSet.getCompileTaskName(XTC_LANGUAGE_NAME))
+            .toList();
+
+        // Capture skip properties at configuration time for configuration cache compatibility
+        final boolean skipTests = project.hasProperty(PROPERTY_SKIP_TESTS);
+        final boolean skipAllTests = project.hasProperty(PROPERTY_SKIP_ALL_TESTS);
+        final boolean shouldSkip = skipTests || skipAllTests;
+
+        final var testTask = tasks.register(XTC_TEST_TASK_NAME, XtcTestTask.class, project);
+        testTask.configure(task -> {
+            task.setGroup(LifecycleBasePlugin.VERIFICATION_GROUP);
+            task.setDescription("Run XTC xunit tests. Skip with -P" + PROPERTY_SKIP_TESTS + " or -P" + PROPERTY_SKIP_ALL_TESTS + ".");
+            // NOTE: do not set task.getFailOnTestFailure().convention(...) here.
+            // The task's constructor already wires its convention to the
+            // xtcTest extension's failOnTestFailure property; setting another
+            // convention at registration time replaces that wiring, which
+            // breaks the `xtcTest { failOnTestFailure = ... }` DSL. The
+            // default value comes from DefaultXtcTestExtension (true).
+            task.dependsOn(compileTaskNames);
+            task.onlyIf(t -> !shouldSkip);
+            if (shouldSkip) {
+                final String flag = skipAllTests ? PROPERTY_SKIP_ALL_TESTS : PROPERTY_SKIP_TESTS;
+                logger.lifecycle("[plugin] XTC tests will be skipped (-P{} is set)", flag);
+            }
+            logger.info("[plugin] Configured test task with dependency on: {}", compileTaskNames);
+        });
+
+        // Wire testXtc into the check lifecycle (not the Java test task - see Javadoc above)
+        tasks.named(LifecycleBasePlugin.CHECK_TASK_NAME).configure(checkTask ->
+            checkTask.dependsOn(testTask)
+        );
+
+        logger.info("[plugin] Created task: '{}'", testTask.getName());
+    }
+
+    private void createVersioningTasks() {
+        registerVersionTask(tasks, getXdkVersion(), getXdkSemanticVersion(), hasVerboseLogging());
+    }
+
+    /**
+     * Static method to register the version task without capturing any instance state.
+     * This ensures configuration cache compatibility by preventing lambda capture of non-serializable objects.
+     *
+     * @param tasks the task container
+     * @param xdkVersion the XDK version string
+     * @param semanticVersion the semantic version string
+     * @param verboseLogging whether verbose logging is enabled
+     */
+    private static void registerVersionTask(final TaskContainer tasks, final String xdkVersion, final String semanticVersion, final boolean verboseLogging) {
+        tasks.register(XDK_VERSION_TASK_NAME, XtcVersionTask.class, task -> {
+            task.setGroup(XDK_VERSION_GROUP_NAME);
+            task.setDescription("Display XTC version for project, and sanity check its application.");
+            task.getXdkVersion().set(xdkVersion);
+            task.getSemanticVersion().set(semanticVersion);
+            task.getVerboseLogging().set(verboseLogging);
+        });
+    }
+
+    @SuppressWarnings("unused")
+    public static SourceSet getMainSourceSet(final Project project) {
+        return getSourceSets(project).getByName(MAIN_SOURCE_SET_NAME);
+    }
+
+    public static SourceSetContainer getSourceSets(final Project project) {
+        return getJavaExtensionContainer(project).getSourceSets();
+    }
+
+    private void createXtcDependencyConfigs(final Project project) {
+        for (final SourceSet sourceSet : getSourceSets(project)) {
+            createXtcDependencyConfigs(sourceSet, project);
+        }
+        createXdkDependencyConfigs(project);
+        createJavaToolsConfig(); // Ensure javatools config exists before tasks are created
+    }
+
+    // Attributes for anything that consumes xtc files from external projects
+    // Consumer configs always use the base "xtc" element to consume main outputs
+    private void addXtcModuleConsumerAttributes(final Configuration config) {
+        config.attributes(it -> {
+            it.attribute(CATEGORY_ATTRIBUTE, objects.named(Category.class, LIBRARY));
+            it.attribute(LIBRARY_ELEMENTS_ATTRIBUTE, objects.named(LibraryElements.class, XTC_LANGUAGE_NAME));
+        });
+    }
+
+    // Attributes for anything that produces xtc files from this project
+    // Producer configs use "xtc" for main and "xtc-test" for test source sets
+    private void addXtcModuleProducerAttributes(final Configuration config) {
+        config.attributes(it -> {
+            it.attribute(CATEGORY_ATTRIBUTE, objects.named(Category.class, LIBRARY));
+            it.attribute(LIBRARY_ELEMENTS_ATTRIBUTE, objects.named(LibraryElements.class, xtcModuleLibraryElementName(config)));
+        });
+    }
+
+    // Attributes for anything that consumes or produces xtc files / javatools.jar from/to a directory
+    private void addXdkContentsAttributes(final Configuration config) {
+        config.attributes(it -> {
+            it.attribute(CATEGORY_ATTRIBUTE, objects.named(Category.class, LIBRARY));
+            it.attribute(LIBRARY_ELEMENTS_ATTRIBUTE, objects.named(LibraryElements.class, XDK_LIBRARY_ELEMENT_TYPE_XDK_CONTENTS));
+        });
+    }
+
+    private void addJavaToolsContentsAttributes(final Configuration config) {
+        config.attributes(it -> {
+            it.attribute(CATEGORY_ATTRIBUTE, objects.named(Category.class, LIBRARY));
+            it.attribute(LIBRARY_ELEMENTS_ATTRIBUTE, objects.named(LibraryElements.class, XDK_CONFIG_NAME_ARTIFACT_JAVATOOLS_JAR));
+        });
+    }
+
+    private void createXtcDependencyConfigs(final SourceSet sourceSet, final Project project) {
+        final var compileTask = createCompileTask(sourceSet, project);
+        //final var runAllTask = createRunTask(sourceSet, XtcRunAllTask.class);
+
+        logger.info("[plugin] Created compile task for sourceSet '{}' -> '{}'.", sourceSet.getName(), compileTask.getName());
+
+        final var xtcModuleConsumerConfig = incomingXtcModuleDependencies(sourceSet);
+        final var xtcModuleProducerConfig = outgoingXtcModules(sourceSet);
+
+        final var xtcModule = configs.register(xtcModuleConsumerConfig, config -> {
+            config.setDescription(
+                "Configuration that contains location of the .xtc file created by other entities, so that they can be declared as dependencies.");
+            config.setCanBeResolved(true);
+            config.setCanBeConsumed(false);
+            addXtcModuleConsumerAttributes(config);
+        });
+        logger.info("[plugin] Created config '{}'", xtcModule.getName());
+
+        // Test source set should automatically depend on main source set output
+        // This mirrors Java's behavior where test compilation can see main classes
+        if (SourceSet.TEST_SOURCE_SET_NAME.equals(sourceSet.getName())) {
+            final var mainSourceSet = getSourceSets(project).getByName(MAIN_SOURCE_SET_NAME);
+            final var mainOutputDir = getXtcSourceSetOutputDirectory(project, mainSourceSet);
+            project.getDependencies().add(xtcModuleConsumerConfig, project.files(mainOutputDir));
+            logger.info("[plugin] Added main source set output to {}: {}", xtcModuleConsumerConfig, mainOutputDir);
+        }
+
+        final var xtcModuleProvider = configs.register(xtcModuleProducerConfig, config -> {
+            config.setDescription("Configuration that contains location of the .xtc files produced by this project build.");
+            config.setCanBeResolved(false);
+            config.setCanBeConsumed(true);
+            // Extend from the consumer config to expose transitive dependencies
+            config.extendsFrom(configs.getByName(xtcModuleConsumerConfig));
+            addXtcModuleProducerAttributes(config);
+        });
+        logger.info("[plugin] Created config '{}' (extends {})", xtcModuleProvider.getName(), xtcModuleConsumerConfig);
+
+        // Tell the system that the system may produce an artifact, which is the output directory for this sourceSet,
+        // that will contain all xtc files built by the compile task for this source set. This makes it possible for
+        // other entities to declare an xtcModule dependency, which will force the directory to be refreshed to
+        // up-to-date artifacts, i.e. xtc module files generated by a compileXtc/compileXtcTest task for someone else's
+        // source set.
+        project.artifacts(artifactHandler -> {
+            // This is already the output of the compile task.
+            // But we need to declare this artifact in the xdkModuleProvider if we want someone to use the xtcModule consumer
+            // and get the build directory (also forcing it to be built since it depends on the compileTask)
+            final var location = getXtcSourceSetOutputDirectory(project, sourceSet);
+            final var compileTaskName = getCompileTaskName(sourceSet);
+            artifactHandler.add(xtcModuleProvider.getName(), location, artifact -> {
+                logger.info("[plugin] Adding outgoing artifact {}; builtBy {}.", location.get(), compileTaskName);
+                // Module artifacts depend on the compile task, not the full build lifecycle.
+                // This avoids circular dependencies when tests depend on modules from other projects.
+                // Distributions that need complete builds should depend on 'build' task explicitly.
+                artifact.builtBy(project.getTasks().named(compileTaskName));
+                artifact.setType(ArtifactTypeDefinition.DIRECTORY_TYPE);
+            });
+        });
+
+        // TODO:
+        //   Ensure that any produced XTC module files are publishable if we publish the xtcComponent.
+        //   There should also be an XTC SoftwareComponent that we know how to publish.
+        //   (symmetrical to e.g. jar files and the "java" component). This should be done by adding XTC_COMPONENT_VARIANT_COMPILE
+        //    and XTC_COMPONENT_VARIANT runtime, or something like that. With a JavaConfigurationVariantMapping for the xtcModuleProvider.
+    }
+
+    private void createXdkDependencyConfigs(final Project project) {
+        final var extractTask = tasks.register(XDK_EXTRACT_TASK_NAME, XtcExtractXdkTask.class);
+
+        extractTask.configure(task -> {
+            // Configuration-cache safe: constants and build model references only
+            task.getInputXdkArchive().from(
+                configs.getByName(XDK_CONFIG_NAME_INCOMING_ZIP),
+                configs.getByName(XDK_CONFIG_NAME_INCOMING)
+            );
+            task.getOutputXtcModules().set(getXdkContentsDir());
+        });
+
+        configs.register(XDK_CONFIG_NAME_JAVATOOLS_OUTGOING, it -> {
+            it.setCanBeConsumed(false);
+            it.setCanBeResolved(true);
+            it.setDescription("The xdkJavaToolsProvider configuration is used to resolve the javatools.jar from the XDK.");
+        });
+
+        // Configuration for anyone needing a zipped artifact of the XDK, because apparently we can't have library elements.
+        configs.register(XDK_CONFIG_NAME_INCOMING_ZIP, config -> {
+            config.setDescription("Configuration specifying dependencies on a particular XDK distribution.");
+            config.setCanBeResolved(true);
+            config.setCanBeConsumed(false);
+        });
+
+        // Configurations for anyone needing a zipped artifact of the XDK in the includedBuild world, because apparently the library elements are needed.
+        configs.register(XDK_CONFIG_NAME_INCOMING, config -> {
+            config.setDescription("Configuration specifying dependencies on a particular XDK distribution.");
+            // TODO: can we keep the unpacked modules added here as well after unpack task has been run?
+            config.setCanBeResolved(true);
+            config.setCanBeConsumed(false);
+            config.attributes(it -> {
+                it.attribute(CATEGORY_ATTRIBUTE, objects.named(Category.class, LIBRARY));
+                it.attribute(LIBRARY_ELEMENTS_ATTRIBUTE, objects.named(LibraryElements.class, XDK_LIBRARY_ELEMENT_TYPE));
+            });
+        });
+
+        // This is the consumer side - a dependency for anyone needing the XDK for runtime or compile
+        // time stuff. This one wants a directory with the XDK in it.  That directory is built by the
+        // extractXdk task, that needs to know where the zip file is.
+        //
+        // By making contents consume only, and adding a dependency to the extract task from run and
+        // config task, we should be able to guarantee that the configuration contains an extracted XDK.
+        // We hoped to self-resolve this. This can still possibly be done by adding a resolvable
+        // extension to it.
+        //
+        // "xdkContents" config (resolvable, someone else has created the consumable, likely the XDK build.)
+        configs.register(XDK_CONFIG_NAME_CONTENTS, config -> {
+            config.setDescription("Configuration that consumes the contents of an XDK, i.e. .xtc module files and javatools.jar");
+            config.setCanBeResolved(false); // resolution forces someone to find and unzip an XDK for us.
+            config.setCanBeConsumed(true);
+            addXdkContentsAttributes(config);
+        });
+
+        project.artifacts(artifactHandler -> {
+            final var location = getXdkContentsDir();
+            artifactHandler.add(XDK_CONFIG_NAME_CONTENTS, location, artifact -> {
+                logger.info("[plugin] Adding outgoing XDK contents artifact to project {} ({}) builtBy {} (dir).",
+                    projectName, location.get(), extractTask.getName());
+                artifact.builtBy(extractTask);
+                artifact.setType(ArtifactTypeDefinition.DIRECTORY_TYPE);
+            });
+        });
+    }
+
+    private XtcSourceDirectorySet createXtcSourceDirectorySet(final String parentName, final String parentDisplayName, final Project project) {
+        final String name = parentDisplayName + '.' + XTC_LANGUAGE_NAME;
+        final String displayName = parentDisplayName + ' ' + XTC_LANGUAGE_NAME + " source";
+        logger.info("[plugin] Creating XTC source directory set from (parentName: {} parentDisplayName: {}, name: {}, displayName: {})",
+            parentName, parentDisplayName, name, displayName);
+
+        final ObjectFactory objects = project.getObjects();
+        final var xtcSourceDirectorySet = objects.newInstance(DefaultXtcSourceDirectorySet.class, objects.sourceDirectorySet(name, displayName));
+
+        xtcSourceDirectorySet.getFilter().include("**/*" + XTC_SOURCE_FILE_EXTENSION);
+
+        return xtcSourceDirectorySet;
+    }
+
+    private void createDefaultSourceSets(final Project project) {
+        for (final SourceSet sourceSet : getSourceSets(project)) {
+            logger.info("[plugin] Creating and adding XTC source directory to inherited Java source set: {}", sourceSet.getName());
+            // Create a source directory set named "xtc" for this existing source set.
+            final var sourceSetName = sourceSet.getName();
+            // Create the xtcSourceDirectorySet
+            final var xtcSourceDirectorySet = createXtcSourceDirectorySet(sourceSet.getName(), ((DefaultSourceSet)sourceSet).getDisplayName(), project);
+            // Create the source set output, so that we can add processed resources and build source code (.xtc module) locations to it.
+            final SourceSetOutput output = sourceSet.getOutput();
+            // Add the "xtc" source set.
+            sourceSet.getExtensions().add(XtcSourceDirectorySet.class, XTC_LANGUAGE_NAME, xtcSourceDirectorySet);
+            // Add the directory "src/<sourceSetName>/x" to the source set (convention)
+            final var srcDir = getXtcSourceDirectoryRootPath(sourceSet);
+            xtcSourceDirectorySet.srcDir(srcDir);
+            // Add all sources from the xtc source directory to the sourceSet during resolution.
+            sourceSet.getAllSource().source(xtcSourceDirectorySet);
+            // Add output directories for modules (compile<sourceSetName>Xtc output) and resources
+            // (sourceSet.output.resourcesDir) to the task, so that dependencies will work.
+            final var outputModules = getXtcSourceSetOutputDirectory(project, sourceSet);
+            final var outputResources = getXtcResourceOutputDirectory(project, sourceSet);
+            logger.info("[plugin] Configured sourceSets.{}.outputModules  : {}", sourceSetName, outputModules);
+            logger.info("[plugin] Configured sourceSets.{}.outputResources  : {}", sourceSetName, outputResources.get());
+            output.dir(outputResources); // TODO is this really correct? We have the resource dir as a special property in the sourceSetOutput already?
+            output.dir(outputModules);
+            output.setResourcesDir(outputResources);
+        }
+    }
+
+    private void createResolutionStrategy() {
+        configs.all(config -> {
+            logger.debug("[plugin] Config '{}'; evaluating dependency resolutions", config.getName());
+            config.getResolutionStrategy().eachDependency(dependency -> {
+                final var request = dependency.getRequested();
+                logger.debug("[plugin] Config '{}'    Requests dependency (artifact: {}, moduleId: {})",
+                    config.getName(), requestToNotation(request), request.getModule());
+            });
+        });
+    }
+
+    // TODO: Shouldn't be really just look in our xdkJavaTools (consumer) and the XDK? (And add the XDK to the javatools consumer config?)
+    private void createJavaToolsConfig() {
+        // TODO: The xdk should be an xdkJavaTools provider. Declare as such in ExtractXdkTask. This should remove a large amount of version handling code.
+        final var xdkJavaTools = configs.register(XDK_CONFIG_NAME_JAVATOOLS_INCOMING, config -> {
+            config.setDescription("Configuration that resolves and consumes Java bridge/tool dependencies");
+            config.setCanBeResolved(true);
+            config.setCanBeConsumed(false);
+            addJavaToolsContentsAttributes(config);
+        });
+
+        logger.info("[plugin] Created {} config and added dependencies.", xdkJavaTools.getName());
+    }
+
+    private static String xtcModuleLibraryElementName(final Configuration config) {
+        return XTC_LANGUAGE_NAME + (config.getName().contains("Test") ? "-test" : "");
+    }
+
+    private static JavaPluginExtension getJavaExtensionContainer(final Project project) {
+        /*
+         * The Java sourceSets and the application of the Java plugin modifies the life cycle.
+         * We may have to extend the compileClasspath and runtimeClasspath for the Java plugin
+         * with XTC stuff to get the compilation properly hooked up, but this seems to work right now:
+         */
+        final var container = project.getExtensions().findByType(JavaPluginExtension.class);
+        if (container == null) {
+            throw new GradleException("[plugin] Internal error; was expected to have a Java extension container.");
+        }
+        return container;
+    }
+
+    private static String requestToNotation(final ModuleVersionSelector request) {
+        return String.format("%s:%s:%s", request.getGroup(), request.getName(), request.getVersion());
+    }
+
+    private void checkProjectIsVersioned(final Project project) {
+        if (UNSPECIFIED.equalsIgnoreCase(project.getVersion().toString())) {
+            logger.warn("[plugin] WARNING: Project '{}' has unspecified version.", projectName);
+        }
+    }
+
+    /**
+     * Configures all XtcRunTask instances to depend on the XDK extract task and all compile tasks.
+     * This ensures that run tasks can only execute after the XDK is extracted and all sources are compiled.
+     *
+     * @param compileTasks the collection of all XtcCompileTask instances in the project
+     */
+    private void configureRunTaskDependencies(final TaskCollection<@NotNull XtcCompileTask> compileTasks) {
+        tasks.withType(XtcRunTask.class).configureEach(runTask -> {
+            runTask.dependsOn(XDK_EXTRACT_TASK_NAME);
+            runTask.dependsOn(compileTasks);
+            logger.info("[plugin] XtcRunTask named '{}': added dependency on: '{}' and '{}'",
+                runTask.getName(), XDK_EXTRACT_TASK_NAME, compileTasks.getNames());
+        });
+    }
+
+    /**
+     * Configures compile tasks to depend on their associated resource processing tasks.
+     * For each compile task, this method looks up the source sets associated with that task
+     * and adds dependencies on both XTC and Java resource processing tasks for those source sets.
+     * <p>
+     * TODO: Increase granularity for the dependencies, so that we have an xtc equivalent of the "classes" task,
+     *   probably a "modules" and "&lt;sourceSetName&gt;Modules" task when getting rid of the Java base plugin.
+     *
+     * @param compileTasks the collection of all XtcCompileTask instances in the project
+     */
+    private void configureCompileTaskResourceDependencies(final TaskCollection<@NotNull XtcCompileTask> compileTasks) {
+        compileTasks.forEach(task -> {
+            final Set<SourceSet> sourceSets = taskSourceSets.get(task.getName());
+            if (sourceSets == null || sourceSets.isEmpty()) {
+                logger.warn("[plugin] WARNING: No specific source set associated with compile task '{}'.", task.getName());
+            } else {
+                sourceSets.forEach(sourceSet -> {
+                    final var processResourcesTasks = List.of(getProcessResourcesTaskName(sourceSet), getJavaProcessResourcesTaskName(sourceSet));
+                    logger.info("[plugin] Adding resource dependency for compile task '{}' -> ({}, resource tasks: {})",
+                        task.getName(), sourceSets, processResourcesTasks);
+                    task.dependsOn(processResourcesTasks);
+                });
+            }
+        });
+    }
+}

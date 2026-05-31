@@ -1,0 +1,1234 @@
+# GitHub runner workflow for building, verifying and testing the XVM repo.
+#
+# This is the main CI workflow that runs on every push. It builds the XDK,
+# runs tests, and uploads build artifacts. After a successful build, publishing
+# workflows (snapshot-release, docker-build, homebrew-update) are automatically
+# triggered on master branch or when manually run with test-publishing=true.
+#
+# PLATFORM NOTES:
+# - Ubuntu: ubuntu-latest (currently Ubuntu 22.04)
+# - Windows: windows-latest
+#
+name: Verify Commit
+
+permissions:
+    contents: write
+    actions: write
+
+on:
+    push:
+        # Only run on master (after PRs are merged)
+        branches: [master]
+    pull_request:
+        # Test all PRs before merging
+        branches: [master]
+    # Manual trigger - optionally triggers publishing workflows after successful completion
+    # This allows testing the full publishing pipeline from any branch
+    # without pushing to master.
+    workflow_dispatch:
+        inputs:
+            publish-snapshots:
+                description: 'Trigger publishing workflows after build (snapshot, docker, homebrew)'
+                type: boolean
+                required: false
+                default: false
+            publish-intellij-plugin:
+                description: 'Trigger IntelliJ plugin snapshot publishing after build'
+                type: boolean
+                required: false
+                default: false
+            force-publish-intellij-plugin:
+                description: 'Force IntelliJ plugin snapshot publishing regardless of publish-intellij-plugin or lang/** changes'
+                type: boolean
+                required: false
+                default: false
+            platforms:
+                description: 'Run only single platform (ubuntu-latest, windows-latest, or all platforms)'
+                type: choice
+                required: false
+                default: 'ubuntu-latest'
+                options:
+                    - 'ubuntu-latest'
+                    - 'windows-latest'
+                    - 'all'
+            extra-gradle-options:
+                description: 'Extra Gradle options to pass to the build'
+                required: false
+            skip-tests:
+                description: 'Skip manual tests'
+                type: boolean
+                required: false
+                default: false
+            parallel-test-mode:
+                description: 'Run manual tests in parallel mode'
+                type: boolean
+                required: false
+                default: true
+            include-lang:
+                description: 'Include lang projects in build and run tree-sitter validation'
+                type: boolean
+                required: false
+                default: false
+
+env:
+    # Add manual tests as included builds - defaults to true for push/PR and for workflow_dispatch
+    # unless manual tests are explicitly skipped. This must not depend on include-lang.
+    ORG_GRADLE_PROJECT_includeBuildManualTests: ${{ github.event_name != 'workflow_dispatch' || !(github.event.inputs.skip-tests == true || github.event.inputs.skip-tests == 'true') }}
+    ORG_GRADLE_PROJECT_includeBuildAttachManualTests: ${{ github.event_name != 'workflow_dispatch' || !(github.event.inputs.skip-tests == true || github.event.inputs.skip-tests == 'true') }}
+    ORG_GRADLE_PROJECT_xtcPluginOverrideVerboseLogging: true
+    RUN_INTEGRATION_TESTS: true
+
+    # Lang build inclusion - overrides gradle.properties default (true) to exclude lang
+    # from push/PR CI builds. Only included via workflow_dispatch with include-lang=true.
+    # Tree-sitter validation steps have their own path-based gating.
+    ORG_GRADLE_PROJECT_includeBuildLang: ${{ github.event_name == 'workflow_dispatch' && (github.event.inputs.include-lang == true || github.event.inputs.include-lang == 'true') }}
+    ORG_GRADLE_PROJECT_includeBuildAttachLang: ${{ github.event_name == 'workflow_dispatch' && (github.event.inputs.include-lang == true || github.event.inputs.include-lang == 'true') }}
+
+    skip_manual_tests: ${{ github.event.inputs.skip-tests == true || github.event.inputs.skip-tests == 'true' }}
+    # Default to parallel mode (true) for push/PR events; for workflow_dispatch, use the input value
+    run_manual_tests_parallel: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.parallel-test-mode == true || github.event.inputs.parallel-test-mode == 'true' }}
+    trigger_publishing: ${{ github.event.inputs.publish-snapshots == true || github.event.inputs.publish-snapshots == 'true' }}
+    GRADLE_CACHE_INSPECT_ENABLED: false
+
+    # Gradle cache inspection function
+    GRADLE_CACHE_INSPECT: |
+        inspect_gradle_cache() {
+            if [ "${GRADLE_CACHE_INSPECT_ENABLED:-false}" != "true" ]; then
+                return 0
+            fi
+            local label="${1:-}"
+            local gradle_home="${GRADLE_USER_HOME:-$HOME/.gradle}"
+            echo "🔍 Gradle Cache Inspection${label:+ ($label)}:"
+            echo "  Cache location: $gradle_home"
+            if [ ! -d "$gradle_home" ]; then
+                echo "  Cache exists: ❌"
+                return 0
+            fi
+            echo "  Cache exists: ✅"
+            local total_size=$(du -sh "$gradle_home" 2>/dev/null | cut -f1 || echo "unknown")
+            echo "  Cache size: $total_size"
+            for dir in caches wrapper build-cache; do
+                if [ -d "$gradle_home/$dir" ]; then
+                    local dir_size=$(du -sh "$gradle_home/$dir" 2>/dev/null | cut -f1 || echo "unknown")
+                    echo "    $dir: $dir_size"
+                fi
+            done
+        }
+
+# Concurrency settings: group by workflow and ref to prevent duplicate runs
+# Push and pull_request for the same branch will cancel each other (keeping latest)
+concurrency:
+    group: "${{ github.workflow }}-${{ github.ref }}"
+    cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
+
+jobs:
+    build-and-test:
+        outputs:
+            lang-changed: ${{ steps.changes.outputs.lang }}
+            effective-publish-intellij: ${{ steps.publish-flags.outputs.effective }}
+        strategy:
+            matrix:
+                os: ${{ github.event.inputs.platforms == 'ubuntu-latest' && fromJSON('["ubuntu-latest"]') || github.event.inputs.platforms == 'windows-latest' && fromJSON('["windows-latest"]') || github.event.inputs.platforms == 'all' && fromJSON('["ubuntu-latest", "windows-latest"]') || fromJSON('["ubuntu-latest"]') }}
+
+        runs-on: ${{ matrix.os }}
+
+        steps:
+            - name: Fetch Sources
+              uses: actions/checkout@v6
+              with:
+                  fetch-depth: 0  # Need full history for path filtering
+                  show-progress: true
+                  persist-credentials: false
+
+            - name: Check for lang-related changes
+              id: changes
+              uses: dorny/paths-filter@v4
+              with:
+                  filters: |
+                      lang:
+                        - 'lang/**'
+
+            - name: 🌳 Lang validation decision
+              shell: bash
+              run: |
+                  LANG_CHANGED="${{ steps.changes.outputs.lang }}"
+                  echo ""
+                  echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+                  if [ "$LANG_CHANGED" = "true" ]; then
+                      echo "🌳 lang/ CHANGED -- WILL build lang composite and run LSP/tree-sitter tests"
+                  else
+                      echo "⏭️ no changes under lang/ -- WILL SKIP lang composite build and LSP/tree-sitter tests"
+                      echo "   (the rest of the build runs without -PincludeBuildLang=true to avoid the IntelliJ plugin resolution cost)"
+                  fi
+                  echo "  📋 path-filter result : lang=${LANG_CHANGED:-<unset>}"
+                  echo "  📋 runner             : ${{ matrix.os }} (lang validation only runs on ubuntu-latest)"
+                  echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+                  echo ""
+
+            - name: Compute IntelliJ publish flags
+              id: publish-flags
+              shell: bash
+              run: |
+                  FORCE="${{ github.event.inputs.force-publish-intellij-plugin }}"
+                  REQUESTED="${{ github.event.inputs.publish-intellij-plugin }}"
+                  INCLUDE_LANG="${{ github.event.inputs.include-lang }}"
+                  LANG_CHANGED="${{ steps.changes.outputs.lang }}"
+                  EVENT_NAME="${{ github.event_name }}"
+                  REF="${{ github.ref }}"
+                  EFFECTIVE=false
+                  REASON=""
+                  # Gating policy:
+                  #   1. force-publish-intellij-plugin=true (workflow_dispatch only) -> always publish
+                  #   2. push to master with lang changes detected -> auto-publish
+                  #   3. workflow_dispatch with publish-intellij-plugin=true and lang changes detected -> publish
+                  # Anything else -> skip, with a reason.
+                  if [ "$FORCE" = "true" ]; then
+                      EFFECTIVE=true
+                      REASON="forced via force-publish-intellij-plugin=true (overrides all other gating)"
+                  elif [ "$EVENT_NAME" = "push" ] && [ "$REF" = "refs/heads/master" ] && [ "$LANG_CHANGED" = "true" ]; then
+                      EFFECTIVE=true
+                      REASON="auto-publish on master merge with changes detected under lang/"
+                  elif [ "$EVENT_NAME" = "push" ] && [ "$REF" = "refs/heads/master" ]; then
+                      REASON="master push but no changes under lang/ -- nothing to publish (use force-publish-intellij-plugin=true via workflow_dispatch to override)"
+                  elif [ "$REQUESTED" = "true" ] && [ "$LANG_CHANGED" = "true" ]; then
+                      EFFECTIVE=true
+                      REASON="manual dispatch with publish-intellij-plugin=true and changes detected under lang/"
+                  elif [ "$REQUESTED" = "true" ]; then
+                      REASON="manual dispatch with publish-intellij-plugin=true but no changes detected under lang/ (set force-publish-intellij-plugin=true to override)"
+                  elif [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+                      REASON="manual dispatch but neither publish-intellij-plugin nor force-publish-intellij-plugin was enabled"
+                  else
+                      REASON="event=$EVENT_NAME on $REF -- IntelliJ plugin only publishes on master push or manual dispatch"
+                  fi
+                  # Lang validation (tree-sitter + LSP tests + IntelliJ Plugin Verifier)
+                  # runs whenever ANY of these are true:
+                  #   - lang/ paths changed (auto)
+                  #   - workflow_dispatch with include-lang=true (user opted into lang)
+                  #   - workflow_dispatch with publish-intellij-plugin=true (publish path)
+                  #   - workflow_dispatch with force-publish-intellij-plugin=true (forced publish)
+                  # That last group ensures we never publish without first verifying.
+                  VALIDATE_LANG=false
+                  VALIDATE_REASON=""
+                  if [ "$LANG_CHANGED" = "true" ]; then
+                      VALIDATE_LANG=true
+                      VALIDATE_REASON="lang/ paths changed"
+                  elif [ "$FORCE" = "true" ]; then
+                      VALIDATE_LANG=true
+                      VALIDATE_REASON="force-publish-intellij-plugin=true (manual override)"
+                  elif [ "$REQUESTED" = "true" ]; then
+                      VALIDATE_LANG=true
+                      VALIDATE_REASON="publish-intellij-plugin=true (manual dispatch)"
+                  elif [ "$INCLUDE_LANG" = "true" ]; then
+                      VALIDATE_LANG=true
+                      VALIDATE_REASON="include-lang=true (manual dispatch)"
+                  else
+                      VALIDATE_REASON="no lang/ changes and no manual override"
+                  fi
+
+                  echo "effective=$EFFECTIVE" >> $GITHUB_OUTPUT
+                  echo "force=$FORCE" >> $GITHUB_OUTPUT
+                  echo "requested=$REQUESTED" >> $GITHUB_OUTPUT
+                  echo "reason=$REASON" >> $GITHUB_OUTPUT
+                  echo "validate-lang=$VALIDATE_LANG" >> $GITHUB_OUTPUT
+                  echo "validate-lang-reason=$VALIDATE_REASON" >> $GITHUB_OUTPUT
+                  echo ""
+                  echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+                  if [ "$EFFECTIVE" = "true" ]; then
+                      echo "🔌 IntelliJ plugin: WILL BE BUILT AND PUBLISHED"
+                  else
+                      echo "⏭️ IntelliJ plugin: WILL NOT BE BUILT OR PUBLISHED"
+                  fi
+                  echo "  📋 Reason             : $REASON"
+                  echo "  📋 force-publish-intellij-plugin : ${FORCE:-<unset>}"
+                  echo "  📋 publish-intellij-plugin       : ${REQUESTED:-<unset>}"
+                  echo "  📋 include-lang                  : ${INCLUDE_LANG:-<unset>}"
+                  echo "  📋 lang/ changed                 : ${LANG_CHANGED:-<unset>}"
+                  echo "  📋 event                         : $EVENT_NAME on $REF"
+                  if [ "$VALIDATE_LANG" = "true" ]; then
+                      echo "🌳 Lang validation (tree-sitter + LSP + verifyPlugin + vscode-extension): WILL RUN"
+                  else
+                      echo "⏭️ Lang validation (tree-sitter + LSP + verifyPlugin + vscode-extension): WILL SKIP"
+                  fi
+                  echo "  📋 Validation reason  : $VALIDATE_REASON"
+                  echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+                  echo ""
+
+            - name: 🚀 Publishing Configuration
+              shell: bash
+              run: |
+                  echo ""
+                  echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+                  # Determine if publishing will be triggered
+                  WILL_PUBLISH=false
+
+                  # Check if this is a Dependabot merge (always skip)
+                  if [ "${{ github.actor }}" = "dependabot[bot]" ]; then
+                      echo "::notice::⏭️  PUBLISHING DISABLED: Dependabot merge detected"
+                      echo -e "\033[1;33m"
+                      echo "  ⏭️  NO PUBLISHING WORKFLOWS WILL BE TRIGGERED"
+                      echo -e "\033[0m"
+                      echo "  📋 Reason: Dependabot merges don't trigger publishing"
+                      echo "  📋 Actor: ${{ github.actor }}"
+                      echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+                      echo ""
+                      exit 0
+                  fi
+
+                  # Check if this is master + push
+                  if [ "${{ github.ref }}" = "refs/heads/master" ] && [ "${{ github.event_name }}" = "push" ]; then
+                      WILL_PUBLISH=true
+                      TRIGGER_REASON="Push to master branch"
+                  fi
+
+                  # Check if this is manual trigger with any publishing enabled
+                  if [ "${{ github.event_name }}" = "workflow_dispatch" ] && \
+                     { [ "${{ github.event.inputs.publish-snapshots }}" = "true" ] || \
+                       [ "${{ github.event.inputs.publish-intellij-plugin }}" = "true" ] || \
+                       [ "${{ github.event.inputs.force-publish-intellij-plugin }}" = "true" ]; }; then
+                      WILL_PUBLISH=true
+                      TRIGGER_REASON="Manual trigger with publish-snapshots/publish-intellij-plugin/force-publish-intellij-plugin enabled"
+                  fi
+
+                  INTELLIJ_REQUESTED=false
+                  if [ "${{ github.event_name }}" = "workflow_dispatch" ] && \
+                     { [ "${{ github.event.inputs.publish-intellij-plugin }}" = "true" ] || \
+                       [ "${{ github.event.inputs.force-publish-intellij-plugin }}" = "true" ]; }; then
+                      INTELLIJ_REQUESTED=true
+                  fi
+
+                  INTELLIJ_EFFECTIVE="${{ steps.publish-flags.outputs.effective }}"
+                  INTELLIJ_SKIP_REASON=""
+                  if [ "$INTELLIJ_REQUESTED" = "true" ] && [ "$INTELLIJ_EFFECTIVE" != "true" ]; then
+                      INTELLIJ_SKIP_REASON="${{ steps.publish-flags.outputs.reason }}"
+                  fi
+
+                  if [ "$WILL_PUBLISH" = "true" ]; then
+                      echo "::notice::📦 PUBLISHING ENABLED: Snapshot publishing workflows will be triggered after successful build"
+                      echo -e "\033[1;32m"
+                      echo "  🚀 PUBLISHING WORKFLOWS WILL BE TRIGGERED"
+                      echo -e "\033[0m"
+                      echo "  📋 Reason: $TRIGGER_REASON"
+                      echo "  📦 Workflows: Publish Snapshots, Publish Docker Images, Update Homebrew"
+                      if [ "$INTELLIJ_EFFECTIVE" = "true" ]; then
+                          echo "  📦 IntelliJ Plugin Snapshot: ENABLED"
+                      elif [ "$INTELLIJ_REQUESTED" = "true" ]; then
+                          echo "  ⏭️ IntelliJ Plugin Snapshot: SKIPPED"
+                          echo "  📋 Reason: $INTELLIJ_SKIP_REASON"
+                      else
+                          echo "  ⏭️ IntelliJ Plugin Snapshot: DISABLED"
+                      fi
+                  else
+                      echo "::notice::⏭️  PUBLISHING DISABLED: No publishing workflows will be triggered"
+                      echo -e "\033[1;33m"
+                      echo "  ⏭️  NO PUBLISHING WORKFLOWS WILL BE TRIGGERED"
+                      echo -e "\033[0m"
+                      echo "  📋 Branch: ${{ github.ref_name }}"
+                      echo "  📋 Event: ${{ github.event_name }}"
+                      if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+                          echo "  📋 publish-snapshots: ${{ github.event.inputs.publish-snapshots }}"
+                          echo "  📋 publish-intellij-plugin: ${{ github.event.inputs.publish-intellij-plugin }}"
+                          echo "  📋 force-publish-intellij-plugin: ${{ github.event.inputs.force-publish-intellij-plugin }}"
+                          echo "  📋 include-lang: ${{ github.event.inputs.include-lang }}"
+                          if [ "$INTELLIJ_REQUESTED" = "true" ] && [ "$INTELLIJ_EFFECTIVE" != "true" ]; then
+                              echo "  📋 IntelliJ skip reason: $INTELLIJ_SKIP_REASON"
+                          fi
+                      fi
+                  fi
+
+                  echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+                  echo ""
+
+            - name: Setup XVM Project
+              id: versions
+              uses: ./.github/actions/setup-xvm-project
+              with:
+                  setup-build: true
+                  cache-read-only: false
+                  enable-debug: false
+
+            - name: Debug Environment (Windows)
+              if: runner.os == 'Windows'
+              shell: bash
+              run: |
+                  echo "=== Windows Debug Information ==="
+                  echo "OS: $RUNNER_OS"
+                  echo "Operating System: $(uname -a 2>/dev/null || echo 'N/A')"
+                  echo "Java version:"
+                  java -version 2>&1 || echo "Java not available"
+                  echo "=== End Debug Information ==="
+
+            - name: Dump environment info
+              shell: bash
+              run: |
+                  echo "*** Branch (github.ref)    : ${{ github.ref }}"
+                  echo "*** Commit (github.sha)    : ${{ github.sha }}"
+                  echo "*** Runner OS              : ${{ runner.os }}"
+                  echo "*** XDK Version            : ${{ steps.versions.outputs.xdk-version }}"
+                  echo "*** Java Version           : ${{ steps.versions.outputs.java-version }}"
+
+            - name: Compute IntelliJ plugin publish version
+              if: |
+                  success() &&
+                  matrix.os == 'ubuntu-latest' &&
+                  steps.publish-flags.outputs.effective == 'true'
+              id: intellij-version
+              shell: bash
+              run: |
+                  SUFFIX=$(date -u +%Y%m%d%H%M%S)
+                  BASE_VERSION="${{ steps.versions.outputs.xdk-version }}"
+                  PUBLISH_VERSION="${BASE_VERSION}.${SUFFIX}"
+                  RELEASE_CHANNEL=$(grep "^xdk.intellij.release.channel=" version.properties | cut -d'=' -f2 | tr -d '\n\r ')
+                  echo "suffix=$SUFFIX" >> $GITHUB_OUTPUT
+                  echo "publish-version=$PUBLISH_VERSION" >> $GITHUB_OUTPUT
+                  echo "release-channel=$RELEASE_CHANNEL" >> $GITHUB_OUTPUT
+                  echo "🔖 IntelliJ Marketplace publish version: $PUBLISH_VERSION"
+
+            # NOTE: We deliberately do NOT cache lang/.intellijPlatform/ides via
+            # actions/cache. ~1 GB per IDE distribution would eat a meaningful chunk
+            # of the 10 GB per-repo cache budget that's far more valuable for PR
+            # builds and Gradle/dep caches. The verifier only needs the IDE on the
+            # rare lang/-changed run (PR validation or master publish), and the
+            # IntelliJ Platform Gradle Plugin will redownload it on demand. Slower
+            # by ~1-2 minutes on those runs, but it doesn't displace the caches we
+            # actually rely on for everything else.
+            - name: Build the XDK and create a distribution
+              shell: bash
+              env:
+                  GRADLE_OPTS: ${{ steps.versions.outputs.gradle-jvm-opts }}
+                  ENABLE_INTELLIJ_RELEASE_BUILD: ${{ matrix.os == 'ubuntu-latest' && steps.publish-flags.outputs.effective == 'true' }}
+                  ENABLE_INTELLIJ_VERIFY: ${{ matrix.os == 'ubuntu-latest' && steps.publish-flags.outputs.validate-lang == 'true' }}
+                  ENABLE_SNAPSHOT_BUNDLE_BUILD: ${{ matrix.os == 'ubuntu-latest' && ((github.ref == 'refs/heads/master' && github.event_name == 'push') || (github.event_name == 'workflow_dispatch' && (github.event.inputs.publish-snapshots == true || github.event.inputs.publish-snapshots == 'true'))) }}
+                  ORG_GRADLE_PROJECT_githubUsername: ${{ github.actor }}
+                  ORG_GRADLE_PROJECT_githubPassword: ${{ secrets.GITHUB_TOKEN }}
+                  ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.ORG_XTCLANG_MAVEN_CENTRAL_USERNAME }}
+                  ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.ORG_XTCLANG_MAVEN_CENTRAL_PASSWORD }}
+                  ORG_GRADLE_PROJECT_signing_keyId: ${{ secrets.ORG_XTCLANG_SIGNING_KEY_ID }}
+                  ORG_GRADLE_PROJECT_signing_password: ${{ secrets.ORG_XTCLANG_SIGNING_PASSWORD }}
+                  ORG_GRADLE_PROJECT_signing_key: ${{ secrets.ORG_XTCLANG_SIGNING_KEY }}
+              run: |
+                ${{ env.GRADLE_CACHE_INSPECT }}
+                # Combine standard options with optional extra options
+                GRADLE_OPTIONS="${{ steps.versions.outputs.gradle-options }} ${{ github.event.inputs.extra-gradle-options }}"
+                BUILD_TASKS="distZip check :plugin:compileJava"
+                BUILD_PROPS="-Porg.xtclang.java.test.failFast=true -Porg.xtclang.plugin.java.lint=true"
+                BUILD_JVM_ARGS=""
+                CONSUMER_REPO_DIR="$PWD/ci-artifacts/consumer-maven-repo"
+                SNAPSHOT_REPO_DIR="$PWD/ci-artifacts/snapshot-maven-repo"
+
+                cwd_path=$(pwd)
+                echo "Executing primary Gradle build from: '$cwd_path'"
+                ls -la build/ 2>/dev/null && echo "Build directory exists - will be cleaned" || echo "✅ No previous build outputs"
+
+                inspect_gradle_cache "before build"
+                ./gradlew $GRADLE_OPTIONS clean
+
+                if [ "${{ matrix.os }}" = "ubuntu-latest" ]; then
+                    echo "📦 Folding consumer Maven repository publication into the main CI build..."
+                    rm -rf "$CONSUMER_REPO_DIR"
+                    mkdir -p "$CONSUMER_REPO_DIR"
+                    BUILD_TASKS="$BUILD_TASKS publishLocal"
+                    BUILD_JVM_ARGS="-Dmaven.repo.local=$CONSUMER_REPO_DIR"
+                fi
+
+                if [ "${ENABLE_SNAPSHOT_BUNDLE_BUILD}" = "true" ]; then
+                    echo "📦 Folding snapshot publication bundle generation into the main CI build..."
+                    rm -rf "$SNAPSHOT_REPO_DIR"
+                    mkdir -p "$SNAPSHOT_REPO_DIR"
+                    BUILD_TASKS="$BUILD_TASKS publishSnapshotBundle"
+                    BUILD_PROPS="$BUILD_PROPS -Porg.xtclang.publish.snapshotBundleRepo=$SNAPSHOT_REPO_DIR"
+                fi
+
+                # IntelliJ plugin handling. There is exactly one place in CI that
+                # runs :lang:intellij-plugin:verifyPlugin: this main Gradle invocation.
+                # verifyPlugin depends on buildPlugin (which depends on patchPluginXml),
+                # so re-running verifyPlugin in a separate Gradle invocation rewrites
+                # lang/intellij-plugin/build/distributions/intellij-plugin-*.zip with
+                # whatever properties that second invocation sees -- which is exactly
+                # how a prior CI shape (a standalone "Verify IntelliJ plugin
+                # compatibility" step that did not pass -PenablePublish) silently
+                # clobbered the timestamped Marketplace ZIP with the bare base
+                # version. Keeping verification colocated with the build means the
+                # staged distribution and the verified distribution are always the
+                # same artifact, by construction.
+                if [ "${ENABLE_INTELLIJ_RELEASE_BUILD}" = "true" ]; then
+                    echo "🔌 Building release-grade IntelliJ plugin and running verifyPlugin in main CI build"
+                    echo "   Reason: ${{ steps.publish-flags.outputs.reason }}"
+                    BUILD_TASKS="$BUILD_TASKS :lang:intellij-plugin:buildSearchableOptions :lang:intellij-plugin:buildPlugin :lang:intellij-plugin:verifyPlugin"
+                    BUILD_PROPS="$BUILD_PROPS -PincludeBuildLang=true -PincludeBuildAttachLang=true -PenablePublish=true -Pjetbrains.publish.suffix=${{ steps.intellij-version.outputs.suffix }} -Plsp.buildSearchableOptions=true"
+                elif [ "${ENABLE_INTELLIJ_VERIFY}" = "true" ]; then
+                    echo "🔌 Running IntelliJ plugin verifier in main CI build (no Marketplace publication for this run)"
+                    echo "   Reason: ${{ steps.publish-flags.outputs.validate-lang-reason }}"
+                    BUILD_TASKS="$BUILD_TASKS :lang:intellij-plugin:verifyPlugin"
+                    BUILD_PROPS="$BUILD_PROPS -PincludeBuildLang=true -PincludeBuildAttachLang=true"
+                elif [ "${{ matrix.os }}" = "ubuntu-latest" ]; then
+                    echo "⏭️ Not building or verifying IntelliJ plugin"
+                    echo "   Reason: ${{ steps.publish-flags.outputs.reason }}"
+                fi
+
+                ./gradlew $GRADLE_OPTIONS $BUILD_JVM_ARGS $BUILD_PROPS $BUILD_TASKS
+
+                # Run manual tests inline if enabled (avoids cache rebuild)
+                if [ "${{ env.skip_manual_tests }}" == "true" ]; then
+                    echo "⏭️ Manual tests skipped (disabled)"
+                    exit 0
+                fi
+                
+                echo "🧪 Running manual tests inline (cache still hot)..."
+                inspect_gradle_cache "before manual tests"
+                manual_task_main=$( [ "${{ env.run_manual_tests_parallel }}" = "true" ] && echo "runCiTestTasksParallel" || echo "runCiTestTasks" )
+                echo "Running manual tests (main task: $manual_task_main)"
+                mkdir -p manualTests/build/logs
+                ./gradlew $GRADLE_OPTIONS manualTests:runXtc manualTests:runOne -PtestName=TestMisc manualTests:runTwoTestsInSequence
+                ./gradlew $GRADLE_OPTIONS "manualTests:$manual_task_main"
+                echo "🧾 Manual test logs captured under manualTests/build/logs and uploaded as CI artifacts."
+                inspect_gradle_cache "after manual tests"
+                echo "✅ Manual tests completed"
+
+            - name: Skip lang validation (no lang/ changes)
+              if: |
+                  success() &&
+                  matrix.os == 'ubuntu-latest' &&
+                  steps.publish-flags.outputs.validate-lang != 'true'
+              run: |
+                  echo "⏭️ Skipping Tree-sitter validation"
+                  echo "Reason: ${{ steps.publish-flags.outputs.validate-lang-reason }}"
+
+            - name: Validate lang (tree-sitter grammar, LSP adapters, VS Code extension)
+              if: |
+                  success() &&
+                  matrix.os == 'ubuntu-latest' &&
+                  steps.publish-flags.outputs.validate-lang == 'true'
+              shell: bash
+              env:
+                  GRADLE_OPTS: ${{ steps.versions.outputs.gradle-jvm-opts }}
+              run: |
+                  GRADLE_OPTIONS="${{ steps.versions.outputs.gradle-options }}"
+                  # Enable the lang composite build only for these lang/LSP-targeted invocations.
+                  # The job-level env keeps lang excluded for the rest of the build to avoid
+                  # paying the IntelliJ-plugin resolution cost on every CI run.
+                  LANG_OPTS="-PincludeBuildLang=true -PincludeBuildAttachLang=true"
+
+                  echo ""
+                  echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+                  echo "🌳 TREE-SITTER GRAMMAR VALIDATION"
+                  echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+                  echo "📋 Validating grammar compiles (tree-sitter generate)..."
+                  ./gradlew $GRADLE_OPTIONS $LANG_OPTS :lang:tree-sitter:validateTreeSitterGrammar
+                  echo "✅ Grammar: VALID"
+
+                  echo ""
+                  echo "📋 Testing parser on XDK corpus (with timing)..."
+                  ./gradlew $GRADLE_OPTIONS $LANG_OPTS :lang:tree-sitter:testTreeSitterParse
+                  echo "✅ Corpus parsing: PASSED"
+
+                  echo ""
+                  echo "📋 Building native libraries for all platforms..."
+                  ./gradlew $GRADLE_OPTIONS $LANG_OPTS :lang:tree-sitter:buildAllNativeLibrariesOnDemand
+                  echo "✅ Native libraries: BUILT (cached by content hash)"
+
+                  echo ""
+                  echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+                  echo "🔌 LSP ADAPTER TESTS"
+                  echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+                  # Mock adapter is being retired; tree-sitter is the default and only supported adapter.
+                  # echo ""
+                  # echo "📋 Running LSP tests with MOCK adapter (-Plsp.adapter=mock)..."
+                  # ./gradlew $GRADLE_OPTIONS $LANG_OPTS :lang:lsp-server:test -Plsp.adapter=mock
+                  # echo "✅ Mock adapter tests: PASSED"
+
+                  echo ""
+                  echo "📋 Running LSP tests with TREESITTER adapter (-Plsp.adapter=treesitter)..."
+                  ./gradlew $GRADLE_OPTIONS $LANG_OPTS :lang:lsp-server:test -Plsp.adapter=treesitter
+                  echo "✅ Tree-sitter adapter tests: PASSED"
+
+                  echo ""
+                  echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+                  echo "📦 VS CODE EXTENSION INTEGRATION TESTS"
+                  echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+                  # @vscode/test-electron launches a real Electron build inside
+                  # the Linux runner. Without a virtual framebuffer it has no
+                  # display to draw on, so we install xvfb if it is not already
+                  # present. ubuntu-latest images ship with it sometimes but
+                  # not always; the `command -v` guard is cheap either way.
+                  if ! command -v xvfb-run >/dev/null 2>&1; then
+                      echo "📋 Installing xvfb for headless Electron..."
+                      sudo apt-get update -qq
+                      sudo apt-get install -y -qq xvfb
+                  fi
+
+                  echo ""
+                  echo "📋 Running VS Code extension integration tests..."
+                  # scripts/run-vscode-tests.cjs auto-detects Linux + no DISPLAY
+                  # + xvfb-run on PATH and wraps the test runner accordingly.
+                  ./gradlew $GRADLE_OPTIONS $LANG_OPTS :lang:vscode-extension:testVscodeExtension
+                  echo "✅ VS Code extension tests: PASSED"
+
+                  echo ""
+                  echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+                  echo "🎉 ALL LANG VALIDATION COMPLETE"
+                  echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+            - name: Upload Plugin Verifier reports
+              if: |
+                  always() &&
+                  matrix.os == 'ubuntu-latest' &&
+                  steps.publish-flags.outputs.validate-lang == 'true'
+              uses: actions/upload-artifact@v7
+              with:
+                  name: plugin-verifier-reports-${{ github.sha }}
+                  path: lang/intellij-plugin/build/reports/pluginVerifier/
+                  if-no-files-found: ignore
+                  retention-days: 14
+
+            # TODO:
+            # name: XTC App Template Integration Test
+            #  if: success() && matrix.os == 'ubuntu-latest'
+            #  ## 1) Clone out xtc-app-template from github.com/xtclang/xtc-app-template or wherever it is.
+            #  ## 2) Run gradlew publishLocal on the xvm repo we are testing in this commit.yml file.
+            #  ## 3) cd into the xtc-app-template folder and run ./gradlew greet, which should work and not fail
+            #  uses: act
+
+            - name: Stage XDK distribution artifact metadata
+              if: success() && matrix.os == 'ubuntu-latest'
+              shell: bash
+              run: |
+                  METADATA_DIR="$PWD/ci-artifacts/metadata"
+                  mkdir -p "$METADATA_DIR"
+
+                  ZIP_FILE=$(find "$PWD/xdk/build/distributions" -maxdepth 1 -name "xdk-*.zip" | head -1)
+                  if [ -z "$ZIP_FILE" ] || [ ! -f "$ZIP_FILE" ]; then
+                      echo "❌ ERROR: No XDK distribution ZIP found to stage metadata"
+                      exit 1
+                  fi
+
+                  ZIP_NAME=$(basename "$ZIP_FILE")
+                  ZIP_SHA256=$(shasum -a 256 "$ZIP_FILE" | awk '{print $1}')
+
+                  cat > "$METADATA_DIR/xdk-dist-artifact.json" <<EOF
+                  {
+                    "commit": "${{ github.sha }}",
+                    "branch": "${{ github.ref_name }}",
+                    "runId": "${{ github.run_id }}",
+                    "workflow": "${{ github.workflow }}",
+                    "xdkVersion": "${{ steps.versions.outputs.xdk-version }}",
+                    "javaVersion": "${{ steps.versions.outputs.java-version }}",
+                    "artifact": "xdk-dist-${{ github.sha }}",
+                    "file": "$ZIP_NAME",
+                    "sha256": "$ZIP_SHA256"
+                  }
+                  EOF
+
+                  echo "✅ XDK distribution metadata staged for: $ZIP_NAME"
+
+            - name: Upload XDK distribution artifact
+              if: success() && matrix.os == 'ubuntu-latest'
+              uses: actions/upload-artifact@v7
+              with:
+                  name: xdk-dist-${{ github.sha }}
+                  path: |
+                      xdk/build/distributions/xdk-*.zip
+                      ci-artifacts/metadata/xdk-dist-artifact.json
+                  retention-days: 10
+
+            - name: Stage consumer Maven repository artifact
+              if: success() && matrix.os == 'ubuntu-latest'
+              shell: bash
+              run: |
+                  STAGING_DIR="$PWD/ci-artifacts/consumer-maven-repo"
+                  METADATA_DIR="$PWD/ci-artifacts/metadata"
+
+                  echo "📦 Validating consumer Maven repository produced by the main CI build..."
+                  rm -rf "$METADATA_DIR"
+                  mkdir -p "$METADATA_DIR"
+
+                  echo "📦 Staging consumer Maven repository artifact..."
+                  if [ ! -d "$STAGING_DIR/org/xtclang" ]; then
+                      echo "❌ ERROR: Expected isolated Maven Local subtree not found: $STAGING_DIR/org/xtclang"
+                      exit 1
+                  fi
+
+                  cat > "$METADATA_DIR/consumer-artifacts.json" <<EOF
+                  {
+                    "commit": "${{ github.sha }}",
+                    "branch": "${{ github.ref_name }}",
+                    "xdkVersion": "${{ steps.versions.outputs.xdk-version }}",
+                    "javaVersion": "${{ steps.versions.outputs.java-version }}",
+                    "runId": "${{ github.run_id }}",
+                    "artifact": "consumer-maven-repo-${{ github.sha }}",
+                    "mavenRepoLocal": "consumer-maven-repo"
+                  }
+                  EOF
+
+                  echo "✅ Consumer Maven repository staged at: $STAGING_DIR"
+                  find "$STAGING_DIR" -maxdepth 4 -type f | sed -n '1,80p'
+
+            - name: Upload consumer Maven repository artifact
+              if: success() && matrix.os == 'ubuntu-latest'
+              uses: actions/upload-artifact@v7
+              with:
+                  name: consumer-maven-repo-${{ github.sha }}
+                  path: |
+                      ci-artifacts/consumer-maven-repo
+                      ci-artifacts/metadata/consumer-artifacts.json
+                  retention-days: 10
+
+            - name: Stage snapshot Maven repository artifact
+              if: |
+                  success() &&
+                  matrix.os == 'ubuntu-latest' &&
+                  (
+                      (github.ref == 'refs/heads/master' && github.event_name == 'push')
+                      ||
+                      (github.event_name == 'workflow_dispatch' &&
+                       (github.event.inputs.publish-snapshots == true || github.event.inputs.publish-snapshots == 'true'))
+                  )
+              shell: bash
+              run: |
+                  STAGING_DIR="$PWD/ci-artifacts/snapshot-maven-repo"
+                  METADATA_DIR="$PWD/ci-artifacts/metadata"
+
+                  echo "📦 Validating snapshot Maven repository produced by the main CI build..."
+                  mkdir -p "$METADATA_DIR"
+
+                  if [ ! -d "$STAGING_DIR/org/xtclang" ]; then
+                      echo "❌ ERROR: Expected snapshot Maven repository subtree not found: $STAGING_DIR/org/xtclang"
+                      find "$PWD/ci-artifacts" -maxdepth 4 -type f | sed -n '1,120p' || true
+                      exit 1
+                  fi
+
+                  cat > "$METADATA_DIR/snapshot-publish-artifacts.json" <<EOF
+                  {
+                    "commit": "${{ github.sha }}",
+                    "branch": "${{ github.ref_name }}",
+                    "xdkVersion": "${{ steps.versions.outputs.xdk-version }}",
+                    "javaVersion": "${{ steps.versions.outputs.java-version }}",
+                    "runId": "${{ github.run_id }}",
+                    "artifact": "snapshot-maven-repo-${{ github.sha }}",
+                    "snapshotRepo": "snapshot-maven-repo"
+                  }
+                  EOF
+
+                  echo "✅ Snapshot Maven repository staged at: $STAGING_DIR"
+                  find "$STAGING_DIR" -maxdepth 4 -type f | sed -n '1,80p'
+
+            - name: Upload snapshot Maven repository artifact
+              if: |
+                  success() &&
+                  matrix.os == 'ubuntu-latest' &&
+                  (
+                      (github.ref == 'refs/heads/master' && github.event_name == 'push')
+                      ||
+                      (github.event_name == 'workflow_dispatch' &&
+                       (github.event.inputs.publish-snapshots == true || github.event.inputs.publish-snapshots == 'true'))
+                  )
+              uses: actions/upload-artifact@v7
+              with:
+                  name: snapshot-maven-repo-${{ github.sha }}
+                  path: |
+                      ci-artifacts/snapshot-maven-repo
+                      ci-artifacts/metadata/snapshot-publish-artifacts.json
+                  retention-days: 10
+
+            - name: Stage release-grade IntelliJ plugin artifact
+              if: |
+                  success() &&
+                  matrix.os == 'ubuntu-latest' &&
+                  steps.publish-flags.outputs.effective == 'true'
+              shell: bash
+              env:
+                  GRADLE_OPTS: ${{ steps.versions.outputs.gradle-jvm-opts }}
+              run: |
+                  PUBLISH_SUFFIX="${{ steps.intellij-version.outputs.suffix }}"
+                  PUBLISH_VERSION="${{ steps.intellij-version.outputs.publish-version }}"
+                  RELEASE_CHANNEL="${{ steps.intellij-version.outputs.release-channel }}"
+                  STAGING_DIR="$PWD/ci-artifacts/intellij-plugin-dist"
+                  VERIFIER_DIR="$PWD/lang/intellij-plugin/build/reports/pluginVerifier"
+
+                  rm -rf "$STAGING_DIR"
+                  mkdir -p "$STAGING_DIR"
+
+                  echo "📦 Staging release-grade IntelliJ plugin artifact from outputs built in the main CI build..."
+
+                  DIST_DIR="$PWD/lang/intellij-plugin/build/distributions"
+                  ZIP_FILE=$(find "$DIST_DIR" -maxdepth 1 -name "*.zip" | head -1)
+                  if [ -z "$ZIP_FILE" ]; then
+                      echo "❌ ERROR: No IntelliJ plugin ZIP found after build"
+                      ls -la "$DIST_DIR"
+                      exit 1
+                  fi
+
+                  shasum -a 256 "$ZIP_FILE" > "$DIST_DIR/SHA256SUMS.txt"
+                  cp "$ZIP_FILE" "$STAGING_DIR/"
+                  cp "$DIST_DIR/SHA256SUMS.txt" "$STAGING_DIR/"
+
+                  if [ -d "$VERIFIER_DIR" ]; then
+                      cp -R "$VERIFIER_DIR" "$STAGING_DIR/pluginVerifier"
+                  fi
+
+                  cat > "$STAGING_DIR/intellij-plugin-metadata.json" <<EOF
+                  {
+                    "commit": "${{ github.sha }}",
+                    "branch": "${{ github.ref_name }}",
+                    "runId": "${{ github.run_id }}",
+                    "baseVersion": "${{ steps.versions.outputs.xdk-version }}",
+                    "publishVersion": "$PUBLISH_VERSION",
+                    "publishSuffix": "$PUBLISH_SUFFIX",
+                    "releaseChannel": "$RELEASE_CHANNEL",
+                    "xmlId": "org.xtclang.idea",
+                    "zipName": "$(basename "$ZIP_FILE")"
+                  }
+                  EOF
+
+                  echo "✅ IntelliJ plugin artifact staged at: $STAGING_DIR"
+                  find "$STAGING_DIR" -maxdepth 3 -type f | sed -n '1,80p'
+
+            - name: Upload IntelliJ plugin artifact
+              if: |
+                  success() &&
+                  matrix.os == 'ubuntu-latest' &&
+                  steps.publish-flags.outputs.effective == 'true'
+              uses: actions/upload-artifact@v7
+              with:
+                  name: intellij-plugin-dist-${{ github.sha }}
+                  path: ci-artifacts/intellij-plugin-dist
+                  retention-days: 10
+
+            - name: List manual test logs
+              if: always() && matrix.os == 'ubuntu-latest' && env.skip_manual_tests != 'true'
+              shell: bash
+              run: |
+                  echo "Manual test log directory contents:"
+                  ls -la manualTests/build/logs || true
+
+            - name: Upload manual test logs
+              if: always() && matrix.os == 'ubuntu-latest' && env.skip_manual_tests != 'true'
+              uses: actions/upload-artifact@v7
+              with:
+                  name: manual-tests-logs-${{ github.sha }}
+                  path: manualTests/build/logs/*.log
+                  if-no-files-found: error
+                  retention-days: 10
+
+            - name: Collect CI diagnostics
+              if: failure() && matrix.os == 'ubuntu-latest'
+              shell: bash
+              run: |
+                  set -euo pipefail
+
+                  DIAG_DIR="$PWD/ci-artifacts/diagnostics"
+                  rm -rf "$DIAG_DIR"
+                  mkdir -p "$DIAG_DIR"
+
+                  copy_if_exists() {
+                      local src="$1"
+                      local dest="$2"
+                      if [ -e "$src" ]; then
+                          mkdir -p "$(dirname "$dest")"
+                          cp -R "$src" "$dest"
+                      fi
+                  }
+
+                  echo "📦 Collecting failure diagnostics..."
+
+                  copy_if_exists "$PWD/manualTests/build/logs" "$DIAG_DIR/manualTests/build/logs"
+                  copy_if_exists "$PWD/build/reports" "$DIAG_DIR/root/build/reports"
+                  copy_if_exists "$PWD/build/test-results" "$DIAG_DIR/root/build/test-results"
+                  copy_if_exists "$PWD/xdk/build/reports" "$DIAG_DIR/xdk/build/reports"
+                  copy_if_exists "$PWD/xdk/build/test-results" "$DIAG_DIR/xdk/build/test-results"
+                  copy_if_exists "$PWD/plugin/build/reports" "$DIAG_DIR/plugin/build/reports"
+                  copy_if_exists "$PWD/plugin/build/test-results" "$DIAG_DIR/plugin/build/test-results"
+                  copy_if_exists "$PWD/lang/lsp-server/build/reports" "$DIAG_DIR/lang/lsp-server/build/reports"
+                  copy_if_exists "$PWD/lang/lsp-server/build/test-results" "$DIAG_DIR/lang/lsp-server/build/test-results"
+                  copy_if_exists "$PWD/lang/intellij-plugin/build/reports" "$DIAG_DIR/lang/intellij-plugin/build/reports"
+                  copy_if_exists "$PWD/lang/intellij-plugin/build/test-results" "$DIAG_DIR/lang/intellij-plugin/build/test-results"
+
+                  find "$DIAG_DIR" -maxdepth 5 -type f | sed -n '1,200p'
+
+            - name: Upload CI diagnostics
+              if: failure() && matrix.os == 'ubuntu-latest'
+              uses: actions/upload-artifact@v7
+              with:
+                  name: ci-diagnostics-${{ github.sha }}
+                  path: ci-artifacts/diagnostics
+                  if-no-files-found: ignore
+                  retention-days: 7
+
+            - name: Summary
+              if: success()
+              shell: bash
+              run: |
+                  INTELLIJ_ARTIFACT_STATUS="⏭️ Skipped"
+                  INTELLIJ_ARTIFACT_REASON="not enabled for this run"
+                  SNAPSHOT_REPO_STATUS="⏭️ Skipped"
+                  SNAPSHOT_REPO_REASON="not enabled for this run"
+                  MANUAL_TEST_STATUS="✅ Passed"
+                  MANUAL_TEST_REASON="executed in the main CI build"
+                  LANG_VALIDATION_STATUS="⏭️ Skipped"
+                  LANG_VALIDATION_REASON="not run on this runner"
+                  if [ "${{ matrix.os }}" = "ubuntu-latest" ] && {
+                       [ "${{ github.ref }}" = "refs/heads/master" ] && [ "${{ github.event_name }}" = "push" ];
+                     } || {
+                       [ "${{ github.event_name }}" = "workflow_dispatch" ] &&
+                       [ "${{ github.event.inputs.publish-snapshots }}" = "true" ];
+                     }; then
+                      SNAPSHOT_REPO_STATUS="✅ Built"
+                      SNAPSHOT_REPO_REASON="artifact staged for downstream snapshot publication"
+                  fi
+                  if [ "${{ env.skip_manual_tests }}" = "true" ]; then
+                      MANUAL_TEST_STATUS="⏭️ Skipped"
+                      MANUAL_TEST_REASON="disabled for this run"
+                  fi
+                  if [ "${{ matrix.os }}" = "ubuntu-latest" ]; then
+                      if [ "${{ steps.publish-flags.outputs.validate-lang }}" = "true" ]; then
+                          LANG_VALIDATION_STATUS="✅ Ran"
+                          LANG_VALIDATION_REASON="${{ steps.publish-flags.outputs.validate-lang-reason }}"
+                      else
+                          LANG_VALIDATION_STATUS="⏭️ Skipped"
+                          LANG_VALIDATION_REASON="${{ steps.publish-flags.outputs.validate-lang-reason }}"
+                      fi
+                  fi
+                  if [ "${{ matrix.os }}" = "ubuntu-latest" ]; then
+                      if [ "${{ steps.publish-flags.outputs.effective }}" = "true" ]; then
+                          INTELLIJ_ARTIFACT_STATUS="✅ Built"
+                          INTELLIJ_ARTIFACT_REASON="${{ steps.publish-flags.outputs.reason }}"
+                      else
+                          INTELLIJ_ARTIFACT_STATUS="⏭️ Skipped"
+                          INTELLIJ_ARTIFACT_REASON="${{ steps.publish-flags.outputs.reason }}"
+                      fi
+                  fi
+
+                  echo "### ✅ Build and Test Completed" >> $GITHUB_STEP_SUMMARY
+                  echo "" >> $GITHUB_STEP_SUMMARY
+                  echo "- **Version:** ${{ steps.versions.outputs.xdk-version }}" >> $GITHUB_STEP_SUMMARY
+                  echo "- **Java Version:** ${{ steps.versions.outputs.java-version }}" >> $GITHUB_STEP_SUMMARY
+                  echo "- **Commit:** ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+                  echo "- **Branch:** ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
+                  echo "" >> $GITHUB_STEP_SUMMARY
+                  echo "**Staged CI Artifacts:**" >> $GITHUB_STEP_SUMMARY
+                  if [ "${{ matrix.os }}" = "ubuntu-latest" ]; then
+                      echo "- ✅ XDK distribution: \`xdk-dist-${{ github.sha }}\`" >> $GITHUB_STEP_SUMMARY
+                      echo "- ✅ Consumer Maven repository: \`consumer-maven-repo-${{ github.sha }}\`" >> $GITHUB_STEP_SUMMARY
+                      echo "- $SNAPSHOT_REPO_STATUS Snapshot Maven publication bundle: \`snapshot-maven-repo-${{ github.sha }}\` ($SNAPSHOT_REPO_REASON)" >> $GITHUB_STEP_SUMMARY
+                      echo "- $INTELLIJ_ARTIFACT_STATUS IntelliJ plugin distribution: \`intellij-plugin-dist-${{ github.sha }}\` ($INTELLIJ_ARTIFACT_REASON)" >> $GITHUB_STEP_SUMMARY
+                  else
+                      echo "- ⏭️ Artifact staging summary shown only for the Ubuntu publishing lane" >> $GITHUB_STEP_SUMMARY
+                  fi
+                  echo "" >> $GITHUB_STEP_SUMMARY
+                  echo "**Validation:**" >> $GITHUB_STEP_SUMMARY
+                  echo "- $MANUAL_TEST_STATUS Manual tests ($MANUAL_TEST_REASON)" >> $GITHUB_STEP_SUMMARY
+                  echo "- $LANG_VALIDATION_STATUS Lang/tree-sitter validation ($LANG_VALIDATION_REASON)" >> $GITHUB_STEP_SUMMARY
+                  if [ "$INTELLIJ_ARTIFACT_STATUS" = "✅ Built" ]; then
+                      echo "- ✅ IntelliJ publish version: \`${{ steps.intellij-version.outputs.publish-version }}\` on channel \`${{ steps.intellij-version.outputs.release-channel }}\`" >> $GITHUB_STEP_SUMMARY
+                  fi
+                  echo "" >> $GITHUB_STEP_SUMMARY
+                  echo "**Publication Gating:**" >> $GITHUB_STEP_SUMMARY
+                  if [ "${{ github.ref }}" = "refs/heads/master" ] && [ "${{ github.event_name }}" = "push" ]; then
+                      echo "- ✅ Snapshot publication lane enabled by master push" >> $GITHUB_STEP_SUMMARY
+                  else
+                      echo "- ⏭️ Master-only automatic publication lane not active" >> $GITHUB_STEP_SUMMARY
+                  fi
+                  if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ github.event.inputs.publish-snapshots }}" = "true" ]; then
+                      echo "- ✅ Manual XDK snapshot publication requested" >> $GITHUB_STEP_SUMMARY
+                  else
+                      echo "- ⏭️ Manual XDK snapshot publication not requested" >> $GITHUB_STEP_SUMMARY
+                  fi
+                  if [ "${{ steps.publish-flags.outputs.effective }}" = "true" ]; then
+                      echo "- ✅ IntelliJ snapshot publication enabled (${{ steps.publish-flags.outputs.reason }})" >> $GITHUB_STEP_SUMMARY
+                  else
+                      echo "- ⏭️ IntelliJ snapshot publication disabled (${{ steps.publish-flags.outputs.reason }})" >> $GITHUB_STEP_SUMMARY
+                  fi
+
+    # Aggregate gating job for branch protection.
+    # Fails unless both build-and-test and integration-test succeed, so a single
+    # required check covers the full PR-blocking surface.
+    build-complete:
+        name: All builds complete
+        needs: [build-and-test, integration-test]
+        runs-on: ubuntu-latest
+        if: always()
+        steps:
+            - name: Check build status
+              run: |
+                  BUILD_RESULT="${{ needs.build-and-test.result }}"
+                  INTEGRATION_RESULT="${{ needs.integration-test.result }}"
+                  echo "build-and-test    : $BUILD_RESULT"
+                  echo "integration-test  : $INTEGRATION_RESULT"
+                  if [ "$BUILD_RESULT" != "success" ]; then
+                    echo "❌ build-and-test failed or was cancelled"
+                    exit 1
+                  fi
+                  if [ "$INTEGRATION_RESULT" != "success" ]; then
+                    echo "❌ integration-test failed or was cancelled"
+                    exit 1
+                  fi
+                  echo "✅ All required jobs completed successfully"
+
+    # Integration test: verify the XTC plugin works with external projects
+    # Clones xtc-app-template, publishes XDK locally, and runs the template app
+    integration-test:
+        name: Plugin integration test
+        needs: build-and-test
+        runs-on: ubuntu-latest
+        if: success()
+
+        steps:
+            - name: Checkout XVM
+              uses: actions/checkout@v6
+              with:
+                  fetch-depth: 1
+
+            - name: Setup XVM Project
+              id: versions
+              uses: ./.github/actions/setup-xvm-project
+              with:
+                  setup-build: false
+                  enable-debug: false
+
+            - name: Setup Java
+              uses: actions/setup-java@v5
+              with:
+                  distribution: ${{ steps.versions.outputs.java-distribution }}
+                  java-version: ${{ steps.versions.outputs.java-version }}
+
+            - name: Download staged consumer Maven repository
+              uses: actions/download-artifact@v8
+              with:
+                  name: consumer-maven-repo-${{ github.sha }}
+                  path: ./artifacts
+
+            - name: Clone xtc-app-template
+              run: |
+                  echo "📥 Cloning xtc-app-template..."
+                  git clone --depth 1 https://github.com/xtclang/xtc-app-template.git ../xtc-app-template
+                  echo "✅ Template cloned"
+
+            - name: Update template to use current XDK version
+              run: |
+                  XDK_VERSION="${{ steps.versions.outputs.xdk-version }}"
+                  echo "🔧 Updating xtc-app-template to use XDK version: $XDK_VERSION"
+
+                  # Update only the version in [versions] section, not the plugin definition
+                  # The pattern matches: xtc = "..." (quoted version string)
+                  # But not: xtc = { ... } (plugin definition with braces)
+                  sed -i 's/^xtc = "[^"]*"/xtc = "'"$XDK_VERSION"'"/' ../xtc-app-template/gradle/libs.versions.toml
+
+                  echo "📄 Updated libs.versions.toml:"
+                  cat ../xtc-app-template/gradle/libs.versions.toml
+
+            - name: Verify staged consumer artifact provenance
+              shell: bash
+              run: |
+                  METADATA_FILE=$(find "$GITHUB_WORKSPACE/artifacts" -maxdepth 3 -name consumer-artifacts.json | head -1)
+                  if [ -z "$METADATA_FILE" ] || [ ! -f "$METADATA_FILE" ]; then
+                      echo "❌ ERROR: consumer-artifacts.json not found in downloaded artifact"
+                      find "$GITHUB_WORKSPACE/artifacts" -maxdepth 4 -type f | sed -n '1,120p' || true
+                      exit 1
+                  fi
+
+                  ARTIFACT_COMMIT=$(jq -r '.commit' "$METADATA_FILE")
+                  ARTIFACT_BRANCH=$(jq -r '.branch' "$METADATA_FILE")
+                  ARTIFACT_VERSION=$(jq -r '.xdkVersion' "$METADATA_FILE")
+                  ARTIFACT_RUN_ID=$(jq -r '.runId' "$METADATA_FILE")
+                  ARTIFACT_NAME=$(jq -r '.artifact' "$METADATA_FILE")
+
+                  echo "📦 Consumer artifact provenance"
+                  echo "  Metadata file : $METADATA_FILE"
+                  echo "  Commit        : $ARTIFACT_COMMIT"
+                  echo "  Branch        : $ARTIFACT_BRANCH"
+                  echo "  XDK Version   : $ARTIFACT_VERSION"
+                  echo "  Source Run ID : $ARTIFACT_RUN_ID"
+                  echo "  Artifact Name : $ARTIFACT_NAME"
+
+                  if [ "$ARTIFACT_COMMIT" != "${{ github.sha }}" ]; then
+                      echo "❌ ERROR: Downloaded consumer artifact commit does not match this CI run commit"
+                      exit 1
+                  fi
+
+                  echo "✅ Consumer artifact commit matches current branch build"
+
+            - name: Run xtc-app-template with local XDK in attached and direct modes
+              working-directory: ../xtc-app-template
+              run: |
+                  LOCAL_REPO_PATH="$GITHUB_WORKSPACE/artifacts/consumer-maven-repo"
+                  if [ ! -d "$LOCAL_REPO_PATH/org/xtclang" ]; then
+                      echo "❌ ERROR: Staged consumer Maven repository not found at $LOCAL_REPO_PATH"
+                      find "$GITHUB_WORKSPACE/artifacts" -maxdepth 4 -type f | sed -n '1,80p' || true
+                      exit 1
+                  fi
+                  echo "📦 Using staged local Maven repo at: $LOCAL_REPO_PATH"
+                  find "$LOCAL_REPO_PATH/org/xtclang" -maxdepth 3 -type f | sed -n '1,40p'
+                  echo "🧪 Running xtc-app-template in default attached mode..."
+                  ./gradlew greet -PlocalOnly=true --no-daemon --refresh-dependencies -Dmaven.repo.local="$LOCAL_REPO_PATH"
+                  echo "🧪 Running xtc-app-template in direct mode via build-level override..."
+                  ./gradlew greet -PlocalOnly=true -PxtcDefaultExecutionMode=DIRECT --no-daemon --refresh-dependencies -Dmaven.repo.local="$LOCAL_REPO_PATH"
+                  echo "✅ Integration test passed - plugin works with external projects"
+
+            - name: Summary
+              if: success()
+              run: |
+                  echo "### ✅ Plugin Integration Test Passed" >> $GITHUB_STEP_SUMMARY
+                  echo "" >> $GITHUB_STEP_SUMMARY
+                  echo "- **XDK Version:** ${{ steps.versions.outputs.xdk-version }}" >> $GITHUB_STEP_SUMMARY
+                  echo "- **Template:** xtc-app-template" >> $GITHUB_STEP_SUMMARY
+                  echo "- **Tests:** \`./gradlew greet -PlocalOnly=true\` and \`./gradlew greet -PlocalOnly=true -PxtcDefaultExecutionMode=DIRECT\`" >> $GITHUB_STEP_SUMMARY
+
+    # Trigger publishing workflows for snapshots
+    # Runs when:
+    # 1. Push to master (automatic snapshot publishing) - BUT NOT for release merges or Dependabot merges
+    # 2. Manual trigger with publish-snapshots=true and/or publish-intellij-plugin=true
+    #
+    # Release merges are handled by promote-release.yml workflow instead
+    # Dependabot merges are skipped to avoid permission issues
+    trigger-publishing:
+        name: Trigger snapshot publishing workflows
+        needs: [build-and-test, integration-test]
+        runs-on: ubuntu-latest
+        if: |
+            success() &&
+            github.actor != 'dependabot[bot]' &&
+            (
+                (github.ref == 'refs/heads/master' && github.event_name == 'push')
+                ||
+                (github.event_name == 'workflow_dispatch' &&
+                 (
+                     (github.event.inputs.publish-snapshots == true || github.event.inputs.publish-snapshots == 'true')
+                     ||
+                     (github.event.inputs.publish-intellij-plugin == true || github.event.inputs.publish-intellij-plugin == 'true')
+                     ||
+                     (github.event.inputs.force-publish-intellij-plugin == true || github.event.inputs.force-publish-intellij-plugin == 'true')
+                 ))
+            )
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v6
+              with:
+                  fetch-depth: 10  # Need history to check for release tags
+
+            - name: Check if this is a release merge
+              id: check-release
+              run: |
+                  # Check if current commit has a release tag (v*.*.*)
+                  # Release merges should use promote-release.yml, not snapshot publishing
+                  RELEASE_TAG=$(git tag --points-at HEAD | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' || true)
+
+                  if [ -n "$RELEASE_TAG" ]; then
+                      echo "is-release=true" >> $GITHUB_OUTPUT
+                      echo "release-tag=$RELEASE_TAG" >> $GITHUB_OUTPUT
+                      echo "🏷️  Detected release tag: $RELEASE_TAG"
+                      echo "⏭️  Skipping snapshot publishing (will be handled by promote-release.yml)"
+                  else
+                      echo "is-release=false" >> $GITHUB_OUTPUT
+                      echo "✅ No release tag detected - proceeding with snapshot publishing"
+                  fi
+
+            - name: Trigger snapshot publishing
+              if: steps.check-release.outputs.is-release != 'true'
+              env:
+                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: |
+                  PUBLISH_XDK_SNAPSHOTS=false
+                  PUBLISH_INTELLIJ_PLUGIN=false
+
+                  if [ "${{ github.ref }}" = "refs/heads/master" ] && [ "${{ github.event_name }}" = "push" ]; then
+                      PUBLISH_XDK_SNAPSHOTS=true
+                  fi
+                  if [ "${{ github.event_name }}" = "workflow_dispatch" ] && \
+                     [ "${{ github.event.inputs.publish-snapshots }}" = "true" ]; then
+                      PUBLISH_XDK_SNAPSHOTS=true
+                  fi
+                  if [ "${{ needs.build-and-test.outputs.effective-publish-intellij }}" = "true" ]; then
+                      PUBLISH_INTELLIJ_PLUGIN=true
+                      echo "🔌 IntelliJ plugin publish lane: ENABLED (effective-publish-intellij=true from build-and-test)"
+                  else
+                      echo "⏭️ IntelliJ plugin publish lane: DISABLED (effective-publish-intellij=false from build-and-test)"
+                  fi
+
+                  if [ "$PUBLISH_XDK_SNAPSHOTS" != "true" ] && [ "$PUBLISH_INTELLIJ_PLUGIN" != "true" ]; then
+                      echo "⏭️ No effective snapshot publication lanes remain after gating; skipping publish-snapshot.yml dispatch"
+                      exit 0
+                  fi
+
+                  echo "🚀 Triggering Publish Snapshots workflow..."
+                  gh workflow run publish-snapshot.yml \
+                    --repo ${{ github.repository }} \
+                    --ref ${{ github.ref_name }} \
+                    --field ci-run-id=${{ github.run_id }} \
+                    --field publish-xdk-snapshots=$PUBLISH_XDK_SNAPSHOTS \
+                    --field publish-intellij-plugin=$PUBLISH_INTELLIJ_PLUGIN \
+                    --field extra-gradle-options=${{ github.event.inputs.extra-gradle-options }}
+                  echo "✅ Snapshot publishing triggered"
+
+            - name: Trigger Docker publishing
+              if: |
+                  steps.check-release.outputs.is-release != 'true' &&
+                  (
+                      (github.ref == 'refs/heads/master' && github.event_name == 'push')
+                      ||
+                      (github.event_name == 'workflow_dispatch' &&
+                       (github.event.inputs.publish-snapshots == true || github.event.inputs.publish-snapshots == 'true'))
+                  )
+              env:
+                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: |
+                  echo "🚀 Triggering Publish Docker Images workflow..."
+                  gh workflow run publish-docker.yml --repo ${{ github.repository }} --ref ${{ github.ref_name }} --field ci-run-id=${{ github.run_id }}
+                  echo "✅ Docker publishing triggered"
+
+            - name: Trigger Homebrew update
+              if: |
+                  steps.check-release.outputs.is-release != 'true' &&
+                  (
+                      (github.ref == 'refs/heads/master' && github.event_name == 'push')
+                      ||
+                      (github.event_name == 'workflow_dispatch' &&
+                       (github.event.inputs.publish-snapshots == true || github.event.inputs.publish-snapshots == 'true'))
+                  )
+              env:
+                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: |
+                  echo "🚀 Triggering Update Homebrew workflow..."
+                  gh workflow run homebrew-update.yml --repo ${{ github.repository }} --ref ${{ github.ref_name }} --field ci-run-id=${{ github.run_id }}
+                  echo "✅ Homebrew update triggered"
+
+            - name: Summary - Snapshots Triggered
+              if: steps.check-release.outputs.is-release != 'true'
+              run: |
+                  echo "### 🚀 Publishing Workflows Triggered" >> $GITHUB_STEP_SUMMARY
+                  echo "" >> $GITHUB_STEP_SUMMARY
+                  echo "The following workflows have been triggered:" >> $GITHUB_STEP_SUMMARY
+                  if [ "${{ github.ref }}" = "refs/heads/master" ] && [ "${{ github.event_name }}" = "push" ]; then
+                      echo "- ✅ Snapshot publishing" >> $GITHUB_STEP_SUMMARY
+                      echo "- ✅ Docker publishing" >> $GITHUB_STEP_SUMMARY
+                      echo "- ✅ Homebrew update" >> $GITHUB_STEP_SUMMARY
+                  elif [ "${{ github.event.inputs.publish-snapshots }}" = "true" ]; then
+                      echo "- ✅ Snapshot publishing" >> $GITHUB_STEP_SUMMARY
+                      echo "- ✅ Docker publishing" >> $GITHUB_STEP_SUMMARY
+                      echo "- ✅ Homebrew update" >> $GITHUB_STEP_SUMMARY
+                  else
+                      echo "- ⏭️ Snapshot publishing" >> $GITHUB_STEP_SUMMARY
+                      echo "- ⏭️ Docker publishing" >> $GITHUB_STEP_SUMMARY
+                      echo "- ⏭️ Homebrew update" >> $GITHUB_STEP_SUMMARY
+                  fi
+                  if [ "${{ needs.build-and-test.outputs.effective-publish-intellij }}" = "true" ]; then
+                      echo "- ✅ IntelliJ plugin snapshot publishing" >> $GITHUB_STEP_SUMMARY
+                  else
+                      echo "- ⏭️ IntelliJ plugin snapshot publishing (not enabled for this run)" >> $GITHUB_STEP_SUMMARY
+                  fi
+                  echo "" >> $GITHUB_STEP_SUMMARY
+                  echo "Check the [Actions tab](https://github.com/${{ github.repository }}/actions) for workflow status." >> $GITHUB_STEP_SUMMARY
+
+            - name: Summary - Release Detected
+              if: steps.check-release.outputs.is-release == 'true'
+              run: |
+                  echo "### 🏷️ Release Merge Detected" >> $GITHUB_STEP_SUMMARY
+                  echo "" >> $GITHUB_STEP_SUMMARY
+                  echo "**Release Tag:** ${{ steps.check-release.outputs.release-tag }}" >> $GITHUB_STEP_SUMMARY
+                  echo "" >> $GITHUB_STEP_SUMMARY
+                  echo "Snapshot publishing skipped - release promotion will be handled by promote-release.yml workflow." >> $GITHUB_STEP_SUMMARY
+                  echo "" >> $GITHUB_STEP_SUMMARY
+                  echo "Check the [Actions tab](https://github.com/${{ github.repository }}/actions) for promote-release workflow status." >> $GITHUB_STEP_SUMMARY

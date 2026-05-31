@@ -1,0 +1,106 @@
+package org.xtclang.ecstasy.numbers;
+
+import java.math.BigDecimal;
+import java.math.MathContext;
+
+import org.xtclang.ecstasy.Object;
+import org.xtclang.ecstasy.Orderable;
+import org.xtclang.ecstasy.Ordered;
+import org.xtclang.ecstasy.nType;
+
+import org.xtclang.ecstasy.text.String;
+
+import org.xvm.javajit.Ctx;
+
+/**
+ * Native Float32 wrapper.
+ */
+public class Float32 extends BinaryFPNumber {
+    /**
+     * Construct an Ecstasy Float32 object.
+     *
+     * @param value  the 32-bit float value
+     */
+    private Float32(float value) {
+        $value = value;
+    }
+
+    public final float $value;
+
+    public static Float32 $box(float value) {
+        return new Float32(value);
+    }
+
+    @Override
+    public String toString(Ctx ctx) {
+        return String.of(ctx, Float.toString($value));
+    }
+
+    @Override
+    public BigDecimal $toBigDecimal() {
+        return new BigDecimal(Float.toString($value), MathContext.DECIMAL32);
+    }
+
+    @Override
+    public boolean $isInfinite() {
+        return Float.isInfinite($value);
+    }
+
+    @Override
+    public boolean $isNaN() {
+        return Float.isNaN($value);
+    }
+
+    @Override
+    public boolean $isSigned() {
+        return Float.floatToRawIntBits($value) < 0;
+    }
+
+    @Override
+    protected long[] $longValues() {
+        return new long[]{(long) $value << 32};
+    }
+
+    @Override
+    protected long bitLength$get$p() {
+        return 32;
+    }
+
+    // ----- Orderable interface -------------------------------------------------------------------
+
+    /**
+     * The primitive implementation of:
+     *
+     * static <CompileType extends Orderable> Ordered compare(CompileType value1, CompileType value2);
+     */
+    public static Ordered compare(Ctx ctx, nType type, Orderable value1, Orderable value2) {
+        float l1 = ((Float32) value1).$value;
+        float l2 = ((Float32) value2).$value;
+        return l1 < l2    ? Ordered.Lesser.$INSTANCE
+                : l1 == l2 ? Ordered.Equal.$INSTANCE
+                : Ordered.Greater.$INSTANCE;
+    }
+
+    /**
+     * The primitive implementation of:
+     *
+     *  static <CompileType extends Orderable> Boolean equals(CompileType value1, CompileType value2);
+     */
+    public static Boolean equals(Ctx ctx, nType type, Object value1, Object value2) {
+        float l1 = ((Float32) value1).$value;
+        float l2 = ((Float32) value2).$value;
+        return l1 == l2 ? Boolean.TRUE : Boolean.FALSE;
+    }
+
+    // ----- conversion ----------------------------------------------------------------------------
+
+    @Override
+    public float toFloat32$p(Ctx ctx) {
+        return $value;
+    }
+
+    @Override
+    public double toFloat64$p(Ctx ctx) {
+        return super.toFloat64$p(ctx);
+    }
+}
