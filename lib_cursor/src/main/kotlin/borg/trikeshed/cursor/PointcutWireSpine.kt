@@ -8,8 +8,8 @@ import borg.trikeshed.lib.Reducer
 import borg.trikeshed.lib.ReduxMutableSeries
 import borg.trikeshed.lib.RingSeries
 import borg.trikeshed.lib.Series
-import borg.trikeshed.lib.SeriesKt.emptySeries
-import borg.trikeshed.lib.SeriesKt.toSeries
+import borg.trikeshed.lib.emptySeriesOf
+import borg.trikeshed.lib.toSeries
 import java.net.URL
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
@@ -61,7 +61,7 @@ class PooledVarcharCursor(
 class PooledVarcharJointTable {
     private val rows = ChunkedMutableSeries<PooledVarcharHashRow>()
 
-    fun append(signatureIndex: Int, signature: Join<Series<*>, ColumnMetaRef>) {
+    fun <T> append(signatureIndex: Int, signature: Join<Series<T>, ColumnMetaRef>) {
         val metaNameHash = StringPool.intern(signature.b.name)
         val metaTypeHash = StringPool.intern(signature.b.type)
         for (valueIndex in 0 until signature.a.a) {
@@ -275,7 +275,7 @@ class BatchingSeries<T>(
         override val zero: Int = 0
         override fun combine(acc: Int, element: Join<Series<T>, ColumnMetaRef>): Int = acc + 1
     }
-    private val capture = JoinRef(emptySeries<T>(), ColumnMetaRef(-1, "", ""))
+    private val capture = JoinRef(emptySeriesOf<T>(), ColumnMetaRef(-1, "", ""))
     val journal = ReduxMutableSeries(signatures, reducer, 0, capture)
 
     fun accept(signature: Join<Series<T>, ColumnMetaRef>) {

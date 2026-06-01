@@ -2,8 +2,7 @@ package borg.trikeshed.cursor
 
 import borg.trikeshed.lib.Join
 import borg.trikeshed.lib.Series
-import borg.trikeshed.lib.SeriesKt.toList
-import borg.trikeshed.lib.SeriesKt.toSeries
+import borg.trikeshed.lib.toSeries
 import org.junit.jupiter.api.Assertions.assertArrayEquals
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
@@ -22,7 +21,7 @@ class EventSeriesTest {
         assertEquals(1, batch.a)
         val signature = batch.b(0)
         assertEquals(meta, signature.b)
-        assertEquals(listOf("b", "c"), toList(signature.a))
+        assertEquals(listOf("b", "c"), valuesOf(signature.a))
     }
 
     @Test
@@ -38,7 +37,7 @@ class EventSeriesTest {
         val decoded = decode(wire)
         assertEquals(1, decoded.a)
         assertEquals(meta, decoded.b(0).b)
-        assertEquals(listOf("step1", "step2", "step3"), toList(decoded.b(0).a))
+        assertEquals(listOf("step1", "step2", "step3"), valuesOf(decoded.b(0).a))
     }
 
     @Test
@@ -53,8 +52,8 @@ class EventSeriesTest {
 
         val deliveries = batch.deliveries()
         assertEquals(2, deliveries.a)
-        assertEquals(listOf(1, 2, 3), toList(deliveries.b(0).signature.a))
-        assertEquals(listOf(4), toList(deliveries.b(1).signature.a))
+        assertEquals(listOf(1, 2, 3), valuesOf(deliveries.b(0).signature.a))
+        assertEquals(listOf(4), valuesOf(deliveries.b(1).signature.a))
         assertTrue(deliveries.b(0).wireproto.isNotEmpty())
         assertTrue(deliveries.b(1).wireproto.isNotEmpty())
         assertArrayEquals(deliveries.b(1).wireproto, batch.singleWireproto(deliveries.b(1).signature))
@@ -62,4 +61,6 @@ class EventSeriesTest {
 
     private fun decode(bytes: ByteArray): Series<Join<Series<String>, ColumnMetaRef>> =
         WireSeries.strings().decode(bytes)
+
+    private fun <T> valuesOf(series: Series<T>): List<T> = List(series.a) { index -> series.b(index) }
 }
