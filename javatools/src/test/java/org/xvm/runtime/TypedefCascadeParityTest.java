@@ -11,7 +11,6 @@ import static org.junit.jupiter.api.Assertions.*;
  *   VmPointcutEmitter:       2 parallel arrays (PHASE_NAME[], OPCODE_FAMILY[])          — line 40-41
  *   FieldSynapse:            RingSeries(2048) + 24B wireproto records                   — line 118, 140-159
  *   VmPointcutPublisher:     RingSeries(65536) + long[] JOURNAL                         — line 32-36
- *   ReduxListBridge:         ReduxMutableSeries(ChunkedMutableSeries, CollectorReducer)  — line 44-52
  *   TypedefResolutionPublisher: 76 TypedefCallsite ordinals + WAL via Kotlin reflection — line 58-154
  *   ClassfilePointcutRewriter: matchesElement() opcode-range dispatch                   — line 235-258
  *
@@ -26,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.*;
  *   - column parity:  SoA table matches VmPointcutDispatch tables
  *   - reduce parity:  histogram matches hand-counted expected values
  *   - rule parity:    rule match matches ClassfilePointcutRewriter.matchesElement()
- *   - lattice parity: ReduxListBridge round-trip through cascade table
+ *   - lattice parity: TypedefCascadeTable direct row append (no bridge)
  *   - memoizer parity: opcode → column routing matches dispatch tables
  *   - wireproto parity: FieldSynapse 24B record round-trips through cascade
  */
@@ -177,46 +176,6 @@ public class TypedefCascadeParityTest {
         assertEquals(-1, table.matchRule(0x50), "0x50 (unmapped) should not match");
     }
 
-    // ════════════════════════════════════════════════════════════════════════
-    // POINTCUT PROOF 4: Lattice parity — ReduxListBridge round-trip
-    //
-    // Proves: elements added to ReduxListBridge can be extracted and
-    //         fed into the cascade table, producing correct histograms.
-    // Reference: ReduxListBridge.java lines 36-53 (createDefault/createSized)
-    // ════════════════════════════════════════════════════════════════════════
-
-    @org.junit.jupiter.api.Test
-    public void latticeParity_reduxBridgeRoundTrip() {
-        // Create ReduxMutableSeries via bridge (same as ReduxListPointcutTest)
-        var redux = ReduxListBridge.<String>createDefault();
-        redux.add("CALL");
-        redux.add("CALL");
-        redux.add("ALLOC");
-        redux.add("RETURN");
-
-        // Extract and route into cascade table
-        var table = new TypedefCascadeTable(16);
-        for (int i = 0; i < redux.getA(); i++) {
-            String val = redux.getB().invoke(i);
-            byte kindByte = switch (val) {
-                case "CALL"   -> TypedefCascadeTable.KIND_CALL;
-                case "ALLOC"  -> TypedefCascadeTable.KIND_ALLOC;
-                case "RETURN" -> TypedefCascadeTable.KIND_RETURN;
-                default       -> TypedefCascadeTable.KIND_RETURN;
-            };
-            table.appendRow(kindByte, (byte) i, TypedefCascadeTable.SCOPE_METHOD, (byte) 1, i, 0);
-        }
-
-        assertEquals(4, table.rowCount());
-        table.reduce();
-
-        int[] kh = table.kindHistogram();
-        assertEquals(2, kh[TypedefCascadeTable.KIND_CALL],  "CALL count");
-        assertEquals(1, kh[TypedefCascadeTable.KIND_ALLOC], "ALLOC count");
-        assertEquals(1, kh[TypedefCascadeTable.KIND_RETURN],  "RETURN count");
-    }
-
-    // ════════════════════════════════════════════════════════════════════════
     // POINTCUT PROOF 5: Memoizer parity — opcode routing matches dispatch
     //
     // Proves: routeOpcode() produces the same kind classification as
