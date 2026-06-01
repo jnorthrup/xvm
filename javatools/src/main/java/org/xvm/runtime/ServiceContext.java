@@ -573,7 +573,6 @@ public class ServiceContext {
                             if (op != null && frame.f_function != null) {
                                 int opCode = op.getOpCode();
                                 String methodName = frame.f_function.getIdentityConstant().getName();
-                                // general journal
                                 pointcut.publish(opCode, methodName, iPC);
                                 // field synapse BEFORE
                                 if (opCode >= 0xA5 && opCode <= 0xA8) {

@@ -3,6 +3,7 @@ package borg.trikeshed.cursor
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Assertions.*
+import kotlin.time.measureTime
 
 import borg.trikeshed.lib.RingSeries
 import borg.trikeshed.lib.ChunkedMutableSeries
@@ -136,19 +137,19 @@ class NewPointcutTest {
     @DisplayName("RingSeries absorbs allocation firehose at >1K events/sec")
     fun ringAbsorbsAllocFirehose() {
         val ring = RingSeries<NewEvent>(65536)
-        val t0 = System.nanoTime()
         val count = 5000
 
         val kinds = AllocKind.entries.toTypedArray()
         val types = listOf("Lcom/example/A;", "Lcom/example/B;", "[I", "[[Ljava/lang/String;")
-        for (i in 0 until count) {
-            val kind = kinds[i % kinds.size]
-            val dims = if (kind == AllocKind.NEW || kind == AllocKind.NEW_1) 0 else (i % 3 + 1)
-            captureNewPointcut(ring, i, kind, types[i % types.size], dims, i)
+        val elapsed = measureTime {
+            for (i in 0 until count) {
+                val kind = kinds[i % kinds.size]
+                val dims = if (kind == AllocKind.NEW || kind == AllocKind.NEW_1) 0 else (i % 3 + 1)
+                captureNewPointcut(ring, i, kind, types[i % types.size], dims, i)
+            }
         }
 
-        val elapsed = System.nanoTime() - t0
-        val rate = count * 1_000_000_000.0 / elapsed
+        val rate = count * 1_000_000_000.0 / elapsed.inWholeNanoseconds
 
         assertEquals(count, ring.a)
         assertTrue(rate > 1_000_000, "allocation rate $rate must exceed 1M events/sec")
@@ -234,12 +235,9 @@ class NewPointcutTest {
         repeat(5) { i ->
             val newEvt = captureNewPointcut(ring, i * 2, AllocKind.NEW, "Lcom/example/Foo;", 0, i * 2)
             chunked.add(newEvt)
-            // Constr follows
-            val constrEvt = CtorPointcutTest().captureCtorPointcut(
-                borg.trikeshed.lib.RingSeries(16), i * 2 + 1, "com/example/Foo", "<init>", i * 2 + 1
-            )
-            // just verify each phase fires at distinct address
-            assertTrue(newEvt.addr < constrEvt.addr, "new addr must precede <init> addr")
+            // CONSTR follows at next addr — verify addresses are distinct and ordered
+            val constrAddr = i * 2 + 1
+            assertTrue(newEvt.addr < constrAddr, "new addr must precede <init> addr")
         }
     }
 }

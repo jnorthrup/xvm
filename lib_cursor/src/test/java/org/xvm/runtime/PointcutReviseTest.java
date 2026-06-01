@@ -3,7 +3,7 @@ package org.xvm.runtime;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * TDD RED: revise() — U (Update) path with old nano journaling.
+ * revise() — U (Update) path with old nano journaling.
  * Tests that revise replaces an event and bumps the version stamp.
  */
 public class PointcutReviseTest {
@@ -13,19 +13,19 @@ public class PointcutReviseTest {
         VmPointcutPublisher.reset();
         VmPointcutPublisher.active = true;
         try {
-            VmPointcutPublisher.publish(0x34, "Original.method", 100);
+            VmPointcutPublisher.publish(0x34, "Original.methodName()", 100);
             assertEquals(1, VmPointcutPublisher.size());
 
             VmPointcutPublisher.PointcutEvent original = VmPointcutPublisher.peek(0);
             long originalNano = original.nano;
 
-            // Revised nano will be >= original (we control the value)
+            // Revised nano will be >= original.
             VmPointcutPublisher.PointcutEvent revised = new VmPointcutPublisher.PointcutEvent(
                     original.seq,
-                    originalNano + 1_000_000,  // advance by 1ms to make it observably different
+                    originalNano + 1_000_000,
                     0x35,  // changed opcode
                     200,   // changed addr
-                    "Revised.method"
+                    "Revised.methodName()"
             );
 
             VmPointcutPublisher.revise(0, revised);
@@ -33,7 +33,7 @@ public class PointcutReviseTest {
             VmPointcutPublisher.PointcutEvent after = VmPointcutPublisher.peek(0);
             assertEquals(0x35, after.opcode);
             assertEquals(200, after.addr);
-            assertEquals("Revised.method", after.method);
+            assertEquals("Revised.methodName()", after.methodName());
             assertTrue(after.nano >= originalNano);
         } finally {
             VmPointcutPublisher.active = false;

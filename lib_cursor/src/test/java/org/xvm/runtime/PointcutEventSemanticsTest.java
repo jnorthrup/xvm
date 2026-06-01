@@ -3,7 +3,7 @@ package org.xvm.runtime;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * TDD RED: PointcutEvent field semantics — seq, nano, addr, method.
+ * PointcutEvent field semantics — seq, nano, addr, method.
  */
 public class PointcutEventSemanticsTest {
 
@@ -30,7 +30,7 @@ public class PointcutEventSemanticsTest {
             VmPointcutPublisher.publish(0x34, "Nano.test", 1);
 
             VmPointcutPublisher.PointcutEvent[] evts = drainAll();
-            assertTrue(evts[0].nano > 0, "nano should be > 0 (System.nanoTime())");
+            assertTrue(evts[0].nano > 0, "nano should be > 0");
         } finally {
             VmPointcutPublisher.active = false;
         }
@@ -58,7 +58,7 @@ public class PointcutEventSemanticsTest {
             VmPointcutPublisher.publish(0x38, "AFTER", -1);
 
             VmPointcutPublisher.PointcutEvent[] evts = drainAll();
-            assertEquals("AFTER", evts[0].method);
+            assertEquals("AFTER", evts[0].methodName());
             assertEquals(-1, evts[0].addr);
         } finally {
             VmPointcutPublisher.active = false;
@@ -70,7 +70,7 @@ public class PointcutEventSemanticsTest {
         VmPointcutPublisher.reset();
         VmPointcutPublisher.active = true;
         try {
-            VmPointcutPublisher.publish(0x50, "Test.method", 1);
+            VmPointcutPublisher.publish(0x50, "Test.methodName()", 1);
 
             VmPointcutPublisher.PointcutEvent[] evts = drainAll();
             assertEquals("OP_0x50", evts[0].opcodeName());
@@ -91,6 +91,7 @@ public class PointcutEventSemanticsTest {
             assertTrue(s.contains("seq="), "toString should include seq");
             assertTrue(s.contains("opcode="), "toString should include opcode");
             assertTrue(s.contains("addr="), "toString should include addr");
+            assertTrue(s.contains("nano="), "toString should include nano");
             assertTrue(s.contains("method="), "toString should include method");
         } finally {
             VmPointcutPublisher.active = false;

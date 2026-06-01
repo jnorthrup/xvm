@@ -49,6 +49,7 @@ tasks.test {
     failOnNoDiscoveredTests.set(false)
     dependsOn(unpackPointcutVmJavatools)
     systemProperty("pointcutVm.javatoolsDir", pointcutVmJavatoolsDir.get().asFile.absolutePath)
+    classpath = files(pointcutVmJavatoolsDir) + classpath
 }
 
 val runMacro by tasks.registering(JavaExec::class) {
@@ -68,7 +69,7 @@ val runPointcutCmdline by tasks.registering(JavaExec::class) {
     if (project.hasProperty("pointcutMode")) {
         args = (project.property("pointcutMode") as String).split(" ")
     } else {
-        args("all")
+        args("xvm")
     }
 }
 

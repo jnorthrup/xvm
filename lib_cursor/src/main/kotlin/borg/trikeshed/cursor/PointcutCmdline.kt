@@ -8,10 +8,12 @@ import org.xvm.asm.LinkedRepository
 import org.xvm.runtime.CascadeRollup
 import org.xvm.runtime.FieldSynapse
 import org.xvm.runtime.PointcutDrain
+import org.xvm.runtime.PointcutObservation
 import org.xvm.runtime.TypedefCascadeTable
 import org.xvm.runtime.VmPointcutPublisher
 import org.xvm.runtime.XvmLifecycle
 import java.io.File
+import java.nio.ByteOrder
 import java.nio.file.Files
 import java.nio.file.Path
 import kotlin.system.measureNanoTime
@@ -51,14 +53,17 @@ private data class SlabRecord(
     val slab: Array<FieldSynapse>,
     val count: Int,
     val epoch: Long,
-    val nanoStart: Long,
-    val nanoEnd: Long,
 )
 
 private val collectedSlabs = mutableListOf<SlabRecord>()
 
-private val slabSubscriber = FieldSynapse.SlabSubscriber { slab, count, epoch, nanoStart, nanoEnd ->
-    collectedSlabs.add(SlabRecord(slab, count, epoch, nanoStart, nanoEnd))
+private fun subscribeFieldObservation(): Int = PointcutObservation.subscribe { source, wireproto, count, epoch ->
+    if (source != PointcutObservation.Source.FIELD) {
+        return@subscribe
+    }
+    val buf = wireproto.duplicate().order(ByteOrder.LITTLE_ENDIAN)
+    val slab = Array(count) { FieldSynapse.fromWireproto(buf) }
+    collectedSlabs.add(SlabRecord(slab, count, epoch))
 }
 
 fun main(args: Array<String>) {
@@ -90,13 +95,13 @@ private fun runXvmFizzBuzz() {
 
     val lifecycle = XvmLifecycle()
     collectedSlabs.clear()
+    val fieldObservationId = subscribeFieldObservation()
 
     VmPointcutPublisher.reset()
     VmPointcutPublisher.active = true
 
     FieldSynapse.reset()
     FieldSynapse.active = true
-    FieldSynapse.setSubscriber(slabSubscriber)
     FieldSynapse.startTimer(50)
 
     try {
@@ -124,7 +129,7 @@ private fun runXvmFizzBuzz() {
                 val table = TypedefCascadeTable(8192)
                 val drainStart = System.nanoTime()
                 VmPointcutPublisher.drain { evt ->
-                    table.routeOpcode(evt.opcode, evt.method, evt.addr)
+                    table.routeOpcode(evt.opcode, evt.methodName(), evt.addr)
                 }
                 val drainEnd = System.nanoTime()
 
@@ -161,6 +166,7 @@ private fun runXvmFizzBuzz() {
         println()
         println("  Total connect+run: ${connectNanos / 1_000_000.0}ms")
     } finally {
+        PointcutObservation.unsubscribe(fieldObservationId)
         VmPointcutPublisher.reset()
         FieldSynapse.reset()
     }
@@ -175,7 +181,7 @@ private fun runSynapseStandalone() {
     FieldSynapse.reset()
     FieldSynapse.active = true
     collectedSlabs.clear()
-    FieldSynapse.setSubscriber(slabSubscriber)
+    val fieldObservationId = subscribeFieldObservation()
 
     val eventCount = 50_000
     val methods = arrayOf("FieldAccess.get", "DataStore.put", "Cache.invalidate", "Index.lookup")
@@ -230,6 +236,7 @@ private fun runSynapseStandalone() {
     println()
     dumpSynapseSlabs()
 
+    PointcutObservation.unsubscribe(fieldObservationId)
     FieldSynapse.reset()
 }
 
@@ -253,7 +260,7 @@ private fun runReduxStandalone() {
         0x90,
         0xA5, 0xA6, 0xA7, 0xA8,
     )
-    val methods = arrayOf("pkg.Class.methodA", "pkg.Class.methodB", "pkg.Class.methodC")
+    val methods = arrayOf("pkg.Class.methodName()A", "pkg.Class.methodName()B", "pkg.Class.methodName()C")
 
     val pubStart = System.nanoTime()
     for (i in 0 until eventCount) {
@@ -269,7 +276,7 @@ private fun runReduxStandalone() {
     val table = TypedefCascadeTable(eventCount + 256)
     val drainStart = System.nanoTime()
     VmPointcutPublisher.drain { evt ->
-        table.routeOpcode(evt.opcode, evt.method, evt.addr)
+        table.routeOpcode(evt.opcode, evt.methodName(), evt.addr)
     }
     val drainEnd = System.nanoTime()
     TimerBlock("Ring drain → cascade", drainStart, drainEnd, table.rowCount()).dump()
@@ -380,12 +387,7 @@ private fun dumpSynapseSlabs() {
     var totalEvents = 0
     for ((idx, slab) in collectedSlabs.withIndex()) {
         totalEvents += slab.count
-        val duration = if (slab.nanoEnd > slab.nanoStart) {
-            (slab.nanoEnd - slab.nanoStart) / 1_000_000.0
-        } else {
-            0.0
-        }
-        println("  │  slab[$idx]: epoch=${slab.epoch}, count=${slab.count}, span=${"%.3f".format(duration)}ms")
+        println("  │  slab[$idx]: epoch=${slab.epoch}, count=${slab.count}")
         for (i in 0 until minOf(5, slab.count)) {
             val fs = slab.slab[i]
             println("  │    [$i] ${fs.phaseLabel()} ${fs.opcodeName()} ${fs.methodName()} @${fs.addr}")

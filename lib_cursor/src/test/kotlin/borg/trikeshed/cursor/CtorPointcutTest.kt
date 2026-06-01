@@ -3,6 +3,7 @@ package borg.trikeshed.cursor
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Assertions.*
+import kotlin.time.measureTime
 
 import borg.trikeshed.lib.RingSeries
 import borg.trikeshed.lib.ChunkedMutableSeries
@@ -40,9 +41,10 @@ class CtorPointcutTest {
 
     /**
      * Simulates the instrumentation point for a constructor entry.
-     * In the real system, XvmAsmInstrumenter fires this via Op.instantiate(0x34).
+     * In the real system, VmPointcutPublisher.publish(0x34, method, addr) fires this via
+     * ServiceContext.pointcut hook. This local helper tests the RingSeries shape only.
      */
-    fun captureCtorPointcut(
+    private fun captureCtorPointcut(
         ring: RingSeries<CtorEvent>,
         seq: Int,
         declaringClass: String,
@@ -80,15 +82,14 @@ class CtorPointcutTest {
     @DisplayName("RingSeries absorbs constructor firehose at >1K events/sec")
     fun ringAbsorbsFirehose() {
         val ring = RingSeries<CtorEvent>(65536)
-        val t0 = System.nanoTime()
         val count = 2000
 
-        for (i in 0 until count) {
-            captureCtorPointcut(ring, i, "com/example/Bean", "<init>", i)
+        val elapsed = measureTime {
+            for (i in 0 until count) {
+                captureCtorPointcut(ring, i, "com/example/Bean", "<init>", i)
+            }
         }
-
-        val elapsed = System.nanoTime() - t0
-        val rate = count * 1_000_000_000.0 / elapsed
+        val rate = count * 1_000_000_000.0 / elapsed.inWholeNanoseconds
 
         assertTrue(ring.a == count, "ring must hold all $count events")
         assertTrue(rate > 1_000_000, "rate $rate must exceed 1M events/sec")

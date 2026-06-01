@@ -13,7 +13,7 @@ import kotlin.math.max
  * Uses .b(i) for indexed read since TrikeShed Series doesn't retain operator get(Int) in bytecode.
  *
  * Run with:
- *   ./gradlew :lib_cursor:test -Pjmh=false    # covariance testing, JMH sources skipped
+ *   ./gradlew :lib_cursor:test -Pjmh=false
  */
 @DisplayName("VM Event CRUD — MutableSeries types")
 class VmCrudTest {

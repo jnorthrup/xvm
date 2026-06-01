@@ -3,6 +3,7 @@ package borg.trikeshed.cursor
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Assertions.*
+import kotlin.time.measureTime
 
 import borg.trikeshed.lib.RingSeries
 import borg.trikeshed.lib.ChunkedMutableSeries
@@ -103,23 +104,23 @@ class GetterPointcutTest {
     @DisplayName("RingSeries absorbs getter firehose at >1K events/sec")
     fun ringAbsorbsFirehose() {
         val ring = RingSeries<GetEvent>(65536)
-        val t0 = System.nanoTime()
         val count = 5000
 
-        for (i in 0 until count) {
-            captureGetterPointcut(
-                ring = ring,
-                seq = i,
-                ownerClass = "com/example/Entity",
-                fieldName = if (i % 2 == 0) "id" else "name",
-                fieldDesc = if (i % 2 == 0) "J" else "Ljava/lang/String;",
-                isStatic = i % 3 == 0,
-                addr = i
-            )
+        val elapsed = measureTime {
+            for (i in 0 until count) {
+                captureGetterPointcut(
+                    ring = ring,
+                    seq = i,
+                    ownerClass = "com/example/Entity",
+                    fieldName = if (i % 2 == 0) "id" else "name",
+                    fieldDesc = if (i % 2 == 0) "J" else "Ljava/lang/String;",
+                    isStatic = i % 3 == 0,
+                    addr = i
+                )
+            }
         }
 
-        val elapsed = System.nanoTime() - t0
-        val rate = count * 1_000_000_000.0 / elapsed
+        val rate = count * 1_000_000_000.0 / elapsed.inWholeNanoseconds
 
         assertEquals(count, ring.a)
         assertTrue(rate > 1_000_000, "getter rate $rate must exceed 1M events/sec")

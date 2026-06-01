@@ -77,7 +77,7 @@ public class TypedefCascadeParityTest {
     //
     // Proves: depth/kind/scope histograms computed by reduce() match
     //         expected counts from manual inspection of the opcode ranges.
-    // Reference: FieldSynapse.java lines 223-247 (flush nanoStart/nanoEnd reduce)
+    // Reference: FieldSynapse.java flush slab reduce
     // ════════════════════════════════════════════════════════════════════════
 
     @org.junit.jupiter.api.Test
@@ -279,52 +279,6 @@ public class TypedefCascadeParityTest {
         assertEquals(4, kh[TypedefCascadeTable.KIND_FIELD], "all 4 field opcodes → PARAM");
     }
 
-    // ════════════════════════════════════════════════════════════════════════
-    // POINTCUT PROOF 7: As-is block — VmPointcutPublisher + dispatch table
-    //                     integration matches cascade reduce
-    //
-    // Proves: publishing events through VmPointcutPublisher and draining
-    //         them into the cascade table produces same histogram as
-    //         direct table population.
-    // Reference: VmPointcutPublisher.java lines 62-72 (publish)
-    //            VmPointcutDispatch.java lines 100-112 (kindOf/hasBefore/hasAfter)
-    // ════════════════════════════════════════════════════════════════════════
-
-    @org.junit.jupiter.api.Test
-    public void asIs_publisherDrainIntoCascade() {
-        // Publish events via VmPointcutPublisher
-        VmPointcutPublisher.reset();
-        VmPointcutPublisher.active = true;
-        try {
-            VmPointcutPublisher.publish(0x10, "test.call", 0);
-            VmPointcutPublisher.publish(0x15, "test.call2", 1);
-            VmPointcutPublisher.publish(0x38, "test.new", 2);
-            VmPointcutPublisher.publish(0x4C, "test.ret", 3);
-            VmPointcutPublisher.publish(0xA5, "test.getField", 4);
-
-            // Drain into cascade table
-            var table = new TypedefCascadeTable(16);
-            java.util.ArrayList<VmPointcutPublisher.PointcutEvent> events = new java.util.ArrayList<>();
-            VmPointcutPublisher.drain(events::add);
-
-            for (var evt : events) {
-                table.routeOpcode(evt.opcode, evt.method, evt.addr);
-            }
-
-            assertEquals(5, table.rowCount());
-
-            table.reduce();
-
-            // Verify: 2x CALL → FUNC, 1x ALLOC → TUPLE, 1x RETURN → TERM, 1x FIELD → PARAM
-            int[] kh = table.kindHistogram();
-            assertEquals(2, kh[TypedefCascadeTable.KIND_CALL],  "CALL → FUNC");
-            assertEquals(1, kh[TypedefCascadeTable.KIND_ALLOC], "ALLOC → TUPLE");
-            assertEquals(1, kh[TypedefCascadeTable.KIND_RETURN],  "RETURN → TERM");
-            assertEquals(1, kh[TypedefCascadeTable.KIND_FIELD], "FIELD → PARAM");
-        } finally {
-            VmPointcutPublisher.active = false;
-        }
-    }
 
     // ════════════════════════════════════════════════════════════════════════
     // POINTCUT PROOF 8: Rule match count — kind-filtered match

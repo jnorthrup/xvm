@@ -130,7 +130,7 @@ public class ListCtorCowPointcutTest {
             assertEquals(1, VmPointcutPublisher.size());
             var evt = VmPointcutPublisher.peek(0);
             assertEquals(0x38, evt.opcode);
-            assertEquals("TestTarget.test", evt.method);
+            assertEquals("TestTarget.test", evt.methodName());
         } finally {
             VmPointcutPublisher.active = false;
         }

@@ -112,7 +112,7 @@ public final class TypedefResolutionPublisher {
      */
     public static void drainFromRing() {
         VmPointcutPublisher.drain((evt) -> {
-            TABLE.fold(evt.opcode, evt.method, evt.addr);
+            TABLE.fold(evt.opcode, evt.methodName(), evt.addr);
         });
     }
 
