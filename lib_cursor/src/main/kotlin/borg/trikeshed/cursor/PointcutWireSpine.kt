@@ -21,7 +21,29 @@ data class ColumnMetaRef(
     val ordinal: Int,
     val name: String,
     val type: String,
+    val facet: PointcutFacet = PointcutFacet.Unfaceted,
 )
+
+enum class PointcutFacet {
+    Unfaceted,
+    SymbolName,
+    TypeInfo,
+    ClassfileCoordinate,
+    XvmCoordinate,
+    PointcutKind,
+    StringPool,
+    Wireproto,
+    ChildRows,
+    ConfixMeta,
+    VmStats,
+    ObserverDelegateRegistration,
+    ReduxPhilum,
+    SynapsePhilum,
+    ClassfileTaxonomy,
+    EdgeTaxonomy,
+    CrmsDomain,
+    XSrcFile,
+}
 
 data class MemSegment(
     val bytes: ByteArray,

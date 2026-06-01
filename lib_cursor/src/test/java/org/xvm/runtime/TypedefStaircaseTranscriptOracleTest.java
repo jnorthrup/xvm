@@ -8,7 +8,8 @@ import java.util.concurrent.TimeUnit;
 import org.junit.jupiter.api.Test;
 import org.xvm.asm.constants.TypedefResolutionPublisher.TypedefCallsite;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TypedefStaircaseTranscriptOracleTest {
 
@@ -34,7 +35,7 @@ public class TypedefStaircaseTranscriptOracleTest {
     }
 
     @Test
-    public void nonZeroParamsBlock_recordsBranchAAndBlocksStaircase() {
+    public void nonZeroParams_recordParameterizedProductionAndKeepBranchAllowed() {
         var oracle = new TypedefStaircaseTranscriptOracle();
 
         var row = oracle.record(
@@ -45,13 +46,15 @@ public class TypedefStaircaseTranscriptOracleTest {
                 2,
                 XvmPrimitiveTranslationTable.XvmPrimitive.String);
 
-        assertEquals(TypedefStaircaseTranscriptOracle.Vote.BLOCK, row.vote());
+        assertEquals(TypedefStaircaseTranscriptOracle.Vote.ALLOW, row.vote());
         assertEquals(VmPointcutDispatch.Kind.TYPE, row.pointcutKind());
+        assertEquals(TypedefProductionTable.Mode.PARAMETERIZED, row.mode());
         assertEquals(XvmPrimitiveTranslationTable.VtableLayout.INTERFACE, row.layout());
-        assertEquals(0, oracle.state().allowA());
-        assertEquals(1, oracle.state().blockA());
-        assertFalse(oracle.branchAllowed(TypedefStaircaseTranscriptOracle.Branch.A));
-        assertTrue(row.reason().contains("params!=0"), row.reason());
+        assertEquals(1, oracle.state().allowA());
+        assertEquals(0, oracle.state().blockA());
+        assertTrue(oracle.branchAllowed(TypedefStaircaseTranscriptOracle.Branch.A));
+        assertTrue(row.identityHash() != 0L);
+        assertTrue(row.reason().contains("parameterized"), row.reason());
     }
 
     @Test
@@ -94,6 +97,8 @@ public class TypedefStaircaseTranscriptOracleTest {
         assertEquals(total, oracle.snapshot().length);
         assertEquals(total, state.total());
         assertEquals(total, state.allowA() + state.blockA() + state.allowB() + state.blockB());
-        assertTrue(state.blockA() > 0 || state.blockB() > 0, "at least one branch should block on params!=0");
+        assertEquals(0, state.blockA() + state.blockB());
+        assertTrue(oracle.verifierReport().parameterized() > 0, "parameterized rows should be verified");
+        assertEquals(0, oracle.verifierReport().failures());
     }
 }

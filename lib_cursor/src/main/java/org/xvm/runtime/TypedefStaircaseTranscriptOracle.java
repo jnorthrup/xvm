@@ -3,7 +3,6 @@ package org.xvm.runtime;
 import java.util.concurrent.atomic.AtomicLong;
 
 import borg.trikeshed.lib.ChunkedMutableSeries;
-import borg.trikeshed.lib.MutableSeries;
 import borg.trikeshed.lib.Reducer;
 import borg.trikeshed.lib.ReduxMutableSeries;
 import kotlin.jvm.functions.Function1;
@@ -11,11 +10,11 @@ import kotlin.jvm.functions.Function1;
 import org.xvm.asm.constants.TypedefResolutionPublisher.TypedefCallsite;
 
 /**
- * Redux-backed transcript verifier for typedef parameter responses.
+ * Redux-backed transcript verifier for typedef production responses.
  *
- * A branch vote is recorded against a mapped pointcut and callsite. The
- * transcript is the teacher/verifier: params==0 allows the staircase
- * scaffold, params!=0 blocks it.
+ * Typedef facts stay out of the cascade table. Cascade is for tabular stats;
+ * this transcript delegates semantic typedef identity to TypedefProductionTable
+ * through a pointcut verifier.
  */
 public final class TypedefStaircaseTranscriptOracle {
     public enum Branch {
@@ -38,8 +37,10 @@ public final class TypedefStaircaseTranscriptOracle {
             String alias,
             int paramCount,
             Vote vote,
+            TypedefProductionTable.Mode mode,
             XvmPrimitiveTranslationTable.VtableLayout layout,
             byte mixinCompat,
+            long identityHash,
             String reason) {
     }
 
@@ -68,12 +69,16 @@ public final class TypedefStaircaseTranscriptOracle {
             "capture",
             -1,
             Vote.ALLOW,
+            TypedefProductionTable.Mode.STEALTH,
             XvmPrimitiveTranslationTable.VtableLayout.VIRTUAL,
             (byte) 0,
+            0L,
             "capture");
 
     private final Object lock = new Object();
     private final AtomicLong seq = new AtomicLong();
+    private final TypedefProductionTable productionTable = new TypedefProductionTable(64);
+    private final TypedefPointcutVerifier verifier = new TypedefPointcutVerifier(productionTable);
     private final ReduxMutableSeries<TranscriptRow, TranscriptState> transcript;
 
     public TypedefStaircaseTranscriptOracle() {
@@ -84,29 +89,29 @@ public final class TypedefStaircaseTranscriptOracle {
     public TranscriptRow record(Branch branch, int opcode, TypedefCallsite site,
                                 String alias, int paramCount,
                                 XvmPrimitiveTranslationTable.XvmPrimitive primitive) {
-        var kind = VmPointcutDispatch.kindOf(opcode);
-        var options = XvmPrimitiveTranslationTable.vtableOptions(primitive);
-        var vote = paramCount == 0 ? Vote.ALLOW : Vote.BLOCK;
-        var reason = vote == Vote.ALLOW
-                ? "params=0 allows typedef staircase scaffolding"
-                : "params!=0 blocks typedef staircase scaffolding";
-        var row = new TranscriptRow(
-                seq.incrementAndGet(),
-                branch,
-                opcode,
-                kind,
-                site.siteIndex(),
-                site.name(),
-                alias,
-                paramCount,
-                vote,
-                options.layout(),
-                options.mixinCompat(),
-                reason);
         synchronized (lock) {
+            var production = verifier.typedefPointcut(opcode, site, alias, paramCount, primitive);
+            var reason = production.mode() == TypedefProductionTable.Mode.STEALTH
+                    ? "stealth typedef params=0 erases through production table"
+                    : "parameterized typedef keeps identity through pointcut verifier";
+            var row = new TranscriptRow(
+                    seq.incrementAndGet(),
+                    branch,
+                    opcode,
+                    production.pointcutKind(),
+                    production.siteOrd(),
+                    production.siteName(),
+                    alias,
+                    paramCount,
+                    Vote.ALLOW,
+                    production.mode(),
+                    production.layout(),
+                    production.mixinCompat(),
+                    production.identityHash(),
+                    reason);
             transcript.dispatch(row);
+            return row;
         }
-        return row;
     }
 
     public TranscriptState state() {
@@ -117,6 +122,16 @@ public final class TypedefStaircaseTranscriptOracle {
 
     public boolean branchAllowed(Branch branch) {
         return state().branchAllowed(branch);
+    }
+
+    public TypedefProductionTable.Report verifierReport() {
+        synchronized (lock) {
+            return verifier.verify();
+        }
+    }
+
+    public TypedefProductionTable productionTable() {
+        return productionTable;
     }
 
     public TranscriptRow[] snapshot() {

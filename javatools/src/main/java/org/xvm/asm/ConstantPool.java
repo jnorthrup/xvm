@@ -169,6 +169,23 @@ public class ConstantPool
             return null;
         }
 
+        // E1: capture parameterized typedef identity before resolveTypedefs() erases it.
+        // Stealth typedefs (0 type params) are not captured — they erase as before.
+        // Parameterized typedefs carry type determination that lib_cursor pointcuts need
+        // without ~60 LOC synchronized HashMap reconstruction.
+        // All calls stay in-package (protected access) — no exposure beyond ConstantPool.
+        int typedefPoolIdx = -1;
+        if (constant instanceof TerminalTypeConstant ttc) {
+            var defConst = ttc.getDefiningConstant();
+            if (defConst.getFormat() == Format.Typedef) {
+                // getReferredToType() is protected — stays in-package.
+                var typeReferred = ((TypedefConstant) defConst).getReferredToType();
+                if (typeReferred.containsFormalType(true)) {
+                    typedefPoolIdx = defConst.getPosition();
+                }
+            }
+        }
+
         // before registering the constant, see if there is a simpler alternative to use; for
         // example, this allows a type constant that refers to a typedef constant to be replaced
         // with the type constant that the typedef refers to, removing a level of indirection;
@@ -208,6 +225,12 @@ public class ConstantPool
                 constant.setPosition(m_listConst.size());
                 m_listConst.add(constant);
                 mapConstants.put(constant, constant);
+
+                // E1: record parameterized typedef identity for the resolved type.
+                // Maps resolved pool position → original typedef pool position.
+                if (typedefPoolIdx >= 0) {
+                    recordTypedefIdentity(constant.getPosition(), typedefPoolIdx);
+                }
 
                 // also allow the constant to be looked up by a locator
                 Object oLocator = constant.getLocator();
@@ -3898,6 +3921,51 @@ public class ConstantPool
      * Tracks whether the ConstantPool should recursively register constants.
      */
     private transient boolean m_fRecurseReg;
+
+    // ----- E1: Parameterized typedef identity capture -------------------------------------------
+
+    /**
+     * E1: Maps resolved-type pool position → original parameterized typedef pool position.
+     * Populated as a side effect of register() before resolveTypedefs() erasure.
+     * Grows on demand — only parameterized typedef entries are stored.
+     * Stealth typedefs (0 type params) are NOT recorded — they erase as before.
+     */
+    private int[] m_aiTypedefIdentity = new int[0];
+
+    /**
+     * E1: Record that the resolved type at {@code resolvedPos} was derived from
+     * a parameterized typedef at {@code typedefPos}.
+     */
+    private void recordTypedefIdentity(int resolvedPos, int typedefPos) {
+        if (resolvedPos >= m_aiTypedefIdentity.length) {
+            m_aiTypedefIdentity = java.util.Arrays.copyOf(m_aiTypedefIdentity,
+                    Math.max(resolvedPos + 1, m_aiTypedefIdentity.length * 2 + 1));
+        }
+        m_aiTypedefIdentity[resolvedPos] = typedefPos;
+    }
+
+    /**
+     * E1: Look up the parameterized typedef pool position for a resolved type.
+     *
+     * @param resolvedPos  the pool position of the resolved (erased) type constant
+     * @return the original typedef pool position, or -1 if not a parameterized typedef
+     */
+    public int getTypedefIdentity(int resolvedPos) {
+        return resolvedPos >= 0 && resolvedPos < m_aiTypedefIdentity.length
+                ? m_aiTypedefIdentity[resolvedPos]
+                : -1;
+    }
+
+    /**
+     * E1: Total parameterized typedef identity entries recorded.
+     */
+    public int getTypedefIdentityCount() {
+        int count = 0;
+        for (int pos : m_aiTypedefIdentity) {
+            if (pos != 0) count++;
+        }
+        return count;
+    }
 
     /**
      * Cache of implicitly imported identities.

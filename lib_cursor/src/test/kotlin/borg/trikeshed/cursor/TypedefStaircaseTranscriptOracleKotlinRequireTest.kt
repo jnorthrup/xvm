@@ -7,7 +7,7 @@ import org.xvm.runtime.XvmPrimitiveTranslationTable
 
 class TypedefStaircaseTranscriptOracleKotlinRequireTest {
     @Test
-    fun `redux transcript verification blocks non zero typedef params`() {
+    fun `redux transcript verification accepts non zero typedef params`() {
         val oracle = TypedefStaircaseTranscriptOracle()
 
         oracle.record(
@@ -20,8 +20,10 @@ class TypedefStaircaseTranscriptOracleKotlinRequireTest {
         )
 
         val state = oracle.state()
-        require(state.blockB() == 1) { "branch B must block params!=0 staircase" }
-        require(!oracle.branchAllowed(TypedefStaircaseTranscriptOracle.Branch.B)) { "branch B should be blocked" }
-        require(oracle.snapshot().single().reason().contains("params!=0")) { "reason must explain the block" }
+        require(state.allowB() == 1) { "branch B must accept parameterized typedef" }
+        require(state.blockB() == 0) { "branch B must not block parameterized typedef" }
+        require(oracle.branchAllowed(TypedefStaircaseTranscriptOracle.Branch.B)) { "branch B should remain allowed" }
+        require(oracle.snapshot().single().reason().contains("parameterized")) { "reason must explain the verified path" }
+        require(oracle.verifierReport().failures() == 0) { "pointcut verifier must pass" }
     }
 }

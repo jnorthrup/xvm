@@ -1,6 +1,6 @@
 package org.xvm.runtime;
 
-import java.util.function.Consumer;
+import java.nio.ByteOrder;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.xvm.tool.Console;
@@ -9,7 +9,8 @@ import org.xvm.tool.Launcher.LauncherException;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Live VM smoke test for VmPointcutPublisher.
@@ -78,6 +79,53 @@ public class VmPointcutFirehoseTest {
                 }
             }
             System.out.println("===========================\n");
+        } finally {
+            VmPointcutPublisher.active = false;
+        }
+    }
+
+    @Test
+    public void simulationFirehose_retainsEveryPublishedEventPastRingCapacity() {
+        VmPointcutPublisher.reset();
+        VmPointcutPublisher.active = true;
+
+        try {
+            var produced = 70000;
+            for (var i = 0; i < produced; i++) {
+                VmPointcutPublisher.publish(0x10, "Burst.run", i);
+            }
+
+            var drained = new AtomicInteger();
+            VmPointcutPublisher.drain(evt -> {
+                assertEquals(drained.get(), evt.addr, "drain order must preserve every simulated event");
+                drained.incrementAndGet();
+            });
+
+            assertEquals(produced, drained.get(), "simulation firehose storage must be lossless");
+            assertEquals(produced, VmPointcutPublisher.size(), "publisher size must report lossless storage size");
+        } finally {
+            VmPointcutPublisher.active = false;
+        }
+    }
+
+    @Test
+    public void simulationFirehose_wireprotoContainsEveryPublishedEventPastRingCapacity() {
+        VmPointcutPublisher.reset();
+        VmPointcutPublisher.active = true;
+
+        try {
+            var produced = 70000;
+            for (var i = 0; i < produced; i++) {
+                VmPointcutPublisher.publish(0x10, "Wire.run", i);
+            }
+
+            var wire = VmPointcutPublisher.drainToWireproto().order(ByteOrder.LITTLE_ENDIAN);
+            assertEquals(produced * VmPointcutPublisher.RECORD_SIZE, wire.remaining());
+            for (var i = 0; i < produced; i++) {
+                var event = VmPointcutPublisher.fromWireproto(wire);
+                assertEquals(i, event.seq, "wireproto seq must preserve publication order");
+                assertEquals(i, event.addr, "wireproto addr must preserve every simulated event");
+            }
         } finally {
             VmPointcutPublisher.active = false;
         }

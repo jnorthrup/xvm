@@ -1,104 +1,387 @@
 # lib_cursor TODO
 
-## Delivered
 
-### Pointcut infrastructure (lib_cursor only, zero new files in javatools)
-- ServiceContext.PointcutHook (inner interface) decouples javatools from lib_cursor at compile time
-- VmPointcutPublisher static init wires FieldSynapse into ServiceContext.PointcutHook
-- **28 javatools pointcut tests green** — PointcutEndToEndTest(4), ReduxListPointcutTest(8), TypedefCascadeDagReificationTest(5), TypedefCascadeParityTest(11)
-- **131 total lib_cursor tests green** — XvmLifecycleTest(30), PointcutDrainTest(14), VmPointcutEmitterTest(21), PointcutEventSemanticsTest(9), PointcutSubscribeTest(6), PointcutReviseTest(5), PointcutObservationTest(3), ClassfilePointcutRewriterTest(11), VmPointcutFirehoseTest(1), ListCtorCowPointcutTest(8), ListDetourTest(2), PointcutCmdlineTest(3), VM Event CRUD(18)
-- Tag: C1036794-2071-4E97-BD4A-D9BC1CD001BA
+rebooting the TODO:
 
-### Cascading stat rollups — 4-tier cascade
-- T1 leafScan — per-siteOrd 256-bin counters
-- T2 kindMerge — per-kind 9-bin histogram (CALL/ALLOC/RETURN/FIELD/TYPE/ASSERT/LOOP/SYNC/GAP)
-- T3 scopeRollup — per-scope 4-bin aggregation (MODULE/PACKAGE/CLASS/METHOD)
-- T4 jointHistogram — kind×scope co-occurrence (9×4 flat array)
-- TierSnapshot flat-array DTO, no per-row object allocation
+ [x] vm timeseries capture
+ [x] vm live taxonomy capture
+ [x] JsElement lazy taxonomy navigation with joined facetted RowVec and ColumnMeta.child (Blackboard Cursor)
+ [x] lazy firehose Redux and Synapse delegates
+ [x] jitconnector facet
+ [x] vm pointcut taxonomy delegate facets  == join( Series<RowVec> , /*Facet*/ Series<RowVec>)
+ [ ] .x lang typedef table-based typesystem
+ [ ] .x lang port of typealias+mixin vtable algebra
 
-### Mapreduce lattice — CascadeLattice
-- mapByKind / mapAllKinds — partition snapshots by kind (9 bins)
-- mapByScope / mapAllScopes — partition snapshots by scope (4 bins)
-- reduceKind / reduceScope — element-wise TierSnapshot merge
-- latticeCells — 9×4 long[][] co-occurrence matrix from T4 joint histogram
-- reduceLatticeCells — lattice merge via element-wise addition
-- routeKind / routeScope / routeCell — column-router name→ordinal lookup
+tdd red -> green as below
 
-### Lazy table inference
-- LazyTypedefCascadeTable wraps eager TypedefCascadeTable
-- 6 SoA columns: depth, kind, scope, success, opcode(siteOrd), addr(poolId)
-- LazyColumn<T> — Supplier-based deferred compute, GC supplier after materialize
-- Hot path (fold/routeOpcode) delegates to backing table, zero lazy overhead
-- project(int...) — unmodifiable column view, no copy
-- columnRouter(String) — name → LazyColumn lookup
-- infer() — field candidates + AVX2 lane assignment (8 int lanes per 256-bit vector)
+    Use facets to decide how a RowVec cell becomes navigable, reifiable, and/or timeseries-capturable.
 
-### Confix facade — json/csv lazy cursor
-- ConfixFormat sealed: JSON, YAML, CBOR, CSV
-- ConfixRow — lazy per-column values, parsed on first access, cached
-- ConfixCursor — lazy Sequence<ConfixRow>, no bulk load
-  - columns() — schema detection (CSV header, JSON first-object)
-  - rows() — lazy iteration
-  - facet(vararg) — column projection → new cursor
-  - join(other, on) — faceted hash-join
-- JsonParser — zero-dep, handles escapes/nested/numbers
-- CsvParser — RFC 4180, quoted fields, type inference
-- YAML/CBOR stubbed for TrikeShed parsing
+    The useful algebra:
 
-### BlackboardTimeseries → ConfixCursor integration
-- parsePcodeJson replaced with ConfixCursor-based parsing
-- Top-level function array parsed via ConfixCursor.rows()
-- Nested pcode ops parsed via second ConfixCursor on extracted raw array string
-- PcodeOp/PcodeVarnode/PcodeFunction data classes unchanged
-- runBlackboardTimeseries histograms/hot-functions/layers unchanged
-- javatools erodes kotlin code over time. we're working on pure stubs
+    text
+    XSrcFile / Classfile / Method / Field / Constant / Edge / Event
+        each is a virtual domain
 
-### .x typedef vtable options table
-- VtableLayout enum: VIRTUAL, INTERFACE, INLINE, BOXED
-- VtableOptions: layout + vtableSlots + mixinCompat bitmask + nullSafe
-- VTABLE_OPTIONS[21] array indexed by XvmPrimitive.ordinal()
-- mixinCompat bits: 0x01=field access, 0x02=method forwarding, 0x04=type unification, 0x08=type intersection
-- Lookup: vtableOptions(XvmPrimitive), vtableSlots(String), mixinCompat(XvmPrimitive, int)
+    ColumnMetaRef
+        left identity factory for cell shape
 
-### ToSeriesMacro typedef parameterization rewrites
-- JAVA_TYPEDEF_REWRITES: class fields, interface methods, generic method returns → Series<T>
-- KOTLIN_TYPEDEF_REWRITES: typedef→typealias, class constructor List→Series
-- TYPEDEF_EXCLUSIONS: skip already-rewritten typealias=Series lines
-- Third pass in processPath after basic and redux passes
+    Facet
+        role tag on a ColumnMetaRef
 
-### TypedefResolutionPublisher — live pointcut → cascade → lattice spine
-- ServiceContext.PointcutHook registration in static init
-- TypedefCascadeTable(2048) as cascade backing store
-- CascadeRollup.cascadeRollup() every ROLLUP_INTERVAL=2048 events
-- subscribe() — idempotent, drains ring + rollup on first call
-- Query API: snapshot(), tableRowCount(), table()
-- fieldPublish() handles field opcodes alongside regular publish
+    MetaSeries
+        lazy codec/filter/projection from source domain to Cursor/RowVec
 
-### xvm lifecycle enum
-- XvmLifecycle.java: INIT -> RUNNING -> DRAINING -> SHUTDOWN, no reverse transitions
-- Invalid transition throws IllegalStateException
-- 30 tests in XvmLifecycleTest.kt
+    Confix
+        iteration/reification facade over JSON-ish material
 
-### xvm drain -> pointcut drain -> file artifacts
-- Snapshot-based file dumps for cascade.csv, joint_histogram.csv, and table_dump.csv on shutdown
-- Bounded timing assertions verified within System.nanoTime() bounds [t0, t1] in JUnit test suite
-- **Real event data tests** — 3 new PointcutCmdlineTest cases use child VM runs (no staged CSV):
-  - `real events cascade csv has correct schema and non-zero data` — redux standalone, verifies T1/T4 tier output
-  - `real xvm events joint histogram covers all scopes` — xvm FizzBuzz child VM, verifies scope coverage
-  - `real ring drain produces matching table dump rows` — xvm FizzBuzz, extracts drain row count via regex
+    CRMS
+        recursive materialized view:
+        Cursor<RowVec>, where cells may lazy-reify into child Cursor branches
 
-### Kotlin benchmark blocks & CLI wrapped runner
-- Wrapper command-line interface wrapped via Gradle for benchmarking Redux timeseries vs Synapse models
-- Full JSON/CSV dump reification executed between high-precision nano timer blocks
 
-## Not started
+    Core move:
 
-- VM shutdown reification
-- Column-router: partitioned lazy column scan for SIMD histogram accumulation
-- .x source reverse engineering for typedef port with parameterized unification
-- Ported Cursor shapes to java, xtclang .x vtable and dsl builder creation
-- Vtable production from cascade rules → .x typedef parameterized mixins
+    text
+    facet does not eagerly compute data
+    facet tells Confix how to reify a branch when touched
 
-# next level-up
 
- * adaptive Event rate speculation burst -> grow /shrink estimate MutableSeriesRingsize  -> more like Units/TimeUnits simulation ticker
+    So a reflected XVM classfile hierarchy becomes:
+
+    text
+    Root CRMS Cursor
+      └── XSrcFile facet
+            └── ClassfileTaxonomy child Cursor
+                  ├── constants child Cursor
+                  ├── methods child Cursor
+                  ├── fields child Cursor
+                  ├── edges child Cursor
+                  └── events child Cursor / firehose timeseries
+
+
+    A RowVec cell carries:
+
+    text
+    value: Any?
+    meta: () -> ColumnMeta
+
+
+    The trick is to let value be lazy:
+
+    text
+    value = Lazy<Cursor>
+    meta.facet = ClassfileTaxonomy / XSrcFile / ChildRows / Wireproto / ...
+
+
+    or:
+
+    text
+    value = SymbolId
+    meta.facet = SymbolName / TypeInfo / XvmCoordinate
+
+
+    or:
+
+    text
+    value = MemSegment
+    meta.facet = Wireproto
+
+
+    Then Confix iteration can be:
+
+    text
+    for row in cursor:
+      for cell in row:
+        inspect cell.meta().facet
+        if scalar facet:
+          read/reify scalar
+        if child facet:
+          open child cursor lazily
+        if wire facet:
+          decode through MetaSeries codec
+        if event facet:
+          attach/read firehose timeseries
+
+
+    Practical facet roles:
+
+    text
+    XSrcFile
+      source file boundary
+      e.g. JitConnector.java
+
+    ClassfileTaxonomy
+      virtual classfile node:
+      class name, source path, package, bytecode location
+
+    SymbolName
+      interned runtime symbol id
+
+    TypeInfo
+      descriptor/signature/type identity
+
+    ClassfileCoordinate
+      cp index / method index / field index / bytecode offset
+
+    XvmCoordinate
+      XVM module/type/method/field coordinate
+
+    EdgeTaxonomy
+      relation rows:
+      contains, invokes, loads, resolves, emits, observes
+
+    Wireproto
+      packed event payload / lazy decode source
+
+    ChildRows
+      branch marker: value is child Cursor
+
+    ConfixMeta
+      JSON/reifiable facade metadata
+
+    VmStats
+      aggregate/timeseries counters
+
+    ReduxPhilum / SynapsePhilum
+      journal/pulse stream surfaces
+
+    ObserverDelegateRegistration
+      observable hook / subscription edge
+
+
+    For virtual reflected classfiles, each classfile node can be a CRMS domain row:
+
+    text
+    RowVec[
+      symbolName          -> SymbolId             facet SymbolName
+      typeInfo            -> SymbolId             facet TypeInfo
+      classfileCoordinate -> SymbolId             facet ClassfileCoordinate
+      xvmCoordinate       -> SymbolId             facet XvmCoordinate
+      constants           -> Lazy<Cursor>         facet ChildRows + ClassfileTaxonomy
+      methods             -> Lazy<Cursor>         facet ChildRows + ClassfileTaxonomy
+      fields              -> Lazy<Cursor>         facet ChildRows + ClassfileTaxonomy
+      edges               -> Lazy<Cursor>         facet ChildRows + EdgeTaxonomy
+      events              -> Lazy<Cursor>         facet ChildRows + ReduxPhilum/SynapsePhilum
+      wireproto           -> MemSegment           facet Wireproto
+    ]
+
+
+    But since current ColumnMetaRef has only one facet, the near-term implementation can model combined roles by convention:
+
+    text
+    children column has facet ChildRows
+    child cursor rows themselves carry ClassfileTaxonomy / EdgeTaxonomy / XSrcFile
+
+
+    So instead of multi-facet cells:
+
+    text
+    constants: ChildRows + ClassfileTaxonomy
+
+
+    do:
+
+    text
+    constants: facet ChildRows
+      child rows: facet ClassfileTaxonomy
+
+
+    That keeps the algebra clean.
+
+    Lazy-but-reifiable design:
+
+    kotlin
+    data class LazyFacetCell(
+        val ref: ColumnMetaRef,
+        val value: Any?,
+        val reify: () -> Any? = { value },
+    )
+
+
+    But to stay compatible with current RowVec shape:
+
+    kotlin
+    Join<Any?, () -> ColumnMeta>
+
+
+    use value as:
+
+    kotlin
+    Lazy<Cursor>
+    Lazy<MemSegment>
+    Lazy<RowVec>
+    SymbolId
+    Int
+    Long
+
+
+    Then Confix reification knows:
+
+    kotlin
+    when (metaFacet) {
+        ChildRows -> (value as Lazy<Cursor>).value
+        Wireproto -> codec.decode((value as MemSegment).bytes)
+        SymbolName, TypeInfo, XvmCoordinate -> StringPool.resolve(value as Int)
+        else -> value
+    }
+
+
+    Firehose event timeseries fits as another lazy child branch:
+
+    text
+    Classfile node
+      └── events child Cursor
+            rows are event samples:
+              nanoTime
+              opcode
+              xvmCoordinate
+              symbolId
+              wireproto
+              reducerState / synapse pulse id
+
+
+    The event rows should be packed/appendable:
+
+    text
+    RingSeries hot path
+      -> MemSegment wireproto
+      -> Redux/Journal lossless branch
+      -> CRMS lazy event cursor reifies when inspected
+
+
+    So the live path is not:
+
+    text
+    event -> JSON object -> RowVec
+
+
+    It is:
+
+    text
+    event -> packed/wireproto -> Ring/Journal
+
+
+    Then inspection path is:
+
+    text
+    Confix iterates virtual JSON facade
+      -> sees Wireproto facet
+      -> decodes lazily
+      -> emits RowVec
+
+
+    This gives both:
+
+    text
+    firehose throughput
+
+
+    and:
+
+    text
+    reifiable JSON-like introspection
+
+
+    Algebraically:
+
+    text
+    MetaSeries<Input, Output>
+      filter: Input -> Boolean
+      codec: Input -> Output
+      refs: Series<ColumnMetaRef>
+      cursor: InputDomain -> Cursor
+
+
+    For classfiles:
+
+    text
+    MetaSeries<ClassfileBytes, RowVec>
+      filter = package startsWith org.xtc / org.xvm / org.xtclang
+      codec = Classfile API parser
+      refs = classfile taxonomy refs
+
+
+    For events:
+
+    text
+    MetaSeries<MemSegment, RowVec>
+      filter = event kind / coordinate / opcode
+      codec = wireproto decoder
+      refs = event row refs
+
+
+    For Confix JSON facade:
+
+    text
+    MetaSeries<JsonCell, RowVec>
+      filter = path/glob/query
+      codec = JSON cell -> RowVec
+      refs = ConfixMeta refs
+
+
+    The leveraging pattern:
+
+    1. Build classfile hierarchy as lazy CRMS domains
+       - root
+       - source file
+       - classfile
+       - method/field/constant
+       - edge
+       - event stream
+
+    2. Attach ColumnMetaRef to every cell
+       - names/types interned
+       - facet role explicit
+
+    3. Store child branches as lazy cursor values
+       - do not eagerly materialize classfile tree
+       - Confix opens branch on demand
+
+    4. Keep firehose events packed
+       - Wireproto facet is the durable representation
+       - RowVec is a view, not the hot-path object
+
+    5. Let Confix iterate as JSON facade
+       - path/glob filters are MetaSeries domains
+       - reification happens only at selected branches
+
+    6. Use facets as dispatch keys
+       - not as objects with behavior
+       - they select codec/reifier/navigation behavior
+
+    A useful dispatch table:
+
+    text
+    Facet                  Reifier
+
+    SymbolName             StringPool.resolve(Int)
+    TypeInfo               StringPool.resolve(Int)
+    ClassfileCoordinate    StringPool.resolve(Int)
+    XvmCoordinate          StringPool.resolve(Int)
+    ChildRows              Lazy<Cursor>.value
+    Wireproto              WireCodec.decode(MemSegment)
+    ClassfileTaxonomy      ClassfileMetaSeries.reify(row)
+    EdgeTaxonomy           EdgeMetaSeries.reify(row)
+    XSrcFile               XSrcFileMetaSeries.reify(row)
+    ConfixMeta             JsonFacade.reify(row)
+    ReduxPhilum            JournalCursor.reify(row)
+    SynapsePhilum          RingPulseCursor.reify(row)
+    VmStats                CounterSnapshot.reify(row)
+
+
+    So the short answer:
+
+    Use facets as lazy reification dispatch labels on ColumnMetaRef.
+
+    The virtual XVM reflected classfile hierarchy is a CRMS cursor tree. Each RowVec cell has a facet-bearing meta identity. Child branches are lazy Cursor cells. Firehose timeseries remains packed as wireproto/journal/ring data, and Confix provides a JSON-like iterable facade that only reifies a branch when a facet demands it.
+
+    That preserves:
+
+    text
+    fast capture
+    lazy inspection
+    symbol identity
+    classfile coordinates
+    XVM runtime coordinates
+    cursor-tree navigation
+    JSON facade reifiability

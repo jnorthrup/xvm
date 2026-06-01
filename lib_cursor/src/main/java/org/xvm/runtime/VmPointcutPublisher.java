@@ -5,6 +5,7 @@ import borg.trikeshed.lib.RingSeries;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -31,6 +32,7 @@ public final class VmPointcutPublisher {
     public static final int RECORD_SIZE = 20;
     private static final EvictionListener<PointcutEvent> NO_OP = evt -> {};
     private static final RingSeries<PointcutEvent> RING = new RingSeries<>(CAP, NO_OP);
+    private static final ArrayList<PointcutEvent> EVENTS = new ArrayList<>(CAP);
     private static final long[] JOURNAL = new long[CAP];
     private static volatile long version = 0L;
     private static final AtomicInteger SEQ = new AtomicInteger();
@@ -96,52 +98,75 @@ public final class VmPointcutPublisher {
         if (!active) {
             return;
         }
-        RING.add(new PointcutEvent(
+        var event = new PointcutEvent(
                 SEQ.getAndIncrement(),
                 System.nanoTime(),
                 opcode,
                 addr,
                 POOL.intern(method)
-        ));
+        );
+        synchronized (EVENTS) {
+            RING.add(event);
+            EVENTS.add(event);
+        }
     }
 
     public static int size() {
-        return RING.getA();
+        synchronized (EVENTS) {
+            return EVENTS.size();
+        }
     }
 
     public static PointcutEvent peek(int i) {
-        return RING.getB().invoke(i);
+        synchronized (EVENTS) {
+            return EVENTS.get(i);
+        }
     }
 
     public static void revise(int index, PointcutEvent evt) {
-        JOURNAL[index] = RING.getB().invoke(index).nano;
-        RING.set(index, new PointcutEvent(evt.seq, System.nanoTime(), evt.opcode, evt.addr, evt.methodIdx));
-        version = System.nanoTime();
-        notify(RING.getB().invoke(index));
+        synchronized (EVENTS) {
+            var old = EVENTS.get(index);
+            if (index < JOURNAL.length) {
+                JOURNAL[index] = old.nano;
+            }
+            var revised = new PointcutEvent(evt.seq, System.nanoTime(), evt.opcode, evt.addr, evt.methodIdx);
+            EVENTS.set(index, revised);
+            var retainedStart = EVENTS.size() - RING.getA();
+            var ringIndex = index - retainedStart;
+            if (ringIndex >= 0 && ringIndex < RING.getA()) {
+                RING.set(ringIndex, revised);
+            }
+            version = System.nanoTime();
+            notify(revised);
+        }
     }
 
     public static void drain(Consumer<PointcutEvent> consumer) {
-        var sz = size();
-        for (var i = 0; i < sz; i++) {
-            var event = RING.getB().invoke(i);
-            consumer.accept(event);
+        int sz;
+        synchronized (EVENTS) {
+            sz = EVENTS.size();
+            for (var i = 0; i < sz; i++) {
+                consumer.accept(EVENTS.get(i));
+            }
         }
         PointcutObservation.publish(PointcutObservation.Source.VM, sz, 0L);
     }
 
     public static void drainOpcodes(java.util.function.IntConsumer opcodeSink) {
-        var sz = size();
-        for (var i = 0; i < sz; i++) {
-            var evt = RING.getB().invoke(i);
-            opcodeSink.accept(evt.opcode);
+        synchronized (EVENTS) {
+            for (var i = 0; i < EVENTS.size(); i++) {
+                var evt = EVENTS.get(i);
+                opcodeSink.accept(evt.opcode);
+            }
         }
     }
 
     public static void drainAll(java.util.function.ObjIntConsumer<String> sink) {
-        var sz = size();
-        for (var i = 0; i < sz; i++) {
-            var evt = RING.getB().invoke(i);
-            sink.accept(evt.methodName(), evt.opcode);
+        synchronized (EVENTS) {
+            for (var i = 0; i < EVENTS.size(); i++) {
+                var evt = EVENTS.get(i);
+                sink.accept(evt.methodName(), evt.opcode);
+            }
         }
     }
 
@@ -150,7 +175,7 @@ public final class VmPointcutPublisher {
     }
 
     public static void writeRecord(ByteBuffer target, int index) {
-        var evt = RING.getB().invoke(index);
+        var evt = peek(index);
         writeRecord(target, evt);
     }
 
@@ -209,7 +234,10 @@ public final class VmPointcutPublisher {
         active = false;
         version = 0L;
         TOTAL_INVOKED.set(0);
-        RING.clear();
+        synchronized (EVENTS) {
+            EVENTS.clear();
+            RING.clear();
+        }
         SEQ.set(0);
         POOL.reset();
         for (var i = 0; i < CAP; i++) {

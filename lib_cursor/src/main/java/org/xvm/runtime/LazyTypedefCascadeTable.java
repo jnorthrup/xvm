@@ -231,6 +231,40 @@ public final class LazyTypedefCascadeTable {
         return backing;
     }
 
+    /**
+     * Accumulates the histogram of a column, designed to be autovectorization-friendly
+     * by the JVM C2/Graal compiler on any CPU (including macOS Apple Silicon and server architectures).
+     *
+     * @param columnName one of: depth, kind, scope, success, opcode, addr
+     * @param binCount   number of histogram bins
+     * @return flat histogram of length binCount
+     */
+    public long[] accumulateHistogram(String columnName, int binCount) {
+        var lazyCol = columnRouter(columnName);
+        var array = lazyCol.get();
+        int n = rowCount();
+        long[] histogram = new long[binCount];
+
+        if (array instanceof byte[] bytes) {
+            for (int i = 0; i < n; i++) {
+                int val = bytes[i] & 0xFF;
+                if (val >= 0 && val < binCount) {
+                    histogram[val]++;
+                }
+            }
+        } else if (array instanceof int[] ints) {
+            for (int i = 0; i < n; i++) {
+                int val = ints[i];
+                if (val >= 0 && val < binCount) {
+                    histogram[val]++;
+                }
+            }
+        } else {
+            throw new UnsupportedOperationException("Column type not supported for histogram accumulation");
+        }
+        return histogram;
+    }
+
     // ── LazyColumn ────────────────────────────────────────────────────────
 
     /**

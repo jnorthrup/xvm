@@ -65,6 +65,27 @@ public final class TypedefResolutionPublisher {
                 }
             }
         };
+
+        try {
+            var dumpDir = System.getProperty("xvm.pointcut.dumpdir");
+            if (dumpDir != null) {
+                java.lang.Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+                    try {
+                        drainFromRing();
+                        rollup();
+                        var path = java.nio.file.Path.of(dumpDir);
+                        var lc = new XvmLifecycle();
+                        lc.start();
+                        var drain = new PointcutDrain(lc, TABLE, path);
+                        drain.drain();
+                        drain.shutdown();
+                    } catch (Exception e) {
+                        System.err.println("Failed to execute VM shutdown pointcut reification: " + e.getMessage());
+                    }
+                }));
+            }
+        } catch (Exception ignored) {
+        }
     }
 
     // ── Cascade rollup ───────────────────────────────────────────────────
