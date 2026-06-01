@@ -37,6 +37,7 @@ public class VmPointcutFirehoseTest {
             VmPointcutPublisher.active = true;
 
             // ── timed run ──
+            long t0 = System.nanoTime();
             String output = runModule(
                     "module FirehoseTest {" +
                             "  void run() {" +
@@ -44,6 +45,7 @@ public class VmPointcutFirehoseTest {
                             "    c.print(\"hello\");" +
                             "  }" +
                             "}");
+            long t1 = System.nanoTime();
 
             int[] counts = new int[256];
             AtomicInteger total = new AtomicInteger();
@@ -55,6 +57,7 @@ public class VmPointcutFirehoseTest {
                 else
                     counts[op]++;
                 total.incrementAndGet();
+                assertTrue(evt.nano >= t0 && evt.nano <= t1, "firehose event nano must be in bounds");
             });
 
             int got = total.get();

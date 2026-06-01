@@ -265,7 +265,7 @@ class PointcutRegistryTest {
         assertEquals(count, ring.a)
         assertTrue(rate > 1_000_000, "intercept rate $rate must exceed 1M events/sec")
         for (i in 0 until count) {
-            val evt = ring[i] as GetterPointcutTest.GetEvent
+            val evt = ring.b(i) as GetterPointcutTest.GetEvent
             assertTrue(evt.nano in t0..t0 + elapsed, "nano ${evt.nano} must be within bounds")
         }
     }

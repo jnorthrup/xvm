@@ -69,6 +69,14 @@
 - Invalid transition throws IllegalStateException
 - 30 tests, every line >= 2 TDD red-green
 
+### xvm drain -> pointcut drain -> file artifacts
+- Snapshot-based file dumps for cascade.csv, joint_histogram.csv, and table_dump.csv on shutdown
+- Bounded timing assertions verified within System.nanoTime() bounds [t0, t1] in JUnit test suite
+
+### Kotlin benchmark blocks & CLI wrapped runner
+- Wrapper command-line interface wrapped via Gradle for benchmarking Redux timeseries vs Synapse models
+- Full JSON/CSV dump reification executed between high-precision nano timer blocks
+
 ## Not started
 
 - VM shutdown reification
@@ -77,10 +85,9 @@
 - .x source reverse engineering for typedef port with parameterized unification
 - Ported Cursor shapes to java, xtclang .x vtable and dsl builder creation
 - Vtable production from cascade rules → .x typedef parameterized mixins
-- ● xvm drain -> pointcut drain -> file artifacts
 
 # next level-up
 
- * create a cmdline interface in order to show a gradle wrapped unit test of pointccutting both the redux timeseries  and the synapse spiking model ;  with full dumps performed between kotlin benchmark block timer bounds
  * adaptive Event rate speculation burst -> grow /shrink estimate MutableSeriesRingsize  -> more like Units/TimeUnits simulation ticker
  * time-series parser lexer/tokenizers/ast/symbols cascade, inheritance and similar composition signals/facets , cascade
+

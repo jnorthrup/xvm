@@ -155,7 +155,7 @@ class NewPointcutTest {
         assertEquals(count, ring.a)
         assertTrue(rate > 1_000_000, "allocation rate $rate must exceed 1M events/sec")
         for (i in 0 until count) {
-            assertTrue(ring[i].nano in t0..t1)
+            assertTrue(ring.b(i).nano in t0..t1)
         }
     }
 
@@ -175,7 +175,7 @@ class NewPointcutTest {
 
         assertTrue(chunked.a >= 100, "chunked must retain all 100 events")
         for (i in 0 until chunked.a) {
-            assertTrue(chunked[i].nano in t0..t1)
+            assertTrue(chunked.b(i).nano in t0..t1)
         }
     }
 
@@ -196,7 +196,7 @@ class NewPointcutTest {
         val redux = ReduxMutableSeries(
             eventJournal = chunked,
             reducer = reducer,
-            capture = NewEvent(0, 0L, 0x38, "ALLOC", AllocKind.NEW, "Ljava/lang/Object;", 0, 0)
+            capture = NewEvent(0, System.nanoTime(), 0x38, "ALLOC", AllocKind.NEW, "Ljava/lang/Object;", 0, 0)
         )
 
         listOf(
@@ -214,7 +214,7 @@ class NewPointcutTest {
 
         assertEquals(10, redux.a)
         for (i in 0 until chunked.a) {
-            assertTrue(chunked[i].nano in t0..t1)
+            assertTrue(chunked.b(i).nano in t0..t1)
         }
     }
 
@@ -233,7 +233,7 @@ class NewPointcutTest {
 
         assertEquals(AllocKind.entries.size, ring.a)
         for (i in 0 until ring.a) {
-            assertTrue(ring[i].nano in t0..t1)
+            assertTrue(ring.b(i).nano in t0..t1)
         }
     }
 
@@ -253,7 +253,7 @@ class NewPointcutTest {
         val t1 = System.nanoTime()
 
         for (i in 0 until chunked.a) {
-            assertTrue(chunked[i].nano in t0..t1)
+            assertTrue(chunked.b(i).nano in t0..t1)
         }
     }
 }

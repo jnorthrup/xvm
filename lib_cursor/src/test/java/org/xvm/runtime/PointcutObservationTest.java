@@ -2,6 +2,7 @@ package org.xvm.runtime;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -25,8 +26,10 @@ public class PointcutObservationTest {
         VmPointcutPublisher.active = true;
 
         try {
+            long t0 = System.nanoTime();
             VmPointcutPublisher.publish(0x10, "Test.run", 11);
             VmPointcutPublisher.publish(0x4C, "Test.run", 12);
+            long t1 = System.nanoTime();
 
             var drained = new ArrayList<VmPointcutPublisher.PointcutEvent>();
             VmPointcutPublisher.drain(drained::add);
@@ -37,6 +40,9 @@ public class PointcutObservationTest {
             var batch = sink.vmBatches.getFirst();
             assertEquals(2, batch.count);
             assertArrayEquals(new int[]{0x10, 0x4C}, batch.opcodes());
+
+            assertTrue(batch.events.get(0).nano >= t0 && batch.events.get(0).nano <= t1);
+            assertTrue(batch.events.get(1).nano >= t0 && batch.events.get(1).nano <= t1);
 
         } finally {
             PointcutObservation.unsubscribe(sinkId);
@@ -55,8 +61,10 @@ public class PointcutObservationTest {
         FieldSynapse.active = true;
 
         try {
+            long t0 = System.nanoTime();
             FieldSynapse.publishStatic(0xA5, "Field.read", 21, false);  // BEFORE
             FieldSynapse.publishStatic(0xA8, "Field.write", 22, true);   // AFTER
+            long t1 = System.nanoTime();
 
             FieldSynapse.flush("test");
 
@@ -69,6 +77,9 @@ public class PointcutObservationTest {
             assertArrayEquals(new int[]{0xA5, 0xA8}, batch.opcodes());
             assertEquals(0, batch.events.get(0).phase, "first event should be BEFORE");
             assertEquals(1, batch.events.get(1).phase, "second event should be AFTER");
+
+            assertTrue(batch.events.get(0).nano >= t0 && batch.events.get(0).nano <= t1);
+            assertTrue(batch.events.get(1).nano >= t0 && batch.events.get(1).nano <= t1);
 
         } finally {
             PointcutObservation.unsubscribe(sinkId);

@@ -79,7 +79,7 @@ class CtorPointcutTest {
         assertTrue(ring.a == count, "ring must hold all $count events")
         assertTrue(rate > 1_000_000, "rate $rate must exceed 1M events/sec")
         for (i in 0 until count) {
-            val evt = ring[i]
+            val evt = ring.b(i)
             assertTrue(evt.nano in t0..t1, "nano ${evt.nano} must be within [$t0, $t1]")
         }
     }
@@ -103,7 +103,7 @@ class CtorPointcutTest {
 
         assertTrue(chunked.a >= 2, "at least 2 chunks for 128 events at chunkSize=64")
         for (i in 0 until chunked.a) {
-            assertTrue(chunked[i].nano in t0..t1, "nano must be in bounds")
+            assertTrue(chunked.b(i).nano in t0..t1, "nano must be in bounds")
         }
     }
 
@@ -122,7 +122,7 @@ class CtorPointcutTest {
                     return acc + (element.declaringClass to (acc[element.declaringClass] ?: 0) + 1)
                 }
             },
-            capture = CtorEvent(0, 0L, 0x34, "CONSTRUCTOR", "", "<init>", 0)
+            capture = CtorEvent(0, System.nanoTime(), 0x34, "CONSTRUCTOR", "", "<init>", 0)
         )
 
         val classes = listOf("com/example/A", "com/example/B", "com/example/A", "com/example/B", "com/example/A")
@@ -135,7 +135,7 @@ class CtorPointcutTest {
 
         assertEquals(5, redux.a)
         for (i in 0 until chunked.a) {
-            assertTrue(chunked[i].nano in t0..t1, "nano must be in bounds")
+            assertTrue(chunked.b(i).nano in t0..t1, "nano must be in bounds")
         }
     }
 }

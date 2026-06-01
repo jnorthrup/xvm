@@ -65,6 +65,7 @@ class SetterPointcutTest {
     @Test
     @DisplayName("captureSetterPointcut fires with opcode 0xA6 (L_SET) for instance field")
     fun capturesInstanceSetterOpcode() {
+        val t0 = System.nanoTime()
         val ring = RingSeries<SetEvent>(1024)
         val evt = captureSetterPointcut(
             ring = ring,
@@ -75,17 +76,20 @@ class SetterPointcutTest {
             isStatic = false,
             addr = 0x1C
         )
+        val t1 = System.nanoTime()
 
         assertEquals(0xA6, evt.opcode, "instance setter opcode must be L_SET = 0xA6")
         assertEquals("SETTER", evt.phase)
         assertEquals("value", evt.fieldName)
         assertEquals("I", evt.fieldDesc)
         assertEquals(1, ring.a)
+        assertTrue(evt.nano in t0..t1, "nano ${evt.nano} must be within [$t0, $t1]")
     }
 
     @Test
     @DisplayName("captureSetterPointcut fires with opcode 0xA8 (P_SET) for static field")
     fun capturesStaticSetterOpcode() {
+        val t0 = System.nanoTime()
         val ring = RingSeries<SetEvent>(1024)
         val evt = captureSetterPointcut(
             ring = ring,
@@ -96,15 +100,18 @@ class SetterPointcutTest {
             isStatic = true,
             addr = 0x3D
         )
+        val t1 = System.nanoTime()
 
         assertEquals(0xA8, evt.opcode, "static setter opcode must be P_SET = 0xA8")
         assertEquals("SETTER", evt.phase)
         assertEquals("VERSION", evt.fieldName)
+        assertTrue(evt.nano in t0..t1, "nano ${evt.nano} must be within [$t0, $t1]")
     }
 
     @Test
     @DisplayName("RingSeries absorbs setter firehose at >1K events/sec")
     fun ringAbsorbsSetterFirehose() {
+        val t0 = System.nanoTime()
         val ring = RingSeries<SetEvent>(65536)
         val count = 5000
 
@@ -121,16 +128,21 @@ class SetterPointcutTest {
                 )
             }
         }
+        val t1 = System.nanoTime()
 
         val rate = count * 1_000_000_000.0 / elapsed.inWholeNanoseconds
 
         assertEquals(count, ring.a)
         assertTrue(rate > 1_000_000, "setter rate $rate must exceed 1M events/sec")
+        for (i in 0 until count) {
+            assertTrue(ring.b(i).nano in t0..t1, "event $i must be inside bounds")
+        }
     }
 
     @Test
     @DisplayName("ReduxMutableSeries folds setters by (ownerClass, fieldName)")
     fun reduxFoldsSettersByOwnerField() {
+        val t0 = System.nanoTime()
         val chunked = ChunkedMutableSeries<SetEvent>(chunkSize = 64)
 
         val reducer = object : borg.trikeshed.lib.Reducer<SetEvent, Map<String, Int>> {
@@ -144,7 +156,7 @@ class SetterPointcutTest {
         val redux = ReduxMutableSeries(
             eventJournal = chunked,
             reducer = reducer,
-            capture = SetEvent(0, 0L, 0xA6, "SETTER", "", "field", "I", 0)
+            capture = SetEvent(0, System.nanoTime(), 0xA6, "SETTER", "", "field", "I", 0)
         )
 
         // Simulate setter invocations
@@ -160,13 +172,18 @@ class SetterPointcutTest {
             val evt = captureSetterPointcut(r, i, cls, field, desc, false, i)
             chunked.add(evt)
         }
+        val t1 = System.nanoTime()
 
         assertEquals(5, redux.a)
+        for (i in 0 until chunked.a) {
+            assertTrue(chunked.b(i).nano in t0..t1, "event $i must be inside bounds")
+        }
     }
 
     @Test
     @DisplayName("Setter events chain into getter events via ReduxMutableSeries")
     fun setterChainsToGetterViaRedux() {
+        val t0 = System.nanoTime()
         val chunked = ChunkedMutableSeries<SetEvent>(chunkSize = 64)
 
         val reducer = object : borg.trikeshed.lib.Reducer<SetEvent, Map<String, Long>> {
@@ -181,7 +198,7 @@ class SetterPointcutTest {
         val redux = ReduxMutableSeries(
             eventJournal = chunked,
             reducer = reducer,
-            capture = SetEvent(0, 0L, 0xA6, "SETTER", "", "field", "I", 0)
+            capture = SetEvent(0, System.nanoTime(), 0xA6, "SETTER", "", "field", "I", 0)
         )
         val ring = RingSeries<SetEvent>(32)
 
@@ -190,8 +207,12 @@ class SetterPointcutTest {
             val evt = captureSetterPointcut(ring, i, "com/example/Bean", "value", "I", false, i)
             chunked.add(evt)
         }
+        val t1 = System.nanoTime()
 
         // Redux fold: last-write-wins for Bean.value
         assertEquals(3, redux.a)
+        for (i in 0 until chunked.a) {
+            assertTrue(chunked.b(i).nano in t0..t1, "event $i must be inside bounds")
+        }
     }
 }

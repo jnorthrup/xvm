@@ -62,6 +62,7 @@ class GetterPointcutTest {
     @Test
     @DisplayName("captureGetterPointcut fires with opcode 0xA5 (L_GET) for instance field")
     fun capturesInstanceGetterOpcode() {
+        val t0 = System.nanoTime()
         val ring = RingSeries<GetEvent>(1024)
         val evt = captureGetterPointcut(
             ring = ring,
@@ -72,17 +73,20 @@ class GetterPointcutTest {
             isStatic = false,
             addr = 0x1A
         )
+        val t1 = System.nanoTime()
 
         assertEquals(0xA5, evt.opcode, "instance getter opcode must be L_GET = 0xA5")
         assertEquals("GETTER", evt.phase)
         assertEquals("value", evt.fieldName)
         assertEquals("I", evt.fieldDesc)
         assertEquals(1, ring.a)
+        assertTrue(evt.nano in t0..t1, "nano ${evt.nano} must be within [$t0, $t1]")
     }
 
     @Test
     @DisplayName("captureGetterPointcut fires with opcode 0xA7 (P_GET) for static field")
     fun capturesStaticGetterOpcode() {
+        val t0 = System.nanoTime()
         val ring = RingSeries<GetEvent>(1024)
         val evt = captureGetterPointcut(
             ring = ring,
@@ -93,16 +97,19 @@ class GetterPointcutTest {
             isStatic = true,
             addr = 0x2B
         )
+        val t1 = System.nanoTime()
 
         assertEquals(0xA7, evt.opcode, "static getter opcode must be P_GET = 0xA7")
         assertEquals("GETTER", evt.phase)
         assertEquals("MAX_SIZE", evt.fieldName)
         assertEquals(1, ring.a)
+        assertTrue(evt.nano in t0..t1, "nano ${evt.nano} must be within [$t0, $t1]")
     }
 
     @Test
     @DisplayName("RingSeries absorbs getter firehose at >1K events/sec")
     fun ringAbsorbsFirehose() {
+        val t0 = System.nanoTime()
         val ring = RingSeries<GetEvent>(65536)
         val count = 5000
 
@@ -119,16 +126,21 @@ class GetterPointcutTest {
                 )
             }
         }
+        val t1 = System.nanoTime()
 
         val rate = count * 1_000_000_000.0 / elapsed.inWholeNanoseconds
 
         assertEquals(count, ring.a)
         assertTrue(rate > 1_000_000, "getter rate $rate must exceed 1M events/sec")
+        for (i in 0 until count) {
+            assertTrue(ring.b(i).nano in t0..t1, "event $i must be inside bounds")
+        }
     }
 
     @Test
     @DisplayName("ReduxMutableSeries folds getters by (ownerClass, fieldName)")
     fun reduxFoldsByOwnerAndField() {
+        val t0 = System.nanoTime()
         val chunked = ChunkedMutableSeries<GetEvent>(chunkSize = 64)
 
         val reducer = object : borg.trikeshed.lib.Reducer<GetEvent, Map<String, Int>> {
@@ -142,7 +154,7 @@ class GetterPointcutTest {
         val redux = ReduxMutableSeries(
             eventJournal = chunked,
             reducer = reducer,
-            capture = GetEvent(0, 0L, 0xA5, "GETTER", "", "field", "I", 0)
+            capture = GetEvent(0, System.nanoTime(), 0xA5, "GETTER", "", "field", "I", 0)
         )
 
         // Simulate getter accesses: id accessed 3x, name accessed 2x
@@ -158,13 +170,18 @@ class GetterPointcutTest {
             val evt = captureGetterPointcut(ring, i, cls, field, desc, false, i)
             chunked.add(evt)
         }
+        val t1 = System.nanoTime()
 
         assertEquals(5, redux.a, "redux must hold all 5 events")
+        for (i in 0 until chunked.a) {
+            assertTrue(chunked.b(i).nano in t0..t1, "event $i must be inside bounds")
+        }
     }
 
     @Test
     @DisplayName("Getter events survive chunked storage and eviction")
     fun getterSurvivesChunkedEviction() {
+        val t0 = System.nanoTime()
         val chunked = ChunkedMutableSeries<GetEvent>(chunkSize = 8)
         val ring = RingSeries<GetEvent>(16)
 
@@ -181,8 +198,12 @@ class GetterPointcutTest {
             )
             chunked.add(evt)
         }
+        val t1 = System.nanoTime()
 
         // Verify all events survived chunked storage
         assertTrue(chunked.a >= 20, "chunked must hold all 20 events after compaction")
+        for (i in 0 until chunked.a) {
+            assertTrue(chunked.b(i).nano in t0..t1, "event $i must be inside bounds")
+        }
     }
 }
