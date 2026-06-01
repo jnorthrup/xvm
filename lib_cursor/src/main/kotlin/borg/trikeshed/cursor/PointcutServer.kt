@@ -67,6 +67,10 @@ object PointcutReducer : Reducer<CruduxAction, PointcutState> {
 
 object PointcutServer {
 
+    init {
+        PointcutWireSpine.bootstrapOnLaunch()
+    }
+
     private val seq = AtomicInteger(0)
     private val version = AtomicInteger(0)
 

@@ -1,9 +1,11 @@
 package borg.trikeshed.cursor
 
-import borg.trikeshed.lib.RingSeries
 import borg.trikeshed.lib.ChunkedMutableSeries
-import borg.trikeshed.lib.ReduxMutableSeries
+import borg.trikeshed.lib.Join
 import borg.trikeshed.lib.MutableSeries
+import borg.trikeshed.lib.ReduxMutableSeries
+import borg.trikeshed.lib.RingSeries
+import borg.trikeshed.lib.Series
 
 /**
  * Pointcut registration system — replaces interception target with a
@@ -40,7 +42,7 @@ object PointcutRegistry {
     interface PointcutCodec<T> {
         fun encode(value: T, ring: RingSeries<T>): Unit
         fun decode(ring: RingSeries<T>, index: Int): T
-        fun decodeAll(ring: RingSeries<T>): List<T>
+        fun decodeAll(ring: RingSeries<T>): Series<T>
     }
 
     // ── Default codec: single-item ring with no compression ───────────────
@@ -60,9 +62,12 @@ object PointcutRegistry {
             return ring.b(index)
         }
 
-        override fun decodeAll(ring: RingSeries<T>): List<T> {
+        override fun decodeAll(ring: RingSeries<T>): Series<T> {
             val sz = ring.a
-            return if (sz == 0) emptyList() else List(sz) { ring.b(it) }
+            return object : Join<Int, (Int) -> T> {
+                override val a = sz
+                override val b: (Int) -> T = { index -> ring.b(index) }
+            }
         }
     }
 
@@ -83,11 +88,12 @@ object PointcutRegistry {
             return ring.b(index)
         }
 
-        override fun decodeAll(ring: RingSeries<T>): List<T> {
+        override fun decodeAll(ring: RingSeries<T>): Series<T> {
             val sz = ring.a
-            if (sz == 0) return emptyList()
-            // No-op reduction codec: just return all items from ring as List<T>
-            return List(sz) { ring.b(it) }
+            return object : Join<Int, (Int) -> T> {
+                override val a = sz
+                override val b: (Int) -> T = { index -> ring.b(index) }
+            }
         }
     }
 
@@ -188,9 +194,9 @@ object PointcutRegistry {
 
     /**
      * Decode all values from the shim's RingSeries.
-     * Returns List<T> — the full decode of the MutableSeries back to List.
+     * Returns Series<T> — the full decode of the MutableSeries back to a cursor-native view.
      */
-    fun <T> readAll(opcode: Int, ring: RingSeries<T>): List<T> {
+    fun <T> readAll(opcode: Int, ring: RingSeries<T>): Series<T> {
         val codec = codecs[opcode] as? PointcutCodec<T>
             ?: throw IllegalStateException("No codec registered for opcode 0x${Integer.toHexString(opcode)}")
         return codec.decodeAll(ring)

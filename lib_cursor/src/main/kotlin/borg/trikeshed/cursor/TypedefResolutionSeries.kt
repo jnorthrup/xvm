@@ -203,5 +203,5 @@ object TypedefResolutionSeries {
         return result
     }
 
-    private operator fun <T> ChunkedMutableSeries<T>.get(i: Int): T = this.get(i)
+    private operator fun <T> ChunkedMutableSeries<T>.get(i: Int): T = this[i]
 }
