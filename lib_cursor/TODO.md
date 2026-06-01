@@ -82,6 +82,10 @@
 ### xvm drain -> pointcut drain -> file artifacts
 - Snapshot-based file dumps for cascade.csv, joint_histogram.csv, and table_dump.csv on shutdown
 - Bounded timing assertions verified within System.nanoTime() bounds [t0, t1] in JUnit test suite
+- **Real event data tests** — 3 new PointcutCmdlineTest cases use child VM runs (no staged CSV):
+  - `real events cascade csv has correct schema and non-zero data` — redux standalone, verifies T1/T4 tier output
+  - `real xvm events joint histogram covers all scopes` — xvm FizzBuzz child VM, verifies scope coverage
+  - `real ring drain produces matching table dump rows` — xvm FizzBuzz, extracts drain row count via regex
 
 ### Kotlin benchmark blocks & CLI wrapped runner
 - Wrapper command-line interface wrapped via Gradle for benchmarking Redux timeseries vs Synapse models
