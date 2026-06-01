@@ -10,7 +10,6 @@ import java.util.function.Consumer;
 /**
  * Synapse journal for field pointcut events (P_GET, P_SET, L_GET, L_SET).
  * Backed by borg.trikeshed.lib.RingSeries.
- * Reinstated real nanos and binary wireproto byte buffer encoding.
  */
 public final class FieldSynapse {
 
@@ -109,19 +108,10 @@ public final class FieldSynapse {
         int count = RING.getA();
         if (count == 0) return;
 
-        FieldSynapse[] slab = new FieldSynapse[count];
-        for (int i = 0; i < count; i++) {
-            slab[i] = RING.getB().invoke(i);
-        }
-
         RING.clear();
 
         long epoch = slabEpoch++;
-        PointcutObservation.publish(
-                PointcutObservation.Source.FIELD,
-                toWireproto(slab, count),
-                count,
-                epoch);
+        PointcutObservation.publish(PointcutObservation.Source.FIELD, count, epoch);
     }
 
     public static void timeoutFlush() {
@@ -172,18 +162,9 @@ public final class FieldSynapse {
 
     public static ByteBuffer drainToWireproto() {
         int sz = size();
-        FieldSynapse[] slab = new FieldSynapse[sz];
+        ByteBuffer buf = ByteBuffer.allocate(sz * RECORD_SIZE).order(ByteOrder.LITTLE_ENDIAN);
         for (int i = 0; i < sz; i++) {
-            slab[i] = RING.getB().invoke(i);
-        }
-        return toWireproto(slab, sz);
-    }
-
-    private static ByteBuffer toWireproto(FieldSynapse[] slab, int count) {
-        ByteBuffer buf = ByteBuffer.allocate(count * RECORD_SIZE)
-                .order(ByteOrder.LITTLE_ENDIAN);
-        for (int i = 0; i < count; i++) {
-            writeRecord(buf, slab[i]);
+            writeRecord(buf, i);
         }
         buf.flip();
         return buf;

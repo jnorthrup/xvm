@@ -5,7 +5,8 @@
 ### Pointcut infrastructure (lib_cursor only, zero new files in javatools)
 - ServiceContext.PointcutHook (inner interface) decouples javatools from lib_cursor at compile time
 - VmPointcutPublisher static init wires FieldSynapse into ServiceContext.PointcutHook
-- 28 javatools pointcut tests green (TypedefCascade*, FieldSynapse*, Pointcut*)
+- **28 javatools pointcut tests green** — PointcutEndToEndTest(4), ReduxListPointcutTest(8), TypedefCascadeDagReificationTest(5), TypedefCascadeParityTest(11)
+- **131 total lib_cursor tests green** — XvmLifecycleTest(30), PointcutDrainTest(14), VmPointcutEmitterTest(21), PointcutEventSemanticsTest(9), PointcutSubscribeTest(6), PointcutReviseTest(5), PointcutObservationTest(3), ClassfilePointcutRewriterTest(11), VmPointcutFirehoseTest(1), ListCtorCowPointcutTest(8), ListDetourTest(2), PointcutCmdlineTest(3), VM Event CRUD(18)
 - Tag: C1036794-2071-4E97-BD4A-D9BC1CD001BA
 
 ### Cascading stat rollups — 4-tier cascade
@@ -14,6 +15,14 @@
 - T3 scopeRollup — per-scope 4-bin aggregation (MODULE/PACKAGE/CLASS/METHOD)
 - T4 jointHistogram — kind×scope co-occurrence (9×4 flat array)
 - TierSnapshot flat-array DTO, no per-row object allocation
+
+### Mapreduce lattice — CascadeLattice
+- mapByKind / mapAllKinds — partition snapshots by kind (9 bins)
+- mapByScope / mapAllScopes — partition snapshots by scope (4 bins)
+- reduceKind / reduceScope — element-wise TierSnapshot merge
+- latticeCells — 9×4 long[][] co-occurrence matrix from T4 joint histogram
+- reduceLatticeCells — lattice merge via element-wise addition
+- routeKind / routeScope / routeCell — column-router name→ordinal lookup
 
 ### Lazy table inference
 - LazyTypedefCascadeTable wraps eager TypedefCascadeTable
@@ -42,6 +51,7 @@
 - Nested pcode ops parsed via second ConfixCursor on extracted raw array string
 - PcodeOp/PcodeVarnode/PcodeFunction data classes unchanged
 - runBlackboardTimeseries histograms/hot-functions/layers unchanged
+- javatools erodes kotlin code over time. we're working on pure stubs
 
 ### .x typedef vtable options table
 - VtableLayout enum: VIRTUAL, INTERFACE, INLINE, BOXED
@@ -67,7 +77,7 @@
 ### xvm lifecycle enum
 - XvmLifecycle.java: INIT -> RUNNING -> DRAINING -> SHUTDOWN, no reverse transitions
 - Invalid transition throws IllegalStateException
-- 30 tests, every line >= 2 TDD red-green
+- 30 tests in XvmLifecycleTest.kt
 
 ### xvm drain -> pointcut drain -> file artifacts
 - Snapshot-based file dumps for cascade.csv, joint_histogram.csv, and table_dump.csv on shutdown
@@ -81,7 +91,6 @@
 
 - VM shutdown reification
 - Column-router: partitioned lazy column scan for SIMD histogram accumulation
-- Mapreduce lattice: map per-kind partition, reduce via joint histogram merge
 - .x source reverse engineering for typedef port with parameterized unification
 - Ported Cursor shapes to java, xtclang .x vtable and dsl builder creation
 - Vtable production from cascade rules → .x typedef parameterized mixins
@@ -89,5 +98,3 @@
 # next level-up
 
  * adaptive Event rate speculation burst -> grow /shrink estimate MutableSeriesRingsize  -> more like Units/TimeUnits simulation ticker
- * time-series parser lexer/tokenizers/ast/symbols cascade, inheritance and similar composition signals/facets , cascade
-

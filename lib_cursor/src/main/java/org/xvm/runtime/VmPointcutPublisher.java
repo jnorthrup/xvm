@@ -14,7 +14,6 @@ import java.util.function.Consumer;
 /**
  * CRUdux event publisher for VM pointcut journal.
  * Backed by borg.trikeshed.lib.RingSeries (TrikeShed).
- * Reinstated real nanos and binary wireproto byte buffer encoding.
  */
 public final class VmPointcutPublisher {
     static {
@@ -127,7 +126,7 @@ public final class VmPointcutPublisher {
             var event = RING.getB().invoke(i);
             consumer.accept(event);
         }
-        PointcutObservation.publish(PointcutObservation.Source.VM, drainToWireproto(), sz, 0L);
+        PointcutObservation.publish(PointcutObservation.Source.VM, sz, 0L);
     }
 
     public static void drainOpcodes(java.util.function.IntConsumer opcodeSink) {

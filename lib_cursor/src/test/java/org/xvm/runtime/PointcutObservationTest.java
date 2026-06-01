@@ -1,49 +1,41 @@
 package org.xvm.runtime;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
 /**
- * Wire-up verification for VM and Field pointcut observation paths.
- * Reinstated real wireproto ByteBuffer decode assertions.
+ * Notification verification for VM and Field pointcut observation paths.
+ *
+ * onBatch now carries only (source, count, epoch) — no wireproto.
+ * Wireproto encode/decode is tested separately via drainToWireproto/fromWireproto.
  */
 public class PointcutObservationTest {
 
     @Test
-    public void vmPublish_hotPath_producesWireprotoOnDrain() {
+    public void vmDrain_notifiesObserver() {
         VmPointcutPublisher.reset();
         FieldSynapse.reset();
 
-        var sink = new RecordingSink();
-        int sinkId = PointcutObservation.subscribe(sink);
+        var batches = new ArrayList<BatchRecord>();
+        int sinkId = PointcutObservation.subscribe((source, count, epoch) ->
+                batches.add(new BatchRecord(source, count, epoch)));
         VmPointcutPublisher.active = true;
 
         try {
-            long t0 = System.nanoTime();
             VmPointcutPublisher.publish(0x10, "Test.run", 11);
             VmPointcutPublisher.publish(0x4C, "Test.run", 12);
-            long t1 = System.nanoTime();
 
-            var drained = new ArrayList<VmPointcutPublisher.PointcutEvent>();
-            VmPointcutPublisher.drain(drained::add);
+            VmPointcutPublisher.drain(evt -> {});
 
-            assertEquals(2, drained.size());
-            assertEquals(1, sink.vmBatches.size(), "drain should have produced one VM batch");
-
-            var batch = sink.vmBatches.getFirst();
+            assertEquals(1, batches.size(), "drain should notify once");
+            var batch = batches.getFirst();
+            assertEquals(PointcutObservation.Source.VM, batch.source);
             assertEquals(2, batch.count);
-            assertArrayEquals(new int[]{0x10, 0x4C}, batch.opcodes());
-
-            assertTrue(batch.events.get(0).nano >= t0 && batch.events.get(0).nano <= t1);
-            assertTrue(batch.events.get(1).nano >= t0 && batch.events.get(1).nano <= t1);
-
+            assertEquals(0L, batch.epoch);
         } finally {
             PointcutObservation.unsubscribe(sinkId);
             VmPointcutPublisher.reset();
@@ -52,35 +44,26 @@ public class PointcutObservationTest {
     }
 
     @Test
-    public void fieldPublishStatic_hotPath_producesWireprotoOnFlush() {
+    public void fieldFlush_notifiesObserver() {
         VmPointcutPublisher.reset();
         FieldSynapse.reset();
 
-        var sink = new RecordingSink();
-        int sinkId = PointcutObservation.subscribe(sink);
+        var batches = new ArrayList<BatchRecord>();
+        int sinkId = PointcutObservation.subscribe((source, count, epoch) ->
+                batches.add(new BatchRecord(source, count, epoch)));
         FieldSynapse.active = true;
 
         try {
-            long t0 = System.nanoTime();
-            FieldSynapse.publishStatic(0xA5, "Field.read", 21, false);  // BEFORE
-            FieldSynapse.publishStatic(0xA8, "Field.write", 22, true);   // AFTER
-            long t1 = System.nanoTime();
+            FieldSynapse.publishStatic(0xA5, "Field.read", 21, false);
+            FieldSynapse.publishStatic(0xA8, "Field.write", 22, true);
 
             FieldSynapse.flush("test");
 
-            assertEquals(1, sink.fieldBatches.size(), "flush should have produced one FIELD batch");
-
-            var batch = sink.fieldBatches.getFirst();
+            assertEquals(1, batches.size(), "flush should notify once");
+            var batch = batches.getFirst();
+            assertEquals(PointcutObservation.Source.FIELD, batch.source);
             assertEquals(2, batch.count);
             assertEquals(0L, batch.epoch, "first slab epoch");
-
-            assertArrayEquals(new int[]{0xA5, 0xA8}, batch.opcodes());
-            assertEquals(0, batch.events.get(0).phase, "first event should be BEFORE");
-            assertEquals(1, batch.events.get(1).phase, "second event should be AFTER");
-
-            assertTrue(batch.events.get(0).nano >= t0 && batch.events.get(0).nano <= t1);
-            assertTrue(batch.events.get(1).nano >= t0 && batch.events.get(1).nano <= t1);
-
         } finally {
             PointcutObservation.unsubscribe(sinkId);
             VmPointcutPublisher.reset();
@@ -93,8 +76,9 @@ public class PointcutObservationTest {
         VmPointcutPublisher.reset();
         FieldSynapse.reset();
 
-        var sink = new RecordingSink();
-        int sinkId = PointcutObservation.subscribe(sink);
+        var batches = new ArrayList<BatchRecord>();
+        int sinkId = PointcutObservation.subscribe((source, count, epoch) ->
+                batches.add(new BatchRecord(source, count, epoch)));
         VmPointcutPublisher.active = true;
 
         try {
@@ -103,63 +87,12 @@ public class PointcutObservationTest {
             VmPointcutPublisher.publish(0x10, "Test.run", 11);
             VmPointcutPublisher.drain(evt -> {});
 
-            assertEquals(0, sink.vmBatches.size());
-            assertEquals(0, sink.fieldBatches.size());
+            assertEquals(0, batches.size());
         } finally {
             VmPointcutPublisher.reset();
             FieldSynapse.reset();
         }
     }
 
-    private static final class RecordingSink implements PointcutObservation.Observable {
-        private final List<VmBatch> vmBatches = new ArrayList<>();
-        private final List<FieldBatch> fieldBatches = new ArrayList<>();
-
-        @Override
-        public void onBatch(PointcutObservation.Source source, ByteBuffer wireproto, int count, long epoch) {
-            if (source == PointcutObservation.Source.VM) {
-                vmBatches.add(VmBatch.decode(wireproto, count));
-            } else {
-                fieldBatches.add(FieldBatch.decode(wireproto, count, epoch));
-            }
-        }
-    }
-
-    private record VmBatch(List<VmPointcutPublisher.PointcutEvent> events, int count) {
-        private static VmBatch decode(ByteBuffer wireproto, int count) {
-            var buf = wireproto.duplicate().order(ByteOrder.LITTLE_ENDIAN);
-            var events = new ArrayList<VmPointcutPublisher.PointcutEvent>(count);
-            while (buf.remaining() >= VmPointcutPublisher.RECORD_SIZE) {
-                events.add(VmPointcutPublisher.fromWireproto(buf));
-            }
-            return new VmBatch(events, count);
-        }
-
-        private int[] opcodes() {
-            var opcodes = new int[count];
-            for (var i = 0; i < count; i++) {
-                opcodes[i] = events.get(i).opcode;
-            }
-            return opcodes;
-        }
-    }
-
-    private record FieldBatch(List<FieldSynapse> events, int count, long epoch) {
-        private static FieldBatch decode(ByteBuffer wireproto, int count, long epoch) {
-            var buf = wireproto.duplicate().order(ByteOrder.LITTLE_ENDIAN);
-            var events = new ArrayList<FieldSynapse>(count);
-            while (buf.remaining() >= FieldSynapse.RECORD_SIZE) {
-                events.add(FieldSynapse.fromWireproto(buf));
-            }
-            return new FieldBatch(events, count, epoch);
-        }
-
-        private int[] opcodes() {
-            var opcodes = new int[count];
-            for (var i = 0; i < count; i++) {
-                opcodes[i] = events.get(i).opcode & 0xFF;
-            }
-            return opcodes;
-        }
-    }
+    private record BatchRecord(PointcutObservation.Source source, int count, long epoch) {}
 }

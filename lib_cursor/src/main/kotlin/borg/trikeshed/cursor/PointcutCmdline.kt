@@ -13,7 +13,6 @@ import org.xvm.runtime.TypedefCascadeTable
 import org.xvm.runtime.VmPointcutPublisher
 import org.xvm.runtime.XvmLifecycle
 import java.io.File
-import java.nio.ByteOrder
 import java.nio.file.Files
 import java.nio.file.Path
 import kotlin.system.measureNanoTime
@@ -49,21 +48,13 @@ private data class TimerBlock(
     }
 }
 
-private data class SlabRecord(
-    val slab: Array<FieldSynapse>,
-    val count: Int,
-    val epoch: Long,
-)
+private val batchCounts = mutableListOf<Pair<Long, Int>>()  // epoch, count
 
-private val collectedSlabs = mutableListOf<SlabRecord>()
-
-private fun subscribeFieldObservation(): Int = PointcutObservation.subscribe { source, wireproto, count, epoch ->
+private fun subscribeFieldObservation(): Int = PointcutObservation.subscribe { source, count, epoch ->
     if (source != PointcutObservation.Source.FIELD) {
         return@subscribe
     }
-    val buf = wireproto.duplicate().order(ByteOrder.LITTLE_ENDIAN)
-    val slab = Array(count) { FieldSynapse.fromWireproto(buf) }
-    collectedSlabs.add(SlabRecord(slab, count, epoch))
+    batchCounts.add(epoch to count)
 }
 
 fun main(args: Array<String>) {
@@ -94,7 +85,7 @@ private fun runXvmFizzBuzz() {
     println()
 
     val lifecycle = XvmLifecycle()
-    collectedSlabs.clear()
+    batchCounts.clear()
     val fieldObservationId = subscribeFieldObservation()
 
     VmPointcutPublisher.reset()
@@ -152,7 +143,7 @@ private fun runXvmFizzBuzz() {
                 println()
                 dumpArtifacts(dumpDir)
                 println()
-                dumpSynapseSlabs()
+                dumpSynapseBatches()
 
                 check(lifecycle.isShutdown) { "Lifecycle did not reach SHUTDOWN" }
                 check(dumpDir.resolve("cascade.csv").toFile().exists()) { "Missing cascade.csv" }
@@ -179,7 +170,7 @@ private fun runSynapseStandalone() {
 
     FieldSynapse.reset()
     FieldSynapse.active = true
-    collectedSlabs.clear()
+    batchCounts.clear()
     val fieldObservationId = subscribeFieldObservation()
 
     val eventCount = 50_000
@@ -198,16 +189,13 @@ private fun runSynapseStandalone() {
 
     val reifyStart = System.nanoTime()
     var totalReified = 0
-    for (slab in collectedSlabs) {
-        for (i in 0 until slab.count) {
-            val fs = slab.slab[i]
-            val reified = fs.reify()
-            check(reified.isNotEmpty()) { "Reified field synapse string was empty" }
-            totalReified++
-        }
+    FieldSynapse.drain { fs ->
+        val reified = fs.reify()
+        check(reified.isNotEmpty()) { "Reified field synapse string was empty" }
+        totalReified++
     }
     val reifyEnd = System.nanoTime()
-    TimerBlock("Slab reification ($totalReified)", reifyStart, reifyEnd, totalReified).dump()
+    TimerBlock("Ring reification ($totalReified)", reifyStart, reifyEnd, totalReified).dump()
 
     FieldSynapse.reset()
     FieldSynapse.active = true
@@ -233,7 +221,7 @@ private fun runSynapseStandalone() {
     }
 
     println()
-    dumpSynapseSlabs()
+    dumpSynapseBatches()
 
     PointcutObservation.unsubscribe(fieldObservationId)
     FieldSynapse.reset()
@@ -380,20 +368,13 @@ private fun dumpArtifacts(dir: Path) {
     println("  └──")
 }
 
-private fun dumpSynapseSlabs() {
-    println("  ┌── FieldSynapse Slabs ──")
-    println("  │  total slabs: ${collectedSlabs.size}")
+private fun dumpSynapseBatches() {
+    println("  ┌── FieldSynapse Batches ──")
+    println("  │  total batches: ${batchCounts.size}")
     var totalEvents = 0
-    for ((idx, slab) in collectedSlabs.withIndex()) {
-        totalEvents += slab.count
-        println("  │  slab[$idx]: epoch=${slab.epoch}, count=${slab.count}")
-        for (i in 0 until minOf(5, slab.count)) {
-            val fs = slab.slab[i]
-            println("  │    [$i] ${fs.phaseLabel()} ${fs.opcodeName()} ${fs.methodName()} @${fs.addr}")
-        }
-        if (slab.count > 5) {
-            println("  │    ... (${slab.count - 5} more)")
-        }
+    for ((idx, batch) in batchCounts.withIndex()) {
+        totalEvents += batch.second
+        println("  │  batch[$idx]: epoch=${batch.first}, count=${batch.second}")
     }
     println("  │  total synapse events: $totalEvents")
     println("  └──")

@@ -1,6 +1,5 @@
 package org.xvm.runtime;
 
-import java.nio.ByteBuffer;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -12,7 +11,7 @@ public final class PointcutObservation {
 
     @FunctionalInterface
     public interface Observable {
-        void onBatch(Source source, ByteBuffer wireproto, int count, long epoch);
+        void onBatch(Source source, int count, long epoch);
     }
 
     private static final AtomicInteger NEXT_ID = new AtomicInteger(1);
@@ -36,12 +35,11 @@ public final class PointcutObservation {
         NEXT_ID.set(1);
     }
 
-    static void publish(Source source, ByteBuffer wireproto, int count, long epoch) {
+    static void publish(Source source, int count, long epoch) {
         if (OBSERVERS.isEmpty()) {
             return;
         }
-        var readOnly = wireproto.asReadOnlyBuffer();
         OBSERVERS.values().forEach(observer ->
-                observer.onBatch(source, readOnly.duplicate(), count, epoch));
+                observer.onBatch(source, count, epoch));
     }
 }

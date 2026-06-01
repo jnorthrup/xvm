@@ -31,7 +31,7 @@ class PointcutCmdlineTest {
         val output = runMode("synapse")
         assertTrue(output.contains("Synapse spiking model benchmark"))
         assertTrue(output.contains("Wireproto encode"))
-        assertTrue(output.contains("FieldSynapse Slabs"))
+        assertTrue(output.contains("FieldSynapse Batches"))
     }
 
     @Test
@@ -60,6 +60,7 @@ class PointcutCmdlineTest {
 
         val process = ProcessBuilder(
             "java",
+            "--enable-native-access=ALL-UNNAMED",
             "-cp",
             childClasspath,
             "borg.trikeshed.cursor.PointcutCmdlineKt",
