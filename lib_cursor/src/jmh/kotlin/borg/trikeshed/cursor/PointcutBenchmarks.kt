@@ -1,27 +1,13 @@
 package borg.trikeshed.cursor
 
 import borg.trikeshed.lib.*
+import borg.trikeshed.lib.RingSeries as LibRingSeries
 import org.openjdk.jmh.annotations.*
 import org.openjdk.jmh.infra.*
 import java.util.concurrent.TimeUnit
 
 /**
  * JMH benchmarks for the pointcut → RingSeries → debounce → MutableSeries pipeline.
- *
- * Measures:
- *  - RingSeries O(1) append at various capacities and eviction rates
- *  - MergeMutableSeries batch coalescing and threshold compaction
- *  - RecursiveMutableSeries COW overhead (baseline "don't use at firehose rates")
- *  - JournalSeries mutation journaling + rollback cost
- *  - ChunkedMutableSeries chunked tree append
- *  - Full debounce pipeline: RingSeries drain → MergeMutableSeries → JournalSeries
- *
- * Run with:
- *   ./gradlew jmh
- *
- * Warmup: 3 forks × 3 iterations × 10s (matches JMH best-practice for GC-sensitive benchmarks)
- * Measurement: 5 forks × 5 iterations × 10s
- * GC: STW gc between forks to isolate GC noise
  */
 @State(Scope.Thread)
 @BenchmarkMode(Mode.SampleTime)
@@ -73,42 +59,41 @@ open class PointcutBenchmarks {
 
     @Benchmark
     fun ringAppend_1k(bh: Blackhole) {
-        val ring = RingSeries<EventRecord>(1024)
+        val ring = LibRingSeries<EventRecord>(1024)
         repeat(100_000) { bh.consume(ring.add(randomEvent())) }
     }
 
     @Benchmark
     fun ringAppend_4k(bh: Blackhole) {
-        val ring = RingSeries<EventRecord>(4096)
+        val ring = LibRingSeries<EventRecord>(4096)
         repeat(100_000) { bh.consume(ring.add(randomEvent())) }
     }
 
     @Benchmark
     fun ringAppend_16k(bh: Blackhole) {
-        val ring = RingSeries<EventRecord>(16384)
+        val ring = LibRingSeries<EventRecord>(16384)
         repeat(100_000) { bh.consume(ring.add(randomEvent())) }
     }
 
     @Benchmark
     fun ringAppend_64k(bh: Blackhole) {
-        val ring = RingSeries<EventRecord>(65536)
+        val ring = LibRingSeries<EventRecord>(65536)
         repeat(100_000) { bh.consume(ring.add(randomEvent())) }
     }
 
     @Benchmark
     fun ringAppend_withEviction(bh: Blackhole) {
         var evicted = 0
-        val ring = RingSeries<EventRecord>(256) { evicted++ }
+        val ring = LibRingSeries<EventRecord>(256) { evicted++ }
         repeat(100_000) { ring.add(randomEvent()) }
         bh.consume(evicted)
     }
 
     @Benchmark
     fun ringAppend_1k_readEveryGet(bh: Blackhole) {
-        val ring = RingSeries<EventRecord>(1024)
+        val ring = LibRingSeries<EventRecord>(1024)
         repeat(100_000) {
             ring.add(randomEvent())
-            // Periodically read to force the lambda invoke and bounds check
             if (it % 100 == 0) bh.consume(ring[it % 1024])
         }
     }
@@ -118,7 +103,6 @@ open class PointcutBenchmarks {
     @Benchmark
     fun mergeMutable_appendBelowThreshold(bh: Blackhole) {
         val merge = MergeMutableSeries<EventRecord>(mergeThreshold = 64) { a, b -> a.opcode.compareTo(b.opcode) }
-        // Add 63 items — stays below threshold, no compaction triggered
         repeat(63) { merge.add(randomEvent()) }
         bh.consume(merge.a)
     }
@@ -126,7 +110,6 @@ open class PointcutBenchmarks {
     @Benchmark
     fun mergeMutable_appendThroughThreshold(bh: Blackhole) {
         val merge = MergeMutableSeries<EventRecord>(mergeThreshold = 64) { a, b -> a.opcode.compareTo(b.opcode) }
-        // Add 128 items — 2 compactions at thresholds 64 and 128
         repeat(128) { merge.add(randomEvent()) }
         bh.consume(merge.a)
     }
@@ -166,7 +149,6 @@ open class PointcutBenchmarks {
     fun recursiveCOW_setThrough10k(bh: Blackhole) {
         val s = RecursiveMutableSeries.create<EventRecord>()
         repeat(5000) { s.add(randomEvent()) }
-        // Set every element, causing COW clone each time
         repeat(5000) { s.set(it % 5000, randomEvent()) }
         bh.consume(s.a)
     }
@@ -215,38 +197,26 @@ open class PointcutBenchmarks {
 
     // ── Full debounce pipeline benchmarks ──────────────────────────────────────
 
-    /**
-     * Simulates the pointcut→RingSeries→drain→MergeMutableSeries pipeline.
-     * RingSeries absorbs firehose (100k events/sec simulated), then drains
-     * in batches to MergeMutableSeries which compacts at threshold=64.
-     */
     @Benchmark
     fun pipeline_debounce_firehose(bh: Blackhole) {
-        val ring = RingSeries<EventRecord>(65536)
+        val ring = LibRingSeries<EventRecord>(65536)
         val merge = MergeMutableSeries<EventRecord>(mergeThreshold = 64) { a, b -> a.opcode.compareTo(b.opcode) }
 
         repeat(100_000) { i ->
             ring.add(randomEvent())
-            // Simulate drain every 64 events (flush interval)
             if (i > 0 && i % 64 == 0) {
-                // Transfer batch from ring to merge
                 repeat(ring.a) { merge.add(ring[it]) }
                 ring.clear()
             }
         }
-        // Final drain
         repeat(ring.a) { merge.add(ring[it]) }
         merge.flush()
         bh.consume(merge.a)
     }
 
-    /**
-     * Full 3-stage pipeline: RingSeries → MergeMutableSeries → JournalSeries.
-     * Simulates the full ReduxMutableSeries chain.
-     */
     @Benchmark
     fun pipeline_full_3stage(bh: Blackhole) {
-        val ring = RingSeries<EventRecord>(65536)
+        val ring = LibRingSeries<EventRecord>(65536)
         val merge = MergeMutableSeries<EventRecord>(mergeThreshold = 64) { a, b -> a.opcode.compareTo(b.opcode) }
         val journal = JournalSeries<EventRecord>()
 
@@ -258,18 +228,14 @@ open class PointcutBenchmarks {
                 merge.flush()
             }
         }
-        // Journal the merge result
         repeat(merge.a) { journal.add(merge[it]) }
         journal.commit()
         bh.consume(journal.a)
     }
 
-    /**
-     * Full pipeline with rollback — measures cost of journaling the full batch.
-     */
     @Benchmark
     fun pipeline_full_withRollback(bh: Blackhole) {
-        val ring = RingSeries<EventRecord>(65536)
+        val ring = LibRingSeries<EventRecord>(65536)
         val merge = MergeMutableSeries<EventRecord>(mergeThreshold = 64) { a, b -> a.opcode.compareTo(b.opcode) }
         val journal = JournalSeries<EventRecord>()
 
@@ -281,7 +247,6 @@ open class PointcutBenchmarks {
                 merge.flush()
             }
         }
-        // Journal but then rollback — measures journal overhead independent of storage
         repeat(merge.a) { journal.add(merge[it]) }
         journal.rollback()
         bh.consume(journal.a)
@@ -289,36 +254,21 @@ open class PointcutBenchmarks {
 
     // ── Redux 5-layer burrito delegate chain ────────────────────────────────────
 
-    /**
-     * Redux 5-layer burrito — full delegation chain:
-     * Layer 1: RingSeries (firehose absorption, O(1) append)
-     * Layer 2: ChunkedMutableSeries (chunked tree, amortized O(1) append)
-     * Layer 3: MergeMutableSeries (batch coalescing at threshold)
-     * Layer 4: JournalSeries (mutation journal, rollback/commit)
-     * Layer 5: RecursiveMutableSeries (versioned COW for kernel snapshots)
-     *
-     * This is the "right" architecture for the pointcut pipeline.
-     * Each layer delegates to the next, adding one concern.
-     */
     @Benchmark
     fun burrito_5layer_firehose(bh: Blackhole) {
-        // Build the burrito from outside in (layer 5 outermost)
         val layer5_rms = RecursiveMutableSeries.create<EventRecord>()
         val layer4_journal = JournalSeries<PointcutBenchmarks.EventRecord>()
         val layer3_merge = MergeMutableSeries<EventRecord>(mergeThreshold = 64) { a, b -> a.opcode.compareTo(b.opcode) }
         val layer2_chunked = ChunkedMutableSeries<EventRecord>(chunkSize = 4096)
-        val layer1_ring = RingSeries<EventRecord>(65536)
+        val layer1_ring = LibRingSeries<EventRecord>(65536)
 
-        // Simulate 50k firehose events
         repeat(50_000) { i ->
             layer1_ring.add(randomEvent())
 
-            // Drain ring to chunked every 256 events
             if (i > 0 && i % 256 == 0) {
                 repeat(layer1_ring.a) { layer2_chunked.add(layer1_ring[it]) }
                 layer1_ring.clear()
 
-                // When chunked reaches threshold, merge into merge
                 if (i % 4096 == 0) {
                     repeat(layer2_chunked.a) { layer3_merge.add(layer2_chunked[it]) }
                     layer2_chunked.clear()
@@ -327,30 +277,25 @@ open class PointcutBenchmarks {
             }
         }
 
-        // Final flush through all layers
         if (layer2_chunked.a > 0) {
             repeat(layer2_chunked.a) { layer3_merge.add(layer2_chunked[it]) }
             layer2_chunked.clear()
             layer3_merge.flush()
         }
 
-        // Journal the merged result into layer 4
         repeat(layer3_merge.a) { layer4_journal.add(layer3_merge[it]) }
         layer4_journal.commit()
 
         bh.consume(layer4_journal.a)
     }
 
-    /**
-     * 5-layer burrito with rollback — measures journal overhead at full scale.
-     */
     @Benchmark
     fun burrito_5layer_withRollback(bh: Blackhole) {
         val layer5_rms = RecursiveMutableSeries.create<EventRecord>()
         val layer4_journal = JournalSeries<PointcutBenchmarks.EventRecord>()
         val layer3_merge = MergeMutableSeries<EventRecord>(mergeThreshold = 64) { a, b -> a.opcode.compareTo(b.opcode) }
         val layer2_chunked = ChunkedMutableSeries<EventRecord>(chunkSize = 4096)
-        val layer1_ring = RingSeries<EventRecord>(65536)
+        val layer1_ring = LibRingSeries<EventRecord>(65536)
 
         repeat(50_000) { i ->
             layer1_ring.add(randomEvent())
@@ -378,11 +323,9 @@ open class PointcutBenchmarks {
 
     @Benchmark
     fun comparison_ring_vs_recursive_cow(bh: Blackhole) {
-        // Ring: O(1) append, no allocation except on eviction
-        val ring = RingSeries<EventRecord>(65536)
+        val ring = LibRingSeries<EventRecord>(65536)
         repeat(100_000) { ring.add(randomEvent()) }
 
-        // RecursiveMutableSeries (COW): O(n) clone on every add
         val cow = RecursiveMutableSeries.create<EventRecord>()
         repeat(100_000) { cow.add(randomEvent()) }
 

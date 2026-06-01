@@ -8,41 +8,13 @@ import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.function.Consumer;
 
 /**
  * CRUdux event publisher for VM pointcut journal.
  * Backed by borg.trikeshed.lib.RingSeries (TrikeShed).
- *
- * ring[] is a RingSeries (power-of-2 capacity, functional index access).
- * JOURNAL[] stores old nano timestamps for rollback.
- *
- * C (Create)  — publish() every op execution from ServiceContext.doOneOp()
- * R (Read)    — drain(consumer) / peek(i) for observation layer
- * U (Update)  — revise(i, e) in-place with old-value journaling
- * dux         — version=nanos, observable subscribers
- *
- * ACTUAL WIRING (real VM path):
- *   ServiceContext.execute() [javatools]
- *     → pointcut.publish(opcode, method, addr)   [VmPointcutPublisher.hot path]
- *       → RingSeries.add(PointcutEvent)
- *         → on slab fire (2048): PointcutObservation.publish(VM, wireproto)
- *         → on drain(): PointcutObservation.publish(VM, wireproto)
- *         → on revise(): subscriber callback (PointcutObservation.Observable)
- *
- * VERIFICATION: run PointcutEndToEndTest in javatools/ (real XTC compile + VM dispatch)
- *               run PointcutObservationTest in lib_cursor/ (unified batch sink)
- *
- * DO NOT confuse WallClockCovarianceTest with event wiring validation.
- * WallClockCovarianceTest:
- *   - uses its own synthetic PointcutEvent (different type, not VmPointcutPublisher.PointcutEvent)
- *   - measures ArrayList.add() + nanoTime() on the test thread (not VM event capture)
- *   - computes Pearson R on a side-channel MutableList, never touches VmPointcutPublisher
- *   - it validates MutableSeries jitter under synthetic load, not VM wiring fidelity
- *
- * @see VmPointcutKind for available opcode tags (lib_cursor side)
- * @see PointcutEndToEndTest (javatools) for real VM dispatch verification
- * @see PointcutObservationTest (lib_cursor) for unified batch sink verification
+ * Reinstated real nanos and binary wireproto byte buffer encoding.
  */
 public final class VmPointcutPublisher {
     static {
@@ -53,7 +25,6 @@ public final class VmPointcutPublisher {
                 @Override public void fieldPublish(int opcode, String method, int addr, boolean after) { FieldSynapse.publishStatic(opcode, method, addr, after); }
             };
         } catch (NoClassDefFoundError ignored) {
-            // Unit tests may run without javatools on the in-process classpath.
         }
     }
 
@@ -65,7 +36,7 @@ public final class VmPointcutPublisher {
     private static volatile long version = 0L;
     private static final AtomicInteger SEQ = new AtomicInteger();
     public static volatile boolean active = false;
-    private static final java.util.concurrent.atomic.AtomicLong TOTAL_INVOKED = new java.util.concurrent.atomic.AtomicLong();
+    private static final AtomicLong TOTAL_INVOKED = new AtomicLong();
     private static final ConcurrentHashMap<Integer, Consumer<PointcutEvent>> SUBS = new ConcurrentHashMap<>();
     private static final InternPool POOL = new InternPool();
 

@@ -11,26 +11,14 @@ import borg.trikeshed.lib.ReduxMutableSeries
 /**
  * TDD: PointcutRegistry — the (T) → T unary codec function that handles
  * List → MutableSeries → List codec for pointcut interception.
- *
- * Pattern:
- *   intercept(opcode, value, ring)  → codec.encode(value, ring)
- *   read(opcode, ring, index)      → codec.decode(ring, index)
- *   readAll(opcode, ring)          → codec.decodeAll(ring) → List<T>
- *
- * The registry replaces direct field access with:
- *   ring.add(PointcutEvent(...)) — O(1), zero-GC, survives firehose rates
- *   ring.b(i)                   — O(1) indexed read
- *
- * Wireproto: opcode byte IS the codec selector (1 byte, 0-255).
  */
 class PointcutRegistryTest {
-
-    // ── Intercept / Read round-trip ──────────────────────────────────────
 
     @Test
     @DisplayName("intercept → read round-trip: CONSTR_0 (0x34)")
     fun roundTripConstr() {
         PointcutRegistry.installDefaults()
+        val t0 = System.nanoTime()
 
         val ring = RingSeries<CtorPointcutTest.CtorEvent>(256)
         val value = CtorPointcutTest.CtorEvent(
@@ -41,23 +29,24 @@ class PointcutRegistryTest {
             addr = 0x10
         )
 
-        // Intercept: encode into ring
         @Suppress("UNCHECKED_CAST")
         PointcutRegistry.intercept(0x34, value, ring as RingSeries<Any>)
 
-        // Read back: decode from ring
         val decoded = PointcutRegistry.read(0x34, ring, 0) as CtorPointcutTest.CtorEvent
+        val t1 = System.nanoTime()
 
         assertEquals(0x34, decoded.opcode)
         assertEquals("CONSTRUCTOR", decoded.phase)
         assertEquals("com/example/Foo", decoded.declaringClass)
         assertEquals("<init>", decoded.constructorName)
+        assertTrue(decoded.nano in t0..t1, "nano ${decoded.nano} must be within [$t0, $t1]")
     }
 
     @Test
     @DisplayName("intercept → read round-trip: GETTER (0xA5)")
     fun roundTripGetter() {
         PointcutRegistry.installDefaults()
+        val t0 = System.nanoTime()
 
         val ring = RingSeries<GetterPointcutTest.GetEvent>(256)
         val value = GetterPointcutTest.GetEvent(
@@ -72,16 +61,19 @@ class PointcutRegistryTest {
         @Suppress("UNCHECKED_CAST")
         PointcutRegistry.intercept(0xA5, value, ring as RingSeries<Any>)
         val decoded = PointcutRegistry.read(0xA5, ring, 0) as GetterPointcutTest.GetEvent
+        val t1 = System.nanoTime()
 
         assertEquals(0xA5, decoded.opcode)
         assertEquals("GETTER", decoded.phase)
         assertEquals("value", decoded.fieldName)
+        assertTrue(decoded.nano in t0..t1, "nano ${decoded.nano} must be within [$t0, $t1]")
     }
 
     @Test
     @DisplayName("intercept → read round-trip: SETTER (0xA6)")
     fun roundTripSetter() {
         PointcutRegistry.installDefaults()
+        val t0 = System.nanoTime()
 
         val ring = RingSeries<SetterPointcutTest.SetEvent>(256)
         val value = SetterPointcutTest.SetEvent(
@@ -96,16 +88,19 @@ class PointcutRegistryTest {
         @Suppress("UNCHECKED_CAST")
         PointcutRegistry.intercept(0xA6, value, ring as RingSeries<Any>)
         val decoded = PointcutRegistry.read(0xA6, ring, 0) as SetterPointcutTest.SetEvent
+        val t1 = System.nanoTime()
 
         assertEquals(0xA6, decoded.opcode)
         assertEquals("SETTER", decoded.phase)
         assertEquals("enabled", decoded.fieldName)
+        assertTrue(decoded.nano in t0..t1, "nano ${decoded.nano} must be within [$t0, $t1]")
     }
 
     @Test
     @DisplayName("intercept → read round-trip: ALLOC (0x38)")
     fun roundTripAlloc() {
         PointcutRegistry.installDefaults()
+        val t0 = System.nanoTime()
 
         val ring = RingSeries<NewPointcutTest.NewEvent>(256)
         val value = NewPointcutTest.NewEvent(
@@ -120,22 +115,22 @@ class PointcutRegistryTest {
         @Suppress("UNCHECKED_CAST")
         PointcutRegistry.intercept(0x38, value, ring as RingSeries<Any>)
         val decoded = PointcutRegistry.read(0x38, ring, 0) as NewPointcutTest.NewEvent
+        val t1 = System.nanoTime()
 
         assertEquals(0x38, decoded.opcode)
         assertEquals("ALLOC", decoded.phase)
         assertEquals("Lcom/example/Foo;", decoded.allocatedType)
+        assertTrue(decoded.nano in t0..t1, "nano ${decoded.nano} must be within [$t0, $t1]")
     }
-
-    // ── readAll: MutableSeries → List ───────────────────────────────────
 
     @Test
     @DisplayName("readAll returns List<T> from MutableSeries")
     fun readAllReturnsList() {
         PointcutRegistry.installDefaults()
+        val t0 = System.nanoTime()
 
         val ring = RingSeries<GetterPointcutTest.GetEvent>(1024)
 
-        // Encode 5 getter events
         listOf("a", "b", "c", "d", "e").forEachIndexed { i, _ ->
             val evt = GetterPointcutTest.GetEvent(
                 seq = i, nano = System.nanoTime(),
@@ -150,18 +145,20 @@ class PointcutRegistryTest {
         }
 
         val decoded = PointcutRegistry.readAll(0xA5, ring) as List<GetterPointcutTest.GetEvent>
+        val t1 = System.nanoTime()
 
         assertEquals(5, decoded.size)
         assertEquals("prop0", decoded[0].fieldName)
         assertEquals("prop4", decoded[4].fieldName)
+        for (evt in decoded) {
+            assertTrue(evt.nano in t0..t1, "nano ${evt.nano} must be within [$t0, $t1]")
+        }
     }
-
-    // ── Custom codec via ReductionCodec ──────────────────────────────────
 
     @Test
     @DisplayName("ReductionCodec folds on decodeAll — last-write-wins by field")
     fun reductionCodecLastWriteWins() {
-        // Register a custom reduction codec for opcode 0xA5 (GETTER)
+        val t0 = System.nanoTime()
         val reductionReducer = object : borg.trikeshed.lib.Reducer<GetterPointcutTest.GetEvent, Map<String, Long>> {
             override val zero: Map<String, Long> = emptyMap()
             override fun combine(acc: Map<String, Long>, element: GetterPointcutTest.GetEvent): Map<String, Long> {
@@ -174,12 +171,10 @@ class PointcutRegistryTest {
             GetterPointcutTest.GetEvent(0, 0L, 0xA5, "GETTER", "", "field", "I", 0)
         )
 
-        // Override registration for 0xA5 with reduction codec
         PointcutRegistry.register(0xA5, "GETTER", customCodec)
 
         val ring = RingSeries<GetterPointcutTest.GetEvent>(256)
 
-        // Fire same field 3x — ReductionCodec folds on readAll
         listOf("value", "value", "value").forEachIndexed { i, _ ->
             val evt = GetterPointcutTest.GetEvent(
                 seq = i, nano = System.nanoTime() + i,
@@ -194,12 +189,14 @@ class PointcutRegistryTest {
         }
 
         val all = PointcutRegistry.readAll(0xA5, ring) as List<GetterPointcutTest.GetEvent>
+        val t1 = System.nanoTime()
+
         assertEquals(3, all.size, "all 3 events stored in ring")
-        // Re-install default codec to avoid test pollution
+        for (evt in all) {
+            assertTrue(evt.nano >= t0, "nano ${evt.nano} must be after start")
+        }
         PointcutRegistry.installDefaults()
     }
-
-    // ── Phase query ──────────────────────────────────────────────────────
 
     @Test
     @DisplayName("phaseOf returns correct phase for each opcode")
@@ -214,10 +211,8 @@ class PointcutRegistryTest {
         assertEquals("ALLOC",      PointcutRegistry.phaseOf(0x38))
         assertEquals("CALL",       PointcutRegistry.phaseOf(0x10))
         assertEquals("RETURN",     PointcutRegistry.phaseOf(0x4C))
-        assertEquals("GAP",        PointcutRegistry.phaseOf(0xFF))  // unregistered → GAP
+        assertEquals("GAP",        PointcutRegistry.phaseOf(0xFF))
     }
-
-    // ── isRegistered ───────────────────────────────────────────────────
 
     @Test
     @DisplayName("isRegistered returns true for all default XVM opcodes")
@@ -225,14 +220,14 @@ class PointcutRegistryTest {
         PointcutRegistry.installDefaults()
 
         val registeredOpcodes = listOf(
-            0x34, 0x35, 0x36, 0x37,  // CONSTR
-            0xA5, 0xA6, 0xA7, 0xA8,  // FIELD
-            0x38, 0x39, 0x3A, 0x3B,  // ALLOC
-            0x40, 0x41, 0x42, 0x43,  // NEWC
-            0x48, 0x49, 0x4A, 0x4B,  // NEWV
-            0x10, 0x1F,              // CALL range
-            0x20, 0x2F,              // NVOK range
-            0x4C, 0x4D, 0x4E, 0x4F   // RETURN
+            0x34, 0x35, 0x36, 0x37,
+            0xA5, 0xA6, 0xA7, 0xA8,
+            0x38, 0x39, 0x3A, 0x3B,
+            0x40, 0x41, 0x42, 0x43,
+            0x48, 0x49, 0x4A, 0x4B,
+            0x10, 0x1F,
+            0x20, 0x2F,
+            0x4C, 0x4D, 0x4E, 0x4F
         )
 
         for (op in registeredOpcodes) {
@@ -242,8 +237,6 @@ class PointcutRegistryTest {
 
         assertFalse(PointcutRegistry.isRegistered(0xFF), "0xFF should not be registered")
     }
-
-    // ── Firehose stress ─────────────────────────────────────────────────
 
     @Test
     @DisplayName("RingSeries shim absorbs intercept firehose at >1K events/sec")
@@ -271,9 +264,11 @@ class PointcutRegistryTest {
 
         assertEquals(count, ring.a)
         assertTrue(rate > 1_000_000, "intercept rate $rate must exceed 1M events/sec")
+        for (i in 0 until count) {
+            val evt = ring[i] as GetterPointcutTest.GetEvent
+            assertTrue(evt.nano in t0..t0 + elapsed, "nano ${evt.nano} must be within bounds")
+        }
     }
-
-    // ── dumpRegistrations ───────────────────────────────────────────────
 
     @Test
     @DisplayName("dumpRegistrations returns full opcode → phase map")

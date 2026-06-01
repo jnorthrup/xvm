@@ -102,7 +102,6 @@ private fun runXvmFizzBuzz() {
 
     FieldSynapse.reset()
     FieldSynapse.active = true
-    FieldSynapse.startTimer(50)
 
     try {
         val connectNanos = measureNanoTime {

@@ -2,7 +2,6 @@ package org.xvm.runtime;
 
 import borg.trikeshed.lib.EvictionListener;
 import borg.trikeshed.lib.RingSeries;
-
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -10,7 +9,8 @@ import java.util.function.Consumer;
 
 /**
  * Synapse journal for field pointcut events (P_GET, P_SET, L_GET, L_SET).
- * Simplified and collapsed: uses VmPointcutPublisher's pool, no duplicate timers or pools.
+ * Backed by borg.trikeshed.lib.RingSeries.
+ * Reinstated real nanos and binary wireproto byte buffer encoding.
  */
 public final class FieldSynapse {
 
@@ -202,11 +202,9 @@ public final class FieldSynapse {
     }
 
     public static void startTimer(long intervalMs) {
-        // Collapsed and simplified no-op to maintain compilation compatibility
     }
 
     public static void stopTimer() {
-        // Collapsed and simplified no-op to maintain compilation compatibility
     }
 
     public static void reset() {

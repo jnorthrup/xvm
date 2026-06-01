@@ -11,19 +11,6 @@ import borg.trikeshed.lib.ReduxMutableSeries
 
 /**
  * TDD: NEW (allocation) interception pointcut capture.
- *
- * Maps JVM bytecode to XVM allocation opcodes:
- *   new          → 0x38  (NEW_0)    — new object
- *   anewarray    → 0x3A  (NEW_N)    — new reference array
- *   multianewarray → 0x3B (NEW_T)   — new multidimensional array
- *
- * Additional allocation opcodes:
- *   NEW_1 (0x39), NEWC_0-3 (0x40-0x43), NEWV_0-3 (0x48-0x4B)
- *
- * Pipeline: RingSeries(65536, zero-GC) → ChunkedMutableSeries → ReduxMutableSeries
- *
- * After: all allocation sites (new, anewarray, multianewarray) route through
- *   ring.add(NewEvent(...)) and the eigensolver ranks by allocation frequency.
  */
 class NewPointcutTest {
 
@@ -45,11 +32,11 @@ class NewPointcutTest {
     data class NewEvent(
         val seq: Int,
         val nano: Long,
-        val opcode: Int,       // wireproto byte
-        val phase: String,    // "ALLOC"
+        val opcode: Int,
+        val phase: String,
         val allocKind: AllocKind,
-        val allocatedType: String,  // JVM descriptor, e.g. "Lcom/example/Foo;"
-        val dimensions: Int,   // array dimensions (0 for scalar new)
+        val allocatedType: String,
+        val dimensions: Int,
         val addr: Int
     )
 
@@ -90,52 +77,66 @@ class NewPointcutTest {
         return evt
     }
 
-    // ── Opcode mapping tests ─────────────────────────────────────────────────
-
     @Test
     @DisplayName("new → opcode 0x38 (NEW_0)")
     fun newOpcode() {
+        val t0 = System.nanoTime()
         val ring = RingSeries<NewEvent>(256)
         val evt = captureNewPointcut(ring, 0, AllocKind.NEW, "Lcom/example/Foo;", 0, 0x10)
+        val t1 = System.nanoTime()
+
         assertEquals(0x38, evt.opcode)
         assertEquals("ALLOC", evt.phase)
         assertEquals(AllocKind.NEW, evt.allocKind)
+        assertTrue(evt.nano in t0..t1, "nano ${evt.nano} must be within [$t0, $t1]")
     }
 
     @Test
     @DisplayName("anewarray → opcode 0x3A (NEW_N)")
     fun anewarrayOpcode() {
+        val t0 = System.nanoTime()
         val ring = RingSeries<NewEvent>(256)
         val evt = captureNewPointcut(ring, 1, AllocKind.NEW_N, "[I", 1, 0x20)
+        val t1 = System.nanoTime()
+
         assertEquals(0x3A, evt.opcode)
         assertEquals("ALLOC", evt.phase)
         assertEquals(1, evt.dimensions)
+        assertTrue(evt.nano in t0..t1)
     }
 
     @Test
     @DisplayName("multianewarray → opcode 0x3B (NEW_T)")
     fun multianewarrayOpcode() {
+        val t0 = System.nanoTime()
         val ring = RingSeries<NewEvent>(256)
         val evt = captureNewPointcut(ring, 2, AllocKind.NEW_T, "[[Ljava/lang/String;", 2, 0x30)
+        val t1 = System.nanoTime()
+
         assertEquals(0x3B, evt.opcode)
         assertEquals(2, evt.dimensions)
+        assertTrue(evt.nano in t0..t1)
     }
 
     @Test
     @DisplayName("NEWC_0 (0x40) and NEWV_0 (0x48) separate namespaces")
     fun newcNewvSeparate() {
+        val t0 = System.nanoTime()
         val ring = RingSeries<NewEvent>(256)
         val evtC = captureNewPointcut(ring, 0, AllocKind.NEWC_0, "[I", 1, 0x40)
         val evtV = captureNewPointcut(ring, 1, AllocKind.NEWV_0, "[J", 1, 0x48)
+        val t1 = System.nanoTime()
+
         assertEquals(0x40, evtC.opcode)
         assertEquals(0x48, evtV.opcode)
+        assertTrue(evtC.nano in t0..t1)
+        assertTrue(evtV.nano in t0..t1)
     }
-
-    // ── Firehose tests ───────────────────────────────────────────────────────
 
     @Test
     @DisplayName("RingSeries absorbs allocation firehose at >1K events/sec")
     fun ringAbsorbsAllocFirehose() {
+        val t0 = System.nanoTime()
         val ring = RingSeries<NewEvent>(65536)
         val count = 5000
 
@@ -148,16 +149,20 @@ class NewPointcutTest {
                 captureNewPointcut(ring, i, kind, types[i % types.size], dims, i)
             }
         }
-
+        val t1 = System.nanoTime()
         val rate = count * 1_000_000_000.0 / elapsed.inWholeNanoseconds
 
         assertEquals(count, ring.a)
         assertTrue(rate > 1_000_000, "allocation rate $rate must exceed 1M events/sec")
+        for (i in 0 until count) {
+            assertTrue(ring[i].nano in t0..t1)
+        }
     }
 
     @Test
     @DisplayName("ChunkedMutableSeries compacts allocation events at threshold")
     fun chunkedCompactsAtThreshold() {
+        val t0 = System.nanoTime()
         val chunked = ChunkedMutableSeries<NewEvent>(chunkSize = 32)
         val ring = RingSeries<NewEvent>(64)
 
@@ -166,16 +171,18 @@ class NewPointcutTest {
             val evt = captureNewPointcut(ring, i, kinds[i % kinds.size], "Lcom/example/Obj;", 0, i)
             chunked.add(evt)
         }
+        val t1 = System.nanoTime()
 
-        // At chunkSize=32, 100 events → at least 3 chunks
         assertTrue(chunked.a >= 100, "chunked must retain all 100 events")
+        for (i in 0 until chunked.a) {
+            assertTrue(chunked[i].nano in t0..t1)
+        }
     }
-
-    // ── Redux fold tests ─────────────────────────────────────────────────────
 
     @Test
     @DisplayName("ReduxMutableSeries folds allocations by type — top consumer")
     fun reduxFoldsByAllocatedType() {
+        val t0 = System.nanoTime()
         val chunked = ChunkedMutableSeries<NewEvent>(chunkSize = 64)
         val ring = RingSeries<NewEvent>(32)
 
@@ -192,7 +199,6 @@ class NewPointcutTest {
             capture = NewEvent(0, 0L, 0x38, "ALLOC", AllocKind.NEW, "Ljava/lang/Object;", 0, 0)
         )
 
-        // Simulate allocation pattern: Foo=3x, Bar=2x, Baz=5x
         listOf(
             "Lcom/example/Foo;" to 3,
             "Lcom/example/Bar;" to 2,
@@ -204,16 +210,18 @@ class NewPointcutTest {
                 chunked.add(evt)
             }
         }
+        val t1 = System.nanoTime()
 
         assertEquals(10, redux.a)
-
-        // Fold result: should see Baz=5, Foo=3, Bar=2
-        // (eigensolver would rank Baz highest by allocation count)
+        for (i in 0 until chunked.a) {
+            assertTrue(chunked[i].nano in t0..t1)
+        }
     }
 
     @Test
     @DisplayName("Allocation opcode spectrum — all 12 variants fire correctly")
     fun allAllocOpcodesFire() {
+        val t0 = System.nanoTime()
         val ring = RingSeries<NewEvent>(1024)
         var seq = 0
 
@@ -221,23 +229,31 @@ class NewPointcutTest {
             val evt = captureNewPointcut(ring, seq++, kind, "Ljava/lang/Object;", 0, seq)
             assertEquals(ALLOC_OPCODE[kind], evt.opcode, "${kind.name} opcode must match")
         }
+        val t1 = System.nanoTime()
 
         assertEquals(AllocKind.entries.size, ring.a)
+        for (i in 0 until ring.a) {
+            assertTrue(ring[i].nano in t0..t1)
+        }
     }
 
     @Test
     @DisplayName("NEW pointcut chains to CONSTR pointcut — allocation precedes init")
     fun newChainsToConstr() {
+        val t0 = System.nanoTime()
         val chunked = ChunkedMutableSeries<NewEvent>(chunkSize = 64)
         val ring = RingSeries<NewEvent>(32)
 
-        // Simulate: new Foo → invokespecial <init>
         repeat(5) { i ->
             val newEvt = captureNewPointcut(ring, i * 2, AllocKind.NEW, "Lcom/example/Foo;", 0, i * 2)
             chunked.add(newEvt)
-            // CONSTR follows at next addr — verify addresses are distinct and ordered
             val constrAddr = i * 2 + 1
             assertTrue(newEvt.addr < constrAddr, "new addr must precede <init> addr")
+        }
+        val t1 = System.nanoTime()
+
+        for (i in 0 until chunked.a) {
+            assertTrue(chunked[i].nano in t0..t1)
         }
     }
 }
