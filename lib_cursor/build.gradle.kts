@@ -13,13 +13,14 @@ repositories {
     mavenCentral()
 }
 
-// TrikeShed from mavenLocal — used for benchmarks
-val trikeShedJar = layout.projectDirectory.file("../../TrikeShed/build/libs/TrikeShed-jvm-1.0.jar")
 // javatools on classpath so KSP resolver can see org.xvm.asm.* types
 val javatoolsJar = layout.projectDirectory.file("../javatools/build/libs/javatools-0.4.4-SNAPSHOT.jar")
+
 dependencies {
-    implementation(files(trikeShedJar))
+    // TrikeShed via composite build substitution (see root settings.gradle.kts includeBuild)
+    implementation("org.bereft:TrikeShed:1.0")
     implementation(kotlin("stdlib"))
+    implementation(kotlin("reflect"))
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.11.0")
 
     // Series codec annotations (compile-only; processor removed with lib_cursor_ksp)
@@ -55,7 +56,7 @@ tasks.test {
 val runMacro by tasks.registering(JavaExec::class) {
     val mainSourceSet = project.extensions.getByType<SourceSetContainer>().getByName("main")
     classpath = mainSourceSet.runtimeClasspath
-    mainClass.set("borg.trikeshed.cursor.ToSeriesMacroKt")
+    mainClass.set("org.xvm.cursor.ToSeriesMacroKt")
     if (project.hasProperty("macroArgs")) {
         args = (project.property("macroArgs") as String).split(" ")
     }
@@ -65,7 +66,7 @@ val runPointcutCmdline by tasks.registering(JavaExec::class) {
     val mainSourceSet = project.extensions.getByType<SourceSetContainer>().getByName("main")
     dependsOn(unpackPointcutVmJavatools, tasks.named("classes"))
     classpath = files(pointcutVmJavatoolsDir) + mainSourceSet.runtimeClasspath
-    mainClass.set("borg.trikeshed.cursor.PointcutCmdlineKt")
+    mainClass.set("org.xvm.cursor.PointcutCmdlineKt")
     if (project.hasProperty("pointcutMode")) {
         args = (project.property("pointcutMode") as String).split(" ")
     } else {
@@ -74,7 +75,7 @@ val runPointcutCmdline by tasks.registering(JavaExec::class) {
 }
 
 application {
-    mainClass.set("borg.trikeshed.cursor.BlackboardTimeseriesKt")
+    mainClass.set("org.xvm.cursor.BlackboardTimeseriesKt")
 }
 
 // ── JMH opt-out via -Pjmh=false ─────────────────────────────────────────────

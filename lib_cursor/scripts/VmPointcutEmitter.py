@@ -302,7 +302,7 @@ Examples:
   # Full pipeline with PointcutServer
   tail -f /tmp/ghidra_pointcut_out/pointcuts.ndjson | \\
   python3 VmPointcutEmitter.py --stream | \\
-  java -cp lib_cursor.jar borg.trikeshed.cursor.PointcutServerKt
+  java -cp lib_cursor.jar org.xvm.cursor.PointcutServerKt
         """
     )
     parser.add_argument("--input", "-i", default="/tmp/ghidra_pointcut_out/pointcuts.ndjson",
