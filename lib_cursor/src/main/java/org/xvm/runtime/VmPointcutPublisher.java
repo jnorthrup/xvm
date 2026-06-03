@@ -38,6 +38,7 @@ public final class VmPointcutPublisher {
     private static final AtomicInteger SEQ = new AtomicInteger();
     public static volatile boolean active = false;
     private static final AtomicLong TOTAL_INVOKED = new AtomicLong();
+    private static final AtomicInteger SUB_SEQ = new AtomicInteger();
     private static final ConcurrentHashMap<Integer, Consumer<PointcutEvent>> SUBS = new ConcurrentHashMap<>();
     private static final InternPool POOL = new InternPool();
 
@@ -223,7 +224,7 @@ public final class VmPointcutPublisher {
     }
 
     public static int subscribe(Consumer<PointcutEvent> fn) {
-        var id = SEQ.getAndIncrement();
+        var id = SUB_SEQ.getAndIncrement();
         SUBS.put(id, fn);
         return id;
     }
@@ -239,6 +240,7 @@ public final class VmPointcutPublisher {
             RING.clear();
         }
         SEQ.set(0);
+        SUB_SEQ.set(0);
         POOL.reset();
         for (var i = 0; i < CAP; i++) {
             JOURNAL[i] = 0L;
