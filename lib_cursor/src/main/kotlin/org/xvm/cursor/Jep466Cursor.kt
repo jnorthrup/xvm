@@ -1,27 +1,47 @@
 package org.xvm.cursor
 
-import borg.trikeshed.cursor.*
-import borg.trikeshed.lib.*
+import borg.trikeshed.cursor.IOMemento
+import borg.trikeshed.parse.confix.SaxEvent
+import java.lang.classfile.ClassFile
+import java.lang.classfile.ClassModel
+import java.lang.classfile.FieldModel
+import java.lang.classfile.MethodModel
 
 /**
- * Maps the standard JEP 466 (ClassFile API) onto the Cursor Matryoshka aliases.
- *
- * NOTE: JEP 466 `elements()` / `ClassfileElement` API is NOT available in
- * JDK 25 — the actual release uses ClassFileBuilder/ClassReader directly.
- * This file is a stub pending the real implementation.
- * Build passes when this file is present; JEP 466 ClassFile API integration
- * requires a separate implementation pass.
+ * Maps the standard JEP 466 (ClassFile API) onto Confix SAX/JAX without
+ * Matryoshka aliases or custom DomainCursor wrappers.
  */
 object Jep466Cursor {
 
     /**
-     * Parses a raw byte array representing a ClassFile into a JEP 466 Virtual Cursor.
-     *
-     * STUB: actual implementation requires ClassFileBuilder + ClassReader traversal.
-     * For now returns an empty cursor — real integration is a separate task.
+     * Parses a raw byte array representing a ClassFile and emits Confix SAX Events.
      */
-    fun parse(bytes: ByteArray): Cursor {
-        // TODO: implement with actual ClassFileBuilder/ClassReader
-        return 0 j { _: Int -> throw IndexOutOfBoundsException("Jep466Cursor stub") }
+    fun walkClassFile(bytes: ByteArray, action: (SaxEvent) -> Unit) {
+        val model: ClassModel = ClassFile.of().parse(bytes)
+        
+        var offset = 0
+        
+        // Enter Class (IoObject)
+        action(SaxEvent.Enter(IOMemento.IoObject, offset++))
+        
+        // Emitting fields as a nested IoArray
+        action(SaxEvent.Enter(IOMemento.IoArray, offset++))
+        model.fields().forEach { field: FieldModel ->
+            action(SaxEvent.Enter(IOMemento.IoString, offset++))
+            // (In a real JAX DOM we'd emit the string value, here we just emit offsets)
+            action(SaxEvent.Leave(IOMemento.IoString, offset++))
+        }
+        action(SaxEvent.Leave(IOMemento.IoArray, offset++))
+        
+        // Emitting methods as a nested IoArray
+        action(SaxEvent.Enter(IOMemento.IoArray, offset++))
+        model.methods().forEach { method: MethodModel ->
+            action(SaxEvent.Enter(IOMemento.IoString, offset++))
+            action(SaxEvent.Leave(IOMemento.IoString, offset++))
+        }
+        action(SaxEvent.Leave(IOMemento.IoArray, offset++))
+        
+        // Leave Class
+        action(SaxEvent.Leave(IOMemento.IoObject, offset++))
     }
 }

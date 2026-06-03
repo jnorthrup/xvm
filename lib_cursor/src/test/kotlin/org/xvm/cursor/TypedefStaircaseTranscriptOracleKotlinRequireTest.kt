@@ -26,4 +26,46 @@ class TypedefStaircaseTranscriptOracleKotlinRequireTest {
         require(oracle.snapshot().single().reason().contains("parameterized")) { "reason must explain the verified path" }
         require(oracle.verifierReport().failures() == 0) { "pointcut verifier must pass" }
     }
+
+    @Test
+    fun `targeted debugging demonstration of pointcuts side by side with typedef production table`() {
+        // Demonstrate that the runtime ClassFileTaxonomy coordinates line up with the Redux journal
+        val tax = ClassFileTaxonomy()
+        val poolId = StringPool.intern("DemonstrationPool")
+        tax.register(ClassFileTaxonomy.CoordinateRow(
+            symbolName = "pkg.Demo.run",
+            ownerType = "pkg.Demo",
+            methodOrField = "run",
+            classfileCoord = "pkg.Demo#run",
+            cpIndex = 1,
+            descriptor = "()V",
+            xvmTypeInfo = "",
+            pointcutKind = 0x10,
+            poolId = poolId
+        ))
+        
+        // Write to the Redux WAL mimicking the VM
+        TypedefResolutionSeries.record(
+            poolId,
+            TypedefCallsite.PTC_Param.ordinal,
+            "pkg.Demo",
+            "format",
+            true
+        )
+        
+        println("=== Targeted Debugging Demonstration ===")
+        println("Taxonomy Size: \${tax.size}")
+        println("TypedefResolutionSeries Size: \${TypedefResolutionSeries.size()}")
+        println("StringPool Size: \${StringPool.size()}")
+        println("RowVec projection: \${TypedefResolutionSeries.toRowVec()}")
+        println("========================================")
+        
+        require(TypedefResolutionSeries.size() > 0) { "Redux series should have events" }
+        require(tax.lookupByPoolId(poolId) != null) { "Taxonomy must map the poolId" }
+        
+        // Clean up
+        StringPool.clear()
+        TypedefResolutionSeries.drain() // flush anything out
+        // Note: the TypedefResolutionSeries Redux state is static, but tests can clear the pool
+    }
 }

@@ -72,4 +72,14 @@ object StringPool {
      */
     @JvmStatic
     fun all(): Map<Int, String> = java.util.Collections.unmodifiableMap(byId)
+
+    /**
+     * Clear the string pool and reset the next ID back to 1.
+     */
+    @JvmStatic
+    fun clear() {
+        byString.clear()
+        byId.clear()
+        nextId.set(1)
+    }
 }

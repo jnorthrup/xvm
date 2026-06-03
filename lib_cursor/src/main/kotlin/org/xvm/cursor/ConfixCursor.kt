@@ -1,5 +1,5 @@
 package org.xvm.cursor
-import borg.trikeshed.cursor.Cursor
+import borg.trikeshed.parse.confix.Syntax
 
 /**
  * ConfixCursor — Confix facade for JSON/YAML/CBOR/CSV with lazy row/column values
@@ -10,27 +10,10 @@ import borg.trikeshed.cursor.Cursor
  *   - Facet composition = column projection + join
  *   - Rows parsed on iteration, column values parsed on first access then cached
  *   - Zero external dependencies for JSON/CSV; YAML/CBOR stubbed for TrikeShed integration
+ *
+ * Format discriminator: [Syntax] from TrikeShed covers JSON/YAML/CBOR;
+ * `null` signals CSV (not represented in [Syntax]).
  */
-
-// ── Format discriminator ─────────────────────────────────────────────────────
-
-sealed class ConfixFormat {
-    data object JSON : ConfixFormat() {
-        override fun toString(): String = "JSON"
-    }
-
-    data object YAML : ConfixFormat() {
-        override fun toString(): String = "YAML"
-    }
-
-    data object CBOR : ConfixFormat() {
-        override fun toString(): String = "CBOR"
-    }
-
-    data object CSV : ConfixFormat() {
-        override fun toString(): String = "CSV"
-    }
-}
 
 // ── Column schema ────────────────────────────────────────────────────────────
 
@@ -138,12 +121,13 @@ internal class LazyConfixRow(
  */
 class ConfixCursor private constructor(
     private val source: String,
-    private val format: ConfixFormat,
+    /** [Syntax] from TrikeShed for JSON/YAML/CBOR; `null` for CSV */
+    private val format: Syntax?,
     private val columnOverride: List<ConfixColumn>?,
     private val rowSequenceFactory: ((List<ConfixColumn>) -> Sequence<ConfixRow>)?
 ) {
 
-    constructor(source: String, format: ConfixFormat) : this(source, format, null, null)
+    constructor(source: String, format: Syntax?) : this(source, format, null, null)
 
     /** Cached schema — parsed once on first access */
     private var _columns: List<ConfixColumn>? = null
@@ -232,21 +216,21 @@ class ConfixCursor private constructor(
 
     // ── Schema detection ───────────────────────────────────────────────────
 
-    private fun detectSchema(src: String, fmt: ConfixFormat): List<ConfixColumn> = when (fmt) {
-        ConfixFormat.CSV -> CsvParser.detectSchema(src)
-        ConfixFormat.JSON -> JsonParser.detectSchema(src)
-        ConfixFormat.YAML -> TODO("YAML schema detection — will use TrikeShed parsing")
-        ConfixFormat.CBOR -> TODO("CBOR schema detection — will use TrikeShed parsing")
+    private fun detectSchema(src: String, fmt: Syntax?): List<ConfixColumn> = when (fmt) {
+        null -> CsvParser.detectSchema(src)
+        Syntax.JSON -> JsonParser.detectSchema(src)
+        Syntax.YAML -> TODO("YAML schema detection — will use TrikeShed parsing")
+        Syntax.CBOR -> TODO("CBOR schema detection — will use TrikeShed parsing")
     }
 
     // ── Row parsing dispatch ───────────────────────────────────────────────
 
-    private fun parseRows(src: String, fmt: ConfixFormat, cols: List<ConfixColumn>): Sequence<ConfixRow> =
+    private fun parseRows(src: String, fmt: Syntax?, cols: List<ConfixColumn>): Sequence<ConfixRow> =
         when (fmt) {
-            ConfixFormat.CSV -> CsvParser.parseRows(src, cols)
-            ConfixFormat.JSON -> JsonParser.parseRows(src, cols)
-            ConfixFormat.YAML -> TODO("YAML row parsing — will use TrikeShed parsing")
-            ConfixFormat.CBOR -> TODO("CBOR row parsing — will use TrikeShed parsing")
+            null -> CsvParser.parseRows(src, cols)
+            Syntax.JSON -> JsonParser.parseRows(src, cols)
+            Syntax.YAML -> TODO("YAML row parsing — will use TrikeShed parsing")
+            Syntax.CBOR -> TODO("CBOR row parsing — will use TrikeShed parsing")
         }
 
     // ── Inline JSON parser (no external deps) ──────────────────────────────

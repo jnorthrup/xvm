@@ -74,6 +74,22 @@ val runPointcutCmdline by tasks.registering(JavaExec::class) {
     }
 }
 
+val generateJep483Dump by tasks.registering(JavaExec::class) {
+    val mainSourceSet = project.extensions.getByType<SourceSetContainer>().getByName("main")
+    dependsOn(unpackPointcutVmJavatools, tasks.named("classes"))
+    classpath = files(pointcutVmJavatoolsDir) + mainSourceSet.runtimeClasspath
+    mainClass.set("org.xvm.cursor.PointcutCmdlineKt")
+    args("xvm")
+    
+    val dumpDir = layout.buildDirectory.dir("jep483_dumps").get().asFile
+    doFirst { dumpDir.mkdirs() }
+    
+    jvmArgs(
+        "-XX:DumpLoadedClassList=${dumpDir.absolutePath}/aot_classes.lst"
+    )
+    isIgnoreExitValue = true
+}
+
 application {
     mainClass.set("org.xvm.cursor.BlackboardTimeseriesKt")
 }

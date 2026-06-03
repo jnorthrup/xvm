@@ -60,6 +60,9 @@ public abstract class Op {
     public void resolveCode(Code code, Constant[] aconst) {
     }
 
+    private static java.lang.reflect.Method afterWriteMethod = null;
+    private static boolean afterWriteResolved = false;
+
     /**
      * Write the op-code.
      *
@@ -70,7 +73,24 @@ public abstract class Op {
      */
     public void write(DataOutput out, ConstantRegistry registry)
             throws IOException {
-        out.writeByte(getOpCode());
+        int opcode = getOpCode();
+        out.writeByte(opcode);
+        if (!afterWriteResolved) {
+            afterWriteResolved = true;
+            try {
+                Class<?> cls = Class.forName("org.xvm.runtime.VmPointcutDispatch");
+                afterWriteMethod = cls.getMethod("afterWrite", int.class);
+            } catch (Throwable t) {
+                // ignore
+            }
+        }
+        if (afterWriteMethod != null) {
+            try {
+                afterWriteMethod.invoke(null, opcode);
+            } catch (Throwable t) {
+                // ignore
+            }
+        }
     }
 
     /**

@@ -2,6 +2,7 @@ package org.xvm.cursor
 
 import java.io.File
 import borg.trikeshed.cursor.Cursor
+import borg.trikeshed.parse.confix.ConfixLifecycle
 
 /**
  * Blackboard Confix taxonomy timeseries runner.
@@ -109,7 +110,7 @@ fun runBlackboardTimeseries(pcodePath: String) {
  * by a second ConfixCursor pass in [parsePcodeOps].
  */
 fun parsePcodeJson(json: String): List<PcodeFunction> {
-    val cursor = ConfixCursor(json, ConfixFormat.JSON)
+    val cursor = ConfixCursor(json, Syntax.JSON)
     val results = mutableListOf<PcodeFunction>()
     for (row in cursor.rows()) {
         try {
@@ -136,7 +137,7 @@ private fun parsePcodeOps(pcodeJson: String): List<PcodeOp> {
     val trimmed = pcodeJson.trim()
     if (!trimmed.startsWith("[")) return emptyList()
     val ops = mutableListOf<PcodeOp>()
-    val pcodeCursor = ConfixCursor(pcodeJson, ConfixFormat.JSON)
+    val pcodeCursor = ConfixCursor(pcodeJson, Syntax.JSON)
     for (opRow in pcodeCursor.rows()) {
         try {
             val op = opRow.string("op") ?: continue

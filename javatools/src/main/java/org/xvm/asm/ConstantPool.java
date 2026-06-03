@@ -175,7 +175,7 @@ public class ConstantPool
         // without ~60 LOC synchronized HashMap reconstruction.
         // All calls stay in-package (protected access) — no exposure beyond ConstantPool.
         int typedefPoolIdx = -1;
-        if (constant instanceof TerminalTypeConstant ttc) {
+        if (constant instanceof TerminalTypeConstant ttc && ttc.isSingleDefiningConstant()) {
             var defConst = ttc.getDefiningConstant();
             if (defConst.getFormat() == Format.Typedef) {
                 // getReferredToType() is protected — stays in-package.

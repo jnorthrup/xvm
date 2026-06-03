@@ -1,5 +1,9 @@
 # lib_cursor TODO
+1) verify kotlin is linked and hosting a special xvm from lib_cursor and that borg.trikeshed.confix.Confix and all other Trikeshed imports are in the scope of org.xvm.cursor via publishMaven in or out 
 
-- [x] Confix based Facetted ClassFile Taxonomy browse/registry /coordinate-system
-- [x] Trikeshed ReduxMutableSeries or SynapseMutableSeries Pointcut harness
-- [x] 'firehose' test - watch all mutablestate as ReduxMutableSeries flush while launching xvm unit tests from kotlin vm
+1) pointcut all writes in xvm codebase javaclasses 
+1) run full xvm gradle testsuite capturing redux and preserving the reified records at end of test before clearing the stringpoools expecting significant dump size and counters 
+ using a template in ReduxMutableSeries at least 1 template paramters from the correct logging entries 
+1) a targetted debugging demonstration of pointcuts showing the type resolution side by side with the as-is wip TypeRessolutionProductionSystem 
+1) show what the Confix access to Classfile taxonomy can do 
+1) show the facets on a suitably complex Cursor construction preferably a Confix Taxonomy node 

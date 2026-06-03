@@ -1,22 +1,27 @@
 package org.xvm.cursor
 
+import borg.trikeshed.cursor.ColumnMeta
 import borg.trikeshed.cursor.Cursor
+import borg.trikeshed.cursor.IOMemento
+import borg.trikeshed.cursor.RowVec
 import borg.trikeshed.lib.ChunkedMutableSeries
 import borg.trikeshed.lib.MutableSeries
+import borg.trikeshed.lib.Series
+import borg.trikeshed.lib.j
+import borg.trikeshed.lib.joins
 import borg.trikeshed.lib.size
 import borg.trikeshed.lib.get
+import borg.trikeshed.parse.confix.emptyCursor
+import borg.trikeshed.parse.confix.widenNode
+import borg.trikeshed.parse.confix.FacetDescriptor
 
 /**
  * ClassFileTaxonomy — Confix-based Facetted ClassFile browse/registry.
  *
  * Ingests minimal coordinate rows from classfile scans and exposes them as:
  *   - a typed registry (register / rowAt / lookupByPoolId / filterBy*)
- *   - a TaxonomyCursor projection with PointcutFacet-tagged columns for
+ *   - a Cursor projection with PointcutFacet-tagged columns for
  *     Confix/TrikeShed lazy navigation.
- *
- * Boundary rule: this class is the extraction/projection surface only.
- * TrikeShed owns cursor algebra; ConfixCursor owns format parsing.
- * Java emitters feed coordinate rows here; Kotlin navigates via asCursor().
  */
 class ClassFileTaxonomy {
 
@@ -38,11 +43,15 @@ class ClassFileTaxonomy {
 
     // ── Registry ──────────────────────────────────────────────────────────
 
-    private var rows: borg.trikeshed.lib.MutableSeries<CoordinateRow> = borg.trikeshed.lib.ChunkedMutableSeries()
-
-    // Allows tests/wrappers to inject a pointcut/redux series
-    fun setBackingSeries(series: borg.trikeshed.lib.MutableSeries<CoordinateRow>) {
-        this.rows = series
+    // Using an Observer delegate to explicitly receive events upon mutation
+    var rows: MutableSeries<CoordinateRow> by kotlin.properties.Delegates.observable(
+        ChunkedMutableSeries<CoordinateRow>() as MutableSeries<CoordinateRow>
+    ) { _, old, new ->
+        // Fired whenever the backing series is reassigned (e.g., to PointcutMutableSeries)
+        // Log/Audit the replacement:
+        if (old !== new) {
+            println("ClassFileTaxonomy.rows delegate updated from ${old::class.simpleName} to ${new::class.simpleName}")
+        }
     }
 
     val size: Int get() = rows.size
@@ -81,71 +90,66 @@ class ClassFileTaxonomy {
 
     // ── Cursor projection ─────────────────────────────────────────────────
 
-    fun asCursor(): TaxonomyCursor {
-        val list = mutableListOf<CoordinateRow>()
-        for (i in 0 until rows.size) list.add(rows[i])
-        return TaxonomyCursor(list)
+    fun asCursor(): Cursor {
+        return rows.size j { idx ->
+            val r = rows[idx]
+            toRowVec(r)
+        }
     }
 
-    /**
-     * TaxonomyCursor — lazily-navigable ConfixRow-style view of taxonomy rows.
-     *
-     * Column schema (9 columns, with PointcutFacet tags):
-     *   0  symbolName       — SymbolName
-     *   1  ownerType        — TypeInfo
-     *   2  methodOrField    — SymbolName
-     *   3  classfileCoord   — ClassfileCoordinate
-     *   4  cpIndex          — XvmCoordinate
-     *   5  descriptor       — Unfaceted
-     *   6  xvmTypeInfo      — XvmCoordinate
-     *   7  pointcutKind     — Unfaceted
-     *   8  poolId           — StringPool
-     */
-    class TaxonomyCursor(private val rows: List<CoordinateRow>) {
+    companion object {
+        val SCHEMA_REFS = listOf(
+            ColumnMetaRef(0, "symbolName", "String", PointcutFacet.SymbolName),
+            ColumnMetaRef(1, "ownerType", "String", PointcutFacet.TypeInfo),
+            ColumnMetaRef(2, "methodOrField", "String", PointcutFacet.SymbolName),
+            ColumnMetaRef(3, "classfileCoord", "String", PointcutFacet.ClassfileCoordinate),
+            ColumnMetaRef(4, "cpIndex", "Int", PointcutFacet.XvmCoordinate),
+            ColumnMetaRef(5, "descriptor", "String", PointcutFacet.Unfaceted),
+            ColumnMetaRef(6, "xvmTypeInfo", "String", PointcutFacet.XvmCoordinate),
+            ColumnMetaRef(7, "pointcutKind", "Int", PointcutFacet.Unfaceted),
+            ColumnMetaRef(8, "poolId", "Int", PointcutFacet.StringPool)
+        )
 
-        val size: Int get() = rows.size
-
-        fun rowAt(index: Int): TaxonomyRow = TaxonomyRow(rows[index])
-
-        fun columnMeta(name: String): TaxonomyColumnMeta =
-            SCHEMA[name] ?: error("unknown column: $name")
-
-        companion object {
-            val SCHEMA: Map<String, TaxonomyColumnMeta> = mapOf(
-                "symbolName"     to TaxonomyColumnMeta("symbolName",     PointcutFacet.SymbolName),
-                "ownerType"      to TaxonomyColumnMeta("ownerType",      PointcutFacet.TypeInfo),
-                "methodOrField"  to TaxonomyColumnMeta("methodOrField",  PointcutFacet.SymbolName),
-                "classfileCoord" to TaxonomyColumnMeta("classfileCoord", PointcutFacet.ClassfileCoordinate),
-                "cpIndex"        to TaxonomyColumnMeta("cpIndex",        PointcutFacet.XvmCoordinate),
-                "descriptor"     to TaxonomyColumnMeta("descriptor",     PointcutFacet.Unfaceted),
-                "xvmTypeInfo"    to TaxonomyColumnMeta("xvmTypeInfo",    PointcutFacet.XvmCoordinate),
-                "pointcutKind"   to TaxonomyColumnMeta("pointcutKind",   PointcutFacet.Unfaceted),
-                "poolId"         to TaxonomyColumnMeta("poolId",         PointcutFacet.StringPool),
+        fun toRowVec(r: CoordinateRow): RowVec {
+            val values: Array<Any?> = arrayOf(
+                0, 0, IOMemento.IoObject, emptyCursor(),
+                r.symbolName, r.ownerType, r.methodOrField, r.classfileCoord,
+                r.cpIndex, r.descriptor, r.xvmTypeInfo, r.pointcutKind, r.poolId
             )
+            val total = values.size
+            return (total j { col: Int -> values[col] }) joins (total j { col: Int ->
+                when (col) {
+                    0    -> { -> ColumnMeta("open",  IOMemento.IoInt) }
+                    1    -> { -> ColumnMeta("close", IOMemento.IoInt) }
+                    2    -> { -> ColumnMeta("tag",   IOMemento.IoObject) }
+                    3    -> { -> ColumnMeta("kids",  IOMemento.IoObject) }
+                    else -> { -> SCHEMA_REFS[col - 4] }
+                }
+            })
         }
     }
+}
 
-    data class TaxonomyColumnMeta(val name: String, val facet: PointcutFacet)
+// ── Extension Methods to keep API backward compatible with existing tests ──
 
-    /**
-     * TaxonomyRow — map-style access to a CoordinateRow.
-     */
-    class TaxonomyRow(private val row: CoordinateRow) {
-        operator fun get(column: String): Any? = when (column) {
-            "symbolName"     -> row.symbolName
-            "ownerType"      -> row.ownerType
-            "methodOrField"  -> row.methodOrField
-            "classfileCoord" -> row.classfileCoord
-            "cpIndex"        -> row.cpIndex
-            "descriptor"     -> row.descriptor
-            "xvmTypeInfo"    -> row.xvmTypeInfo
-            "pointcutKind"   -> row.pointcutKind
-            "poolId"         -> row.poolId
-            else             -> null
-        }
+fun Cursor.rowAt(index: Int): RowVec = b(index)
+val Cursor.size: Int get() = this.a
 
-        val symbolName: String    get() = row.symbolName
-        val pointcutKind: Int     get() = row.pointcutKind
-        val poolId: Int           get() = row.poolId
+
+fun Cursor.columnMeta(name: String): ColumnMetaRef {
+    if (a == 0) error("empty cursor")
+    val firstRow = b(0)
+    for (i in 4 until firstRow.a) {
+        val meta = firstRow.b(i).b()
+        if (meta is ColumnMetaRef && meta.name == name) return meta
     }
+    error("unknown column: $name")
+}
+
+operator fun RowVec.get(name: String): Any? {
+    for (i in 0 until a) {
+        val meta = b(i).b()
+        if (meta is ColumnMeta && meta.name == name) return b(i).a
+    }
+    return null
 }

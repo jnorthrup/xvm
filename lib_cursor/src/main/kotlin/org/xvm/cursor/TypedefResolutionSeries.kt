@@ -1,22 +1,29 @@
 package org.xvm.cursor
 
 import borg.trikeshed.lib.ChunkedMutableSeries
-import borg.trikeshed.lib.JournalSeries
-import borg.trikeshed.lib.MutableSeries
 import borg.trikeshed.lib.Reducer
 import borg.trikeshed.lib.ReduxMutableSeries
+import borg.trikeshed.lib.view
 
 /**
  * Cold WAL flow for typedef resolution events.
- * Stub — minimal API surface to unblock compilation.
- *
- * Real implementation: see TypedefResolutionSeries (pre-existing broken version).
  *
  * Pipeline:
  *   ChunkedMutableSeries (front-line)
  *     → JournalSeries (WAL rings, RING_SIZE entries each)
  *       → ReduxMutableSeries (cold cursor, journal replay)
  */
+data class TypedefFact(
+    val factId: Long,
+    val nano: Long,
+    val poolId: Int,
+    val siteOrd: Int,
+    val clsName: String,
+    val format: String,
+    val success: Boolean,
+    val isReverted: Boolean = false
+)
+
 @Suppress("UNUSED", "UNCHECKED_CAST")
 object TypedefResolutionSeries {
 
@@ -39,106 +46,59 @@ object TypedefResolutionSeries {
         "clsNameId", "formatId", "success", "isReverted"
     )
 
-    // ── Fact factory ────────────────────────────────────────────────────────
-
-    fun liveFact(
-        factId: Long, nano: Long, poolId: Int, siteOrd: Int,
-        clsName: String, format: String, success: Boolean
-    ): Array<Any?> = arrayOf<Any?>(
-        factId as Any?,
-        nano as Any?,
-        poolId as Any?,
-        siteOrd as Any?,
-        clsName as Any?,
-        format as Any?,
-        success as Any?,
-        false as Any?
-    )
-
-    fun compensatingFact(
-        factId: Long, nano: Long, poolId: Int, siteOrd: Int,
-        clsName: String, format: String, originalSuccess: Boolean
-    ): Array<Any?> = arrayOf<Any?>(
-        factId as Any?,
-        nano as Any?,
-        poolId as Any?,
-        siteOrd as Any?,
-        clsName as Any?,
-        format as Any?,
-        originalSuccess as Any?,
-        true as Any?
-    )
-
-    // ── Stub state ──────────────────────────────────────────────────────────
+    // ── State ──────────────────────────────────────────────────────────
 
     private val nextFactId = java.util.concurrent.atomic.AtomicLong(0)
-    private val factIndex = java.util.concurrent.ConcurrentHashMap<Long, Any>()
-    private val frontLine = ChunkedMutableSeries<Any>(chunkSize = RING_SIZE)
-    private val walRings = Array(RING_COUNT) { ChunkedMutableSeries<Any>(chunkSize = RING_SIZE) }
+    private val factIndex = java.util.concurrent.ConcurrentHashMap<Long, TypedefFact>()
+    private val frontLine = ChunkedMutableSeries<TypedefFact>(chunkSize = RING_SIZE)
+    private val walRings = Array(RING_COUNT) { ChunkedMutableSeries<TypedefFact>(chunkSize = RING_SIZE) }
     private val walIndex = java.util.concurrent.atomic.AtomicInteger(0)
 
-    private object TypedefReducer : Reducer<Any, Map<String, Any>> {
-        override val zero: Map<String, Any> = emptyMap()
-        override fun combine(acc: Map<String, Any>, element: Any): Map<String, Any> = acc
+    private object TypedefReducer : Reducer<TypedefFact, Map<Long, TypedefFact>> {
+        override val zero: Map<Long, TypedefFact> = emptyMap()
+        override fun combine(acc: Map<Long, TypedefFact>, element: TypedefFact): Map<Long, TypedefFact> {
+            val mut = acc.toMutableMap()
+            if (element.isReverted) {
+                mut.remove(element.factId)
+            } else {
+                mut[element.factId] = element
+            }
+            return mut
+        }
     }
 
-    val journal = ReduxMutableSeries<Any, Map<String, Any>>(
+    @get:JvmName("journal")
+    val journal = ReduxMutableSeries<TypedefFact, Map<Long, TypedefFact>>(
         eventJournal = frontLine,
         reducer = TypedefReducer,
-        capture = Any()
+        capture = TypedefFact(-1L, 0L, 0, 0, "", "", false, false)
     )
 
     // ── Accessors ──────────────────────────────────────────────────────────
 
-    fun factById(factId: Long): Any? = factIndex[factId]
-
-    private fun poolIdFromFact(e: Any?): Int {
-        val arr = e as? Array<Any?> ?: return Int.MIN_VALUE
-        return (arr[POOLID] as? Number)?.toInt() ?: Int.MIN_VALUE
-    }
-
-    private fun siteOrdFromFact(e: Any?): Int {
-        val arr = e as? Array<Any?> ?: return Int.MIN_VALUE
-        return (arr[SITEORD] as? Number)?.toInt() ?: Int.MIN_VALUE
-    }
-
-    private fun factIdFromFact(e: Any?): Long {
-        val arr = e as? Array<Any?> ?: return Long.MIN_VALUE
-        return (arr[FACTID] as? Number)?.toLong() ?: Long.MIN_VALUE
-    }
-
-    fun factsBySite(poolId: Int, siteOrd: Int): List<Any> {
-        val result = mutableListOf<Any>()
+    fun factsBySite(poolId: Int, siteOrd: Int): List<TypedefFact> {
+        val result = mutableListOf<TypedefFact>()
         for (e in factIndex.values) {
-            if (poolIdFromFact(e) == poolId && siteOrdFromFact(e) == siteOrd) result.add(e)
+            if (e.poolId == poolId && e.siteOrd == siteOrd) result.add(e)
         }
-        return result.sortedBy { factIdFromFact(it) }
+        return result.sortedBy { it.factId }
     }
 
-    fun factsByPool(poolId: Int): List<Any> {
-        val result = mutableListOf<Any>()
+    fun factsByPool(poolId: Int): List<TypedefFact> {
+        val result = mutableListOf<TypedefFact>()
         for (e in factIndex.values) {
-            if (poolIdFromFact(e) == poolId) result.add(e)
+            if (e.poolId == poolId) result.add(e)
         }
-        return result.sortedBy { factIdFromFact(it) }
+        return result.sortedBy { it.factId }
     }
-
-    fun isReverted(fact: Any?): Boolean {
-        val arr = fact as? Array<Any?> ?: return false
-        return arr.get(IS_REVERTED) as? Boolean ?: false
-    }
-
-    fun delta(fact: Any?): Int = if (isReverted(fact)) -1 else +1
 
     // ── WAL ────────────────────────────────────────────────────────────────
 
     private fun flushWalRing() {
         val idx = walIndex.getAndIncrement() % RING_COUNT
         val ring = walRings[idx]
-        val items = ring.toList()
-        for (item in items) {
+        for (item in ring.view)
             journal.add(item)
-        }
         ring.clear()
     }
 
@@ -148,7 +108,7 @@ object TypedefResolutionSeries {
     fun record(poolId: Int, siteOrdinal: Int, className: String, formatName: String, success: Boolean): Long {
         val factId = nextFactId.getAndIncrement()
         val nano = System.nanoTime()
-        val fact = liveFact(factId, nano, poolId, siteOrdinal, className, formatName, success)
+        val fact = TypedefFact(factId, nano, poolId, siteOrdinal, className, formatName, success)
         factIndex[factId] = fact
         frontLine.add(fact)
         val idx = walIndex.get() % RING_COUNT
@@ -159,19 +119,12 @@ object TypedefResolutionSeries {
     }
 
     @JvmStatic
-    fun fact(factId: Long): Any? = factById(factId)
+    fun fact(factId: Long): Any? = factIndex[factId]
 
     @JvmStatic
     fun revert(factId: Long): Boolean {
         val f = factIndex.remove(factId) ?: return false
-        val arr = f as? Array<Any?> ?: return false
-        val nano = System.nanoTime()
-        val poolId = (arr[POOLID] as? Number)?.toInt() ?: 0
-        val siteOrd = (arr[SITEORD] as? Number)?.toInt() ?: 0
-        val clsName = arr[CLSNAME_ID]?.toString() ?: "?"
-        val fmt = arr[FORMAT_ID]?.toString() ?: "?"
-        val origSucc = arr[SUCCESS] as? Boolean ?: false
-        val comp = compensatingFact(factId, nano, poolId, siteOrd, clsName, fmt, origSucc)
+        val comp = f.copy(nano = System.nanoTime(), isReverted = true)
         frontLine.add(comp)
         walRings[walIndex.get() % RING_COUNT].add(comp)
         return true
@@ -181,27 +134,62 @@ object TypedefResolutionSeries {
     fun revertSite(poolId: Int, siteOrd: Int): Int {
         val facts = factsBySite(poolId, siteOrd)
         for (f in facts) {
-            factIndex.remove(factIdFromFact(f))
-            val arr = f as? Array<Any?> ?: continue
-            val nano = System.nanoTime()
-            val clsName = arr[CLSNAME_ID]?.toString() ?: "?"
-            val fmt = arr[FORMAT_ID]?.toString() ?: "?"
-            val origSucc = arr[SUCCESS] as? Boolean ?: false
-            val comp = compensatingFact(factIdFromFact(f), nano, poolId, siteOrd, clsName, fmt, origSucc)
+            factIndex.remove(f.factId)
+            val comp = f.copy(nano = System.nanoTime(), isReverted = true)
             frontLine.add(comp)
             walRings[walIndex.get() % RING_COUNT].add(comp)
         }
         return facts.size
     }
 
-    // toList: ChunkedMutableSeries implements Iterable
-    @Suppress("UNCHECKED_CAST")
-    private fun <T> ChunkedMutableSeries<T>.toList(): List<T> {
-        val result = mutableListOf<T>()
-        val iter = (this as Iterable<T>).iterator()
-        while (iter.hasNext()) result.add(iter.next())
-        return result
+    @JvmStatic
+    fun revertPool(poolId: Int): Int {
+        val facts = factsByPool(poolId)
+        for (f in facts) {
+            factIndex.remove(f.factId)
+            val comp = f.copy(nano = System.nanoTime(), isReverted = true)
+            frontLine.add(comp)
+            walRings[walIndex.get() % RING_COUNT].add(comp)
+        }
+        return facts.size
     }
 
-    private operator fun <T> ChunkedMutableSeries<T>.get(i: Int): T = this[i]
+    @JvmStatic
+    fun drain(): Int {
+        var count = 0
+        for (i in 0 until RING_COUNT) {
+            val ring = walRings[i]
+            val ringSize = ring.a
+            if (ringSize > 0) {
+                count += ringSize
+                for (item in ring.view) {
+                    journal.add(item)
+                }
+                ring.clear()
+            }
+        }
+        return count
+    }
+
+    @JvmStatic
+    fun size(): Int {
+        drain()
+        return journal.state.size
+    }
+
+    @JvmStatic
+    fun metaSeries(): Any {
+        return journal
+    }
+
+    @JvmStatic
+    fun toRowVec(): String {
+        drain()
+        val activeFacts = journal.state.values.toList().sortedBy { it.factId }
+        val keys = activeFacts.map { it.factId }.joinToString(",")
+        val cells = activeFacts.joinToString("|") {
+            "${it.poolId},${it.siteOrd},${it.clsName},${it.format},${it.success}"
+        }
+        return "$keys|$cells"
+    }
 }

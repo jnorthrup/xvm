@@ -59,6 +59,26 @@ public class TypedefCascadeDagReificationTest {
                 "XDK javatools not found: " + xdkJavaToolsDir);
     }
 
+    @org.junit.jupiter.api.AfterEach
+    public void tearDown() {
+        try {
+            // Read reified records from the journal and log details
+            int size = org.xvm.asm.constants.TypedefResolutionPublisher.size();
+            System.out.println("[AfterEach] TypedefResolutionPublisher Redux size=" + size);
+            String rowVec = org.xvm.asm.constants.TypedefResolutionPublisher.metaAsRowVec();
+            if (rowVec != null && !rowVec.isEmpty()) {
+                System.out.println("[AfterEach] Meta RowVec: " + rowVec.substring(0, Math.min(rowVec.length(), 200)) + "...");
+            }
+            
+            // Clear StringPool via reflection
+            Class<?> stringPoolClass = Class.forName("org.xvm.cursor.StringPool");
+            java.lang.reflect.Method clearMethod = stringPoolClass.getMethod("clear");
+            clearMethod.invoke(null);
+        } catch (Throwable t) {
+            System.err.println("Failed to read journal or clear StringPool: " + t.getMessage());
+        }
+    }
+
     // ════════════════════════════════════════════════════════════════════════
     // POINTCUT PROOF 1: Live DAG reification -- all 73 TypedefCallsite ordinals
     //

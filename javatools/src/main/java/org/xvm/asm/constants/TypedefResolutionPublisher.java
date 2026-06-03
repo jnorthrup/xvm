@@ -18,7 +18,7 @@ import org.xvm.asm.Constant;
  */
 public final class TypedefResolutionPublisher {
 
-    private static final String KOTLIN_CLASS = "borg.trikeshed.cursor.TypedefResolutionSeries";
+    private static final String KOTLIN_CLASS = "org.xvm.cursor.TypedefResolutionSeries";
     private static final String RECORD_METHOD = "record";
     private static final String REVERT_METHOD = "revert";
     private static final String REVERT_SITE_METHOD = "revertSite";
@@ -392,7 +392,7 @@ public final class TypedefResolutionPublisher {
             if (s == null) return 0;
             try {
                 if (internMethod == null) {
-                    Class<?> cls = Class.forName("borg.trikeshed.cursor.StringPool");
+                    Class<?> cls = Class.forName("org.xvm.cursor.StringPool");
                     internMethod = cls.getMethod("intern", String.class);
                 }
                 return ((Number) internMethod.invoke(null, s)).intValue();
