@@ -17,8 +17,8 @@ repositories {
 val javatoolsJar = layout.projectDirectory.file("../javatools/build/libs/javatools-0.4.4-SNAPSHOT.jar")
 
 dependencies {
-    // TrikeShed via composite build substitution (see root settings.gradle.kts includeBuild)
-    implementation("org.bereft:TrikeShed:1.0")
+    // TrikeShed JVM artifact from mavenLocal (published by TrikeShed's publishToMavenLocal)
+    implementation("org.bereft:TrikeShed-jvm:1.0")
     implementation(kotlin("stdlib"))
     implementation(kotlin("reflect"))
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.11.0")

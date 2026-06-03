@@ -57,13 +57,11 @@ develocity {
     }
 }
 
-/**
- * TrikeShed composite build — included for build ordering so xvm can trigger
- * TrikeShed builds.  No dependency substitution: lib_cursor resolves
- * org.bereft:TrikeShed-jvm:1.0 from mavenLocal() which carries the correct
- * JVM artifact published by the KMP build.
+/*
+ * TrikeShed composite build — disabled; lib_cursor uses mavenLocal() artifact
+ * via org.bereft:TrikeShed-jvm:1.0.  Enable only when building TrikeShed locally.
  */
-includeBuild("../TrikeShed")
+//includeBuild("../TrikeShed")
 
 /**
  * Core XVM builds - always included.

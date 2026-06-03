@@ -1,5 +1,11 @@
 package org.xvm.cursor
 
+import borg.trikeshed.cursor.Cursor
+import borg.trikeshed.lib.ChunkedMutableSeries
+import borg.trikeshed.lib.MutableSeries
+import borg.trikeshed.lib.size
+import borg.trikeshed.lib.get
+
 /**
  * ClassFileTaxonomy — Confix-based Facetted ClassFile browse/registry.
  *
@@ -32,7 +38,12 @@ class ClassFileTaxonomy {
 
     // ── Registry ──────────────────────────────────────────────────────────
 
-    private val rows = ArrayList<CoordinateRow>()
+    private var rows: borg.trikeshed.lib.MutableSeries<CoordinateRow> = borg.trikeshed.lib.ChunkedMutableSeries()
+
+    // Allows tests/wrappers to inject a pointcut/redux series
+    fun setBackingSeries(series: borg.trikeshed.lib.MutableSeries<CoordinateRow>) {
+        this.rows = series
+    }
 
     val size: Int get() = rows.size
 
@@ -42,24 +53,39 @@ class ClassFileTaxonomy {
 
     fun rowAt(index: Int): CoordinateRow = rows[index]
 
-    fun lookupByPoolId(poolId: Int): CoordinateRow? =
-        rows.firstOrNull { it.poolId == poolId }
+    fun lookupByPoolId(poolId: Int): CoordinateRow? {
+        for (i in 0 until rows.size) {
+            val row = rows[i]
+            if (row.poolId == poolId) return row
+        }
+        return null
+    }
 
     fun filterByKind(kind: Int): ClassFileTaxonomy {
         val sub = ClassFileTaxonomy()
-        rows.filter { it.pointcutKind == kind }.forEach(sub::register)
+        for (i in 0 until rows.size) {
+            val row = rows[i]
+            if (row.pointcutKind == kind) sub.register(row)
+        }
         return sub
     }
 
     fun filterByOwner(owner: String): ClassFileTaxonomy {
         val sub = ClassFileTaxonomy()
-        rows.filter { it.ownerType == owner }.forEach(sub::register)
+        for (i in 0 until rows.size) {
+            val row = rows[i]
+            if (row.ownerType == owner) sub.register(row)
+        }
         return sub
     }
 
     // ── Cursor projection ─────────────────────────────────────────────────
 
-    fun asCursor(): TaxonomyCursor = TaxonomyCursor(rows.toList())
+    fun asCursor(): TaxonomyCursor {
+        val list = mutableListOf<CoordinateRow>()
+        for (i in 0 until rows.size) list.add(rows[i])
+        return TaxonomyCursor(list)
+    }
 
     /**
      * TaxonomyCursor — lazily-navigable ConfixRow-style view of taxonomy rows.
