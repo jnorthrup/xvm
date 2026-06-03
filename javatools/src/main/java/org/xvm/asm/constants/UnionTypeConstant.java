@@ -652,7 +652,7 @@ public class UnionTypeConstant
                 infoType1.ensureMethodsBySignature().entrySet()) {
             SignatureConstant sig     = entry.getKey();
             MethodInfo        method1 = entry.getValue();
-            MethodInfo        method2 = infoType2.getMethodBySignature(sig);
+            MethodInfo        method2 = infoType2.getMethodBySignature(sig, this);
             if (method2 == null) {
                 continue;
             }

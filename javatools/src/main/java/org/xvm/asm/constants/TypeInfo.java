@@ -1440,7 +1440,21 @@ public class TypeInfo {
      * @return the MethodInfo corresponding to the specified identity
      */
     public MethodInfo getMethodBySignature(SignatureConstant sig) {
-        return getMethodBySignature(sig, false);
+        return getMethodBySignature(sig, f_type, false);
+    }
+
+    /**
+     * Find the MethodInfo for the specified SignatureConstant, on behalf of the specified context
+     * type. If possible, find a non-capped method; return a capped one *only* if nothing else
+     * matches.
+     *
+     * @param sig       a SignatureConstant
+     * @param typeThis  the context type
+     *
+     * @return the MethodInfo corresponding to the specified identity
+     */
+    public MethodInfo getMethodBySignature(SignatureConstant sig, TypeConstant typeThis) {
+        return getMethodBySignature(sig, typeThis, false);
     }
 
     /**
@@ -1454,6 +1468,10 @@ public class TypeInfo {
      * @return the MethodInfo corresponding to the specified identity
      */
     public MethodInfo getMethodBySignature(SignatureConstant sig, boolean fRuntime) {
+        return getMethodBySignature(sig, f_type, fRuntime);
+    }
+
+    public MethodInfo getMethodBySignature(SignatureConstant sig, TypeConstant typeThis, boolean fRuntime) {
         MethodInfo method = f_mapVirtMethods.get(sig);
         if (method != null) {
             return method;
@@ -1466,7 +1484,7 @@ public class TypeInfo {
             return method;
         }
 
-        TypeConstant typeThis = f_type;
+        assert typeThis != null;
         if (typeThis.isFormalType()) {
             typeThis = typeThis.resolveConstraints().removeAutoNarrowing();
         }

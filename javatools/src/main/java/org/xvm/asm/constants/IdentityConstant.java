@@ -114,9 +114,12 @@ public abstract class IdentityConstant
      * Support for {@link #getPathString()}; overridden at {@link ModuleConstant}.
      */
     protected StringBuilder buildPath() {
-        return getParentConstant().buildPath()
-                .append('.')
-                .append(getPathElementString());
+        var parent = getParentConstant();
+        return parent == null
+                ? new StringBuilder(getPathElementString())
+                : parent.buildPath()
+                        .append('.')
+                        .append(getPathElementString());
     }
 
     /**
