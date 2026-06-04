@@ -4721,23 +4721,31 @@ public abstract class TypeConstant
                 MethodInfo        infoCandidate = entry.getValue();
                 SignatureConstant sigCandidate  = infoCandidate.getSignature(); // resolved
                 if (sigCandidate.getName().equals(sigSub.getName())) {
-                    if (infoCandidate.getHead().getSignature().equals(sigSub) ||
+                    MethodBody head = infoCandidate.getHead();
+                    if (head.getSignature().equals(sigSub) ||
                             sigSub.isSubstitutableFor(sigCandidate, this)) {
-                        if (listMatch == null) {
-                            listMatch = new ArrayList<>();
+                        listMatch = add(listMatch, nidCandidate);
+                        continue;
+                    }
+
+                    if (head.isInto()) {
+                        TypeConstant typeInto =
+                            head.getIntoMethodInfo().getIdentity().getClassIdentity().getType();
+                        if (sigSub.isSubstitutableFor(head.getSignature(), typeInto)
+                         || sigSub.isSubstitutableFor(head.getIntoMethodInfo().getSignature(), typeInto)) {
+                            listMatch = add(listMatch, nidCandidate);
+                            continue;
                         }
-                        listMatch.add(nidCandidate);
-                    } else if (cDefaults > 0) {
+                    }
+
+                    if (cDefaults > 0) {
                         // allow default parameters (but only if there is no "exact" match)
                         int cParamsReq = sigCandidate.getParamCount();
                         int cParamsSub = sigSub.getParamCount();
                         if (cParamsSub > cParamsReq && cParamsSub - cDefaults <= cParamsReq) {
                             SignatureConstant sigSubReq = sigSub.truncateParams(0, cParamsReq);
                             if (sigSubReq.isSubstitutableFor(sigCandidate, this)) {
-                                if (listMatch == null) {
-                                    listMatch = new ArrayList<>();
-                                }
-                                listMatch.add(nidCandidate);
+                                listMatch = add(listMatch, nidCandidate);
                             }
                         }
                     }
@@ -4745,6 +4753,15 @@ public abstract class TypeConstant
             }
         }
         return listMatch == null ? Collections.emptyList() : listMatch;
+    }
+
+    // TODO CP: move to Handy
+    protected List<Object> add(List<Object> list, Object o) {
+        if (list == null) {
+            list = new ArrayList<>();
+        }
+        list.add(o);
+        return list;
     }
 
     /**
@@ -5716,6 +5733,13 @@ public abstract class TypeConstant
     // ----- type comparison support ---------------------------------------------------------------
 
     /**
+     * @return the current context (optional)
+     */
+    public static TypeConstant getContext() {
+        return s_context.isBound() ? s_context.get() : null;
+    }
+
+    /**
      * Determine if the specified TypeConstant is equivalent to this constant based on the "isA"
      * relation.
      */
@@ -5777,7 +5801,12 @@ public abstract class TypeConstant
 
         Relation relation = mapRelations.get(typeLeft);
         if (relation != null) {
-            return relation;
+            if (s_context.isBound() &&
+                (typeLeft.containsAutoNarrowing(true) || typeRight.containsAutoNarrowing(true))) {
+                // ignore the cached result; the context may have chnaged
+            } else {
+                return relation;
+            }
         }
 
         Set<TypeConstant> setInProgress = m_tloInProgress.get();
@@ -6093,13 +6122,56 @@ public abstract class TypeConstant
      * @param typeCtx   (optional) the type within which context the covariance is to be determined
      */
     public boolean isCovariantReturn(TypeConstant typeBase, TypeConstant typeCtx) {
+        boolean fOld = isCovariantReturnOld(typeBase, typeCtx);
+        if (fOld || !(typeCtx instanceof UnionTypeConstant)) {
+            return fOld;
+        }
+
+        boolean fNew = isCovariantReturnNew(typeBase, typeCtx);
+        if (fOld == fNew) {
+            return fOld;
+        }
+        String msg = fNew
+            ? "*** New positive:\n   " + getValueString() + "\n-> " + typeBase.getValueString() + "\n@  " + typeCtx.removeAccess().getValueString()
+            : "*** New negative:\n   " + getValueString() + "\n-> " + typeBase.getValueString();
+        if (REPORTED.add(msg)) {
+            System.err.println(msg);
+        }
+
+        return fNew;
+    }
+
+    static Set<String> REPORTED = new HashSet<>();
+
+    public boolean isCovariantReturnNew(TypeConstant typeBase, TypeConstant typeCtx) {
+        return ScopedValue.where(s_context, typeCtx).call(() -> {
+            if (this.isA(typeBase)) {
+                return true;
+            }
+
+            if (typeBase.containsGenericType(true)) {
+                // check if generic types could be resolved in the specified context without
+                // producing self referring cycles, e.g. List<Element> -> List<List<Element>>
+                // or @AutoFreezable Element -> @AutoFreezable @AutoFreezable Element
+                // (TODO need to make this algorithm more precise)
+                TypeConstant typeBaseR = typeBase.resolveGenerics(ConstantPool.getCurrentPool(), typeCtx);
+                if (typeBaseR != typeBase &&
+                            typeBaseR.getTypeDepth() == typeBase.getTypeDepth()) {
+                    return this.isA(typeBaseR);
+                }
+            }
+            return false;
+        });
+    }
+
+    public boolean isCovariantReturnOld(TypeConstant typeBase, TypeConstant typeCtx) {
         if (this.isA(typeBase)) {
             return true;
         }
 
         ConstantPool pool = ConstantPool.getCurrentPool();
         if (typeCtx instanceof UnionTypeConstant) { // TODO GG HACKHACK
-            if (this.containsAutoNarrowing(true) && typeBase.containsAutoNarrowing(true)) {
+            if (this.containsAutoNarrowing(true) || typeBase.containsAutoNarrowing(true)) {
                 boolean fNew = isCovariantReturn(typeBase, pool.ensureIntersectionTypeConstant(
                         typeCtx.getUnderlyingType(), typeCtx.getUnderlyingType2()));
                 if (fNew) {
@@ -6159,6 +6231,15 @@ public abstract class TypeConstant
 
         ConstantPool pool = ConstantPool.getCurrentPool();
 
+        if (typeCtx instanceof UnionTypeConstant
+                && this.containsAutoNarrowing(true)
+                && typeBase.containsAutoNarrowing(true)) {
+            boolean fNew = isCovariantReturn(typeBase, pool.ensureIntersectionTypeConstant(
+                typeCtx.getUnderlyingType(), typeCtx.getUnderlyingType2()));
+            if (fNew) {
+                String q = "return true";
+            }
+        }
         TypeConstant typeThisR = this.containsAutoNarrowing(true)
                 ? this.resolveAutoNarrowing(pool, false, typeCtx, null)
                 : this;
@@ -8033,4 +8114,9 @@ public abstract class TypeConstant
         s_setRecursions = new HashSet<>();
         s_setRecursions.add("left=this:class(Array); right=this:class(Hashable)");
     }
+
+    /**
+     * Scoped value allowing to get the "current" TypeConstant context out of thin air.
+     */
+    private  static final ScopedValue<TypeConstant> s_context = ScopedValue.newInstance();
 }

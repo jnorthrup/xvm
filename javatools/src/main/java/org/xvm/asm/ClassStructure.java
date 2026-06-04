@@ -2057,6 +2057,20 @@ public class ClassStructure
             return Relation.IS_A;
         }
 
+        TypeConstant typeCtx = TypeConstant.getContext();
+        if (typeCtx instanceof UnionTypeConstant &&
+                (typeLeft.isAutoNarrowing() && typeRight.isAutoNarrowing())) {
+            // TODO GG: explain
+            TypeConstant typeCtx1 = typeCtx.getUnderlyingType();
+            boolean isA1 = typeCtx1.isA(typeRight) || typeCtx1.isA(typeLeft);
+
+            TypeConstant typeCtx2 = typeCtx.getUnderlyingType2();
+            boolean isA2 = typeCtx2.isA(typeRight) || typeCtx2.isA(typeLeft);
+
+            if (isA1 && isA2) {
+                return Relation.IS_A;
+            }
+        }
         switch (constIdLeft.getFormat()) {
         case Module:
         case Package:
