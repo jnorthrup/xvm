@@ -146,9 +146,9 @@ private fun runXvmFizzBuzz() {
                 dumpSynapseBatches()
 
                 check(lifecycle.isShutdown) { "Lifecycle did not reach SHUTDOWN" }
-                check(dumpDir.resolve("cascade.csv").toFile().exists()) { "Missing cascade.csv" }
-                check(dumpDir.resolve("joint_histogram.csv").toFile().exists()) { "Missing joint_histogram.csv" }
-                check(dumpDir.resolve("table_dump.csv").toFile().exists()) { "Missing table_dump.csv" }
+                check(dumpDir.resolve("cascade_joint.bin").toFile().exists()) { "Missing cascade_joint.bin" }
+                check(dumpDir.resolve("joint_histogram.bin").toFile().exists()) { "Missing joint_histogram.bin" }
+                check(dumpDir.resolve("table_dump.bin").toFile().exists()) { "Missing table_dump.bin" }
                 check(snapshots[3].totalEvents > 0) { "T4 joint histogram was empty" }
             }
         }
@@ -292,7 +292,8 @@ private fun runReduxStandalone() {
     check(snapshots[3].totalEvents == eventCount.toLong()) {
         "Expected ${eventCount.toLong()} total T4 events, found ${snapshots[3].totalEvents}"
     }
-    check(dumpDir.resolve("cascade.csv").toFile().exists()) { "Missing cascade.csv" }
+    check(dumpDir.resolve("cascade_joint.bin").toFile().exists()) { "Missing cascade_joint.bin" }
+    check(dumpDir.resolve("table_dump.bin").toFile().exists()) { "Missing table_dump.bin" }
     check(lifecycle.isShutdown) { "Lifecycle did not reach SHUTDOWN" }
 
     VmPointcutPublisher.reset()
