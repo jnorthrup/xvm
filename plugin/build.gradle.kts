@@ -67,6 +67,7 @@ repositories {
 dependencies {
     // Compile-time only - javatools types available for compilation but loaded via custom classloader at runtime
     compileOnly(libs.javatools)
+    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:${libs.versions.lang.kotlin.get()}")
     testImplementation(libs.junit.jupiter)
 }
 

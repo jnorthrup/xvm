@@ -267,6 +267,9 @@ public class XtcProjectDelegate {
         javaExtension.getToolchain().getLanguageVersion().set(JavaLanguageVersion.of(jdkVersion));
         logger.info("[plugin] Configured Java toolchain to JDK {} (from plugin build-info)", jdkVersion);
 
+        // Enable mixed Java/Kotlin donor lanes through the project macro.
+        pluginManager.apply("org.jetbrains.kotlin.jvm");
+
         // At the moment we piggyback on the extended build LifeCycle provided
         // by the JavaPlugin, as well as the source sets, and other things that
         // should really be language independent in Gradle, but arent (yet).

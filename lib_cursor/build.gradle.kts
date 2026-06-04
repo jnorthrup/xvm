@@ -1,3 +1,7 @@
+import org.gradle.api.provider.Provider
+import org.gradle.api.tasks.Input
+import org.gradle.process.CommandLineArgumentProvider
+
 plugins {
     kotlin("jvm") version "2.3.21"
     id("application")
@@ -15,6 +19,15 @@ repositories {
 
 // javatools on classpath so KSP resolver can see org.xvm.asm.* types
 val javatoolsJar = layout.projectDirectory.file("../javatools/build/libs/javatools-0.4.4-SNAPSHOT.jar")
+
+private class PointcutVmXdkLibDirProvider(
+    private val xdkLibDir: Provider<String>
+) : CommandLineArgumentProvider {
+    @get:Input
+    val snapshot: String get() = xdkLibDir.get()
+
+    override fun asArguments(): Iterable<String> = listOf("-DpointcutVm.xdkLibDir=$snapshot")
+}
 
 dependencies {
     // TrikeShed JVM artifact from mavenLocal (published by TrikeShed's publishToMavenLocal)
@@ -45,19 +58,20 @@ val unpackPointcutVmJavatools by tasks.registering(Sync::class) {
     into(pointcutVmJavatoolsDir)
 }
 
-val xdkInstallDir = layout.projectDirectory.file("../xdk/build/install/xdk/lib")
+val xdkInstallDir = layout.projectDirectory.dir("../xdk/build/install/xdk/lib")
+val pointcutVmXdkLibDir = providers.provider {
+    val dir = xdkInstallDir.asFile
+    if (dir.isDirectory) dir.absolutePath else ""
+}
 
 tasks.test {
     useJUnitPlatform()
     failOnNoDiscoveredTests.set(false)
     dependsOn(unpackPointcutVmJavatools)
-    // Wire xdk:installDist so ecstasy.xtc is present before the firehose test runs.
-    // lib_cursor is a composite included by the root, so we traverse parent to reach xdk.
-    gradle.parent?.let { root ->
-        dependsOn(root.includedBuild("xdk").task(":installDist"))
-    }
+    // Do not force the full xdk install into every lib_cursor test run.
+    // XVM-backed tests already skip when the installed artifacts are absent.
     systemProperty("pointcutVm.javatoolsDir", pointcutVmJavatoolsDir.get().asFile.absolutePath)
-    systemProperty("pointcutVm.xdkLibDir", xdkInstallDir.asFile.absolutePath)
+    jvmArgumentProviders.add(PointcutVmXdkLibDirProvider(pointcutVmXdkLibDir))
     classpath = files(pointcutVmJavatoolsDir) + classpath
 }
 

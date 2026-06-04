@@ -55,6 +55,21 @@ public class SimpleXtcPluginTest {
     }
 
     @Test
+    public void verifyXtcProjectPluginEnablesJavaAndKotlinMacros() {
+        final Project project = newProject("verifyXtcProjectPluginEnablesJavaAndKotlinMacros");
+        final var pluginManager = project.getPluginManager();
+        pluginManager.apply(org.gradle.api.plugins.JavaBasePlugin.class);
+        pluginManager.apply(XtcPlugin.XtcProjectPlugin.class);
+
+        assertTrue(pluginManager.hasPlugin("org.jetbrains.kotlin.jvm"),
+            "xtc project macro should apply the Kotlin JVM plugin");
+        assertNotNull(project.getTasks().findByName("compileJava"),
+            "xtc project macro should expose Java compilation");
+        assertNotNull(project.getTasks().findByName("compileKotlin"),
+            "xtc project macro should expose Kotlin compilation");
+    }
+
+    @Test
     public void verifyTestSourceSetCompilationDependsOnMainOutputAndTestsDependOnCompilation() {
         final Project project = newProject("verifyTestSourceSetCompilationDependsOnMainOutputAndTestsDependOnCompilation");
         final var pluginManager = project.getPluginManager();
