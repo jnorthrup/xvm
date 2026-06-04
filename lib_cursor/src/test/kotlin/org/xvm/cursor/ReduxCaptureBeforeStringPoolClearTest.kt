@@ -7,11 +7,11 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
 /**
- * TDD RED: Redux capture at test-end before stringpool clear
+ * TDD RED: event-log capture at test-end before stringpool clear
  *
  * Full xvm gradle testsuite should:
- *   - Capture ReduxMutableSeries state at end of each test
- *   - Preserve reified records before clearing StringPool
+ *   - Capture typedef event log at end of each test
+ *   - Preserve recorded events before clearing StringPool
  *   - Produce significant dump size and counters
  *
  * This test demonstrates the required harness behavior.
@@ -26,19 +26,19 @@ class ReduxCaptureBeforeStringPoolClearTest {
         captureLog = mutableListOf()
         capturedRecords = null
         StringPool.clear()
-        TypedefResolutionSeries.drain()
+        TypedefResolutionSeries.reset()
     }
 
     @AfterEach
     fun teardown() {
-        // Capture ReduxMutableSeries state BEFORE clearing StringPool
+        // Capture typedef event log BEFORE clearing StringPool
         capturedRecords = captureReduxBeforeClear()
 
         // Now clear the StringPool
         StringPool.clear()
 
         // Verify the captured records are preserved
-        assertTrue(capturedRecords != null, "Redux state must be captured before pool clear")
+        assertTrue(capturedRecords != null, "Event log must be captured before pool clear")
         assertTrue(capturedRecords!!.isNotEmpty() || capturedRecords!!.isEmpty(),
             "Capture happened (empty is valid — just proving the capture ran)")
 
@@ -51,20 +51,18 @@ class ReduxCaptureBeforeStringPoolClearTest {
     }
 
     @Test
-    fun `capture redux state preserves reified records at end of test`() {
+    fun `capture event log preserves recorded events at end of test`() {
         // Record some facts into TypedefResolutionSeries
         val poolId = StringPool.intern("ReduxCapturePool")
-        val factId1 = TypedefResolutionSeries.record(poolId, 0, "pkg.Test1", "format1", true)
-        val factId2 = TypedefResolutionSeries.record(poolId, 1, "pkg.Test2", "format2", true)
-        val factId3 = TypedefResolutionSeries.record(poolId, 2, "pkg.Test3", "format3", false)
+        TypedefResolutionSeries.record(poolId, 0, "pkg.Test1", "format1", true)
+        TypedefResolutionSeries.record(poolId, 1, "pkg.Test2", "format2", true)
+        TypedefResolutionSeries.record(poolId, 2, "pkg.Test3", "format3", false)
 
         // Drain WAL to ensure all facts are in the Redux journal
         TypedefResolutionSeries.drain()
 
-        // The @AfterEach captures and then clears
-        assertTrue(capturedRecords != null)
-        // At least 3 records should be captured
-        assertTrue(capturedRecords!!.size >= 3, "Should capture at least 3 reified records")
+        val captured = captureReduxBeforeClear()
+        assertEquals(3, captured.size, "Should capture exactly 3 recorded events")
     }
 
     @Test
@@ -98,20 +96,21 @@ class ReduxCaptureBeforeStringPoolClearTest {
     }
 
     @Test
-    fun `reverted facts are excluded from capture`() {
+    fun `revert is captured as an event`() {
         val poolId = StringPool.intern("RevertedPool")
 
         // Record and then revert some facts
         val factId = TypedefResolutionSeries.record(poolId, 0, "pkg.Rev", "format", true)
         TypedefResolutionSeries.drain()
 
-        // Revert the fact — it should NOT appear in capture
+        // Revert the fact — event log should capture the revert event too
         TypedefResolutionSeries.revert(factId)
         TypedefResolutionSeries.drain()
 
         val records = captureReduxBeforeClear()
-        val revertedInCapture = records.filter { it.factId == factId }
-        assertTrue(revertedInCapture.isEmpty(), "Reverted fact must not appear in capture")
+        val revertedInCapture = records.filter { it.factId == factId && it.isReverted }
+        assertEquals(1, revertedInCapture.size, "Revert must appear as a distinct event")
+        assertEquals(2, records.size, "Record plus revert should both be present in raw event capture")
     }
 
     @Test
@@ -130,52 +129,14 @@ class ReduxCaptureBeforeStringPoolClearTest {
     }
 
     /**
-     * Captures the current ReduxMutableSeries state.
+     * Captures the current typedef event log.
      * Called at end of test BEFORE StringPool.clear().
      *
      * This is the core harness behavior required by the TODO.
      */
     private fun captureReduxBeforeClear(): List<TypedefFact> {
-        TypedefResolutionSeries.drain() // Flush WAL rings
-        val state = TypedefResolutionSeries.metaSeries()
-        // state is the ReduxMutableSeries — access its captured Map<Long, TypedefFact>
-        val journal = state as? borg.trikeshed.lib.ReduxMutableSeries<TypedefFact, *>
-            ?: error("metaSeries() must return ReduxMutableSeries")
-
-        // The captured state is in the journal's .state property
-        // We need to access the reduced Map<Long, TypedefFact>
-        // For now, use toRowVec() which gives us the serialized form
-        val rowVec = TypedefResolutionSeries.toRowVec()
-        captureLog.add("captured: $rowVec")
-
-        // Parse rowVec back to List<TypedefFact>
-        return parseRowVecToFacts(rowVec)
-    }
-
-    private fun parseRowVecToFacts(rowVec: String): List<TypedefFact> {
-        if (rowVec.isEmpty()) return emptyList()
-        val parts = rowVec.split("|")
-        if (parts.size < 2) return emptyList()
-        val factIds = parts[0].split(",").mapNotNull { it.toLongOrNull() }
-        val cells = parts[1]
-        val facts = mutableListOf<TypedefFact>()
-        val cellEntries = cells.split(";")
-        for (i in cellEntries.indices) {
-            if (i >= factIds.size) break
-            val fields = cellEntries[i].split(",")
-            if (fields.size >= 5) {
-                val nanoVal = if (fields.size >= 6) fields[5].toLongOrNull() ?: 0L else 0L
-                facts.add(TypedefFact(
-                    factId = factIds[i],
-                    nano = nanoVal,
-                    poolId = fields[0].toIntOrNull() ?: 0,
-                    siteOrd = fields[1].toIntOrNull() ?: 0,
-                    clsName = fields[2],
-                    format = fields[3],
-                    success = fields[4].toBooleanStrictOrNull() ?: true
-                ))
-            }
-        }
+        val facts = TypedefResolutionSeries.snapshotEvents()
+        captureLog.add("captured ${facts.size} facts")
         return facts
     }
 

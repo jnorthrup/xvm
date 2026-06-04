@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.xvm.runtime.VmPointcutPublisher
+import java.nio.file.Files
 
 /**
  * Firehose harness: watch all VmPointcutPublisher mutable state via a
@@ -157,6 +158,28 @@ class PointcutFirehoseTest {
             assertEquals(i, evt.seq, "wire seq at $i")
             assertEquals(i * 3, evt.addr, "wire addr at $i")
         }
+    }
+
+    @Test
+    fun `firehose writes tmpdir isam journal with partition groups`() {
+        val n = 256
+        val harness = PointcutHarness()
+        harness.subscribe()
+        VmPointcutPublisher.active = true
+        repeat(n) { i -> VmPointcutPublisher.publish(0x10 + (i and 0x0F), "pkg.Fire.tmp", i * 7) }
+        VmPointcutPublisher.active = false
+        harness.flush()
+
+        val dir = Files.createTempDirectory("pointcut-firehose-isam-")
+        val dataFile = harness.writeTmpDirJournal(dir)
+        val metaFile = dataFile.resolveSibling(dataFile.fileName.toString() + ".meta")
+        val metaLines = Files.readAllLines(metaFile)
+
+        assertTrue(Files.exists(dataFile), "ISAM data file must exist in tmpdir")
+        assertTrue(Files.exists(metaFile), "ISAM meta file must exist in tmpdir")
+        assertTrue(metaLines.last().contains("0:bytes"), "partition groups must include byte lane")
+        assertTrue(metaLines.last().contains("1-3:ints"), "partition groups must include int lane")
+        assertEquals(n.toLong() * 21L, Files.size(dataFile), "ISAM row width must match grouped firehose schema")
     }
 
     // ── reify / state ───────────────────────────────────────────────────

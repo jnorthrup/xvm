@@ -1,13 +1,24 @@
 package org.xvm.cursor
 
+import borg.trikeshed.cursor.ColumnMeta
+import borg.trikeshed.cursor.RowVec
+import borg.trikeshed.isam.IsamDataFile
+import borg.trikeshed.isam.RecordMeta
+import borg.trikeshed.isam.meta.IOMemento
 import borg.trikeshed.lib.CollectorReducer
+import borg.trikeshed.lib.Join
 import borg.trikeshed.lib.MutableSeries
 import borg.trikeshed.lib.ReduxMutableSeries
 import borg.trikeshed.lib.Series
+import borg.trikeshed.lib.j
+import borg.trikeshed.lib.joins
+import borg.trikeshed.userspace.nio.file.spi.JvmFileOperations
 import org.xvm.runtime.VmPointcutPublisher
 import org.xvm.runtime.VmPointcutPublisher.PointcutEvent
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
+import java.nio.file.Files
+import java.nio.file.Path
 
 /**
  * Firehose harness: wraps VmPointcutPublisher with a ReduxMutableSeries journal
@@ -81,6 +92,13 @@ class PointcutHarness {
 
     fun reify(): Series<PointcutEvent> = series.reify()
 
+    fun writeTmpDirJournal(outputDir: Path): Path {
+        Files.createDirectories(outputDir)
+        val dataFile = outputDir.resolve("vm_firehose.bin")
+        IsamDataFile.write(journalCursor(), dataFile.toString(), emptyMap(), JvmFileOperations())
+        return dataFile
+    }
+
     fun drainToWireproto(): ByteBuffer {
         val sz = capturedCount()
         val buf = ByteBuffer.allocate(sz * RECORD_SIZE).order(ByteOrder.LITTLE_ENDIAN)
@@ -108,6 +126,34 @@ class PointcutHarness {
     }
 
     companion object {
+        private val OPCODE_META = RecordMeta("opcode", IOMemento.IoByte, groupId = 0, groupName = "bytes")
+        private val METHOD_IDX_META = RecordMeta("method_idx", IOMemento.IoInt, groupId = 1, groupName = "ints")
+        private val ADDR_META = RecordMeta("addr", IOMemento.IoInt, groupId = 1, groupName = "ints")
+        private val SEQ_META = RecordMeta("seq", IOMemento.IoInt, groupId = 1, groupName = "ints")
+        private val NANO_META = RecordMeta("nano", IOMemento.IoLong, groupId = 2, groupName = "2")
+        private val ISAM_METAS = listOf(OPCODE_META, METHOD_IDX_META, ADDR_META, SEQ_META, NANO_META)
+
         const val RECORD_SIZE: Int = VmPointcutPublisher.RECORD_SIZE
+    }
+
+    private fun journalCursor(): Join<Int, (Int) -> RowVec> {
+        val n = journal.a
+        return n j { row: Int ->
+            val evt = journal.b(row)
+            val values: Series<Any?> = ISAM_METAS.size j { col: Int ->
+                when (col) {
+                    0 -> evt.opcode.toByte()
+                    1 -> evt.methodIdx
+                    2 -> evt.addr
+                    3 -> evt.seq
+                    4 -> evt.nano
+                    else -> throw IndexOutOfBoundsException(col)
+                }
+            }
+            val metas: Series<() -> ColumnMeta> = ISAM_METAS.size j { col: Int ->
+                { -> ISAM_METAS[col] }
+            }
+            values joins metas
+        }
     }
 }

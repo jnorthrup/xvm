@@ -6,12 +6,12 @@ import borg.trikeshed.lib.ReduxMutableSeries
 import borg.trikeshed.lib.view
 
 /**
- * Cold WAL flow for typedef resolution events.
+ * Cold event log for typedef resolution events.
  *
- * Pipeline:
- *   ChunkedMutableSeries (front-line)
- *     → JournalSeries (WAL rings, RING_SIZE entries each)
- *       → ReduxMutableSeries (cold cursor, journal replay)
+ * frontLine is the event journal.
+ * WAL rings are transient buffers only.
+ * ReduxMutableSeries is exposed as a cold wrapper over the same event log,
+ * but capture APIs below dump raw events rather than reducer-derived state.
  */
 data class TypedefFact(
     val factId: Long,
@@ -50,8 +50,8 @@ object TypedefResolutionSeries {
 
     private val nextFactId = java.util.concurrent.atomic.AtomicLong(0)
     private val factIndex = java.util.concurrent.ConcurrentHashMap<Long, TypedefFact>()
-    private val frontLine = ChunkedMutableSeries<TypedefFact>(chunkSize = RING_SIZE)
-    private val walRings = Array(RING_COUNT) { ChunkedMutableSeries<TypedefFact>(chunkSize = RING_SIZE) }
+    private var frontLine = ChunkedMutableSeries<TypedefFact>(chunkSize = RING_SIZE)
+    private var walRings = Array(RING_COUNT) { ChunkedMutableSeries<TypedefFact>(chunkSize = RING_SIZE) }
     private val walIndex = java.util.concurrent.atomic.AtomicInteger(0)
 
     private object TypedefReducer : Reducer<TypedefFact, Map<Long, TypedefFact>> {
@@ -67,12 +67,15 @@ object TypedefResolutionSeries {
         }
     }
 
-    @get:JvmName("journal")
-    val journal = ReduxMutableSeries<TypedefFact, Map<Long, TypedefFact>>(
+    private fun newJournal() = ReduxMutableSeries<TypedefFact, Map<Long, TypedefFact>>(
         eventJournal = frontLine,
         reducer = TypedefReducer,
         capture = TypedefFact(-1L, 0L, 0, 0, "", "", false, false)
     )
+
+    @get:JvmName("journal")
+    var journal = newJournal()
+        private set
 
     // ── Accessors ──────────────────────────────────────────────────────────
 
@@ -97,8 +100,6 @@ object TypedefResolutionSeries {
     private fun flushWalRing() {
         val idx = walIndex.getAndIncrement() % RING_COUNT
         val ring = walRings[idx]
-        for (item in ring.view)
-            journal.add(item)
         ring.clear()
     }
 
@@ -162,9 +163,6 @@ object TypedefResolutionSeries {
             val ringSize = ring.a
             if (ringSize > 0) {
                 count += ringSize
-                for (item in ring.view) {
-                    journal.add(item)
-                }
                 ring.clear()
             }
         }
@@ -174,19 +172,17 @@ object TypedefResolutionSeries {
     @JvmStatic
     fun size(): Int {
         drain()
-        return journal.state.size
+        return frontLine.a
     }
 
     @JvmStatic
     fun reset() {
         nextFactId.set(0)
         factIndex.clear()
-        frontLine.clear()
-        for (ring in walRings) {
-            ring.clear()
-        }
+        frontLine = ChunkedMutableSeries(chunkSize = RING_SIZE)
+        walRings = Array(RING_COUNT) { ChunkedMutableSeries(chunkSize = RING_SIZE) }
         walIndex.set(0)
-        journal.clear()
+        journal = newJournal()
     }
 
     @JvmStatic
@@ -195,11 +191,20 @@ object TypedefResolutionSeries {
     }
 
     @JvmStatic
-    fun toRowVec(): String {
+    fun snapshotEvents(): List<TypedefFact> {
         drain()
-        val activeFacts = journal.state.values.toList().sortedBy { it.factId }
-        val keys = activeFacts.map { it.factId }.joinToString(",")
-        val cells = activeFacts.joinToString(";") {
+        return frontLine.view
+            .map { it.copy() }
+    }
+
+    @JvmStatic
+    fun snapshotFacts(): List<TypedefFact> = snapshotEvents()
+
+    @JvmStatic
+    fun toRowVec(): String {
+        val events = snapshotEvents()
+        val keys = events.map { it.factId }.joinToString(",")
+        val cells = events.joinToString(";") {
             "${it.poolId},${it.siteOrd},${it.clsName},${it.format},${it.success},${it.nano}"
         }
         return "$keys|$cells"
