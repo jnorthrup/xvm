@@ -45,11 +45,19 @@ val unpackPointcutVmJavatools by tasks.registering(Sync::class) {
     into(pointcutVmJavatoolsDir)
 }
 
+val xdkInstallDir = layout.projectDirectory.file("../xdk/build/install/xdk/lib")
+
 tasks.test {
     useJUnitPlatform()
     failOnNoDiscoveredTests.set(false)
     dependsOn(unpackPointcutVmJavatools)
+    // Wire xdk:installDist so ecstasy.xtc is present before the firehose test runs.
+    // lib_cursor is a composite included by the root, so we traverse parent to reach xdk.
+    gradle.parent?.let { root ->
+        dependsOn(root.includedBuild("xdk").task(":installDist"))
+    }
     systemProperty("pointcutVm.javatoolsDir", pointcutVmJavatoolsDir.get().asFile.absolutePath)
+    systemProperty("pointcutVm.xdkLibDir", xdkInstallDir.asFile.absolutePath)
     classpath = files(pointcutVmJavatoolsDir) + classpath
 }
 

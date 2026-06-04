@@ -14,6 +14,7 @@ import borg.trikeshed.lib.get
 import borg.trikeshed.parse.confix.emptyCursor
 import borg.trikeshed.parse.confix.widenNode
 import borg.trikeshed.parse.confix.FacetDescriptor
+import borg.trikeshed.parse.confix.saxWalk
 
 /**
  * ClassFileTaxonomy — Confix-based Facetted ClassFile browse/registry.
@@ -86,6 +87,38 @@ class ClassFileTaxonomy {
             if (row.ownerType == owner) sub.register(row)
         }
         return sub
+    }
+
+    fun toBlackboardEntries(): List<borg.trikeshed.parse.confix.BlackBoardEntry> {
+        val list = mutableListOf<borg.trikeshed.parse.confix.BlackBoardEntry>()
+        for (i in 0 until rows.size) {
+            val r = rows[i]
+            val json = """
+                {
+                  "symbolName": "${r.symbolName}",
+                  "ownerType": "${r.ownerType}",
+                  "methodOrField": "${r.methodOrField}",
+                  "classfileCoord": "${r.classfileCoord}",
+                  "cpIndex": ${r.cpIndex},
+                  "descriptor": "${r.descriptor}",
+                  "xvmTypeInfo": "${r.xvmTypeInfo}",
+                  "pointcutKind": ${r.pointcutKind},
+                  "poolId": ${r.poolId}
+                }
+            """.trimIndent()
+            val doc = borg.trikeshed.parse.confix.confixDoc(json)
+            list.add(borg.trikeshed.parse.confix.BlackBoardEntry(doc, borg.trikeshed.parse.confix.ConfixRole.OBSERVATION))
+        }
+        return list
+    }
+
+    fun emitSaxEvents(consumer: java.util.function.Consumer<borg.trikeshed.parse.confix.SaxEvent>) {
+        val docList = toBlackboardEntries()
+        for (entry in docList) {
+            entry.doc.a.saxWalk { event ->
+                consumer.accept(event)
+            }
+        }
     }
 
     // ── Cursor projection ─────────────────────────────────────────────────

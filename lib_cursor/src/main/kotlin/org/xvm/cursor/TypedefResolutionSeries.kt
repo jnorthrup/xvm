@@ -178,6 +178,18 @@ object TypedefResolutionSeries {
     }
 
     @JvmStatic
+    fun reset() {
+        nextFactId.set(0)
+        factIndex.clear()
+        frontLine.clear()
+        for (ring in walRings) {
+            ring.clear()
+        }
+        walIndex.set(0)
+        journal.clear()
+    }
+
+    @JvmStatic
     fun metaSeries(): Any {
         return journal
     }
@@ -187,8 +199,8 @@ object TypedefResolutionSeries {
         drain()
         val activeFacts = journal.state.values.toList().sortedBy { it.factId }
         val keys = activeFacts.map { it.factId }.joinToString(",")
-        val cells = activeFacts.joinToString("|") {
-            "${it.poolId},${it.siteOrd},${it.clsName},${it.format},${it.success}"
+        val cells = activeFacts.joinToString(";") {
+            "${it.poolId},${it.siteOrd},${it.clsName},${it.format},${it.success},${it.nano}"
         }
         return "$keys|$cells"
     }

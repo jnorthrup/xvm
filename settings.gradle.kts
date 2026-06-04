@@ -61,7 +61,7 @@ develocity {
  * TrikeShed composite build — disabled; lib_cursor uses mavenLocal() artifact
  * via org.bereft:TrikeShed-jvm:1.0.  Enable only when building TrikeShed locally.
  */
-//includeBuild("../TrikeShed")
+includeBuild("../TrikeShed")
 
 /**
  * Core XVM builds - always included.

@@ -6,6 +6,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.xvm.tool.Console;
 import org.xvm.tool.Launcher;
 import org.xvm.tool.Launcher.LauncherException;
+import org.xvm.tool.LauncherOptions.RunnerOptions;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
@@ -133,10 +134,25 @@ public class VmPointcutFirehoseTest {
 
     // ─── helpers ───────────────────────────────────────────────────────────────
 
+    private static RunnerOptions optionsFor(java.nio.file.Path moduleFile) {
+        var builder = new RunnerOptions.Builder()
+                .setTarget(moduleFile.toFile());
+        var xdkLib = System.getProperty("pointcutVm.xdkLibDir");
+        if (xdkLib != null && !xdkLib.isBlank()) {
+            builder.addModulePath(xdkLib);
+            // javatools/ sibling contains javatools_turtle.xtc (mack.xtclang.org)
+            builder.addModulePath(java.nio.file.Path.of(xdkLib).resolveSibling("javatools").toString());
+        }
+        // Add the directory containing the source so the compiled .xtc is
+        // resolvable by its domain-qualified name (e.g. Warmup.mack.xtclang.org).
+        builder.addModulePath(moduleFile.getParent().toString());
+        return builder.build();
+    }
+
     /** Warmup: run a module to trigger VM JIT compilation */
     private void warmupModule(String moduleSrc) throws Exception {
-        var file = tempDir.resolve("Warmup.x").toFile();
-        java.nio.file.Files.writeString(file.toPath(), moduleSrc);
+        var file = tempDir.resolve("Warmup.x");
+        java.nio.file.Files.writeString(file, moduleSrc);
         Console console = new Console() {
             @Override
             public String out(Object o) {
@@ -144,16 +160,16 @@ public class VmPointcutFirehoseTest {
             }
         };
         try {
-            Launcher.launch(Launcher.CMD_RUN, new String[] { file.getAbsolutePath() }, console, null);
+            Launcher.launch(optionsFor(file), console, null);
         } catch (LauncherException e) {
             /* ignore */ }
         System.out.println("[VmPointcutFirehoseTest] warmup module ran");
     }
 
     private String runModule(String moduleSrc) throws Exception {
-        var file = tempDir.resolve("Test.x").toFile();
-        java.nio.file.Files.writeString(file.toPath(), moduleSrc);
-        StringBuilder sb = new StringBuilder();
+        var file = tempDir.resolve("Test.x");
+        java.nio.file.Files.writeString(file, moduleSrc);
+        var sb = new StringBuilder();
         Console console = new Console() {
             @Override
             public String out(Object o) {
@@ -163,7 +179,7 @@ public class VmPointcutFirehoseTest {
             }
         };
         try {
-            Launcher.launch(Launcher.CMD_RUN, new String[] { file.getAbsolutePath() }, console, null);
+            Launcher.launch(optionsFor(file), console, null);
         } catch (LauncherException e) {
             /* ignore */ }
         System.out.println("[VmPointcutFirehoseTest] module output: [" + sb + "]");

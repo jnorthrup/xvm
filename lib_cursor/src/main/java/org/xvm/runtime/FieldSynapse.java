@@ -17,15 +17,31 @@ public final class FieldSynapse {
     public static final int RECORD_SIZE = 24;
     public static final int SLAB_SIZE = RING_CAP;
 
-    private static final int TPL_BEFORE_GET = VmPointcutPublisher.pool().intern("BEFORE %s.%s @ %d");
-    private static final int TPL_AFTER_GET  = VmPointcutPublisher.pool().intern("AFTER  %s.%s @ %d →");
-    private static final int TPL_BEFORE_SET = VmPointcutPublisher.pool().intern("BEFORE %s.%s @ %d =");
-    private static final int TPL_AFTER_SET  = VmPointcutPublisher.pool().intern("AFTER  %s.%s @ %d ←");
+    private static int TPL_BEFORE_GET;
+    private static int TPL_AFTER_GET;
+    private static int TPL_BEFORE_SET;
+    private static int TPL_AFTER_SET;
 
-    private static final int OP_L_GET = VmPointcutPublisher.pool().intern("L_GET");
-    private static final int OP_L_SET = VmPointcutPublisher.pool().intern("L_SET");
-    private static final int OP_P_GET = VmPointcutPublisher.pool().intern("P_GET");
-    private static final int OP_P_SET = VmPointcutPublisher.pool().intern("P_SET");
+    private static int OP_L_GET;
+    private static int OP_L_SET;
+    private static int OP_P_GET;
+    private static int OP_P_SET;
+
+    private static void initTemplates() {
+        TPL_BEFORE_GET = VmPointcutPublisher.pool().intern("BEFORE %s.%s @ %d");
+        TPL_AFTER_GET  = VmPointcutPublisher.pool().intern("AFTER  %s.%s @ %d →");
+        TPL_BEFORE_SET = VmPointcutPublisher.pool().intern("BEFORE %s.%s @ %d =");
+        TPL_AFTER_SET  = VmPointcutPublisher.pool().intern("AFTER  %s.%s @ %d ←");
+
+        OP_L_GET = VmPointcutPublisher.pool().intern("L_GET");
+        OP_L_SET = VmPointcutPublisher.pool().intern("L_SET");
+        OP_P_GET = VmPointcutPublisher.pool().intern("P_GET");
+        OP_P_SET = VmPointcutPublisher.pool().intern("P_SET");
+    }
+
+    static {
+        initTemplates();
+    }
 
     private static int opcodePoolIdx(int opcode) {
         return switch (opcode & 0xFF) {
@@ -39,6 +55,8 @@ public final class FieldSynapse {
 
     private static final RingSeries<FieldSynapse> RING =
             new RingSeries<>(RING_CAP, (EvictionListener<FieldSynapse>) evt -> {});
+
+    private static final java.util.ArrayList<FieldSynapse> EVENTS = new java.util.ArrayList<>(RING_CAP);
 
     private static final AtomicInteger SEQ = new AtomicInteger();
     public static volatile boolean active = false;
@@ -88,7 +106,7 @@ public final class FieldSynapse {
         int csh = callsiteHash(opcode, methodIdx, addr);
         long nano = System.nanoTime();
 
-        RING.add(new FieldSynapse(
+        FieldSynapse evt = new FieldSynapse(
                 (byte) (isAfter ? 1 : 0),
                 (byte) opcode,
                 methodIdx,
@@ -97,7 +115,12 @@ public final class FieldSynapse {
                 nano,
                 csh,
                 tplIdx
-        ));
+        );
+
+        synchronized (EVENTS) {
+            RING.add(evt);
+            EVENTS.add(evt);
+        }
 
         if (RING.getA() == SLAB_SIZE) {
             flush("fire");
@@ -105,29 +128,46 @@ public final class FieldSynapse {
     }
 
     public static void flush(String reason) {
-        int count = RING.getA();
-        if (count == 0) return;
-
-        RING.clear();
+        int count;
+        synchronized (EVENTS) {
+            count = RING.getA();
+            if (count == 0) return;
+            RING.clear();
+        }
 
         long epoch = slabEpoch++;
         PointcutObservation.publish(PointcutObservation.Source.FIELD, count, epoch);
     }
 
     public static void timeoutFlush() {
-        int count = RING.getA();
+        int count;
+        synchronized (EVENTS) {
+            count = RING.getA();
+        }
         if (count > 0 && count < SLAB_SIZE) {
             flush("timeout");
         }
     }
 
-    public static int size() { return RING.getA(); }
-    public static FieldSynapse peek(int i) { return RING.getB().invoke(i); }
+    public static int size() {
+        synchronized (EVENTS) {
+            return EVENTS.size();
+        }
+    }
+
+    public static FieldSynapse peek(int i) {
+        synchronized (EVENTS) {
+            return EVENTS.get(i);
+        }
+    }
 
     public static void drain(Consumer<FieldSynapse> consumer) {
-        int sz = size();
-        for (int i = 0; i < sz; i++) {
-            consumer.accept(RING.getB().invoke(i));
+        int sz;
+        synchronized (EVENTS) {
+            sz = EVENTS.size();
+            for (int i = 0; i < sz; i++) {
+                consumer.accept(EVENTS.get(i));
+            }
         }
     }
 
@@ -146,7 +186,7 @@ public final class FieldSynapse {
     public static int wireprotoLength() { return size() * RECORD_SIZE; }
 
     public static void writeRecord(ByteBuffer target, int index) {
-        writeRecord(target, RING.getB().invoke(index));
+        writeRecord(target, peek(index));
     }
 
     private static void writeRecord(ByteBuffer target, FieldSynapse evt) {
@@ -161,10 +201,17 @@ public final class FieldSynapse {
     }
 
     public static ByteBuffer drainToWireproto() {
-        int sz = size();
+        int sz;
+        synchronized (EVENTS) {
+            sz = RING.getA();
+        }
         ByteBuffer buf = ByteBuffer.allocate(sz * RECORD_SIZE).order(ByteOrder.LITTLE_ENDIAN);
         for (int i = 0; i < sz; i++) {
-            writeRecord(buf, i);
+            FieldSynapse evt;
+            synchronized (EVENTS) {
+                evt = RING.getB().invoke(i);
+            }
+            writeRecord(buf, evt);
         }
         buf.flip();
         return buf;
@@ -190,8 +237,12 @@ public final class FieldSynapse {
 
     public static void reset() {
         active = false;
-        RING.clear();
+        synchronized (EVENTS) {
+            EVENTS.clear();
+            RING.clear();
+        }
         SEQ.set(0);
         slabEpoch = 0;
+        initTemplates();
     }
 }
