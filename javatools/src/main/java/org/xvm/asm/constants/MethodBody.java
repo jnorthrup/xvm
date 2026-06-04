@@ -335,6 +335,10 @@ public class MethodBody {
      * @return true iff this specifies the @Override annotation
      */
     public boolean isOverride() {
+        if (isUnion()) {
+            return getUnionLeft().getHead().isOverride() && getUnionRight().getHead().isOverride();
+        }
+
         return findAnnotation(pool().clzOverride()) != null;
     }
 
@@ -342,6 +346,10 @@ public class MethodBody {
      * @return true iff this method is native
      */
     public boolean isNative() {
+        if (isUnion()) {
+            return getUnionLeft().getHead().isNative() && getUnionRight().getHead().isNative();
+        }
+
         return m_impl == Implementation.Native;
     }
 
@@ -349,7 +357,13 @@ public class MethodBody {
      * Mark this body as native
      */
     public void markNative() {
-        m_impl = Implementation.Native;
+        if (isUnion()) {
+            getUnionLeft().getHead().markNative();
+            getUnionRight().getHead().markNative();
+        } else {
+            m_impl = Implementation.Native;
+        }
+
     }
 
     /**
@@ -410,6 +424,10 @@ public class MethodBody {
      * @return true if this method is known to call "super",the next body in the chain
      */
     public boolean usesSuper() {
+        if (isUnion()) {
+            return getUnionLeft().getHead().usesSuper() && getUnionRight().getHead().usesSuper();
+        }
+
         return m_impl == Implementation.Explicit && getMethodStructure().usesSuper();
     }
 
@@ -436,6 +454,9 @@ public class MethodBody {
             assert !structMethod.isAbstract();
             return !structMethod.usesSuper();
 
+        case Union:
+            return getUnionLeft().getHead().blocksSuper() || getUnionRight().getHead().blocksSuper();
+
         default:
             throw new IllegalStateException();
         }
@@ -446,6 +467,12 @@ public class MethodBody {
      *         method to
      */
     public PropertyConstant getPropertyConstant() {
+        if (isUnion()) {
+            PropertyConstant propLeft  = getUnionLeft().getHead().getPropertyConstant();
+            PropertyConstant propRight = getUnionRight().getHead().getPropertyConstant();
+            return propLeft != null && propRight != null && propLeft.equals(propRight) ? propLeft : null;
+        }
+
         return m_impl == Implementation.Delegating || m_impl == Implementation.Field
                 ? (PropertyConstant) m_target
                 : null;
@@ -465,6 +492,18 @@ public class MethodBody {
             if (intoInfo != null) {
                 return intoInfo.getHead().getNarrowingNestedIdentity();
             }
+        }
+
+        if (m_impl == Implementation.Union) {
+            Object nidLeft  = getUnionLeft().getHead().getNarrowingNestedIdentity();
+            Object nidRight = getUnionRight().getHead().getNarrowingNestedIdentity();
+            if (nidLeft == null) {
+                return nidRight;
+            }
+            if (nidRight == null) {
+                return nidLeft;
+            }
+            return nidLeft; // TODO GG or CP ???
         }
 
         return null;
@@ -494,6 +533,10 @@ public class MethodBody {
      * @return true iff this is an auto converting method
      */
     public boolean isAuto() {
+        if (isUnion()) {
+            return getUnionLeft().isAuto() && getUnionRight().isAuto();
+        }
+
         // all @Auto methods must have no required params and a single return value
         SignatureConstant sig       = m_id.getSignature();
         MethodStructure   struct    = getMethodStructure();
@@ -511,6 +554,10 @@ public class MethodBody {
         if (isInto()) {
             MethodInfo info = getIntoMethodInfo();
             return info != null && info.isOp();
+        }
+
+        if (isUnion()) {
+            return getUnionLeft().isOp() && getUnionRight().isOp();
         }
 
         return findAnnotation(pool().clzOp()) != null;
@@ -533,6 +580,10 @@ public class MethodBody {
 
         if (isInto()) {
             return getIntoMethodInfo().isOp(sName, sOp, cParams);
+        }
+
+        if (isUnion()) {
+            return getUnionLeft().isOp(sName, sOp, cParams) && getUnionRight().isOp(sName, sOp, cParams);
         }
 
         // there has to be an @Op annotation

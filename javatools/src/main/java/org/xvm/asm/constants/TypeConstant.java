@@ -6098,6 +6098,15 @@ public abstract class TypeConstant
         }
 
         ConstantPool pool = ConstantPool.getCurrentPool();
+        if (typeCtx instanceof UnionTypeConstant) { // TODO GG HACKHACK
+            if (this.containsAutoNarrowing(true) && typeBase.containsAutoNarrowing(true)) {
+                boolean fNew = isCovariantReturn(typeBase, pool.ensureIntersectionTypeConstant(
+                        typeCtx.getUnderlyingType(), typeCtx.getUnderlyingType2()));
+                if (fNew) {
+                    return true;
+                }
+            }
+        }
 
         TypeConstant typeThisR = this.containsAutoNarrowing(true)
                 ? this.resolveAutoNarrowing(pool, false, typeCtx, null)

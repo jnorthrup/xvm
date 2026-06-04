@@ -1676,6 +1676,11 @@ public class TypeInfo {
     public MethodInfo getMethodByNestedId(Object nid, boolean fRuntime) {
         ensureCaches();
 
+        // TODO remove
+        if (nid == null) {
+            int q=0;
+        }
+
         MethodInfo info = f_cacheByNid.get(nid);
         if (info != null) {
             return info;
@@ -2639,6 +2644,10 @@ public class TypeInfo {
         for (Entry<MethodConstant, MethodInfo> entry : f_mapMethods.entrySet()) {
             MethodConstant id     = entry.getKey();
             MethodInfo     method = entry.getValue();
+            if (method.getHead().isUnion() || method.getHead().isInto()) {
+                continue;
+            }
+
             if (method.isCapped()) {
                 if (getNarrowingMethod(method) == null) {
                     return method;

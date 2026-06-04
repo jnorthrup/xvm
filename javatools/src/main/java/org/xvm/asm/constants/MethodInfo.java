@@ -497,10 +497,18 @@ public class MethodInfo
             return null;
         }
 
-        if (m_aBody.length == 1 && m_aBody[0].isInto()) {
-            return setFromInto == null || setFromInto.contains(m_aBody[0].getIdentity().getClassIdentity())
-                    ? this
-                    : null;
+        if (m_aBody.length == 1) {
+            MethodBody head = m_aBody[0];
+            if (head.isInto()) {
+                return setFromInto == null || setFromInto.contains(m_aBody[0].getIdentity().getClassIdentity())
+                        ? this
+                        : null;
+            }
+
+            if (head.isUnion()) {
+                MethodBody into = new MethodBody(head.getIdentity(), head.getSignature(), Implementation.FromInto, this);
+                return new MethodInfo(new MethodBody[]{into}, f_nRank);
+            }
         }
 
         for (MethodBody body : m_aBody) {
@@ -763,6 +771,9 @@ public class MethodInfo
                 }
                 break;
 
+            case Union:
+                return body.getUnionLeft().isAbstract() || body.getUnionRight().isAbstract();
+
             case Declared:
                 cDeclParams  = Math.max(cDeclParams, body.getSignature().getParamCount());
                 cDeclReturns = Math.max(cDeclReturns, body.getSignature().getReturnCount());
@@ -968,6 +979,10 @@ public class MethodInfo
             return infoInto != null && infoInto.isCapped();
         }
 
+        if (impl == Implementation.Union) {
+            return head.getUnionLeft().isCapped() || head.getUnionRight().isCapped();
+        }
+
         return false;
     }
 
@@ -975,6 +990,11 @@ public class MethodInfo
      * @return true iff the method chain is delegating
      */
     public boolean isDelegating() {
+        MethodBody     head = getHead();
+        if (head.getImplementation() == Implementation.Union) {
+            return head.getUnionLeft().isDelegating() && head.getUnionRight().isDelegating();
+        }
+
         return getHead().getImplementation() == Implementation.Delegating;
     }
 
@@ -1293,6 +1313,10 @@ public class MethodInfo
      */
     public Access getAccess() {
         for (MethodBody body : m_aBody) {
+            if (body.isUnion()) {
+                return body.getUnionLeft().getAccess().minOf(body.getUnionRight().getAccess());
+            }
+
             MethodStructure struct = body.getMethodStructure();
             if (struct != null) {
                 return struct.getAccess();
