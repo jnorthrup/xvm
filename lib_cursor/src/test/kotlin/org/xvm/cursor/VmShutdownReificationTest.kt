@@ -53,16 +53,17 @@ class VmShutdownReificationTest {
         val exit = process.waitFor()
         assertTrue(exit == 0, "Helper failed with exit $exit:\n$output")
 
-        // Assert that the three CSV files were successfully written by the shutdown hook
-        val cascadeCsv = tempDir.resolve("cascade.csv").toFile()
-        val jointHistogramCsv = tempDir.resolve("joint_histogram.csv").toFile()
-        val tableDumpCsv = tempDir.resolve("table_dump.csv").toFile()
+        // Assert that the ISAM files were successfully written by the shutdown hook
+        val tableDumpBin = tempDir.resolve("table_dump.bin").toFile()
+        val cascadeBin = tempDir.resolve("cascade_leafscan.bin").toFile()
+        val cascadeMeta = tempDir.resolve("cascade_leafscan.bin.meta").toFile()
+        val jointHistBin = tempDir.resolve("joint_histogram.bin").toFile()
 
-        assertTrue(cascadeCsv.exists(), "Missing cascade.csv")
-        assertTrue(jointHistogramCsv.exists(), "Missing joint_histogram.csv")
-        assertTrue(tableDumpCsv.exists(), "Missing table_dump.csv")
+        assertTrue(cascadeBin.exists(), "Missing cascade_leafscan.bin")
+        assertTrue(cascadeMeta.exists(), "Missing cascade_leafscan.bin.meta")
+        assertTrue(jointHistBin.exists(), "Missing joint_histogram.bin")
+        assertTrue(tableDumpBin.exists(), "Missing table_dump.bin")
 
-        val lines = cascadeCsv.readLines()
-        assertTrue(lines.size >= 2, "cascade.csv should have header + data rows")
+        assertTrue(cascadeBin.length() > 0, "cascade_leafscan.bin must have data")
     }
 }

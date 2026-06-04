@@ -32,6 +32,8 @@ class ComplexCursorFacetTest {
         val cursor = tax.asCursor()
         assertTrue(cursor.size > 0)
 
+        val firstRow = cursor.rowAt(0)
+
         // Assert values and metadata on the row itself
         assertEquals(13, firstRow.a, "RowVec should have 13 columns (4 system + 9 data columns)")
         assertEquals("pkg.Complex.Node", firstRow.b(4).a, "symbolName value mismatch")
