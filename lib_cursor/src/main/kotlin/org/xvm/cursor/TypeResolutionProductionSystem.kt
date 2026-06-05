@@ -3,6 +3,7 @@ package org.xvm.cursor
 import borg.trikeshed.cursor.ColumnMeta
 import borg.trikeshed.cursor.IOMemento
 import borg.trikeshed.cursor.RowVec
+import borg.trikeshed.lib.ChunkedMutableSeries
 import borg.trikeshed.lib.Join
 import borg.trikeshed.lib.Series
 import borg.trikeshed.lib.j
@@ -29,6 +30,11 @@ import java.util.concurrent.atomic.AtomicLong
  *   - Tier 1 and 3 are thread-local (no synchronization)
  *   - Tier 2 mutations are recorded through TypedefResolutionSeries (journalled, WAL-ringed)
  *   - Every DSL coordination point transitions through record() before yielding
+ *
+ * PRELOAD table contract:
+ *   - table data is exposed as Series<T> = Join<Int, (Int) -> T>
+ *   - query results are live Series accessors over the table, not eager Lists
+ *   - Cursor views are lazy RowVec projections over those Series
  */
 object TypeResolutionProductionSystem {
 
@@ -63,7 +69,7 @@ object TypeResolutionProductionSystem {
             private set
 
         fun pushBranch(coordination: CoordinationPoint, typeArg: String, typeRequired: String) {
-            branchStack.addLast(BranchEntry(coordination, typeArg, typeRequired, System.nanoTime()))
+            branchStack.addLast(BranchEntry(coordination, typeArg, typeRequired, java.lang.System.nanoTime()))
             branchCount++
         }
 
@@ -100,6 +106,7 @@ object TypeResolutionProductionSystem {
      * Mutations are journalled through [TypedefResolutionSeries].
      */
     private val resolvedBindings = ConcurrentHashMap<Int, ResolvedBinding>()
+    private val bindingTable = ChunkedMutableSeries<ResolvedBinding>()
     private val bindingSeq = AtomicLong(0)
 
     data class ResolvedBinding(
@@ -110,6 +117,19 @@ object TypeResolutionProductionSystem {
         val resolvedTypePoolId: Int,
         val nano: Long,
     )
+
+    data class BindingQuery(
+        val coordination: CoordinationPoint? = null,
+        val poolId: Int? = null,
+        val resolvedTypePoolId: Int? = null,
+    ) {
+        fun matches(binding: ResolvedBinding): Boolean {
+            if (coordination != null && binding.coordination != coordination) return false
+            if (poolId != null && binding.poolId != poolId) return false
+            if (resolvedTypePoolId != null && binding.resolvedTypePoolId != resolvedTypePoolId) return false
+            return true
+        }
+    }
 
     /**
      * Record a successful type resolution into the pool context.
@@ -128,17 +148,19 @@ object TypeResolutionProductionSystem {
         resolvedTypePoolId: Int,
     ): Long {
         val bindingId = bindingSeq.getAndIncrement()
-        val nano = System.nanoTime()
+        val nano = java.lang.System.nanoTime()
 
         // Journal the event through the existing WAL infrastructure
         val factId = TypedefResolutionSeries.record(
             poolId, siteOrd, className, coordination.builderName, true
         )
 
-        // Cache the resolved binding
-        resolvedBindings[poolId] = ResolvedBinding(
+        val binding = ResolvedBinding(
             bindingId, poolId, coordination, resolvedTypeName, resolvedTypePoolId, nano
         )
+        // Cache the latest resolved binding by pool id, and append the full table log.
+        resolvedBindings[poolId] = binding
+        bindingTable.add(binding)
 
         return factId
     }
@@ -154,7 +176,28 @@ object TypeResolutionProductionSystem {
      */
     @JvmStatic
     fun bindingsByCoordination(coordination: CoordinationPoint): List<ResolvedBinding> =
-        resolvedBindings.values.filter { it.coordination == coordination }.sortedBy { it.bindingId }
+        materialize(queryBindings(BindingQuery(coordination = coordination)))
+
+    @JvmStatic
+    fun poolContextTable(): Series<ResolvedBinding> = liveSeries(
+        count = { bindingTable.a },
+        access = { idx -> bindingTable.b(idx) },
+    )
+
+    @JvmStatic
+    fun queryBindings(query: BindingQuery): Series<ResolvedBinding> = liveSeries(
+        count = { countBindings(query) },
+        access = { idx -> bindingAt(query, idx) },
+    )
+
+    @JvmStatic
+    fun queryCursor(query: BindingQuery): Cursor {
+        val bindings = queryBindings(query)
+        return liveSeries(
+            count = { bindings.a },
+            access = { idx -> bindingRowVec(bindings.b(idx)) },
+        )
+    }
 
     // ── Tier 3: Runtime Resolution (Thread-Local Frame) ───────────────────
 
@@ -168,7 +211,7 @@ object TypeResolutionProductionSystem {
             private set
 
         fun pushFrame(poolContextId: Int, invokerName: String) {
-            frameStack.addLast(FrameEntry(poolContextId, invokerName, System.nanoTime()))
+            frameStack.addLast(FrameEntry(poolContextId, invokerName, java.lang.System.nanoTime()))
             frameCount++
         }
 
@@ -210,11 +253,7 @@ object TypeResolutionProductionSystem {
      */
     @JvmStatic
     fun poolContextCursor(): Cursor {
-        val bindings = resolvedBindings.values.sortedBy { it.bindingId }
-        return bindings.size j { idx: Int ->
-            val b = bindings[idx]
-            bindingRowVec(b)
-        }
+        return queryCursor(BindingQuery())
     }
 
     /**
@@ -224,18 +263,15 @@ object TypeResolutionProductionSystem {
      */
     @JvmStatic
     fun poolTaxonomyJoin(taxonomy: ClassFileTaxonomy): Cursor {
-        val joined = mutableListOf<Pair<ResolvedBinding, ClassFileTaxonomy.CoordinateRow>>()
-        for (binding in resolvedBindings.values) {
-            val coordRow = taxonomy.lookupByPoolId(binding.poolId)
-            if (coordRow != null) {
-                joined.add(binding to coordRow)
-            }
-        }
-        joined.sortBy { it.first.bindingId }
-        return joined.size j { idx: Int ->
-            val (b, c) = joined[idx]
-            joinedRowVec(b, c)
-        }
+        return liveSeries(
+            count = { joinedCount(taxonomy) },
+            access = { idx ->
+                val b = joinedBindingAt(taxonomy, idx)
+                val c = taxonomy.lookupByPoolId(b.poolId)
+                    ?: error("taxonomy row disappeared for poolId=${b.poolId}")
+                joinedRowVec(b, c)
+            },
+        )
     }
 
     /**
@@ -244,14 +280,13 @@ object TypeResolutionProductionSystem {
      */
     @JvmStatic
     fun coordinationHistogram(): Cursor {
-        val counts = resolvedBindings.values.groupBy { it.coordination }
-        val entries = CoordinationPoint.entries.map { cp ->
-            Triple(cp.name, cp.builderName, counts[cp]?.size ?: 0)
-        }
-        return entries.size j { idx: Int ->
-            val (name, builder, count) = entries[idx]
-            histogramRowVec(name, builder, count)
-        }
+        return liveSeries(
+            count = { CoordinationPoint.entries.size },
+            access = { idx ->
+                val cp = CoordinationPoint.entries[idx]
+                histogramRowVec(cp.name, cp.builderName, countBindings(BindingQuery(coordination = cp)))
+            },
+        )
     }
 
     // ── Aggregate State ───────────────────────────────────────────────────
@@ -268,8 +303,10 @@ object TypeResolutionProductionSystem {
 
     @JvmStatic
     fun state(): State {
-        val counts = resolvedBindings.values.groupBy { it.coordination }
-            .mapValues { it.value.size }
+        val counts = LinkedHashMap<CoordinationPoint, Int>()
+        for (cp in CoordinationPoint.entries) {
+            counts[cp] = countBindings(BindingQuery(coordination = cp))
+        }
         return State(
             totalJournalFacts = TypedefResolutionSeries.size(),
             resolvedBindingCount = resolvedBindings.size,
@@ -303,11 +340,70 @@ object TypeResolutionProductionSystem {
     @JvmStatic
     fun reset() {
         resolvedBindings.clear()
+        bindingTable.clear()
         bindingSeq.set(0)
         TypedefResolutionSeries.reset()
         branchingContexts.get().clear()
         frameContexts.get().clear()
     }
+
+    // ── PRELOAD lazy query helpers ─────────────────────────────────────────
+
+    private fun countBindings(query: BindingQuery): Int {
+        val table = poolContextTable()
+        var count = 0
+        for (i in 0 until table.a) {
+            if (query.matches(table.b(i))) count++
+        }
+        return count
+    }
+
+    private fun bindingAt(query: BindingQuery, ordinal: Int): ResolvedBinding {
+        val table = poolContextTable()
+        var seen = 0
+        for (i in 0 until table.a) {
+            val binding = table.b(i)
+            if (query.matches(binding)) {
+                if (seen == ordinal) return binding
+                seen++
+            }
+        }
+        throw IndexOutOfBoundsException("binding query ordinal=$ordinal size=$seen")
+    }
+
+    private fun joinedCount(taxonomy: ClassFileTaxonomy): Int {
+        val table = poolContextTable()
+        var count = 0
+        for (i in 0 until table.a) {
+            val binding = table.b(i)
+            if (taxonomy.lookupByPoolId(binding.poolId) != null) count++
+        }
+        return count
+    }
+
+    private fun joinedBindingAt(taxonomy: ClassFileTaxonomy, ordinal: Int): ResolvedBinding {
+        val table = poolContextTable()
+        var seen = 0
+        for (i in 0 until table.a) {
+            val binding = table.b(i)
+            if (taxonomy.lookupByPoolId(binding.poolId) != null) {
+                if (seen == ordinal) return binding
+                seen++
+            }
+        }
+        throw IndexOutOfBoundsException("taxonomy join ordinal=$ordinal size=$seen")
+    }
+
+    private fun materialize(series: Series<ResolvedBinding>): List<ResolvedBinding> {
+        val out = ArrayList<ResolvedBinding>(series.a)
+        for (i in 0 until series.a) {
+            out.add(series.b(i))
+        }
+        return out
+    }
+
+    private fun <T> liveSeries(count: () -> Int, access: (Int) -> T): Series<T> =
+        LiveSeries(count, access)
 
     // ── RowVec Factories (private) ────────────────────────────────────────
 
@@ -372,3 +468,14 @@ object TypeResolutionProductionSystem {
  * Minimal local Join cell — avoids importing the full TrikeShed cell() factory.
  */
 private class LocalJoinCell<A, B>(override val a: A, override val b: B) : Join<A, B>
+
+/**
+ * Live PRELOAD Series. The size and accessor are both read at access time.
+ */
+private class LiveSeries<T>(
+    private val count: () -> Int,
+    private val access: (Int) -> T,
+) : Series<T> {
+    override val a: Int get() = count()
+    override val b: (Int) -> T get() = access
+}

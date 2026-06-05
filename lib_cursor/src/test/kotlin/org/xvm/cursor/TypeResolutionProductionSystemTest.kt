@@ -7,54 +7,33 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
 /**
- * TDD RED: TypeResolutionProductionSystem
+ * TypeResolutionProductionSystem side-by-side and PRELOAD table access tests.
  *
- * The system wraps TypedefResolutionSeries with live pointcut instrumentation,
- * correlating ClassFileTaxonomy coordinates to Redux journal entries.
- * Side-by-side comparison:
- *   - as-is: TypedefResolutionSeries (cold WAL, journal replay)
- *   - wip:   TypeResolutionProductionSystem (live correlation, faceted resolution)
- *
- * GREEN: TypeResolutionProductionSystem is present as a small WIP correlator.
- * The side-by-side test prints the cold Redux event count and the live WIP
- * correlation count for the same taxonomy row.
+ * PRELOAD contract used here:
+ *   Series<T> = Join<Int, (Int) -> T>
+ *   Cursor = Series<RowVec>
+ *   query first, indexed lazy access later.
  */
 class TypeResolutionProductionSystemTest {
 
     @BeforeEach
     fun reset() {
         StringPool.clear()
-        TypedefResolutionSeries.reset()
-    }
-
-    private fun loadSystem(): Any? = try {
-        Class.forName("org.xvm.cursor.TypeResolutionProductionSystem")
-            .getDeclaredConstructor()
-            .newInstance()
-    } catch (e: ClassNotFoundException) {
-        null
+        TypeResolutionProductionSystem.reset()
     }
 
     @Test
-    fun `system constructs and returns non-null state`() {
-        val system = loadSystem()
-        assertNotNull(system, "TypeResolutionProductionSystem class must exist (TODO: implement)")
+    fun `system object returns non-null state`() {
+        assertNotNull(TypeResolutionProductionSystem.state())
     }
 
     @Test
     fun `empty system has zero correlation count`() {
-        val system = loadSystem()
-        assertNotNull(system, "TypeResolutionProductionSystem must exist")
-
-        val correlationCount = system?.javaClass?.getMethod("correlationCount")?.invoke(system) as? Int
-        assertEquals(0, correlationCount, "New system must start with correlationCount=0")
+        assertEquals(0, TypeResolutionProductionSystem.correlationCount())
     }
 
     @Test
     fun `correlateTaxonomyRow updates correlation count`() {
-        val system = loadSystem()
-        assertNotNull(system, "TypeResolutionProductionSystem must exist")
-
         val poolId = StringPool.intern("TestPool_Corr")
         val tax = ClassFileTaxonomy()
         tax.register(ClassFileTaxonomy.CoordinateRow(
@@ -69,43 +48,21 @@ class TypeResolutionProductionSystemTest {
             poolId = poolId
         ))
 
-        TypedefResolutionSeries.record(poolId, 0, "pkg.Foo", "format", true)
+        TypeResolutionProductionSystem.correlateTaxonomyRow(tax, 0)
 
-        val correlateTaxonomyRow = system?.javaClass?.getMethod("correlateTaxonomyRow",
-            ClassFileTaxonomy::class.java, Int::class.java)
-        assertNotNull(correlateTaxonomyRow, "correlateTaxonomyRow must exist on system")
-        correlateTaxonomyRow?.invoke(system, tax, 0)
-
-        val correlationCount = system?.javaClass?.getMethod("correlationCount")?.invoke(system) as? Int
-        assertEquals(1, correlationCount, "one taxonomy row must correlate with one typedef fact")
-
-        StringPool.clear()
-        TypedefResolutionSeries.drain()
+        assertEquals(1, TypeResolutionProductionSystem.correlationCount())
     }
 
     @Test
     fun `state snapshot contains resolution metadata`() {
-        val system = loadSystem()
-        assertNotNull(system, "TypeResolutionProductionSystem must exist")
-
-        val stateMethod = system?.javaClass?.getMethod("state")
-        assertNotNull(stateMethod, "state() method must exist on system")
-
-        val state = stateMethod?.invoke(system)
-        assertNotNull(state, "state() must return non-null snapshot")
-
-        val totalFacts = state?.javaClass?.getField("totalFacts")?.getInt(state)
-        assertTrue((totalFacts ?: -1) >= 0, "totalFacts must be >= 0")
-
+        val state = TypeResolutionProductionSystem.state()
+        assertTrue(state.totalJournalFacts >= 0, "totalJournalFacts must be >= 0")
+        assertEquals(0, state.resolvedBindingCount)
     }
 
     @Test
     fun `side-by-side debug TypeResolutionProductionSystem vs TypedefResolutionSeries`() {
-        val system = loadSystem()
-        assertNotNull(system, "TypeResolutionProductionSystem must exist for side-by-side debug")
-
         val poolId = StringPool.intern("SideBySidePool")
-
         val tax = ClassFileTaxonomy()
         tax.register(ClassFileTaxonomy.CoordinateRow(
             symbolName = "pkg.Dbg.run",
@@ -119,15 +76,10 @@ class TypeResolutionProductionSystemTest {
             poolId = poolId
         ))
 
-        val factId = TypedefResolutionSeries.record(poolId, 0, "pkg.Dbg", "format", true)
-        assertTrue(factId >= 0)
-
-        val correlateTaxonomyRow = system?.javaClass?.getMethod("correlateTaxonomyRow",
-            ClassFileTaxonomy::class.java, Int::class.java)
-        correlateTaxonomyRow?.invoke(system, tax, 0)
+        TypeResolutionProductionSystem.correlateTaxonomyRow(tax, 0)
 
         val rawFacts = TypedefResolutionSeries.size()
-        val correlationCount = system?.javaClass?.getMethod("correlationCount")?.invoke(system) as? Int
+        val correlationCount = TypeResolutionProductionSystem.correlationCount()
         println("=== Side-by-Side Debug ===")
         println("TypedefResolutionSeries.size(): $rawFacts")
         println("TypeResolutionProductionSystem.correlationCount(): $correlationCount")
@@ -135,8 +87,148 @@ class TypeResolutionProductionSystemTest {
 
         assertEquals(1, rawFacts)
         assertEquals(1, correlationCount)
+    }
 
-        StringPool.clear()
-        TypedefResolutionSeries.drain()
+    @Test
+    fun `poolContextTable is live PRELOAD Series accessor over table data`() {
+        val table = TypeResolutionProductionSystem.poolContextTable()
+        assertEquals(0, table.a)
+
+        val poolId = StringPool.intern("LazyPool")
+        val factId = TypeResolutionProductionSystem.resolveBinding(
+            poolId = poolId,
+            siteOrd = 7,
+            coordination = TypeResolutionProductionSystem.CoordinationPoint.UNION,
+            className = "pkg.Lazy",
+            resolvedTypeName = "pkg.ResolvedLazy",
+            resolvedTypePoolId = StringPool.intern("pkg.ResolvedLazy"),
+        )
+
+        assertTrue(factId >= 0)
+        assertEquals(1, table.a, "Series size must read the live table, not an eager snapshot")
+        val binding = table.b(0)
+        assertEquals(poolId, binding.poolId)
+        assertEquals(TypeResolutionProductionSystem.CoordinationPoint.UNION, binding.coordination)
+        assertEquals("pkg.ResolvedLazy", binding.resolvedTypeName)
+    }
+
+    @Test
+    fun `queryBindings is a live PRELOAD Series filtered by coordination`() {
+        val query = TypeResolutionProductionSystem.queryBindings(
+            TypeResolutionProductionSystem.BindingQuery(
+                coordination = TypeResolutionProductionSystem.CoordinationPoint.RESOLVE_TYPEDEFS
+            )
+        )
+
+        TypeResolutionProductionSystem.resolveBinding(
+            poolId = StringPool.intern("OtherPool"),
+            siteOrd = 1,
+            coordination = TypeResolutionProductionSystem.CoordinationPoint.IS_A,
+            className = "pkg.Other",
+            resolvedTypeName = "pkg.OtherType",
+            resolvedTypePoolId = StringPool.intern("pkg.OtherType"),
+        )
+        assertEquals(0, query.a)
+
+        val poolId = StringPool.intern("TypedefPool")
+        TypeResolutionProductionSystem.resolveBinding(
+            poolId = poolId,
+            siteOrd = 2,
+            coordination = TypeResolutionProductionSystem.CoordinationPoint.RESOLVE_TYPEDEFS,
+            className = "pkg.TypeAlias",
+            resolvedTypeName = "pkg.Target",
+            resolvedTypePoolId = StringPool.intern("pkg.Target"),
+        )
+
+        assertEquals(1, query.a)
+        assertEquals(poolId, query.b(0).poolId)
+    }
+
+    @Test
+    fun `queryCursor exposes lazy RowVec cells and metadata`() {
+        val cursor = TypeResolutionProductionSystem.queryCursor(
+            TypeResolutionProductionSystem.BindingQuery(
+                coordination = TypeResolutionProductionSystem.CoordinationPoint.UNION
+            )
+        )
+
+        val poolId = StringPool.intern("CursorPool")
+        TypeResolutionProductionSystem.resolveBinding(
+            poolId = poolId,
+            siteOrd = 3,
+            coordination = TypeResolutionProductionSystem.CoordinationPoint.UNION,
+            className = "pkg.Cursor",
+            resolvedTypeName = "pkg.CursorResolved",
+            resolvedTypePoolId = StringPool.intern("pkg.CursorResolved"),
+        )
+
+        assertEquals(1, cursor.a)
+        val row = cursor.b(0)
+        assertEquals(6, row.a)
+        assertEquals("bindingId", row.b(0).b().name)
+        assertEquals("poolId", row.b(1).b().name)
+        assertEquals(poolId, row.b(1).a)
+        assertEquals("coordination", row.b(2).b().name)
+        assertEquals("UNION", row.b(2).a)
+    }
+
+    @Test
+    fun `poolTaxonomyJoin is a live Cursor over binding table and taxonomy`() {
+        val tax = ClassFileTaxonomy()
+        val joined = TypeResolutionProductionSystem.poolTaxonomyJoin(tax)
+        assertEquals(0, joined.a)
+
+        val poolId = StringPool.intern("JoinPool")
+        tax.register(ClassFileTaxonomy.CoordinateRow(
+            symbolName = "pkg.Join.symbol",
+            ownerType = "pkg.Join",
+            methodOrField = "symbol",
+            classfileCoord = "pkg.Join#symbol",
+            cpIndex = 9,
+            descriptor = "()Object",
+            xvmTypeInfo = "pkg.JoinType",
+            pointcutKind = 0x10,
+            poolId = poolId
+        ))
+        TypeResolutionProductionSystem.resolveBinding(
+            poolId = poolId,
+            siteOrd = 4,
+            coordination = TypeResolutionProductionSystem.CoordinationPoint.CALCULATE_RELATION,
+            className = "pkg.Join",
+            resolvedTypeName = "pkg.JoinType",
+            resolvedTypePoolId = StringPool.intern("pkg.JoinType"),
+        )
+
+        assertEquals(1, joined.a)
+        val row = joined.b(0)
+        assertEquals(poolId, row.b(1).a)
+        assertEquals("pkg.Join.symbol", row.b(6).a)
+        assertEquals("symbolName", row.b(6).b().name)
+    }
+
+    @Test
+    fun `coordinationHistogram is a live Cursor over the binding table`() {
+        val histogram = TypeResolutionProductionSystem.coordinationHistogram()
+
+        TypeResolutionProductionSystem.resolveBinding(
+            poolId = StringPool.intern("UnionA"),
+            siteOrd = 1,
+            coordination = TypeResolutionProductionSystem.CoordinationPoint.UNION,
+            className = "pkg.UnionA",
+            resolvedTypeName = "pkg.ResolvedUnionA",
+            resolvedTypePoolId = StringPool.intern("pkg.ResolvedUnionA"),
+        )
+        TypeResolutionProductionSystem.resolveBinding(
+            poolId = StringPool.intern("UnionB"),
+            siteOrd = 2,
+            coordination = TypeResolutionProductionSystem.CoordinationPoint.UNION,
+            className = "pkg.UnionB",
+            resolvedTypeName = "pkg.ResolvedUnionB",
+            resolvedTypePoolId = StringPool.intern("pkg.ResolvedUnionB"),
+        )
+
+        val unionRow = histogram.b(TypeResolutionProductionSystem.CoordinationPoint.UNION.ordinal)
+        assertEquals("UNION", unionRow.b(0).a)
+        assertEquals(2, unionRow.b(2).a)
     }
 }
