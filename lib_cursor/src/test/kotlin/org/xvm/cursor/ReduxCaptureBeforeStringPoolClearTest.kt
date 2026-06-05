@@ -1,5 +1,6 @@
 package org.xvm.cursor
 
+import borg.trikeshed.lib.view
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.AfterEach
@@ -135,7 +136,7 @@ class ReduxCaptureBeforeStringPoolClearTest {
      * This is the core harness behavior required by the TODO.
      */
     private fun captureReduxBeforeClear(): List<TypedefFact> {
-        val facts = TypedefResolutionSeries.snapshotEvents()
+        val facts = TypedefResolutionSeries.snapshotEvents().view.toList()
         captureLog.add("captured ${facts.size} facts")
         return facts
     }

@@ -3,7 +3,10 @@ package org.xvm.cursor
 import borg.trikeshed.lib.ChunkedMutableSeries
 import borg.trikeshed.lib.Reducer
 import borg.trikeshed.lib.ReduxMutableSeries
+import borg.trikeshed.lib.Series
+import borg.trikeshed.lib.s_
 import borg.trikeshed.lib.view
+import borg.trikeshed.lib.α
 
 /**
  * Cold event log for typedef resolution events.
@@ -41,10 +44,10 @@ object TypedefResolutionSeries {
     const val IS_REVERTED = 7
     const val FIELD_COUNT = 8
 
-    val FIELD_NAMES = listOf(
+    val FIELD_NAMES =  s_[
         "factId", "nano", "poolId", "siteOrd",
         "clsNameId", "formatId", "success", "isReverted"
-    )
+    ]
 
     // ── State ──────────────────────────────────────────────────────────
 
@@ -186,25 +189,21 @@ object TypedefResolutionSeries {
     }
 
     @JvmStatic
-    fun metaSeries(): Any {
-        return journal
-    }
-
-    @JvmStatic
-    fun snapshotEvents(): List<TypedefFact> {
+    fun snapshotEvents(): Series<TypedefFact> {
         drain()
-        return frontLine.view
-            .map { it.copy() }
+        return frontLine .α { it: TypedefFact ->
+            it.copy() }  //todo just wireproto no more object copies
+
     }
 
     @JvmStatic
-    fun snapshotFacts(): List<TypedefFact> = snapshotEvents()
+    fun snapshotFacts(): Series<TypedefFact> = snapshotEvents()
 
     @JvmStatic
     fun toRowVec(): String {
         val events = snapshotEvents()
-        val keys = events.map { it.factId }.joinToString(",")
-        val cells = events.joinToString(";") {
+        val keys = events.α { it.factId }.view.joinToString(",")
+        val cells = events.view.joinToString(";") {
             "${it.poolId},${it.siteOrd},${it.clsName},${it.format},${it.success},${it.nano}"
         }
         return "$keys|$cells"

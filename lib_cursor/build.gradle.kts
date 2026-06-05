@@ -49,6 +49,7 @@ dependencies {
     testImplementation("org.junit.platform:junit-platform-engine:6.0.3")
     testImplementation("org.junit.platform:junit-platform-launcher:6.0.3")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher:6.0.3")
+    testImplementation(kotlin("test"))
 }
 
 val pointcutVmJavatoolsDir = layout.buildDirectory.dir("pointcut-vm/javatools")
@@ -102,10 +103,10 @@ val generateJep483Dump by tasks.registering(JavaExec::class) {
     classpath = files(pointcutVmJavatoolsDir) + mainSourceSet.runtimeClasspath
     mainClass.set("org.xvm.cursor.PointcutCmdlineKt")
     args("xvm")
-    
+
     val dumpDir = layout.buildDirectory.dir("jep483_dumps").get().asFile
     doFirst { dumpDir.mkdirs() }
-    
+
     jvmArgs(
         "-XX:DumpLoadedClassList=${dumpDir.absolutePath}/aot_classes.lst"
     )
