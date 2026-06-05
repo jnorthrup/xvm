@@ -19,7 +19,8 @@ import org.xvm.runtime.VmPointcutPublisher
  *   P_GET  = 0xA7  (field read, static)
  *   P_SET  = 0xA8  (field write, static)
  *
- * Wireproto 24B per record: epoch(8) + count(4) + source(1) + pad(3) + addr(8)
+ * Wireproto 24B per record: opcode(1) + phase(1) + methodIdx(2) + addr(4)
+ * + seq(4) + nano(8) + callsiteHash(2) + templateIdx(2).
  */
 class PointcutFieldWritesTest {
 
@@ -40,7 +41,8 @@ class PointcutFieldWritesTest {
             if (reified.isNotEmpty()) capturedCount++
         }
 
-        assertTrue(capturedCount >= 0) // At minimum, the series is non-crashing
+        assertEquals(1, capturedCount)
+        assertEquals(1, FieldSynapse.size())
         FieldSynapse.reset()
     }
 
@@ -59,7 +61,8 @@ class PointcutFieldWritesTest {
             if (reified.isNotEmpty()) capturedCount++
         }
 
-        assertTrue(capturedCount >= 0)
+        assertEquals(1, capturedCount)
+        assertEquals(1, FieldSynapse.size())
         FieldSynapse.reset()
     }
 
@@ -81,7 +84,8 @@ class PointcutFieldWritesTest {
             if (reified.isNotEmpty()) capturedCount++
         }
 
-        assertTrue(capturedCount >= 0)
+        assertEquals(2, capturedCount)
+        assertEquals(2, FieldSynapse.size())
         FieldSynapse.reset()
     }
 
@@ -103,7 +107,7 @@ class PointcutFieldWritesTest {
 
         FieldSynapse.flush("observation-test")
 
-        assertTrue(observedCount >= 0) // Non-crashing behavior verified
+        assertEquals(1, observedCount)
 
         PointcutObservation.unsubscribe(subId)
         FieldSynapse.reset()
@@ -128,7 +132,8 @@ class PointcutFieldWritesTest {
             drainedCount++
         }
 
-        assertTrue(drainedCount >= 0, "Firehose drain should not crash")
+        assertEquals(count, drainedCount, "Firehose drain should retain every field event")
+        assertEquals(count, FieldSynapse.size())
         FieldSynapse.reset()
     }
 
@@ -189,12 +194,16 @@ class PointcutFieldWritesTest {
 
         FieldSynapse.flush("four-opcodes")
 
-        val events = mutableListOf<Pair<Int, String>>()
+        val events = mutableListOf<String>()
         FieldSynapse.drain { fs ->
-            events.add(0xA5 to fs.reify()) // Opcode will be inferred from reified content
+            events.add(fs.opcodeName())
         }
 
-        assertTrue(events.isNotEmpty(), "Four distinct opcodes should produce four drain entries")
+        assertEquals(4, events.size, "Four distinct opcodes should produce four drain entries")
+        assertTrue(events.contains("L_GET"))
+        assertTrue(events.contains("L_SET"))
+        assertTrue(events.contains("P_GET"))
+        assertTrue(events.contains("P_SET"))
         FieldSynapse.reset()
     }
 }

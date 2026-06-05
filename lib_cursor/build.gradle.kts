@@ -69,8 +69,10 @@ tasks.test {
     useJUnitPlatform()
     failOnNoDiscoveredTests.set(false)
     dependsOn(unpackPointcutVmJavatools)
-    // Do not force the full xdk install into every lib_cursor test run.
-    // XVM-backed tests already skip when the installed artifacts are absent.
+    gradle.parent?.let { root ->
+        dependsOn(root.includedBuild("xdk").task(":installDist"))
+        dependsOn(root.includedBuild("manualTests").task(":compileXtc"))
+    }
     systemProperty("pointcutVm.javatoolsDir", pointcutVmJavatoolsDir.get().asFile.absolutePath)
     jvmArgumentProviders.add(PointcutVmXdkLibDirProvider(pointcutVmXdkLibDir))
     classpath = files(pointcutVmJavatoolsDir) + classpath

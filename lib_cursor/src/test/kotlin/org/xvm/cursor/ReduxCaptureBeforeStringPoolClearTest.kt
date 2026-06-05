@@ -109,8 +109,13 @@ class ReduxCaptureBeforeStringPoolClearTest {
         TypedefResolutionSeries.drain()
 
         val records = captureReduxBeforeClear()
-        val revertedInCapture = records.filter { it.factId == factId && it.isReverted }
-        assertEquals(1, revertedInCapture.size, "Revert must appear as a distinct event")
+        var revertedInCapture = 0
+        for (record in records) {
+            if (record.factId == factId && record.isReverted) {
+                revertedInCapture++
+            }
+        }
+        assertEquals(1, revertedInCapture, "Revert must appear as a distinct event")
         assertEquals(2, records.size, "Record plus revert should both be present in raw event capture")
     }
 
@@ -129,6 +134,29 @@ class ReduxCaptureBeforeStringPoolClearTest {
             "Earlier factId should have earlier or equal nano timestamp")
     }
 
+    @Test
+    fun `capture writes reified dump before stringpool clear with counters`() {
+        val poolId = StringPool.intern("SuiteDumpPool")
+        val count = 512
+        for (i in 0 until count) {
+            TypedefResolutionSeries.record(poolId, i, "pkg.SuiteDump$i", "format$i", i % 2 == 0)
+        }
+        TypedefResolutionSeries.drain()
+
+        val records = captureReduxBeforeClear()
+        val rowVec = TypedefResolutionSeries.toRowVec()
+        val dump = java.nio.file.Files.createTempFile("typedef-redux-reified-", ".dump")
+        java.nio.file.Files.writeString(dump, rowVec)
+        val bytes = java.nio.file.Files.size(dump)
+        val dumpSize = calculateDumpSize(records)
+
+        println("REDUX_REIFIED_DUMP path=$dump records=${records.size} rowBytes=$bytes estimatedBytes=$dumpSize")
+
+        assertEquals(count, records.size)
+        assertTrue(bytes > 16_000, "Reified dump should be significant for $count records")
+        assertTrue(dumpSize > 16_000, "Estimated dump counter should be significant")
+    }
+
     /**
      * Captures the current typedef event log.
      * Called at end of test BEFORE StringPool.clear().
@@ -144,8 +172,8 @@ class ReduxCaptureBeforeStringPoolClearTest {
     private fun calculateDumpSize(records: List<TypedefFact>): Int {
         var size = 0
         for (r in records) {
-            size += r.clsName.toByteArray().size
-            size += r.format.toByteArray().size
+            size += r.clsName.encodeToByteArray().size
+            size += r.format.encodeToByteArray().size
             size += 32 // primitive fields overhead estimate
         }
         return size

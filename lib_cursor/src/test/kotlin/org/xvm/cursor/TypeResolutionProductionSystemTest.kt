@@ -3,6 +3,7 @@ package org.xvm.cursor
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
 /**
@@ -14,10 +15,17 @@ import org.junit.jupiter.api.Test
  *   - as-is: TypedefResolutionSeries (cold WAL, journal replay)
  *   - wip:   TypeResolutionProductionSystem (live correlation, faceted resolution)
  *
- * RED: TypeResolutionProductionSystem does not exist yet. All tests fail at
- * Class.forName / reflection to keep the module compiling until it is implemented.
+ * GREEN: TypeResolutionProductionSystem is present as a small WIP correlator.
+ * The side-by-side test prints the cold Redux event count and the live WIP
+ * correlation count for the same taxonomy row.
  */
 class TypeResolutionProductionSystemTest {
+
+    @BeforeEach
+    fun reset() {
+        StringPool.clear()
+        TypedefResolutionSeries.reset()
+    }
 
     private fun loadSystem(): Any? = try {
         Class.forName("org.xvm.cursor.TypeResolutionProductionSystem")
@@ -66,6 +74,10 @@ class TypeResolutionProductionSystemTest {
         val correlateTaxonomyRow = system?.javaClass?.getMethod("correlateTaxonomyRow",
             ClassFileTaxonomy::class.java, Int::class.java)
         assertNotNull(correlateTaxonomyRow, "correlateTaxonomyRow must exist on system")
+        correlateTaxonomyRow?.invoke(system, tax, 0)
+
+        val correlationCount = system?.javaClass?.getMethod("correlationCount")?.invoke(system) as? Int
+        assertEquals(1, correlationCount, "one taxonomy row must correlate with one typedef fact")
 
         StringPool.clear()
         TypedefResolutionSeries.drain()
@@ -110,13 +122,19 @@ class TypeResolutionProductionSystemTest {
         val factId = TypedefResolutionSeries.record(poolId, 0, "pkg.Dbg", "format", true)
         assertTrue(factId >= 0)
 
+        val correlateTaxonomyRow = system?.javaClass?.getMethod("correlateTaxonomyRow",
+            ClassFileTaxonomy::class.java, Int::class.java)
+        correlateTaxonomyRow?.invoke(system, tax, 0)
+
         val rawFacts = TypedefResolutionSeries.size()
+        val correlationCount = system?.javaClass?.getMethod("correlationCount")?.invoke(system) as? Int
         println("=== Side-by-Side Debug ===")
         println("TypedefResolutionSeries.size(): $rawFacts")
-        println("TypeResolutionProductionSystem: not yet implemented")
+        println("TypeResolutionProductionSystem.correlationCount(): $correlationCount")
         println("=========================")
 
-        assertTrue(rawFacts >= 0)
+        assertEquals(1, rawFacts)
+        assertEquals(1, correlationCount)
 
         StringPool.clear()
         TypedefResolutionSeries.drain()

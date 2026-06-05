@@ -49,6 +49,18 @@ object TypedefResolutionSeries {
         "clsNameId", "formatId", "success", "isReverted"
     ]
 
+    @JvmField
+    val LOG_TEMPLATE = TypedefFact(
+        factId = -1L,
+        nano = 0L,
+        poolId = -1,
+        siteOrd = -1,
+        clsName = "TypedefResolutionSeries.record",
+        format = FIELD_NAMES.view.joinToString(","),
+        success = true,
+        isReverted = false
+    )
+
     // ── State ──────────────────────────────────────────────────────────
 
     private val nextFactId = java.util.concurrent.atomic.AtomicLong(0)
@@ -73,7 +85,7 @@ object TypedefResolutionSeries {
     private fun newJournal() = ReduxMutableSeries<TypedefFact, Map<Long, TypedefFact>>(
         eventJournal = frontLine,
         reducer = TypedefReducer,
-        capture = TypedefFact(-1L, 0L, 0, 0, "", "", false, false)
+        capture = LOG_TEMPLATE
     )
 
     @get:JvmName("journal")
@@ -111,7 +123,7 @@ object TypedefResolutionSeries {
     @JvmStatic
     fun record(poolId: Int, siteOrdinal: Int, className: String, formatName: String, success: Boolean): Long {
         val factId = nextFactId.getAndIncrement()
-        val nano = System.nanoTime()
+        val nano = java.lang.System.nanoTime()
         val fact = TypedefFact(factId, nano, poolId, siteOrdinal, className, formatName, success)
         factIndex[factId] = fact
         frontLine.add(fact)
@@ -128,7 +140,7 @@ object TypedefResolutionSeries {
     @JvmStatic
     fun revert(factId: Long): Boolean {
         val f = factIndex.remove(factId) ?: return false
-        val comp = f.copy(nano = System.nanoTime(), isReverted = true)
+        val comp = f.copy(nano = java.lang.System.nanoTime(), isReverted = true)
         frontLine.add(comp)
         walRings[walIndex.get() % RING_COUNT].add(comp)
         return true
@@ -139,7 +151,7 @@ object TypedefResolutionSeries {
         val facts = factsBySite(poolId, siteOrd)
         for (f in facts) {
             factIndex.remove(f.factId)
-            val comp = f.copy(nano = System.nanoTime(), isReverted = true)
+            val comp = f.copy(nano = java.lang.System.nanoTime(), isReverted = true)
             frontLine.add(comp)
             walRings[walIndex.get() % RING_COUNT].add(comp)
         }
@@ -151,7 +163,7 @@ object TypedefResolutionSeries {
         val facts = factsByPool(poolId)
         for (f in facts) {
             factIndex.remove(f.factId)
-            val comp = f.copy(nano = System.nanoTime(), isReverted = true)
+            val comp = f.copy(nano = java.lang.System.nanoTime(), isReverted = true)
             frontLine.add(comp)
             walRings[walIndex.get() % RING_COUNT].add(comp)
         }
@@ -191,10 +203,18 @@ object TypedefResolutionSeries {
     @JvmStatic
     fun snapshotEvents(): Series<TypedefFact> {
         drain()
-        return frontLine .α { it: TypedefFact ->
-            it.copy() }  //todo just wireproto no more object copies
-
+        return frontLine.α { it: TypedefFact -> it.copy() }
     }
+
+    @JvmStatic
+    fun reduxJournal(): ReduxMutableSeries<TypedefFact, Map<Long, TypedefFact>> = journal
+
+    @Deprecated("Use reduxJournal(); this is a Redux event journal, not a semantic MetaSeries")
+    @JvmStatic
+    fun metaSeries(): ReduxMutableSeries<TypedefFact, Map<Long, TypedefFact>> = reduxJournal()
+
+    @JvmStatic
+    fun journalTemplate(): TypedefFact = journal.capture
 
     @JvmStatic
     fun snapshotFacts(): Series<TypedefFact> = snapshotEvents()
