@@ -1217,14 +1217,8 @@ public class MethodInfo
         // the logic below is a specialized version of the ensureOptimizedMethodChain() method
         chain = getChain();
 
-        MethodBody bodyHead = chain[0];
-
-        if (bodyHead.getImplementation() == Implementation.Capped) {
-            return infoType.getMethodByNestedId(bodyHead.getNarrowingNestedIdentity()).getSuper(infoType);
-        }
-
         // an accessor for a property with a field always has super()
-        MethodStructure method    = bodyHead.getMethodStructure();
+        MethodStructure method    = getTopmostMethodStructure(infoType);
         Component       container = method.getParent().getParent();
         if (container instanceof PropertyStructure property) {
             if (method == property.getGetter() || method == property.getSetter()) {
@@ -1243,6 +1237,7 @@ public class MethodInfo
         SignatureConstant sigSuper = bodySuper.getSignature();
 
         // if the "head" is auto-narrowing, we need to adjust the "super()" signature as well
+        MethodBody bodyHead = chain[0];
         if (bodyHead.getSignature().containsAutoNarrowing(false)) {
             sigSuper = sigSuper.resolveAutoNarrowing(pool(), infoType.getType(), null);
         }
