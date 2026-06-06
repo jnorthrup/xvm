@@ -198,3 +198,38 @@ dockerTaskNames.forEach { taskName ->
         }
     }
 }
+
+/**
+ * Mirror the xdk runtime (.xtc modules) into the path the javatools TypedefTest reads.
+ *
+ * The test hardcodes `lib_ecstasy/build/xtc/main/lib` as the module path. The xdk
+ * composite build's `prepareXdkRuntime` task stages the .xtc modules at
+ * `xdk/build/xdk-runtime/lib/`, so we copy them into the test's expected location.
+ *
+ * This makes `:javatools:test` self-bootstrapping: no need to run `xdk:installDist`
+ * (which is monolithic and slow) just to satisfy the test's module path.
+ */
+val xdkRuntime by tasks.registering(Copy::class) {
+    group = "verification"
+    description =
+        "Copy xdk/build/xdk-runtime/lib/*.xtc into lib_ecstasy/build/xtc/main/lib for the javatools tests."
+
+    from(layout.buildDirectory.dir("xdk/build/xdk-runtime/lib"))
+    into(layout.buildDirectory.dir("lib_ecstasy/build/xtc/main/lib"))
+
+    // Trigger the xdk runtime staging first. prepareXdkRuntime is incremental and only
+    // re-stages when xtc sources change.
+    dependsOn(xdk.task(":prepareXdkRuntime"))
+}
+
+// Make :javatools:test self-bootstrap its XDK runtime. This avoids requiring the full
+// xdk:installDist (which rebuilds scripts, archives, and the entire distribution) just
+// to satisfy the test's module path.
+val javatoolsTest by tasks.registering {
+    group = "verification"
+    description =
+        "Run :javatools:test with a freshly staged xdk runtime. Lightweight alternative to running the full xdk:installDist first."
+
+    dependsOn(xdkRuntime)
+    dependsOn(gradle.includedBuild("javatools").task(":test"))
+}

@@ -352,9 +352,51 @@ distributions {
     }
 }
 
-// Ensure distribution tasks depend on script preparation AND javatools artifacts
+/**
+ * Lightweight XDK runtime: just the .xtc modules and javatools jars, no scripts or archives.
+ *
+ * This is the split-out "runtime" half of `installDist`. It produces:
+ *   xdk/build/xdk-runtime/lib/         (ecstasy.xtc, mack.xtc, all lib_*.xtc)
+ *   xdk/build/xdk-runtime/javatools/   (javatools-*.jar, javatools-jitbridge-*.jar, javatools_*.xtc)
+ *
+ * Use it instead of `installDist` when you only need the runtime to compile against
+ * (e.g. for `:javatools:test`). `installDist` still depends on this task, so the full
+ * distribution is unchanged.
+ */
+val prepareXdkRuntime by tasks.registering(Copy::class) {
+    group = "distribution"
+    description =
+        "Stage the XDK runtime (.xtc modules + javatools jars) at xdk/build/xdk-runtime/. " +
+            "No scripts, no archives. Faster than installDist for tests."
+
+    into(layout.buildDirectory.dir("xdk-runtime"))
+
+    // XTC modules: lib/ gets everything except javatools_*.xtc
+    from(configurations.xtcModule) {
+        into("lib")
+        exclude(JAVATOOLS_PREFIX_PATTERN)
+    }
+    // XTC modules: javatools/ gets the javatools_*.xtc only
+    from(configurations.xtcModule) {
+        into("javatools")
+        include(JAVATOOLS_PREFIX_PATTERN)
+    }
+    // Java tools jars (renamed to strip version)
+    from(configurations.xdkJavaTools) {
+        rename(XdkDistribution.createRenameTransformer(artifactVersion))
+        into("javatools")
+    }
+    // jitbridge binary blob
+    from(xdkJavaToolsJitBridge) {
+        rename(XdkDistribution.createRenameTransformer(artifactVersion))
+        into("javatools")
+    }
+}
+
+// Ensure distribution tasks depend on script preparation, runtime, and javatools artifacts
 tasks.installDist {
     dependsOn(prepareDistributionScripts)
+    dependsOn(prepareXdkRuntime)
     // Force dependency on javatools artifacts which triggers git info resolution
     dependsOn(configurations.xdkJavaTools)
 }
