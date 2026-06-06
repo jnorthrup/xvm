@@ -14,6 +14,7 @@ import java.util.function.Consumer;
 
 import org.xvm.asm.ClassStructure;
 import org.xvm.asm.Component;
+import org.xvm.asm.TypedefStructure;
 import org.xvm.asm.ComponentResolver.ResolutionCollector;
 import org.xvm.asm.ComponentResolver.ResolutionResult;
 import org.xvm.asm.Constant;
@@ -302,6 +303,15 @@ public class TerminalTypeConstant
             case ThisClass,
                  ParentClass,
                  ChildClass -> ((ClassStructure) ((PseudoConstant) constant).getDeclarationLevelClass().getComponent()).getTypeParamCount();
+
+            // parameterized typedef: typedef X as Y<A,B,...>
+            case Typedef -> {
+                Component comp = ((IdentityConstant) constant).getComponent();
+                if (comp instanceof TypedefStructure typedef && typedef.hasTypeParams()) {
+                    yield typedef.getTypeParamCount();
+                }
+                yield 0;
+            }
 
             default -> throw new IllegalStateException("unexpected defining constant: " + constant);
         };
@@ -1256,6 +1266,18 @@ public class TerminalTypeConstant
                  ParentClass,
                  ChildClass,
                  NativeClass -> true;
+
+            // a parameterized typedef (typedef X as Y<A,B,...>) is treated as a
+            // class identity so that uses like Y<A,B> validate and resolve
+            case Typedef -> {
+                if (fAllowParams) {
+                    Component comp = ((IdentityConstant) constant).getComponent();
+                    if (comp instanceof TypedefStructure typedef && typedef.hasTypeParams()) {
+                        yield true;
+                    }
+                }
+                yield false;
+            }
 
             case Property,
                  TypeParameter,

@@ -59,6 +59,41 @@ public class TypedefStructure
         m_type = type;
     }
 
+    /**
+     * @return true iff this typedef declares one or more formal type parameters
+     *         (e.g. {@code A} in {@code typedef X as Y<A>})
+     */
+    public boolean hasTypeParams() {
+        return m_typeParamNames != null && m_typeParamNames.length > 0;
+    }
+
+    /**
+     * @return the number of formal type parameters, or 0 if none
+     */
+    public int getTypeParamCount() {
+        return m_typeParamNames == null ? 0 : m_typeParamNames.length;
+    }
+
+    /**
+     * @return the name of the type parameter at the specified index
+     */
+    public String getTypeParamName(int i) {
+        return m_typeParamNames[i];
+    }
+
+    /**
+     * Configure the formal type parameter names declared on this typedef's alias.
+     *
+     * @param names  the formal names (e.g. {@code ["A", "B"]}); may be null or empty
+     */
+    public void setTypeParamNames(String[] names) {
+        if (names == null || names.length == 0) {
+            m_typeParamNames = null;
+        } else {
+            m_typeParamNames = names;
+        }
+    }
+
 
     // ----- XvmStructure methods ------------------------------------------------------------------
 
@@ -97,4 +132,10 @@ public class TypedefStructure
      * The actual type that the typedef represents.
      */
     private TypeConstant m_type;
+
+    /**
+     * The names of the formal type parameters declared on this typedef's alias
+     * (e.g. {@code ["A", "B"]} for {@code typedef T as Y<A,B>}); null if no formals.
+     */
+    private String[] m_typeParamNames;
 }

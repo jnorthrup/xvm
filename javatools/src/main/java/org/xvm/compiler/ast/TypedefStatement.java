@@ -34,6 +34,33 @@ public class TypedefStatement
         this.alias    = alias;
     }
 
+    /**
+     * Construct a parameterized typedef: {@code typedef Body as Name<F1,F2,...>}.
+     *
+     * @param cond        the optional condition expression
+     * @param keyword     the "typedef" keyword (or an access modifier token)
+     * @param type        the body type expression
+     * @param alias       the new typedef name token
+     * @param typeParams  the formal type parameter tokens (e.g. {@code [A, B]})
+     */
+    public TypedefStatement(Expression cond, Token keyword, TypeExpression type, Token alias,
+                            Token[] typeParams) {
+        super(keyword.getStartPosition(), alias.getEndPosition());
+
+        this.cond        = cond;
+        this.modifier    = keyword.getId() == Id.TYPEDEF ? null : keyword;
+        this.type        = type;
+        this.alias       = alias;
+        this.typeParams  = typeParams;
+    }
+
+    /**
+     * @return the formal type parameter name tokens, or null if the typedef is not parameterized
+     */
+    public Token[] getTypeParams() {
+        return typeParams;
+    }
+
 
     // ----- accessors -----------------------------------------------------------------------------
 
@@ -72,6 +99,13 @@ public class TypedefStatement
                 Access           access    = getDefaultAccess();
                 TypeConstant     constType = type.ensureTypeConstant();
                 TypedefStructure typedef   = container.createTypedef(access, constType, sName);
+                if (typeParams != null && typeParams.length > 0) {
+                    String[] names = new String[typeParams.length];
+                    for (int i = 0; i < typeParams.length; i++) {
+                        names[i] = (String) typeParams[i].getValue();
+                    }
+                    typedef.setTypeParamNames(names);
+                }
                 setComponent(typedef);
             } else if (!errs.hasSeriousErrors()) {
                 log(errs, Severity.ERROR, Compiler.TYPEDEF_UNEXPECTED, sName, container);
@@ -131,6 +165,7 @@ public class TypedefStatement
     protected Token          modifier;
     protected Token          alias;
     protected TypeExpression type;
+    protected Token[]        typeParams;
 
     private static final Field[] CHILD_FIELDS = fieldsForNames(TypedefStatement.class, "cond", "type");
 }

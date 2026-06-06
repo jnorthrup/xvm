@@ -2220,7 +2220,7 @@ public class Parser {
      *
      * <p/><code><pre>
      * TypeDefStatement
-     *     "typedef" Type Name ";"
+     *     "typedef" Type "as" Name [ TypeParameterList ] ";"
      * </pre></code>
      *
      * @param tokenAccess  if the typedef is a type composition component, it can be declared with
@@ -2238,9 +2238,32 @@ public class Parser {
 
         Token simpleName = expect(Id.IDENTIFIER);
 
+        // optional formal type parameter list on the new alias name,
+        // e.g. "typedef Tuple<A,B> as Pair<A,B>;" introduces Pair<A,B>.
+        // We consume the <...> tokens directly (rather than via
+        // parseTypeParameterTypeList) so we can keep the formal-name tokens
+        // for TypedefStructure storage.
+        Token[] typeParams = null;
+        if (peek().getId() == Id.COMP_LT) {
+            next();
+            List<Token> names = new ArrayList<>();
+            while (true) {
+                Token formal = expect(Id.IDENTIFIER);
+                names.add(formal);
+                if (peek().getId() == Id.COMMA) {
+                    next();
+                } else {
+                    break;
+                }
+            }
+            expect(Id.COMP_GT);
+            typeParams = names.toArray(new Token[0]);
+        }
+
         expect(Id.SEMICOLON);
 
-        return new TypedefStatement(exprCond, tokenAccess == null ? keyword : tokenAccess, type, simpleName);
+        return new TypedefStatement(exprCond, tokenAccess == null ? keyword : tokenAccess,
+                type, simpleName, typeParams);
     }
 
     /**
