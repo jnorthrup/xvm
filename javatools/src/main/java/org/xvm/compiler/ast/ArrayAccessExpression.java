@@ -138,16 +138,11 @@ public class ArrayAccessExpression
         TypeConstant typeTarget = expr.isValidated() ? expr.getType() : expr.getImplicitType(ctx);
         if (typeTarget == null) {
             // while we could test the expression to find out if it could be UniformIndexed, or
-            // Array, or whatever, the information that we truly need is not the form (Array, Tuple,
-            // etc.) but rather the content, e.g. the Element, and it is simply not conceivable
+            // Array, or Tuple, etc.) but rather the content, e.g. the Element, and it is simply not conceivable
             // to test for that
             return null;
         }
 
-        // tuples support array index operations, and are type safe, so we can figure out the type
-        // of the resulting field IFF the tuple type specifies its field types AND the index into
-        // the tuple is a constant value. however, since we haven't yet validated the expression,
-        // the value of the index might not yet be determinable
         if (typeTarget.isTuple()) {
             return typeTarget.isParamsSpecified() || typeTarget.isFormalTypeSequence()
                     ? determineTupleResultType(typeTarget)
