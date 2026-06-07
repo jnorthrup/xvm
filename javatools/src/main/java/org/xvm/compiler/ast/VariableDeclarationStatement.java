@@ -135,9 +135,19 @@ public class VariableDeclarationStatement
         TypeExpression exprType = this.type;
         if (exprType instanceof VariableTypeExpression exprVar) {
             TypeConstant type = aTypes[0];
+            // Narrow precedence: if the original declared type carries annotations
+            // (e.g. mixin annotations from the type's TypeInfo), preserve them on the
+            // narrowed r-value type rather than stripping them away.
+            Register reg = m_reg;
+            if (reg != null) {
+                TypeConstant typeOrig = reg.getOriginalType();
+                if (typeOrig.isAnnotated() && !type.isAnnotated()) {
+                    type = typeOrig.adoptAnnotations(pool(), type);
+                }
+            }
+
             exprType.setTypeConstant(type);
 
-            Register reg = m_reg;
             if (reg != null) {
                 reg.specifyActualType(type);
                 if (exprVar.    getToken().getId() == Token.Id.VAL) {

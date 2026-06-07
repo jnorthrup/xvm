@@ -151,9 +151,19 @@ public class Context {
      */
     public TypeConstant getThisType() {
         Argument argThis = getVar("this");
-        return argThis == null
+        TypeConstant result = argThis == null
                 ? getThisClass().getFormalType()
                 : argThis.getType().removeAccess();
+        var clz = getThisClass();
+        if (clz != null && "Xor".equals(clz.getName())) {
+            new RuntimeException("PROBE-THISTYPE clz=" + clz.getName()
+                + " result=" + result.getClass().getSimpleName()
+                + " rv=" + result.getValueString()
+                + " argThisNull=" + (argThis == null)
+                + " isTuple=" + result.isTuple()
+                + " isParamsSpecified=" + result.isParamsSpecified()).printStackTrace();
+        }
+        return result;
     }
 
     /**

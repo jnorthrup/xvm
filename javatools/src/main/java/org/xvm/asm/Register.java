@@ -191,6 +191,14 @@ public class Register
      */
     public Register narrowType(TypeConstant typeNarrowed) {
         // even when the types are the same, the shadow carries "not-in-place" flag
+
+        // Narrow precedence: if the original type carries annotations (e.g. mixin
+        // annotations from the type's TypeInfo), adopt them onto the narrowed type.
+        TypeConstant typeOrig = getOriginalType();
+        if (typeOrig.isAnnotated() && !typeNarrowed.isAnnotated()) {
+            typeNarrowed = typeOrig.adoptAnnotations(typeNarrowed.getConstantPool(), typeNarrowed);
+        }
+
         ShadowRegister regShadow = new ShadowRegister(typeNarrowed, m_sName, f_nOrigIndex);
         TypeConstant   typeReg   = m_typeReg;
         if (typeReg != null) {
