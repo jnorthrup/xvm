@@ -702,6 +702,7 @@ public class NamedTypeExpression
             System.err.println("DEBUG " + System.identityHashCode(this) + ": m_constId=" + (m_constId == null ? "null" : m_constId.getClass().getName() + " (" + m_constId + ")"));
             System.err.println("DEBUG " + System.identityHashCode(this) + ": type=" + (type == null ? "null" : type.getClass().getName() + " (" + type + ")"));
             System.err.println("DEBUG " + System.identityHashCode(this) + ": atypeParams=" + java.util.Arrays.toString(atypeParams));
+/*
             if (m_constId instanceof org.xvm.asm.constants.TypedefConstant idTypedef && type.getFormat() == org.xvm.asm.Constant.Format.ParameterizedType) {
                 org.xvm.asm.TypedefStructure struct = (org.xvm.asm.TypedefStructure) idTypedef.getComponent();
                 int cNames = struct.getTypeParamCount();
@@ -720,6 +721,7 @@ public class NamedTypeExpression
                     atypeParams = ConstantPool.NO_TYPES;
                 }
             }
+*/
 
             if (atypeParams.length > 0) {
                 if (type.isParamsSpecified()) {

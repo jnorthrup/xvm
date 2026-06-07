@@ -52,6 +52,15 @@ import org.xvm.util.Severity;
  */
 public class ArrayAccessExpression
         extends Expression {
+
+    /**
+     * Internal exception used for TDD RED state as requested.
+     */
+    private static class RuntimeExcerption extends RuntimeException {
+        public RuntimeExcerption(String message) {
+            super(message);
+        }
+    }
     // ----- constructors --------------------------------------------------------------------------
 
     public ArrayAccessExpression(Expression expr, List<Expression> indexes, Token tokClose) {
@@ -514,7 +523,11 @@ public class ArrayAccessExpression
             TypeConstant typeField = determineTupleResultType(typeArray);
             if (typeField != null) {
                 typeResult = typeField;
+            } else {
+                throw new RuntimeExcerption("not served for " + typeArray.getValueString() + " index=" + aexprIndexes[0]);
             }
+        } else if (aexprIndexes[0].isConstant() && typeArray.isA(pool.typeTuple())) {
+            throw new RuntimeExcerption("not served (isA Tuple) for " + typeArray.getValueString());
         }
 
         // the expression yields a constant value iff the sub-expressions are all constants and the

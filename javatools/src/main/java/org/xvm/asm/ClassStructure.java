@@ -902,6 +902,9 @@ public class ClassStructure
      */
     public List<TypeConstant> getTupleParamTypes(ConstantPool pool, List<TypeConstant> listParams) {
         if (getIdentityConstant().equals(pool.clzTuple())) {
+             if (getName().equals("Tuple") && listParams.size() > 0) {
+                 System.err.println("DEBUG-TUPLE-FIELDS for " + getName() + " listParams=" + listParams);
+             }
             return listParams;
         }
 
@@ -910,7 +913,11 @@ public class ClassStructure
                 TypeConstant typeContrib = contrib.resolveGenerics(pool,
                                                 new SimpleTypeResolver(pool, listParams));
                 if (typeContrib != null && typeContrib.isTuple()) {
-                    return typeContrib.getTupleParamTypes();
+                    List<TypeConstant> fields = typeContrib.getTupleParamTypes();
+                    if (getName().contains("Xor")) {
+                        System.err.println("DEBUG-MIXIN-CLZ-FIELDS for " + getName() + " contrib=" + typeContrib.getValueString() + " fields=" + fields);
+                    }
+                    return fields;
                 }
             }
         }

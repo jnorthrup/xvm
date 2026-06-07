@@ -1167,18 +1167,14 @@ public class TerminalTypeConstant
 
     @Override
     public boolean isFormalTypeSequence() {
-        return isGenericType() &&
+        boolean res = isGenericType() &&
             ((FormalConstant) getDefiningConstant()).getConstraintType().isFormalTypeSequence();
+        if (getValueString().contains("Twin.A")) {
+            System.err.println("DEBUG-SEQUENCE Twin.A isFormalTypeSequence=" + res);
+        }
+        return res;
     }
 
-    @Override
-    public boolean isDynamicType() {
-        if (isSingleDefiningConstant()) {
-            Constant constant = getDefiningConstant();
-            return constant.getFormat() == Format.DynamicFormal;
-        }
-        return false;
-    }
 
     @Override
     public Category getCategory() {

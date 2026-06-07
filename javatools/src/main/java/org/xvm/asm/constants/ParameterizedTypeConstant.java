@@ -288,6 +288,9 @@ public class ParameterizedTypeConstant
                     TypeConstant typeReferred = typedefConst.getReferredToType();
                     TypeConstant typeResolved = typeReferred.resolveGenerics(getConstantPool(), this);
                     TypeConstant typeBase     = typeResolved.resolveTypedefs();
+                    if (getValueString().contains("Twin")) {
+                        System.err.println("DEBUG-RESOLVE-TYPEDEF for " + getValueString() + ": referred=" + typeReferred.getValueString() + " resolved=" + typeResolved.getValueString() + " base=" + typeBase.getValueString());
+                    }
                     ConstantPool pool     = getConstantPool();
                     org.xvm.asm.Component parent   = typedefConst.getParentConstant().getComponent();
                     if (parent != null) {
@@ -390,6 +393,9 @@ public class ParameterizedTypeConstant
                     // "ElementTypes" -> Tuple<T1, T2, T3>
                     assert c == 1 && constParamResolved.isTuple();
                     aconstResolved = constParamResolved.getParamTypesArray();
+                    if (constOriginal.getValueString().contains("Tuple")) {
+                        System.err.println("DEBUG-FLATTEN Tuple params from " + java.util.Arrays.toString(aconstOriginal) + " to " + java.util.Arrays.toString(aconstResolved));
+                    }
                 } else {
                     if (aconstResolved == aconstOriginal) {
                         aconstResolved = aconstOriginal.clone();
