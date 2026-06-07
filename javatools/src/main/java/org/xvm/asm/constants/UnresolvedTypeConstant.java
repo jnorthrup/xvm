@@ -502,6 +502,15 @@ public class UnresolvedTypeConstant
             return getResolvedType().validate(errs);
         }
 
+        // Include a stacktrace in the error for debugging
+        try {
+            var dir = new java.io.File(System.getProperty("user.home"), "xvm_debug");
+            dir.mkdirs();
+            var pw = new java.io.PrintWriter(new java.io.File(dir, "utc_trace.log"), "UTF-8");
+            new Exception("UTC-VALIDATE-TRACE " + getValueString()).printStackTrace(pw);
+            pw.close();
+        } catch (Exception ignored) {}
+
         errs.log(Severity.ERROR, Compiler.NAME_UNRESOLVABLE, new Object[]{getValueString()}, this);
         return true;
     }

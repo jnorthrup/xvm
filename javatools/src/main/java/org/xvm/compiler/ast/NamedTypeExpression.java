@@ -169,6 +169,23 @@ public class NamedTypeExpression
         return constId;
     }
 
+    /**
+     * Pre-resolve this NamedTypeExpression to a specific constant.
+     * Used to bind typedef formal-name leaves so they don't create
+     * UnresolvedTypeConstant instances on subsequent ensureTypeConstant() calls.
+     */
+    void preResolveConstant(Constant constId) {
+        m_constId = constId;
+        if (m_constUnresolved != null && constId != null) {
+            m_constUnresolved.resolve(constId);
+            m_constUnresolved = null;
+        }
+        // Don't call resetTypeConstant() — it walks the parent chain
+        // and may NPE if the node isn't fully adopted yet.
+        // Just clear the local cache directly.
+        m_constType = null;
+    }
+
     public List<TypeExpression> getParamTypes() {
         return paramTypes;
     }
@@ -407,6 +424,13 @@ public class NamedTypeExpression
 
     @Override
     public void resolveNames(StageMgr mgr, ErrorListener errs) {
+        // If already pre-resolved (e.g. typedef formal leaf bound to Object),
+        // skip name resolution entirely and just process children.
+        if (m_constId instanceof TypeConstant tc && !tc.containsUnresolved()) {
+            mgr.processChildren();
+            return;
+        }
+
         if (left == null) {
             // check for a virtual child scenario: "parent.new [@Mixin] Child<...>(...)"
             AstNode parent = getParent();
@@ -591,6 +615,16 @@ public class NamedTypeExpression
             } else {
                 type = calculateDefaultType(ctx, m_constId, errs);
                 if (type.containsUnresolved()) {
+                    // DEBUG: dump to file
+                    try {
+                        var dir = new java.io.File(System.getProperty("user.home"), "xvm_debug");
+                        dir.mkdirs();
+                        var pw = new java.io.PrintWriter(new java.io.File(dir, "nte_trace.log"), "UTF-8");
+                        new Exception("NTE-VALIDATE-UNRESOLVED name=" + getName()
+                            + " m_constId=" + (m_constId == null ? "null" : m_constId.getClass().getSimpleName()
+                            + ":" + m_constId.getValueString())).printStackTrace(pw);
+                        pw.close();
+                    } catch (Exception ignored) {}
                     log(errs, Severity.ERROR, Compiler.NAME_UNRESOLVABLE, getName());
                     return null;
                 }

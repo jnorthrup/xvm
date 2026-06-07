@@ -90,9 +90,7 @@ public class TypedefStatement
 
     @Override
     protected void registerStructures(StageMgr mgr, ErrorListener errs) {
-        // create the structure for this method
         if (getComponent() == null) {
-            // create a structure for this typedef
             Component container = getParent().getComponent();
             String    sName     = (String) alias.getValue();
             if (container != null && container.isClassContainer()) {
@@ -106,12 +104,11 @@ public class TypedefStatement
                     }
                     typedef.setTypeParamNames(names);
 
-                    // Resolve UnresolvedTypeConstant leaves in the body whose names
-                    // match typedef formals. Prevents COMPILER-38 from
-                    // UnresolvedTypeConstant.validate(). Placeholder Object will be
-                    // substituted at use-site by resolveGenerics().
+                    // Resolve both the constant-pool UTCs and the AST leaves
+                    // for formal names, so they never trigger COMPILER-38.
                     var formalSet = java.util.Set.of(names);
                     resolveBodyFormals(constType, formalSet);
+                    preResolveAstFormals(type, formalSet);
                 }
                 setComponent(typedef);
             } else if (!errs.hasSeriousErrors()) {
@@ -135,6 +132,34 @@ public class TypedefStatement
             if (inner instanceof org.xvm.asm.constants.UnresolvedNameConstant unc
                     && formals.contains(unc.getValueString())) {
                 utc.resolve(pool().typeObject());
+            }
+        }
+    }
+
+    /**
+     * Walk the body TypeExpression AST and pre-resolve any NamedTypeExpression
+     * leaf whose name matches a typedef formal. Sets the leaf's constId to
+     * Object so subsequent ensureTypeConstant() calls produce TerminalTypeConstant
+     * instead of UnresolvedTypeConstant.
+     */
+    private void preResolveAstFormals(TypeExpression expr, java.util.Set<String> formals) {
+        if (expr instanceof NamedTypeExpression nte) {
+            java.util.List<TypeExpression> params = nte.getParamTypes();
+            if (params != null) {
+                for (var param : params) {
+                    if (param instanceof NamedTypeExpression child) {
+                        String name = child.getName();
+                        if (name != null && formals.contains(name)) {
+                            try {
+                                child.preResolveConstant(pool().typeObject());
+                            } catch (Exception e) {
+                                throw new RuntimeException("preResolve failed for " + name + ": " + e.getMessage(), e);
+                            }
+                        } else {
+                            preResolveAstFormals(child, formals);
+                        }
+                    }
+                }
             }
         }
     }

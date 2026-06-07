@@ -10,7 +10,6 @@ module test_mixin {
         }
     }
 
-
     void run() {
         Twin<Int> t =  (5, 3);
         console.print(t.xor());
