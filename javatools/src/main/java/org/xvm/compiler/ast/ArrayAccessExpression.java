@@ -639,6 +639,7 @@ public class ArrayAccessExpression
         }
         
         // Get tuple params directly without calling resolveTypedefs (which adds mixin annotations)
+        if (typeForParams.isTuple()) {
             List<TypeConstant> listFields = typeForParams.getTupleParamTypes();
             
             if (!listFields.isEmpty() && aexprIndexes[0].isConstant()) {
@@ -661,6 +662,7 @@ public class ArrayAccessExpression
             } else if (aexprIndexes[0].isConstant() && typeArrayResolved.isA(pool.typeTuple())) {
                 throw new RuntimeExcerption("not served (isA Tuple) for " + typeArray.getValueString());
             }
+        }
 
         // the expression yields a constant value iff the sub-expressions are all constants and the
         // evaluation of the element access is legal

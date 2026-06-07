@@ -11,7 +11,7 @@ module test_mixin {
     }
 
     void run() {
-        // Show that we can access tuple elements
+        // Show that the mixin method dispatches at runtime
         Twin<Int> t = (5, 3);
         console.print("t[0]=");
         console.print(t[0]);
@@ -19,6 +19,8 @@ module test_mixin {
         console.print(t[1]);
         console.print(" t[0] ^ t[1]=");
         console.print(t[0] ^ t[1]);
-        console.print("\n");
+
+        console.print("xor=");
+        console.print(t.xor());
     }
 }

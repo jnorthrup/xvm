@@ -11,6 +11,9 @@ import java.lang.constant.MethodTypeDesc;
 
 import org.xvm.asm.Constants.Access;
 
+import org.xvm.asm.Component.Format;
+
+import org.xvm.asm.constants.ClassConstant;
 import org.xvm.asm.constants.IdentityConstant;
 import org.xvm.asm.constants.MethodConstant;
 import org.xvm.asm.constants.MethodInfo;
@@ -154,10 +157,9 @@ public abstract class OpInvocable extends Op {
         PropertyConstant idProp = clazz instanceof PropertyComposition
                 ? null
                 : checkPropertyAccessor(idMethod);
+        Object nid = idMethod.resolveNestedIdentity(
+                        frame.poolContext(), frame.getGenericsResolver(true));
         if (idProp == null) {
-            Object nid = idMethod.resolveNestedIdentity(
-                            frame.poolContext(), frame.getGenericsResolver(true));
-
             chain = clazz.getMethodCallChain(nid);
             if (chain.isEmpty()) {
                 if (hTarget instanceof RefHandle hRef && hRef.isProperty()) {
@@ -174,6 +176,28 @@ public abstract class OpInvocable extends Op {
             chain = "get".equals(idMethod.getName())
                     ? clazz.getPropertyGetterChain(idProp)
                     : clazz.getPropertySetterChain(idProp);
+        }
+
+        if (chain.isEmpty()) {
+            // single-largest-debt reduction: when the method lookup fails on the receiver's
+            // composition, the receiver's type may be the underlying tuple of a typedef that
+            // has the mixin method (e.g. t.xor() where t: Twin<Int> resolves to Tuple<Int,Int>
+            // at runtime, but the mixin is registered on Twin<Int>). Try dispatching through
+            // the mixin's "into" type's composition if the method belongs to a mixin class.
+            ClassStructure clzMethod = method != null ? method.getContainingClass() : null;
+            if (clzMethod != null && (clzMethod.getFormat() == Format.MIXIN
+                    || clzMethod.getFormat() == Format.ANNOTATION)) {
+                TypeConstant typeInto = clzMethod.getTypeInto();
+                if (typeInto != null && hTarget.getType().isA(typeInto)) {
+                    // the into type already includes the mixin annotation; look up the chain on it directly
+                    TypeComposition clzInto = frame.f_context.f_container
+                            .ensureClassComposition(typeInto,
+                                    frame.f_context.f_container.getTemplate(typeInto));
+                    if (clzInto != null) {
+                        chain = clzInto.getMethodCallChain(nid);
+                    }
+                }
+            }
         }
 
         if (chain.isEmpty()) {
