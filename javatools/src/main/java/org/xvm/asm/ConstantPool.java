@@ -174,7 +174,19 @@ public class ConstantPool
         // with the type constant that the typedef refers to, removing a level of indirection;
         // also it's imperative to avoid a recursive call from TypeConstant.equals() implementation,
         // which has a possibility of locking up the ConcurrentHashMap.get()
-        constant = (T) constant.resolveTypedefs();
+        boolean fResolveTypedef = true;
+        if (constant instanceof org.xvm.asm.constants.TerminalTypeConstant terminal) {
+            org.xvm.asm.constants.TypedefConstant idTypedef = terminal.getTypedefConstant();
+            if (idTypedef != null) {
+                org.xvm.asm.TypedefStructure struct = (org.xvm.asm.TypedefStructure) idTypedef.getComponent();
+                if (struct != null && struct.getTypeParamCount() > 0) {
+                    fResolveTypedef = false;
+                }
+            }
+        }
+        if (fResolveTypedef) {
+            constant = (T) constant.resolveTypedefs();
+        }
 
         // check if the Constant is already registered
         var mapConstants = ensureConstantLookup(constant.getFormat());

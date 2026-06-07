@@ -233,3 +233,12 @@ val javatoolsTest by tasks.registering {
     dependsOn(xdkRuntime)
     dependsOn(gradle.includedBuild("javatools").task(":test"))
 }
+
+val testMixin by tasks.registering {
+    group = "verification"
+    description = "Run TypedefTest.testMixin with a freshly staged xdk runtime."
+
+    dependsOn(xdkRuntime)
+    dependsOn(gradle.includedBuild("javatools").task(":testMixin"))
+}
+

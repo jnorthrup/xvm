@@ -94,6 +94,19 @@ public class TypedefStructure
         }
     }
 
+    /**
+     * Create and register a generic type parameter under this typedef.
+     */
+    public void createTypeParameter(String sName) {
+        ConstantPool           pool       = getConstantPool();
+        org.xvm.asm.constants.PropertyConstant constParam = pool.ensurePropertyConstant(getIdentityConstant(), sName);
+        int                    nFlags     = Format.PROPERTY.ordinal();
+        PropertyStructure      struct     = new PropertyStructure(this, nFlags, constParam, null);
+        struct.setType(pool.ensureClassTypeConstant(pool.clzType(), null, pool.typeObject()));
+        struct.markAsGenericTypeParameter();
+        addChild(struct);
+    }
+
 
     // ----- XvmStructure methods ------------------------------------------------------------------
 

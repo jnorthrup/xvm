@@ -126,6 +126,7 @@ public abstract class NamedConstant
         case Package:
         case Class:
         case NativeClass:
+        case Typedef:
             sParent = constParent.getValueString();
             chSep   = '.';
             break;

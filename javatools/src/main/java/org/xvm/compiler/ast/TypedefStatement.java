@@ -101,14 +101,20 @@ public class TypedefStatement
                     String[] names = new String[typeParams.length];
                     for (int i = 0; i < typeParams.length; i++) {
                         names[i] = (String) typeParams[i].getValue();
+
+                        // Register the type parameter as a child of the typedef
+                        typedef.createTypeParameter(names[i]);
                     }
                     typedef.setTypeParamNames(names);
 
-                    // Resolve both the constant-pool UTCs and the AST leaves
-                    // for formal names, so they never trigger COMPILER-38.
-                    var formalSet = java.util.Set.of(names);
-                    resolveBodyFormals(constType, formalSet);
-                    preResolveAstFormals(type, formalSet);
+                    // Resolve both the constant-pool UTCs and the AST leaves to the new formal properties.
+                    for (int i = 0; i < typeParams.length; i++) {
+                        String sParamName = names[i];
+                        org.xvm.asm.constants.PropertyConstant constParam =
+                                pool().ensurePropertyConstant(typedef.getIdentityConstant(), sParamName);
+                        resolveBodyFormalsTo(constType, sParamName, constParam.getFormalType());
+                        preResolveAstFormalsTo(type, sParamName, constParam);
+                    }
                 }
                 setComponent(typedef);
             } else if (!errs.hasSeriousErrors()) {
@@ -117,49 +123,49 @@ public class TypedefStatement
         }
     }
 
-    /**
-     * Walk a TypeConstant tree and resolve any UnresolvedTypeConstant leaf
-     * whose name matches a typedef formal to Object.
-     */
-    private void resolveBodyFormals(TypeConstant type, java.util.Set<String> formals) {
+    private void resolveBodyFormalsTo(TypeConstant type, String sName, TypeConstant typeFormal) {
         if (type instanceof org.xvm.asm.constants.ParameterizedTypeConstant ptc) {
             for (var param : ptc.getParamTypes()) {
-                resolveBodyFormals(param, formals);
+                resolveBodyFormalsTo(param, sName, typeFormal);
             }
-            resolveBodyFormals(ptc.getUnderlyingType(), formals);
+            resolveBodyFormalsTo(ptc.getUnderlyingType(), sName, typeFormal);
         } else if (type instanceof org.xvm.asm.constants.UnresolvedTypeConstant utc) {
             var inner = utc.getDefiningConstant();
             if (inner instanceof org.xvm.asm.constants.UnresolvedNameConstant unc
-                    && formals.contains(unc.getValueString())) {
-                utc.resolve(pool().typeObject());
+                    && unc.getValueString().equals(sName)) {
+                utc.resolve(typeFormal);
             }
         }
     }
 
-    /**
-     * Walk the body TypeExpression AST and pre-resolve any NamedTypeExpression
-     * leaf whose name matches a typedef formal. Sets the leaf's constId to
-     * Object so subsequent ensureTypeConstant() calls produce TerminalTypeConstant
-     * instead of UnresolvedTypeConstant.
-     */
-    private void preResolveAstFormals(TypeExpression expr, java.util.Set<String> formals) {
+    private void preResolveAstFormalsTo(TypeExpression expr, String sName, org.xvm.asm.Constant constFormal) {
         if (expr instanceof NamedTypeExpression nte) {
             java.util.List<TypeExpression> params = nte.getParamTypes();
             if (params != null) {
                 for (var param : params) {
                     if (param instanceof NamedTypeExpression child) {
                         String name = child.getName();
-                        if (name != null && formals.contains(name)) {
+                        if (name != null && name.equals(sName)) {
                             try {
-                                child.preResolveConstant(pool().typeObject());
+                                child.preResolveConstant(constFormal);
                             } catch (Exception e) {
                                 throw new RuntimeException("preResolve failed for " + name + ": " + e.getMessage(), e);
                             }
                         } else {
-                            preResolveAstFormals(child, formals);
+                            preResolveAstFormalsTo(child, sName, constFormal);
                         }
                     }
                 }
+            }
+        }
+    }
+
+    @Override
+    public void resolveNames(StageMgr mgr, ErrorListener errs) {
+        if (mgr.processChildren()) {
+            TypedefStructure typedef = (TypedefStructure) getComponent();
+            if (typedef != null) {
+                typedef.setType(type.ensureTypeConstant());
             }
         }
     }

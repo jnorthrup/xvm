@@ -236,3 +236,20 @@ val versionOutputTest by tasks.registering(Test::class) {
         logger.info("[javatools] Verifying version output contains expected git and API information")
     }
 }
+
+val testMixin by tasks.registering(Test::class) {
+    description = "Run the TypedefTest specifically for test_mixin.x"
+    group = VERIFICATION_GROUP
+
+    useJUnitPlatform()
+
+    // Copy properties from the main test task
+    val testTask = tasks.test.get()
+    classpath = testTask.classpath
+    testClassesDirs = testTask.testClassesDirs
+
+    filter {
+        includeTestsMatching("org.xvm.compiler.TypedefTest.testMixin")
+    }
+}
+

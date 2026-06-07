@@ -169,6 +169,8 @@ public class NamedTypeExpression
         return constId;
     }
 
+    private boolean m_fPreResolved;
+
     /**
      * Pre-resolve this NamedTypeExpression to a specific constant.
      * Used to bind typedef formal-name leaves so they don't create
@@ -176,6 +178,7 @@ public class NamedTypeExpression
      */
     void preResolveConstant(Constant constId) {
         m_constId = constId;
+        m_fPreResolved = true;
         if (m_constUnresolved != null && constId != null) {
             m_constUnresolved.resolve(constId);
             m_constUnresolved = null;
@@ -386,7 +389,30 @@ public class NamedTypeExpression
                 atypeParams[i] = listParams.get(i).ensureTypeConstant(ctx, errs);
             }
 
-            type = pool.ensureParameterizedTypeConstant(type, atypeParams);
+            if (constId instanceof org.xvm.asm.constants.TypedefConstant idTypedef && type.getFormat() == org.xvm.asm.Constant.Format.ParameterizedType) {
+                org.xvm.asm.TypedefStructure struct = (org.xvm.asm.TypedefStructure) idTypedef.getComponent();
+                if (struct != null) {
+                    int cNames = struct.getTypeParamCount();
+                    if (cNames == atypeParams.length) {
+                        final TypeConstant[] atypeResolved = atypeParams;
+                        type = type.resolveGenerics(pool, new org.xvm.asm.GenericTypeResolver() {
+                            public TypeConstant resolveFormalType(org.xvm.asm.constants.FormalConstant constFormal) {
+                                for (int i = 0; i < cNames; i++) {
+                                    if (struct.getTypeParamName(i).equals(constFormal.getName())) {
+                                        return atypeResolved[i];
+                                    }
+                                }
+                                return null;
+                            }
+                        });
+                        atypeParams = ConstantPool.NO_TYPES;
+                    }
+                }
+            }
+
+            if (atypeParams.length > 0) {
+                type = pool.ensureParameterizedTypeConstant(type, atypeParams);
+            }
         }
 
         if (access != null && access != Access.PUBLIC) {
@@ -426,7 +452,7 @@ public class NamedTypeExpression
     public void resolveNames(StageMgr mgr, ErrorListener errs) {
         // If already pre-resolved (e.g. typedef formal leaf bound to Object),
         // skip name resolution entirely and just process children.
-        if (m_constId instanceof TypeConstant tc && !tc.containsUnresolved()) {
+        if (m_fPreResolved || (m_constId instanceof TypeConstant tc && !tc.containsUnresolved())) {
             mgr.processChildren();
             return;
         }
@@ -614,6 +640,7 @@ public class NamedTypeExpression
                 type = constType;
             } else {
                 type = calculateDefaultType(ctx, m_constId, errs);
+                System.err.println("DEBUG " + System.identityHashCode(this) + " AFTER calculateDefaultType: type=" + type.getClass().getName() + " (" + type + ")");
                 if (type.containsUnresolved()) {
                     // DEBUG: dump to file
                     try {
@@ -672,22 +699,46 @@ public class NamedTypeExpression
             if (atypeParams == null) {
                 return null;
             }
-            if (type.isParamsSpecified()) {
-                TypeConstant[] atypeActual = type.getParamTypesArray();
-                if (!Arrays.equals(atypeActual, atypeParams)) {
-                    // this can happen for example, if m_constId is a typedef for a function
-                    log(errs, Severity.ERROR, Compiler.TYPE_PARAMS_UNEXPECTED);
-                    return null;
+            System.err.println("DEBUG " + System.identityHashCode(this) + ": m_constId=" + (m_constId == null ? "null" : m_constId.getClass().getName() + " (" + m_constId + ")"));
+            System.err.println("DEBUG " + System.identityHashCode(this) + ": type=" + (type == null ? "null" : type.getClass().getName() + " (" + type + ")"));
+            System.err.println("DEBUG " + System.identityHashCode(this) + ": atypeParams=" + java.util.Arrays.toString(atypeParams));
+            if (m_constId instanceof org.xvm.asm.constants.TypedefConstant idTypedef && type.getFormat() == org.xvm.asm.Constant.Format.ParameterizedType) {
+                org.xvm.asm.TypedefStructure struct = (org.xvm.asm.TypedefStructure) idTypedef.getComponent();
+                int cNames = struct.getTypeParamCount();
+                if (cNames == atypeParams.length) {
+                    final TypeConstant[] atypeResolved = atypeParams;
+                    type = type.resolveGenerics(pool, new org.xvm.asm.GenericTypeResolver() {
+                        public TypeConstant resolveFormalType(org.xvm.asm.constants.FormalConstant constFormal) {
+                            for (int i = 0; i < cNames; i++) {
+                                if (struct.getTypeParamName(i).equals(constFormal.getName())) {
+                                    return atypeResolved[i];
+                                }
+                            }
+                            return null;
+                        }
+                    });
+                    atypeParams = ConstantPool.NO_TYPES;
                 }
-            } else {
-                // this is a duplicate of the check in calculateDefaultType() in case we got
-                // to this point bypassing that logic
-                if (type.isExplicitClassIdentity(true) &&
-                        (type.isTuple() || atypeParams.length <= type.getMaxParamsCount())) {
-                    type = pool.ensureParameterizedTypeConstant(type, atypeParams);
+            }
+
+            if (atypeParams.length > 0) {
+                if (type.isParamsSpecified()) {
+                    TypeConstant[] atypeActual = type.getParamTypesArray();
+                    if (!Arrays.equals(atypeActual, atypeParams)) {
+                        // this can happen for example, if m_constId is a typedef for a function
+                        log(errs, Severity.ERROR, Compiler.TYPE_PARAMS_UNEXPECTED);
+                        return null;
+                    }
                 } else {
-                    log(errs, Severity.ERROR, Compiler.TYPE_PARAMS_UNEXPECTED);
-                    return null;
+                    // this is a duplicate of the check in calculateDefaultType() in case we got
+                    // to this point bypassing that logic
+                    if (type.isExplicitClassIdentity(true) &&
+                            (type.isTuple() || atypeParams.length <= type.getMaxParamsCount())) {
+                        type = pool.ensureParameterizedTypeConstant(type, atypeParams);
+                    } else {
+                        log(errs, Severity.ERROR, Compiler.TYPE_PARAMS_UNEXPECTED);
+                        return null;
+                    }
                 }
             }
         }
@@ -822,6 +873,13 @@ public class NamedTypeExpression
 
             case Typedef: {
                 TypedefConstant  idTypedef = (TypedefConstant) constTarget;
+                org.xvm.asm.TypedefStructure struct = (org.xvm.asm.TypedefStructure) idTypedef.getComponent();
+                System.err.println("DEBUG " + System.identityHashCode(this) + " calculateDefaultType: typedef=" + idTypedef + " struct=" + struct + " paramCount=" + (struct == null ? -1 : struct.getTypeParamCount()));
+                if (struct != null && struct.getTypeParamCount() > 0) {
+                    TypeConstant res = pool.ensureTerminalTypeConstant(idTypedef);
+                    System.err.println("DEBUG in calculateDefaultType returning: " + res.getClass().getName() + " (" + res + ")");
+                    return res;
+                }
                 TypeConstant     typeRef   = idTypedef.getReferredToType();
                 IdentityConstant idFrom    = idTypedef.getParentConstant();
                 IdentityConstant idClass   = getComponent().getContainingClass().getIdentityConstant();
@@ -1045,16 +1103,27 @@ public class NamedTypeExpression
             return false;
         }
 
-        if (format == Format.Property || format == Format.Typedef) {
+        if (format == Format.Property) {
             if (paramTypes != null) {
                 log(errs, Severity.ERROR, Compiler.TYPE_PARAMS_UNEXPECTED);
                 return false;
             }
-            if (format == Format.Property &&
-                    (!((PropertyConstant) constId).isFormalType() ||
-                        names != null && names.size() > 1)) {
+            if (!((PropertyConstant) constId).isFormalType() ||
+                        names != null && names.size() > 1) {
                 log(errs, Severity.ERROR, Compiler.INVALID_FORMAL_TYPE_IDENTITY);
                 return false;
+            }
+        } else if (format == Format.Typedef) {
+            if (paramTypes != null) {
+                org.xvm.asm.constants.TypedefConstant idTypedef = (org.xvm.asm.constants.TypedefConstant) constId;
+                org.xvm.asm.TypedefStructure          struct    = (org.xvm.asm.TypedefStructure) idTypedef.getComponent();
+                if (struct != null) {
+                    int cNames = struct.getTypeParamCount();
+                    if (paramTypes.size() != cNames) {
+                        log(errs, Severity.ERROR, Compiler.TYPE_PARAMS_UNEXPECTED);
+                        return false;
+                    }
+                }
             }
         }
         return true;

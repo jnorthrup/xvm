@@ -69,6 +69,7 @@ public class PropertyConstant
         case NativeClass:
         case Property:
         case Method:
+        case Typedef:
             break;
 
         default:

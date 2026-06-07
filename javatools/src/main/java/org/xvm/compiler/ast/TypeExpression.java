@@ -251,7 +251,7 @@ public abstract class TypeExpression
     /**
      * The TypeConstant currently associated with this TypeExpression.
      */
-    private TypeConstant m_constType;
+    protected TypeConstant m_constType;
 
     /**
      * The context for which the type constant was generated.

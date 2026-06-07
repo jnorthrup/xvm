@@ -54,6 +54,9 @@ import static org.xvm.util.Handy.writeMagnitude;
  */
 public class TerminalTypeConstant
         extends TypeConstant {
+    private static final ThreadLocal<Set<TypedefConstant>> activeResolutions =
+            ThreadLocal.withInitial(java.util.HashSet::new);
+
     // ----- constructors --------------------------------------------------------------------------
 
     /**
@@ -279,7 +282,17 @@ public class TerminalTypeConstant
     @Override
     public boolean isParamsSpecified() {
         TypeConstant type = resolveTypedefs();
-        return type != this && type.isParamsSpecified();
+        if (type != this) {
+            Constant constId = ensureResolvedConstant();
+            if (constId instanceof TypedefConstant idTypedef) {
+                org.xvm.asm.TypedefStructure struct = (org.xvm.asm.TypedefStructure) idTypedef.getComponent();
+                if (struct != null && struct.hasTypeParams()) {
+                    return false;
+                }
+            }
+            return type.isParamsSpecified();
+        }
+        return false;
     }
 
     @Override
@@ -368,6 +381,26 @@ public class TerminalTypeConstant
             return constId.getReferredToType().getGenericParamType(sName, listParams);
         }
 
+        Constant constId = ensureResolvedConstant();
+        if (constId instanceof TypedefConstant idTypedef) {
+            TypedefStructure typedef = (TypedefStructure) idTypedef.getComponent();
+            if (typedef != null) {
+                int count = typedef.getTypeParamCount();
+                for (int i = 0; i < count; i++) {
+                    if (typedef.getTypeParamName(i).equals(sName)) {
+                        return i < listParams.size() ? listParams.get(i) : null;
+                    }
+                }
+            }
+            TypeConstant typeReferred = idTypedef.getReferredToType();
+            ConstantPool pool = getConstantPool();
+            TypeConstant typeActual = listParams.isEmpty()
+                    ? this
+                    : pool.ensureParameterizedTypeConstant(this, listParams.toArray(TypeConstant.NO_TYPES));
+            TypeConstant typeResolved = typeReferred.resolveGenerics(pool, typeActual);
+            return typeResolved.resolveGenericType(sName);
+        }
+
         Constant         constant = getDefiningConstant();
         IdentityConstant idClz;
         switch (constant.getFormat()) {
@@ -443,6 +476,12 @@ public class TerminalTypeConstant
         return constId.getFormat() == Format.Typedef
                 ? ((TypedefConstant) constId).getReferredToType().getDefiningConstant()
                 : constId;
+    }
+
+    @Override
+    public TypedefConstant getTypedefConstant() {
+        Constant constId = ensureResolvedConstant();
+        return constId instanceof TypedefConstant typedefConst ? typedefConst : null;
     }
 
     /**
@@ -531,9 +570,19 @@ public class TerminalTypeConstant
     @Override
     public TypeConstant resolveTypedefs() {
         Constant constId = ensureResolvedConstant();
-        return constId.getFormat() == Format.Typedef
-                ? ((TypedefConstant) constId).getReferredToType().resolveTypedefs()
-                : this;
+        if (constId instanceof TypedefConstant idTypedef) {
+            Set<TypedefConstant> active = activeResolutions.get();
+            if (active.add(idTypedef)) {
+                try {
+                    return idTypedef.getReferredToType().resolveTypedefs();
+                } finally {
+                    active.remove(idTypedef);
+                }
+            } else {
+                return this;
+            }
+        }
+        return this;
     }
 
     @Override

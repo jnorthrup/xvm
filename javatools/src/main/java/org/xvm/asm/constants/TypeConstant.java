@@ -488,6 +488,13 @@ public abstract class TypeConstant
     }
 
     /**
+     * @return the TypedefConstant that this type resolves to, or null
+     */
+    public org.xvm.asm.constants.TypedefConstant getTypedefConstant() {
+        return isModifyingType() ? getUnderlyingType().getTypedefConstant() : null;
+    }
+
+    /**
      * Find the type of the specified formal parameter for this type.
      *
      * Note, that this method is used to find a non-contradictory potential compile-time resolution

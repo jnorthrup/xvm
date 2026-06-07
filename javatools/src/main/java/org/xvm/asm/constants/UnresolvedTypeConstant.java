@@ -74,14 +74,7 @@ public class UnresolvedTypeConstant
      * @return resolved underlying type
      */
     protected TypeConstant getResolvedType() {
-        TypeConstant type = m_type;
-        if (type != null) {
-            TypeConstant typeResolved = type.resolveTypedefs();
-            if (typeResolved != type) {
-                m_type = type = typeResolved;
-            }
-        }
-        return type;
+        return m_type;
     }
 
 
@@ -181,6 +174,12 @@ public class UnresolvedTypeConstant
                 : m_constId.isNameResolved()
                         ? m_constId.getResolvedConstant()
                         : m_constId;
+    }
+
+    @Override
+    public TypedefConstant getTypedefConstant() {
+        TypeConstant type = m_type;
+        return type == null ? null : type.getTypedefConstant();
     }
 
     @Override
@@ -289,9 +288,15 @@ public class UnresolvedTypeConstant
 
     @Override
     protected TypeConstant getGenericParamType(String sName, List<TypeConstant> listParams) {
-        return isTypeResolved()
-                ? getResolvedType().getGenericParamType(sName, listParams)
-                : null;
+        if (isTypeResolved()) {
+            TypeConstant type = m_type;
+            if (type.isSingleDefiningConstant() &&
+                    type.getDefiningConstant().getFormat() == Constant.Format.Typedef) {
+                return type.getGenericParamType(sName, listParams);
+            }
+            return getResolvedType().getGenericParamType(sName, listParams);
+        }
+        return null;
     }
 
     @Override

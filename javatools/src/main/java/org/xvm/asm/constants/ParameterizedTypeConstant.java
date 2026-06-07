@@ -39,6 +39,9 @@ import static org.xvm.util.Handy.writePackedLong;
  */
 public class ParameterizedTypeConstant
         extends TypeConstant {
+    private static final ThreadLocal<Set<TypedefConstant>> activeResolutions =
+            ThreadLocal.withInitial(java.util.HashSet::new);
+
     // ----- constructors --------------------------------------------------------------------------
 
     /**
@@ -251,6 +254,22 @@ public class ParameterizedTypeConstant
     @Override
     public TypeConstant resolveTypedefs() {
         TypeConstant constOriginal = m_constType;
+        TypedefConstant typedefConst = constOriginal.getTypedefConstant();
+        if (typedefConst != null) {
+            Set<TypedefConstant> active = activeResolutions.get();
+            if (active.add(typedefConst)) {
+                try {
+                    TypeConstant typeReferred = typedefConst.getReferredToType();
+                    TypeConstant typeResolved = typeReferred.resolveGenerics(getConstantPool(), this);
+                    return typeResolved.resolveTypedefs();
+                } finally {
+                    active.remove(typedefConst);
+                }
+            } else {
+                return this;
+            }
+        }
+
         TypeConstant constResolved = constOriginal.resolveTypedefs();
         boolean      fDiff         = constOriginal != constResolved;
 
