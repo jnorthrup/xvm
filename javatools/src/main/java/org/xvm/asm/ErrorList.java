@@ -32,6 +32,10 @@ public class ErrorList
 
     @Override
     public boolean log(ErrorInfo err) {
+        if (err.getSeverity().compareTo(Severity.ERROR) >= 0) {
+            System.err.println("COMPILER ERROR LOGGED: " + err);
+            new Throwable("Stack trace for logged compiler error").printStackTrace();
+        }
         String uid = err.genUID();
         if (f_setUID.add(uid)) {
             // remember the highest severity encountered

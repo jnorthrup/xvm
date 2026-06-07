@@ -1446,6 +1446,10 @@ public abstract class TypeConstant
      * @return true iff the type is a Tuple type
      */
     public boolean isTuple() {
+        TypeConstant type = resolveTypedefs();
+        if (type != this) {
+            return type.isTuple();
+        }
         return isSingleDefiningConstant() && getUnderlyingType().isTuple();
     }
 
@@ -1454,6 +1458,10 @@ public abstract class TypeConstant
      */
     public List<TypeConstant> getTupleParamTypes() {
         assert isTuple();
+        TypeConstant type = resolveTypedefs();
+        if (type != this) {
+            return type.getTupleParamTypes();
+        }
 
         IdentityConstant idTuple  = getSingleUnderlyingClass(true);
         ClassStructure   clzTuple = (ClassStructure) idTuple.getComponent();

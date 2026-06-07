@@ -3132,8 +3132,11 @@ public class ConstantPool
      * @return one of {@link Relation} constants
      */
     public Relation checkTupleCompatibility(TypeConstant tupleLeft, TypeConstant tupleRight) {
-        IdentityConstant idLeft  = tupleLeft.getSingleUnderlyingClass(true);
-        IdentityConstant idRight = tupleRight.getSingleUnderlyingClass(true);
+        TypeConstant typeLeft  = tupleLeft.resolveTypedefs();
+        TypeConstant typeRight = tupleRight.resolveTypedefs();
+
+        IdentityConstant idLeft  = typeLeft.getSingleUnderlyingClass(true);
+        IdentityConstant idRight = typeRight.getSingleUnderlyingClass(true);
 
         if (idLeft.getFormat() == Format.NativeClass) {
             idLeft = ((NativeRebaseConstant) idLeft).getClassConstant();
@@ -3143,12 +3146,44 @@ public class ConstantPool
             idRight = ((NativeRebaseConstant) idRight).getClassConstant();
         }
 
+        while (idLeft.getComponent() instanceof ClassStructure clzLeft &&
+                (clzLeft.getFormat() == Component.Format.MIXIN || clzLeft.getFormat() == Component.Format.ANNOTATION)) {
+            TypeConstant typeInto = clzLeft.getTypeInto();
+            if (typeInto == null) {
+                break;
+            }
+            if (clzLeft.isParameterized()) {
+                typeInto = typeInto.resolveGenerics(this, clzLeft.new SimpleTypeResolver(this, typeLeft.getParamTypes()));
+            }
+            typeLeft = typeInto.resolveTypedefs();
+            idLeft   = typeLeft.getSingleUnderlyingClass(true);
+            if (idLeft.getFormat() == Format.NativeClass) {
+                idLeft = ((NativeRebaseConstant) idLeft).getClassConstant();
+            }
+        }
+
+        while (idRight.getComponent() instanceof ClassStructure clzRight &&
+                (clzRight.getFormat() == Component.Format.MIXIN || clzRight.getFormat() == Component.Format.ANNOTATION)) {
+            TypeConstant typeInto = clzRight.getTypeInto();
+            if (typeInto == null) {
+                break;
+            }
+            if (clzRight.isParameterized()) {
+                typeInto = typeInto.resolveGenerics(this, clzRight.new SimpleTypeResolver(this, typeRight.getParamTypes()));
+            }
+            typeRight = typeInto.resolveTypedefs();
+            idRight   = typeRight.getSingleUnderlyingClass(true);
+            if (idRight.getFormat() == Format.NativeClass) {
+                idRight = ((NativeRebaseConstant) idRight).getClassConstant();
+            }
+        }
+
         ClassStructure clzTuple = (ClassStructure) idLeft.getComponent();
 
         if (idLeft.equals(idRight)) {
             // compare the type parameters
-            return clzTuple.calculateAssignability(this, tupleLeft.getParamTypes(), Access.PUBLIC,
-                    tupleRight.getParamTypes());
+            return clzTuple.calculateAssignability(this, typeLeft.getTupleParamTypes(), Access.PUBLIC,
+                    typeRight.getTupleParamTypes());
         }
 
         if (idLeft.equals(clzCondTuple())) {
@@ -3159,18 +3194,19 @@ public class ConstantPool
         if (idRight.equals(clzCondTuple())) {
             // left is not conditional - we do allow an assignment from a naked
             // ConditionalTuple to Tuple<Boolean>
-            List<TypeConstant> listRight = tupleRight.getParamsCount() > 0
-                    ? tupleRight.getParamTypes()
-                    : Collections.singletonList(typeBoolean());
+            List<TypeConstant> listRight = typeRight.getTupleParamTypes();
+            if (listRight.isEmpty()) {
+                listRight = Collections.singletonList(typeBoolean());
+            }
 
-            return clzTuple.calculateAssignability(this, tupleLeft.getParamTypes(), Access.PUBLIC,
+            return clzTuple.calculateAssignability(this, typeLeft.getTupleParamTypes(), Access.PUBLIC,
                     listRight);
         }
 
 
         // should never happen; soft assert
-        System.err.println("Unsupported tuple type: " + idLeft.getValueString());
-        return Relation.INCOMPATIBLE;
+        throw new org.xvm.compiler.CompilerException("Unsupported tuple type: idLeft=" + idLeft.getValueString()
+                + ", idRight=" + idRight.getValueString());
     }
 
     /**

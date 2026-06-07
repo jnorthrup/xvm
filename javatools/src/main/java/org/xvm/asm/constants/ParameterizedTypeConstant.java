@@ -261,7 +261,38 @@ public class ParameterizedTypeConstant
                 try {
                     TypeConstant typeReferred = typedefConst.getReferredToType();
                     TypeConstant typeResolved = typeReferred.resolveGenerics(getConstantPool(), this);
-                    return typeResolved.resolveTypedefs();
+                    TypeConstant typeBase     = typeResolved.resolveTypedefs();
+                    ConstantPool pool     = getConstantPool();
+                    org.xvm.asm.Component parent   = typedefConst.getParentConstant().getComponent();
+                    if (parent != null) {
+                        for (org.xvm.asm.Component child : parent.children()) {
+                            if (child instanceof ClassStructure clz &&
+                                    (clz.getFormat() == org.xvm.asm.Component.Format.MIXIN || clz.getFormat() == org.xvm.asm.Component.Format.ANNOTATION)) {
+                                TypeConstant typeInto = clz.getTypeInto();
+                                if (typeInto != null && typedefConst.equals(typeInto.getTypedefConstant())) {
+                                    boolean fMatch = true;
+                                    if (typeInto instanceof ParameterizedTypeConstant typeIntoParam) {
+                                        List<TypeConstant> listInto = typeIntoParam.getParamTypes();
+                                        List<TypeConstant> listThis = this.getParamTypes();
+                                        if (listInto.size() == listThis.size()) {
+                                            for (int i = 0; i < listInto.size(); i++) {
+                                                if (!listThis.get(i).isA(listInto.get(i))) {
+                                                    fMatch = false;
+                                                    break;
+                                                }
+                                            }
+                                        } else {
+                                            fMatch = false;
+                                        }
+                                    }
+                                    if (fMatch) {
+                                        typeBase = pool.ensureAnnotatedTypeConstant(clz.getIdentityConstant(), Constant.NO_CONSTS, typeBase);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    return typeBase;
                 } finally {
                     active.remove(typedefConst);
                 }

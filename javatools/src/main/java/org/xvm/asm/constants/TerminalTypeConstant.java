@@ -574,7 +574,27 @@ public class TerminalTypeConstant
             Set<TypedefConstant> active = activeResolutions.get();
             if (active.add(idTypedef)) {
                 try {
-                    return idTypedef.getReferredToType().resolveTypedefs();
+                    TypeConstant typeBase = idTypedef.getReferredToType().resolveTypedefs();
+                    ConstantPool pool     = getConstantPool();
+                    org.xvm.asm.Component parent   = idTypedef.getParentConstant().getComponent();
+                    if (parent != null) {
+                        for (org.xvm.asm.Component child : parent.children()) {
+                            if (child instanceof ClassStructure clz &&
+                                    (clz.getFormat() == Component.Format.MIXIN || clz.getFormat() == Component.Format.ANNOTATION)) {
+                                TypeConstant typeInto = clz.getTypeInto();
+                                if (typeInto != null && idTypedef.equals(typeInto.getTypedefConstant())) {
+                                    boolean fMatch = true;
+                                    if (typeInto instanceof ParameterizedTypeConstant) {
+                                        fMatch = false;
+                                    }
+                                    if (fMatch) {
+                                        typeBase = pool.ensureAnnotatedTypeConstant(clz.getIdentityConstant(), Constant.NO_CONSTS, typeBase);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    return typeBase;
                 } finally {
                     active.remove(idTypedef);
                 }
@@ -905,6 +925,10 @@ public class TerminalTypeConstant
             // this can only happen if this type is a Typedef referring to a relational type
             TypedefConstant constId = (TypedefConstant) ensureResolvedConstant();
             return constId.getReferredToType().isTuple();
+        }
+
+        if (getDefiningConstant() instanceof TypedefConstant) {
+            return resolveTypedefs().isTuple();
         }
 
         Constant         constant = getDefiningConstant();
