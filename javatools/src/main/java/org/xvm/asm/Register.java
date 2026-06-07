@@ -196,7 +196,7 @@ public class Register
         // annotations from the type's TypeInfo), adopt them onto the narrowed type.
         TypeConstant typeOrig = getOriginalType();
         if (typeOrig.isAnnotated() && !typeNarrowed.isAnnotated()) {
-            typeNarrowed = typeOrig.adoptAnnotations(typeNarrowed.getConstantPool(), typeNarrowed);
+            typeNarrowed = typeNarrowed.adoptAnnotations(typeNarrowed.getConstantPool(), typeOrig);
         }
 
         ShadowRegister regShadow = new ShadowRegister(typeNarrowed, m_sName, f_nOrigIndex);

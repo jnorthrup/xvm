@@ -187,6 +187,32 @@ public class ParameterizedTypeConstant
     }
 
     @Override
+    public List<TypeConstant> getTupleParamTypes() {
+        assert isTuple();
+
+        TypeConstant type = resolveTypedefs();
+        if (type != this) {
+            return type.getTupleParamTypes();
+        }
+
+        if (isSingleDefiningConstant()) {
+            TypedefConstant idTypedef = getTypedefConstant();
+            if (idTypedef != null) {
+                TypeConstant typeReferred = idTypedef.getReferredToType();
+                return typeReferred.resolveGenerics(getConstantPool(), this).getTupleParamTypes();
+            }
+
+            IdentityConstant id = getSingleUnderlyingClass(true);
+            if (id != null) {
+                ClassStructure clzTuple = (ClassStructure) id.getComponent();
+                return clzTuple.getTupleParamTypes(getConstantPool(), getParamTypes());
+            }
+        }
+
+        return super.getTupleParamTypes();
+    }
+
+    @Override
     public TypeConstant resolveFormalType(FormalConstant constFormal) {
         switch (constFormal.getFormat()) {
         case Property:

@@ -143,27 +143,14 @@ public class ArrayAccessExpression
             return null;
         }
 
-        new RuntimeException("PROBE-ARRIMPL typeTarget=" + typeTarget.getClass().getSimpleName()
-            + " tv=" + typeTarget.getValueString()
-            + " isTuple=" + typeTarget.isTuple()
-            + " isParamsSpecified=" + typeTarget.isParamsSpecified()).printStackTrace();
-
         // tuples support array index operations, and are type safe, so we can figure out the type
         // of the resulting field IFF the tuple type specifies its field types AND the index into
         // the tuple is a constant value. however, since we haven't yet validated the expression,
         // the value of the index might not yet be determinable
         if (typeTarget.isTuple()) {
-            TypeConstant result = typeTarget.isParamsSpecified() || typeTarget.isFormalTypeSequence()
+            return typeTarget.isParamsSpecified() || typeTarget.isFormalTypeSequence()
                     ? determineTupleResultType(typeTarget)
                     : null;
-            if (result != null && !result.isTypeOfType() && !result.equals(pool().typeInt())) {
-                new RuntimeException("PROBE-TUPLEACCESS typeTarget=" + typeTarget.getClass().getSimpleName()
-                    + " tv=" + typeTarget.getValueString()
-                    + " isTuple=" + typeTarget.isTuple()
-                    + " isParamsSpecified=" + typeTarget.isParamsSpecified()
-                    + " result=" + result.getValueString()).printStackTrace();
-            }
-            return result;
         }
 
         // otherwise, the type comes from the return value from the op that is likely to be used to
@@ -486,11 +473,6 @@ public class ArrayAccessExpression
 
                 aIndexTypes = idGet.getRawParams();
                 typeResult  = idGet.getRawReturns()[0].resolveAutoNarrowing(pool, true, typeArray, null);
-                new RuntimeException("PROBE-ARRAYACCESS typeArray=" + typeArray.getClass().getSimpleName()
-                    + " tv=" + typeArray.getValueString()
-                    + " idGet=" + idGet.getValueString()
-                    + " typeResult=" + typeResult.getClass().getSimpleName()
-                    + " rv=" + typeResult.getValueString()).printStackTrace();
                 m_idGet     = idGet;
             }
         }

@@ -1238,10 +1238,15 @@ public class TerminalTypeConstant
 
     @Override
     public boolean isSingleUnderlyingClass(boolean fAllowInterface) {
+        TypeConstant type = resolveTypedefs();
+        if (type != this) {
+            return type.isSingleUnderlyingClass(fAllowInterface);
+        }
+
         if (!isSingleDefiningConstant()) {
             // this can only happen if this type is a Typedef referring to a relational type
-            TypedefConstant constId = (TypedefConstant) ensureResolvedConstant();
-            return constId.getReferredToType().isSingleUnderlyingClass(fAllowInterface);
+            TypedefConstant idTypedef = (TypedefConstant) ensureResolvedConstant();
+            return idTypedef.getReferredToType().isSingleUnderlyingClass(fAllowInterface);
         }
 
         Constant constant = getDefiningConstant();
@@ -1286,10 +1291,15 @@ public class TerminalTypeConstant
 
     @Override
     public IdentityConstant getSingleUnderlyingClass(boolean fAllowInterface) {
+        TypeConstant type = resolveTypedefs();
+        if (type != this) {
+            return type.getSingleUnderlyingClass(fAllowInterface);
+        }
+
         if (!isSingleDefiningConstant()) {
             // this can only happen if this type is a Typedef referring to a relational type
-            TypedefConstant constId = (TypedefConstant) ensureResolvedConstant();
-            return constId.getReferredToType().getSingleUnderlyingClass(fAllowInterface);
+            TypedefConstant idTypedef = (TypedefConstant) ensureResolvedConstant();
+            return idTypedef.getReferredToType().getSingleUnderlyingClass(fAllowInterface);
         }
 
         Constant constant = getDefiningConstant();

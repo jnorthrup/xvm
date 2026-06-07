@@ -130,6 +130,18 @@ public class IntersectionTypeConstant
     // ----- TypeConstant methods ------------------------------------------------------------------
 
     @Override
+    public boolean isTuple() {
+        return m_constType1.isTuple() || m_constType2.isTuple();
+    }
+
+    @Override
+    public List<TypeConstant> getTupleParamTypes() {
+        return m_constType1.isTuple()
+                ? m_constType1.getTupleParamTypes()
+                : m_constType2.getTupleParamTypes();
+    }
+
+    @Override
     public boolean isImmutabilitySpecified() {
         return m_constType1.isImmutabilitySpecified() || m_constType2.isImmutabilitySpecified();
     }

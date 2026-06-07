@@ -34,7 +34,10 @@ public class ErrorList
     public boolean log(ErrorInfo err) {
         if (err.getSeverity().compareTo(Severity.ERROR) >= 0) {
             System.err.println("COMPILER ERROR LOGGED: " + err);
-            new Throwable("Stack trace for logged compiler error").printStackTrace();
+            if (!s_fStackTraced) {
+                s_fStackTraced = true;
+                new Throwable("Stack trace for logged compiler error").printStackTrace();
+            }
         }
         String uid = err.genUID();
         if (f_setUID.add(uid)) {
@@ -210,6 +213,11 @@ public class ErrorList
 
 
     // ----- data members --------------------------------------------------------------------------
+
+    /**
+     * Flag to cap stack traces to one.
+     */
+    private static boolean s_fStackTraced;
 
     /**
      * Maximum number of serious errors to tolerate before abandoning the process.

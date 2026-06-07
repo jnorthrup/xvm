@@ -415,6 +415,7 @@ tasks.distZip {
 // Distribution tasks should automatically depend on processResources and other build outputs
 
 val cleanXdk by tasks.registering(Delete::class) {
+
     subprojects.forEach {
         delete(it.layout.buildDirectory)
     }

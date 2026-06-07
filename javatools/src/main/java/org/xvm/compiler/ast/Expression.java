@@ -2018,12 +2018,6 @@ public abstract class Expression
                 lit.getLiteral().getId() == Token.Id.LIT_PATH) {
             log(errs, Severity.ERROR, Compiler.MISSING_RESOURCE);
         } else {
-            if (typeActual != null && typeActual.getValueString().equals("Object")) {
-                new RuntimeException("PROBE-WRONGTYPE typeRequired=" + typeRequired.getValueString()
-                    + " typeActual=" + typeActual.getValueString()
-                    + " expr=" + this.getClass().getSimpleName()
-                    + " exprType=" + (getType() == null ? "null" : getType().getValueString())).printStackTrace();
-            }
             log(errs, Severity.ERROR, Compiler.WRONG_TYPE,
                 typeRequired.getValueString(), typeActual.getValueString());
         }

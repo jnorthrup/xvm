@@ -483,7 +483,8 @@ public class AnnotatedTypeConstant
                 }
 
                 // has to be an annotation
-                if (typeAnno.getExplicitClassFormat() != Component.Format.ANNOTATION) {
+                Component.Format format = typeAnno.getExplicitClassFormat();
+                if (format != Component.Format.ANNOTATION && format != Component.Format.MIXIN) {
                     log(errs, Severity.ERROR, VE_CLASS_NOT_ANNOTATION,
                         typeAnno.getValueString());
                     return null;

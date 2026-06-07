@@ -242,3 +242,10 @@ val testMixin by tasks.registering {
     dependsOn(gradle.includedBuild("javatools").task(":testMixin"))
 }
 
+val TestMixins by tasks.registering {
+    group = "verification"
+    description = "Run the Mixins test (alias for testMixin)"
+    // dependsOn(xdkRuntime)
+    dependsOn(gradle.includedBuild("javatools").task(":testMixin"))
+}
+
