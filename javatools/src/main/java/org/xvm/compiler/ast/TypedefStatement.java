@@ -105,10 +105,36 @@ public class TypedefStatement
                         names[i] = (String) typeParams[i].getValue();
                     }
                     typedef.setTypeParamNames(names);
+
+                    // Resolve UnresolvedTypeConstant leaves in the body whose names
+                    // match typedef formals. Prevents COMPILER-38 from
+                    // UnresolvedTypeConstant.validate(). Placeholder Object will be
+                    // substituted at use-site by resolveGenerics().
+                    var formalSet = java.util.Set.of(names);
+                    resolveBodyFormals(constType, formalSet);
                 }
                 setComponent(typedef);
             } else if (!errs.hasSeriousErrors()) {
                 log(errs, Severity.ERROR, Compiler.TYPEDEF_UNEXPECTED, sName, container);
+            }
+        }
+    }
+
+    /**
+     * Walk a TypeConstant tree and resolve any UnresolvedTypeConstant leaf
+     * whose name matches a typedef formal to Object.
+     */
+    private void resolveBodyFormals(TypeConstant type, java.util.Set<String> formals) {
+        if (type instanceof org.xvm.asm.constants.ParameterizedTypeConstant ptc) {
+            for (var param : ptc.getParamTypes()) {
+                resolveBodyFormals(param, formals);
+            }
+            resolveBodyFormals(ptc.getUnderlyingType(), formals);
+        } else if (type instanceof org.xvm.asm.constants.UnresolvedTypeConstant utc) {
+            var inner = utc.getDefiningConstant();
+            if (inner instanceof org.xvm.asm.constants.UnresolvedNameConstant unc
+                    && formals.contains(unc.getValueString())) {
+                utc.resolve(pool().typeObject());
             }
         }
     }
