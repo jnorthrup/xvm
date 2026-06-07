@@ -139,7 +139,7 @@ public class IntersectionTypeConstant
         TypeConstant type = m_constType1.isTuple() ? m_constType1 : m_constType2;
         List<TypeConstant> fields = type.getTupleParamTypes();
         if (getValueString().contains("Xor")) {
-            System.err.println("DEBUG-INTERSECTION for " + getValueString() + " chosen=" + type.getValueString() + " fields=" + fields);
+            
         }
         return fields;
     }

@@ -903,20 +903,61 @@ public class ClassStructure
     public List<TypeConstant> getTupleParamTypes(ConstantPool pool, List<TypeConstant> listParams) {
         if (getIdentityConstant().equals(pool.clzTuple())) {
              if (getName().equals("Tuple") && listParams.size() > 0) {
-                 System.err.println("DEBUG-TUPLE-FIELDS for " + getName() + " listParams=" + listParams);
+                 
              }
             return listParams;
         }
 
         for (Contribution contrib : getContributionsAsList()) {
             if (contrib.getComposition() == Composition.Into) {
+                TypeConstant typeRaw = contrib.getTypeConstant();
+                
+                // For a mixin into a typedef (e.g. Xor into Twin<Int>), we need to handle
+                // the case where the "into" type is a typedef to Tuple
+                // The contribution type may be Tuple<Int> but we need Tuple<Int, Int>
+                
+                if (typeRaw.getFormat() == Constant.Format.ParameterizedType) {
+                    // Get the underlying class (could be Tuple or a typedef)
+                    IdentityConstant idUnderlying = typeRaw.getSingleUnderlyingClass(true);
+                    
+                    // If it's a typedef, get the referred-to type and substitute params
+                    if (idUnderlying.getFormat() == Constant.Format.Typedef) {
+                        TypedefStructure typedefStruct = (TypedefStructure) idUnderlying.getComponent();
+                        if (typedefStruct != null) {
+                            // Get the typedef's underlying type (e.g. Tuple<A, A>)
+                            TypeConstant typeForTuple = typedefStruct.getType();
+                            
+                            // Substitute the type params using the actual params from typeRaw
+                            List<TypeConstant> listActualParams = typeRaw.getParamTypes();
+                            
+                            if (listActualParams.size() > 0) {
+                                // Create resolver that maps formal params -> actual params (by position)
+                                GenericTypeResolver resolver = new SimpleTypeResolver(pool, listActualParams);
+                                typeForTuple = typeForTuple.resolveGenerics(pool, resolver);
+                            }
+                            
+                            if (typeForTuple.isTuple()) {
+                                // Get params
+                                List<TypeConstant> fields;
+                                if (typeForTuple.isParamsSpecified()) {
+                                    fields = typeForTuple.getParamTypes();
+                                } else {
+                                    // Fall back to ClassStructure for base Tuple
+                                    IdentityConstant idTuple = typeForTuple.getSingleUnderlyingClass(true);
+                                    ClassStructure clzTuple = (ClassStructure) idTuple.getComponent();
+                                    fields = clzTuple.getTupleParamTypes(pool, Collections.emptyList());
+                                }
+                                return fields;
+                            }
+                        }
+                    }
+                }
+                
+                // Original logic for non-typedef case
                 TypeConstant typeContrib = contrib.resolveGenerics(pool,
                                                 new SimpleTypeResolver(pool, listParams));
                 if (typeContrib != null && typeContrib.isTuple()) {
                     List<TypeConstant> fields = typeContrib.getTupleParamTypes();
-                    if (getName().contains("Xor")) {
-                        System.err.println("DEBUG-MIXIN-CLZ-FIELDS for " + getName() + " contrib=" + typeContrib.getValueString() + " fields=" + fields);
-                    }
                     return fields;
                 }
             }

@@ -152,14 +152,59 @@ public class ArrayAccessExpression
             return null;
         }
 
+        // For mixin types, resolve to the "into" type to get the actual tuple params
+        TypeConstant typeForCheck = typeTarget;
+        if (typeTarget instanceof org.xvm.asm.constants.AnnotatedTypeConstant annoType) {
+            org.xvm.asm.constants.ClassConstant idAnno = annoType.getAnnotationClass();
+            if (idAnno != null) {
+                org.xvm.asm.Component comp = idAnno.getComponent();
+                if (comp instanceof org.xvm.asm.ClassStructure clz && 
+                        (clz.getFormat() == org.xvm.asm.Component.Format.MIXIN || 
+                         clz.getFormat() == org.xvm.asm.Component.Format.ANNOTATION)) {
+                    org.xvm.asm.constants.TypeConstant typeInto = clz.getTypeInto();
+                    if (typeInto != null) {
+                        typeForCheck = typeInto;
+                    }
+                }
+            }
+        } else if (typeTarget instanceof org.xvm.asm.constants.TerminalTypeConstant termType) {
+            org.xvm.asm.Constant idClass = termType.getSingleUnderlyingClass(true);
+            if (idClass instanceof org.xvm.asm.constants.ClassConstant idClz) {
+                org.xvm.asm.Component comp = idClz.getComponent();
+                if (comp instanceof org.xvm.asm.ClassStructure clz && 
+                        (clz.getFormat() == org.xvm.asm.Component.Format.MIXIN || 
+                         clz.getFormat() == org.xvm.asm.Component.Format.ANNOTATION)) {
+                    org.xvm.asm.constants.TypeConstant typeInto = clz.getTypeInto();
+                    if (typeInto != null) {
+                        typeForCheck = typeInto;
+                    }
+                }
+            }
+        }
+
         // tuples support array index operations, and are type safe, so we can figure out the type
         // of the resulting field IFF the tuple type specifies its field types AND the index into
         // the tuple is a constant value. however, since we haven't yet validated the expression,
         // the value of the index might not yet be determinable
-        if (typeTarget.isTuple()) {
-            return typeTarget.isParamsSpecified() || typeTarget.isFormalTypeSequence()
-                    ? determineTupleResultType(typeTarget)
-                    : null;
+        if (typeForCheck.isTuple()) {
+            // Get tuple params without calling resolveTypedefs (which has side effects)
+            List<TypeConstant> listFields = typeForCheck.getTupleParamTypes();
+            if (!listFields.isEmpty()) {
+                // Use determineTupleResultType but provide listFields directly
+                Constant constIndex = extractArrayIndex(indexes.get(0));
+                if (constIndex != null) {
+                    try {
+                        Constant constInt = constIndex.convertTo(pool().typeInt64());
+                        int nIndex = constInt == null ? -1 : constInt.getIntValue().getInt();
+                        if (nIndex >= 0 && nIndex < listFields.size()) {
+                            return listFields.get(nIndex);
+                        }
+                    } catch (RuntimeException e) {
+                        // fall through to return null
+                    }
+                }
+            }
+            return null;
         }
 
         // otherwise, the type comes from the return value from the op that is likely to be used to
@@ -519,16 +564,103 @@ public class ArrayAccessExpression
         // tuple is different from other container types (like array) in that every field in the
         // tuple may have a different type, so if we have enough compile-time information, we can
         // determine the compile-time type of the field being accessed
-        if (typeArray.isTuple() && aexprIndexes[0].isConstant()) {
-            TypeConstant typeField = determineTupleResultType(typeArray);
-            if (typeField != null) {
-                typeResult = typeField;
+        
+        // For mixin types, we should NOT call resolveTypedefs() because it has side effects
+        // of adding the mixin as an annotation. We handle the typedef resolution manually.
+        TypeConstant typeArrayResolved = typeArray;
+        
+        // Only call resolveTypedefs if it's not a mixin type
+        if (typeArrayResolved instanceof org.xvm.asm.constants.AnnotatedTypeConstant annoType) {
+            org.xvm.asm.constants.ClassConstant idAnno = annoType.getAnnotationClass();
+            if (idAnno != null) {
+                org.xvm.asm.Component comp = idAnno.getComponent();
+                if (comp instanceof org.xvm.asm.ClassStructure clz && 
+                        (clz.getFormat() == org.xvm.asm.Component.Format.MIXIN || 
+                         clz.getFormat() == org.xvm.asm.Component.Format.ANNOTATION)) {
+                    // Don't resolve - it's a mixin type
+                } else {
+                    typeArrayResolved = typeArray.resolveTypedefs();
+                }
             } else {
-                throw new RuntimeExcerption("not served for " + typeArray.getValueString() + " index=" + aexprIndexes[0]);
+                typeArrayResolved = typeArray.resolveTypedefs();
             }
-        } else if (aexprIndexes[0].isConstant() && typeArray.isA(pool.typeTuple())) {
-            throw new RuntimeExcerption("not served (isA Tuple) for " + typeArray.getValueString());
+        } else if (typeArrayResolved instanceof org.xvm.asm.constants.TerminalTypeConstant termType) {
+            org.xvm.asm.Constant idClass = termType.getSingleUnderlyingClass(true);
+            if (idClass instanceof org.xvm.asm.constants.ClassConstant idClz) {
+                org.xvm.asm.Component comp = idClz.getComponent();
+                if (comp instanceof org.xvm.asm.ClassStructure clz && 
+                        (clz.getFormat() == org.xvm.asm.Component.Format.MIXIN || 
+                         clz.getFormat() == org.xvm.asm.Component.Format.ANNOTATION)) {
+                    // Don't resolve - it's a mixin type
+                } else {
+                    typeArrayResolved = typeArray.resolveTypedefs();
+                }
+            } else {
+                typeArrayResolved = typeArray.resolveTypedefs();
+            }
+        } else {
+            typeArrayResolved = typeArray.resolveTypedefs();
         }
+        
+        // For a mixin type, the type of "this" is the "into" type, not the mixin itself.
+        // We need to get the typeInto to resolve the tuple params correctly.
+        TypeConstant typeForParams = typeArrayResolved;
+        
+        // If it's an annotated type, check if it's a mixin/annotation
+        if (typeArrayResolved instanceof org.xvm.asm.constants.AnnotatedTypeConstant annoType) {
+            org.xvm.asm.constants.ClassConstant idAnno = annoType.getAnnotationClass();
+            if (idAnno != null) {
+                org.xvm.asm.Component comp = idAnno.getComponent();
+                if (comp instanceof org.xvm.asm.ClassStructure clz && 
+                        (clz.getFormat() == org.xvm.asm.Component.Format.MIXIN || 
+                         clz.getFormat() == org.xvm.asm.Component.Format.ANNOTATION)) {
+                    org.xvm.asm.constants.TypeConstant typeInto = clz.getTypeInto();
+                    if (typeInto != null) {
+                        // Get tuple params from the typeInto without triggering resolveTypedefs
+                        typeForParams = getTupleParamsFromType(typeInto);
+                    }
+                }
+            }
+        } else if (typeArrayResolved instanceof org.xvm.asm.constants.TerminalTypeConstant termType) {
+            // For a TerminalTypeConstant that's a mixin class, look up its typeInto directly
+            org.xvm.asm.Constant idClass = termType.getSingleUnderlyingClass(true);
+            if (idClass instanceof org.xvm.asm.constants.ClassConstant idClz) {
+                org.xvm.asm.Component comp = idClz.getComponent();
+                if (comp instanceof org.xvm.asm.ClassStructure clz && 
+                        (clz.getFormat() == org.xvm.asm.Component.Format.MIXIN || 
+                         clz.getFormat() == org.xvm.asm.Component.Format.ANNOTATION)) {
+                    org.xvm.asm.constants.TypeConstant typeInto = clz.getTypeInto();
+                    if (typeInto != null) {
+                        // Get tuple params from the typeInto without triggering resolveTypedefs
+                        typeForParams = getTupleParamsFromType(typeInto);
+                    }
+                }
+            }
+        }
+        
+        // Get tuple params directly without calling resolveTypedefs (which adds mixin annotations)
+            List<TypeConstant> listFields = typeForParams.getTupleParamTypes();
+            
+            if (!listFields.isEmpty() && aexprIndexes[0].isConstant()) {
+                // Extract index and get the corresponding field type
+                Constant constIndex = extractArrayIndex(aexprIndexes[0]);
+                if (constIndex != null) {
+                    try {
+                        Constant constInt = constIndex.convertTo(pool.typeInt64());
+                        int nIndex = constInt == null ? -1 : constInt.getIntValue().getInt();
+                        if (nIndex >= 0 && nIndex < listFields.size()) {
+                            typeResult = listFields.get(nIndex);
+                        }
+                    } catch (RuntimeException e) {
+                        // fall through
+                    }
+                }
+                if (typeResult == null) {
+                    throw new RuntimeExcerption("not served for " + typeArray.getValueString() + " index=" + aexprIndexes[0]);
+                }
+            } else if (aexprIndexes[0].isConstant() && typeArrayResolved.isA(pool.typeTuple())) {
+                throw new RuntimeExcerption("not served (isA Tuple) for " + typeArray.getValueString());
+            }
 
         // the expression yields a constant value iff the sub-expressions are all constants and the
         // evaluation of the element access is legal
@@ -984,6 +1116,46 @@ public class ArrayAccessExpression
             atypeSlice[iDest] = listFields.get(iSrc);
         }
         return pool.ensureTupleType(atypeSlice);
+    }
+
+    /**
+     * Get the tuple type with resolved params from a type that may be a typedef to Tuple.
+     * This avoids calling resolveTypedefs() which has side effects of adding mixin annotations.
+     *
+     * @param type  the type that may be a typedef to Tuple
+     *
+     * @return a TypeConstant representing the Tuple with resolved params
+     */
+    private TypeConstant getTupleParamsFromType(TypeConstant type) {
+        ConstantPool pool = pool();
+        
+        // Strip annotations first
+        while (type.isAnnotated()) {
+            type = type.getUnderlyingType();
+        }
+        
+        // If it's a ParameterizedType with a typedef underlying class
+        if (type instanceof org.xvm.asm.constants.ParameterizedTypeConstant paramType) {
+            org.xvm.asm.constants.IdentityConstant idUnderlying = paramType.getSingleUnderlyingClass(true);
+            
+            // If it's a typedef, manually resolve it without the annotation side effect
+            if (idUnderlying instanceof org.xvm.asm.constants.TypedefConstant typedefConst) {
+                org.xvm.asm.TypedefStructure typedefStruct = 
+                    (org.xvm.asm.TypedefStructure) typedefConst.getComponent();
+                if (typedefStruct != null) {
+                    // Get the typedef's underlying type (e.g. Tuple<A, A>)
+                    TypeConstant typeUnderlying = typedefStruct.getType();
+                    
+                    // Use the parameterized type itself as the resolver (it implements GenericTypeResolver)
+                    TypeConstant typeResolved = typeUnderlying.resolveGenerics(pool, paramType);
+                    
+                    return typeResolved;
+                }
+            }
+        }
+        
+        // Return original type if no typedef resolution needed
+        return type;
     }
 
     /**

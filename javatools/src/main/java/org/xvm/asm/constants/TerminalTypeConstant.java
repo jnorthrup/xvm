@@ -588,6 +588,7 @@ public class TerminalTypeConstant
                                         fMatch = false;
                                     }
                                     if (fMatch) {
+                                        // Add the mixin as an annotation to preserve mixin identity
                                         typeBase = pool.ensureAnnotatedTypeConstant(clz.getIdentityConstant(), Constant.NO_CONSTS, typeBase);
                                     }
                                 }
@@ -698,7 +699,10 @@ public class TerminalTypeConstant
             atypeParams = ConstantPool.NO_TYPES;
         }
 
-        if (isTuple()) {
+        // Check if this is a Tuple type without calling isTuple() which has side effects
+        // of adding mixin annotations via resolveTypedefs()
+        IdentityConstant idTuple = getSingleUnderlyingClass(true);
+        if (idTuple != null && idTuple.equals(pool.clzTuple())) {
             // copy parameters as is
             return pool.ensureParameterizedTypeConstant(this, atypeParams);
         }
@@ -1170,7 +1174,7 @@ public class TerminalTypeConstant
         boolean res = isGenericType() &&
             ((FormalConstant) getDefiningConstant()).getConstraintType().isFormalTypeSequence();
         if (getValueString().contains("Twin.A")) {
-            System.err.println("DEBUG-SEQUENCE Twin.A isFormalTypeSequence=" + res);
+            
         }
         return res;
     }

@@ -315,8 +315,9 @@ public class Annotation
     public boolean validate(ErrorListener errs) {
         boolean fHalt = super.validate(errs);
 
-        // it must be an annotation type
-        if (getAnnotationType().getExplicitClassFormat() != Component.Format.ANNOTATION) {
+        // it must be an annotation type OR a mixin type (mixins can be used as annotations on types)
+        Component.Format format = getAnnotationType().getExplicitClassFormat();
+        if (format != Component.Format.ANNOTATION && format != Component.Format.MIXIN) {
             fHalt |= log(errs, Severity.ERROR, VE_CLASS_NOT_ANNOTATION,
                     getAnnotationClass().getValueString());
         }

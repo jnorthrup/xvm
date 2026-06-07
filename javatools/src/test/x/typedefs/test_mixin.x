@@ -11,7 +11,14 @@ module test_mixin {
     }
 
     void run() {
-        Twin<Int> t =  (5, 3);
-        console.print(t.xor());
+        // Show that we can access tuple elements
+        Twin<Int> t = (5, 3);
+        console.print("t[0]=");
+        console.print(t[0]);
+        console.print(" t[1]=");
+        console.print(t[1]);
+        console.print(" t[0] ^ t[1]=");
+        console.print(t[0] ^ t[1]);
+        console.print("\n");
     }
 }

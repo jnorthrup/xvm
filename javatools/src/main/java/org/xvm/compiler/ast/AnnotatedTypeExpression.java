@@ -319,7 +319,9 @@ public class AnnotatedTypeExpression
             }
 
             ClassStructure clzAnno = (ClassStructure) idAnno.getComponent();
-            if (clzAnno.getFormat() != Component.Format.ANNOTATION) {
+            
+            // Allow mixins to be used as annotations on types
+            if (clzAnno.getFormat() != Component.Format.ANNOTATION && clzAnno.getFormat() != Component.Format.MIXIN) {
                 log(errs, Severity.ERROR, Constants.VE_CLASS_NOT_ANNOTATION, clzAnno.getName());
                 return idAnno.getType();
             }
