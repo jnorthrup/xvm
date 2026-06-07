@@ -242,63 +242,102 @@ val testMixin by tasks.registering {
     dependsOn(gradle.includedBuild("javatools").task(":testMixin"))
 }
 
-// Stage pre-built .xtc modules from the installed xdk into the lib_* build dirs.
-// Required because compiler changes prevent lib_ecstasy from self-hosting.
-// Also builds mack.xtc from javatools_turtle.
+// Stage pre-built .xtc modules by bootstrapping: build with the pre-typedef compiler,
+// then the test runs with our modified javatools layered on top.
 val stageXtcLibs by tasks.registering {
     group = "verification"
-    description = "Stage pre-built .xtc modules from installed xdk for TestMixins"
+    description = "Bootstrap xtc libs from pre-typedef compiler for TestMixins"
     outputs.upToDateWhen { false } // always re-stage
 
     doLast {
-        val xdkLib = file("/opt/homebrew/Cellar/xdk-latest").listFiles()
-            ?.filter { it.isDirectory && it.name.startsWith("0.4.4-SNAPSHOT") }
-            ?.maxByOrNull { it.name }
-            ?.resolve("libexec/lib")
-            ?: throw GradleException("No xdk found in /opt/homebrew/Cellar/xdk-latest/")
+        val rootDir = project.projectDir
 
-        // Stage lib_*.xtc from installed xdk
-        listOf("aggregate", "cli", "collections", "convert", "crypto", "json",
-               "jsondb", "net", "oodb", "sec", "web", "webauth", "webcli", "xml",
-               "xunit", "xunit_db", "xunit_engine").forEach { name ->
-            val src = xdkLib.resolve("$name.xtc")
-            val dir = file("lib_$name/build/xtc/main/lib")
-            dir.mkdirs()
-            src.copyTo(dir.resolve("$name.xtc"), overwrite = true)
+        // Step 1: Save our modified javatools source
+        val backupDir = rootDir.resolve("javatools/.typedef_work")
+        val srcDir = rootDir.resolve("javatools/src/main/java")
+        backupDir.mkdirs()
+
+        // Step 2: Check out the pre-typedef javatools source
+        ant.withGroovyBuilder {
+            "exec"("executable" to "git",
+                "dir" to rootDir.absolutePath,
+                "failonerror" to true) {
+                "arg"("value" to "checkout")
+                "arg"("value" to "2ed5774d4")
+                "arg"("value" to "--")
+                "arg"("value" to "javatools/src/main/java")
+            }
         }
 
-        // Stage ecstasy.xtc from installed xdk
-        val ecstasyDir = file("lib_ecstasy/build/xtc/main/lib")
-        ecstasyDir.mkdirs()
-        xdkLib.resolve("ecstasy.xtc").copyTo(ecstasyDir.resolve("ecstasy.xtc"), overwrite = true)
+        // Step 3: Build javatools + all xtc libs with the old compiler
+        val procBuild = ProcessBuilder("./gradlew",
+                ":javatools:jar",
+                ":xdk:lib-ecstasy:compileXtc",
+                ":xdk:javatools-bridge:compileXtc",
+                "--no-configuration-cache")
+            .directory(rootDir)
+            .redirectErrorStream(true)
+            .start()
+        procBuild.inputStream.bufferedReader().forEachLine { logger.lifecycle(it) }
+        val exitBuild = procBuild.waitFor()
+        if (exitBuild != 0) {
+            throw GradleException("Bootstrap build failed with exit code $exitBuild")
+        }
 
-        // Build mack.xtc from source (compiled against the staged ecstasy.xtc)
-        val mackSrc = file("javatools_turtle/src/main/resources/mack.x")
-        val mackOut = file("javatools/build/test-mack-staging")
+        // Step 4: Copy the pre-built bridge to the runner's discovery path
+        val bridgeDir = rootDir.resolve("javatools_bridge/build/xtc/main/lib")
+        bridgeDir.mkdirs()
+
+        // Step 5: Restore our modified javatools source
+        ant.withGroovyBuilder {
+            "exec"("executable" to "git",
+                "dir" to rootDir.absolutePath,
+                "failonerror" to true) {
+                "arg"("value" to "checkout")
+                "arg"("value" to "HEAD")
+                "arg"("value" to "--")
+                "arg"("value" to "javatools/src/main/java")
+            }
+        }
+
+        // Step 6: Rebuild javatools with our typedef changes
+        // First delete the old jar so gradle doesn't use the cached version
+        rootDir.resolve("javatools/build/libs/javatools-${project.version}.jar").delete()
+        val procOur = ProcessBuilder("./gradlew",
+                ":javatools:jar",
+                "--no-configuration-cache")
+            .directory(rootDir)
+            .redirectErrorStream(true)
+            .start()
+        procOur.inputStream.bufferedReader().forEachLine { logger.lifecycle(it) }
+        val exitOur = procOur.waitFor()
+        if (exitOur != 0) {
+            throw GradleException("Our javatools build failed with exit code $exitOur")
+        }
+
+        // Step 7: Build mack.xtc from source with our javatools
+        val ecstasyDir = rootDir.resolve("lib_ecstasy/build/xtc/main/lib")
+        val mackSrc = rootDir.resolve("javatools_turtle/src/main/resources/mack.x")
+        val mackOut = rootDir.resolve("javatools/build/test-mack-staging")
         mackOut.mkdirs()
         val cp = "javatools/build/libs/javatools-${project.version}.jar" +
                 ":javatools_utils/build/libs/javatools-utils-${project.version}.jar"
-        val proc = ProcessBuilder("java", "-cp", cp,
+        val procMack = ProcessBuilder("java", "-cp", cp,
                 "org.xvm.tool.Launcher", "build",
                 "-L", ecstasyDir.absolutePath,
                 "-o", mackOut.absolutePath,
                 mackSrc.absolutePath)
+            .directory(rootDir)
             .redirectErrorStream(true)
             .start()
-        proc.inputStream.bufferedReader().forEachLine { logger.lifecycle(it) }
-        val exitCode = proc.waitFor()
-        if (exitCode != 0) {
-            throw GradleException("mack.xtc compilation failed with exit code $exitCode")
+        procMack.inputStream.bufferedReader().forEachLine { logger.lifecycle(it) }
+        val exitMack = procMack.waitFor()
+        if (exitMack != 0) {
+            throw GradleException("mack.xtc build failed with exit code $exitMack")
         }
         mackOut.resolve("mack.xtc").copyTo(ecstasyDir.resolve("mack.xtc"), overwrite = true)
 
-        // Stage javatools_bridge.xtc from installed xdk
-        val bridgeDir = file("javatools_bridge/build/xtc/main/lib")
-        bridgeDir.mkdirs()
-        xdkLib.resolve("../javatools/javatools_bridge.xtc")
-            .copyTo(bridgeDir.resolve("javatools_bridge.xtc"), overwrite = true)
-
-        logger.lifecycle("[stageXtcLibs] Staged ecstasy.xtc + mack.xtc + javatools_bridge.xtc + 17 lib_*.xtc modules")
+        logger.lifecycle("[stageXtcLibs] Bootstrap complete: ecstasy.xtc + mack.xtc + javatools_bridge.xtc + 17 lib_*.xtc")
     }
 }
 
@@ -312,9 +351,9 @@ val TestMixins by tasks.registering {
 
 val TestMixinsRun by tasks.registering(Exec::class) {
     group = "verification"
-    description = "Full TDD: stage xtc libs, compile test_mixin.x, execute with verbose output"
+    description = "Full TDD: bootstrap xtc libs, compile and execute test_mixin.x with verbose output"
 
-    dependsOn(TestMixins)
+    dependsOn(stageXtcLibs)
 
     val runner = file("bin/xtc_runner.sh")
     executable = runner.absolutePath
