@@ -1,0 +1,288 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d7/d48/_direct_runtime_build_service_8java" kind="file" language="Java">
+    <compoundname>DirectRuntimeBuildService.java</compoundname>
+    <includes local="no">java.io.Closeable</includes>
+    <includes local="no">java.io.File</includes>
+    <includes local="no">java.io.IOException</includes>
+    <includes local="no">java.lang.reflect.InvocationTargetException</includes>
+    <includes local="no">java.lang.reflect.Method</includes>
+    <includes local="no">java.net.MalformedURLException</includes>
+    <includes local="no">java.net.URL</includes>
+    <includes local="no">java.util.Arrays</includes>
+    <includes local="no">java.util.Map</includes>
+    <includes local="no">java.util.concurrent.ConcurrentHashMap</includes>
+    <includes local="no">java.util.stream.Collectors</includes>
+    <includes local="no">org.gradle.api.logging.Logger</includes>
+    <includes local="no">org.gradle.api.logging.Logging</includes>
+    <includes local="no">org.gradle.api.services.BuildService</includes>
+    <includes local="no">org.gradle.api.services.BuildServiceParameters</includes>
+    <includes local="no">org.xtclang.plugin.XtcLauncherRuntime</includes>
+    <includes local="no">org.xtclang.plugin.XtcPluginUtils.failure</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/DirectRuntimeBuildService.java</label>
+        <link refid="d7/d48/_direct_runtime_build_service_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.io.Closeable</label>
+      </node>
+      <node id="3">
+        <label>java.io.File</label>
+      </node>
+      <node id="4">
+        <label>java.io.IOException</label>
+      </node>
+      <node id="5">
+        <label>java.lang.reflect.InvocationTargetException</label>
+      </node>
+      <node id="6">
+        <label>java.lang.reflect.Method</label>
+      </node>
+      <node id="7">
+        <label>java.net.MalformedURLException</label>
+      </node>
+      <node id="8">
+        <label>java.net.URL</label>
+      </node>
+      <node id="9">
+        <label>java.util.Arrays</label>
+      </node>
+      <node id="10">
+        <label>java.util.Map</label>
+      </node>
+      <node id="11">
+        <label>java.util.concurrent.ConcurrentHashMap</label>
+      </node>
+      <node id="12">
+        <label>java.util.stream.Collectors</label>
+      </node>
+      <node id="13">
+        <label>org.gradle.api.logging.Logger</label>
+      </node>
+      <node id="14">
+        <label>org.gradle.api.logging.Logging</label>
+      </node>
+      <node id="15">
+        <label>org.gradle.api.services.BuildService</label>
+      </node>
+      <node id="16">
+        <label>org.gradle.api.services.BuildServiceParameters</label>
+      </node>
+      <node id="17">
+        <label>org.xtclang.plugin.XtcLauncherRuntime</label>
+      </node>
+      <node id="18">
+        <label>org.xtclang.plugin.XtcPluginUtils.failure</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service" prot="public">org::xtclang::plugin::runtime::DirectRuntimeBuildService</innerclass>
+    <innernamespace refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime">org::xtclang::plugin::runtime</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xtclang.plugin.runtime;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.Closeable;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.File;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.IOException;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.reflect.InvocationTargetException;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.reflect.Method;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.net.MalformedURLException;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.net.URL;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Arrays;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Map;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.concurrent.ConcurrentHashMap;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.stream.Collectors;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.gradle.api.logging.Logger;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.gradle.api.logging.Logging;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.gradle.api.services.BuildService;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.gradle.api.services.BuildServiceParameters;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xtclang.plugin.XtcLauncherRuntime;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xtclang.plugin.XtcPluginUtils.failure;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">abstract</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service" kindref="compound">DirectRuntimeBuildService</ref></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">implements</highlight><highlight class="normal"><sp/>BuildService&lt;BuildServiceParameters.None&gt;,<sp/>AutoCloseable<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1af7283297bee23d4e48e6a9c4c951f503" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>String<sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1af7283297bee23d4e48e6a9c4c951f503" kindref="member">EXECUTOR_CLASS</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;org.xtclang.plugin.runtime.impl.IsolatedDirectExecutor&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="40" refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a0a521fe39162485f442bb120a4f7333a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Logger<sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a0a521fe39162485f442bb120a4f7333a" kindref="member">LOG</ref><sp/>=<sp/>Logging.getLogger(<ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service" kindref="compound">DirectRuntimeBuildService</ref>.class);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ab624fe29e905e32e95758ea31122c04e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Map&lt;DirectRuntimeFingerprint,<sp/>RuntimeEntry&gt;<sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ab624fe29e905e32e95758ea31122c04e" kindref="member">runtimes</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ConcurrentHashMap&lt;&gt;();</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a3b7d02898da974fd4ade963f0e1c3056" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a3b7d02898da974fd4ade963f0e1c3056" kindref="member">executeCompile</ref>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="d3/d53/namespaceorg_1_1xtclang_1_1plugin_1a7460f78bbb4160fca0627b4e75a10f6f" kindref="member">XtcLauncherRuntime</ref><sp/><ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime" kindref="compound">runtime</ref>,<sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime_1a68244ca57e07ad9ef0639024bef7abfd" kindref="member">DirectCompileRequest</ref><sp/>request,<sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Logger<sp/>logger)<sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ac7ceed115fbd0ff2db0d330b942252d5" kindref="member">invoke</ref>(<ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime" kindref="compound">runtime</ref>,<sp/></highlight><highlight class="stringliteral">&quot;executeCompile&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Class&lt;?&gt;[]{<ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime_1a68244ca57e07ad9ef0639024bef7abfd" kindref="member">DirectCompileRequest</ref>.class,<sp/>Logger.class},<sp/>request,<sp/>logger);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a6a280ca6a8b0694ce90275e311d22fe4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a6a280ca6a8b0694ce90275e311d22fe4" kindref="member">executeRun</ref>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="d3/d53/namespaceorg_1_1xtclang_1_1plugin_1a7460f78bbb4160fca0627b4e75a10f6f" kindref="member">XtcLauncherRuntime</ref><sp/><ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime" kindref="compound">runtime</ref>,<sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime_1a9fafba589150c689719a1b9e0b47bc9c" kindref="member">DirectRunRequest</ref><sp/>request,<sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Logger<sp/>logger)<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ac7ceed115fbd0ff2db0d330b942252d5" kindref="member">invoke</ref>(<ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime" kindref="compound">runtime</ref>,<sp/></highlight><highlight class="stringliteral">&quot;executeRun&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Class&lt;?&gt;[]{<ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime_1a9fafba589150c689719a1b9e0b47bc9c" kindref="member">DirectRunRequest</ref>.class,<sp/>Logger.class},<sp/>request,<sp/>logger);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a8f0dfb5a5ca236a7478efd05bcdc2592" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a8f0dfb5a5ca236a7478efd05bcdc2592" kindref="member">executeTest</ref>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="d3/d53/namespaceorg_1_1xtclang_1_1plugin_1a7460f78bbb4160fca0627b4e75a10f6f" kindref="member">XtcLauncherRuntime</ref><sp/><ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime" kindref="compound">runtime</ref>,<sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime_1a04f5b6983523a59e9c417e0716d19a02" kindref="member">DirectTestRequest</ref><sp/>request,<sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Logger<sp/>logger)<sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ac7ceed115fbd0ff2db0d330b942252d5" kindref="member">invoke</ref>(<ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime" kindref="compound">runtime</ref>,<sp/></highlight><highlight class="stringliteral">&quot;executeTest&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Class&lt;?&gt;[]{<ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime_1a04f5b6983523a59e9c417e0716d19a02" kindref="member">DirectTestRequest</ref>.class,<sp/>Logger.class},<sp/>request,<sp/>logger);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ac7ceed115fbd0ff2db0d330b942252d5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ac7ceed115fbd0ff2db0d330b942252d5" kindref="member">invoke</ref>(</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="d3/d53/namespaceorg_1_1xtclang_1_1plugin_1a7460f78bbb4160fca0627b4e75a10f6f" kindref="member">XtcLauncherRuntime</ref><sp/><ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime" kindref="compound">runtime</ref>,</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>String<sp/>methodName,</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Class&lt;?&gt;[]<sp/>parameterTypes,</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Object<sp/>request,</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Logger<sp/>logger)<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>var<sp/>entry<sp/>=<sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ab2dc93123c45fa26b30f58db9d96839f" kindref="member">getOrCreateRuntime</ref>(<ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime" kindref="compound">runtime</ref>,<sp/>logger);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(Integer)<sp/>entry.executorMethod(methodName,<sp/>parameterTypes).invoke(</highlight><highlight class="keyword">null</highlight><highlight class="normal">,<sp/>request,<sp/>logger);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>InvocationTargetException<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>var<sp/>cause<sp/>=<sp/>e.getCause();</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>failure(cause<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>?<sp/>e<sp/>:<sp/>cause,<sp/></highlight><highlight class="stringliteral">&quot;Direct<sp/>runtime<sp/>invocation<sp/>failed<sp/>in<sp/>{}()&quot;</highlight><highlight class="normal">,<sp/>methodName);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Exception<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>failure(e,<sp/></highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>invoke<sp/>isolated<sp/>direct<sp/>runtime<sp/>method<sp/>{}()&quot;</highlight><highlight class="normal">,<sp/>methodName);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ab2dc93123c45fa26b30f58db9d96839f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a44b7401df002a04328725e490fc591d3" kindref="member">RuntimeEntry</ref><sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ab2dc93123c45fa26b30f58db9d96839f" kindref="member">getOrCreateRuntime</ref>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="d3/d53/namespaceorg_1_1xtclang_1_1plugin_1a7460f78bbb4160fca0627b4e75a10f6f" kindref="member">XtcLauncherRuntime</ref><sp/><ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime" kindref="compound">runtime</ref>,<sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Logger<sp/>logger)<sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>var<sp/>fingerprint<sp/>=<sp/><ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime_1a113de268bd8521656b953612d19acc7b" kindref="member">DirectRuntimeFingerprint</ref>.from(<ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime" kindref="compound">runtime</ref>,<sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a79b95f7c95bb68a8d71b3fc294033c11" kindref="member">codeSourceUrl</ref>());</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>var<sp/>existing<sp/>=<sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ab624fe29e905e32e95758ea31122c04e" kindref="member">runtimes</ref>.get(fingerprint);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(existing<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>logger.info(</highlight><highlight class="stringliteral">&quot;[plugin]<sp/>[DIRECT]<sp/>Reusing<sp/>isolated<sp/>runtime<sp/>&apos;{}&apos;<sp/>with<sp/>{}<sp/>entries<sp/>(cache<sp/>hit,<sp/>cached={})&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime" kindref="compound">runtime</ref>.source(),<sp/><ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime" kindref="compound">runtime</ref>.classpath().size(),<sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ab624fe29e905e32e95758ea31122c04e" kindref="member">runtimes</ref>.size());</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>logger.debug(</highlight><highlight class="stringliteral">&quot;[plugin]<sp/>[DIRECT]<sp/>Reused<sp/>runtime<sp/>fingerprint:<sp/>{}&quot;</highlight><highlight class="normal">,<sp/>fingerprint.describeForLogging());</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>existing;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>logger.info(</highlight><highlight class="stringliteral">&quot;[plugin]<sp/>[DIRECT]<sp/>Cache<sp/>miss<sp/>for<sp/>isolated<sp/>runtime<sp/>&apos;{}&apos;<sp/>(cached={})&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime" kindref="compound">runtime</ref>.source(),<sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ab624fe29e905e32e95758ea31122c04e" kindref="member">runtimes</ref>.size());</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>logger.debug(</highlight><highlight class="stringliteral">&quot;[plugin]<sp/>[DIRECT]<sp/>Requested<sp/>runtime<sp/>fingerprint:<sp/>{}&quot;</highlight><highlight class="normal">,<sp/>fingerprint.describeForLogging());</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ab624fe29e905e32e95758ea31122c04e" kindref="member">runtimes</ref>.computeIfAbsent(fingerprint,<sp/>ignored<sp/>-&gt;<sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ac22dbfa108bdb76d535b9bdea2d99efc" kindref="member">createRuntimeEntry</ref>(<ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime" kindref="compound">runtime</ref>,<sp/>logger));</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90" refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ac22dbfa108bdb76d535b9bdea2d99efc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a44b7401df002a04328725e490fc591d3" kindref="member">RuntimeEntry</ref><sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ac22dbfa108bdb76d535b9bdea2d99efc" kindref="member">createRuntimeEntry</ref>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="d3/d53/namespaceorg_1_1xtclang_1_1plugin_1a7460f78bbb4160fca0627b4e75a10f6f" kindref="member">XtcLauncherRuntime</ref><sp/><ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime" kindref="compound">runtime</ref>,<sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Logger<sp/>logger)<sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>URL[]<sp/>runtimeUrls<sp/>=<sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a2116380a426897be07e5ef8cbe091638" kindref="member">createRuntimeUrls</ref>(<ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime" kindref="compound">runtime</ref>);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>logger.info(</highlight><highlight class="stringliteral">&quot;[plugin]<sp/>[DIRECT]<sp/>Creating<sp/>build-scoped<sp/>isolated<sp/>runtime<sp/>&apos;{}&apos;<sp/>with<sp/>{}<sp/>entries&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime" kindref="compound">runtime</ref>.source(),<sp/>runtimeUrls.length);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>logger.debug(</highlight><highlight class="stringliteral">&quot;[plugin]<sp/>[DIRECT]<sp/>Runtime<sp/>classpath:\n{}&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime" kindref="compound">runtime</ref>.classpath().stream()</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.map(file<sp/>-&gt;<sp/></highlight><highlight class="stringliteral">&quot;[plugin]<sp/>[DIRECT]<sp/><sp/><sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>file.getAbsolutePath())</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.collect(Collectors.joining(</highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">)));</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>var<sp/>loader<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d0/d43/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_plugin_runtime_class_loader" kindref="compound">PluginRuntimeClassLoader</ref>(runtimeUrls,<sp/>getClass().getClassLoader());</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>var<sp/>executorType<sp/>=<sp/>loader.loadClass(<ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1af7283297bee23d4e48e6a9c4c951f503" kindref="member">EXECUTOR_CLASS</ref>);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>var<sp/>entry<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a44b7401df002a04328725e490fc591d3" kindref="member">RuntimeEntry</ref>(</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>loader,</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>executorType.getMethod(</highlight><highlight class="stringliteral">&quot;executeCompile&quot;</highlight><highlight class="normal">,<sp/><ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime_1a68244ca57e07ad9ef0639024bef7abfd" kindref="member">DirectCompileRequest</ref>.class,<sp/>Logger.class),</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>executorType.getMethod(</highlight><highlight class="stringliteral">&quot;executeRun&quot;</highlight><highlight class="normal">,<sp/><ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime_1a9fafba589150c689719a1b9e0b47bc9c" kindref="member">DirectRunRequest</ref>.class,<sp/>Logger.class),</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>executorType.getMethod(</highlight><highlight class="stringliteral">&quot;executeTest&quot;</highlight><highlight class="normal">,<sp/><ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime_1a04f5b6983523a59e9c417e0716d19a02" kindref="member">DirectTestRequest</ref>.class,<sp/>Logger.class)</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>logger.debug(</highlight><highlight class="stringliteral">&quot;[plugin]<sp/>[DIRECT]<sp/>Cached<sp/>isolated<sp/>runtimes<sp/>after<sp/>creation:<sp/>{}&quot;</highlight><highlight class="normal">,<sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ab624fe29e905e32e95758ea31122c04e" kindref="member">runtimes</ref>.size()<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>entry;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Exception<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>failure(e,<sp/></highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>create<sp/>isolated<sp/>direct<sp/>runtime<sp/>for<sp/>&apos;{}&apos;&quot;</highlight><highlight class="normal">,<sp/><ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime" kindref="compound">runtime</ref>.source());</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115" refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a2116380a426897be07e5ef8cbe091638" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>URL[]<sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a2116380a426897be07e5ef8cbe091638" kindref="member">createRuntimeUrls</ref>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="d3/d53/namespaceorg_1_1xtclang_1_1plugin_1a7460f78bbb4160fca0627b4e75a10f6f" kindref="member">XtcLauncherRuntime</ref><sp/><ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime" kindref="compound">runtime</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>plugin<sp/>code<sp/>source<sp/>comes<sp/>first<sp/>so<sp/>the<sp/>isolated<sp/>loader<sp/>can<sp/>see<sp/>the<sp/>plugin-side</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>runtime<sp/>bridge<sp/>classes.<sp/>The<sp/>resolved<sp/>XDK<sp/>runtime<sp/>entries<sp/>follow<sp/>after<sp/>that.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>URL[]<sp/>urls<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>URL[<ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime" kindref="compound">runtime</ref>.classpath().size()<sp/>+<sp/>1];</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>urls[0]<sp/>=<sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a79b95f7c95bb68a8d71b3fc294033c11" kindref="member">codeSourceUrl</ref>();</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime" kindref="compound">runtime</ref>.classpath().size();<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>urls[i<sp/>+<sp/>1]<sp/>=<sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a09b038dfb883fb300fc8def3fadf8755" kindref="member">toUrl</ref>(<ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime" kindref="compound">runtime</ref>.classpath().get(i));</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>urls;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126" refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a79b95f7c95bb68a8d71b3fc294033c11" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>URL<sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a79b95f7c95bb68a8d71b3fc294033c11" kindref="member">codeSourceUrl</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>var<sp/>codeSource<sp/>=<sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service" kindref="compound">DirectRuntimeBuildService</ref>.class.getProtectionDomain().getCodeSource();</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(codeSource<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>failure(</highlight><highlight class="stringliteral">&quot;Plugin<sp/>code<sp/>source<sp/>is<sp/>not<sp/>available<sp/>for<sp/>isolated<sp/>direct<sp/>runtime<sp/>loading&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>codeSource.getLocation();</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134" refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a09b038dfb883fb300fc8def3fadf8755" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>URL<sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a09b038dfb883fb300fc8def3fadf8755" kindref="member">toUrl</ref>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>File<sp/>file)<sp/>{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>file.toURI().toURL();</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>MalformedURLException<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>failure(e,<sp/></highlight><highlight class="stringliteral">&quot;Invalid<sp/>runtime<sp/>classpath<sp/>entry:<sp/>{}&quot;</highlight><highlight class="normal">,<sp/>file.getAbsolutePath());</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="143" refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a39c1c0f546444d195dacaa5db8ce86a0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a39c1c0f546444d195dacaa5db8ce86a0" kindref="member">close</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a0a521fe39162485f442bb120a4f7333a" kindref="member">LOG</ref>.info(</highlight><highlight class="stringliteral">&quot;[plugin]<sp/>[DIRECT]<sp/>Closing<sp/>build-scoped<sp/>runtime<sp/>service<sp/>with<sp/>{}<sp/>cached<sp/>runtime(s)&quot;</highlight><highlight class="normal">,<sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ab624fe29e905e32e95758ea31122c04e" kindref="member">runtimes</ref>.size());</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a0a521fe39162485f442bb120a4f7333a" kindref="member">LOG</ref>.isDebugEnabled())<sp/>{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ab624fe29e905e32e95758ea31122c04e" kindref="member">runtimes</ref>.keySet().forEach(fingerprint<sp/>-&gt;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a0a521fe39162485f442bb120a4f7333a" kindref="member">LOG</ref>.debug(</highlight><highlight class="stringliteral">&quot;[plugin]<sp/>[DIRECT]<sp/>Releasing<sp/>runtime<sp/>fingerprint:<sp/>{}&quot;</highlight><highlight class="normal">,<sp/>fingerprint.describeForLogging()));</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ab624fe29e905e32e95758ea31122c04e" kindref="member">runtimes</ref>.values().forEach(RuntimeEntry::close);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ab624fe29e905e32e95758ea31122c04e" kindref="member">runtimes</ref>.clear();</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153" refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a44b7401df002a04328725e490fc591d3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>record<sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a44b7401df002a04328725e490fc591d3" kindref="member">RuntimeEntry</ref>(</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d0/d43/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_plugin_runtime_class_loader" kindref="compound">PluginRuntimeClassLoader</ref><sp/>classLoader,</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Method<sp/>compileMethod,</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Method<sp/>runMethod,</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Method<sp/>testMethod)<sp/>implements<sp/>Closeable<sp/>{</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Method<sp/>executorMethod(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>String<sp/>methodName,<sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Class&lt;?&gt;[]<sp/>parameterTypes)<sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>NoSuchMethodException<sp/>{</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(methodName)<sp/>{</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;executeCompile&quot;</highlight><highlight class="normal"><sp/>-&gt;<sp/>compileMethod;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;executeRun&quot;</highlight><highlight class="normal"><sp/>-&gt;<sp/>runMethod;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;executeTest&quot;</highlight><highlight class="normal"><sp/>-&gt;<sp/>testMethod;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal"><sp/>-&gt;<sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>NoSuchMethodException(methodName<sp/>+<sp/>Arrays.toString(parameterTypes));</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a39c1c0f546444d195dacaa5db8ce86a0" kindref="member">close</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>classLoader.close();</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>IOException<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>failure(e,<sp/></highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>close<sp/>isolated<sp/>direct<sp/>runtime<sp/>classloader&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="177"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/DirectRuntimeBuildService.java"/>
+  </compounddef>
+</doxygen>

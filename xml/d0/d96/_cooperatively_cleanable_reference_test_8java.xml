@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d0/d96/_cooperatively_cleanable_reference_test_8java" kind="file" language="Java">
+    <compoundname>CooperativelyCleanableReferenceTest.java</compoundname>
+    <includes local="no">org.junit.jupiter.api.Test</includes>
+    <includes local="no">java.util.concurrent.atomic.AtomicLong</includes>
+    <includes local="no">org.junit.jupiter.api.Assertions.assertTrue</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools_utils/src/test/java/org/xvm/util/CooperativelyCleanableReferenceTest.java</label>
+        <link refid="d0/d96/_cooperatively_cleanable_reference_test_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>java.util.concurrent.atomic.AtomicLong</label>
+      </node>
+      <node id="4">
+        <label>org.junit.jupiter.api.Assertions.assertTrue</label>
+      </node>
+      <node id="2">
+        <label>org.junit.jupiter.api.Test</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="d3/d05/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_test" prot="public">org::xvm::util::CooperativelyCleanableReferenceTest</innerclass>
+    <innernamespace refid="df/d46/namespaceorg_1_1xvm_1_1util">org::xvm::util</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.util;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.Test;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.concurrent.atomic.AtomicLong;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.Assertions.assertTrue;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="d3/d05/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_test" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d3/d05/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_test" kindref="compound">CooperativelyCleanableReferenceTest</ref><sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="14" refid="d3/d05/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_test_1af7b11e21147f35476e0443446df8d331" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d3/d05/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_test_1af7b11e21147f35476e0443446df8d331" kindref="member">shouldClean</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AtomicLong<sp/>cleaned<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>AtomicLong();</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(cleaned.get()<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference" kindref="compound">CooperativelyCleanableReference&lt;&gt;</ref>(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Object(),<sp/>cleaned::incrementAndGet);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>System.gc();</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="23" refid="d3/d05/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_test_1a372e2ece12f84dd3706a1c4c642cce1c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d3/d05/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_test_1a372e2ece12f84dd3706a1c4c642cce1c" kindref="member">shouldIgnoreExceptionsWhileCleaning</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AtomicLong<sp/>cleaned<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>AtomicLong();</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(cleaned.get()<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference" kindref="compound">CooperativelyCleanableReference&lt;&gt;</ref>(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Object(),<sp/>()<sp/>-&gt;<sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cleaned.incrementAndGet();</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>NullPointerException();</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>System.gc();</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="35" refid="d3/d05/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_test_1af1e6d9d34738e9f37ea4ba9ff36b3dfb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d3/d05/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_test_1af1e6d9d34738e9f37ea4ba9ff36b3dfb" kindref="member">shouldIgnoreAndRestoreInterruptExceptionsWhileCleaning</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AtomicLong<sp/>cleaned<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>AtomicLong();</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(cleaned.get()<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference" kindref="compound">CooperativelyCleanableReference&lt;&gt;</ref>(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Object(),<sp/>()<sp/>-&gt;<sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cleaned.incrementAndGet();</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>RuntimeException(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>InterruptedException());</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>System.gc();</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(Thread.interrupted());</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools_utils/src/test/java/org/xvm/util/CooperativelyCleanableReferenceTest.java"/>
+  </compounddef>
+</doxygen>

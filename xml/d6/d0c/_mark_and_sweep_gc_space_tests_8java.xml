@@ -1,0 +1,332 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d6/d0c/_mark_and_sweep_gc_space_tests_8java" kind="file" language="Java">
+    <compoundname>MarkAndSweepGcSpaceTests.java</compoundname>
+    <includes local="no">org.xvm.util.LongMuterator</includes>
+    <includes local="no">org.xvm.util.ShallowSizeOf</includes>
+    <includes local="no">java.util.ArrayList</includes>
+    <includes local="no">java.util.HashSet</includes>
+    <includes local="no">java.util.List</includes>
+    <includes local="no">java.util.PrimitiveIterator</includes>
+    <includes local="no">java.util.Set</includes>
+    <includes local="no">java.util.function.LongConsumer</includes>
+    <includes local="no">org.junit.jupiter.api.Test</includes>
+    <includes local="no">org.junit.jupiter.api.Assertions.assertEquals</includes>
+    <includes local="no">org.junit.jupiter.api.Assertions.assertFalse</includes>
+    <includes local="no">org.junit.jupiter.api.Assertions.assertNotEquals</includes>
+    <includes local="no">org.junit.jupiter.api.Assertions.assertTrue</includes>
+    <includes local="no">org.junit.jupiter.api.Assertions.fail</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/test/java/org/xvm/runtime/gc/MarkAndSweepGcSpaceTests.java</label>
+        <link refid="d6/d0c/_mark_and_sweep_gc_space_tests_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>java.util.ArrayList</label>
+      </node>
+      <node id="5">
+        <label>java.util.HashSet</label>
+      </node>
+      <node id="6">
+        <label>java.util.List</label>
+      </node>
+      <node id="7">
+        <label>java.util.PrimitiveIterator</label>
+      </node>
+      <node id="8">
+        <label>java.util.Set</label>
+      </node>
+      <node id="9">
+        <label>java.util.function.LongConsumer</label>
+      </node>
+      <node id="11">
+        <label>org.junit.jupiter.api.Assertions.assertEquals</label>
+      </node>
+      <node id="12">
+        <label>org.junit.jupiter.api.Assertions.assertFalse</label>
+      </node>
+      <node id="13">
+        <label>org.junit.jupiter.api.Assertions.assertNotEquals</label>
+      </node>
+      <node id="14">
+        <label>org.junit.jupiter.api.Assertions.assertTrue</label>
+      </node>
+      <node id="15">
+        <label>org.junit.jupiter.api.Assertions.fail</label>
+      </node>
+      <node id="10">
+        <label>org.junit.jupiter.api.Test</label>
+      </node>
+      <node id="2">
+        <label>org.xvm.util.LongMuterator</label>
+      </node>
+      <node id="3">
+        <label>org.xvm.util.ShallowSizeOf</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests" prot="public">org::xvm::runtime::gc::MarkAndSweepGcSpaceTests</innerclass>
+    <innerclass refid="d1/d46/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1_1_root_set" prot="package">org::xvm::runtime::gc::MarkAndSweepGcSpaceTests::RootSet</innerclass>
+    <innernamespace refid="db/d4e/namespaceorg_1_1xvm_1_1runtime_1_1gc">org::xvm::runtime::gc</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.runtime.gc;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.util.LongMuterator;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.util.ShallowSizeOf;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.ArrayList;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.HashSet;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.PrimitiveIterator;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Set;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.function.LongConsumer;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.Test;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.Assertions.assertEquals;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.Assertions.assertFalse;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.Assertions.assertNotEquals;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.Assertions.assertTrue;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.Assertions.fail;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests" kindref="compound">MarkAndSweepGcSpaceTests</ref><sp/>{</highlight></codeline>
+<codeline lineno="26" refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1ad5c9dcef98e6171b9bd73ce9b81c4bc6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space" kindref="compound">GcSpace</ref><sp/><ref refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1ad5c9dcef98e6171b9bd73ce9b81c4bc6" kindref="member">makeSpace</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1ad5c9dcef98e6171b9bd73ce9b81c4bc6" kindref="member">makeSpace</ref>(l<sp/>-&gt;<sp/>{},<sp/>Long.MAX_VALUE);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1a70d8c53c1b83cf9665ec8344f05d387b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space" kindref="compound">GcSpace</ref><sp/><ref refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1a70d8c53c1b83cf9665ec8344f05d387b" kindref="member">makeSpace</ref>(LongConsumer<sp/>cleared,<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>capacity)<sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space" kindref="compound">MarkAndSweepGcSpace&lt;&gt;</ref>(<ref refid="da/def/classorg_1_1xvm_1_1runtime_1_1gc_1_1_long_array_object_manager" kindref="compound">LongArrayObjectManager</ref>.<ref refid="da/def/classorg_1_1xvm_1_1runtime_1_1gc_1_1_long_array_object_manager_1a5d04342591d1c7e95553318b5be31416" kindref="member">INSTANCE</ref>,<sp/>cleared,<sp/>capacity,<sp/>capacity);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="d1/d46/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1_1_root_set" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d1/d46/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1_1_root_set" kindref="compound">RootSet</ref><sp/>{</highlight></codeline>
+<codeline lineno="35" refid="d1/d46/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1_1_root_set_1a48d8cbecdb0f84ae31d00341afc67cfd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Set&lt;Long&gt;<sp/><ref refid="d1/d46/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1_1_root_set_1a48d8cbecdb0f84ae31d00341afc67cfd" kindref="member">retained</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>HashSet&lt;&gt;();</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="d1/d46/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1_1_root_set_1a4e02b5a92ece80a4005d1ff79c23ac95" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d4/d58/interfaceorg_1_1xvm_1_1util_1_1_long_muterator" kindref="compound">LongMuterator</ref><sp/><ref refid="d1/d46/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1_1_root_set_1a4e02b5a92ece80a4005d1ff79c23ac95" kindref="member">retained</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d4/d58/interfaceorg_1_1xvm_1_1util_1_1_long_muterator" kindref="compound">LongMuterator</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><sp/>lPrior<sp/>=<sp/><ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space" kindref="compound">GcSpace</ref>.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a164c8ac1ffb0bbfd1fcbdc6aa17a6b53" kindref="member">NULL</ref>;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>PrimitiveIterator.OfLong<sp/>delegate<sp/>=</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d1/d46/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1_1_root_set_1a48d8cbecdb0f84ae31d00341afc67cfd" kindref="member">retained</ref>.stream().mapToLong(l<sp/>-&gt;<sp/>l).iterator();</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">set</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>value)<sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(lPrior<sp/>==<sp/><ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space" kindref="compound">GcSpace</ref>.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a164c8ac1ffb0bbfd1fcbdc6aa17a6b53" kindref="member">NULL</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>IllegalStateException();</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d1/d46/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1_1_root_set_1a48d8cbecdb0f84ae31d00341afc67cfd" kindref="member">retained</ref>.remove(lPrior);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d1/d46/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1_1_root_set_1a48d8cbecdb0f84ae31d00341afc67cfd" kindref="member">retained</ref>.add(value);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>nextLong()<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lPrior<sp/>=<sp/>delegate.nextLong();</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>hasNext()<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>delegate.hasNext();</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="67" refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1a32e0c9d5145fac85484587bc2fcdf7a1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1a32e0c9d5145fac85484587bc2fcdf7a1" kindref="member">shouldAllocateAndGet</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space" kindref="compound">GcSpace</ref><sp/>space<sp/>=<sp/><ref refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1ad5c9dcef98e6171b9bd73ce9b81c4bc6" kindref="member">makeSpace</ref>();</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>p<sp/>=<sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a469b6a1e680045c0a9dd63b4d7401a64" kindref="member">allocate</ref>(0);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a52977baf58485cb20c97bf3749438e96" kindref="member">isValid</ref>(p));</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="74" refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1ae6aa513aec3184d72a454742eb057db6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1ae6aa513aec3184d72a454742eb057db6" kindref="member">shouldCollectUnreachables</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space" kindref="compound">GcSpace</ref><sp/>space<sp/>=<sp/><ref refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1ad5c9dcef98e6171b9bd73ce9b81c4bc6" kindref="member">makeSpace</ref>();</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d1/d46/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1_1_root_set" kindref="compound">RootSet</ref><sp/>root<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d1/d46/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1_1_root_set" kindref="compound">RootSet</ref>();</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1ad4157d3290045f2ba3c983bb2ea29b92" kindref="member">addRoot</ref>(root::retained);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>p1<sp/>=<sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a469b6a1e680045c0a9dd63b4d7401a64" kindref="member">allocate</ref>(3);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>p2<sp/>=<sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a469b6a1e680045c0a9dd63b4d7401a64" kindref="member">allocate</ref>(3);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>root.<ref refid="d1/d46/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1_1_root_set_1a48d8cbecdb0f84ae31d00341afc67cfd" kindref="member">retained</ref>.add(p1);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>root.<ref refid="d1/d46/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1_1_root_set_1a48d8cbecdb0f84ae31d00341afc67cfd" kindref="member">retained</ref>.add(p2);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a52977baf58485cb20c97bf3749438e96" kindref="member">isValid</ref>(p1));</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a52977baf58485cb20c97bf3749438e96" kindref="member">isValid</ref>(p2));</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotEquals(p1,<sp/>p2);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>force<sp/>a<sp/>gc<sp/>and<sp/>verify<sp/>that<sp/>we<sp/>didn&apos;t<sp/>lose<sp/>anything</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a913d0c95c433bc7cbf05b3345c9f3652" kindref="member">gc</ref>();</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a52977baf58485cb20c97bf3749438e96" kindref="member">isValid</ref>(p1));</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a52977baf58485cb20c97bf3749438e96" kindref="member">isValid</ref>(p2));</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotEquals(p1,<sp/>p2);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>remove<sp/>an<sp/>object<sp/>from<sp/>the<sp/>root;<sp/>gc,<sp/>and<sp/>verify<sp/>it<sp/>has<sp/>been<sp/>removed<sp/>from<sp/>the<sp/>space</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>root.<ref refid="d1/d46/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1_1_root_set_1a48d8cbecdb0f84ae31d00341afc67cfd" kindref="member">retained</ref>.remove(p2);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a913d0c95c433bc7cbf05b3345c9f3652" kindref="member">gc</ref>();</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a52977baf58485cb20c97bf3749438e96" kindref="member">isValid</ref>(p1));</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertFalse(space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a52977baf58485cb20c97bf3749438e96" kindref="member">isValid</ref>(p2));</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="101" refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1a6e5d39daae7af6220ca05e69cf771a66" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1a6e5d39daae7af6220ca05e69cf771a66" kindref="member">shouldNotCollectDeepReachables</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d1/d46/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1_1_root_set" kindref="compound">RootSet</ref><sp/>root<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d1/d46/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1_1_root_set" kindref="compound">RootSet</ref>();</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space" kindref="compound">GcSpace</ref><sp/>space<sp/>=<sp/><ref refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1ad5c9dcef98e6171b9bd73ce9b81c4bc6" kindref="member">makeSpace</ref>();</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1ad4157d3290045f2ba3c983bb2ea29b92" kindref="member">addRoot</ref>(root::retained);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>p1<sp/>=<sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a469b6a1e680045c0a9dd63b4d7401a64" kindref="member">allocate</ref>(3);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>p2<sp/>=<sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a469b6a1e680045c0a9dd63b4d7401a64" kindref="member">allocate</ref>(3);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>p3<sp/>=<sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a469b6a1e680045c0a9dd63b4d7401a64" kindref="member">allocate</ref>(3);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>p4<sp/>=<sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a469b6a1e680045c0a9dd63b4d7401a64" kindref="member">allocate</ref>(3);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>root.<ref refid="d1/d46/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1_1_root_set_1a48d8cbecdb0f84ae31d00341afc67cfd" kindref="member">retained</ref>.add(p1);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a52977baf58485cb20c97bf3749438e96" kindref="member">isValid</ref>(p1));</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a52977baf58485cb20c97bf3749438e96" kindref="member">isValid</ref>(p2));</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a52977baf58485cb20c97bf3749438e96" kindref="member">isValid</ref>(p3));</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a52977baf58485cb20c97bf3749438e96" kindref="member">isValid</ref>(p4));</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1af081dc3f1a888800cef1721393ebcef2" kindref="member">setField</ref>(p1,<sp/>0,<sp/>p2);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1af081dc3f1a888800cef1721393ebcef2" kindref="member">setField</ref>(p2,<sp/>2,<sp/>p3);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1af081dc3f1a888800cef1721393ebcef2" kindref="member">setField</ref>(p4,<sp/>0,<sp/>p4);<sp/></highlight><highlight class="comment">//<sp/>cycle</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>force<sp/>a<sp/>gc<sp/>and<sp/>verify<sp/>that<sp/>we<sp/>didn&apos;t<sp/>lose<sp/>anything<sp/>which<sp/>was<sp/>reachable</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a913d0c95c433bc7cbf05b3345c9f3652" kindref="member">gc</ref>();</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a52977baf58485cb20c97bf3749438e96" kindref="member">isValid</ref>(p1));</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a52977baf58485cb20c97bf3749438e96" kindref="member">isValid</ref>(p2));</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a52977baf58485cb20c97bf3749438e96" kindref="member">isValid</ref>(p3));</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotEquals(p1,<sp/>p2);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>verify<sp/>that</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a52977baf58485cb20c97bf3749438e96" kindref="member">isValid</ref>(p4);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(<ref refid="d6/de2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_seg_fault" kindref="compound">SegFault</ref><sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>expected</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="135" refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1a85497561f08a0a4b6b358dc2627ab7bf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1a85497561f08a0a4b6b358dc2627ab7bf" kindref="member">shouldAutoCollect</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space" kindref="compound">GcSpace</ref><sp/>space<sp/>=<sp/><ref refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1ad5c9dcef98e6171b9bd73ce9b81c4bc6" kindref="member">makeSpace</ref>();</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d1/d46/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1_1_root_set" kindref="compound">RootSet</ref><sp/>root<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d1/d46/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1_1_root_set" kindref="compound">RootSet</ref>();</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1ad4157d3290045f2ba3c983bb2ea29b92" kindref="member">addRoot</ref>(root::retained);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>p1<sp/>=<sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a469b6a1e680045c0a9dd63b4d7401a64" kindref="member">allocate</ref>(3);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>p2<sp/>=<sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a469b6a1e680045c0a9dd63b4d7401a64" kindref="member">allocate</ref>(3);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>p3<sp/>=<sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a469b6a1e680045c0a9dd63b4d7401a64" kindref="member">allocate</ref>(3);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>root.<ref refid="d1/d46/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1_1_root_set_1a48d8cbecdb0f84ae31d00341afc67cfd" kindref="member">retained</ref>.add(p1);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1af081dc3f1a888800cef1721393ebcef2" kindref="member">setField</ref>(p1,<sp/>0,<sp/>p2);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1af081dc3f1a888800cef1721393ebcef2" kindref="member">setField</ref>(p2,<sp/>2,<sp/>p3);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>cb<sp/>=<sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a7b6aff42bd4b27fd817c0ffe5122cb7d" kindref="member">getByteCount</ref>();</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>add<sp/>objects<sp/>until<sp/>we<sp/>auto-gc</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>maxCb<sp/>=<sp/>cb;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>lastCb;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">do</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lastCb<sp/>=<sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a7b6aff42bd4b27fd817c0ffe5122cb7d" kindref="member">getByteCount</ref>();</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a469b6a1e680045c0a9dd63b4d7401a64" kindref="member">allocate</ref>(1);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>maxCb<sp/>=<sp/>Math.max(maxCb,<sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a7b6aff42bd4b27fd817c0ffe5122cb7d" kindref="member">getByteCount</ref>());</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a7b6aff42bd4b27fd817c0ffe5122cb7d" kindref="member">getByteCount</ref>()<sp/>&gt;<sp/>lastCb);</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>verify<sp/>we<sp/>did<sp/>see<sp/>significant<sp/>growth</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(maxCb<sp/>&gt;<sp/>cb<sp/>*<sp/>4);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>verify<sp/>we&apos;ve<sp/>shrunk<sp/>back<sp/>to<sp/>near<sp/>our<sp/>reachable<sp/>set<sp/>size</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a7b6aff42bd4b27fd817c0ffe5122cb7d" kindref="member">getByteCount</ref>()<sp/>&lt;<sp/>cb<sp/>*<sp/>2);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>verify<sp/>we<sp/>retained<sp/>the<sp/>reachable<sp/>objects</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a52977baf58485cb20c97bf3749438e96" kindref="member">isValid</ref>(p1));</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a52977baf58485cb20c97bf3749438e96" kindref="member">isValid</ref>(p2));</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a52977baf58485cb20c97bf3749438e96" kindref="member">isValid</ref>(p3));</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="171" refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1a247492aac3b3a19f0cb403d01c28f2b7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1a247492aac3b3a19f0cb403d01c28f2b7" kindref="member">shouldOOMEOnHardLimit</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>cbLimit<sp/>=<sp/>1024<sp/>*<sp/>1024<sp/>*<sp/>128;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space" kindref="compound">GcSpace</ref><sp/>space<sp/>=<sp/><ref refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1ad5c9dcef98e6171b9bd73ce9b81c4bc6" kindref="member">makeSpace</ref>(l<sp/>-&gt;<sp/>{</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>},<sp/>cbLimit);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d1/d46/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1_1_root_set" kindref="compound">RootSet</ref><sp/>root<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d1/d46/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1_1_root_set" kindref="compound">RootSet</ref>();</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1ad4157d3290045f2ba3c983bb2ea29b92" kindref="member">addRoot</ref>(root::retained);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>p1<sp/>=<sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a469b6a1e680045c0a9dd63b4d7401a64" kindref="member">allocate</ref>(3);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>root.retained.add(p1);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>pLast<sp/>=<sp/>p1;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>2_000_000;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>p<sp/>=<sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a469b6a1e680045c0a9dd63b4d7401a64" kindref="member">allocate</ref>(512);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1af081dc3f1a888800cef1721393ebcef2" kindref="member">setField</ref>(pLast,<sp/>0,<sp/>p);</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pLast<sp/>=<sp/>p;</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fail();</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(OutOfMemoryError<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a7b6aff42bd4b27fd817c0ffe5122cb7d" kindref="member">getByteCount</ref>()<sp/>&gt;=<sp/>cbLimit);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a7b6aff42bd4b27fd817c0ffe5122cb7d" kindref="member">getByteCount</ref>()<sp/>&lt;=<sp/>cbLimit<sp/>+<sp/><ref refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of" kindref="compound">ShallowSizeOf</ref>.<ref refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1a1d1711ff05416da5ff29814ebc44adbf" kindref="member">arrayOf</ref>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal">.class,<sp/>512));</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="196" refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1ac22a84a3c9f2a9a1f291491185311448" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1ac22a84a3c9f2a9a1f291491185311448" kindref="member">shouldClearWeakRefsToUnreachables</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;Long&gt;<sp/>cleared<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ArrayList&lt;&gt;();</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space" kindref="compound">GcSpace</ref><sp/>space<sp/>=<sp/><ref refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1ad5c9dcef98e6171b9bd73ce9b81c4bc6" kindref="member">makeSpace</ref>(cleared::add,<sp/>Long.MAX_VALUE);</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d1/d46/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1_1_root_set" kindref="compound">RootSet</ref><sp/>root<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d1/d46/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1_1_root_set" kindref="compound">RootSet</ref>();</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1ad4157d3290045f2ba3c983bb2ea29b92" kindref="member">addRoot</ref>(root::retained);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>p1<sp/>=<sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a469b6a1e680045c0a9dd63b4d7401a64" kindref="member">allocate</ref>(0);</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>p2<sp/>=<sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a469b6a1e680045c0a9dd63b4d7401a64" kindref="member">allocate</ref>(1);</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>wp1<sp/>=<sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1ae860182a3561085d949bf8b7da9f1ddb" kindref="member">allocateWeak</ref>(2);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1af081dc3f1a888800cef1721393ebcef2" kindref="member">setField</ref>(wp1,<sp/>0,<sp/>p1);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1af081dc3f1a888800cef1721393ebcef2" kindref="member">setField</ref>(wp1,<sp/>1,<sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a469b6a1e680045c0a9dd63b4d7401a64" kindref="member">allocate</ref>(0));<sp/></highlight><highlight class="comment">//<sp/>notifier</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1af081dc3f1a888800cef1721393ebcef2" kindref="member">setField</ref>(p2,<sp/>0,<sp/>p1);</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>root.<ref refid="d1/d46/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1_1_root_set_1a48d8cbecdb0f84ae31d00341afc67cfd" kindref="member">retained</ref>.add(wp1);</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>root.<ref refid="d1/d46/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1_1_root_set_1a48d8cbecdb0f84ae31d00341afc67cfd" kindref="member">retained</ref>.add(p2);</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a913d0c95c433bc7cbf05b3345c9f3652" kindref="member">gc</ref>();</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>p2<sp/>keeps<sp/>p1<sp/>alive;<sp/>verify<sp/>that<sp/>p1<sp/>was<sp/>not<sp/>collected,<sp/>and<sp/>that<sp/>wp1<sp/>was<sp/>not<sp/>cleared</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a52977baf58485cb20c97bf3749438e96" kindref="member">isValid</ref>(p1));</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(p1,<sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a70228f9d8da3cbf746e9e9a5d79bb2ea" kindref="member">getField</ref>(wp1,<sp/>0));</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>verify<sp/>there<sp/>have<sp/>been<sp/>no<sp/>notifications</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(cleared.isEmpty());</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>remove<sp/>the<sp/>strong<sp/>ref<sp/>to<sp/>p1<sp/>and<sp/>verify<sp/>that<sp/>it<sp/>gets<sp/>gc&apos;d<sp/>and<sp/>that<sp/>wp1<sp/>gets<sp/>cleared</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1af081dc3f1a888800cef1721393ebcef2" kindref="member">setField</ref>(p2,<sp/>0,<sp/><ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space" kindref="compound">GcSpace</ref>.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a164c8ac1ffb0bbfd1fcbdc6aa17a6b53" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a913d0c95c433bc7cbf05b3345c9f3652" kindref="member">gc</ref>();</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space" kindref="compound">GcSpace</ref>.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a164c8ac1ffb0bbfd1fcbdc6aa17a6b53" kindref="member">NULL</ref>,<sp/>space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a70228f9d8da3cbf746e9e9a5d79bb2ea" kindref="member">getField</ref>(wp1,<sp/>0));</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertFalse(space.<ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a52977baf58485cb20c97bf3749438e96" kindref="member">isValid</ref>(p1));</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>verify<sp/>that<sp/>cleared<sp/>was<sp/>notified</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(cleared.remove(wp1));</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="229"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/test/java/org/xvm/runtime/gc/MarkAndSweepGcSpaceTests.java"/>
+  </compounddef>
+</doxygen>

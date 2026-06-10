@@ -1,0 +1,27 @@
+var classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_component_template =
+[
+    [ "ComponentTemplateHandle", "dd/d11/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_component_template_1_1_component_template_handle.html", "dd/d11/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_component_template_1_1_component_template_handle" ],
+    [ "xRTComponentTemplate", "d2/db3/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_component_template.html#ac990a689826353dcde8a92a62734eefd", null ],
+    [ "callEquals", "d2/db3/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_component_template.html#a024eadc9dd9f50511b081c71a423f97d", null ],
+    [ "compareIdentity", "d2/db3/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_component_template.html#a29bea873d4d73c93c154746b86ca900b", null ],
+    [ "ensureComponentArrayType", "d2/db3/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_component_template.html#a7c58bc5ac6e95f9ee99564ab6a5fddb9", null ],
+    [ "getMultiMethodTemplateComposition", "d2/db3/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_component_template.html#a5a63794c1f16af06d4c1c0a271b1bb7d", null ],
+    [ "getPropertyAccess", "d2/db3/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_component_template.html#ab60cfdad7d02fbbe13ad50ef46306f96", null ],
+    [ "getPropertyDoc", "d2/db3/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_component_template.html#a8dc846f63a18f9cc475b82179c590a5a", null ],
+    [ "getPropertyFormat", "d2/db3/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_component_template.html#a1a93d8e07c221a32329af2fc42f16814", null ],
+    [ "getPropertyIsAbstract", "d2/db3/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_component_template.html#a0fb2fc81a1e174227958a629c6cc231f", null ],
+    [ "getPropertyIsStatic", "d2/db3/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_component_template.html#a1837b813d588d7faee3ae3151d445e6e", null ],
+    [ "getPropertyName", "d2/db3/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_component_template.html#a2050a8d6682f27cd15ebdbc0e61c72f4", null ],
+    [ "getPropertyParent", "d2/db3/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_component_template.html#a6e78dd41755fe6a7cac74f13ab27d779", null ],
+    [ "getPropertySynthetic", "d2/db3/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_component_template.html#a489aabebf5ccc36434d39dafe954c0ba", null ],
+    [ "initNative", "d2/db3/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_component_template.html#a982be8dcadc040dbcebb65127f36cbe4", null ],
+    [ "invokeChildren", "d2/db3/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_component_template.html#a843f10b43a60ba952f9bab4fde03e601", null ],
+    [ "invokeNativeGet", "d2/db3/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_component_template.html#a0dd7c7c6ffca4d103017859484092ca6", null ],
+    [ "invokeNativeN", "d2/db3/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_component_template.html#a09d29727079ba409e7fbf144d398a529", null ],
+    [ "makeComponentHandle", "d2/db3/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_component_template.html#ae181fd7519b938bc86d33d3ec441ee1f", null ],
+    [ "makeFormatHandle", "d2/db3/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_component_template.html#a47244975e521493879a35ac60a6a4516", null ],
+    [ "registerNativeTemplates", "d2/db3/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_component_template.html#aa2ac8abd4c065ecf9305d17002f47c10", null ],
+    [ "COMPONENT_ARRAY_TYPE", "d2/db3/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_component_template.html#a58477ccf56b572af23ea50ad793cae95", null ],
+    [ "INSTANCE", "d2/db3/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_component_template.html#a118185ab60596ee2f49aae944f098dfe", null ],
+    [ "MULTI_METHOD_TEMPLATE", "d2/db3/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_component_template.html#a74728cdd1861b7d8b4788fa9fdc16b89", null ]
+];

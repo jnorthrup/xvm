@@ -1,0 +1,28 @@
+var classorg_1_1xvm_1_1compiler_1_1ast_1_1_switch_expression =
+[
+    [ "SwitchExpression", "d7/db9/classorg_1_1xvm_1_1compiler_1_1ast_1_1_switch_expression.html#ace53c218cde34f3ac201d0ab49937a50", null ],
+    [ "allowsConditional", "d7/db9/classorg_1_1xvm_1_1compiler_1_1ast_1_1_switch_expression.html#ae6d554ad0d28db07d78d11519e9b70e1", null ],
+    [ "generateAssignments", "d7/db9/classorg_1_1xvm_1_1compiler_1_1ast_1_1_switch_expression.html#a0841cd329989f9f5ede6fe69eb49577e", null ],
+    [ "generateCaseBodies", "d7/db9/classorg_1_1xvm_1_1compiler_1_1ast_1_1_switch_expression.html#a0231347119d53ede0604ab96e5f7b818", null ],
+    [ "getChildFields", "d7/db9/classorg_1_1xvm_1_1compiler_1_1ast_1_1_switch_expression.html#a4ee7f49dc3f609b6ea8e86e199aa39ff", null ],
+    [ "getEndPosition", "d7/db9/classorg_1_1xvm_1_1compiler_1_1ast_1_1_switch_expression.html#a1a2746dcb2e504348c6033fe4310423f", null ],
+    [ "getExprAST", "d7/db9/classorg_1_1xvm_1_1compiler_1_1ast_1_1_switch_expression.html#a8bdfad049f58598c267573abbf0d5f69", null ],
+    [ "getImplicitTypes", "d7/db9/classorg_1_1xvm_1_1compiler_1_1ast_1_1_switch_expression.html#ae868134390c8b29f12d1c30fb77039f8", null ],
+    [ "getStartPosition", "d7/db9/classorg_1_1xvm_1_1compiler_1_1ast_1_1_switch_expression.html#adb29d1c41c50c9b8542cf85078168e82", null ],
+    [ "hasMultiValueImpl", "d7/db9/classorg_1_1xvm_1_1compiler_1_1ast_1_1_switch_expression.html#a717b4f1f2afa7343871af891671c2733", null ],
+    [ "hasSingleValueImpl", "d7/db9/classorg_1_1xvm_1_1compiler_1_1ast_1_1_switch_expression.html#ab5ade120c58230ae7e3609f6277553a7", null ],
+    [ "isCompletable", "d7/db9/classorg_1_1xvm_1_1compiler_1_1ast_1_1_switch_expression.html#aebf5d95a607233099941180bccde116c", null ],
+    [ "isConditionalResult", "d7/db9/classorg_1_1xvm_1_1compiler_1_1ast_1_1_switch_expression.html#adec5cb207f98cdd80a8c4028c95eb653", null ],
+    [ "isShortCircuiting", "d7/db9/classorg_1_1xvm_1_1compiler_1_1ast_1_1_switch_expression.html#ab679ec9b855d84656d4a7f3bbc60db98", null ],
+    [ "testFitMulti", "d7/db9/classorg_1_1xvm_1_1compiler_1_1ast_1_1_switch_expression.html#aaa83006dab121dfd34e9a8977d1c10d0", null ],
+    [ "toString", "d7/db9/classorg_1_1xvm_1_1compiler_1_1ast_1_1_switch_expression.html#a0736652a5192717092b779abce1617ab", null ],
+    [ "validateMulti", "d7/db9/classorg_1_1xvm_1_1compiler_1_1ast_1_1_switch_expression.html#ac12d373915dae6b7e7656cd0d7cf674a", null ],
+    [ "CHILD_FIELDS", "d7/db9/classorg_1_1xvm_1_1compiler_1_1ast_1_1_switch_expression.html#a523433e692c78fb186dad2581038f193", null ],
+    [ "cond", "d7/db9/classorg_1_1xvm_1_1compiler_1_1ast_1_1_switch_expression.html#a2828f0b234c44aaf06114b5db4c0077f", null ],
+    [ "contents", "d7/db9/classorg_1_1xvm_1_1compiler_1_1ast_1_1_switch_expression.html#a4a83b3372bc661ce6945864ab79c315d", null ],
+    [ "keyword", "d7/db9/classorg_1_1xvm_1_1compiler_1_1ast_1_1_switch_expression.html#ab20d2e5d9f17a045d6a242c4714b3106", null ],
+    [ "lEndPos", "d7/db9/classorg_1_1xvm_1_1compiler_1_1ast_1_1_switch_expression.html#ade7742774e9eb5cee0b4799e6f61c849", null ],
+    [ "m_abastBody", "d7/db9/classorg_1_1xvm_1_1compiler_1_1ast_1_1_switch_expression.html#af7abf98162ae5ea9d80d14439137255c", null ],
+    [ "m_aconstCases", "d7/db9/classorg_1_1xvm_1_1compiler_1_1ast_1_1_switch_expression.html#ade9696c873cbf45307d95285c06d912e", null ],
+    [ "m_casemgr", "d7/db9/classorg_1_1xvm_1_1compiler_1_1ast_1_1_switch_expression.html#a178b7e56d8a15d034652ed6d23317cb4", null ]
+];

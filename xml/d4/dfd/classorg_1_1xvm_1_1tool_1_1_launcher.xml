@@ -1,0 +1,2113 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher" kind="class" language="Java" prot="public" abstract="yes">
+    <compoundname>org::xvm::tool::Launcher</compoundname>
+    <basecompoundref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" prot="public" virt="non-virtual">org.xvm.asm.ErrorListener</basecompoundref>
+    <innerclass refid="d8/da9/interfaceorg_1_1xvm_1_1tool_1_1_launcher_1_1_command_handler" prot="public">org::xvm::tool::Launcher::CommandHandler</innerclass>
+    <innerclass refid="d0/d3a/classorg_1_1xvm_1_1tool_1_1_launcher_1_1_launcher_exception" prot="public">org::xvm::tool::Launcher::LauncherException</innerclass>
+    <innerclass refid="d6/dcb/enumorg_1_1xvm_1_1tool_1_1_launcher_1_1_stage" prot="public">org::xvm::tool::Launcher::Stage</innerclass>
+    <templateparamlist>
+      <param>
+        <type>T</type>
+        <typeconstraint><ref refid="de/df4/classorg_1_1xvm_1_1tool_1_1_launcher_options" kindref="compound">LauncherOptions</ref></typeconstraint>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a15a2a6d9535af135c84ba824b294f6f5" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.CMD_BUILD</definition>
+        <argsstring></argsstring>
+        <name>CMD_BUILD</name>
+        <qualifiedname>org.xvm.tool.Launcher.CMD_BUILD</qualifiedname>
+        <initializer>= &quot;build&quot;</initializer>
+        <briefdescription>
+<para>Command name constants. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>These are defined here (not in the subclasses) to avoid class loading deadlock when <ref refid="de/df4/classorg_1_1xvm_1_1tool_1_1_launcher_options" kindref="compound">LauncherOptions</ref> references them during static initialization. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="86" column="32" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="86" bodyend="-1"/>
+        <referencedby refid="d5/d91/classorg_1_1xvm_1_1tool_1_1_launcher_version_test_1a3d29f60bdf7de67f142f85f45aa9581b" compoundref="df/db0/_launcher_version_test_8java" startline="105" endline="116">org.xvm.tool.LauncherVersionTest.testCompilerVersionOutput</referencedby>
+        <referencedby refid="d6/df8/classorg_1_1xvm_1_1xdk_1_1_xdk_integration_test_1acb5605e0270eee4e067c6b2f8ea78ddd" compoundref="da/d9b/_xdk_integration_test_8java" startline="351" endline="357">org.xvm.xdk.XdkIntegrationTest.testLauncherInvalidCompilerArgs</referencedby>
+        <referencedby refid="d5/d91/classorg_1_1xvm_1_1tool_1_1_launcher_version_test_1ad88bc356857b40efa0140ee907df5ddc" compoundref="df/db0/_launcher_version_test_8java" startline="45" endline="88">org.xvm.tool.LauncherVersionTest.testVersionOutputFormat</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a3f25ec4a526d6bf2fa03fb2843b2fd60" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.CMD_INIT</definition>
+        <argsstring></argsstring>
+        <name>CMD_INIT</name>
+        <qualifiedname>org.xvm.tool.Launcher.CMD_INIT</qualifiedname>
+        <initializer>= &quot;init&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="87" column="32" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a24de6aff5f778b771f93721270a4d6a7" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.CMD_RUN</definition>
+        <argsstring></argsstring>
+        <name>CMD_RUN</name>
+        <qualifiedname>org.xvm.tool.Launcher.CMD_RUN</qualifiedname>
+        <initializer>= &quot;run&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="88" column="32" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="88" bodyend="-1"/>
+        <referencedby refid="d6/df8/classorg_1_1xvm_1_1xdk_1_1_xdk_integration_test_1a383e6765085cbfbb9d0d0d5371d281d9" compoundref="da/d9b/_xdk_integration_test_8java" startline="360" endline="366">org.xvm.xdk.XdkIntegrationTest.testLauncherInvalidRunnerArgs</referencedby>
+        <referencedby refid="d5/d91/classorg_1_1xvm_1_1tool_1_1_launcher_version_test_1a78152739f20c1c6089a49c2b1c783744" compoundref="df/db0/_launcher_version_test_8java" startline="91" endline="102">org.xvm.tool.LauncherVersionTest.testRunnerVersionOutput</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4dbb050c16547fdc37e7913ac5e08c2a" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.CMD_TEST</definition>
+        <argsstring></argsstring>
+        <name>CMD_TEST</name>
+        <qualifiedname>org.xvm.tool.Launcher.CMD_TEST</qualifiedname>
+        <initializer>= &quot;test&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="89" column="32" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="89" bodyend="-1"/>
+        <referencedby refid="d6/df8/classorg_1_1xvm_1_1xdk_1_1_xdk_integration_test_1a2d571f689f29ad5fa3f1cffc8fb2e505" compoundref="da/d9b/_xdk_integration_test_8java" startline="369" endline="375">org.xvm.xdk.XdkIntegrationTest.testLauncherInvalidTestRunnerArgs</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1aa3cfb07dfca3c0706b5896440932a045" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.CMD_DISASS</definition>
+        <argsstring></argsstring>
+        <name>CMD_DISASS</name>
+        <qualifiedname>org.xvm.tool.Launcher.CMD_DISASS</qualifiedname>
+        <initializer>= &quot;disass&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="90" column="32" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ae3bd787819380e78aa9b2730b13f5beb" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.FATAL_ERROR</definition>
+        <argsstring></argsstring>
+        <name>FATAL_ERROR</name>
+        <qualifiedname>org.xvm.tool.Launcher.FATAL_ERROR</qualifiedname>
+        <initializer>= &quot;LAUNCHER-01&quot;</initializer>
+        <briefdescription>
+<para>Unknown fatal error. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>{0} </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="1006" column="32" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="1006" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a15dd228897736030c35f085b495e8fa1" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.DUP_NAME</definition>
+        <argsstring></argsstring>
+        <name>DUP_NAME</name>
+        <qualifiedname>org.xvm.tool.Launcher.DUP_NAME</qualifiedname>
+        <initializer>= &quot;LAUNCHER-02&quot;</initializer>
+        <briefdescription>
+<para>Duplicate name &quot;{0}&quot; detected in {1}. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="1010" column="32" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="1010" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a7a930292110fabf3bdf7340072da7e4f" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.MISSING_PKG_NODE</definition>
+        <argsstring></argsstring>
+        <name>MISSING_PKG_NODE</name>
+        <qualifiedname>org.xvm.tool.Launcher.MISSING_PKG_NODE</qualifiedname>
+        <initializer>= &quot;LAUNCHER-03&quot;</initializer>
+        <briefdescription>
+<para>No package node for {0}. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="1014" column="32" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="1014" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1aff14a6b06171e39fe6baa67c2d8d1bf6" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.READ_FAILURE</definition>
+        <argsstring></argsstring>
+        <name>READ_FAILURE</name>
+        <qualifiedname>org.xvm.tool.Launcher.READ_FAILURE</qualifiedname>
+        <initializer>= &quot;LAUNCHER-04&quot;</initializer>
+        <briefdescription>
+<para>Failure reading: {0}. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="1018" column="32" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="1018" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ac708f8740f025087f423f5d1c74a3295" prot="private" static="yes" mutable="no">
+        <type>final Map&lt; String, <ref refid="d8/da9/interfaceorg_1_1xvm_1_1tool_1_1_launcher_1_1_command_handler" kindref="compound">CommandHandler</ref> &gt;</type>
+        <definition>final Map&lt;String, CommandHandler&gt; org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.COMMANDS</definition>
+        <argsstring></argsstring>
+        <name>COMMANDS</name>
+        <qualifiedname>org.xvm.tool.Launcher.COMMANDS</qualifiedname>
+        <initializer>                                  = Map.of(
+        <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a15a2a6d9535af135c84ba824b294f6f5" kindref="member">CMD_BUILD</ref>,  (args, <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a692712e6d64096ec796059f6d5c3c8f9" kindref="member">console</ref>, <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a5ccce4ff913cccee3b753fcdfcb2594b" kindref="member">err</ref>) -&gt; <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1adaac93117385461df64403914d2d98b9" kindref="member">launch</ref>(<ref refid="dd/d51/classorg_1_1xvm_1_1tool_1_1_launcher_options_1_1_compiler_options_1a633ee969f05d23a2dd66b7398ab8c555" kindref="member">CompilerOptions.parse</ref>(args), <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a692712e6d64096ec796059f6d5c3c8f9" kindref="member">console</ref>, <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a5ccce4ff913cccee3b753fcdfcb2594b" kindref="member">err</ref>),
+        <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a3f25ec4a526d6bf2fa03fb2843b2fd60" kindref="member">CMD_INIT</ref>,   (args, <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a692712e6d64096ec796059f6d5c3c8f9" kindref="member">console</ref>, <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a5ccce4ff913cccee3b753fcdfcb2594b" kindref="member">err</ref>) -&gt; <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1adaac93117385461df64403914d2d98b9" kindref="member">launch</ref>(<ref refid="d9/da7/classorg_1_1xvm_1_1tool_1_1_launcher_options_1_1_initializer_options_1ad63c58e51932c57b89529187551f7b17" kindref="member">InitializerOptions.parse</ref>(args), <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a692712e6d64096ec796059f6d5c3c8f9" kindref="member">console</ref>, <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a5ccce4ff913cccee3b753fcdfcb2594b" kindref="member">err</ref>),
+        <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a24de6aff5f778b771f93721270a4d6a7" kindref="member">CMD_RUN</ref>,    (args, <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a692712e6d64096ec796059f6d5c3c8f9" kindref="member">console</ref>, <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a5ccce4ff913cccee3b753fcdfcb2594b" kindref="member">err</ref>) -&gt; <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1adaac93117385461df64403914d2d98b9" kindref="member">launch</ref>(<ref refid="dc/d4c/classorg_1_1xvm_1_1tool_1_1_launcher_options_1_1_runner_options_1a11d873c0a80cc68857a3717a9ac13c2b" kindref="member">RunnerOptions.parse</ref>(args), <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a692712e6d64096ec796059f6d5c3c8f9" kindref="member">console</ref>, <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a5ccce4ff913cccee3b753fcdfcb2594b" kindref="member">err</ref>),
+        <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4dbb050c16547fdc37e7913ac5e08c2a" kindref="member">CMD_TEST</ref>,   (args, <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a692712e6d64096ec796059f6d5c3c8f9" kindref="member">console</ref>, <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a5ccce4ff913cccee3b753fcdfcb2594b" kindref="member">err</ref>) -&gt; <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1adaac93117385461df64403914d2d98b9" kindref="member">launch</ref>(<ref refid="d2/d6e/classorg_1_1xvm_1_1tool_1_1_launcher_options_1_1_test_runner_options_1aab9803699df4cd44e8522f0aea535303" kindref="member">TestRunnerOptions.parse</ref>(args), <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a692712e6d64096ec796059f6d5c3c8f9" kindref="member">console</ref>, <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a5ccce4ff913cccee3b753fcdfcb2594b" kindref="member">err</ref>),
+        <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1aa3cfb07dfca3c0706b5896440932a045" kindref="member">CMD_DISASS</ref>, (args, <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a692712e6d64096ec796059f6d5c3c8f9" kindref="member">console</ref>, <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a5ccce4ff913cccee3b753fcdfcb2594b" kindref="member">err</ref>) -&gt; <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1adaac93117385461df64403914d2d98b9" kindref="member">launch</ref>(<ref refid="d8/dd2/classorg_1_1xvm_1_1tool_1_1_launcher_options_1_1_disassembler_options_1a2fdf96db281cbc14222d9e2f8e78ea95" kindref="member">DisassemblerOptions.parse</ref>(args), <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a692712e6d64096ec796059f6d5c3c8f9" kindref="member">console</ref>, <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a5ccce4ff913cccee3b753fcdfcb2594b" kindref="member">err</ref>)
+)</initializer>
+        <briefdescription>
+<para>Registry of available commands. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Each entry maps a command name to a handler that parses the args and launches the appropriate tool. </para>
+<para>Note: We use string literals here instead of calling subclass static methods (e.g., Compiler.getCommandName()) to avoid class loading deadlock - referencing subclass static methods from superclass static initialization can cause deadlock. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="100" column="30" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="100" bodyend="-1"/>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a0d32a04b2da1ebc1ee05231488775c9f" compoundref="d1/d7c/_launcher_8java" startline="76" endline="78">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.commandNames</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ad0d1383b4cd4b7a4e1f67701700d930f" compoundref="d1/d7c/_launcher_8java" startline="212" endline="245">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.launch</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a28df398a631ea72e8bfe6aff0b63ac71" prot="private" static="yes" mutable="no">
+        <type>final Locale</type>
+        <definition>final Locale org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.DEFAULT_LOCALE</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_LOCALE</name>
+        <qualifiedname>org.xvm.tool.Launcher.DEFAULT_LOCALE</qualifiedname>
+        <initializer>= Locale.getDefault()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="108" column="33" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="108" bodyend="-1"/>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4f0c298b715a26cf125fdf71a5e2c564" compoundref="d1/d7c/_launcher_8java" startline="347" endline="355">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.stripDebugPrefix</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1afb81520a62b7de0a97526d73d9761501" prot="private" static="yes" mutable="no">
+        <type>final String[]</type>
+        <definition>final String [] org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.DEBUG_PREFIXES</definition>
+        <argsstring></argsstring>
+        <name>DEBUG_PREFIXES</name>
+        <qualifiedname>org.xvm.tool.Launcher.DEBUG_PREFIXES</qualifiedname>
+        <initializer>= {&quot;debug_&quot;, &quot;debug&quot;}</initializer>
+        <briefdescription>
+<para>Debug prefixes to strip from launcher command names. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Checked in order, so &quot;debug_&quot; must come before &quot;debug&quot;. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="1024" column="33" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="1024" bodyend="1024"/>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4f0c298b715a26cf125fdf71a5e2c564" compoundref="d1/d7c/_launcher_8java" startline="347" endline="355">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.stripDebugPrefix</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a42970263da80f10179a6239031b96dbd" prot="protected" static="no" mutable="no">
+        <type>final Map&lt; File, <ref refid="da/d7c/classorg_1_1xvm_1_1tool_1_1_module_info" kindref="compound">ModuleInfo</ref> &gt;</type>
+        <definition>final Map&lt;File, ModuleInfo&gt; org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.moduleCache</definition>
+        <argsstring></argsstring>
+        <name>moduleCache</name>
+        <qualifiedname>org.xvm.tool.Launcher.moduleCache</qualifiedname>
+        <briefdescription>
+<para>Cached modules. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="113" column="25" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="113" bodyend="-1"/>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1af55cd6c2f6aa95af8edd05150797c3b2" compoundref="d1/d7c/_launcher_8java" startline="829" endline="838">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.ensureModuleInfo</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a86ccf19d3e54386b912e7b57a8884ca7" compoundref="d1/d7c/_launcher_8java" startline="151" endline="156">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.Launcher</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1aacdff56248e7cf1378f8e98f8e6bf969" compoundref="d1/d7c/_launcher_8java" startline="955" endline="959">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.reset</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a11430beabef9c5f6a543fa8b7a29799b" prot="protected" static="no" mutable="no">
+        <type>T</type>
+        <definition>T org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.m_options</definition>
+        <argsstring></argsstring>
+        <name>m_options</name>
+        <qualifiedname>org.xvm.tool.Launcher.m_options</qualifiedname>
+        <briefdescription>
+<para>The parsed options. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="118" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="118" bodyend="-1"/>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a86ccf19d3e54386b912e7b57a8884ca7" compoundref="d1/d7c/_launcher_8java" startline="151" endline="156">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.Launcher</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4246d1c2d0eba48001e5869b6847093e" compoundref="d1/d7c/_launcher_8java" startline="666" endline="668">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.options</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a32506679dbf436fda288d92f32bcc128" prot="protected" static="no" mutable="no">
+        <type>final <ref refid="dd/dbc/interfaceorg_1_1xvm_1_1tool_1_1_console" kindref="compound">Console</ref></type>
+        <definition>final Console org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.m_console</definition>
+        <argsstring></argsstring>
+        <name>m_console</name>
+        <qualifiedname>org.xvm.tool.Launcher.m_console</qualifiedname>
+        <briefdescription>
+<para>A representation of the <ref refid="dd/dbc/interfaceorg_1_1xvm_1_1tool_1_1_console" kindref="compound">Console</ref> (e.g. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>terminal) that this tool is running in. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="123" column="29" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="123" bodyend="-1"/>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a692712e6d64096ec796059f6d5c3c8f9" compoundref="d1/d7c/_launcher_8java" startline="670" endline="672">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.console</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a5ccce4ff913cccee3b753fcdfcb2594b" compoundref="d1/d7c/_launcher_8java" startline="483" endline="485">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.err</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a58a08b6e4ca7a1f8d43621b5f521f43b" compoundref="d1/d7c/_launcher_8java" startline="490" endline="492">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.err</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a86ccf19d3e54386b912e7b57a8884ca7" compoundref="d1/d7c/_launcher_8java" startline="151" endline="156">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.Launcher</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1abac6ce385fe2f6ed4be02f8276a933f9" compoundref="d1/d7c/_launcher_8java" startline="438" endline="455">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.log</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1af145ed2c8cd786014821133055d40b9a" compoundref="d1/d7c/_launcher_8java" startline="469" endline="471">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.out</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a6f1d1291c4f19e9c78a14aa02fb6cb0c" compoundref="d1/d7c/_launcher_8java" startline="476" endline="478">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.out</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1af0236b951cf910b679da12e2e6d53823" prot="protected" static="no" mutable="no">
+        <type>final <ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref></type>
+        <definition>final ErrorListener org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.m_errors</definition>
+        <argsstring></argsstring>
+        <name>m_errors</name>
+        <qualifiedname>org.xvm.tool.Launcher.m_errors</qualifiedname>
+        <briefdescription>
+<para>Optional <ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref> that receives ALL errors (tool-level and compilation). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>When provided (not null), errors are forwarded for external programmatic access. <ref refid="dd/dbc/interfaceorg_1_1xvm_1_1tool_1_1_console" kindref="compound">Console</ref> displays errors, but m_errors provides structured access. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="130" column="35" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="130" bodyend="-1"/>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a86ccf19d3e54386b912e7b57a8884ca7" compoundref="d1/d7c/_launcher_8java" startline="151" endline="156">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.Launcher</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a324310b857cfd7690dd0c9d4c510cc22" compoundref="d1/d7c/_launcher_8java" startline="590" endline="595">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.log</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a7c3501fa6edd2e9b9706c99d1bca35a7" prot="protected" static="no" mutable="no">
+        <type><ref refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity" kindref="compound">Severity</ref></type>
+        <definition>Severity org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.m_sevWorst</definition>
+        <argsstring></argsstring>
+        <name>m_sevWorst</name>
+        <qualifiedname>org.xvm.tool.Launcher.m_sevWorst</qualifiedname>
+        <initializer>= NONE</initializer>
+        <briefdescription>
+<para>The worst severity issue encountered thus far. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Tracked in <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher" kindref="compound">Launcher</ref> for control flow decisions (abort/continue). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="136" column="24" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="136" bodyend="-1"/>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a18fe47639618f2e83c7379bc82288b94" compoundref="d1/d7c/_launcher_8java" startline="534" endline="542">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.checkErrors</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a57b16e38ba02d62a32661844ce180e10" compoundref="d1/d7c/_launcher_8java" startline="613" endline="615">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.hasSeriousErrors</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ac1b91dac8c8cef6b522196cb2fcc6570" compoundref="d1/d7c/_launcher_8java" startline="603" endline="605">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.isAbortDesired</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a324310b857cfd7690dd0c9d4c510cc22" compoundref="d1/d7c/_launcher_8java" startline="590" endline="595">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.log</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1abac6ce385fe2f6ed4be02f8276a933f9" compoundref="d1/d7c/_launcher_8java" startline="438" endline="455">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.log</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1aacdff56248e7cf1378f8e98f8e6bf969" compoundref="d1/d7c/_launcher_8java" startline="955" endline="959">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.reset</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a6e71c7c10257ad01ca4417458efa6625" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.m_cSuspended</definition>
+        <argsstring></argsstring>
+        <name>m_cSuspended</name>
+        <qualifiedname>org.xvm.tool.Launcher.m_cSuspended</qualifiedname>
+        <briefdescription>
+<para>The number of times that errors have been suspended without being resumed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="141" column="19" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="141" bodyend="-1"/>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a70818a7c827b7d643e79d4f8bd1d82fc" compoundref="d1/d7c/_launcher_8java" startline="505" endline="507">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.errorsSuspended</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1aacdff56248e7cf1378f8e98f8e6bf969" compoundref="d1/d7c/_launcher_8java" startline="955" endline="959">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.reset</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a65a0c217f47d59bbcf08945256fc57ac" compoundref="d1/d7c/_launcher_8java" startline="513" endline="520">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.resumeErrors</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a01fe6312b647ec51b235da5f27cde93f" compoundref="d1/d7c/_launcher_8java" startline="498" endline="500">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.suspendErrors</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-static-attrib">
+      <memberdef kind="variable" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a17eb214113c6f28156715703467764ee" prot="protected" static="yes" mutable="no">
+        <type>final <ref refid="dd/dbc/interfaceorg_1_1xvm_1_1tool_1_1_console" kindref="compound">Console</ref></type>
+        <definition>final Console org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.DEFAULT_CONSOLE</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_CONSOLE</name>
+        <qualifiedname>org.xvm.tool.Launcher.DEFAULT_CONSOLE</qualifiedname>
+        <initializer>= new <ref refid="dd/dbc/interfaceorg_1_1xvm_1_1tool_1_1_console" kindref="compound">Console</ref>() {}</initializer>
+        <briefdescription>
+<para>The default <ref refid="dd/dbc/interfaceorg_1_1xvm_1_1tool_1_1_console" kindref="compound">Console</ref> implementation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="1029" column="36" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="1029" bodyend="1029"/>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a86ccf19d3e54386b912e7b57a8884ca7" compoundref="d1/d7c/_launcher_8java" startline="151" endline="156">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.Launcher</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a0d32a04b2da1ebc1ee05231488775c9f" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>static String org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.commandNames</definition>
+        <argsstring>()</argsstring>
+        <name>commandNames</name>
+        <qualifiedname>org.xvm.tool.Launcher.commandNames</qualifiedname>
+        <briefdescription>
+<para>Get all registered command names. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="76" column="27" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="76" bodyend="78"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ac708f8740f025087f423f5d1c74a3295" compoundref="d1/d7c/_launcher_8java" startline="100">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.COMMANDS</references>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ad0d1383b4cd4b7a4e1f67701700d930f" compoundref="d1/d7c/_launcher_8java" startline="212" endline="245">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.launch</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a92109cdb6e27bcd0ddeb09efac5f057d" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.showHelp</definition>
+        <argsstring>(Console console)</argsstring>
+        <name>showHelp</name>
+        <qualifiedname>org.xvm.tool.Launcher.showHelp</qualifiedname>
+        <param>
+          <type><ref refid="dd/dbc/interfaceorg_1_1xvm_1_1tool_1_1_console" kindref="compound">Console</ref></type>
+          <declname>console</declname>
+        </param>
+        <briefdescription>
+<para>Show help for the unified xtc command. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="250" column="25" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="250" bodyend="270"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a692712e6d64096ec796059f6d5c3c8f9" compoundref="d1/d7c/_launcher_8java" startline="670" endline="672">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.console</references>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ad0d1383b4cd4b7a4e1f67701700d930f" compoundref="d1/d7c/_launcher_8java" startline="212" endline="245">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.launch</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1adaac93117385461df64403914d2d98b9" compoundref="d1/d7c/_launcher_8java" startline="183" endline="196">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.launch</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a8fe6628d6601ff980cbe139bf861d885" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.showVersion</definition>
+        <argsstring>(Console console)</argsstring>
+        <name>showVersion</name>
+        <qualifiedname>org.xvm.tool.Launcher.showVersion</qualifiedname>
+        <param>
+          <type><ref refid="dd/dbc/interfaceorg_1_1xvm_1_1tool_1_1_console" kindref="compound">Console</ref></type>
+          <declname>console</declname>
+        </param>
+        <briefdescription>
+<para>Show version information. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="275" column="25" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="275" bodyend="277"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a692712e6d64096ec796059f6d5c3c8f9" compoundref="d1/d7c/_launcher_8java" startline="670" endline="672">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.console</references>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ad0d1383b4cd4b7a4e1f67701700d930f" compoundref="d1/d7c/_launcher_8java" startline="212" endline="245">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.launch</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4f0c298b715a26cf125fdf71a5e2c564" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>static String org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.stripDebugPrefix</definition>
+        <argsstring>(String cmd)</argsstring>
+        <name>stripDebugPrefix</name>
+        <qualifiedname>org.xvm.tool.Launcher.stripDebugPrefix</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>cmd</declname>
+        </param>
+        <briefdescription>
+<para>Strips the debug prefix from a command name if present. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Supports both &quot;debug_xec&quot; and &quot;debugxec&quot; formats.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cmd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the raw command name potentially with debug prefix</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the command name with debug prefix stripped, or the original if no prefix found </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="347" column="27" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="347" bodyend="355"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1afb81520a62b7de0a97526d73d9761501" compoundref="d1/d7c/_launcher_8java" startline="1024" endline="1024">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.DEBUG_PREFIXES</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a28df398a631ea72e8bfe6aff0b63ac71" compoundref="d1/d7c/_launcher_8java" startline="108">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.DEFAULT_LOCALE</references>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1adaac93117385461df64403914d2d98b9" compoundref="d1/d7c/_launcher_8java" startline="183" endline="196">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.launch</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a86ccf19d3e54386b912e7b57a8884ca7" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.Launcher</definition>
+        <argsstring>(T options, Console console, ErrorListener errors)</argsstring>
+        <name>Launcher</name>
+        <qualifiedname>org.xvm.tool.Launcher.Launcher</qualifiedname>
+        <param>
+          <type>T</type>
+          <declname>options</declname>
+        </param>
+        <param>
+          <type><ref refid="dd/dbc/interfaceorg_1_1xvm_1_1tool_1_1_console" kindref="compound">Console</ref></type>
+          <declname>console</declname>
+        </param>
+        <param>
+          <type><ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref></type>
+          <declname>errors</declname>
+        </param>
+        <briefdescription>
+<para>Constructor for programmatic invocation (uses pre-built Options). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>options</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the pre-configured Options </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>console</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>representation of the terminal within which this command is run (null = default) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>errors</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional <ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref> to receive all errors (null = BLACKHOLE) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="151" column="15" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="151" bodyend="156"/>
+        <references refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener_1ac7ff60e616d9e82aa72cf11ba767d749" compoundref="d9/d86/_error_listener_8java" startline="433">org.xvm.asm.ErrorListener.BLACKHOLE</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a692712e6d64096ec796059f6d5c3c8f9" compoundref="d1/d7c/_launcher_8java" startline="670" endline="672">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.console</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a17eb214113c6f28156715703467764ee" compoundref="d1/d7c/_launcher_8java" startline="1029" endline="1029">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.DEFAULT_CONSOLE</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a32506679dbf436fda288d92f32bcc128" compoundref="d1/d7c/_launcher_8java" startline="123">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.m_console</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1af0236b951cf910b679da12e2e6d53823" compoundref="d1/d7c/_launcher_8java" startline="130">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.m_errors</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a11430beabef9c5f6a543fa8b7a29799b" compoundref="d1/d7c/_launcher_8java" startline="118">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.m_options</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a42970263da80f10179a6239031b96dbd" compoundref="d1/d7c/_launcher_8java" startline="113">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.moduleCache</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4246d1c2d0eba48001e5869b6847093e" compoundref="d1/d7c/_launcher_8java" startline="666" endline="668">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.options</references>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a40c34ee0ad1dcb198b877d349f9c5d20" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>abstract int</type>
+        <definition>abstract int org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.process</definition>
+        <argsstring>()</argsstring>
+        <name>process</name>
+        <qualifiedname>org.xvm.tool.Launcher.process</qualifiedname>
+        <briefdescription>
+<para>The tool processing entry point. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the execution status; most commonly 0-success; 1-failure </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="400" column="28"/>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a82885a928db87cc0bca2140179c4c217" compoundref="d1/d7c/_launcher_8java" startline="363" endline="393">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab4ca08939471989b8e0d164da0b9ace1" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.log</definition>
+        <argsstring>(Severity sev, String template, Object... params)</argsstring>
+        <name>log</name>
+        <qualifiedname>org.xvm.tool.Launcher.log</qualifiedname>
+        <param>
+          <type><ref refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity" kindref="compound">Severity</ref></type>
+          <declname>sev</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>template</declname>
+        </param>
+        <param>
+          <type>Object...</type>
+          <declname>params</declname>
+        </param>
+        <briefdescription>
+<para>Log a tool-level message with template substitution (SLF4J-style). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Use {} placeholders in the template for parameter substitution. </para>
+<para>Tool-level logs (file not found, invalid options, etc.) are displayed via <ref refid="dd/dbc/interfaceorg_1_1xvm_1_1tool_1_1_console" kindref="compound">Console</ref> and tracked in <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher" kindref="compound">Launcher</ref> for control flow, but NOT sent to <ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref>. <ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref> is only for compilation/runtime errors from compiler/runner. </para>
+<para>If severity is FATAL, this method throws <ref refid="d0/d3a/classorg_1_1xvm_1_1tool_1_1_launcher_1_1_launcher_exception" kindref="compound">LauncherException</ref> immediately after logging.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the severity (may indicate an error) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>template</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the message template with {} placeholders </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>params</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>parameters to substitute into the template </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="419" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="419" bodyend="421"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab4ca08939471989b8e0d164da0b9ace1" compoundref="d1/d7c/_launcher_8java" startline="419" endline="421">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.log</references>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a324310b857cfd7690dd0c9d4c510cc22" compoundref="d1/d7c/_launcher_8java" startline="590" endline="595">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.log</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a048ea46562a8b76920df4aa27a811beb" compoundref="d1/d7c/_launcher_8java" startline="462" endline="464">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.log</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab4ca08939471989b8e0d164da0b9ace1" compoundref="d1/d7c/_launcher_8java" startline="419" endline="421">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.log</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a6bf63e81cf4ecd8576c6c7f318bd8cab" compoundref="d1/d7c/_launcher_8java" startline="753" endline="773">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.prelinkSystemLibraries</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a65a0c217f47d59bbcf08945256fc57ac" compoundref="d1/d7c/_launcher_8java" startline="513" endline="520">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.resumeErrors</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a82885a928db87cc0bca2140179c4c217" compoundref="d1/d7c/_launcher_8java" startline="363" endline="393">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.run</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a19ffb27e1f08b05bd0c61b1500e6beb9" compoundref="d1/d7c/_launcher_8java" startline="904" endline="931">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.selectTargets</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab479a062d01e16853ae4b9a84bf14205" compoundref="d1/d7c/_launcher_8java" startline="843" endline="853">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.validateModulePath</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a38af578a526830621111953170c6530d" compoundref="d1/d7c/_launcher_8java" startline="887" endline="893">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.validateReadableFile</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1aae980319e628b80746f098284da87b55" compoundref="d1/d7c/_launcher_8java" startline="862" endline="878">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.validateSourceInput</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1abac6ce385fe2f6ed4be02f8276a933f9" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.log</definition>
+        <argsstring>(Severity sev, Throwable cause, String template, Object... params)</argsstring>
+        <name>log</name>
+        <qualifiedname>org.xvm.tool.Launcher.log</qualifiedname>
+        <param>
+          <type><ref refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity" kindref="compound">Severity</ref></type>
+          <declname>sev</declname>
+        </param>
+        <param>
+          <type>Throwable</type>
+          <declname>cause</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>template</declname>
+        </param>
+        <param>
+          <type>Object...</type>
+          <declname>params</declname>
+        </param>
+        <briefdescription>
+<para>Log an exception with an optional message template. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Use {} placeholders in the template for parameter substitution. The exception message will be included in the <ref refid="dd/dbc/interfaceorg_1_1xvm_1_1tool_1_1_console" kindref="compound">Console</ref> </para>
+<para>Tool-level exception logs are displayed via <ref refid="dd/dbc/interfaceorg_1_1xvm_1_1tool_1_1_console" kindref="compound">Console</ref> and tracked in <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher" kindref="compound">Launcher</ref>, but NOT sent to <ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref>. </para>
+<para>If severity is FATAL, this method throws <ref refid="d0/d3a/classorg_1_1xvm_1_1tool_1_1_launcher_1_1_launcher_exception" kindref="compound">LauncherException</ref> immediately after logging.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the severity (may indicate an error) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cause</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the exception that caused this log entry </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>template</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional message template with {} placeholders (if null, uses the exception message) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>params</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>parameters to substitute into the template </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="438" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="438" bodyend="455"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a70818a7c827b7d643e79d4f8bd1d82fc" compoundref="d1/d7c/_launcher_8java" startline="505" endline="507">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.errorsSuspended</references>
+        <references refid="dd/dbc/interfaceorg_1_1xvm_1_1tool_1_1_console_1ac38790fb3cb014b685153564849f5e23" compoundref="d7/dcc/src_2main_2java_2org_2xvm_2tool_2_console_8java" startline="95" endline="124">org.xvm.tool.Console.formatTemplate</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a71f2b135bc72225f357540daec92d071" compoundref="d1/d7c/_launcher_8java" startline="645" endline="647">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.isBadEnoughToPrint</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a32506679dbf436fda288d92f32bcc128" compoundref="d1/d7c/_launcher_8java" startline="123">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.m_console</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a7c3501fa6edd2e9b9706c99d1bca35a7" compoundref="d1/d7c/_launcher_8java" startline="136">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.m_sevWorst</references>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a048ea46562a8b76920df4aa27a811beb" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.log</definition>
+        <argsstring>(ErrorList errs)</argsstring>
+        <name>log</name>
+        <qualifiedname>org.xvm.tool.Launcher.log</qualifiedname>
+        <param>
+          <type><ref refid="db/dca/classorg_1_1xvm_1_1asm_1_1_error_list" kindref="compound">ErrorList</ref></type>
+          <declname>errs</declname>
+        </param>
+        <briefdescription>
+<para>Log a sequence of errors from an <ref refid="db/dca/classorg_1_1xvm_1_1asm_1_1_error_list" kindref="compound">ErrorList</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>errs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the <ref refid="db/dca/classorg_1_1xvm_1_1asm_1_1_error_list" kindref="compound">ErrorList</ref> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="462" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="462" bodyend="464"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a5ccce4ff913cccee3b753fcdfcb2594b" compoundref="d1/d7c/_launcher_8java" startline="483" endline="485">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.err</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab4ca08939471989b8e0d164da0b9ace1" compoundref="d1/d7c/_launcher_8java" startline="419" endline="421">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.log</references>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a01fe6312b647ec51b235da5f27cde93f" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.suspendErrors</definition>
+        <argsstring>()</argsstring>
+        <name>suspendErrors</name>
+        <qualifiedname>org.xvm.tool.Launcher.suspendErrors</qualifiedname>
+        <briefdescription>
+<para>Suspend error detection. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="498" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="498" bodyend="500"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a6e71c7c10257ad01ca4417458efa6625" compoundref="d1/d7c/_launcher_8java" startline="141">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.m_cSuspended</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a01fe6312b647ec51b235da5f27cde93f" compoundref="d1/d7c/_launcher_8java" startline="498" endline="500">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.suspendErrors</references>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a01fe6312b647ec51b235da5f27cde93f" compoundref="d1/d7c/_launcher_8java" startline="498" endline="500">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.suspendErrors</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a70818a7c827b7d643e79d4f8bd1d82fc" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.errorsSuspended</definition>
+        <argsstring>()</argsstring>
+        <name>errorsSuspended</name>
+        <qualifiedname>org.xvm.tool.Launcher.errorsSuspended</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true if errors are currently suspended </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="505" column="23" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="505" bodyend="507"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a6e71c7c10257ad01ca4417458efa6625" compoundref="d1/d7c/_launcher_8java" startline="141">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.m_cSuspended</references>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a13144904c0ce128cfccbd1ace73f2d56" compoundref="d1/d7c/_launcher_8java" startline="623" endline="625">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.isSilent</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1abac6ce385fe2f6ed4be02f8276a933f9" compoundref="d1/d7c/_launcher_8java" startline="438" endline="455">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.log</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a65a0c217f47d59bbcf08945256fc57ac" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.resumeErrors</definition>
+        <argsstring>()</argsstring>
+        <name>resumeErrors</name>
+        <qualifiedname>org.xvm.tool.Launcher.resumeErrors</qualifiedname>
+        <briefdescription>
+<para>Suspend error detection. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="513" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="513" bodyend="520"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab4ca08939471989b8e0d164da0b9ace1" compoundref="d1/d7c/_launcher_8java" startline="419" endline="421">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.log</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a6e71c7c10257ad01ca4417458efa6625" compoundref="d1/d7c/_launcher_8java" startline="141">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.m_cSuspended</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a65a0c217f47d59bbcf08945256fc57ac" compoundref="d1/d7c/_launcher_8java" startline="513" endline="520">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.resumeErrors</references>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a65a0c217f47d59bbcf08945256fc57ac" compoundref="d1/d7c/_launcher_8java" startline="513" endline="520">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.resumeErrors</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a18fe47639618f2e83c7379bc82288b94" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.checkErrors</definition>
+        <argsstring>(String context)</argsstring>
+        <name>checkErrors</name>
+        <qualifiedname>org.xvm.tool.Launcher.checkErrors</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+<para>Check if errors warrant aborting. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If so, throws <ref refid="d0/d3a/classorg_1_1xvm_1_1tool_1_1_launcher_1_1_launcher_exception" kindref="compound">LauncherException</ref> with context. </para>
+<para>Checks BOTH <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher" kindref="compound">Launcher</ref>&apos;s tracked severity (tool errors) AND <ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref> delegate (compiler errors).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>description of what operation was being performed (for the error message)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>1 if errors exist but not severe enough to abort, 0 if no errors</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>LauncherException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if errors are severe enough to abort </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="534" column="19" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="534" bodyend="542"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a57b16e38ba02d62a32661844ce180e10" compoundref="d1/d7c/_launcher_8java" startline="613" endline="615">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.hasSeriousErrors</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ac1b91dac8c8cef6b522196cb2fcc6570" compoundref="d1/d7c/_launcher_8java" startline="603" endline="605">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.isAbortDesired</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a7c3501fa6edd2e9b9706c99d1bca35a7" compoundref="d1/d7c/_launcher_8java" startline="136">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.m_sevWorst</references>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1abe05bfa8103e6f776b685b54adfdf01e" compoundref="d1/d7c/_launcher_8java" startline="943" endline="949">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.flushAndCheckErrors</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1abd3d815f895300948549fc7bf0e9f1d8" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.checkErrors</definition>
+        <argsstring>()</argsstring>
+        <name>checkErrors</name>
+        <qualifiedname>org.xvm.tool.Launcher.checkErrors</qualifiedname>
+        <briefdescription>
+<para>Check if errors warrant aborting. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If so, throws <ref refid="d0/d3a/classorg_1_1xvm_1_1tool_1_1_launcher_1_1_launcher_exception" kindref="compound">LauncherException</ref>.</para>
+<para><simplesect kind="return"><para>1 if errors exist but not severe enough to abort, 0 if no errors </para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>LauncherException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if errors are severe enough to abort </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="550" column="19" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="550" bodyend="552"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1abd3d815f895300948549fc7bf0e9f1d8" compoundref="d1/d7c/_launcher_8java" startline="550" endline="552">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.checkErrors</references>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1abd3d815f895300948549fc7bf0e9f1d8" compoundref="d1/d7c/_launcher_8java" startline="550" endline="552">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.checkErrors</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a82885a928db87cc0bca2140179c4c217" compoundref="d1/d7c/_launcher_8java" startline="363" endline="393">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a87be608c1cd45c0ad74456eabb01dc32" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.displayHelp</definition>
+        <argsstring>()</argsstring>
+        <name>displayHelp</name>
+        <qualifiedname>org.xvm.tool.Launcher.displayHelp</qualifiedname>
+        <briefdescription>
+<para>Display a help message describing how to use this command-line tool. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Delegates to the options class for help text generation. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="558" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="558" bodyend="571"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a268f1f832539c8b3b2d445afe4678ee3" compoundref="d1/d7c/_launcher_8java" startline="576" endline="578">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.desc</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4246d1c2d0eba48001e5869b6847093e" compoundref="d1/d7c/_launcher_8java" startline="666" endline="668">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.options</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1af145ed2c8cd786014821133055d40b9a" compoundref="d1/d7c/_launcher_8java" startline="469" endline="471">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.out</references>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a82885a928db87cc0bca2140179c4c217" compoundref="d1/d7c/_launcher_8java" startline="363" endline="393">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a9c45bed0c600733cdc68ae985a6ba492" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>abstract void</type>
+        <definition>abstract void org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.validateOptions</definition>
+        <argsstring>()</argsstring>
+        <name>validateOptions</name>
+        <qualifiedname>org.xvm.tool.Launcher.validateOptions</qualifiedname>
+        <briefdescription>
+<para>Validate the options. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is called after options have been parsed and set. Subclasses should implement validation logic that requires access to instance state (like error listeners, logging, etc.). </para>
+<para>Options classes should remain pure data/configuration holders. All validation logic that requires business logic or instance state belongs here. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="635" column="30"/>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a82885a928db87cc0bca2140179c4c217" compoundref="d1/d7c/_launcher_8java" startline="363" endline="393">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a71f2b135bc72225f357540daec92d071" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.isBadEnoughToPrint</definition>
+        <argsstring>(Severity sev)</argsstring>
+        <name>isBadEnoughToPrint</name>
+        <qualifiedname>org.xvm.tool.Launcher.isBadEnoughToPrint</qualifiedname>
+        <param>
+          <type><ref refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity" kindref="compound">Severity</ref></type>
+          <declname>sev</declname>
+        </param>
+        <briefdescription>
+<para>Determine if a message should be printed based on severity and verbose settings. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Subclasses can override for custom filtering (e.g., <ref refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler" kindref="compound">Compiler</ref> strictness levels).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the severity to check</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the message should be printed </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="645" column="23" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="645" bodyend="647"/>
+        <references refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity_1ae9a69ede091e1ae4009b6bf8861b7fed" compoundref="d0/ddf/_severity_8java" startline="24" endline="26">org.xvm.util.Severity.isAtLeast</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4246d1c2d0eba48001e5869b6847093e" compoundref="d1/d7c/_launcher_8java" startline="666" endline="668">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.options</references>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1abac6ce385fe2f6ed4be02f8276a933f9" compoundref="d1/d7c/_launcher_8java" startline="438" endline="455">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.log</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4e7f739e1e62dc83bc59a266d33575e9" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.isBadEnoughToAbort</definition>
+        <argsstring>(Severity sev)</argsstring>
+        <name>isBadEnoughToAbort</name>
+        <qualifiedname>org.xvm.tool.Launcher.isBadEnoughToAbort</qualifiedname>
+        <param>
+          <type><ref refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity" kindref="compound">Severity</ref></type>
+          <declname>sev</declname>
+        </param>
+        <briefdescription>
+<para>Determine if a message or error of a particular severity should cause the program to exit. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Subclasses can override this to implement custom abort behavior.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the severity to evaluate</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if an error of that severity should exit the program </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="657" column="23" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="657" bodyend="659"/>
+        <references refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity_1ae9a69ede091e1ae4009b6bf8861b7fed" compoundref="d0/ddf/_severity_8java" startline="24" endline="26">org.xvm.util.Severity.isAtLeast</references>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ac1b91dac8c8cef6b522196cb2fcc6570" compoundref="d1/d7c/_launcher_8java" startline="603" endline="605">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.isAbortDesired</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4246d1c2d0eba48001e5869b6847093e" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.options</definition>
+        <argsstring>()</argsstring>
+        <name>options</name>
+        <qualifiedname>org.xvm.tool.Launcher.options</qualifiedname>
+        <briefdescription>
+<para>Get the parsed options for this launcher. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the options instance </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="666" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="666" bodyend="668"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a11430beabef9c5f6a543fa8b7a29799b" compoundref="d1/d7c/_launcher_8java" startline="118">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.m_options</references>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a87be608c1cd45c0ad74456eabb01dc32" compoundref="d1/d7c/_launcher_8java" startline="558" endline="571">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.displayHelp</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1af55cd6c2f6aa95af8edd05150797c3b2" compoundref="d1/d7c/_launcher_8java" startline="829" endline="838">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.ensureModuleInfo</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a71f2b135bc72225f357540daec92d071" compoundref="d1/d7c/_launcher_8java" startline="645" endline="647">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.isBadEnoughToPrint</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a0396a29d226827b74c9b23abdef568c4" compoundref="d1/d7c/_launcher_8java" startline="291" endline="324">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.launch</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a86ccf19d3e54386b912e7b57a8884ca7" compoundref="d1/d7c/_launcher_8java" startline="151" endline="156">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.Launcher</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a82885a928db87cc0bca2140179c4c217" compoundref="d1/d7c/_launcher_8java" startline="363" endline="393">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.run</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab479a062d01e16853ae4b9a84bf14205" compoundref="d1/d7c/_launcher_8java" startline="843" endline="853">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.validateModulePath</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a692712e6d64096ec796059f6d5c3c8f9" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="dd/dbc/interfaceorg_1_1xvm_1_1tool_1_1_console" kindref="compound">Console</ref></type>
+        <definition>Console org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.console</definition>
+        <argsstring>()</argsstring>
+        <name>console</name>
+        <qualifiedname>org.xvm.tool.Launcher.console</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="670" column="23" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="670" bodyend="672"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a32506679dbf436fda288d92f32bcc128" compoundref="d1/d7c/_launcher_8java" startline="123">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.m_console</references>
+        <referencedby refid="d8/da9/interfaceorg_1_1xvm_1_1tool_1_1_launcher_1_1_command_handler_1a8da91ca6a1f69ad36614f2aba710a135">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.CommandHandler.launch</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a0396a29d226827b74c9b23abdef568c4" compoundref="d1/d7c/_launcher_8java" startline="291" endline="324">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.launch</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ad0d1383b4cd4b7a4e1f67701700d930f" compoundref="d1/d7c/_launcher_8java" startline="212" endline="245">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.launch</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1adaac93117385461df64403914d2d98b9" compoundref="d1/d7c/_launcher_8java" startline="183" endline="196">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.launch</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a86ccf19d3e54386b912e7b57a8884ca7" compoundref="d1/d7c/_launcher_8java" startline="151" endline="156">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.Launcher</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a92109cdb6e27bcd0ddeb09efac5f057d" compoundref="d1/d7c/_launcher_8java" startline="250" endline="270">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.showHelp</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a8fe6628d6601ff980cbe139bf861d885" compoundref="d1/d7c/_launcher_8java" startline="275" endline="277">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.showVersion</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a7923b63ac491f720ae0a7a48c9bd3bce" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository" kindref="compound">ModuleRepository</ref></type>
+        <definition>ModuleRepository org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.configureLibraryRepo</definition>
+        <argsstring>(List&lt; File &gt; path)</argsstring>
+        <name>configureLibraryRepo</name>
+        <qualifiedname>org.xvm.tool.Launcher.configureLibraryRepo</qualifiedname>
+        <param>
+          <type>List&lt; File &gt;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Configure the library repository used to load module dependencies without compiling them. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The library repository is always writable, to allow the repository to cache modules as they are linked together; use <computeroutput><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a04f7ad71ca64fd4c118c0c55b5541e8e" kindref="member">extractBuildRepo(ModuleRepository)</ref></computeroutput> to get the build repository from the library repository.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a previously validated path of module directories and/or files</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the library repository, including a build repository at the head of the repo </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="686" column="32" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="686" bodyend="700"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a0224a24efac80a3623fd5233d22f6236" compoundref="d1/d7c/_launcher_8java" startline="707" endline="709">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.makeBuildRepo</references>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a7d07df8c9f059c8ec8b17fb27a523da3" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository" kindref="compound">ModuleRepository</ref></type>
+        <definition>ModuleRepository org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.configureResultRepo</definition>
+        <argsstring>(File fileDest)</argsstring>
+        <name>configureResultRepo</name>
+        <qualifiedname>org.xvm.tool.Launcher.configureResultRepo</qualifiedname>
+        <param>
+          <type>File</type>
+          <declname>fileDest</declname>
+        </param>
+        <briefdescription>
+<para>Configure the repository used to store modules dependencies without compiling them. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The library repository is always writable, to allow the repository to cache modules as they are linked together; use <computeroutput><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a04f7ad71ca64fd4c118c0c55b5541e8e" kindref="member">extractBuildRepo(ModuleRepository)</ref></computeroutput> to get the build repository from the library repository.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fileDest</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a previously validated destination for the module(s), or null to use the current directory</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a module repository that will store to the specified destination </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="737" column="32" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="737" bodyend="742"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a6bf63e81cf4ecd8576c6c7f318bd8cab" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.prelinkSystemLibraries</definition>
+        <argsstring>(ModuleRepository reposLib)</argsstring>
+        <name>prelinkSystemLibraries</name>
+        <qualifiedname>org.xvm.tool.Launcher.prelinkSystemLibraries</qualifiedname>
+        <param>
+          <type><ref refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository" kindref="compound">ModuleRepository</ref></type>
+          <declname>reposLib</declname>
+        </param>
+        <briefdescription>
+<para>Force load and link whatever modules are required by the compiler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Note: This implementation assumes that the read-through option on <ref refid="dd/d11/classorg_1_1xvm_1_1asm_1_1_linked_repository" kindref="compound">LinkedRepository</ref> is being used.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>reposLib</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the repository to use, as it would be returned from <computeroutput><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a7923b63ac491f720ae0a7a48c9bd3bce" kindref="member">configureLibraryRepo</ref></computeroutput> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="753" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="753" bodyend="773"/>
+        <references refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1aab7b85f1eddd38affade03f735ce0676" compoundref="dc/dac/_module_constant_8java" startline="168" endline="170">org.xvm.asm.constants.ModuleConstant.getName</references>
+        <references refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository_1aeb782f48317a807e8aa1a985b3466f36">org.xvm.asm.ModuleRepository.loadModule</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab4ca08939471989b8e0d164da0b9ace1" compoundref="d1/d7c/_launcher_8java" startline="419" endline="421">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.log</references>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a79f6f3c856d7a70d81e15324e1c8fca8" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.showSystemVersion</definition>
+        <argsstring>(ModuleRepository reposLib)</argsstring>
+        <name>showSystemVersion</name>
+        <qualifiedname>org.xvm.tool.Launcher.showSystemVersion</qualifiedname>
+        <param>
+          <type><ref refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository" kindref="compound">ModuleRepository</ref></type>
+          <declname>reposLib</declname>
+        </param>
+        <briefdescription>
+<para>Display &quot;xdk version&quot; string. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>reposLib</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the repository that contains the Ecstasy library </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="780" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="780" bodyend="812"/>
+        <references refid="d2/d88/classorg_1_1xvm_1_1asm_1_1_build_info_1ae9b181228cdaa28b02cb5f655b2a1c61" compoundref="dd/dac/_build_info_8java" startline="73" endline="76">org.xvm.asm.BuildInfo.getGitCommit</references>
+        <references refid="d2/d88/classorg_1_1xvm_1_1asm_1_1_build_info_1ac95ab68160de1130fd5b6c2889d3116a" compoundref="dd/dac/_build_info_8java" startline="82" endline="84">org.xvm.asm.BuildInfo.getGitStatus</references>
+        <references refid="d2/d13/classorg_1_1xvm_1_1asm_1_1_module_structure_1ad3537b3e25431d77360f87c2ba34b070" compoundref="dc/de8/_module_structure_8java" startline="296" endline="299">org.xvm.asm.ModuleStructure.getVersionString</references>
+        <references refid="d2/d88/classorg_1_1xvm_1_1asm_1_1_build_info_1a59e7b6db4d04628b76305a54efccd5de" compoundref="dd/dac/_build_info_8java" startline="49" endline="51">org.xvm.asm.BuildInfo.getXdkVersion</references>
+        <references refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository_1aeb782f48317a807e8aa1a985b3466f36">org.xvm.asm.ModuleRepository.loadModule</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1af145ed2c8cd786014821133055d40b9a" compoundref="d1/d7c/_launcher_8java" startline="469" endline="471">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.out</references>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab479a062d01e16853ae4b9a84bf14205" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.validateModulePath</definition>
+        <argsstring>()</argsstring>
+        <name>validateModulePath</name>
+        <qualifiedname>org.xvm.tool.Launcher.validateModulePath</qualifiedname>
+        <briefdescription>
+<para>Validate that the module path entries (-L) are existent directories and/or .xtc files. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="843" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="843" bodyend="853"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab4ca08939471989b8e0d164da0b9ace1" compoundref="d1/d7c/_launcher_8java" startline="419" endline="421">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.log</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4246d1c2d0eba48001e5869b6847093e" compoundref="d1/d7c/_launcher_8java" startline="666" endline="668">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.options</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a38af578a526830621111953170c6530d" compoundref="d1/d7c/_launcher_8java" startline="887" endline="893">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.validateReadableFile</references>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a38af578a526830621111953170c6530d" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.validateReadableFile</definition>
+        <argsstring>(File file, String expectedExtension)</argsstring>
+        <name>validateReadableFile</name>
+        <qualifiedname>org.xvm.tool.Launcher.validateReadableFile</qualifiedname>
+        <param>
+          <type>File</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>expectedExtension</declname>
+        </param>
+        <briefdescription>
+<para>Validate that a file is readable and optionally has the expected extension. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the file to validate </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>expectedExtension</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the expected extension (e.g. &quot;.x&quot;, &quot;.xtc&quot;), or null to skip extension check </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="887" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="887" bodyend="893"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab4ca08939471989b8e0d164da0b9ace1" compoundref="d1/d7c/_launcher_8java" startline="419" endline="421">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.log</references>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab479a062d01e16853ae4b9a84bf14205" compoundref="d1/d7c/_launcher_8java" startline="843" endline="853">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.validateModulePath</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1aae980319e628b80746f098284da87b55" compoundref="d1/d7c/_launcher_8java" startline="862" endline="878">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.validateSourceInput</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a19ffb27e1f08b05bd0c61b1500e6beb9" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; <ref refid="da/d7c/classorg_1_1xvm_1_1tool_1_1_module_info" kindref="compound">ModuleInfo</ref> &gt;</type>
+        <definition>List&lt; ModuleInfo &gt; org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.selectTargets</definition>
+        <argsstring>(List&lt; File &gt; listSources, List&lt; File &gt; resourceSpecs, File outputSpec)</argsstring>
+        <name>selectTargets</name>
+        <qualifiedname>org.xvm.tool.Launcher.selectTargets</qualifiedname>
+        <param>
+          <type>List&lt; File &gt;</type>
+          <declname>listSources</declname>
+        </param>
+        <param>
+          <type>List&lt; File &gt;</type>
+          <declname>resourceSpecs</declname>
+        </param>
+        <param>
+          <type>File</type>
+          <declname>outputSpec</declname>
+        </param>
+        <briefdescription>
+<para>Select modules to target for source code processing. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>listSources</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a list of source locations </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>resourceSpecs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an optional array of resource locations </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>outputSpec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an optional location for storing the compilation result</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a list of &quot;module files&quot;, each representing a module&apos;s source code </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="904" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="904" bodyend="931"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1af55cd6c2f6aa95af8edd05150797c3b2" compoundref="d1/d7c/_launcher_8java" startline="829" endline="838">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.ensureModuleInfo</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab4ca08939471989b8e0d164da0b9ace1" compoundref="d1/d7c/_launcher_8java" startline="419" endline="421">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.log</references>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1abe05bfa8103e6f776b685b54adfdf01e" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.flushAndCheckErrors</definition>
+        <argsstring>(List&lt; Node &gt; nodes)</argsstring>
+        <name>flushAndCheckErrors</name>
+        <qualifiedname>org.xvm.tool.Launcher.flushAndCheckErrors</qualifiedname>
+        <param>
+          <type>List&lt; <ref refid="d8/d87/classorg_1_1xvm_1_1tool_1_1_module_info_1_1_node" kindref="compound">Node</ref> &gt;</type>
+          <declname>nodes</declname>
+        </param>
+        <briefdescription>
+<para>Flush errors from the specified nodes and then check for errors globally. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nodes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the nodes to flush</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 if no serious errors, 1 if serious errors exist (but not fatal enough to throw)</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>LauncherException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if errors are severe enough to abort </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="943" column="19" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="943" bodyend="949"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a18fe47639618f2e83c7379bc82288b94" compoundref="d1/d7c/_launcher_8java" startline="534" endline="542">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.checkErrors</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1abe05bfa8103e6f776b685b54adfdf01e" compoundref="d1/d7c/_launcher_8java" startline="943" endline="949">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.flushAndCheckErrors</references>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1abe05bfa8103e6f776b685b54adfdf01e" compoundref="d1/d7c/_launcher_8java" startline="943" endline="949">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.flushAndCheckErrors</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1aacdff56248e7cf1378f8e98f8e6bf969" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <qualifiedname>org.xvm.tool.Launcher.reset</qualifiedname>
+        <briefdescription>
+<para>Clean up any transient state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Resets severity tracking and clears module cache. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="955" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="955" bodyend="959"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a6e71c7c10257ad01ca4417458efa6625" compoundref="d1/d7c/_launcher_8java" startline="141">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.m_cSuspended</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a7c3501fa6edd2e9b9706c99d1bca35a7" compoundref="d1/d7c/_launcher_8java" startline="136">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.m_sevWorst</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a42970263da80f10179a6239031b96dbd" compoundref="d1/d7c/_launcher_8java" startline="113">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.moduleCache</references>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="package-static-func">
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a234cd6b34c80518a47527cc688defc85" prot="package" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.main</definition>
+        <argsstring>(String[] asArg)</argsstring>
+        <name>main</name>
+        <qualifiedname>org.xvm.tool.Launcher.main</qualifiedname>
+        <param>
+          <type>String[]</type>
+          <declname>asArg</declname>
+        </param>
+        <briefdescription>
+<para>Entry point from the OS. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The only thing main should do is turn any return values from processing into a <javadoccode>System.exit</javadoccode>, that terminates the process with a system exit code based on this status</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>asArg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>command line arguments (first arg is command name: xcc, xec, or xtc) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="165" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="165" bodyend="171"/>
+        <references refid="d0/d3a/classorg_1_1xvm_1_1tool_1_1_launcher_1_1_launcher_exception_1a3641b570dad814cca7c9373fe350e42d" compoundref="d1/d7c/_launcher_8java" startline="987" endline="989">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.LauncherException.getExitCode</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1adaac93117385461df64403914d2d98b9" compoundref="d1/d7c/_launcher_8java" startline="183" endline="196">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.launch</references>
+        <referencedby refid="de/d8f/classorg_1_1xvm_1_1tool_1_1_test_runner_1a5c1c15f1510c9a73e50c68c1774798f9" compoundref="da/d6a/_test_runner_8java" startline="75" endline="77">org.xvm.tool.TestRunner.main</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1adaac93117385461df64403914d2d98b9" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>static int org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.launch</definition>
+        <argsstring>(String[] asArg)</argsstring>
+        <name>launch</name>
+        <qualifiedname>org.xvm.tool.Launcher.launch</qualifiedname>
+        <param>
+          <type>String[]</type>
+          <declname>asArg</declname>
+        </param>
+        <briefdescription>
+<para>Helper method for external launchers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a CliConsole for command-line usage.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>asArg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>command line arguments (first arg is the command: build, run, or test)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the result of the corresponding tool &quot;launch&quot; call</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>LauncherException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if an unrecoverable exception occurs </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="183" column="23" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="183" bodyend="196"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a692712e6d64096ec796059f6d5c3c8f9" compoundref="d1/d7c/_launcher_8java" startline="670" endline="672">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.console</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1adaac93117385461df64403914d2d98b9" compoundref="d1/d7c/_launcher_8java" startline="183" endline="196">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.launch</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a92109cdb6e27bcd0ddeb09efac5f057d" compoundref="d1/d7c/_launcher_8java" startline="250" endline="270">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.showHelp</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4f0c298b715a26cf125fdf71a5e2c564" compoundref="d1/d7c/_launcher_8java" startline="347" endline="355">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.stripDebugPrefix</references>
+        <referencedby refid="dc/d3f/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1impl_1_1_isolated_direct_executor_1a333fe628e2e554b3f6b6fb22979d2510" compoundref="d5/d0f/_isolated_direct_executor_8java" startline="28" endline="33">org.xtclang.plugin.runtime.impl.IsolatedDirectExecutor.executeCompile</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1adaac93117385461df64403914d2d98b9" compoundref="d1/d7c/_launcher_8java" startline="183" endline="196">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.launch</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a234cd6b34c80518a47527cc688defc85" compoundref="d1/d7c/_launcher_8java" startline="165" endline="171">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.main</referencedby>
+        <referencedby refid="df/d93/classorg_1_1xvm_1_1tool_1_1_initializer_test_1ad7ee3ca9138726332e9b4233482a7369" compoundref="d0/da1/_initializer_test_8java" startline="327" endline="338">org.xvm.tool.InitializerTest.runInitializer</referencedby>
+        <referencedby refid="d5/d91/classorg_1_1xvm_1_1tool_1_1_launcher_version_test_1a3d29f60bdf7de67f142f85f45aa9581b" compoundref="df/db0/_launcher_version_test_8java" startline="105" endline="116">org.xvm.tool.LauncherVersionTest.testCompilerVersionOutput</referencedby>
+        <referencedby refid="d6/df8/classorg_1_1xvm_1_1xdk_1_1_xdk_integration_test_1a9193ed0b6d3a25940d96328384399119" compoundref="da/d9b/_xdk_integration_test_8java" startline="343" endline="348">org.xvm.xdk.XdkIntegrationTest.testLauncherInvalidCommand</referencedby>
+        <referencedby refid="d6/df8/classorg_1_1xvm_1_1xdk_1_1_xdk_integration_test_1acb5605e0270eee4e067c6b2f8ea78ddd" compoundref="da/d9b/_xdk_integration_test_8java" startline="351" endline="357">org.xvm.xdk.XdkIntegrationTest.testLauncherInvalidCompilerArgs</referencedby>
+        <referencedby refid="d6/df8/classorg_1_1xvm_1_1xdk_1_1_xdk_integration_test_1a383e6765085cbfbb9d0d0d5371d281d9" compoundref="da/d9b/_xdk_integration_test_8java" startline="360" endline="366">org.xvm.xdk.XdkIntegrationTest.testLauncherInvalidRunnerArgs</referencedby>
+        <referencedby refid="d6/df8/classorg_1_1xvm_1_1xdk_1_1_xdk_integration_test_1a2d571f689f29ad5fa3f1cffc8fb2e505" compoundref="da/d9b/_xdk_integration_test_8java" startline="369" endline="375">org.xvm.xdk.XdkIntegrationTest.testLauncherInvalidTestRunnerArgs</referencedby>
+        <referencedby refid="d5/d91/classorg_1_1xvm_1_1tool_1_1_launcher_version_test_1a78152739f20c1c6089a49c2b1c783744" compoundref="df/db0/_launcher_version_test_8java" startline="91" endline="102">org.xvm.tool.LauncherVersionTest.testRunnerVersionOutput</referencedby>
+        <referencedby refid="d5/d91/classorg_1_1xvm_1_1tool_1_1_launcher_version_test_1ad88bc356857b40efa0140ee907df5ddc" compoundref="df/db0/_launcher_version_test_8java" startline="45" endline="88">org.xvm.tool.LauncherVersionTest.testVersionOutputFormat</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ad0d1383b4cd4b7a4e1f67701700d930f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>static int org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.launch</definition>
+        <argsstring>(String cmd, String[] args, Console console, ErrorListener errListener)</argsstring>
+        <name>launch</name>
+        <qualifiedname>org.xvm.tool.Launcher.launch</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>cmd</declname>
+        </param>
+        <param>
+          <type>String[]</type>
+          <declname>args</declname>
+        </param>
+        <param>
+          <type><ref refid="dd/dbc/interfaceorg_1_1xvm_1_1tool_1_1_console" kindref="compound">Console</ref></type>
+          <declname>console</declname>
+        </param>
+        <param>
+          <type><ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref></type>
+          <declname>errListener</declname>
+        </param>
+        <briefdescription>
+<para>Executes a launcher command and returns an exit code. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Use this when calling from a daemon or other long-running process. </para>
+<para>Supported commands: build, run, test (or <ndash/>help, <ndash/>version). Shell scripts call with the command directly (xcc calls with &quot;build&quot;, xec with &quot;run&quot;).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cmd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>command name: build, run, or test </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>command line arguments (options and files) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>console</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>console for output (must not be null) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>errListener</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional <ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref> to receive errors, or null</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>exit code (0 for success, non-zero for error) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="212" column="23" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="212" bodyend="245"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a0d32a04b2da1ebc1ee05231488775c9f" compoundref="d1/d7c/_launcher_8java" startline="76" endline="78">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.commandNames</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ac708f8740f025087f423f5d1c74a3295" compoundref="d1/d7c/_launcher_8java" startline="100">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.COMMANDS</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a692712e6d64096ec796059f6d5c3c8f9" compoundref="d1/d7c/_launcher_8java" startline="670" endline="672">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.console</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a92109cdb6e27bcd0ddeb09efac5f057d" compoundref="d1/d7c/_launcher_8java" startline="250" endline="270">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.showHelp</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a8fe6628d6601ff980cbe139bf861d885" compoundref="d1/d7c/_launcher_8java" startline="275" endline="277">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.showVersion</references>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a0396a29d226827b74c9b23abdef568c4" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>static int org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.launch</definition>
+        <argsstring>(LauncherOptions options, Console console, ErrorListener errListener)</argsstring>
+        <name>launch</name>
+        <qualifiedname>org.xvm.tool.Launcher.launch</qualifiedname>
+        <param>
+          <type><ref refid="de/df4/classorg_1_1xvm_1_1tool_1_1_launcher_options" kindref="compound">LauncherOptions</ref></type>
+          <declname>options</declname>
+        </param>
+        <param>
+          <type><ref refid="dd/dbc/interfaceorg_1_1xvm_1_1tool_1_1_console" kindref="compound">Console</ref></type>
+          <declname>console</declname>
+        </param>
+        <param>
+          <type><ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref></type>
+          <declname>errListener</declname>
+        </param>
+        <briefdescription>
+<para>Launch a tool directly with pre-built options. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is the preferred API for programmatic invocation as it avoids the overhead of serializing options to command-line strings and parsing them back.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>options</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pre-built options (<ref refid="dd/d51/classorg_1_1xvm_1_1tool_1_1_launcher_options_1_1_compiler_options" kindref="compound">CompilerOptions</ref>, <ref refid="dc/d4c/classorg_1_1xvm_1_1tool_1_1_launcher_options_1_1_runner_options" kindref="compound">RunnerOptions</ref>, or <ref refid="d8/dd2/classorg_1_1xvm_1_1tool_1_1_launcher_options_1_1_disassembler_options" kindref="compound">DisassemblerOptions</ref>) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>console</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>console for output (must not be null) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>errListener</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional <ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref> to receive errors, or null</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>exit code (0 for success, non-zero for error) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="291" column="23" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="291" bodyend="324"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a692712e6d64096ec796059f6d5c3c8f9" compoundref="d1/d7c/_launcher_8java" startline="670" endline="672">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.console</references>
+        <references refid="d0/d3a/classorg_1_1xvm_1_1tool_1_1_launcher_1_1_launcher_exception_1a3641b570dad814cca7c9373fe350e42d" compoundref="d1/d7c/_launcher_8java" startline="987" endline="989">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.LauncherException.getExitCode</references>
+        <references refid="d0/d3a/classorg_1_1xvm_1_1tool_1_1_launcher_1_1_launcher_exception_1ac6621f18977d7665a872356b051e2c09" compoundref="d1/d7c/_launcher_8java" startline="991" endline="993">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.LauncherException.isError</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4246d1c2d0eba48001e5869b6847093e" compoundref="d1/d7c/_launcher_8java" startline="666" endline="668">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.options</references>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-static-func">
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a66f4a3ce92d5c42309a08c2474770ac2" prot="protected" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String[]</type>
+        <definition>static String[] org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.insertCommand</definition>
+        <argsstring>(String cmd, String[] args)</argsstring>
+        <name>insertCommand</name>
+        <qualifiedname>org.xvm.tool.Launcher.insertCommand</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>cmd</declname>
+        </param>
+        <param>
+          <type>String[]</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Helper method to insert a command name at the beginning of an argument array. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Used by subclass <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a234cd6b34c80518a47527cc688defc85" kindref="member">main()</ref> methods to delegate to <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a234cd6b34c80518a47527cc688defc85" kindref="member">Launcher.main()</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cmd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the command name to insert </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the existing arguments</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>new array with command inserted at the beginning </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="335" column="29" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="335" bodyend="337"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a0224a24efac80a3623fd5233d22f6236" prot="protected" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d4/d5c/classorg_1_1xvm_1_1compiler_1_1_build_repository" kindref="compound">BuildRepository</ref></type>
+        <definition>static BuildRepository org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.makeBuildRepo</definition>
+        <argsstring>()</argsstring>
+        <name>makeBuildRepo</name>
+        <qualifiedname>org.xvm.tool.Launcher.makeBuildRepo</qualifiedname>
+        <briefdescription>
+<para>Factory method for a <ref refid="d4/d5c/classorg_1_1xvm_1_1compiler_1_1_build_repository" kindref="compound">BuildRepository</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>a new <ref refid="d4/d5c/classorg_1_1xvm_1_1compiler_1_1_build_repository" kindref="compound">BuildRepository</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="707" column="38" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="707" bodyend="709"/>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a7923b63ac491f720ae0a7a48c9bd3bce" compoundref="d1/d7c/_launcher_8java" startline="686" endline="700">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.configureLibraryRepo</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a04f7ad71ca64fd4c118c0c55b5541e8e" prot="protected" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d4/d5c/classorg_1_1xvm_1_1compiler_1_1_build_repository" kindref="compound">BuildRepository</ref></type>
+        <definition>static BuildRepository org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.extractBuildRepo</definition>
+        <argsstring>(ModuleRepository repoLib)</argsstring>
+        <name>extractBuildRepo</name>
+        <qualifiedname>org.xvm.tool.Launcher.extractBuildRepo</qualifiedname>
+        <param>
+          <type><ref refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository" kindref="compound">ModuleRepository</ref></type>
+          <declname>repoLib</declname>
+        </param>
+        <briefdescription>
+<para>Obtain the <ref refid="d4/d5c/classorg_1_1xvm_1_1compiler_1_1_build_repository" kindref="compound">BuildRepository</ref> from the library repository. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>repoLib</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the previously configured library repository</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the <ref refid="d4/d5c/classorg_1_1xvm_1_1compiler_1_1_build_repository" kindref="compound">BuildRepository</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="718" column="38" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="718" bodyend="724"/>
+        <references refid="dd/d11/classorg_1_1xvm_1_1asm_1_1_linked_repository_1aa1a7e6cb44c160bfe7168e4c7aa34feb" compoundref="d9/db3/_linked_repository_8java" startline="49" endline="51">org.xvm.asm.LinkedRepository.asList</references>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a82885a928db87cc0bca2140179c4c217" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.run</definition>
+        <argsstring>()</argsstring>
+        <name>run</name>
+        <qualifiedname>org.xvm.tool.Launcher.run</qualifiedname>
+        <briefdescription>
+<para>Execute the <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher" kindref="compound">Launcher</ref> tool. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the result of the <computeroutput><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a40c34ee0ad1dcb198b877d349f9c5d20" kindref="member">process</ref></computeroutput> call. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="363" column="16" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="363" bodyend="393"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1abd3d815f895300948549fc7bf0e9f1d8" compoundref="d1/d7c/_launcher_8java" startline="550" endline="552">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.checkErrors</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a87be608c1cd45c0ad74456eabb01dc32" compoundref="d1/d7c/_launcher_8java" startline="558" endline="571">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.displayHelp</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab4ca08939471989b8e0d164da0b9ace1" compoundref="d1/d7c/_launcher_8java" startline="419" endline="421">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.log</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4246d1c2d0eba48001e5869b6847093e" compoundref="d1/d7c/_launcher_8java" startline="666" endline="668">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.options</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1af145ed2c8cd786014821133055d40b9a" compoundref="d1/d7c/_launcher_8java" startline="469" endline="471">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.out</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a40c34ee0ad1dcb198b877d349f9c5d20">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.process</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a9c45bed0c600733cdc68ae985a6ba492">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.validateOptions</references>
+        <referencedby refid="dc/d3f/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1impl_1_1_isolated_direct_executor_1a8eb274c244351733587c3f62cb2e01d3" compoundref="d5/d0f/_isolated_direct_executor_8java" startline="35" endline="40">org.xtclang.plugin.runtime.impl.IsolatedDirectExecutor.executeRun</referencedby>
+        <referencedby refid="dc/d3f/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1impl_1_1_isolated_direct_executor_1a9b7e840936bd6df206126b19984bd70b" compoundref="d5/d0f/_isolated_direct_executor_8java" startline="42" endline="47">org.xtclang.plugin.runtime.impl.IsolatedDirectExecutor.executeTest</referencedby>
+        <referencedby refid="db/d34/classorg_1_1xvm_1_1tool_1_1_runner_1a02fbb7a330ba8a4a3d0e6eddeeaf8d4d" compoundref="d6/d68/_runner_8java" startline="75" endline="253">org.xvm.tool.Runner.process</referencedby>
+        <referencedby refid="d6/df8/classorg_1_1xvm_1_1xdk_1_1_xdk_integration_test_1a87682244da1e3716087074d55ddc1d41" compoundref="da/d9b/_xdk_integration_test_8java" startline="462" endline="510">org.xvm.xdk.XdkIntegrationTest.testRunnerForwardsDeduceAndVerboseFlagsToCompiler</referencedby>
+        <referencedby refid="d6/df8/classorg_1_1xvm_1_1xdk_1_1_xdk_integration_test_1a1a1e6733a012de2134fe7bede72d5726" compoundref="da/d9b/_xdk_integration_test_8java" startline="520" endline="589">org.xvm.xdk.XdkIntegrationTest.testRunnerRecompilesOutOfDateModule</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1af145ed2c8cd786014821133055d40b9a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.out</definition>
+        <argsstring>()</argsstring>
+        <name>out</name>
+        <qualifiedname>org.xvm.tool.Launcher.out</qualifiedname>
+        <briefdescription>
+<para>Print a blank line to the terminal. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="469" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="469" bodyend="471"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a32506679dbf436fda288d92f32bcc128" compoundref="d1/d7c/_launcher_8java" startline="123">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.m_console</references>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a87be608c1cd45c0ad74456eabb01dc32" compoundref="d1/d7c/_launcher_8java" startline="558" endline="571">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.displayHelp</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a82885a928db87cc0bca2140179c4c217" compoundref="d1/d7c/_launcher_8java" startline="363" endline="393">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.run</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a79f6f3c856d7a70d81e15324e1c8fca8" compoundref="d1/d7c/_launcher_8java" startline="780" endline="812">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.showSystemVersion</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a6f1d1291c4f19e9c78a14aa02fb6cb0c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.out</definition>
+        <argsstring>(Object o)</argsstring>
+        <name>out</name>
+        <qualifiedname>org.xvm.tool.Launcher.out</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Print the String value of some object to the terminal. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="476" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="476" bodyend="478"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a32506679dbf436fda288d92f32bcc128" compoundref="d1/d7c/_launcher_8java" startline="123">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.m_console</references>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a5ccce4ff913cccee3b753fcdfcb2594b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.err</definition>
+        <argsstring>()</argsstring>
+        <name>err</name>
+        <qualifiedname>org.xvm.tool.Launcher.err</qualifiedname>
+        <briefdescription>
+<para>Print a blank line to the terminal. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="483" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="483" bodyend="485"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a32506679dbf436fda288d92f32bcc128" compoundref="d1/d7c/_launcher_8java" startline="123">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.m_console</references>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a324310b857cfd7690dd0c9d4c510cc22" compoundref="d1/d7c/_launcher_8java" startline="590" endline="595">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.log</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a048ea46562a8b76920df4aa27a811beb" compoundref="d1/d7c/_launcher_8java" startline="462" endline="464">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.log</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a58a08b6e4ca7a1f8d43621b5f521f43b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.err</definition>
+        <argsstring>(Object o)</argsstring>
+        <name>err</name>
+        <qualifiedname>org.xvm.tool.Launcher.err</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Print the String value of some object to the terminal. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="490" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="490" bodyend="492"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a32506679dbf436fda288d92f32bcc128" compoundref="d1/d7c/_launcher_8java" startline="123">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.m_console</references>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a268f1f832539c8b3b2d445afe4678ee3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.desc</definition>
+        <argsstring>()</argsstring>
+        <name>desc</name>
+        <qualifiedname>org.xvm.tool.Launcher.desc</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>a description of this command-line tool </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="576" column="19" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="576" bodyend="578"/>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a87be608c1cd45c0ad74456eabb01dc32" compoundref="d1/d7c/_launcher_8java" startline="558" endline="571">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.displayHelp</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a324310b857cfd7690dd0c9d4c510cc22" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.log</definition>
+        <argsstring>(ErrorInfo err)</argsstring>
+        <name>log</name>
+        <qualifiedname>org.xvm.tool.Launcher.log</qualifiedname>
+        <reimplements refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener_1a7137f2a0c72b8b898d24ed920f93ac83">log</reimplements>
+        <param>
+          <type><ref refid="d3/dce/classorg_1_1xvm_1_1asm_1_1_error_listener_1_1_error_info" kindref="compound">ErrorInfo</ref></type>
+          <declname>err</declname>
+        </param>
+        <briefdescription>
+<para>Log a compilation error (<ref refid="d3/dce/classorg_1_1xvm_1_1asm_1_1_error_listener_1_1_error_info" kindref="compound">ErrorInfo</ref> from AST nodes). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Displays via <ref refid="dd/dbc/interfaceorg_1_1xvm_1_1tool_1_1_console" kindref="compound">Console</ref> and forwards to external <ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref> if provided.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>err</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the error information </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if compilation should abort </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="590" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="590" bodyend="595"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a5ccce4ff913cccee3b753fcdfcb2594b" compoundref="d1/d7c/_launcher_8java" startline="483" endline="485">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.err</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ac1b91dac8c8cef6b522196cb2fcc6570" compoundref="d1/d7c/_launcher_8java" startline="603" endline="605">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.isAbortDesired</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab4ca08939471989b8e0d164da0b9ace1" compoundref="d1/d7c/_launcher_8java" startline="419" endline="421">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.log</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1af0236b951cf910b679da12e2e6d53823" compoundref="d1/d7c/_launcher_8java" startline="130">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.m_errors</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a7c3501fa6edd2e9b9706c99d1bca35a7" compoundref="d1/d7c/_launcher_8java" startline="136">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.m_sevWorst</references>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ac1b91dac8c8cef6b522196cb2fcc6570" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.isAbortDesired</definition>
+        <argsstring>()</argsstring>
+        <name>isAbortDesired</name>
+        <qualifiedname>org.xvm.tool.Launcher.isAbortDesired</qualifiedname>
+        <reimplements refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener_1ab4f079242e254d31108367806de5659b">isAbortDesired</reimplements>
+        <briefdescription>
+<para>Check if compilation should abort based on the severity of errors encountered. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true if errors are bad enough to abort </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="603" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="603" bodyend="605"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4e7f739e1e62dc83bc59a266d33575e9" compoundref="d1/d7c/_launcher_8java" startline="657" endline="659">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.isBadEnoughToAbort</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a7c3501fa6edd2e9b9706c99d1bca35a7" compoundref="d1/d7c/_launcher_8java" startline="136">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.m_sevWorst</references>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a18fe47639618f2e83c7379bc82288b94" compoundref="d1/d7c/_launcher_8java" startline="534" endline="542">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.checkErrors</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a324310b857cfd7690dd0c9d4c510cc22" compoundref="d1/d7c/_launcher_8java" startline="590" endline="595">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.log</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a57b16e38ba02d62a32661844ce180e10" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.hasSeriousErrors</definition>
+        <argsstring>()</argsstring>
+        <name>hasSeriousErrors</name>
+        <qualifiedname>org.xvm.tool.Launcher.hasSeriousErrors</qualifiedname>
+        <reimplements refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener_1a595dcb713c6a67302a76f953bfc4de4c">hasSeriousErrors</reimplements>
+        <briefdescription>
+<para>Check if any serious errors (ERROR or worse) have been logged. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true if serious errors encountered </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="613" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="613" bodyend="615"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a7c3501fa6edd2e9b9706c99d1bca35a7" compoundref="d1/d7c/_launcher_8java" startline="136">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.m_sevWorst</references>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a18fe47639618f2e83c7379bc82288b94" compoundref="d1/d7c/_launcher_8java" startline="534" endline="542">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.checkErrors</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a13144904c0ce128cfccbd1ace73f2d56" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.isSilent</definition>
+        <argsstring>()</argsstring>
+        <name>isSilent</name>
+        <qualifiedname>org.xvm.tool.Launcher.isSilent</qualifiedname>
+        <reimplements refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener_1ae49fd4654e10e3574fc5d57cffd7ecb3">isSilent</reimplements>
+        <briefdescription>
+<para>Check if error logging is currently suspended. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true if errors are suspended </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="623" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="623" bodyend="625"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a70818a7c827b7d643e79d4f8bd1d82fc" compoundref="d1/d7c/_launcher_8java" startline="505" endline="507">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.errorsSuspended</references>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1af55cd6c2f6aa95af8edd05150797c3b2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="da/d7c/classorg_1_1xvm_1_1tool_1_1_module_info" kindref="compound">ModuleInfo</ref></type>
+        <definition>ModuleInfo org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.ensureModuleInfo</definition>
+        <argsstring>(File fileSpec, List&lt; File &gt; resourceSpecs, File binarySpec)</argsstring>
+        <name>ensureModuleInfo</name>
+        <qualifiedname>org.xvm.tool.Launcher.ensureModuleInfo</qualifiedname>
+        <param>
+          <type>File</type>
+          <declname>fileSpec</declname>
+        </param>
+        <param>
+          <type>List&lt; File &gt;</type>
+          <declname>resourceSpecs</declname>
+        </param>
+        <param>
+          <type>File</type>
+          <declname>binarySpec</declname>
+        </param>
+        <briefdescription>
+<para>Obtain the module information based on the specified file(s). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fileSpec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the file or directory to analyze, which may or may not exist </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>resourceSpecs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(optional) an array of files and/or directories which represent (in aggregate) the resource path; null indicates that the default resources location should be used, while an empty array explicitly indicates that there is no resource path as provided to the compiler using the &quot;-rp&quot; command line switch </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>binarySpec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(optional) the file or directory which represents the target of the binary; as provided to the compiler using the &quot;-o&quot; command line switch </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="829" column="23" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="829" bodyend="838"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a42970263da80f10179a6239031b96dbd" compoundref="d1/d7c/_launcher_8java" startline="113">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.moduleCache</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4246d1c2d0eba48001e5869b6847093e" compoundref="d1/d7c/_launcher_8java" startline="666" endline="668">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.options</references>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a19ffb27e1f08b05bd0c61b1500e6beb9" compoundref="d1/d7c/_launcher_8java" startline="904" endline="931">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.selectTargets</referencedby>
+        <referencedby refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1aae980319e628b80746f098284da87b55" compoundref="d1/d7c/_launcher_8java" startline="862" endline="878">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.validateSourceInput</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1aae980319e628b80746f098284da87b55" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>File</type>
+        <definition>File org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.validateSourceInput</definition>
+        <argsstring>(File file)</argsstring>
+        <name>validateSourceInput</name>
+        <qualifiedname>org.xvm.tool.Launcher.validateSourceInput</qualifiedname>
+        <param>
+          <type>File</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+<para>Validate that the specified file can be used as a source file or directory for .x file(s). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the file or directory to read source code from</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the validated file or directory to read source code from </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="862" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="862" bodyend="878"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1af55cd6c2f6aa95af8edd05150797c3b2" compoundref="d1/d7c/_launcher_8java" startline="829" endline="838">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.ensureModuleInfo</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab4ca08939471989b8e0d164da0b9ace1" compoundref="d1/d7c/_launcher_8java" startline="419" endline="421">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.log</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a38af578a526830621111953170c6530d" compoundref="d1/d7c/_launcher_8java" startline="887" endline="893">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.validateReadableFile</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>The &quot;launcher&quot; commands: </para>
+    </briefdescription>
+    <detaileddescription>
+<para><itemizedlist>
+<listitem>
+<para><javadoccode>xcc</javadoccode> <emphasis>(&quot;ecstasy&quot;)</emphasis> routes to <computeroutput><ref refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler" kindref="compound">Compiler</ref></computeroutput> </para>
+</listitem>
+<listitem>
+<para><javadoccode>xec</javadoccode> <emphasis>(&quot;exec&quot;)</emphasis> routes to <computeroutput><ref refid="db/d34/classorg_1_1xvm_1_1tool_1_1_runner" kindref="compound">Runner</ref></computeroutput> </para>
+</listitem>
+</itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>&lt;T&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the Options type for this launcher </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;</label>
+        <link refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>org.xvm.asm.ErrorListener</label>
+        <link refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;</label>
+        <link refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>DEFAULT_CONSOLE</edgelabel>
+          <edgelabel>m_console</edgelabel>
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>m_errors</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>m_sevWorst</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>org.xvm.asm.ErrorListener</label>
+        <link refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>BLACKHOLE</edgelabel>
+          <edgelabel>RUNTIME</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>org.xvm.tool.Console</label>
+        <link refid="dd/dbc/interfaceorg_1_1xvm_1_1tool_1_1_console"/>
+      </node>
+      <node id="4">
+        <label>org.xvm.util.Severity</label>
+        <link refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" line="62" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Launcher.java" bodystart="63" bodyend="1035"/>
+    <listofallmembers>
+      <member refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener_1ac7ff60e616d9e82aa72cf11ba767d749" prot="public" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>BLACKHOLE</name></member>
+      <member refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener_1a70048d9d7e31d13d8c1666adb9f63f67" prot="public" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>branch</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a18fe47639618f2e83c7379bc82288b94" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>checkErrors</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1abd3d815f895300948549fc7bf0e9f1d8" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>checkErrors</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a15a2a6d9535af135c84ba824b294f6f5" prot="public" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>CMD_BUILD</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1aa3cfb07dfca3c0706b5896440932a045" prot="public" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>CMD_DISASS</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a3f25ec4a526d6bf2fa03fb2843b2fd60" prot="public" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>CMD_INIT</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a24de6aff5f778b771f93721270a4d6a7" prot="public" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>CMD_RUN</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4dbb050c16547fdc37e7913ac5e08c2a" prot="public" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>CMD_TEST</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a0d32a04b2da1ebc1ee05231488775c9f" prot="private" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>commandNames</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ac708f8740f025087f423f5d1c74a3295" prot="private" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>COMMANDS</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a7923b63ac491f720ae0a7a48c9bd3bce" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>configureLibraryRepo</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a7d07df8c9f059c8ec8b17fb27a523da3" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>configureResultRepo</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a692712e6d64096ec796059f6d5c3c8f9" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>console</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1afb81520a62b7de0a97526d73d9761501" prot="private" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>DEBUG_PREFIXES</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a17eb214113c6f28156715703467764ee" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>DEFAULT_CONSOLE</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a28df398a631ea72e8bfe6aff0b63ac71" prot="private" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>DEFAULT_LOCALE</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a268f1f832539c8b3b2d445afe4678ee3" prot="public" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>desc</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a87be608c1cd45c0ad74456eabb01dc32" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>displayHelp</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a15dd228897736030c35f085b495e8fa1" prot="public" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>DUP_NAME</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1af55cd6c2f6aa95af8edd05150797c3b2" prot="public" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>ensureModuleInfo</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a5ccce4ff913cccee3b753fcdfcb2594b" prot="public" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>err</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a58a08b6e4ca7a1f8d43621b5f521f43b" prot="public" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>err</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a70818a7c827b7d643e79d4f8bd1d82fc" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>errorsSuspended</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a04f7ad71ca64fd4c118c0c55b5541e8e" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>extractBuildRepo</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ae3bd787819380e78aa9b2730b13f5beb" prot="public" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>FATAL_ERROR</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1abe05bfa8103e6f776b685b54adfdf01e" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>flushAndCheckErrors</name></member>
+      <member refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener_1a2f25d0079fc2b5e7d07cb25c9dcb564a" prot="public" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>hasError</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a57b16e38ba02d62a32661844ce180e10" prot="public" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>hasSeriousErrors</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a66f4a3ce92d5c42309a08c2474770ac2" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>insertCommand</name></member>
+      <member refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener_1afbc5e04eca943b62b71b6410026ce1f7" prot="public" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>INTELLIJ_IDEA</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ac1b91dac8c8cef6b522196cb2fcc6570" prot="public" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>isAbortDesired</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4e7f739e1e62dc83bc59a266d33575e9" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>isBadEnoughToAbort</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a71f2b135bc72225f357540daec92d071" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>isBadEnoughToPrint</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a13144904c0ce128cfccbd1ace73f2d56" prot="public" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>isSilent</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1adaac93117385461df64403914d2d98b9" prot="public" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>launch</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ad0d1383b4cd4b7a4e1f67701700d930f" prot="public" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>launch</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a0396a29d226827b74c9b23abdef568c4" prot="public" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>launch</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a86ccf19d3e54386b912e7b57a8884ca7" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>Launcher</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab4ca08939471989b8e0d164da0b9ace1" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>log</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1abac6ce385fe2f6ed4be02f8276a933f9" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>log</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a048ea46562a8b76920df4aa27a811beb" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>log</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a324310b857cfd7690dd0c9d4c510cc22" prot="public" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>log</name></member>
+      <member refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener_1acc9d2bb451597ef50ad4aee1614fa4b0" prot="public" virt="non-virtual" ambiguityscope="org::xvm::asm::ErrorListener."><scope>org::xvm::tool::Launcher</scope><name>log</name></member>
+      <member refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener_1a48acf48dabb14fb91d88050bd02d525f" prot="public" virt="non-virtual" ambiguityscope="org::xvm::asm::ErrorListener."><scope>org::xvm::tool::Launcher</scope><name>log</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a32506679dbf436fda288d92f32bcc128" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>m_console</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a6e71c7c10257ad01ca4417458efa6625" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>m_cSuspended</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1af0236b951cf910b679da12e2e6d53823" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>m_errors</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a11430beabef9c5f6a543fa8b7a29799b" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>m_options</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a7c3501fa6edd2e9b9706c99d1bca35a7" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>m_sevWorst</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a234cd6b34c80518a47527cc688defc85" prot="package" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>main</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a0224a24efac80a3623fd5233d22f6236" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>makeBuildRepo</name></member>
+      <member refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener_1a6e679eda771ea4e4533ea4533f5bb87b" prot="public" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>merge</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a7a930292110fabf3bdf7340072da7e4f" prot="public" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>MISSING_PKG_NODE</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a42970263da80f10179a6239031b96dbd" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>moduleCache</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4246d1c2d0eba48001e5869b6847093e" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>options</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1af145ed2c8cd786014821133055d40b9a" prot="public" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>out</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a6f1d1291c4f19e9c78a14aa02fb6cb0c" prot="public" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>out</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a6bf63e81cf4ecd8576c6c7f318bd8cab" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>prelinkSystemLibraries</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a40c34ee0ad1dcb198b877d349f9c5d20" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>process</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1aff14a6b06171e39fe6baa67c2d8d1bf6" prot="public" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>READ_FAILURE</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1aacdff56248e7cf1378f8e98f8e6bf969" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>reset</name></member>
+      <member refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener_1a1f8b10b2b32d1068e7dc3f4e6596ea01" prot="public" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>RESOURCES</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a65a0c217f47d59bbcf08945256fc57ac" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>resumeErrors</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a82885a928db87cc0bca2140179c4c217" prot="public" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>run</name></member>
+      <member refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener_1a3e341e23ddef6753689081aa018709ca" prot="public" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>RUNTIME</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a19ffb27e1f08b05bd0c61b1500e6beb9" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>selectTargets</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a92109cdb6e27bcd0ddeb09efac5f057d" prot="private" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>showHelp</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a79f6f3c856d7a70d81e15324e1c8fca8" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>showSystemVersion</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a8fe6628d6601ff980cbe139bf861d885" prot="private" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>showVersion</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4f0c298b715a26cf125fdf71a5e2c564" prot="private" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>stripDebugPrefix</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a01fe6312b647ec51b235da5f27cde93f" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>suspendErrors</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab479a062d01e16853ae4b9a84bf14205" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>validateModulePath</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a9c45bed0c600733cdc68ae985a6ba492" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>validateOptions</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a38af578a526830621111953170c6530d" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>validateReadableFile</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1aae980319e628b80746f098284da87b55" prot="public" virt="non-virtual"><scope>org::xvm::tool::Launcher</scope><name>validateSourceInput</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

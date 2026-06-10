@@ -1,0 +1,27 @@
+var classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_class =
+[
+    [ "ClassHandle", "d4/db1/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_class_1_1_class_handle.html", "d4/db1/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_class_1_1_class_handle" ],
+    [ "xClass", "da/d66/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_class.html#a4737b715ba252ea603178eac31c993d8", null ],
+    [ "buildHashCode", "da/d66/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_class.html#a22ed7c48371009e13947d66f7fc5af7e", null ],
+    [ "callCompareImpl", "da/d66/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_class.html#aff58c0bb91b15bf05652b614ec638c8f", null ],
+    [ "callEqualsImpl", "da/d66/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_class.html#af57229ea7826621beda37523ba6b6887", null ],
+    [ "completeStructAllocation", "da/d66/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_class.html#ac2fa39e7dc386dc2c9764a1ab7e7318c", null ],
+    [ "createConstHandle", "da/d66/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_class.html#aa7f3195dac20db69bc5cd4357c5c47a0", null ],
+    [ "createStruct", "da/d66/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_class.html#afeba8cad128c45eb6c5487264286258c", null ],
+    [ "ensureArrayComposition", "da/d66/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_class.html#a670b8d67ef41f2e17539d72b06fd9b5f", null ],
+    [ "ensureClass", "da/d66/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_class.html#a4233a0cef3e5e66b14d8f23d226c453b", null ],
+    [ "getClassType", "da/d66/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_class.html#a2d646a5d49cada60fdf2a986aa03b73c", null ],
+    [ "getPropertyAbstract", "da/d66/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_class.html#a1caa60947ad87284fdecb75cb5fff6af", null ],
+    [ "getPropertyComposition", "da/d66/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_class.html#a22316e141653bce241eca48c6e828dc0", null ],
+    [ "getPropertyVirtualChild", "da/d66/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_class.html#abf3a94c789cb43fccd6b10eb69719356", null ],
+    [ "initNative", "da/d66/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_class.html#a2bd2015c10472f71d23ce556356638b5", null ],
+    [ "invokeAllocate", "da/d66/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_class.html#a1203c901ff8a2580fcab1632411d7c10", null ],
+    [ "invokeDefaultValue", "da/d66/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_class.html#acf91e2c0fbdb2c70aa6072b9ae318f84", null ],
+    [ "invokeIsSingleton", "da/d66/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_class.html#a31e4478ecda34a5197ec7d85c10cc2ae", null ],
+    [ "invokeNativeGet", "da/d66/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_class.html#a18c392f128dc59e3a2067036b3886d52", null ],
+    [ "invokeNativeNN", "da/d66/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_class.html#a0a6778b75754356d0a80a2087cdca14e", null ],
+    [ "invokePropertyCanonicalParams", "da/d66/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_class.html#a7593a298745322cfd0968b9009678e7e", null ],
+    [ "isCanonicalStructure", "da/d66/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_class.html#aae775b1c903cf4f6daaf4dc39467cf2e", null ],
+    [ "CLASS_ARRAY_TYPE", "da/d66/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_class.html#af9642c38b257207058e28adffe699fda", null ],
+    [ "INSTANCE", "da/d66/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_class.html#a829d8623ebb2161c0f183e49bae041d5", null ]
+];

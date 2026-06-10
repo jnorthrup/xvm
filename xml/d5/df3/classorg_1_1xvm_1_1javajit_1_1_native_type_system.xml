@@ -1,0 +1,2000 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system" kind="class" language="Java" prot="public">
+    <compoundname>org::xvm::javajit::NativeTypeSystem</compoundname>
+    <basecompoundref refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" prot="public" virt="non-virtual">org.xvm.javajit.TypeSystem</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a883ecd062bccb4d550836bf38c5d7bdc" prot="private" static="no" mutable="no">
+        <type>final ClassLoader</type>
+        <definition>final ClassLoader org.xvm.javajit.NativeTypeSystem.bridgeLoader</definition>
+        <argsstring></argsstring>
+        <name>bridgeLoader</name>
+        <qualifiedname>org.xvm.javajit.NativeTypeSystem.bridgeLoader</qualifiedname>
+        <briefdescription>
+<para>The bridge ClassLoader. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Note: it <bold>must</bold> never be used with &quot;loadClass&quot; API, only with <computeroutput><ref refid="" kindref="compound">ClassLoader#getResourceAsStream(String)</ref></computeroutput>" API. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NativeTypeSystem.java" line="124" column="31" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NativeTypeSystem.java" bodystart="124" bodyend="-1"/>
+        <referencedby refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1ad487734ca159f9ff0f7299baec09f9e4" compoundref="d6/d17/_native_type_system_8java" startline="153" endline="222">org.xvm.javajit.NativeTypeSystem.genClass</referencedby>
+        <referencedby refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a0380e44d28053875bd8a64af965c6e7f" compoundref="d6/d17/_native_type_system_8java" startline="55" endline="70">org.xvm.javajit.NativeTypeSystem.NativeTypeSystem</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a51776ca6f1e147d675742bfc04a00a5c" prot="private" static="no" mutable="no">
+        <type>final Map&lt; <ref refid="d5/d9c/classorg_1_1xvm_1_1asm_1_1constants_1_1_identity_constant" kindref="compound">IdentityConstant</ref>, String &gt;</type>
+        <definition>final Map&lt;IdentityConstant, String&gt; org.xvm.javajit.NativeTypeSystem.nativeByClass</definition>
+        <argsstring></argsstring>
+        <name>nativeByClass</name>
+        <qualifiedname>org.xvm.javajit.NativeTypeSystem.nativeByClass</qualifiedname>
+        <initializer>= new ConcurrentHashMap&lt;&gt;()</initializer>
+        <briefdescription>
+<para>A cache of native class names keyed by class id. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NativeTypeSystem.java" line="129" column="23" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NativeTypeSystem.java" bodystart="129" bodyend="-1"/>
+        <referencedby refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a227ebf46c7c021cfa3bc433eac6e5f05" compoundref="d6/d17/_native_type_system_8java" startline="144" endline="150">org.xvm.javajit.NativeTypeSystem.getReservedName</referencedby>
+        <referencedby refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a7a51600f9910ffdcfe303c367b41835b" compoundref="d6/d17/_native_type_system_8java" startline="283" endline="316">org.xvm.javajit.NativeTypeSystem.registerNativeClasses</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a4c5c55980d777744e9afe9d39430d667" prot="private" static="no" mutable="no">
+        <type>final Map&lt; <ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref>, String &gt;</type>
+        <definition>final Map&lt;TypeConstant, String&gt; org.xvm.javajit.NativeTypeSystem.nativeByType</definition>
+        <argsstring></argsstring>
+        <name>nativeByType</name>
+        <qualifiedname>org.xvm.javajit.NativeTypeSystem.nativeByType</qualifiedname>
+        <initializer>= new ConcurrentHashMap&lt;&gt;()</initializer>
+        <briefdescription>
+<para>A cache of native class names keyed by the type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NativeTypeSystem.java" line="134" column="23" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NativeTypeSystem.java" bodystart="134" bodyend="-1"/>
+        <referencedby refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a227ebf46c7c021cfa3bc433eac6e5f05" compoundref="d6/d17/_native_type_system_8java" startline="144" endline="150">org.xvm.javajit.NativeTypeSystem.getReservedName</referencedby>
+        <referencedby refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a7a51600f9910ffdcfe303c367b41835b" compoundref="d6/d17/_native_type_system_8java" startline="283" endline="316">org.xvm.javajit.NativeTypeSystem.registerNativeClasses</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a90bd5a886d8361bd4c845678c5ff4199" prot="public" static="no" mutable="no">
+        <type>final Map&lt; <ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref>, Class &gt;</type>
+        <definition>final Map&lt;TypeConstant, Class&gt; org.xvm.javajit.NativeTypeSystem.nativeBuilders</definition>
+        <argsstring></argsstring>
+        <name>nativeBuilders</name>
+        <qualifiedname>org.xvm.javajit.NativeTypeSystem.nativeBuilders</qualifiedname>
+        <initializer>= new ConcurrentHashMap&lt;&gt;()</initializer>
+        <briefdescription>
+<para>A cache of builders for native classes keyed by type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NativeTypeSystem.java" line="139" column="22" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NativeTypeSystem.java" bodystart="139" bodyend="-1"/>
+        <referencedby refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a8a9547a3fedb54071f347b061fe2f81c" compoundref="d6/d17/_native_type_system_8java" startline="261" endline="279">org.xvm.javajit.NativeTypeSystem.ensureBuilder</referencedby>
+        <referencedby refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a7a51600f9910ffdcfe303c367b41835b" compoundref="d6/d17/_native_type_system_8java" startline="283" endline="316">org.xvm.javajit.NativeTypeSystem.registerNativeClasses</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a0380e44d28053875bd8a64af965c6e7f" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.xvm.javajit.NativeTypeSystem.NativeTypeSystem</definition>
+        <argsstring>(Xvm xvm, ModuleLoader[] shared, ModuleStructure[] owned)</argsstring>
+        <name>NativeTypeSystem</name>
+        <qualifiedname>org.xvm.javajit.NativeTypeSystem.NativeTypeSystem</qualifiedname>
+        <param>
+          <type><ref refid="d0/d5f/classorg_1_1xvm_1_1javajit_1_1_xvm" kindref="compound">Xvm</ref></type>
+          <declname>xvm</declname>
+        </param>
+        <param>
+          <type><ref refid="d3/de5/classorg_1_1xvm_1_1javajit_1_1_module_loader" kindref="compound">ModuleLoader</ref>[]</type>
+          <declname>shared</declname>
+        </param>
+        <param>
+          <type><ref refid="d2/d13/classorg_1_1xvm_1_1asm_1_1_module_structure" kindref="compound">ModuleStructure</ref>[]</type>
+          <declname>owned</declname>
+        </param>
+        <briefdescription>
+<para>Create the <ref refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system" kindref="compound">NativeTypeSystem</ref>, which combines Ecstasy, &quot;bridge&quot; module and modules that the bridge depends on. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NativeTypeSystem.java" line="55" column="13" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NativeTypeSystem.java" bodystart="55" bodyend="70"/>
+        <references refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a883ecd062bccb4d550836bf38c5d7bdc" compoundref="d6/d17/_native_type_system_8java" startline="124">org.xvm.javajit.NativeTypeSystem.bridgeLoader</references>
+        <references refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1accdd3641c76bcbb281af05c54c78e1ee" compoundref="d5/dcc/_type_system_8java" startline="149">org.xvm.javajit.TypeSystem.owned</references>
+        <references refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a7a51600f9910ffdcfe303c367b41835b" compoundref="d6/d17/_native_type_system_8java" startline="283" endline="316">org.xvm.javajit.NativeTypeSystem.registerNativeClasses</references>
+        <references refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1ade15aa08b58d42e896c570b2d9b8d273" compoundref="d5/dcc/_type_system_8java" startline="144">org.xvm.javajit.TypeSystem.shared</references>
+        <references refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a5b7f7967afbab0acdc3269bd1e733e04" compoundref="d5/dcc/_type_system_8java" startline="127">org.xvm.javajit.TypeSystem.xvm</references>
+        <referencedby refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a960230b24bd927730d424332ac88bbb3" compoundref="d6/d17/_native_type_system_8java" startline="79" endline="118">org.xvm.javajit.NativeTypeSystem.create</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a650914e6dcfe8592cd5cd87f9a5782a4" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>byte[]</type>
+        <definition>byte[] org.xvm.javajit.NativeTypeSystem.augmentNativeClass</definition>
+        <argsstring>(ClassModel model, String className, TypeConstant type)</argsstring>
+        <name>augmentNativeClass</name>
+        <qualifiedname>org.xvm.javajit.NativeTypeSystem.augmentNativeClass</qualifiedname>
+        <param>
+          <type>ClassModel</type>
+          <declname>model</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>className</declname>
+        </param>
+        <param>
+          <type><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref></type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>Augment the existing native class with the Ecstasy methods. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NativeTypeSystem.java" line="227" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NativeTypeSystem.java" bodystart="227" bodyend="259"/>
+        <references refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a38fd4ddcc4d0a2f7f98cd367c67a7086" compoundref="df/d74/_builder_8java" startline="65" endline="67">org.xvm.javajit.Builder.assembleImpl</references>
+        <references refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a8a9547a3fedb54071f347b061fe2f81c" compoundref="d6/d17/_native_type_system_8java" startline="261" endline="279">org.xvm.javajit.NativeTypeSystem.ensureBuilder</references>
+        <references refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a8ac30a05c620c295e4cf24957ffb545e" compoundref="d5/dcc/_type_system_8java" startline="138">org.xvm.javajit.TypeSystem.loader</references>
+        <referencedby refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1ad487734ca159f9ff0f7299baec09f9e4" compoundref="d6/d17/_native_type_system_8java" startline="153" endline="222">org.xvm.javajit.NativeTypeSystem.genClass</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="package-static-func">
+      <memberdef kind="function" id="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a960230b24bd927730d424332ac88bbb3" prot="package" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a0380e44d28053875bd8a64af965c6e7f" kindref="member">NativeTypeSystem</ref></type>
+        <definition>static NativeTypeSystem org.xvm.javajit.NativeTypeSystem.create</definition>
+        <argsstring>(Xvm xvm, ModuleRepository repo)</argsstring>
+        <name>create</name>
+        <qualifiedname>org.xvm.javajit.NativeTypeSystem.create</qualifiedname>
+        <param>
+          <type><ref refid="d0/d5f/classorg_1_1xvm_1_1javajit_1_1_xvm" kindref="compound">Xvm</ref></type>
+          <declname>xvm</declname>
+        </param>
+        <param>
+          <type><ref refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository" kindref="compound">ModuleRepository</ref></type>
+          <declname>repo</declname>
+        </param>
+        <briefdescription>
+<para>Create the core <ref refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" kindref="compound">TypeSystem</ref> for the hidden &quot;Container -1&quot;. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This should ONLY be called from the <ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker" kindref="compound">Linker</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xvm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the XVM </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>repo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the <ref refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository" kindref="compound">ModuleRepository</ref> to load the core Ecstasy modules from </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NativeTypeSystem.java" line="79" column="29" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NativeTypeSystem.java" bodystart="79" bodyend="118"/>
+        <references refid="db/d63/classorg_1_1xvm_1_1asm_1_1_file_structure_1a67f7badc21fbf752483e41d1751bcbf2" compoundref="da/d8f/_file_structure_8java" startline="832" endline="834">org.xvm.asm.FileStructure.children</references>
+        <references refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_component_1abfe0ecfda79a507998aa0555fb1ea282" compoundref="d0/d23/_component_8java" startline="1318" endline="1325">org.xvm.asm.Component.getChild</references>
+        <references refid="db/d63/classorg_1_1xvm_1_1asm_1_1_file_structure_1af608d3fb45910d92f643ec9e72e2432c" compoundref="da/d8f/_file_structure_8java" startline="810" endline="812">org.xvm.asm.FileStructure.getChild</references>
+        <references refid="db/d63/classorg_1_1xvm_1_1asm_1_1_file_structure_1ac70a3ff3486091b0e7b19ce32870e617" compoundref="da/d8f/_file_structure_8java" startline="845" endline="847">org.xvm.asm.FileStructure.getConstantPool</references>
+        <references refid="d5/d19/classorg_1_1xvm_1_1asm_1_1_class_structure_1a7018a1afb368c5052f83bd3bd5991d8b" compoundref="d0/d07/_class_structure_8java" startline="658" endline="700">org.xvm.asm.ClassStructure.getFormalType</references>
+        <references refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1aab7b85f1eddd38affade03f735ce0676" compoundref="dc/dac/_module_constant_8java" startline="168" endline="170">org.xvm.asm.constants.ModuleConstant.getName</references>
+        <references refid="d2/d13/classorg_1_1xvm_1_1asm_1_1_module_structure_1a5052fbf2b0af94f76802107c02af2bef" compoundref="dc/de8/_module_structure_8java" startline="214" endline="225">org.xvm.asm.ModuleStructure.isRefined</references>
+        <references refid="db/d63/classorg_1_1xvm_1_1asm_1_1_file_structure_1ada4f8818d6f7ab419fbb7a9dded155f1" compoundref="da/d8f/_file_structure_8java" startline="359" endline="374">org.xvm.asm.FileStructure.linkModules</references>
+        <references refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository_1aeb782f48317a807e8aa1a985b3466f36">org.xvm.asm.ModuleRepository.loadModule</references>
+        <references refid="db/d63/classorg_1_1xvm_1_1asm_1_1_file_structure_1a443292d60db5db6842ebcc82d375f3c1" compoundref="da/d8f/_file_structure_8java" startline="172" endline="208">org.xvm.asm.FileStructure.merge</references>
+        <references refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a0380e44d28053875bd8a64af965c6e7f" compoundref="d6/d17/_native_type_system_8java" startline="55" endline="70">org.xvm.javajit.NativeTypeSystem.NativeTypeSystem</references>
+        <references refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1accdd3641c76bcbb281af05c54c78e1ee" compoundref="d5/dcc/_type_system_8java" startline="149">org.xvm.javajit.TypeSystem.owned</references>
+        <references refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a5de19857fb027a2317e4441167e5bdf6" compoundref="d5/dcc/_type_system_8java" startline="184" endline="188">org.xvm.javajit.TypeSystem.pool</references>
+        <references refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1ade15aa08b58d42e896c570b2d9b8d273" compoundref="d5/dcc/_type_system_8java" startline="144">org.xvm.javajit.TypeSystem.shared</references>
+        <references refid="d0/d5f/classorg_1_1xvm_1_1javajit_1_1_xvm_1a4ae67dc6dd83533bc27b766fcd296433" compoundref="db/d45/_xvm_8java" startline="169">org.xvm.javajit.Xvm.StructureByModuleId</references>
+        <references refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1aecb1570b2597db8d0a21ea8ef53966a0" compoundref="d9/d9d/_constant_pool_8java" startline="3627" endline="3632">org.xvm.asm.ConstantPool.withPool</references>
+        <references refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a5b7f7967afbab0acdc3269bd1e733e04" compoundref="d5/dcc/_type_system_8java" startline="127">org.xvm.javajit.TypeSystem.xvm</references>
+        <referencedby refid="d0/d5f/classorg_1_1xvm_1_1javajit_1_1_xvm_1a18e7320dbaae1793aecda5a6d67c1953" compoundref="db/d45/_xvm_8java" startline="39" endline="64">org.xvm.javajit.Xvm.Xvm</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a227ebf46c7c021cfa3bc433eac6e5f05" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String org.xvm.javajit.NativeTypeSystem.getReservedName</definition>
+        <argsstring>(TypeConstant type)</argsstring>
+        <name>getReservedName</name>
+        <qualifiedname>org.xvm.javajit.NativeTypeSystem.getReservedName</qualifiedname>
+        <param>
+          <type><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref></type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>a reserved class name for the specified type, or null if it&apos;s not reserved </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NativeTypeSystem.java" line="144" column="19" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NativeTypeSystem.java" bodystart="144" bodyend="150"/>
+        <references refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a164b214f22102a25deb5cc9bdffe4990" compoundref="d5/dcc/_type_system_8java" startline="132">org.xvm.javajit.TypeSystem.name</references>
+        <references refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a51776ca6f1e147d675742bfc04a00a5c" compoundref="d6/d17/_native_type_system_8java" startline="129">org.xvm.javajit.NativeTypeSystem.nativeByClass</references>
+        <references refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a4c5c55980d777744e9afe9d39430d667" compoundref="d6/d17/_native_type_system_8java" startline="134">org.xvm.javajit.NativeTypeSystem.nativeByType</references>
+        <referencedby refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a5dab6ee552bdb0577cf28412ed272116" compoundref="d8/d90/_type_constant_8java" startline="6503" endline="6585">org.xvm.asm.constants.TypeConstant.buildJitClassName</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1ad487734ca159f9ff0f7299baec09f9e4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>byte[]</type>
+        <definition>byte[] org.xvm.javajit.NativeTypeSystem.genClass</definition>
+        <argsstring>(ModuleLoader moduleLoader, String name)</argsstring>
+        <name>genClass</name>
+        <qualifiedname>org.xvm.javajit.NativeTypeSystem.genClass</qualifiedname>
+        <reimplements refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1ac7c99fbc23bbd2010cc57e65bcb880a9">genClass</reimplements>
+        <param>
+          <type><ref refid="d3/de5/classorg_1_1xvm_1_1javajit_1_1_module_loader" kindref="compound">ModuleLoader</ref></type>
+          <declname>moduleLoader</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Create a Java ClassFile for the specified class name. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The name follows a very exact convention for how it is constructed, and that convention is well understood by the <ref refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" kindref="compound">TypeSystem</ref> (because that name was created by the <ref refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" kindref="compound">TypeSystem</ref>).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>moduleLoader</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the <ref refid="d3/de5/classorg_1_1xvm_1_1javajit_1_1_module_loader" kindref="compound">ModuleLoader</ref> that contains the structure information for the containing module and all its classes </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the suffix of the Java class name to create (sans the module prefix)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the bytes of the ClassFile for the specified class name </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NativeTypeSystem.java" line="153" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NativeTypeSystem.java" bodystart="153" bodyend="222"/>
+        <references refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a650914e6dcfe8592cd5cd87f9a5782a4" compoundref="d6/d17/_native_type_system_8java" startline="227" endline="259">org.xvm.javajit.NativeTypeSystem.augmentNativeClass</references>
+        <references refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a883ecd062bccb4d550836bf38c5d7bdc" compoundref="d6/d17/_native_type_system_8java" startline="124">org.xvm.javajit.NativeTypeSystem.bridgeLoader</references>
+        <references refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1aa02aef3580917355f7e639ded65f340a" compoundref="dc/d95/_constant_8java" startline="649" endline="651">org.xvm.asm.Constant.indexOf</references>
+        <references refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a663d966420323c74329b9c5befa1aa50" compoundref="d5/dcc/_type_system_8java" startline="474" endline="479">org.xvm.javajit.TypeSystem.isEnumerationClass</references>
+        <references refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a64d44f2612df462565cd57903a9bc79d" compoundref="df/d74/_builder_8java" startline="1431">org.xvm.javajit.Builder.N_Function</references>
+        <references refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a164b214f22102a25deb5cc9bdffe4990" compoundref="d5/dcc/_type_system_8java" startline="132">org.xvm.javajit.TypeSystem.name</references>
+        <references refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1ac2a5094d967df6b369f06ae38992278d" compoundref="d5/dcc/_type_system_8java" startline="158">org.xvm.javajit.TypeSystem.NO_MOD</references>
+        <references refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a4480e45ba2a5dbd3a460c20991226cda" compoundref="d8/d90/_type_constant_8java" startline="7511">org.xvm.asm.constants.TypeConstant.NO_TYPES</references>
+        <references refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a5de19857fb027a2317e4441167e5bdf6" compoundref="d5/dcc/_type_system_8java" startline="184" endline="188">org.xvm.javajit.TypeSystem.pool</references>
+        <references refid="d3/de5/classorg_1_1xvm_1_1javajit_1_1_module_loader_1ad73e68250d1580e886818d3289bc9a75" compoundref="d2/d4d/_module_loader_8java" startline="69">org.xvm.javajit.ModuleLoader.prefix</references>
+        <references refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a3e9711a60683e9a2a94f20ded63c0040" compoundref="d9/d9d/_constant_pool_8java" startline="2191" endline="2191">org.xvm.asm.ConstantPool.typeBit</references>
+        <references refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1af2a9580aef644e6c9fd39e3a73e9fa11" compoundref="d9/d9d/_constant_pool_8java" startline="2178" endline="2178">org.xvm.asm.ConstantPool.typeBoolean</references>
+        <references refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a6aa21788dda5027136dabc5c02a1c8c2" compoundref="d9/d9d/_constant_pool_8java" startline="2184" endline="2184">org.xvm.asm.ConstantPool.typeChar</references>
+        <references refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a7767b984a41f6862268ce9a5aa19c60a" compoundref="d9/d9d/_constant_pool_8java" startline="2208" endline="2208">org.xvm.asm.ConstantPool.typeDec128</references>
+        <references refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a05029edf92d9263d59ef583eb8cfc27e" compoundref="d9/d9d/_constant_pool_8java" startline="2206" endline="2206">org.xvm.asm.ConstantPool.typeDec32</references>
+        <references refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a998eae7fed20ea4c3b1b1bacc46553ba" compoundref="d9/d9d/_constant_pool_8java" startline="2207" endline="2207">org.xvm.asm.ConstantPool.typeDec64</references>
+        <references refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1aae7e4046ae9f33b3c1fcf2269d8ddbba" compoundref="d9/d9d/_constant_pool_8java" startline="2209" endline="2209">org.xvm.asm.ConstantPool.typeFloat32</references>
+        <references refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1af2246e9f34f1561dc3d37ed187466344" compoundref="d9/d9d/_constant_pool_8java" startline="2210" endline="2210">org.xvm.asm.ConstantPool.typeFloat64</references>
+        <references refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a22cfafc0bf317aa05c5c4e62d9ce8623" compoundref="d9/d9d/_constant_pool_8java" startline="2197" endline="2197">org.xvm.asm.ConstantPool.typeInt128</references>
+        <references refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a788d19487ac76f29d09086f4515a04b4" compoundref="d9/d9d/_constant_pool_8java" startline="2194" endline="2194">org.xvm.asm.ConstantPool.typeInt16</references>
+        <references refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a7a50f64f1b8fa59fd1930eb81639123f" compoundref="d9/d9d/_constant_pool_8java" startline="2195" endline="2195">org.xvm.asm.ConstantPool.typeInt32</references>
+        <references refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a16478e3790580482cecea4a6298d9850" compoundref="d9/d9d/_constant_pool_8java" startline="2196" endline="2196">org.xvm.asm.ConstantPool.typeInt64</references>
+        <references refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a800cd872d4b1157049842fa0b9c5ff8a" compoundref="d9/d9d/_constant_pool_8java" startline="2193" endline="2193">org.xvm.asm.ConstantPool.typeInt8</references>
+        <references refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a69823095453801cc6132d958daa45ebc" compoundref="d9/d9d/_constant_pool_8java" startline="2192" endline="2192">org.xvm.asm.ConstantPool.typeNibble</references>
+        <references refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a461716f3c48fcdeda708036e7c935d54" compoundref="d9/d9d/_constant_pool_8java" startline="2150" endline="2150">org.xvm.asm.ConstantPool.typeObject</references>
+        <references refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a6af785be9f20509f18f50a77a2eb4ce7" compoundref="d9/d9d/_constant_pool_8java" startline="2204" endline="2204">org.xvm.asm.ConstantPool.typeUInt128</references>
+        <references refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a95554406813f8ed4d66bfa813fda1343" compoundref="d9/d9d/_constant_pool_8java" startline="2201" endline="2201">org.xvm.asm.ConstantPool.typeUInt16</references>
+        <references refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1ae929af5edc064beaa8d773e1266d9a49" compoundref="d9/d9d/_constant_pool_8java" startline="2202" endline="2202">org.xvm.asm.ConstantPool.typeUInt32</references>
+        <references refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1aee8badcb04ae12322b0b9285372fe454" compoundref="d9/d9d/_constant_pool_8java" startline="2203" endline="2203">org.xvm.asm.ConstantPool.typeUInt64</references>
+        <references refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a451f3eaffbbb2feb575b58238416df45" compoundref="d9/d9d/_constant_pool_8java" startline="2200" endline="2200">org.xvm.asm.ConstantPool.typeUInt8</references>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a8a9547a3fedb54071f347b061fe2f81c" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder" kindref="compound">Builder</ref></type>
+        <definition>Builder org.xvm.javajit.NativeTypeSystem.ensureBuilder</definition>
+        <argsstring>(TypeConstant type, ClassModel model)</argsstring>
+        <name>ensureBuilder</name>
+        <qualifiedname>org.xvm.javajit.NativeTypeSystem.ensureBuilder</qualifiedname>
+        <param>
+          <type><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>ClassModel</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NativeTypeSystem.java" line="261" column="23" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NativeTypeSystem.java" bodystart="261" bodyend="279"/>
+        <references refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a90bd5a886d8361bd4c845678c5ff4199" compoundref="d6/d17/_native_type_system_8java" startline="139">org.xvm.javajit.NativeTypeSystem.nativeBuilders</references>
+        <references refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1aec5ea8743b13f1a2a92b4c67fb25cfb9" compoundref="d5/dcc/_type_system_8java" startline="112" endline="122">org.xvm.javajit.TypeSystem.TypeSystem</references>
+        <referencedby refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a650914e6dcfe8592cd5cd87f9a5782a4" compoundref="d6/d17/_native_type_system_8java" startline="227" endline="259">org.xvm.javajit.NativeTypeSystem.augmentNativeClass</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="package-func">
+      <memberdef kind="function" id="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a7a51600f9910ffdcfe303c367b41835b" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.javajit.NativeTypeSystem.registerNativeClasses</definition>
+        <argsstring>()</argsstring>
+        <name>registerNativeClasses</name>
+        <qualifiedname>org.xvm.javajit.NativeTypeSystem.registerNativeClasses</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NativeTypeSystem.java" line="283" column="10" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NativeTypeSystem.java" bodystart="283" bodyend="316"/>
+        <references refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1ace20b24ced06825bf7d789aac3e92e6c" compoundref="df/d74/_builder_8java" startline="1444">org.xvm.javajit.Builder.N_IterableChar</references>
+        <references refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a6bf80cb72fd1949497cdb37f51de0a5c" compoundref="df/d74/_builder_8java" startline="1445">org.xvm.javajit.Builder.N_IteratorChar</references>
+        <references refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1aab2d1286149bc3b15890597bcaa7673a" compoundref="df/d74/_builder_8java" startline="1461">org.xvm.javajit.Builder.N_nEnum</references>
+        <references refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a9330743505e24b8eeeea5071eb3cb514" compoundref="df/d74/_builder_8java" startline="1465">org.xvm.javajit.Builder.N_nModule</references>
+        <references refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a9951b75e39fcbd4daa26886a154c3a95" compoundref="df/d74/_builder_8java" startline="1470">org.xvm.javajit.Builder.N_nRangeInt64</references>
+        <references refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1afad807488a0bbae6fac57c322ab861ef" compoundref="df/d74/_builder_8java" startline="1468">org.xvm.javajit.Builder.N_nRef</references>
+        <references refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1ac33ffacef7783c4a3e55c23b81d8ecdd" compoundref="df/d74/_builder_8java" startline="1471">org.xvm.javajit.Builder.N_nService</references>
+        <references refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a9748ff46feb171eafb440b214c31bf5a" compoundref="df/d74/_builder_8java" startline="1472">org.xvm.javajit.Builder.N_nType</references>
+        <references refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a6c5bc574b8cd9b1981d310a2b33667f2" compoundref="df/d74/_builder_8java" startline="1448">org.xvm.javajit.Builder.N_Object</references>
+        <references refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a90bd5a886d8361bd4c845678c5ff4199" compoundref="d6/d17/_native_type_system_8java" startline="139">org.xvm.javajit.NativeTypeSystem.nativeBuilders</references>
+        <references refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a51776ca6f1e147d675742bfc04a00a5c" compoundref="d6/d17/_native_type_system_8java" startline="129">org.xvm.javajit.NativeTypeSystem.nativeByClass</references>
+        <references refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a4c5c55980d777744e9afe9d39430d667" compoundref="d6/d17/_native_type_system_8java" startline="134">org.xvm.javajit.NativeTypeSystem.nativeByType</references>
+        <references refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a5de19857fb027a2317e4441167e5bdf6" compoundref="d5/dcc/_type_system_8java" startline="184" endline="188">org.xvm.javajit.TypeSystem.pool</references>
+        <references refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a5b7f7967afbab0acdc3269bd1e733e04" compoundref="d5/dcc/_type_system_8java" startline="127">org.xvm.javajit.TypeSystem.xvm</references>
+        <referencedby refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a0380e44d28053875bd8a64af965c6e7f" compoundref="d6/d17/_native_type_system_8java" startline="55" endline="70">org.xvm.javajit.NativeTypeSystem.NativeTypeSystem</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Native (core) type system. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>org.xvm.javajit.NativeTypeSystem</label>
+        <link refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>org.xvm.javajit.TypeSystem</label>
+        <link refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="10">
+        <label>ClassLoader</label>
+      </node>
+      <node id="17">
+        <label>Cloneable</label>
+      </node>
+      <node id="118">
+        <label>Comparable&lt; BreakPoint &gt;</label>
+      </node>
+      <node id="21">
+        <label>Comparable&lt; Constant &gt;</label>
+      </node>
+      <node id="92">
+        <label>Comparable&lt; Fiber &gt;</label>
+      </node>
+      <node id="60">
+        <label>Comparable&lt; PackedInteger &gt;</label>
+      </node>
+      <node id="53">
+        <label>Comparable&lt; Version &gt;</label>
+      </node>
+      <node id="1">
+        <label>org.xvm.javajit.NativeTypeSystem</label>
+        <link refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>org.xvm.asm.Annotation</label>
+        <link refid="d9/ddb/classorg_1_1xvm_1_1asm_1_1_annotation"/>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+        <childnode refid="34" relation="usage">
+          <edgelabel>NO_ANNOTATIONS</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>m_aParams</edgelabel>
+          <edgelabel>m_constClass</edgelabel>
+        </childnode>
+      </node>
+      <node id="22">
+        <label>org.xvm.asm.Argument</label>
+        <link refid="dd/da8/interfaceorg_1_1xvm_1_1asm_1_1_argument"/>
+      </node>
+      <node id="12">
+        <label>org.xvm.asm.ClassStructure</label>
+        <link refid="d5/d19/classorg_1_1xvm_1_1asm_1_1_class_structure"/>
+        <childnode refid="13" relation="public-inheritance">
+        </childnode>
+        <childnode refid="26" relation="usage">
+          <edgelabel>m_mapParams</edgelabel>
+        </childnode>
+        <childnode refid="27" relation="usage">
+          <edgelabel>m_constPath</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>m_typeCanonical</edgelabel>
+          <edgelabel>m_typeFormal</edgelabel>
+        </childnode>
+        <childnode refid="81" relation="usage">
+          <edgelabel>m_safety</edgelabel>
+        </childnode>
+        <childnode refid="34" relation="usage">
+          <edgelabel>m_aAnnoClass</edgelabel>
+          <edgelabel>m_aAnnoMixin</edgelabel>
+        </childnode>
+      </node>
+      <node id="13">
+        <label>org.xvm.asm.Component</label>
+        <link refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_component"/>
+        <childnode refid="14" relation="public-inheritance">
+        </childnode>
+        <childnode refid="16" relation="public-inheritance">
+        </childnode>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+        <childnode refid="18" relation="public-inheritance">
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>m_sibling</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>m_constId</edgelabel>
+        </childnode>
+        <childnode refid="25" relation="usage">
+          <edgelabel>m_cond</edgelabel>
+        </childnode>
+      </node>
+      <node id="29">
+        <label>org.xvm.asm.Component.Format</label>
+        <link refid="dc/d9c/enumorg_1_1xvm_1_1asm_1_1_component_1_1_format"/>
+        <childnode refid="29" relation="usage">
+          <edgelabel>FORMATS</edgelabel>
+        </childnode>
+      </node>
+      <node id="18">
+        <label>org.xvm.asm.ComponentResolver</label>
+        <link refid="d5/d6c/interfaceorg_1_1xvm_1_1asm_1_1_component_resolver"/>
+      </node>
+      <node id="20">
+        <label>org.xvm.asm.Constant</label>
+        <link refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant"/>
+        <childnode refid="14" relation="public-inheritance">
+        </childnode>
+        <childnode refid="21" relation="public-inheritance">
+        </childnode>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+        <childnode refid="22" relation="public-inheritance">
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>NO_CONSTS</edgelabel>
+        </childnode>
+      </node>
+      <node id="55">
+        <label>org.xvm.asm.ConstantPool</label>
+        <link refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool"/>
+        <childnode refid="14" relation="public-inheritance">
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>NO_TYPES</edgelabel>
+          <edgelabel>m_typeArray</edgelabel>
+          <edgelabel>m_typeAutoFreezable</edgelabel>
+          <edgelabel>m_typeBinary</edgelabel>
+          <edgelabel>m_typeBit</edgelabel>
+          <edgelabel>m_typeBitArray</edgelabel>
+          <edgelabel>m_typeBoolean</edgelabel>
+          <edgelabel>m_typeByteArray</edgelabel>
+          <edgelabel>m_typeChar</edgelabel>
+          <edgelabel>m_typeClass</edgelabel>
+          <edgelabel>  ...</edgelabel>
+        </childnode>
+        <childnode refid="56" relation="usage">
+          <edgelabel>f_tlolistDeferred</edgelabel>
+        </childnode>
+        <childnode refid="50" relation="usage">
+          <edgelabel>m_valEcstasy</edgelabel>
+        </childnode>
+        <childnode refid="57" relation="usage">
+          <edgelabel>m_clzAbstract</edgelabel>
+          <edgelabel>m_clzArray</edgelabel>
+          <edgelabel>m_clzAtomic</edgelabel>
+          <edgelabel>m_clzAuto</edgelabel>
+          <edgelabel>m_clzClass</edgelabel>
+          <edgelabel>m_clzCloseable</edgelabel>
+          <edgelabel>m_clzCollection</edgelabel>
+          <edgelabel>m_clzConcurrent</edgelabel>
+          <edgelabel>m_clzCondTuple</edgelabel>
+          <edgelabel>m_clzConst</edgelabel>
+          <edgelabel>  ...</edgelabel>
+        </childnode>
+        <childnode refid="58" relation="usage">
+          <edgelabel>m_val0</edgelabel>
+        </childnode>
+        <childnode refid="61" relation="usage">
+          <edgelabel>m_valEqual</edgelabel>
+          <edgelabel>m_valFalse</edgelabel>
+          <edgelabel>m_valGreater</edgelabel>
+          <edgelabel>m_valLesser</edgelabel>
+          <edgelabel>m_valNull</edgelabel>
+          <edgelabel>m_valTiesToAway</edgelabel>
+          <edgelabel>m_valTiesToEven</edgelabel>
+          <edgelabel>m_valTowardNegative</edgelabel>
+          <edgelabel>m_valTowardPositive</edgelabel>
+          <edgelabel>m_valTowardZero</edgelabel>
+          <edgelabel>  ...</edgelabel>
+        </childnode>
+        <childnode refid="64" relation="usage">
+          <edgelabel>m_valDefault</edgelabel>
+        </childnode>
+        <childnode refid="40" relation="usage">
+          <edgelabel>m_sigClose</edgelabel>
+          <edgelabel>m_sigCompare</edgelabel>
+          <edgelabel>m_sigEquals</edgelabel>
+          <edgelabel>m_sigHashCode</edgelabel>
+          <edgelabel>m_sigToString</edgelabel>
+          <edgelabel>m_sigValidator</edgelabel>
+        </childnode>
+        <childnode refid="32" relation="usage">
+          <edgelabel>m_infoPlaceholder</edgelabel>
+        </childnode>
+      </node>
+      <node id="15">
+        <label>org.xvm.asm.Constants</label>
+        <link refid="df/df8/interfaceorg_1_1xvm_1_1asm_1_1_constants"/>
+      </node>
+      <node id="102">
+        <label>org.xvm.asm.Constants.Access</label>
+        <link refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access"/>
+        <childnode refid="102" relation="usage">
+          <edgelabel>VALUES</edgelabel>
+        </childnode>
+      </node>
+      <node id="16">
+        <label>org.xvm.asm.Documentable</label>
+        <link refid="d5/d4a/interfaceorg_1_1xvm_1_1asm_1_1_documentable"/>
+      </node>
+      <node id="24">
+        <label>org.xvm.asm.GenericTypeResolver</label>
+        <link refid="d0/d78/interfaceorg_1_1xvm_1_1asm_1_1_generic_type_resolver"/>
+      </node>
+      <node id="8">
+        <label>org.xvm.asm.LinkerContext</label>
+        <link refid="dc/dd3/interfaceorg_1_1xvm_1_1asm_1_1_linker_context"/>
+      </node>
+      <node id="75">
+        <label>org.xvm.asm.MethodStructure</label>
+        <link refid="d4/d90/classorg_1_1xvm_1_1asm_1_1_method_structure"/>
+        <childnode refid="13" relation="public-inheritance">
+        </childnode>
+        <childnode refid="34" relation="usage">
+          <edgelabel>m_aAnnotations</edgelabel>
+        </childnode>
+        <childnode refid="37" relation="usage">
+          <edgelabel>m_idFinally</edgelabel>
+          <edgelabel>m_idSuper</edgelabel>
+        </childnode>
+        <childnode refid="76" relation="usage">
+          <edgelabel>m_aParams</edgelabel>
+          <edgelabel>m_aReturns</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>m_aconstLocal</edgelabel>
+          <edgelabel>m_aconstSuper</edgelabel>
+        </childnode>
+        <childnode refid="77" relation="usage">
+          <edgelabel>m_registry</edgelabel>
+        </childnode>
+        <childnode refid="79" relation="usage">
+          <edgelabel>m_code</edgelabel>
+        </childnode>
+        <childnode refid="69" relation="usage">
+          <edgelabel>m_ast</edgelabel>
+        </childnode>
+        <childnode refid="70" relation="usage">
+          <edgelabel>m_aAstParams</edgelabel>
+        </childnode>
+        <childnode refid="81" relation="usage">
+          <edgelabel>m_safety</edgelabel>
+        </childnode>
+        <childnode refid="75" relation="usage">
+          <edgelabel>m_structFinally</edgelabel>
+        </childnode>
+        <childnode refid="82" relation="usage">
+          <edgelabel>m_source</edgelabel>
+        </childnode>
+      </node>
+      <node id="79">
+        <label>org.xvm.asm.MethodStructure.Code</label>
+        <link refid="da/d56/classorg_1_1xvm_1_1asm_1_1_method_structure_1_1_code"/>
+        <childnode refid="75" relation="usage">
+          <edgelabel>f_method</edgelabel>
+        </childnode>
+        <childnode refid="80" relation="usage">
+          <edgelabel>m_aop</edgelabel>
+        </childnode>
+        <childnode refid="79" relation="usage">
+          <edgelabel>m_hole</edgelabel>
+        </childnode>
+      </node>
+      <node id="81">
+        <label>org.xvm.asm.MethodStructure.ConcurrencySafety</label>
+        <link refid="d1/d0f/enumorg_1_1xvm_1_1asm_1_1_method_structure_1_1_concurrency_safety"/>
+      </node>
+      <node id="82">
+        <label>org.xvm.asm.MethodStructure.Source</label>
+        <link refid="dd/d70/classorg_1_1xvm_1_1asm_1_1_method_structure_1_1_source"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>m_aconstSrc</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>org.xvm.asm.ModuleRepository</label>
+        <link refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>NO_REPOS</edgelabel>
+        </childnode>
+      </node>
+      <node id="11">
+        <label>org.xvm.asm.ModuleStructure</label>
+        <link refid="d2/d13/classorg_1_1xvm_1_1asm_1_1_module_structure"/>
+        <childnode refid="12" relation="public-inheritance">
+        </childnode>
+        <childnode refid="27" relation="usage">
+          <edgelabel>m_constDir</edgelabel>
+          <edgelabel>m_constTimestamp</edgelabel>
+        </childnode>
+        <childnode refid="129" relation="usage">
+          <edgelabel>m_moduletype</edgelabel>
+        </childnode>
+        <childnode refid="51" relation="usage">
+          <edgelabel>m_constVersion</edgelabel>
+        </childnode>
+        <childnode refid="130" relation="usage">
+          <edgelabel>m_vtree</edgelabel>
+          <edgelabel>m_vtreeImportAllowVers</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>m_moduleActual</edgelabel>
+        </childnode>
+        <childnode refid="131" relation="usage">
+          <edgelabel>m_pkgImport</edgelabel>
+        </childnode>
+      </node>
+      <node id="129">
+        <label>org.xvm.asm.ModuleStructure.ModuleType</label>
+        <link refid="d9/d73/enumorg_1_1xvm_1_1asm_1_1_module_structure_1_1_module_type"/>
+        <childnode refid="129" relation="usage">
+          <edgelabel>MODULE_TYPES</edgelabel>
+        </childnode>
+      </node>
+      <node id="80">
+        <label>org.xvm.asm.Op</label>
+        <link refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op"/>
+        <childnode refid="80" relation="usage">
+          <edgelabel>NO_OPS</edgelabel>
+        </childnode>
+      </node>
+      <node id="77">
+        <label>org.xvm.asm.Op.ConstantRegistry</label>
+        <link refid="dd/d3d/classorg_1_1xvm_1_1asm_1_1_op_1_1_constant_registry"/>
+        <childnode refid="78" relation="public-inheritance">
+        </childnode>
+        <childnode refid="75" relation="usage">
+          <edgelabel>f_method</edgelabel>
+        </childnode>
+        <childnode refid="55" relation="usage">
+          <edgelabel>f_pool</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>m_aconst</edgelabel>
+        </childnode>
+        <childnode refid="70" relation="usage">
+          <edgelabel>m_aregParams</edgelabel>
+          <edgelabel>m_aregSpecial</edgelabel>
+        </childnode>
+      </node>
+      <node id="131">
+        <label>org.xvm.asm.PackageStructure</label>
+        <link refid="d7/dea/classorg_1_1xvm_1_1asm_1_1_package_structure"/>
+        <childnode refid="12" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="76">
+        <label>org.xvm.asm.Parameter</label>
+        <link refid="d0/d0f/classorg_1_1xvm_1_1asm_1_1_parameter"/>
+        <childnode refid="14" relation="public-inheritance">
+        </childnode>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+        <childnode refid="76" relation="usage">
+          <edgelabel>NO_PARAMS</edgelabel>
+        </childnode>
+        <childnode refid="34" relation="usage">
+          <edgelabel>m_aAnnotations</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>m_constType</edgelabel>
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>m_constName</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>m_constDefault</edgelabel>
+        </childnode>
+        <childnode refid="66" relation="usage">
+          <edgelabel>m_regDeref</edgelabel>
+        </childnode>
+      </node>
+      <node id="101">
+        <label>org.xvm.asm.PropertyStructure</label>
+        <link refid="df/df0/classorg_1_1xvm_1_1asm_1_1_property_structure"/>
+        <childnode refid="13" relation="public-inheritance">
+        </childnode>
+        <childnode refid="102" relation="usage">
+          <edgelabel>m_accessVar</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>m_type</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>m_constVal</edgelabel>
+        </childnode>
+        <childnode refid="34" relation="usage">
+          <edgelabel>m_aPropAnno</edgelabel>
+          <edgelabel>m_aRefAnno</edgelabel>
+        </childnode>
+      </node>
+      <node id="66">
+        <label>org.xvm.asm.Register</label>
+        <link refid="dc/db3/classorg_1_1xvm_1_1asm_1_1_register"/>
+        <childnode refid="22" relation="public-inheritance">
+        </childnode>
+        <childnode refid="66" relation="usage">
+          <edgelabel>ASYNC</edgelabel>
+          <edgelabel>DEFAULT</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>m_type</edgelabel>
+          <edgelabel>m_typeReg</edgelabel>
+        </childnode>
+        <childnode refid="67" relation="usage">
+          <edgelabel>m_astAlloc</edgelabel>
+        </childnode>
+        <childnode refid="70" relation="usage">
+          <edgelabel>m_astSpecial</edgelabel>
+        </childnode>
+      </node>
+      <node id="52">
+        <label>org.xvm.asm.Version</label>
+        <link refid="d4/de1/classorg_1_1xvm_1_1asm_1_1_version"/>
+        <childnode refid="53" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="130">
+        <label>org.xvm.asm.VersionTree&lt; Boolean &gt;</label>
+        <link refid="df/df1/classorg_1_1xvm_1_1asm_1_1_version_tree"/>
+      </node>
+      <node id="14">
+        <label>org.xvm.asm.XvmStructure</label>
+        <link refid="d7/d57/classorg_1_1xvm_1_1asm_1_1_xvm_structure"/>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>m_xsParent</edgelabel>
+        </childnode>
+      </node>
+      <node id="69">
+        <label>org.xvm.asm.ast.BinaryAST</label>
+        <link refid="d7/d69/classorg_1_1xvm_1_1asm_1_1ast_1_1_binary_a_s_t"/>
+        <childnode refid="69" relation="usage">
+          <edgelabel>NO_ASTS</edgelabel>
+        </childnode>
+        <childnode refid="68" relation="usage">
+          <edgelabel>NO_EXPRS</edgelabel>
+          <edgelabel>POISON</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>NO_CONSTS</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>NO_TYPES</edgelabel>
+        </childnode>
+        <childnode refid="70" relation="usage">
+          <edgelabel>NO_REGS</edgelabel>
+        </childnode>
+        <childnode refid="67" relation="usage">
+          <edgelabel>NO_ALLOCS</edgelabel>
+        </childnode>
+      </node>
+      <node id="78">
+        <label>org.xvm.asm.ast.BinaryAST.ConstantResolver</label>
+        <link refid="d7/d33/interfaceorg_1_1xvm_1_1asm_1_1ast_1_1_binary_a_s_t_1_1_constant_resolver"/>
+      </node>
+      <node id="68">
+        <label>org.xvm.asm.ast.ExprAST</label>
+        <link refid="d4/de4/classorg_1_1xvm_1_1asm_1_1ast_1_1_expr_a_s_t"/>
+        <childnode refid="69" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="67">
+        <label>org.xvm.asm.ast.RegAllocAST</label>
+        <link refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t"/>
+        <childnode refid="68" relation="public-inheritance">
+        </childnode>
+        <childnode refid="70" relation="usage">
+          <edgelabel>reg</edgelabel>
+        </childnode>
+      </node>
+      <node id="70">
+        <label>org.xvm.asm.ast.RegisterAST</label>
+        <link refid="d9/dbf/classorg_1_1xvm_1_1asm_1_1ast_1_1_register_a_s_t"/>
+        <childnode refid="68" relation="public-inheritance">
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>refType</edgelabel>
+          <edgelabel>type</edgelabel>
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>name</edgelabel>
+        </childnode>
+      </node>
+      <node id="128">
+        <label>org.xvm.asm.constants.ArrayConstant</label>
+        <link refid="dc/d90/classorg_1_1xvm_1_1asm_1_1constants_1_1_array_constant"/>
+        <childnode refid="28" relation="public-inheritance">
+        </childnode>
+        <childnode refid="29" relation="usage">
+          <edgelabel>f_fmt</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>m_constType</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>m_aconstVal</edgelabel>
+        </childnode>
+      </node>
+      <node id="57">
+        <label>org.xvm.asm.constants.ClassConstant</label>
+        <link refid="df/de8/classorg_1_1xvm_1_1asm_1_1constants_1_1_class_constant"/>
+        <childnode refid="39" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>org.xvm.asm.constants.ConditionalConstant</label>
+        <link refid="da/df0/classorg_1_1xvm_1_1asm_1_1constants_1_1_conditional_constant"/>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="98">
+        <label>org.xvm.asm.constants.FormalConstant</label>
+        <link refid="d2/dca/classorg_1_1xvm_1_1asm_1_1constants_1_1_formal_constant"/>
+        <childnode refid="39" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="65">
+        <label>org.xvm.asm.constants.FrameDependentConstant</label>
+        <link refid="da/d56/classorg_1_1xvm_1_1asm_1_1constants_1_1_frame_dependent_constant"/>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>org.xvm.asm.constants.IdentityConstant</label>
+        <link refid="d5/d9c/classorg_1_1xvm_1_1asm_1_1constants_1_1_identity_constant"/>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>m_component</edgelabel>
+        </childnode>
+        <childnode refid="23" relation="usage">
+          <edgelabel>m_canonicalNid</edgelabel>
+        </childnode>
+      </node>
+      <node id="23">
+        <label>org.xvm.asm.constants.IdentityConstant.NestedIdentity</label>
+        <link refid="dc/d87/classorg_1_1xvm_1_1asm_1_1constants_1_1_identity_constant_1_1_nested_identity"/>
+        <childnode refid="24" relation="usage">
+          <edgelabel>m_resolver</edgelabel>
+        </childnode>
+      </node>
+      <node id="58">
+        <label>org.xvm.asm.constants.IntConstant</label>
+        <link refid="d6/d7c/classorg_1_1xvm_1_1asm_1_1constants_1_1_int_constant"/>
+        <childnode refid="28" relation="public-inheritance">
+        </childnode>
+        <childnode refid="29" relation="usage">
+          <edgelabel>m_fmt</edgelabel>
+        </childnode>
+        <childnode refid="59" relation="usage">
+          <edgelabel>m_pint</edgelabel>
+        </childnode>
+      </node>
+      <node id="27">
+        <label>org.xvm.asm.constants.LiteralConstant</label>
+        <link refid="d4/d41/classorg_1_1xvm_1_1asm_1_1constants_1_1_literal_constant"/>
+        <childnode refid="28" relation="public-inheritance">
+        </childnode>
+        <childnode refid="29" relation="usage">
+          <edgelabel>m_fmt</edgelabel>
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>m_constStr</edgelabel>
+        </childnode>
+      </node>
+      <node id="84">
+        <label>org.xvm.asm.constants.MethodBody</label>
+        <link refid="d3/dd6/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_body"/>
+        <childnode refid="84" relation="usage">
+          <edgelabel>NO_BODIES</edgelabel>
+        </childnode>
+        <childnode refid="37" relation="usage">
+          <edgelabel>m_id</edgelabel>
+        </childnode>
+        <childnode refid="40" relation="usage">
+          <edgelabel>m_sig</edgelabel>
+        </childnode>
+        <childnode refid="85" relation="usage">
+          <edgelabel>m_impl</edgelabel>
+        </childnode>
+        <childnode refid="75" relation="usage">
+          <edgelabel>m_structMethod</edgelabel>
+        </childnode>
+        <childnode refid="86" relation="usage">
+          <edgelabel>m_jmd</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>m_typeJmdContainer</edgelabel>
+        </childnode>
+      </node>
+      <node id="85">
+        <label>org.xvm.asm.constants.MethodBody.Implementation</label>
+        <link refid="da/d42/enumorg_1_1xvm_1_1asm_1_1constants_1_1_method_body_1_1_implementation"/>
+      </node>
+      <node id="37">
+        <label>org.xvm.asm.constants.MethodConstant</label>
+        <link refid="d6/d7b/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_constant"/>
+        <childnode refid="19" relation="public-inheritance">
+        </childnode>
+        <childnode refid="24" relation="public-inheritance">
+        </childnode>
+        <childnode refid="38" relation="usage">
+          <edgelabel>m_constParent</edgelabel>
+        </childnode>
+        <childnode refid="40" relation="usage">
+          <edgelabel>m_constSig</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>m_type</edgelabel>
+        </childnode>
+      </node>
+      <node id="50">
+        <label>org.xvm.asm.constants.ModuleConstant</label>
+        <link refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant"/>
+        <childnode refid="19" relation="public-inheritance">
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>m_constName</edgelabel>
+        </childnode>
+        <childnode refid="51" relation="usage">
+          <edgelabel>m_constVersion</edgelabel>
+        </childnode>
+      </node>
+      <node id="38">
+        <label>org.xvm.asm.constants.MultiMethodConstant</label>
+        <link refid="df/d2a/classorg_1_1xvm_1_1asm_1_1constants_1_1_multi_method_constant"/>
+        <childnode refid="39" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>org.xvm.asm.constants.NamedConstant</label>
+        <link refid="d8/d85/classorg_1_1xvm_1_1asm_1_1constants_1_1_named_constant"/>
+        <childnode refid="19" relation="public-inheritance">
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>m_constParent</edgelabel>
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>m_constName</edgelabel>
+        </childnode>
+      </node>
+      <node id="103">
+        <label>org.xvm.asm.constants.ParamInfo</label>
+        <link refid="d5/da1/classorg_1_1xvm_1_1asm_1_1constants_1_1_param_info"/>
+        <childnode refid="31" relation="usage">
+          <edgelabel>f_typeActual</edgelabel>
+          <edgelabel>f_typeConstraint</edgelabel>
+        </childnode>
+      </node>
+      <node id="100">
+        <label>org.xvm.asm.constants.PropertyBody</label>
+        <link refid="db/d39/classorg_1_1xvm_1_1asm_1_1constants_1_1_property_body"/>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+        <childnode refid="101" relation="usage">
+          <edgelabel>m_structProp</edgelabel>
+        </childnode>
+        <childnode refid="85" relation="usage">
+          <edgelabel>m_impl</edgelabel>
+        </childnode>
+        <childnode refid="97" relation="usage">
+          <edgelabel>m_constDelegate</edgelabel>
+        </childnode>
+        <childnode refid="103" relation="usage">
+          <edgelabel>m_infoFormal</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>m_type</edgelabel>
+        </childnode>
+        <childnode refid="104" relation="usage">
+          <edgelabel>m_effectGet</edgelabel>
+          <edgelabel>m_effectSet</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>m_constInitVal</edgelabel>
+        </childnode>
+        <childnode refid="37" relation="usage">
+          <edgelabel>m_constInitFunc</edgelabel>
+        </childnode>
+      </node>
+      <node id="104">
+        <label>org.xvm.asm.constants.PropertyBody.Effect</label>
+        <link refid="da/df0/enumorg_1_1xvm_1_1asm_1_1constants_1_1_property_body_1_1_effect"/>
+      </node>
+      <node id="97">
+        <label>org.xvm.asm.constants.PropertyConstant</label>
+        <link refid="dd/ded/classorg_1_1xvm_1_1asm_1_1constants_1_1_property_constant"/>
+        <childnode refid="98" relation="public-inheritance">
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>m_type</edgelabel>
+          <edgelabel>m_typeConstraint</edgelabel>
+        </childnode>
+        <childnode refid="40" relation="usage">
+          <edgelabel>m_constSig</edgelabel>
+        </childnode>
+        <childnode refid="99" relation="usage">
+          <edgelabel>m_info</edgelabel>
+        </childnode>
+      </node>
+      <node id="99">
+        <label>org.xvm.asm.constants.PropertyInfo</label>
+        <link refid="dd/d20/classorg_1_1xvm_1_1asm_1_1constants_1_1_property_info"/>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+        <childnode refid="100" relation="usage">
+          <edgelabel>m_aBody</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>m_type</edgelabel>
+          <edgelabel>m_typeBaseRef</edgelabel>
+        </childnode>
+        <childnode refid="84" relation="usage">
+          <edgelabel>m_chainGet</edgelabel>
+          <edgelabel>m_chainSet</edgelabel>
+        </childnode>
+        <childnode refid="34" relation="usage">
+          <edgelabel>m_annotations</edgelabel>
+        </childnode>
+        <childnode refid="37" relation="usage">
+          <edgelabel>m_idGetter</edgelabel>
+          <edgelabel>m_idSetter</edgelabel>
+        </childnode>
+        <childnode refid="86" relation="usage">
+          <edgelabel>m_jmdGetter</edgelabel>
+          <edgelabel>m_jmdSetter</edgelabel>
+        </childnode>
+      </node>
+      <node id="41">
+        <label>org.xvm.asm.constants.PseudoConstant</label>
+        <link refid="db/dcb/classorg_1_1xvm_1_1asm_1_1constants_1_1_pseudo_constant"/>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="64">
+        <label>org.xvm.asm.constants.RegisterConstant</label>
+        <link refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant"/>
+        <childnode refid="65" relation="public-inheritance">
+        </childnode>
+        <childnode refid="66" relation="usage">
+          <edgelabel>m_reg</edgelabel>
+        </childnode>
+      </node>
+      <node id="40">
+        <label>org.xvm.asm.constants.SignatureConstant</label>
+        <link refid="de/d50/classorg_1_1xvm_1_1asm_1_1constants_1_1_signature_constant"/>
+        <childnode refid="41" relation="public-inheritance">
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>m_constName</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>m_aconstParams</edgelabel>
+          <edgelabel>m_aconstReturns</edgelabel>
+        </childnode>
+        <childnode refid="40" relation="usage">
+          <edgelabel>m_sigPrev</edgelabel>
+        </childnode>
+      </node>
+      <node id="61">
+        <label>org.xvm.asm.constants.SingletonConstant</label>
+        <link refid="dd/d83/classorg_1_1xvm_1_1asm_1_1constants_1_1_singleton_constant"/>
+        <childnode refid="28" relation="public-inheritance">
+        </childnode>
+        <childnode refid="29" relation="usage">
+          <edgelabel>f_fmt</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>m_constClass</edgelabel>
+        </childnode>
+        <childnode refid="62" relation="usage">
+          <edgelabel>m_handle</edgelabel>
+        </childnode>
+      </node>
+      <node id="30">
+        <label>org.xvm.asm.constants.StringConstant</label>
+        <link refid="d0/db5/classorg_1_1xvm_1_1asm_1_1constants_1_1_string_constant"/>
+        <childnode refid="28" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>org.xvm.asm.constants.TypeConstant</label>
+        <link refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant"/>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+        <childnode refid="24" relation="public-inheritance">
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>NO_TYPES</edgelabel>
+          <edgelabel>m_typeNormalized</edgelabel>
+        </childnode>
+        <childnode refid="32" relation="usage">
+          <edgelabel>m_typeinfo</edgelabel>
+        </childnode>
+        <childnode refid="42" relation="usage">
+          <edgelabel>m_tloInProgress</edgelabel>
+        </childnode>
+        <childnode refid="43" relation="usage">
+          <edgelabel>m_handle</edgelabel>
+        </childnode>
+      </node>
+      <node id="32">
+        <label>org.xvm.asm.constants.TypeInfo</label>
+        <link refid="dc/db2/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_info"/>
+        <childnode refid="33" relation="usage">
+          <edgelabel>f_progress</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>f_type</edgelabel>
+          <edgelabel>f_typeExtends</edgelabel>
+          <edgelabel>f_typeInto</edgelabel>
+          <edgelabel>f_typeRebases</edgelabel>
+          <edgelabel>m_typeAuto</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>f_struct</edgelabel>
+        </childnode>
+        <childnode refid="34" relation="usage">
+          <edgelabel>f_aannoClass</edgelabel>
+          <edgelabel>f_aannoMixin</edgelabel>
+        </childnode>
+        <childnode refid="35" relation="usage">
+          <edgelabel>f_listmapClassChain</edgelabel>
+          <edgelabel>f_listmapDefaultChain</edgelabel>
+        </childnode>
+        <childnode refid="36" relation="usage">
+          <edgelabel>f_mapChildren</edgelabel>
+        </childnode>
+        <childnode refid="32" relation="usage">
+          <edgelabel>m_delegates</edgelabel>
+          <edgelabel>m_into</edgelabel>
+        </childnode>
+        <childnode refid="37" relation="usage">
+          <edgelabel>m_methodAuto</edgelabel>
+        </childnode>
+      </node>
+      <node id="33">
+        <label>org.xvm.asm.constants.TypeInfo.Progress</label>
+        <link refid="d5/ded/enumorg_1_1xvm_1_1asm_1_1constants_1_1_type_info_1_1_progress"/>
+      </node>
+      <node id="28">
+        <label>org.xvm.asm.constants.ValueConstant</label>
+        <link refid="db/d57/classorg_1_1xvm_1_1asm_1_1constants_1_1_value_constant"/>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>org.xvm.asm.constants.VersionConstant</label>
+        <link refid="d0/db9/classorg_1_1xvm_1_1asm_1_1constants_1_1_version_constant"/>
+        <childnode refid="27" relation="public-inheritance">
+        </childnode>
+        <childnode refid="52" relation="usage">
+          <edgelabel>m_ver</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>org.xvm.javajit.Container</label>
+        <link refid="d7/d78/classorg_1_1xvm_1_1javajit_1_1_container"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>xvm</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>parent</edgelabel>
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>typeSystem</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>injector</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>org.xvm.javajit.Injector</label>
+        <link refid="d9/dbf/classorg_1_1xvm_1_1javajit_1_1_injector"/>
+      </node>
+      <node id="89">
+        <label>org.xvm.javajit.JitFlavor</label>
+        <link refid="d4/d87/enumorg_1_1xvm_1_1javajit_1_1_jit_flavor"/>
+        <childnode refid="89" relation="usage">
+          <edgelabel>baseFlavor</edgelabel>
+        </childnode>
+      </node>
+      <node id="86">
+        <label>org.xvm.javajit.JitMethodDesc</label>
+        <link refid="d0/d2b/classorg_1_1xvm_1_1javajit_1_1_jit_method_desc"/>
+        <childnode refid="87" relation="usage">
+          <edgelabel>optimizedParams</edgelabel>
+          <edgelabel>optimizedReturns</edgelabel>
+          <edgelabel>standardParams</edgelabel>
+          <edgelabel>standardReturns</edgelabel>
+        </childnode>
+      </node>
+      <node id="87">
+        <label>org.xvm.javajit.JitParamDesc</label>
+        <link refid="d7/d14/classorg_1_1xvm_1_1javajit_1_1_jit_param_desc"/>
+        <childnode refid="88" relation="public-inheritance">
+        </childnode>
+        <childnode refid="87" relation="usage">
+          <edgelabel>NONE</edgelabel>
+        </childnode>
+      </node>
+      <node id="88">
+        <label>org.xvm.javajit.JitTypeDesc</label>
+        <link refid="d5/d1d/classorg_1_1xvm_1_1javajit_1_1_jit_type_desc"/>
+        <childnode refid="31" relation="usage">
+          <edgelabel>type</edgelabel>
+        </childnode>
+        <childnode refid="89" relation="usage">
+          <edgelabel>flavor</edgelabel>
+        </childnode>
+      </node>
+      <node id="9">
+        <label>org.xvm.javajit.ModuleLoader</label>
+        <link refid="d3/de5/classorg_1_1xvm_1_1javajit_1_1_module_loader"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>module</edgelabel>
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>typeSystem</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>org.xvm.javajit.NativeTypeSystem</label>
+        <link refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>org.xvm.javajit.TypeSystem</label>
+        <link refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>xvm</edgelabel>
+        </childnode>
+        <childnode refid="132" relation="usage">
+          <edgelabel>loader</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>owned</edgelabel>
+          <edgelabel>shared</edgelabel>
+        </childnode>
+      </node>
+      <node id="132">
+        <label>org.xvm.javajit.TypeSystemLoader</label>
+        <link refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>typeSystem</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>owned</edgelabel>
+          <edgelabel>shared</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>org.xvm.javajit.Xvm</label>
+        <link refid="d0/d5f/classorg_1_1xvm_1_1javajit_1_1_xvm"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>FailEverythingInjector</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>systemRepo</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>nativeTypeSystem</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>nativeContainer</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>bridgeLoader</edgelabel>
+          <edgelabel>ecstasyLoader</edgelabel>
+        </childnode>
+        <childnode refid="55" relation="usage">
+          <edgelabel>ecstasyPool</edgelabel>
+        </childnode>
+      </node>
+      <node id="83">
+        <label>org.xvm.runtime.CallChain</label>
+        <link refid="df/db4/classorg_1_1xvm_1_1runtime_1_1_call_chain"/>
+        <childnode refid="84" relation="usage">
+          <edgelabel>f_aMethods</edgelabel>
+        </childnode>
+      </node>
+      <node id="123">
+        <label>org.xvm.runtime.ClassComposition</label>
+        <link refid="da/df7/classorg_1_1xvm_1_1runtime_1_1_class_composition"/>
+        <childnode refid="63" relation="public-inheritance">
+        </childnode>
+        <childnode refid="47" relation="usage">
+          <edgelabel>f_container</edgelabel>
+        </childnode>
+        <childnode refid="45" relation="usage">
+          <edgelabel>f_template</edgelabel>
+        </childnode>
+        <childnode refid="123" relation="usage">
+          <edgelabel>f_clzInception</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>f_typeInception</edgelabel>
+          <edgelabel>f_typeRevealed</edgelabel>
+          <edgelabel>f_typeStructure</edgelabel>
+        </childnode>
+        <childnode refid="124" relation="usage">
+          <edgelabel>m_ashFieldNames</edgelabel>
+        </childnode>
+        <childnode refid="75" relation="usage">
+          <edgelabel>m_methodInit</edgelabel>
+        </childnode>
+        <childnode refid="83" relation="usage">
+          <edgelabel>NIL_CHAIN</edgelabel>
+        </childnode>
+      </node>
+      <node id="126">
+        <label>org.xvm.runtime.ClassComposition.FieldInfo</label>
+        <link refid="d1/d50/classorg_1_1xvm_1_1runtime_1_1_class_composition_1_1_field_info"/>
+        <childnode refid="31" relation="usage">
+          <edgelabel>f_type</edgelabel>
+        </childnode>
+        <childnode refid="63" relation="usage">
+          <edgelabel>f_clzRef</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>constInit</edgelabel>
+        </childnode>
+      </node>
+      <node id="45">
+        <label>org.xvm.runtime.ClassTemplate</label>
+        <link refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template"/>
+        <childnode refid="46" relation="public-inheritance">
+        </childnode>
+        <childnode refid="47" relation="usage">
+          <edgelabel>f_container</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>f_struct</edgelabel>
+          <edgelabel>f_structSuper</edgelabel>
+        </childnode>
+        <childnode refid="45" relation="usage">
+          <edgelabel>m_templateSuper</edgelabel>
+        </childnode>
+        <childnode refid="123" relation="usage">
+          <edgelabel>m_clazzCanonical</edgelabel>
+        </childnode>
+      </node>
+      <node id="49">
+        <label>org.xvm.runtime.ConstHeap</label>
+        <link refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap"/>
+        <childnode refid="47" relation="usage">
+          <edgelabel>f_container</edgelabel>
+        </childnode>
+      </node>
+      <node id="47">
+        <label>org.xvm.runtime.Container</label>
+        <link refid="d1/df8/classorg_1_1xvm_1_1runtime_1_1_container"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+        <childnode refid="48" relation="usage">
+          <edgelabel>f_runtime</edgelabel>
+        </childnode>
+        <childnode refid="49" relation="usage">
+          <edgelabel>f_heap</edgelabel>
+        </childnode>
+        <childnode refid="47" relation="usage">
+          <edgelabel>f_parent</edgelabel>
+        </childnode>
+        <childnode refid="50" relation="usage">
+          <edgelabel>f_idModule</edgelabel>
+        </childnode>
+        <childnode refid="54" relation="usage">
+          <edgelabel>m_contextMain</edgelabel>
+        </childnode>
+        <childnode refid="62" relation="usage">
+          <edgelabel>m_hTypeSystem</edgelabel>
+        </childnode>
+      </node>
+      <node id="111">
+        <label>org.xvm.runtime.DebugConsole</label>
+        <link refid="d1/d39/classorg_1_1xvm_1_1runtime_1_1_debug_console"/>
+        <childnode refid="112" relation="public-inheritance">
+        </childnode>
+        <childnode refid="111" relation="usage">
+          <edgelabel>INSTANCE</edgelabel>
+        </childnode>
+        <childnode refid="113" relation="usage">
+          <edgelabel>m_viewMode</edgelabel>
+        </childnode>
+        <childnode refid="90" relation="usage">
+          <edgelabel>m_aFrames</edgelabel>
+          <edgelabel>m_frame</edgelabel>
+          <edgelabel>m_frameFocus</edgelabel>
+        </childnode>
+        <childnode refid="106" relation="usage">
+          <edgelabel>m_hException</edgelabel>
+        </childnode>
+        <childnode refid="114" relation="usage">
+          <edgelabel>m_debugStash</edgelabel>
+        </childnode>
+        <childnode refid="115" relation="usage">
+          <edgelabel>m_aVars</edgelabel>
+        </childnode>
+        <childnode refid="117" relation="usage">
+          <edgelabel>m_aBreaks</edgelabel>
+        </childnode>
+        <childnode refid="119" relation="usage">
+          <edgelabel>m_stepMode</edgelabel>
+        </childnode>
+      </node>
+      <node id="117">
+        <label>org.xvm.runtime.DebugConsole.BreakPoint</label>
+        <link refid="de/d49/classorg_1_1xvm_1_1runtime_1_1_debug_console_1_1_break_point"/>
+        <childnode refid="118" relation="public-inheritance">
+        </childnode>
+        <childnode refid="75" relation="usage">
+          <edgelabel>lambda</edgelabel>
+        </childnode>
+      </node>
+      <node id="114">
+        <label>org.xvm.runtime.DebugConsole.DebugStash</label>
+        <link refid="dc/d22/classorg_1_1xvm_1_1runtime_1_1_debug_console_1_1_debug_stash"/>
+      </node>
+      <node id="119">
+        <label>org.xvm.runtime.DebugConsole.StepMode</label>
+        <link refid="d2/dea/enumorg_1_1xvm_1_1runtime_1_1_debug_console_1_1_step_mode"/>
+      </node>
+      <node id="115">
+        <label>org.xvm.runtime.DebugConsole.VarDisplay</label>
+        <link refid="df/d13/classorg_1_1xvm_1_1runtime_1_1_debug_console_1_1_var_display"/>
+        <childnode refid="62" relation="usage">
+          <edgelabel>hVar</edgelabel>
+        </childnode>
+        <childnode refid="116" relation="usage">
+          <edgelabel>watch</edgelabel>
+        </childnode>
+      </node>
+      <node id="113">
+        <label>org.xvm.runtime.DebugConsole.ViewMode</label>
+        <link refid="d1/d65/enumorg_1_1xvm_1_1runtime_1_1_debug_console_1_1_view_mode"/>
+      </node>
+      <node id="116">
+        <label>org.xvm.runtime.DebugConsole.Watch</label>
+        <link refid="d7/dcb/classorg_1_1xvm_1_1runtime_1_1_debug_console_1_1_watch"/>
+        <childnode refid="62" relation="usage">
+          <edgelabel>hVar</edgelabel>
+        </childnode>
+      </node>
+      <node id="112">
+        <label>org.xvm.runtime.Debugger</label>
+        <link refid="d3/dc6/interfaceorg_1_1xvm_1_1runtime_1_1_debugger"/>
+      </node>
+      <node id="91">
+        <label>org.xvm.runtime.Fiber</label>
+        <link refid="d4/d87/classorg_1_1xvm_1_1runtime_1_1_fiber"/>
+        <childnode refid="92" relation="public-inheritance">
+        </childnode>
+        <childnode refid="54" relation="usage">
+          <edgelabel>f_context</edgelabel>
+        </childnode>
+        <childnode refid="75" relation="usage">
+          <edgelabel>f_fnCaller</edgelabel>
+        </childnode>
+        <childnode refid="93" relation="usage">
+          <edgelabel>m_status</edgelabel>
+        </childnode>
+        <childnode refid="90" relation="usage">
+          <edgelabel>m_frame</edgelabel>
+          <edgelabel>m_frameBlocker</edgelabel>
+          <edgelabel>m_resume</edgelabel>
+        </childnode>
+        <childnode refid="62" relation="usage">
+          <edgelabel>m_hAsyncSection</edgelabel>
+          <edgelabel>m_hTimeout</edgelabel>
+        </childnode>
+      </node>
+      <node id="93">
+        <label>org.xvm.runtime.Fiber.FiberStatus</label>
+        <link refid="d3/d81/enumorg_1_1xvm_1_1runtime_1_1_fiber_1_1_fiber_status"/>
+      </node>
+      <node id="120">
+        <label>org.xvm.runtime.FiberQueue</label>
+        <link refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue"/>
+        <childnode refid="54" relation="usage">
+          <edgelabel>f_context</edgelabel>
+        </childnode>
+        <childnode refid="90" relation="usage">
+          <edgelabel>m_aFrame</edgelabel>
+        </childnode>
+      </node>
+      <node id="90">
+        <label>org.xvm.runtime.Frame</label>
+        <link refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame"/>
+        <childnode refid="24" relation="public-inheritance">
+        </childnode>
+        <childnode refid="91" relation="usage">
+          <edgelabel>f_fiber</edgelabel>
+        </childnode>
+        <childnode refid="54" relation="usage">
+          <edgelabel>f_context</edgelabel>
+        </childnode>
+        <childnode refid="75" relation="usage">
+          <edgelabel>f_function</edgelabel>
+        </childnode>
+        <childnode refid="80" relation="usage">
+          <edgelabel>WAIT_FOR_FUTURE</edgelabel>
+          <edgelabel>WAIT_FOR_IO</edgelabel>
+          <edgelabel>f_aOp</edgelabel>
+        </childnode>
+        <childnode refid="62" relation="usage">
+          <edgelabel>f_ahVar</edgelabel>
+          <edgelabel>f_hTarget</edgelabel>
+          <edgelabel>f_hThis</edgelabel>
+          <edgelabel>m_hStackTop</edgelabel>
+        </childnode>
+        <childnode refid="94" relation="usage">
+          <edgelabel>f_aInfo</edgelabel>
+        </childnode>
+        <childnode refid="90" relation="usage">
+          <edgelabel>f_framePrev</edgelabel>
+          <edgelabel>m_frameNext</edgelabel>
+        </childnode>
+        <childnode refid="105" relation="usage">
+          <edgelabel>m_aGuard</edgelabel>
+        </childnode>
+        <childnode refid="106" relation="usage">
+          <edgelabel>m_hException</edgelabel>
+        </childnode>
+        <childnode refid="107" relation="usage">
+          <edgelabel>m_deferred</edgelabel>
+        </childnode>
+        <childnode refid="108" relation="usage">
+          <edgelabel>m_hfnFinally</edgelabel>
+        </childnode>
+        <childnode refid="110" relation="usage">
+          <edgelabel>m_continuation</edgelabel>
+        </childnode>
+        <childnode refid="83" relation="usage">
+          <edgelabel>m_chain</edgelabel>
+        </childnode>
+        <childnode refid="111" relation="usage">
+          <edgelabel>m_debug</edgelabel>
+        </childnode>
+        <childnode refid="95" relation="usage">
+          <edgelabel>ARRAY_ELEMENT_RESOLVER</edgelabel>
+          <edgelabel>METHOD_RESOLVER</edgelabel>
+          <edgelabel>PROPERTY_RESOLVER</edgelabel>
+          <edgelabel>REF_RESOLVER</edgelabel>
+        </childnode>
+      </node>
+      <node id="110">
+        <label>org.xvm.runtime.Frame.Continuation</label>
+        <link refid="d5/dfd/interfaceorg_1_1xvm_1_1runtime_1_1_frame_1_1_continuation"/>
+      </node>
+      <node id="107">
+        <label>org.xvm.runtime.Frame.DeferredGuardAction</label>
+        <link refid="d7/d9f/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_deferred_guard_action"/>
+      </node>
+      <node id="105">
+        <label>org.xvm.runtime.Frame.Guard</label>
+        <link refid="d0/d8b/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_guard"/>
+      </node>
+      <node id="94">
+        <label>org.xvm.runtime.Frame.VarInfo</label>
+        <link refid="df/d8b/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_var_info"/>
+        <childnode refid="31" relation="usage">
+          <edgelabel>m_type</edgelabel>
+        </childnode>
+        <childnode refid="95" relation="usage">
+          <edgelabel>m_resolver</edgelabel>
+        </childnode>
+        <childnode refid="96" relation="usage">
+          <edgelabel>m_ref</edgelabel>
+        </childnode>
+      </node>
+      <node id="95">
+        <label>org.xvm.runtime.Frame.VarTypeResolver</label>
+        <link refid="db/dde/interfaceorg_1_1xvm_1_1runtime_1_1_frame_1_1_var_type_resolver"/>
+      </node>
+      <node id="62">
+        <label>org.xvm.runtime.ObjectHandle</label>
+        <link refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+        <childnode refid="63" relation="usage">
+          <edgelabel>m_clazz</edgelabel>
+        </childnode>
+        <childnode refid="62" relation="usage">
+          <edgelabel>DEFAULT</edgelabel>
+        </childnode>
+      </node>
+      <node id="106">
+        <label>org.xvm.runtime.ObjectHandle.ExceptionHandle</label>
+        <link refid="da/d17/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_exception_handle"/>
+        <childnode refid="72" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="72">
+        <label>org.xvm.runtime.ObjectHandle.GenericHandle</label>
+        <link refid="d3/d56/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_generic_handle"/>
+        <childnode refid="62" relation="public-inheritance">
+        </childnode>
+        <childnode refid="62" relation="usage">
+          <edgelabel>m_aFields</edgelabel>
+        </childnode>
+        <childnode refid="47" relation="usage">
+          <edgelabel>m_owner</edgelabel>
+        </childnode>
+      </node>
+      <node id="125">
+        <label>org.xvm.runtime.ObjectHandle.JavaLong</label>
+        <link refid="d5/d22/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_java_long"/>
+        <childnode refid="62" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="46">
+        <label>org.xvm.runtime.OpSupport</label>
+        <link refid="d5/d35/interfaceorg_1_1xvm_1_1runtime_1_1_op_support"/>
+      </node>
+      <node id="48">
+        <label>org.xvm.runtime.Runtime</label>
+        <link refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime"/>
+      </node>
+      <node id="54">
+        <label>org.xvm.runtime.ServiceContext</label>
+        <link refid="d8/d69/classorg_1_1xvm_1_1runtime_1_1_service_context"/>
+        <childnode refid="47" relation="usage">
+          <edgelabel>f_container</edgelabel>
+        </childnode>
+        <childnode refid="55" relation="usage">
+          <edgelabel>f_pool</edgelabel>
+        </childnode>
+        <childnode refid="71" relation="usage">
+          <edgelabel>m_hService</edgelabel>
+        </childnode>
+        <childnode refid="73" relation="usage">
+          <edgelabel>m_hExceptionHandler</edgelabel>
+        </childnode>
+        <childnode refid="62" relation="usage">
+          <edgelabel>m_hSynchronizedSection</edgelabel>
+        </childnode>
+        <childnode refid="90" relation="usage">
+          <edgelabel>m_frameCurrent</edgelabel>
+        </childnode>
+        <childnode refid="120" relation="usage">
+          <edgelabel>f_queueSuspended</edgelabel>
+        </childnode>
+        <childnode refid="121" relation="usage">
+          <edgelabel>m_synchronicity</edgelabel>
+        </childnode>
+        <childnode refid="91" relation="usage">
+          <edgelabel>m_fiberSyncOwner</edgelabel>
+        </childnode>
+        <childnode refid="122" relation="usage">
+          <edgelabel>f_wakeUpScheduler</edgelabel>
+        </childnode>
+      </node>
+      <node id="121">
+        <label>org.xvm.runtime.ServiceContext.Synchronicity</label>
+        <link refid="dc/d52/enumorg_1_1xvm_1_1runtime_1_1_service_context_1_1_synchronicity"/>
+      </node>
+      <node id="122">
+        <label>org.xvm.runtime.ServiceContext.WakeUpScheduler</label>
+        <link refid="d4/dea/classorg_1_1xvm_1_1runtime_1_1_service_context_1_1_wake_up_scheduler"/>
+      </node>
+      <node id="63">
+        <label>org.xvm.runtime.TypeComposition</label>
+        <link refid="db/db9/interfaceorg_1_1xvm_1_1runtime_1_1_type_composition"/>
+      </node>
+      <node id="127">
+        <label>org.xvm.runtime.template.IndexSupport</label>
+        <link refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support"/>
+      </node>
+      <node id="109">
+        <label>org.xvm.runtime.template._native.reflect.xRTFunction.DelegatingHandle</label>
+        <link refid="d5/d24/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_function_1_1_delegating_handle"/>
+        <childnode refid="73" relation="public-inheritance">
+        </childnode>
+        <childnode refid="73" relation="usage">
+          <edgelabel>m_hDelegate</edgelabel>
+        </childnode>
+      </node>
+      <node id="108">
+        <label>org.xvm.runtime.template._native.reflect.xRTFunction.FullyBoundHandle</label>
+        <link refid="d3/d86/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_function_1_1_fully_bound_handle"/>
+        <childnode refid="109" relation="public-inheritance">
+        </childnode>
+        <childnode refid="62" relation="usage">
+          <edgelabel>f_ahArg</edgelabel>
+        </childnode>
+        <childnode refid="108" relation="usage">
+          <edgelabel>NO_OP</edgelabel>
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+      </node>
+      <node id="73">
+        <label>org.xvm.runtime.template._native.reflect.xRTFunction.FunctionHandle</label>
+        <link refid="da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_function_1_1_function_handle"/>
+        <childnode refid="74" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="74">
+        <label>org.xvm.runtime.template._native.reflect.xRTSignature.SignatureHandle</label>
+        <link refid="d1/d6b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_signature_1_1_signature_handle"/>
+        <childnode refid="72" relation="public-inheritance">
+        </childnode>
+        <childnode refid="37" relation="usage">
+          <edgelabel>f_idMethod</edgelabel>
+        </childnode>
+        <childnode refid="75" relation="usage">
+          <edgelabel>f_method</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>f_type</edgelabel>
+        </childnode>
+        <childnode refid="83" relation="usage">
+          <edgelabel>f_chain</edgelabel>
+        </childnode>
+      </node>
+      <node id="43">
+        <label>org.xvm.runtime.template._native.reflect.xRTType</label>
+        <link refid="d5/daa/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_type"/>
+        <childnode refid="44" relation="public-inheritance">
+        </childnode>
+        <childnode refid="127" relation="public-inheritance">
+        </childnode>
+        <childnode refid="43" relation="usage">
+          <edgelabel>INSTANCE</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>LISTMAP_TYPE</edgelabel>
+          <edgelabel>TYPE_ARRAY_TYPE</edgelabel>
+        </childnode>
+        <childnode refid="128" relation="usage">
+          <edgelabel>EMPTY_TYPE_ARRAY</edgelabel>
+        </childnode>
+        <childnode refid="63" relation="usage">
+          <edgelabel>REGISTER_CLZCOMP</edgelabel>
+        </childnode>
+        <childnode refid="75" relation="usage">
+          <edgelabel>REGISTER_CONSTRUCT</edgelabel>
+        </childnode>
+        <childnode refid="97" relation="usage">
+          <edgelabel>PROP_CALCULATE</edgelabel>
+          <edgelabel>PROP_HASHER</edgelabel>
+        </childnode>
+      </node>
+      <node id="96">
+        <label>org.xvm.runtime.template.reflect.xRef.RefHandle</label>
+        <link refid="de/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1_1_ref_handle"/>
+        <childnode refid="72" relation="public-inheritance">
+        </childnode>
+        <childnode refid="62" relation="usage">
+          <edgelabel>m_hReferent</edgelabel>
+        </childnode>
+        <childnode refid="97" relation="usage">
+          <edgelabel>m_idProp</edgelabel>
+        </childnode>
+        <childnode refid="90" relation="usage">
+          <edgelabel>m_frame</edgelabel>
+        </childnode>
+      </node>
+      <node id="124">
+        <label>org.xvm.runtime.template.text.xString.StringHandle</label>
+        <link refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle"/>
+        <childnode refid="62" relation="public-inheritance">
+        </childnode>
+        <childnode refid="125" relation="usage">
+          <edgelabel>m_hash</edgelabel>
+        </childnode>
+      </node>
+      <node id="44">
+        <label>org.xvm.runtime.template.xConst</label>
+        <link refid="d4/d96/classorg_1_1xvm_1_1runtime_1_1template_1_1x_const"/>
+        <childnode refid="45" relation="public-inheritance">
+        </childnode>
+        <childnode refid="44" relation="usage">
+          <edgelabel>INSTANCE</edgelabel>
+        </childnode>
+        <childnode refid="126" relation="usage">
+          <edgelabel>NO_FIELDS</edgelabel>
+        </childnode>
+        <childnode refid="75" relation="usage">
+          <edgelabel>DATE_CONSTRUCT</edgelabel>
+          <edgelabel>DURATION_CONSTRUCT</edgelabel>
+          <edgelabel>FN_APPEND_TO</edgelabel>
+          <edgelabel>FN_ESTIMATE_LENGTH</edgelabel>
+          <edgelabel>FN_FREEZE</edgelabel>
+          <edgelabel>NIBBLE_CONSTRUCT</edgelabel>
+          <edgelabel>PATH_CONSTRUCT</edgelabel>
+          <edgelabel>RANGE_CONSTRUCT</edgelabel>
+          <edgelabel>TIMEOFDAY_CONSTRUCT</edgelabel>
+          <edgelabel>TIME_CONSTRUCT</edgelabel>
+          <edgelabel>  ...</edgelabel>
+        </childnode>
+        <childnode refid="40" relation="usage">
+          <edgelabel>HASH_SIG</edgelabel>
+        </childnode>
+      </node>
+      <node id="71">
+        <label>org.xvm.runtime.template.xService.ServiceHandle</label>
+        <link refid="d9/dd1/classorg_1_1xvm_1_1runtime_1_1template_1_1x_service_1_1_service_handle"/>
+        <childnode refid="72" relation="public-inheritance">
+        </childnode>
+        <childnode refid="54" relation="usage">
+          <edgelabel>f_context</edgelabel>
+        </childnode>
+      </node>
+      <node id="36">
+        <label>org.xvm.util.ListMap&lt; String, org.xvm.asm.constants.ChildInfo &gt;</label>
+        <link refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map"/>
+      </node>
+      <node id="35">
+        <label>org.xvm.util.ListMap&lt; org.xvm.asm.constants.IdentityConstant, org.xvm.asm.constants.TypeConstant.Origin &gt;</label>
+        <link refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map"/>
+      </node>
+      <node id="26">
+        <label>org.xvm.util.ListMap&lt; org.xvm.asm.constants.StringConstant, org.xvm.asm.constants.TypeConstant &gt;</label>
+        <link refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map"/>
+      </node>
+      <node id="59">
+        <label>org.xvm.util.PackedInteger</label>
+        <link refid="dc/ddc/classorg_1_1xvm_1_1util_1_1_packed_integer"/>
+        <childnode refid="60" relation="public-inheritance">
+        </childnode>
+        <childnode refid="59" relation="usage">
+          <edgelabel>CACHE</edgelabel>
+          <edgelabel>EB</edgelabel>
+          <edgelabel>EI</edgelabel>
+          <edgelabel>GB</edgelabel>
+          <edgelabel>GI</edgelabel>
+          <edgelabel>KB</edgelabel>
+          <edgelabel>KI</edgelabel>
+          <edgelabel>MB</edgelabel>
+          <edgelabel>MI</edgelabel>
+          <edgelabel>NEG_ONE</edgelabel>
+          <edgelabel>  ...</edgelabel>
+        </childnode>
+      </node>
+      <node id="56">
+        <label>org.xvm.util.TransientThreadLocal&lt; List&lt; org.xvm.asm.constants.TypeConstant &gt; &gt;</label>
+        <link refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local"/>
+      </node>
+      <node id="42">
+        <label>org.xvm.util.TransientThreadLocal&lt; Set&lt; org.xvm.asm.constants.TypeConstant &gt; &gt;</label>
+        <link refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NativeTypeSystem.java" line="49" column="7" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NativeTypeSystem.java" bodystart="50" bodyend="317"/>
+    <listofallmembers>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1ae6c0fb81c9f7b7f5fe704e64c27c49cb" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>ANNO</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1ae4ddda2c42189fa45a2a9aa6da3029d6" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>Artifact</name></member>
+      <member refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a650914e6dcfe8592cd5cd87f9a5782a4" prot="private" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>augmentNativeClass</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a0a2eb123e9e5494ae675debc12a8f03a" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>BANG</name></member>
+      <member refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a883ecd062bccb4d550836bf38c5d7bdc" prot="private" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>bridgeLoader</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1abbedc014daf0d168a71452fcc793308a" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>CLASS</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1aa4c71c73bac9454e22993ff2096d84a3" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>COMMA</name></member>
+      <member refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a960230b24bd927730d424332ac88bbb3" prot="package" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>create</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a352c8e9b802394acf7481c16ed914d28" prot="public" virt="non-virtual" ambiguityscope="org::xvm::javajit::TypeSystem."><scope>org::xvm::javajit::NativeTypeSystem</scope><name>create</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1af895cd14ca04698216d726f6794d35eb" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>deduceArtifact</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1ac333aaff149b3c7248dde8c129bf46c5" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>DIFF</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a2713085841f00d318ad342942b98c857" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>DOT</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1aef471b1b04d70576a062f4adae5321ce" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>DUCK</name></member>
+      <member refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a8a9547a3fedb54071f347b061fe2f81c" prot="protected" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>ensureBuilder</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1ae5245541b0127dab2322deb88fca1f41" prot="protected" virt="non-virtual" ambiguityscope="org::xvm::javajit::TypeSystem."><scope>org::xvm::javajit::NativeTypeSystem</scope><name>ensureBuilder</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a8bb4c5892ef0731fe0abc8b7894c0585" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>ENUM</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1ac361f61d1331926a7dabcce43f0d53d9" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>enumerationClass</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a002d0f5f68e6fd727c0eed8209bb8f0b" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>ESC</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a4be29eab44794296958ab037f4344935" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>escapeJitClassName</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a6e9b75874c503e380c9f88d7845eeee5" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>escapeJitMemberName</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1ad043a14d990be36b8b7bc7eb1fdf7169" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>EXCEPT</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a8734ce040bc1d5fd805bf8b093e8b275" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>findOwnerLoader</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a92d35f83a2e43d1c88e0ba39607b03ba" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>findOwnerLoader</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1afdf9f7ce4ffbb3630930bd89b351d42a" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>findOwnerPool</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a4fa4abad698f6c3ab3bf02d0275bdaa3" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>FUTURE</name></member>
+      <member refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1ad487734ca159f9ff0f7299baec09f9e4" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>genClass</name></member>
+      <member refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a227ebf46c7c021cfa3bc433eac6e5f05" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>getReservedName</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1ad61c8c025910b29bd75d9b3be38a946d" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>ID_NUM</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a8511629b38de6e711d2bbef936ede85c" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>INTRFACE</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a2a374624a647e10773de8b2d963a5bf1" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>INTRSECT</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a663d966420323c74329b9c5befa1aa50" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>isEnumerationClass</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a90f3bce0db8b6fa844673f545b338444" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>L_ANGLE</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a2569d44212a0f9f4332a275c397016ec" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>L_PAREN</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a8ac30a05c620c295e4cf24957ffb545e" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>loader</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a9b66ae94ddf0a671d82aa4ad40f8293e" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>mainModule</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a7532e8a6f71890b956f6498fff74c695" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>MASK</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1aacd5c4f91fd3972d32bf65b19a52bf68" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>MIN_ESC</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a164b214f22102a25deb5cc9bdffe4990" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>name</name></member>
+      <member refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a90bd5a886d8361bd4c845678c5ff4199" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>nativeBuilders</name></member>
+      <member refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a51776ca6f1e147d675742bfc04a00a5c" prot="private" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>nativeByClass</name></member>
+      <member refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a4c5c55980d777744e9afe9d39430d667" prot="private" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>nativeByType</name></member>
+      <member refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a0380e44d28053875bd8a64af965c6e7f" prot="private" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>NativeTypeSystem</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1ac2a5094d967df6b369f06ae38992278d" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>NO_MOD</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1ad8beae332297c76271b1df142cddc62f" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>NULLABLE</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1accdd3641c76bcbb281af05c54c78e1ee" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>owned</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a5de19857fb027a2317e4441167e5bdf6" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>pool</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a71939942036bc761de0b2fe12c495af6" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>PROXY</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a8c266717e4bcf1a66a385fa16beb9ca8" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>R_ANGLE</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a1fb7c5b731b58fd813c699032c02f03c" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>R_PAREN</name></member>
+      <member refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system_1a7a51600f9910ffdcfe303c367b41835b" prot="package" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>registerNativeClasses</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1ae32a48ed6ff87ed0d2ce579e2b4896ea" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>RESERVED</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1ade15aa08b58d42e896c570b2d9b8d273" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>shared</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1af7a9a7110c879651b031997d73cee35e" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>SPACE</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1aec5ea8743b13f1a2a92b4c67fb25cfb9" prot="package" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>TypeSystem</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1ad99f9e0b51f2fc8de0e43025dcbd34af" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>unescapeJitName</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a5d72a3557f80f7d701efb7be312c9c0e" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>UNION</name></member>
+      <member refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a5b7f7967afbab0acdc3269bd1e733e04" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NativeTypeSystem</scope><name>xvm</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

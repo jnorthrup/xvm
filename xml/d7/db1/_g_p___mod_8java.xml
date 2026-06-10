@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d7/db1/_g_p___mod_8java" kind="file" language="Java">
+    <compoundname>GP_Mod.java</compoundname>
+    <includes local="no">java.io.DataInput</includes>
+    <includes local="no">java.io.IOException</includes>
+    <includes local="no">java.lang.classfile.CodeBuilder</includes>
+    <includes local="no">org.xvm.asm.Argument</includes>
+    <includes local="no">org.xvm.asm.Constant</includes>
+    <includes local="no">org.xvm.asm.OpGeneral</includes>
+    <includes local="no">org.xvm.asm.constants.TypeConstant</includes>
+    <includes local="no">org.xvm.javajit.BuildContext</includes>
+    <includes local="no">org.xvm.javajit.NumberSupport</includes>
+    <includes local="no">org.xvm.javajit.RegisterInfo</includes>
+    <includes local="no">org.xvm.runtime.Frame</includes>
+    <includes local="no">org.xvm.runtime.ObjectHandle</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/op/GP_Mod.java</label>
+        <link refid="d7/db1/_g_p___mod_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.io.DataInput</label>
+      </node>
+      <node id="3">
+        <label>java.io.IOException</label>
+      </node>
+      <node id="4">
+        <label>java.lang.classfile.CodeBuilder</label>
+      </node>
+      <node id="5">
+        <label>org.xvm.asm.Argument</label>
+      </node>
+      <node id="6">
+        <label>org.xvm.asm.Constant</label>
+      </node>
+      <node id="7">
+        <label>org.xvm.asm.OpGeneral</label>
+      </node>
+      <node id="8">
+        <label>org.xvm.asm.constants.TypeConstant</label>
+      </node>
+      <node id="9">
+        <label>org.xvm.javajit.BuildContext</label>
+      </node>
+      <node id="10">
+        <label>org.xvm.javajit.NumberSupport</label>
+      </node>
+      <node id="11">
+        <label>org.xvm.javajit.RegisterInfo</label>
+      </node>
+      <node id="12">
+        <label>org.xvm.runtime.Frame</label>
+      </node>
+      <node id="13">
+        <label>org.xvm.runtime.ObjectHandle</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="d7/d45/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___mod" prot="public">org::xvm::asm::op::GP_Mod</innerclass>
+    <innernamespace refid="d5/d78/namespaceorg_1_1xvm_1_1asm_1_1op">org::xvm::asm::op</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.asm.op;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.DataInput;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.IOException;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.classfile.CodeBuilder;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Argument;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Constant;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.OpGeneral;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.constants.TypeConstant;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.javajit.BuildContext;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.javajit.NumberSupport;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.javajit.RegisterInfo;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.Frame;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.ObjectHandle;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="d7/d45/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___mod" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d7/d45/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___mod_1a546d2eda6f765ab1f63538dcdd9c90cc" kindref="member">GP_Mod</ref></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="d8/d08/classorg_1_1xvm_1_1asm_1_1_op_general_1a05195ae572def08a27b46095971c1b19" kindref="member">OpGeneral</ref></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>implements<sp/><ref refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support" kindref="compound">NumberSupport</ref><sp/>{</highlight></codeline>
+<codeline lineno="35" refid="d7/d45/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___mod_1a546d2eda6f765ab1f63538dcdd9c90cc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d7/d45/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___mod_1a546d2eda6f765ab1f63538dcdd9c90cc" kindref="member">GP_Mod</ref>(<ref refid="dd/da8/interfaceorg_1_1xvm_1_1asm_1_1_argument" kindref="compound">Argument</ref><sp/>argTarget,<sp/><ref refid="dd/da8/interfaceorg_1_1xvm_1_1asm_1_1_argument" kindref="compound">Argument</ref><sp/>argValue,<sp/><ref refid="dd/da8/interfaceorg_1_1xvm_1_1asm_1_1_argument" kindref="compound">Argument</ref><sp/>argReturn)<sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(argTarget,<sp/>argValue,<sp/>argReturn);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="d7/d45/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___mod_1af2f3fe857c0db13607cb846f70ea86b4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d7/d45/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___mod_1af2f3fe857c0db13607cb846f70ea86b4" kindref="member">GP_Mod</ref>(DataInput<sp/>in,<sp/><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref>[]<sp/>aconst)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(in,<sp/>aconst);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="51" refid="d7/d45/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___mod_1ae2648cdb17e96e413fab3712aaafd002" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d7/d45/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___mod_1ae2648cdb17e96e413fab3712aaafd002" kindref="member">getOpCode</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a500e93bc6865664ec2e111811e80ae10" kindref="member">OP_GP_MOD</ref>;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="d7/d45/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___mod_1ad5bd5ec86f27e1aab843446d34bfc2ae" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d7/d45/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___mod_1ad5bd5ec86f27e1aab843446d34bfc2ae" kindref="member">completeBinary</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frame,<sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hTarget,<sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hArg)<sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>hTarget.<ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle_1a15a84e78be8166b39deb18cad3aaf4c4" kindref="member">getOpSupport</ref>().<ref refid="d5/d35/interfaceorg_1_1xvm_1_1runtime_1_1_op_support_1ac17b8a42f3f3583a0ede748d10afd9a2" kindref="member">invokeMod</ref>(frame,<sp/>hTarget,<sp/>hArg,<sp/><ref refid="d8/d08/classorg_1_1xvm_1_1asm_1_1_op_general_1a78cfaf3787d82d0b46e0b5be17573d1f" kindref="member">m_nRetValue</ref>);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>JIT<sp/>support<sp/>---------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="62" refid="d7/d45/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___mod_1a0d5160496d9db7d0a418f1e8a747835d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d7/d45/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___mod_1a0d5160496d9db7d0a418f1e8a747835d" kindref="member">buildOptimizedBinary</ref>(<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref><sp/>bctx,<sp/>CodeBuilder<sp/>code,<sp/></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref><sp/>regTarget,<sp/><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref><sp/>regArg)<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a7964d945776f1d497e4ecc80a6b0b9a0" kindref="member">buildPrimitiveMod</ref>(bctx,<sp/>code,<sp/>regTarget);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="68" refid="d7/d45/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___mod_1aa3144171531d5db1279d66848d28e478" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/><ref refid="d7/d45/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___mod_1aa3144171531d5db1279d66848d28e478" kindref="member">buildXvmOptimizedBinary</ref>(<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref><sp/>bctx,<sp/>CodeBuilder<sp/>code,</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref><sp/>regTarget,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nArgValue)<sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a506e24ebed1752ae27e166e9cd85706a" kindref="member">buildXvmPrimitiveMod</ref>(bctx,<sp/>code,<sp/>regTarget,<sp/>nArgValue);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>regTarget.<ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4deb7ba2ac6982c77aba0ffe4faff6a5" kindref="member">type</ref>();</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/op/GP_Mod.java"/>
+  </compounddef>
+</doxygen>

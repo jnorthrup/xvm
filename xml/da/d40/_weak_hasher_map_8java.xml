@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="da/d40/_weak_hasher_map_8java" kind="file" language="Java">
+    <compoundname>WeakHasherMap.java</compoundname>
+    <includes local="no">java.lang.ref.Reference</includes>
+    <includes local="no">java.lang.ref.ReferenceQueue</includes>
+    <includes local="no">java.lang.ref.WeakReference</includes>
+    <includes local="no">java.util.Iterator</includes>
+    <includes local="no">java.util.Map</includes>
+    <includes local="no">java.util.Objects</includes>
+    <includes local="no">java.util.Set</includes>
+    <includes local="no">java.util.concurrent.ConcurrentMap</includes>
+    <includes local="no">java.util.concurrent.ThreadLocalRandom</includes>
+    <includes local="no">java.util.function.Supplier</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/WeakHasherMap.java</label>
+        <link refid="da/d40/_weak_hasher_map_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.lang.ref.Reference</label>
+      </node>
+      <node id="3">
+        <label>java.lang.ref.ReferenceQueue</label>
+      </node>
+      <node id="4">
+        <label>java.lang.ref.WeakReference</label>
+      </node>
+      <node id="5">
+        <label>java.util.Iterator</label>
+      </node>
+      <node id="6">
+        <label>java.util.Map</label>
+      </node>
+      <node id="7">
+        <label>java.util.Objects</label>
+      </node>
+      <node id="8">
+        <label>java.util.Set</label>
+      </node>
+      <node id="9">
+        <label>java.util.concurrent.ConcurrentMap</label>
+      </node>
+      <node id="10">
+        <label>java.util.concurrent.ThreadLocalRandom</label>
+      </node>
+      <node id="11">
+        <label>java.util.function.Supplier</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map" prot="public">org::xvm::util::WeakHasherMap</innerclass>
+    <innerclass refid="d5/dae/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1_1_key_set" prot="protected">org::xvm::util::WeakHasherMap::KeySet</innerclass>
+    <innerclass refid="d3/d35/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1_1_entry_set" prot="protected">org::xvm::util::WeakHasherMap::EntrySet</innerclass>
+    <innernamespace refid="df/d46/namespaceorg_1_1xvm_1_1util">org::xvm::util</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.util;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.ref.Reference;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.ref.ReferenceQueue;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.ref.WeakReference;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Iterator;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Map;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Objects;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Set;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.concurrent.ConcurrentMap;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.concurrent.ThreadLocalRandom;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.function.Supplier;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a33fb418290c18c255d7c32b32f659559" kindref="member">WeakHasherMap</ref>&lt;K,<sp/>V&gt;<sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="dd/d24/classorg_1_1xvm_1_1util_1_1_hasher_map_1a59daf27d94bdc0c862e4c07d134b3e22" kindref="member">HasherMap</ref>&lt;K,<sp/>V&gt;<sp/>{</highlight></codeline>
+<codeline lineno="22" refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a4fa09f46bb095ee30a59ebbd8bdfb9f8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a4fa09f46bb095ee30a59ebbd8bdfb9f8" kindref="member">MIN_GC_INTERVAL</ref><sp/>=<sp/>Integer.highestOneBit(Runtime.getRuntime().availableProcessors());</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1af1005ecae4a4d461206cf17eef342c9b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>ReferenceQueue&lt;K&gt;<sp/><ref refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1af1005ecae4a4d461206cf17eef342c9b" kindref="member">garbage</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ReferenceQueue&lt;&gt;();</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a9dbfde9dbd3c09a297a6d953c59cb254" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a9dbfde9dbd3c09a297a6d953c59cb254" kindref="member">fullGcInterval</ref><sp/>=<sp/><ref refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a4fa09f46bb095ee30a59ebbd8bdfb9f8" kindref="member">MIN_GC_INTERVAL</ref>;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a33fb418290c18c255d7c32b32f659559" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a33fb418290c18c255d7c32b32f659559" kindref="member">WeakHasherMap</ref>(<ref refid="db/db8/interfaceorg_1_1xvm_1_1util_1_1_hasher" kindref="compound">Hasher&lt;K&gt;</ref><sp/><ref refid="dd/d24/classorg_1_1xvm_1_1util_1_1_hasher_map_1a0f129fba798cccda4e944eb46d1331de" kindref="member">hasher</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(<ref refid="dd/d24/classorg_1_1xvm_1_1util_1_1_hasher_map_1a0f129fba798cccda4e944eb46d1331de" kindref="member">hasher</ref>);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a87a976a7fb86c7a5e50a8f18b0a6d69d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a87a976a7fb86c7a5e50a8f18b0a6d69d" kindref="member">WeakHasherMap</ref>(<ref refid="db/db8/interfaceorg_1_1xvm_1_1util_1_1_hasher" kindref="compound">Hasher&lt;K&gt;</ref><sp/><ref refid="dd/d24/classorg_1_1xvm_1_1util_1_1_hasher_map_1a0f129fba798cccda4e944eb46d1331de" kindref="member">hasher</ref>,<sp/>Supplier&lt;?<sp/>extends<sp/>Map&lt;Supplier&lt;K&gt;,<sp/>V&gt;&gt;<sp/><ref refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a976815ac87ce3622e07f0947d21ef881" kindref="member">storage</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(<ref refid="dd/d24/classorg_1_1xvm_1_1util_1_1_hasher_map_1a0f129fba798cccda4e944eb46d1331de" kindref="member">hasher</ref>,<sp/><ref refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a976815ac87ce3622e07f0947d21ef881" kindref="member">storage</ref>);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="54" refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a091a7911a9201ebd84fefa851fed3c19" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>Supplier&lt;K&gt;<sp/><ref refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a091a7911a9201ebd84fefa851fed3c19" kindref="member">keyDown</ref>(K<sp/>key)<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d4/d3d/classorg_1_1xvm_1_1util_1_1_weak_hasher_reference" kindref="compound">WeakHasherReference&lt;&gt;</ref>(key,<sp/><ref refid="dd/d24/classorg_1_1xvm_1_1util_1_1_hasher_map_1a0f129fba798cccda4e944eb46d1331de" kindref="member">hasher</ref>,<sp/><ref refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1af1005ecae4a4d461206cf17eef342c9b" kindref="member">garbage</ref>);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="59" refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1add19be97b2f62b551e48526caa064136" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>Map&lt;Supplier&lt;K&gt;,<sp/>V&gt;<sp/><ref refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1add19be97b2f62b551e48526caa064136" kindref="member">read</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Map&lt;Supplier&lt;K&gt;,<sp/>V&gt;<sp/><ref refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a976815ac87ce3622e07f0947d21ef881" kindref="member">storage</ref><sp/>=<sp/>super.read();</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ThreadLocalRandom.current().nextInt(<ref refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a9dbfde9dbd3c09a297a6d953c59cb254" kindref="member">fullGcInterval</ref>)<sp/>==<sp/>0</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/><ref refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1af70b684f082683de16709ea44700c688" kindref="member">gc</ref>(<ref refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a976815ac87ce3622e07f0947d21ef881" kindref="member">storage</ref>,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/><ref refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a976815ac87ce3622e07f0947d21ef881" kindref="member">storage</ref><sp/>instanceof<sp/>ConcurrentMap)</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a976815ac87ce3622e07f0947d21ef881" kindref="member">storage</ref>;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="67" refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1ac13bdafc9b484efbf15f5f840b21672c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>Map&lt;Supplier&lt;K&gt;,<sp/>V&gt;<sp/><ref refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1ac13bdafc9b484efbf15f5f840b21672c" kindref="member">write</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Map&lt;Supplier&lt;K&gt;,<sp/>V&gt;<sp/><ref refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a976815ac87ce3622e07f0947d21ef881" kindref="member">storage</ref><sp/>=<sp/>super.write();</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rand<sp/>=<sp/>ThreadLocalRandom.current().nextInt();</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1af70b684f082683de16709ea44700c688" kindref="member">gc</ref>(<ref refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a976815ac87ce3622e07f0947d21ef881" kindref="member">storage</ref>,<sp/>(rand<sp/>&amp;<sp/>(<ref refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a9dbfde9dbd3c09a297a6d953c59cb254" kindref="member">fullGcInterval</ref><sp/>-<sp/>1))<sp/>==<sp/>0,<sp/>(rand<sp/>&amp;<sp/>(<ref refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a4fa09f46bb095ee30a59ebbd8bdfb9f8" kindref="member">MIN_GC_INTERVAL</ref><sp/>-<sp/>1))<sp/>==<sp/>0);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81" refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1af70b684f082683de16709ea44700c688" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>Map&lt;Supplier&lt;K&gt;,<sp/>V&gt;<sp/><ref refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1af70b684f082683de16709ea44700c688" kindref="member">gc</ref>(Map&lt;Supplier&lt;K&gt;,<sp/>V&gt;<sp/><ref refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a976815ac87ce3622e07f0947d21ef881" kindref="member">storage</ref>,<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>mark,<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>sweep)<sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(mark)<sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>c<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(Iterator&lt;Supplier&lt;K&gt;&gt;<sp/>iter<sp/>=<sp/><ref refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a976815ac87ce3622e07f0947d21ef881" kindref="member">storage</ref>.keySet().iterator();<sp/>iter.hasNext();<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Supplier&lt;K&gt;<sp/>ref<sp/>=<sp/>iter.next();</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ref.get()<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(sweep)<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>iter.remove();</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((<ref refid="d4/d3d/classorg_1_1xvm_1_1util_1_1_weak_hasher_reference" kindref="compound">WeakHasherReference&lt;?&gt;</ref>)<sp/>ref).enqueue();</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++c;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>schedule<sp/>full<sp/>GCs<sp/>at<sp/>rate<sp/>relative<sp/>to<sp/>the<sp/>size<sp/>such<sp/>that<sp/>we<sp/>maintain<sp/>amortized<sp/>O(1)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a9dbfde9dbd3c09a297a6d953c59cb254" kindref="member">fullGcInterval</ref><sp/>=<sp/>Integer.highestOneBit(Math.max(<ref refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a4fa09f46bb095ee30a59ebbd8bdfb9f8" kindref="member">MIN_GC_INTERVAL</ref>,<sp/>c<sp/>+<sp/>c<sp/>/<sp/>2));</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(sweep)<sp/>{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Reference&lt;?<sp/>extends<sp/>K&gt;<sp/>key;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>((key<sp/>=<sp/><ref refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1af1005ecae4a4d461206cf17eef342c9b" kindref="member">garbage</ref>.poll())<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a976815ac87ce3622e07f0947d21ef881" kindref="member">storage</ref>.remove((<ref refid="d4/d3d/classorg_1_1xvm_1_1util_1_1_weak_hasher_reference" kindref="compound">WeakHasherReference&lt;?&gt;</ref>)<sp/>key);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a976815ac87ce3622e07f0947d21ef881" kindref="member">storage</ref>;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="112" refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1ad4bc77dd2721f3390377d001a150d642" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>Set&lt;K&gt;<sp/><ref refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1ad4bc77dd2721f3390377d001a150d642" kindref="member">newKeySet</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d5/dae/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1_1_key_set" kindref="compound">KeySet</ref>();</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119" refid="d5/dae/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1_1_key_set" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d5/dae/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1_1_key_set" kindref="compound">KeySet</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="dd/d24/classorg_1_1xvm_1_1util_1_1_hasher_map_1a59daf27d94bdc0c862e4c07d134b3e22" kindref="member">HasherMap</ref>&lt;K,<sp/>V&gt;.<ref refid="d5/dae/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1_1_key_set" kindref="compound">KeySet</ref><sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="121" refid="d5/dae/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1_1_key_set_1ab2657bb28d9c0bda80dca2c2c644b32e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Iterator&lt;K&gt;<sp/><ref refid="d5/dae/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1_1_key_set_1ab2657bb28d9c0bda80dca2c2c644b32e" kindref="member">iterator</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator" kindref="compound">FilterIterator&lt;&gt;</ref>(super.iterator(),<sp/>Objects::nonNull);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="127" refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a670354eddc272772c74dd9c8bd2c1f49" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>Set&lt;Entry&lt;K,<sp/>V&gt;&gt;<sp/><ref refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a670354eddc272772c74dd9c8bd2c1f49" kindref="member">newEntrySet</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d3/d35/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1_1_entry_set" kindref="compound">EntrySet</ref>();</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134" refid="d3/d35/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1_1_entry_set" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d3/d35/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1_1_entry_set" kindref="compound">EntrySet</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="dd/d24/classorg_1_1xvm_1_1util_1_1_hasher_map_1a59daf27d94bdc0c862e4c07d134b3e22" kindref="member">HasherMap</ref>&lt;K,<sp/>V&gt;.<ref refid="d3/d35/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1_1_entry_set" kindref="compound">EntrySet</ref><sp/>{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="136" refid="d3/d35/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1_1_entry_set_1a27e277351154cfb4acca9040b14affc7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Iterator&lt;Entry&lt;K,<sp/>V&gt;&gt;<sp/><ref refid="d3/d35/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1_1_entry_set_1a27e277351154cfb4acca9040b14affc7" kindref="member">iterator</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator" kindref="compound">FilterIterator&lt;&gt;</ref>(super.iterator(),<sp/>e<sp/>-&gt;<sp/>e.getKey()<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/WeakHasherMap.java"/>
+  </compounddef>
+</doxygen>

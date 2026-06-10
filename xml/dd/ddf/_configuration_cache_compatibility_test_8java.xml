@@ -1,0 +1,364 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="dd/ddf/_configuration_cache_compatibility_test_8java" kind="file" language="Java">
+    <compoundname>ConfigurationCacheCompatibilityTest.java</compoundname>
+    <includes local="no">org.junit.jupiter.api.Assertions.assertEquals</includes>
+    <includes local="no">org.junit.jupiter.api.Assertions.assertNotNull</includes>
+    <includes local="no">org.junit.jupiter.api.Assertions.assertTrue</includes>
+    <includes local="no">java.io.File</includes>
+    <includes local="no">java.io.IOException</includes>
+    <includes local="no">java.nio.file.Files</includes>
+    <includes local="no">java.nio.file.Path</includes>
+    <includes local="no">java.util.Objects</includes>
+    <includes local="no">org.gradle.testkit.runner.BuildResult</includes>
+    <includes local="no">org.gradle.testkit.runner.GradleRunner</includes>
+    <includes local="no">org.gradle.testkit.runner.TaskOutcome</includes>
+    <includes local="no">org.junit.jupiter.api.BeforeEach</includes>
+    <includes local="no">org.junit.jupiter.api.Test</includes>
+    <includes local="no">org.junit.jupiter.api.io.TempDir</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/plugin/src/test/java/org/xtclang/plugin/ConfigurationCacheCompatibilityTest.java</label>
+        <link refid="dd/ddf/_configuration_cache_compatibility_test_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>java.io.File</label>
+      </node>
+      <node id="6">
+        <label>java.io.IOException</label>
+      </node>
+      <node id="7">
+        <label>java.nio.file.Files</label>
+      </node>
+      <node id="8">
+        <label>java.nio.file.Path</label>
+      </node>
+      <node id="9">
+        <label>java.util.Objects</label>
+      </node>
+      <node id="10">
+        <label>org.gradle.testkit.runner.BuildResult</label>
+      </node>
+      <node id="11">
+        <label>org.gradle.testkit.runner.GradleRunner</label>
+      </node>
+      <node id="12">
+        <label>org.gradle.testkit.runner.TaskOutcome</label>
+      </node>
+      <node id="2">
+        <label>org.junit.jupiter.api.Assertions.assertEquals</label>
+      </node>
+      <node id="3">
+        <label>org.junit.jupiter.api.Assertions.assertNotNull</label>
+      </node>
+      <node id="4">
+        <label>org.junit.jupiter.api.Assertions.assertTrue</label>
+      </node>
+      <node id="13">
+        <label>org.junit.jupiter.api.BeforeEach</label>
+      </node>
+      <node id="14">
+        <label>org.junit.jupiter.api.Test</label>
+      </node>
+      <node id="15">
+        <label>org.junit.jupiter.api.io.TempDir</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test" prot="package">org::xtclang::plugin::ConfigurationCacheCompatibilityTest</innerclass>
+    <innernamespace refid="d3/d53/namespaceorg_1_1xtclang_1_1plugin">org::xtclang::plugin</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xtclang.plugin;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.Assertions.assertEquals;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.Assertions.assertNotNull;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.Assertions.assertTrue;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.File;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.IOException;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.nio.file.Files;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.nio.file.Path;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Objects;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.gradle.testkit.runner.BuildResult;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.gradle.testkit.runner.GradleRunner;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.gradle.testkit.runner.TaskOutcome;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.BeforeEach;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.Test;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.io.TempDir;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test" kindref="compound">ConfigurationCacheCompatibilityTest</ref><sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>@TempDir</highlight></codeline>
+<codeline lineno="32" refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a86f715fac82be83bac13a49f0e4922d5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Path<sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a86f715fac82be83bac13a49f0e4922d5" kindref="member">testProjectDir</ref>;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a3faf296dd24f75898b8f7f1d9921b6a8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>File<sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a3faf296dd24f75898b8f7f1d9921b6a8" kindref="member">buildFile</ref>;</highlight></codeline>
+<codeline lineno="35" refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1af40ed0a083aa8156491796ef6b52822a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>File<sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1af40ed0a083aa8156491796ef6b52822a" kindref="member">settingsFile</ref>;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>@BeforeEach</highlight></codeline>
+<codeline lineno="38" refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a0dbb75dc7fadb4af58eeb6bd55d5a5c5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a0dbb75dc7fadb4af58eeb6bd55d5a5c5" kindref="member">setUp</ref>()<sp/>throws<sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a3faf296dd24f75898b8f7f1d9921b6a8" kindref="member">buildFile</ref><sp/>=<sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a86f715fac82be83bac13a49f0e4922d5" kindref="member">testProjectDir</ref>.resolve(</highlight><highlight class="stringliteral">&quot;build.gradle.kts&quot;</highlight><highlight class="normal">).toFile();</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1af40ed0a083aa8156491796ef6b52822a" kindref="member">settingsFile</ref><sp/>=<sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a86f715fac82be83bac13a49f0e4922d5" kindref="member">testProjectDir</ref>.resolve(</highlight><highlight class="stringliteral">&quot;settings.gradle.kts&quot;</highlight><highlight class="normal">).toFile();</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Create<sp/>a<sp/>minimal<sp/>XTC<sp/>project<sp/>setup</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1aeca18a2aafb7a306cebe83afb8838269" kindref="member">setupTestProject</ref>();</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="50" refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a8d2758c2bb91bc5951cb2487e4f13c0f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a8d2758c2bb91bc5951cb2487e4f13c0f" kindref="member">testBasicTasksWithConfigurationCache</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>First<sp/>run<sp/>without<sp/>configuration<sp/>cache<sp/>to<sp/>establish<sp/>baseline</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BuildResult<sp/>baselineResult<sp/>=<sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a036079cd8ef1412b3c0f006bd5d786f7" kindref="member">createGradleRunner</ref>()</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.withArguments(</highlight><highlight class="stringliteral">&quot;tasks&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;--no-configuration-cache&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;--stacktrace&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.build();</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(baselineResult.getOutput().contains(</highlight><highlight class="stringliteral">&quot;XTC<sp/>plugin<sp/>tasks&quot;</highlight><highlight class="normal">),<sp/></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Baseline<sp/>run<sp/>should<sp/>show<sp/>XTC<sp/>tasks&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Second<sp/>run<sp/>with<sp/>configuration<sp/>cache<sp/>enabled</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BuildResult<sp/>configCacheResult<sp/>=<sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a036079cd8ef1412b3c0f006bd5d786f7" kindref="member">createGradleRunner</ref>()</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.withArguments(</highlight><highlight class="stringliteral">&quot;tasks&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;--configuration-cache&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;--stacktrace&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.build();</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(configCacheResult.getOutput().contains(</highlight><highlight class="stringliteral">&quot;XTC<sp/>plugin<sp/>tasks&quot;</highlight><highlight class="normal">),<sp/></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Configuration<sp/>cache<sp/>run<sp/>should<sp/>show<sp/>XTC<sp/>tasks&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(configCacheResult.getOutput().contains(</highlight><highlight class="stringliteral">&quot;Configuration<sp/>cache<sp/>entry<sp/>stored&quot;</highlight><highlight class="normal">),<sp/></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Should<sp/>store<sp/>configuration<sp/>cache<sp/>entry&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Third<sp/>run<sp/>should<sp/>reuse<sp/>configuration<sp/>cache</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BuildResult<sp/>reuseResult<sp/>=<sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a036079cd8ef1412b3c0f006bd5d786f7" kindref="member">createGradleRunner</ref>()</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.withArguments(</highlight><highlight class="stringliteral">&quot;tasks&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;--configuration-cache&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;--stacktrace&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.build();</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(reuseResult.getOutput().contains(</highlight><highlight class="stringliteral">&quot;Configuration<sp/>cache<sp/>entry<sp/>reused&quot;</highlight><highlight class="normal">),<sp/></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Should<sp/>reuse<sp/>configuration<sp/>cache<sp/>entry&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="82" refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1aa9494726c32407e6562db2a878585b8b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1aa9494726c32407e6562db2a878585b8b" kindref="member">testXtcRunTaskWithConfigurationCache</ref>()<sp/>throws<sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a635efe16593ad5d6e36de996e1946819" kindref="member">createSimpleXtcModule</ref>();</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Test<sp/>without<sp/>configuration<sp/>cache</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BuildResult<sp/>baselineResult<sp/>=<sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a7098c568d6ac809d9bab5898b8d06cea" kindref="member">runBuildWithArgs</ref>(</highlight><highlight class="stringliteral">&quot;runXtc&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;--no-configuration-cache&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;--stacktrace&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(TaskOutcome.SUCCESS,<sp/>Objects.requireNonNull(baselineResult.task(</highlight><highlight class="stringliteral">&quot;:runXtc&quot;</highlight><highlight class="normal">)).getOutcome());</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Test<sp/>with<sp/>configuration<sp/>cache</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BuildResult<sp/>configCacheResult<sp/>=<sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a7098c568d6ac809d9bab5898b8d06cea" kindref="member">runBuildWithArgs</ref>(</highlight><highlight class="stringliteral">&quot;runXtc&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;--configuration-cache&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;--stacktrace&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(TaskOutcome.SUCCESS,<sp/>Objects.requireNonNull(configCacheResult.task(</highlight><highlight class="stringliteral">&quot;:runXtc&quot;</highlight><highlight class="normal">)).getOutcome());</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Verify<sp/>configuration<sp/>cache<sp/>was<sp/>stored</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(configCacheResult.getOutput().contains(</highlight><highlight class="stringliteral">&quot;Configuration<sp/>cache<sp/>entry<sp/>stored&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Test<sp/>reuse<sp/>of<sp/>configuration<sp/>cache</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BuildResult<sp/>reuseResult<sp/>=<sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a7098c568d6ac809d9bab5898b8d06cea" kindref="member">runBuildWithArgs</ref>(</highlight><highlight class="stringliteral">&quot;runXtc&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;--configuration-cache&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;--stacktrace&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(TaskOutcome.SUCCESS,<sp/>Objects.requireNonNull(reuseResult.task(</highlight><highlight class="stringliteral">&quot;:runXtc&quot;</highlight><highlight class="normal">)).getOutcome());</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(reuseResult.getOutput().contains(</highlight><highlight class="stringliteral">&quot;Configuration<sp/>cache<sp/>entry<sp/>reused&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test<sp/></highlight></codeline>
+<codeline lineno="106" refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1aef1678a6e3e6160e3061eb31ea0945c1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1aef1678a6e3e6160e3061eb31ea0945c1" kindref="member">testXtcCompileTaskWithConfigurationCache</ref>()<sp/>throws<sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a635efe16593ad5d6e36de996e1946819" kindref="member">createSimpleXtcModule</ref>();</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Test<sp/>without<sp/>configuration<sp/>cache<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BuildResult<sp/>baselineResult<sp/>=<sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a7098c568d6ac809d9bab5898b8d06cea" kindref="member">runBuildWithArgs</ref>(</highlight><highlight class="stringliteral">&quot;compileXtc&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;--no-configuration-cache&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;--stacktrace&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(TaskOutcome.SUCCESS,<sp/>Objects.requireNonNull(baselineResult.task(</highlight><highlight class="stringliteral">&quot;:compileXtc&quot;</highlight><highlight class="normal">)).getOutcome());</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Test<sp/>with<sp/>configuration<sp/>cache</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BuildResult<sp/>configCacheResult<sp/>=<sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a7098c568d6ac809d9bab5898b8d06cea" kindref="member">runBuildWithArgs</ref>(</highlight><highlight class="stringliteral">&quot;compileXtc&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;--configuration-cache&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;--stacktrace&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(TaskOutcome.SUCCESS,<sp/>Objects.requireNonNull(configCacheResult.task(</highlight><highlight class="stringliteral">&quot;:compileXtc&quot;</highlight><highlight class="normal">)).getOutcome());</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Verify<sp/>outputs<sp/>are<sp/>equivalent</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a4f8f2926f4dd71dd2a9fa23e55fe8736" kindref="member">verifyEquivalentTaskOutputs</ref>(baselineResult,<sp/>configCacheResult,<sp/></highlight><highlight class="stringliteral">&quot;:compileXtc&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="125" refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1aaef9183101e657a7938905d62d4c9f2f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1aaef9183101e657a7938905d62d4c9f2f" kindref="member">testTaskInputsProperlyDeclared</ref>()<sp/>throws<sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a635efe16593ad5d6e36de996e1946819" kindref="member">createSimpleXtcModule</ref>();</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Run<sp/>with<sp/>input<sp/>change<sp/>detection</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BuildResult<sp/>firstRun<sp/>=<sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a7098c568d6ac809d9bab5898b8d06cea" kindref="member">runBuildWithArgs</ref>(</highlight><highlight class="stringliteral">&quot;compileXtc&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;--configuration-cache&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;--stacktrace&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(TaskOutcome.SUCCESS,<sp/>Objects.requireNonNull(firstRun.task(</highlight><highlight class="stringliteral">&quot;:compileXtc&quot;</highlight><highlight class="normal">)).getOutcome());</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Modify<sp/>source<sp/>file<sp/>to<sp/>trigger<sp/>input<sp/>change</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Files.writeString(<ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a86f715fac82be83bac13a49f0e4922d5" kindref="member">testProjectDir</ref>.resolve(</highlight><highlight class="stringliteral">&quot;src/main/x/TestModule.x&quot;</highlight><highlight class="normal">),<sp/></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;module<sp/>TestModule<sp/>{<sp/>void<sp/>run()<sp/>{<sp/>console.println(\&quot;Modified!\&quot;);<sp/>}<sp/>}&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Run<sp/>again<sp/>-<sp/>task<sp/>should<sp/>not<sp/>be<sp/>UP-TO-DATE<sp/>due<sp/>to<sp/>input<sp/>change</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BuildResult<sp/>secondRun<sp/>=<sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a7098c568d6ac809d9bab5898b8d06cea" kindref="member">runBuildWithArgs</ref>(</highlight><highlight class="stringliteral">&quot;compileXtc&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;--configuration-cache&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;--stacktrace&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Should<sp/>recompile<sp/>due<sp/>to<sp/>input<sp/>change<sp/>(not<sp/>UP-TO-DATE)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(Objects.requireNonNull(secondRun.task(</highlight><highlight class="stringliteral">&quot;:compileXtc&quot;</highlight><highlight class="normal">)).getOutcome()<sp/>==<sp/>TaskOutcome.SUCCESS<sp/>||</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Objects.requireNonNull(secondRun.task(</highlight><highlight class="stringliteral">&quot;:compileXtc&quot;</highlight><highlight class="normal">)).getOutcome()<sp/>==<sp/>TaskOutcome.UP_TO_DATE);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="147" refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a4aea75f704582a50cb1b2a7612cd5db2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a4aea75f704582a50cb1b2a7612cd5db2" kindref="member">testMultipleXtcTasksWithConfigurationCache</ref>()<sp/>throws<sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a635efe16593ad5d6e36de996e1946819" kindref="member">createSimpleXtcModule</ref>();</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Test<sp/>task<sp/>chain<sp/>with<sp/>configuration<sp/>cache</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BuildResult<sp/>result<sp/>=<sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a7098c568d6ac809d9bab5898b8d06cea" kindref="member">runBuildWithArgs</ref>(</highlight><highlight class="stringliteral">&quot;build&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;runXtc&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;--configuration-cache&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;--stacktrace&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Verify<sp/>all<sp/>tasks<sp/>completed<sp/>successfully</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(result.task(</highlight><highlight class="stringliteral">&quot;:compileXtc&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertNotNull(result.task(</highlight><highlight class="stringliteral">&quot;:runXtc&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(TaskOutcome.SUCCESS,<sp/>Objects.requireNonNull(result.task(</highlight><highlight class="stringliteral">&quot;:compileXtc&quot;</highlight><highlight class="normal">)).getOutcome());</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(TaskOutcome.SUCCESS,<sp/>Objects.requireNonNull(result.task(</highlight><highlight class="stringliteral">&quot;:runXtc&quot;</highlight><highlight class="normal">)).getOutcome());</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Verify<sp/>configuration<sp/>cache<sp/>was<sp/>used</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(result.getOutput().contains(</highlight><highlight class="stringliteral">&quot;Configuration<sp/>cache<sp/>entry<sp/>stored&quot;</highlight><highlight class="normal">)<sp/>||</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result.getOutput().contains(</highlight><highlight class="stringliteral">&quot;Configuration<sp/>cache<sp/>entry<sp/>reused&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="168" refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1ad03c23ac36f9dce549d08138fa24ee8e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1ad03c23ac36f9dce549d08138fa24ee8e" kindref="member">testConfigurationCacheConsistency</ref>()<sp/>throws<sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a635efe16593ad5d6e36de996e1946819" kindref="member">createSimpleXtcModule</ref>();</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>First<sp/>run<sp/>-<sp/>should<sp/>store<sp/>configuration<sp/>cache</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BuildResult<sp/>firstResult<sp/>=<sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a036079cd8ef1412b3c0f006bd5d786f7" kindref="member">createGradleRunner</ref>()</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.withArguments(</highlight><highlight class="stringliteral">&quot;tasks&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;--configuration-cache&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;--stacktrace&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.build();</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(firstResult.getOutput().contains(</highlight><highlight class="stringliteral">&quot;Configuration<sp/>cache<sp/>entry&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Second<sp/>run<sp/>-<sp/>should<sp/>reuse<sp/>configuration<sp/>cache<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BuildResult<sp/>secondResult<sp/>=<sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a036079cd8ef1412b3c0f006bd5d786f7" kindref="member">createGradleRunner</ref>()</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.withArguments(</highlight><highlight class="stringliteral">&quot;tasks&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;--configuration-cache&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;--stacktrace&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.build();</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(secondResult.getOutput().contains(</highlight><highlight class="stringliteral">&quot;Configuration<sp/>cache<sp/>entry&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="188" refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1af2171a43f93feb1fe7074bb957d3a552" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1af2171a43f93feb1fe7074bb957d3a552" kindref="member">testBuildCacheWithConfigurationCache</ref>()<sp/>throws<sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a635efe16593ad5d6e36de996e1946819" kindref="member">createSimpleXtcModule</ref>();</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Clean<sp/>build<sp/>with<sp/>both<sp/>caches</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BuildResult<sp/>result<sp/>=<sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a7098c568d6ac809d9bab5898b8d06cea" kindref="member">runBuildWithArgs</ref>(</highlight><highlight class="stringliteral">&quot;clean&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;compileXtc&quot;</highlight><highlight class="normal">,<sp/></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;--configuration-cache&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;--build-cache&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;--stacktrace&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(TaskOutcome.SUCCESS,<sp/>Objects.requireNonNull(result.task(</highlight><highlight class="stringliteral">&quot;:compileXtc&quot;</highlight><highlight class="normal">)).getOutcome());</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Second<sp/>run<sp/>should<sp/>use<sp/>both<sp/>caches</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BuildResult<sp/>cachedResult<sp/>=<sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a7098c568d6ac809d9bab5898b8d06cea" kindref="member">runBuildWithArgs</ref>(</highlight><highlight class="stringliteral">&quot;clean&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;compileXtc&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;--configuration-cache&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;--build-cache&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;--stacktrace&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Configuration<sp/>cache<sp/>should<sp/>be<sp/>reused</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(cachedResult.getOutput().contains(</highlight><highlight class="stringliteral">&quot;Configuration<sp/>cache<sp/>entry<sp/>reused&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="205" refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1aeca18a2aafb7a306cebe83afb8838269" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1aeca18a2aafb7a306cebe83afb8838269" kindref="member">setupTestProject</ref>()<sp/>throws<sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Create<sp/>version<sp/>catalog<sp/>file<sp/>to<sp/>mimic<sp/>the<sp/>real<sp/>project<sp/>structure</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Path<sp/>gradleDir<sp/>=<sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a86f715fac82be83bac13a49f0e4922d5" kindref="member">testProjectDir</ref>.resolve(</highlight><highlight class="stringliteral">&quot;gradle&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Files.createDirectories(gradleDir);</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Files.writeString(gradleDir.resolve(</highlight><highlight class="stringliteral">&quot;libs.versions.toml&quot;</highlight><highlight class="normal">),<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="stringliteral">&quot;</highlight></codeline>
+<codeline lineno="210"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[versions]</highlight></codeline>
+<codeline lineno="211"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xvm<sp/>=<sp/>&quot;</highlight><highlight class="normal">0.4.4-SNAPSHOT</highlight><highlight class="stringliteral">&quot;</highlight></codeline>
+<codeline lineno="212"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="213"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[plugins]</highlight></codeline>
+<codeline lineno="214"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xtc<sp/>=<sp/>{<sp/>id<sp/>=<sp/>&quot;</highlight><highlight class="normal">org.xtclang.xtc-<ref refid="d3/d53/namespaceorg_1_1xtclang_1_1plugin" kindref="compound">plugin</ref></highlight><highlight class="stringliteral">&quot;,<sp/>version.ref<sp/>=<sp/>&quot;</highlight><highlight class="normal">xvm</highlight><highlight class="stringliteral">&quot;<sp/>}</highlight></codeline>
+<codeline lineno="215"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xdk-build-versioning<sp/>=<sp/>{<sp/>id<sp/>=<sp/>&quot;</highlight><highlight class="normal">org.xtclang.build.versioning</highlight><highlight class="stringliteral">&quot;,<sp/>version.ref<sp/>=<sp/>&quot;</highlight><highlight class="normal">xvm</highlight><highlight class="stringliteral">&quot;<sp/>}</highlight></codeline>
+<codeline lineno="216"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="217"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[libraries]</highlight></codeline>
+<codeline lineno="218"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xdk<sp/>=<sp/>{<sp/>group<sp/>=<sp/>&quot;</highlight><highlight class="normal">org.xtclang</highlight><highlight class="stringliteral">&quot;,<sp/>name<sp/>=<sp/>&quot;</highlight><highlight class="normal">xdk</highlight><highlight class="stringliteral">&quot;,<sp/>version.ref<sp/>=<sp/>&quot;</highlight><highlight class="normal">xvm</highlight><highlight class="stringliteral">&quot;<sp/>}</highlight></codeline>
+<codeline lineno="219"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Create<sp/>settings.gradle.kts<sp/>-<sp/>for<sp/>now<sp/>disable<sp/>included<sp/>build<sp/>until<sp/>we<sp/>can<sp/>provide<sp/>dependencies</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Files.writeString(<ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1af40ed0a083aa8156491796ef6b52822a" kindref="member">settingsFile</ref>.toPath(),<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="stringliteral">&quot;</highlight></codeline>
+<codeline lineno="223"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rootProject.name<sp/>=<sp/>&quot;</highlight><highlight class="normal">config-cache-test</highlight><highlight class="stringliteral">&quot;</highlight></codeline>
+<codeline lineno="224"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Create<sp/>build.gradle.kts<sp/>-<sp/>Use<sp/>basic<sp/>Gradle<sp/>setup<sp/>to<sp/>test<sp/>configuration<sp/>cache<sp/>fundamentals</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Files.writeString(<ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a3faf296dd24f75898b8f7f1d9921b6a8" kindref="member">buildFile</ref>.toPath(),<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="stringliteral">&quot;</highlight></codeline>
+<codeline lineno="228"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>plugins<sp/>{</highlight></codeline>
+<codeline lineno="229"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>`java-base`</highlight></codeline>
+<codeline lineno="230"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="231"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="232"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>repositories<sp/>{</highlight></codeline>
+<codeline lineno="233"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mavenCentral()</highlight></codeline>
+<codeline lineno="234"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="235"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="236"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Add<sp/>basic<sp/>tasks<sp/>to<sp/>test<sp/>configuration<sp/>cache<sp/>-<sp/>make<sp/>them<sp/>visible<sp/>in<sp/>&apos;tasks&apos;<sp/>output</highlight></codeline>
+<codeline lineno="237"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tasks.register(&quot;</highlight><highlight class="normal">compileXtc</highlight><highlight class="stringliteral">&quot;)<sp/>{</highlight></codeline>
+<codeline lineno="238"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>group<sp/>=<sp/>&quot;</highlight><highlight class="normal">XTC<sp/><ref refid="d3/d53/namespaceorg_1_1xtclang_1_1plugin" kindref="compound">plugin</ref><sp/><ref refid="d4/d2b/namespaceorg_1_1xtclang_1_1plugin_1_1tasks" kindref="compound">tasks</ref></highlight><highlight class="stringliteral">&quot;</highlight></codeline>
+<codeline lineno="239"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>description<sp/>=<sp/>&quot;</highlight><highlight class="normal">Mock<sp/>XTC<sp/>compilation<sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>configuration<sp/>cache<sp/>testing</highlight><highlight class="stringliteral">&quot;</highlight></codeline>
+<codeline lineno="240"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>doLast<sp/>{</highlight></codeline>
+<codeline lineno="241"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>println(&quot;</highlight><highlight class="normal">Mock<sp/>XTC<sp/>compilation<sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>configuration<sp/>cache<sp/>testing</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="242"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="243"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="244"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="245"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tasks.register(&quot;</highlight><highlight class="normal">runXtc</highlight><highlight class="stringliteral">&quot;)<sp/>{</highlight></codeline>
+<codeline lineno="246"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>group<sp/>=<sp/>&quot;</highlight><highlight class="normal">XTC<sp/><ref refid="d3/d53/namespaceorg_1_1xtclang_1_1plugin" kindref="compound">plugin</ref><sp/><ref refid="d4/d2b/namespaceorg_1_1xtclang_1_1plugin_1_1tasks" kindref="compound">tasks</ref></highlight><highlight class="stringliteral">&quot;</highlight></codeline>
+<codeline lineno="247"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>description<sp/>=<sp/>&quot;</highlight><highlight class="normal">Mock<sp/>XTC<sp/>execution<sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>configuration<sp/>cache<sp/>testing</highlight><highlight class="stringliteral">&quot;</highlight></codeline>
+<codeline lineno="248"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dependsOn(&quot;</highlight><highlight class="normal">compileXtc</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="249"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>doLast<sp/>{</highlight></codeline>
+<codeline lineno="250"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>println(&quot;</highlight><highlight class="normal">Mock<sp/>XTC<sp/>execution<sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>configuration<sp/>cache<sp/>testing</highlight><highlight class="stringliteral">&quot;)</highlight></codeline>
+<codeline lineno="251"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="252"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="253"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"></highlight></codeline>
+<codeline lineno="256" refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a635efe16593ad5d6e36de996e1946819" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a635efe16593ad5d6e36de996e1946819" kindref="member">createSimpleXtcModule</ref>()<sp/>throws<sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Create<sp/>source<sp/>directory<sp/>structure</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Path<sp/>srcDir<sp/>=<sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a86f715fac82be83bac13a49f0e4922d5" kindref="member">testProjectDir</ref>.resolve(</highlight><highlight class="stringliteral">&quot;src/main/x&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Files.createDirectories(srcDir);</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Create<sp/>a<sp/>simple<sp/>XTC<sp/>module</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Files.writeString(srcDir.resolve(</highlight><highlight class="stringliteral">&quot;TestModule.x&quot;</highlight><highlight class="normal">),<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="stringliteral">&quot;</highlight></codeline>
+<codeline lineno="263"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>module<sp/>TestModule<sp/>{</highlight></codeline>
+<codeline lineno="264"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>void<sp/>run()<sp/>{</highlight></codeline>
+<codeline lineno="265"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>console.println(&quot;</highlight><highlight class="normal">Hello<sp/>from<sp/>XTC<sp/>module!</highlight><highlight class="stringliteral">&quot;);</highlight></codeline>
+<codeline lineno="266"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="267"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="268"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"></highlight></codeline>
+<codeline lineno="271" refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a036079cd8ef1412b3c0f006bd5d786f7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>GradleRunner<sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a036079cd8ef1412b3c0f006bd5d786f7" kindref="member">createGradleRunner</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>GradleRunner.create()</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.withProjectDir(<ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a86f715fac82be83bac13a49f0e4922d5" kindref="member">testProjectDir</ref>.toFile())</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.withPluginClasspath();</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight></codeline>
+<codeline lineno="277" refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a7098c568d6ac809d9bab5898b8d06cea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>BuildResult<sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a7098c568d6ac809d9bab5898b8d06cea" kindref="member">runBuildWithArgs</ref>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>String...<sp/>args)<sp/>{</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a036079cd8ef1412b3c0f006bd5d786f7" kindref="member">createGradleRunner</ref>()</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.withArguments(args)</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.build();</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"></highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/>@SuppressWarnings(</highlight><highlight class="stringliteral">&quot;SameParameterValue&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="284" refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a4f8f2926f4dd71dd2a9fa23e55fe8736" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>static<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d6/de6/classorg_1_1xtclang_1_1plugin_1_1_configuration_cache_compatibility_test_1a4f8f2926f4dd71dd2a9fa23e55fe8736" kindref="member">verifyEquivalentTaskOutputs</ref>(final<sp/>BuildResult<sp/>baseline,<sp/>final<sp/>BuildResult<sp/>configCache,<sp/>final<sp/>String<sp/>taskPath)<sp/>{</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(Objects.requireNonNull(baseline.task(taskPath)).getOutcome(),<sp/>Objects.requireNonNull(configCache.task(taskPath)).getOutcome(),</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Task<sp/>outcomes<sp/>should<sp/>be<sp/>equivalent<sp/>with<sp/>and<sp/>without<sp/>configuration<sp/>cache&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="288"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/plugin/src/test/java/org/xtclang/plugin/ConfigurationCacheCompatibilityTest.java"/>
+  </compounddef>
+</doxygen>

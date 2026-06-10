@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="da/de6/_op_index_in_place_8java" kind="file" language="Java">
+    <compoundname>OpIndexInPlace.java</compoundname>
+    <includes local="no">java.io.DataInput</includes>
+    <includes local="no">java.io.DataOutput</includes>
+    <includes local="no">java.io.IOException</includes>
+    <includes local="no">java.lang.classfile.CodeBuilder</includes>
+    <includes local="no">org.xvm.asm.constants.TypeConstant</includes>
+    <includes local="no">org.xvm.javajit.BuildContext</includes>
+    <includes local="no">org.xvm.javajit.RegisterInfo</includes>
+    <includes local="no">org.xvm.runtime.Frame</includes>
+    <includes local="no">org.xvm.runtime.ObjectHandle</includes>
+    <includes local="no">org.xvm.runtime.ObjectHandle.ExceptionHandle</includes>
+    <includes local="no">org.xvm.runtime.ObjectHandle.JavaLong</includes>
+    <includes local="no">org.xvm.runtime.Utils</includes>
+    <includes local="no">org.xvm.util.Handy.readPackedInt</includes>
+    <includes local="no">org.xvm.util.Handy.writePackedLong</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/OpIndexInPlace.java</label>
+        <link refid="da/de6/_op_index_in_place_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.io.DataInput</label>
+      </node>
+      <node id="3">
+        <label>java.io.DataOutput</label>
+      </node>
+      <node id="4">
+        <label>java.io.IOException</label>
+      </node>
+      <node id="5">
+        <label>java.lang.classfile.CodeBuilder</label>
+      </node>
+      <node id="6">
+        <label>org.xvm.asm.constants.TypeConstant</label>
+      </node>
+      <node id="7">
+        <label>org.xvm.javajit.BuildContext</label>
+      </node>
+      <node id="8">
+        <label>org.xvm.javajit.RegisterInfo</label>
+      </node>
+      <node id="9">
+        <label>org.xvm.runtime.Frame</label>
+      </node>
+      <node id="10">
+        <label>org.xvm.runtime.ObjectHandle</label>
+      </node>
+      <node id="11">
+        <label>org.xvm.runtime.ObjectHandle.ExceptionHandle</label>
+      </node>
+      <node id="12">
+        <label>org.xvm.runtime.ObjectHandle.JavaLong</label>
+      </node>
+      <node id="13">
+        <label>org.xvm.runtime.Utils</label>
+      </node>
+      <node id="14">
+        <label>org.xvm.util.Handy.readPackedInt</label>
+      </node>
+      <node id="15">
+        <label>org.xvm.util.Handy.writePackedLong</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place" prot="public">org::xvm::asm::OpIndexInPlace</innerclass>
+    <innernamespace refid="d1/dc3/namespaceorg_1_1xvm_1_1asm">org::xvm::asm</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.asm;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.DataInput;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.DataOutput;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.IOException;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.classfile.CodeBuilder;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.constants.TypeConstant;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.javajit.BuildContext;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.javajit.RegisterInfo;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.Frame;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.ObjectHandle;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.ObjectHandle.ExceptionHandle;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.ObjectHandle.JavaLong;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.Utils;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.util.Handy.readPackedInt;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.util.Handy.writePackedLong;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">abstract</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1a70ccc654fa1ba30f4bf11ef5ce8a5bb2" kindref="member">OpIndexInPlace</ref></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="d6/da9/classorg_1_1xvm_1_1asm_1_1_op_index_1a98ffe59bb59311b31d58a08c537d527b" kindref="member">OpIndex</ref><sp/>{</highlight></codeline>
+<codeline lineno="37" refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1a70ccc654fa1ba30f4bf11ef5ce8a5bb2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/><ref refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1a70ccc654fa1ba30f4bf11ef5ce8a5bb2" kindref="member">OpIndexInPlace</ref>(<ref refid="dd/da8/interfaceorg_1_1xvm_1_1asm_1_1_argument" kindref="compound">Argument</ref><sp/>argTarget,<sp/><ref refid="dd/da8/interfaceorg_1_1xvm_1_1asm_1_1_argument" kindref="compound">Argument</ref><sp/>argIndex,<sp/><ref refid="dd/da8/interfaceorg_1_1xvm_1_1asm_1_1_argument" kindref="compound">Argument</ref><sp/>argValue)<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(argTarget,<sp/>argIndex);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1a78d7131c74c9dac0f616f3b2aa04df74" kindref="member">m_argValue</ref><sp/>=<sp/>argValue;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1add242f72f0306f138da10a9405b1dbfa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/><ref refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1add242f72f0306f138da10a9405b1dbfa" kindref="member">OpIndexInPlace</ref>(DataInput<sp/>in,<sp/><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref>[]<sp/>aconst)</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(in,<sp/>aconst);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1a44e3f492e0b4521545b5449ee51af7ef" kindref="member">m_nValue</ref><sp/>=<sp/>readPackedInt(in);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="57" refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1a3a53f4c4388a6281a52205527f83f11c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1a3a53f4c4388a6281a52205527f83f11c" kindref="member">write</ref>(DataOutput<sp/>out,<sp/><ref refid="dd/d3d/classorg_1_1xvm_1_1asm_1_1_op_1_1_constant_registry" kindref="compound">ConstantRegistry</ref><sp/>registry)</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super.write(out,<sp/>registry);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1a78d7131c74c9dac0f616f3b2aa04df74" kindref="member">m_argValue</ref><sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1a44e3f492e0b4521545b5449ee51af7ef" kindref="member">m_nValue</ref><sp/>=<sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1ae13a7aa9786aa74ad20d3965517b168c" kindref="member">encodeArgument</ref>(<ref refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1a78d7131c74c9dac0f616f3b2aa04df74" kindref="member">m_argValue</ref>,<sp/>registry);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>writePackedLong(out,<sp/><ref refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1a44e3f492e0b4521545b5449ee51af7ef" kindref="member">m_nValue</ref>);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="69" refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1a60425e609faaad1ff8effef3b7bf8ab3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1a60425e609faaad1ff8effef3b7bf8ab3" kindref="member">isAssignOp</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="74" refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1a5823b1031e6c496d24e20ebdf180d8d4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1a5823b1031e6c496d24e20ebdf180d8d4" kindref="member">process</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frame,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iPC)<sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref>[]<sp/>ahArg<sp/>=<sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a75356b68487f561dcf98837b22eb0129" kindref="member">getArguments</ref>(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">[]<sp/>{<ref refid="d6/da9/classorg_1_1xvm_1_1asm_1_1_op_index_1aaa2bd6af58a25c6e63e7c2676c910f67" kindref="member">m_nTarget</ref>,<sp/><ref refid="d6/da9/classorg_1_1xvm_1_1asm_1_1_op_index_1ad949f9e0c604739da149c627e8269862" kindref="member">m_nIndex</ref>,<sp/><ref refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1a44e3f492e0b4521545b5449ee51af7ef" kindref="member">m_nValue</ref>},<sp/>3);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a81e5fe13e43448faf6c25f12c64d3b3d" kindref="member">anyDeferred</ref>(ahArg))<sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d5/dfd/interfaceorg_1_1xvm_1_1runtime_1_1_frame_1_1_continuation" kindref="compound">Frame.Continuation</ref><sp/>stepNext<sp/>=<sp/>frameCaller<sp/>-&gt;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1a313f061ca3e3a7c592668f3c5094f8cb" kindref="member">complete</ref>(frameCaller,<sp/>ahArg[0],<sp/>(<ref refid="d5/d22/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_java_long" kindref="compound">JavaLong</ref>)<sp/>ahArg[1],<sp/>ahArg[2]);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d8/dee/classorg_1_1xvm_1_1runtime_1_1_utils" kindref="compound">Utils</ref>.<ref refid="d1/d63/classorg_1_1xvm_1_1runtime_1_1_utils_1_1_get_arguments" kindref="compound">GetArguments</ref>(ahArg,<sp/>stepNext).<ref refid="d1/d63/classorg_1_1xvm_1_1runtime_1_1_utils_1_1_get_arguments_1a65d7ff03d2187a4c1eda932920db7984" kindref="member">doNext</ref>(frame);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1a313f061ca3e3a7c592668f3c5094f8cb" kindref="member">complete</ref>(frame,<sp/>ahArg[0],<sp/>(<ref refid="d5/d22/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_java_long" kindref="compound">JavaLong</ref>)<sp/>ahArg[1],<sp/>ahArg[2]);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(<ref refid="da/d17/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_exception_handle" kindref="compound">ExceptionHandle</ref>.<ref refid="da/de5/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_exception_handle_1_1_wrapper_exception" kindref="compound">WrapperException</ref><sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1af0bf8b407c9c863fe95276b38ed323d6" kindref="member">raiseException</ref>(e);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91" refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1a313f061ca3e3a7c592668f3c5094f8cb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1a313f061ca3e3a7c592668f3c5094f8cb" kindref="member">complete</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frame,<sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hTarget,<sp/><ref refid="d5/d22/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_java_long" kindref="compound">JavaLong</ref><sp/>hIndex,<sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hValue)<sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>UnsupportedOperationException();</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="96" refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1a5f15010a30256405835e8426ffed645e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1a5f15010a30256405835e8426ffed645e" kindref="member">registerConstants</ref>(<ref refid="dd/d3d/classorg_1_1xvm_1_1asm_1_1_op_1_1_constant_registry" kindref="compound">ConstantRegistry</ref><sp/>registry)<sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super.registerConstants(registry);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1a78d7131c74c9dac0f616f3b2aa04df74" kindref="member">m_argValue</ref><sp/>=<sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1ae950fbb2b8b6e5a82d788a1824afb06b" kindref="member">registerArgument</ref>(<ref refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1a78d7131c74c9dac0f616f3b2aa04df74" kindref="member">m_argValue</ref>,<sp/>registry);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>JIT<sp/>support<sp/>---------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="105" refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1acc4c34ddaa2e73a6fde97f82b249f1f6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1acc4c34ddaa2e73a6fde97f82b249f1f6" kindref="member">getValueId</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1a44e3f492e0b4521545b5449ee51af7ef" kindref="member">m_nValue</ref>;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="110" refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1a021e0cf4c9e9cffc898b494333cb9783" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1a021e0cf4c9e9cffc898b494333cb9783" kindref="member">buildPrimitiveArrayOp</ref>(<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref><sp/>bctx,<sp/>CodeBuilder<sp/>code,<sp/><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref><sp/>regArray,</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/>typeEl)<sp/>{</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref><sp/>regElement<sp/>=<sp/><ref refid="d6/da9/classorg_1_1xvm_1_1asm_1_1_op_index_1ae163e28762a5e9c3b50c1fa6fd2e27bd" kindref="member">loadArrayElement</ref>(bctx,<sp/>code,<sp/>regArray);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>regElement.<ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a67f90e66e3b9f960786dc5e2d93ac7ca" kindref="member">load</ref>(code);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bctx.<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1ae1216124a4574d631ce1abbe41f0cd45" kindref="member">loadArgument</ref>(code,<sp/><ref refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1acc4c34ddaa2e73a6fde97f82b249f1f6" kindref="member">getValueId</ref>());</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(typeEl.<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a7af84e34b51ec043ca4cb6dec3e9d0b5" kindref="member">isJavaPrimitive</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="da/dae/classorg_1_1xvm_1_1asm_1_1_op_optimized_1a835c3a7593de68c55658100bf8d1e66d" kindref="member">buildOptimizedBinary</ref>(bctx,<sp/>code,<sp/>regElement,<sp/><ref refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1a44e3f492e0b4521545b5449ee51af7ef" kindref="member">m_nValue</ref>);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(typeEl.<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1aa003e0fa879c6a088661cbd983a8ef7f" kindref="member">isXvmPrimitive</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="da/dae/classorg_1_1xvm_1_1asm_1_1_op_optimized_1a56fc44312928825e219ecef3ffb24e00" kindref="member">buildXvmOptimizedBinary</ref>(bctx,<sp/>code,<sp/>regElement,<sp/><ref refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1a44e3f492e0b4521545b5449ee51af7ef" kindref="member">m_nValue</ref>);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>regElement.<ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a7f35dd9fcc18db2b628c5f121edf0bfb" kindref="member">store</ref>(bctx,<sp/>code,<sp/>typeEl);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d6/da9/classorg_1_1xvm_1_1asm_1_1_op_index_1ab1967f7fe0b9df7faee9d6980c7a8a6b" kindref="member">storeArrayElement</ref>(bctx,<sp/>code,<sp/>regArray,<sp/>regElement);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>fields<sp/>--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129" refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1a44e3f492e0b4521545b5449ee51af7ef" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1a44e3f492e0b4521545b5449ee51af7ef" kindref="member">m_nValue</ref>;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131" refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1a78d7131c74c9dac0f616f3b2aa04df74" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="dd/da8/interfaceorg_1_1xvm_1_1asm_1_1_argument" kindref="compound">Argument</ref><sp/><ref refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1a78d7131c74c9dac0f616f3b2aa04df74" kindref="member">m_argValue</ref>;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/OpIndexInPlace.java"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,581 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d2/d2b/_xtc_compile_task_8java" kind="file" language="Java">
+    <compoundname>XtcCompileTask.java</compoundname>
+    <includes local="no">org.xtclang.plugin.XtcPluginConstants.XTC_COMPILER_CLASS_NAME</includes>
+    <includes local="no">org.xtclang.plugin.XtcPluginUtils.FileUtils.isValidXtcModuleSafe</includes>
+    <includes local="no">org.xtclang.plugin.XtcPluginUtils.failure</includes>
+    <includes local="no">java.io.File</includes>
+    <includes local="no">java.util.ArrayList</includes>
+    <includes local="no">java.util.List</includes>
+    <includes local="no">java.util.Set</includes>
+    <includes local="no">javax.inject.Inject</includes>
+    <includes local="no">kotlin.Pair</includes>
+    <includes local="no">org.gradle.api.Project</includes>
+    <includes local="no">org.gradle.api.model.ObjectFactory</includes>
+    <includes local="no">org.gradle.api.file.ConfigurableFileCollection</includes>
+    <includes local="no">org.gradle.api.file.Directory</includes>
+    <includes local="no">org.gradle.api.file.FileCollection</includes>
+    <includes local="no">org.gradle.api.file.FileTree</includes>
+    <includes local="no">org.gradle.api.provider.ListProperty</includes>
+    <includes local="no">org.gradle.api.provider.Property</includes>
+    <includes local="no">org.gradle.api.provider.Provider</includes>
+    <includes local="no">org.gradle.api.tasks.CacheableTask</includes>
+    <includes local="no">org.gradle.api.tasks.Input</includes>
+    <includes local="no">org.gradle.api.tasks.InputFiles</includes>
+    <includes local="no">org.gradle.api.tasks.Internal</includes>
+    <includes local="no">org.gradle.api.tasks.Optional</includes>
+    <includes local="no">org.gradle.api.tasks.OutputDirectory</includes>
+    <includes local="no">org.gradle.api.tasks.PathSensitive</includes>
+    <includes local="no">org.gradle.api.tasks.PathSensitivity</includes>
+    <includes local="no">org.gradle.api.tasks.SourceSet</includes>
+    <includes local="no">org.gradle.api.tasks.TaskAction</includes>
+    <includes local="no">org.jetbrains.annotations.NotNull</includes>
+    <includes local="no">org.xtclang.plugin.XtcCompilerExtension</includes>
+    <includes local="no">org.xtclang.plugin.XtcProjectDelegate</includes>
+    <includes local="no">org.xtclang.plugin.launchers.AttachedStrategy</includes>
+    <includes local="no">org.xtclang.plugin.launchers.DirectStrategy</includes>
+    <includes local="no">org.xtclang.plugin.launchers.ExecutionMode</includes>
+    <includes local="no">org.xtclang.plugin.launchers.ExecutionStrategy</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/tasks/XtcCompileTask.java</label>
+        <link refid="d2/d2b/_xtc_compile_task_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>java.io.File</label>
+      </node>
+      <node id="6">
+        <label>java.util.ArrayList</label>
+      </node>
+      <node id="7">
+        <label>java.util.List</label>
+      </node>
+      <node id="8">
+        <label>java.util.Set</label>
+      </node>
+      <node id="9">
+        <label>javax.inject.Inject</label>
+      </node>
+      <node id="10">
+        <label>kotlin.Pair</label>
+      </node>
+      <node id="11">
+        <label>org.gradle.api.Project</label>
+      </node>
+      <node id="13">
+        <label>org.gradle.api.file.ConfigurableFileCollection</label>
+      </node>
+      <node id="14">
+        <label>org.gradle.api.file.Directory</label>
+      </node>
+      <node id="15">
+        <label>org.gradle.api.file.FileCollection</label>
+      </node>
+      <node id="16">
+        <label>org.gradle.api.file.FileTree</label>
+      </node>
+      <node id="12">
+        <label>org.gradle.api.model.ObjectFactory</label>
+      </node>
+      <node id="17">
+        <label>org.gradle.api.provider.ListProperty</label>
+      </node>
+      <node id="18">
+        <label>org.gradle.api.provider.Property</label>
+      </node>
+      <node id="19">
+        <label>org.gradle.api.provider.Provider</label>
+      </node>
+      <node id="20">
+        <label>org.gradle.api.tasks.CacheableTask</label>
+      </node>
+      <node id="21">
+        <label>org.gradle.api.tasks.Input</label>
+      </node>
+      <node id="22">
+        <label>org.gradle.api.tasks.InputFiles</label>
+      </node>
+      <node id="23">
+        <label>org.gradle.api.tasks.Internal</label>
+      </node>
+      <node id="24">
+        <label>org.gradle.api.tasks.Optional</label>
+      </node>
+      <node id="25">
+        <label>org.gradle.api.tasks.OutputDirectory</label>
+      </node>
+      <node id="26">
+        <label>org.gradle.api.tasks.PathSensitive</label>
+      </node>
+      <node id="27">
+        <label>org.gradle.api.tasks.PathSensitivity</label>
+      </node>
+      <node id="28">
+        <label>org.gradle.api.tasks.SourceSet</label>
+      </node>
+      <node id="29">
+        <label>org.gradle.api.tasks.TaskAction</label>
+      </node>
+      <node id="30">
+        <label>org.jetbrains.annotations.NotNull</label>
+      </node>
+      <node id="31">
+        <label>org.xtclang.plugin.XtcCompilerExtension</label>
+      </node>
+      <node id="2">
+        <label>org.xtclang.plugin.XtcPluginConstants.XTC_COMPILER_CLASS_NAME</label>
+      </node>
+      <node id="3">
+        <label>org.xtclang.plugin.XtcPluginUtils.FileUtils.isValidXtcModuleSafe</label>
+      </node>
+      <node id="4">
+        <label>org.xtclang.plugin.XtcPluginUtils.failure</label>
+      </node>
+      <node id="32">
+        <label>org.xtclang.plugin.XtcProjectDelegate</label>
+      </node>
+      <node id="33">
+        <label>org.xtclang.plugin.launchers.AttachedStrategy</label>
+      </node>
+      <node id="34">
+        <label>org.xtclang.plugin.launchers.DirectStrategy</label>
+      </node>
+      <node id="35">
+        <label>org.xtclang.plugin.launchers.ExecutionMode</label>
+      </node>
+      <node id="36">
+        <label>org.xtclang.plugin.launchers.ExecutionStrategy</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task" prot="public">org::xtclang::plugin::tasks::XtcCompileTask</innerclass>
+    <innernamespace refid="d4/d2b/namespaceorg_1_1xtclang_1_1plugin_1_1tasks">org::xtclang::plugin::tasks</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="d4/d2b/namespaceorg_1_1xtclang_1_1plugin_1_1tasks" refkind="compound"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xtclang.plugin.tasks;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xtclang.plugin.XtcPluginConstants.XTC_COMPILER_CLASS_NAME;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xtclang.plugin.XtcPluginUtils.FileUtils.isValidXtcModuleSafe;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xtclang.plugin.XtcPluginUtils.failure;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.File;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.ArrayList;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Set;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>javax.inject.Inject;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>kotlin.Pair;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.gradle.api.Project;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.gradle.api.model.ObjectFactory;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.gradle.api.file.ConfigurableFileCollection;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.gradle.api.file.Directory;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.gradle.api.file.FileCollection;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.gradle.api.file.FileTree;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.gradle.api.provider.ListProperty;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.gradle.api.provider.Property;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.gradle.api.provider.Provider;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.gradle.api.tasks.CacheableTask;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.gradle.api.tasks.Input;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.gradle.api.tasks.InputFiles;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.gradle.api.tasks.Internal;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.gradle.api.tasks.Optional;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.gradle.api.tasks.OutputDirectory;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.gradle.api.tasks.PathSensitive;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.gradle.api.tasks.PathSensitivity;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.gradle.api.tasks.SourceSet;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.gradle.api.tasks.TaskAction;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.jetbrains.annotations.NotNull;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xtclang.plugin.XtcCompilerExtension;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xtclang.plugin.XtcProjectDelegate;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xtclang.plugin.launchers.AttachedStrategy;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xtclang.plugin.launchers.DirectStrategy;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xtclang.plugin.launchers.ExecutionMode;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xtclang.plugin.launchers.ExecutionStrategy;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal">@CacheableTask</highlight></codeline>
+<codeline lineno="47" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">abstract</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a40bd2cc9859d150277cfa980cc592480" kindref="member">XtcCompileTask</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="d6/dfb/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_source_task_1a803d2457efaf8fd534757ddd8d2d44f7" kindref="member">XtcSourceTask</ref><sp/>implements<sp/><ref refid="d7/d32/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_compiler_extension" kindref="compound">XtcCompilerExtension</ref><sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Default<sp/>values<sp/>for<sp/>inputs<sp/>and<sp/>outputs<sp/>below<sp/>are<sp/>inherited<sp/>from<sp/>extension,<sp/>can<sp/>be<sp/>reset<sp/>per<sp/>task</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a930624ddbda5e1e4f20b4e538d58a5ad" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Property&lt;@NotNull<sp/>Boolean&gt;<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a930624ddbda5e1e4f20b4e538d58a5ad" kindref="member">disableWarnings</ref>;</highlight></codeline>
+<codeline lineno="50" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a81a9d57d85ed036be8f30142b5be3322" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Property&lt;@NotNull<sp/>Boolean&gt;<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a81a9d57d85ed036be8f30142b5be3322" kindref="member">strict</ref>;</highlight></codeline>
+<codeline lineno="51" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1acc89afe18a95c019f42adf94a1a26284" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Property&lt;@NotNull<sp/>Boolean&gt;<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1acc89afe18a95c019f42adf94a1a26284" kindref="member">hasQualifiedOutputName</ref>;</highlight></codeline>
+<codeline lineno="52" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1ad5410197112f8252a110272ca54e3c02" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Property&lt;@NotNull<sp/>Boolean&gt;<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1ad5410197112f8252a110272ca54e3c02" kindref="member">hasVersionedOutputName</ref>;</highlight></codeline>
+<codeline lineno="53" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a66147b444f6a7cbbd9409724a9bf06f4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Property&lt;@NotNull<sp/>String&gt;<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a66147b444f6a7cbbd9409724a9bf06f4" kindref="member">xtcVersion</ref>;</highlight></codeline>
+<codeline lineno="54" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a93f2dcd82465e5bf4e7674a4256e2aff" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Property&lt;@NotNull<sp/>Boolean&gt;<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a93f2dcd82465e5bf4e7674a4256e2aff" kindref="member">rebuild</ref>;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Per-task<sp/>configuration<sp/>properties<sp/>only.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1af5d4df9b9d1c01d280483b58f292ac15" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>ListProperty&lt;@NotNull<sp/>String&gt;<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1af5d4df9b9d1c01d280483b58f292ac15" kindref="member">outputFilenames</ref>;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Configuration-time<sp/>captured<sp/>data<sp/>to<sp/>avoid<sp/>Project<sp/>references<sp/>during<sp/>execution</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//private<sp/>final<sp/>Provider&lt;@NotNull<sp/>Directory&gt;<sp/>projectDir;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1ad6974d84d7c7f49a03babe569fadd689" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>String<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1ad6974d84d7c7f49a03babe569fadd689" kindref="member">sourceSetName</ref>;</highlight></codeline>
+<codeline lineno="62" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1add69294a979db7d0d31ae28b8fe95af9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Directory<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1add69294a979db7d0d31ae28b8fe95af9" kindref="member">resourceDir</ref>;</highlight></codeline>
+<codeline lineno="63" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1afe32c9d991878fecf34a22abb181f1b6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Directory<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1afe32c9d991878fecf34a22abb181f1b6" kindref="member">outputDir</ref>;</highlight></codeline>
+<codeline lineno="64" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1ac64696adb72c990cd5cb7e1873b74e16" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Set&lt;File&gt;<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1ac64696adb72c990cd5cb7e1873b74e16" kindref="member">sourceSetDirs</ref>;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Source-set-specific<sp/>module<sp/>dependencies<sp/>(avoids<sp/>circular<sp/>dependency<sp/>with<sp/>own<sp/>output)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a8a3382495c561891e7f1f91b38c0375f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>ConfigurableFileCollection<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a8a3382495c561891e7f1f91b38c0375f" kindref="member">compileModuleDependencies</ref>;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>@SuppressWarnings(</highlight><highlight class="stringliteral">&quot;ConstructorNotProtectedInAbstractClass&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>@Inject</highlight></codeline>
+<codeline lineno="81" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a40bd2cc9859d150277cfa980cc592480" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a40bd2cc9859d150277cfa980cc592480" kindref="member">XtcCompileTask</ref>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>ObjectFactory<sp/>objects,<sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Project<sp/>project,<sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>SourceSet<sp/>sourceSet)<sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>compile<sp/>task<sp/>name<sp/>should<sp/>be<sp/>determined<sp/>by<sp/>its<sp/>source<sp/>set</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>a<sp/>runtime<sp/>task<sp/>can<sp/>by<sp/>default<sp/>depend<sp/>on<sp/>all<sp/>source<sp/>sets,<sp/>it&apos;s<sp/>fine.<sp/>even<sp/>a<sp/>test<sp/>task.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(objects,<sp/>project);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>outputFilenames<sp/>property<sp/>only<sp/>exists<sp/>in<sp/>the<sp/>compile<sp/>task,<sp/>not<sp/>in<sp/>the<sp/>compile<sp/>configuration.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.outputFilenames<sp/>=<sp/>objects.listProperty(String.class).value(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ArrayList&lt;&gt;());</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Capture<sp/>all<sp/>necessary<sp/>data<sp/>at<sp/>configuration<sp/>time<sp/>to<sp/>avoid<sp/>Project<sp/>references<sp/>during<sp/>execution</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>this.projectDir<sp/>=<sp/>objects.directoryProperty().value(project.getLayout().getProjectDirectory());</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Capture<sp/>source<sp/>set<sp/>data<sp/>at<sp/>configuration<sp/>time<sp/>to<sp/>avoid<sp/>Project<sp/>references<sp/>during<sp/>execution</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.sourceSetName<sp/>=<sp/>sourceSet.getName();</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.resourceDir<sp/>=<sp/><ref refid="df/d86/classorg_1_1xtclang_1_1plugin_1_1_xtc_project_delegate" kindref="compound">XtcProjectDelegate</ref>.<ref refid="df/d86/classorg_1_1xtclang_1_1plugin_1_1_xtc_project_delegate_1a9e44d1ba3b9c956d27c4079d6a9ac384" kindref="member">getXtcResourceOutputDirectory</ref>(project,<sp/>sourceSet).get();</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.outputDir<sp/>=<sp/><ref refid="df/d86/classorg_1_1xtclang_1_1plugin_1_1_xtc_project_delegate" kindref="compound">XtcProjectDelegate</ref>.<ref refid="df/d86/classorg_1_1xtclang_1_1plugin_1_1_xtc_project_delegate_1adf5059d64572b156cb3918682e92ba8b" kindref="member">getXtcSourceSetOutputDirectory</ref>(project,<sp/>sourceSet).get();</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.sourceSetDirs<sp/>=<sp/>sourceSet.getAllSource().getSrcDirs();</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Build<sp/>source-set-specific<sp/>module<sp/>dependencies<sp/>for<sp/>compilation</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Main<sp/>compile:<sp/>only<sp/>xtcModule<sp/>(external<sp/>deps)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Test<sp/>compile:<sp/>xtcModule<sp/>+<sp/>xtcModuleTest<sp/>(external<sp/>deps<sp/>+<sp/>main<sp/>output)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>This<sp/>avoids<sp/>the<sp/>circular<sp/>dependency<sp/>where<sp/>a<sp/>task&apos;s<sp/>output<sp/>is<sp/>also<sp/>its<sp/>input</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.compileModuleDependencies<sp/>=<sp/>objects.fileCollection();</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>var<sp/>configurations<sp/>=<sp/>project.getConfigurations();</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>var<sp/>mainConfig<sp/>=<sp/>configurations.findByName(<ref refid="df/d86/classorg_1_1xtclang_1_1plugin_1_1_xtc_project_delegate" kindref="compound">XtcProjectDelegate</ref>.<ref refid="df/d86/classorg_1_1xtclang_1_1plugin_1_1_xtc_project_delegate_1ac5f8b678cf96b43e34460805a70d1adf" kindref="member">incomingXtcModuleDependencies</ref>(SourceSet.MAIN_SOURCE_SET_NAME));</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(mainConfig<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a8a3382495c561891e7f1f91b38c0375f" kindref="member">compileModuleDependencies</ref>.from(mainConfig);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(SourceSet.TEST_SOURCE_SET_NAME.equals(sourceSet.getName()))<sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>var<sp/>testConfig<sp/>=<sp/>configurations.findByName(<ref refid="df/d86/classorg_1_1xtclang_1_1plugin_1_1_xtc_project_delegate" kindref="compound">XtcProjectDelegate</ref>.<ref refid="df/d86/classorg_1_1xtclang_1_1plugin_1_1_xtc_project_delegate_1ac5f8b678cf96b43e34460805a70d1adf" kindref="member">incomingXtcModuleDependencies</ref>(SourceSet.TEST_SOURCE_SET_NAME));</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(testConfig<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a8a3382495c561891e7f1f91b38c0375f" kindref="member">compileModuleDependencies</ref>.from(testConfig);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Conventions<sp/>inherited<sp/>from<sp/>extension;<sp/>can<sp/>be<sp/>reset<sp/>on<sp/>a<sp/>per-task<sp/>basis,<sp/>of<sp/>course.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.disableWarnings<sp/>=<sp/>objects.property(Boolean.class).convention(<ref refid="d6/d70/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_launcher_task_1a1943bd1a2c53a95794829aa3657af164" kindref="member">ext</ref>.getDisableWarnings());</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.strict<sp/>=<sp/>objects.property(Boolean.class).convention(<ref refid="d6/d70/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_launcher_task_1a1943bd1a2c53a95794829aa3657af164" kindref="member">ext</ref>.getStrict());</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.hasQualifiedOutputName<sp/>=<sp/>objects.property(Boolean.class).convention(<ref refid="d6/d70/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_launcher_task_1a1943bd1a2c53a95794829aa3657af164" kindref="member">ext</ref>.getQualifiedOutputName());</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.hasVersionedOutputName<sp/>=<sp/>objects.property(Boolean.class).convention(<ref refid="d6/d70/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_launcher_task_1a1943bd1a2c53a95794829aa3657af164" kindref="member">ext</ref>.getVersionedOutputName());</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.rebuild<sp/>=<sp/>objects.property(Boolean.class).convention(<ref refid="d6/d70/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_launcher_task_1a1943bd1a2c53a95794829aa3657af164" kindref="member">ext</ref>.getRebuild());</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.xtcVersion<sp/>=<sp/>objects.property(String.class).convention(<ref refid="d6/d70/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_launcher_task_1a1943bd1a2c53a95794829aa3657af164" kindref="member">ext</ref>.getXtcVersion());</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>@Internal</highlight></codeline>
+<codeline lineno="125" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a6617589d290760cb244fe09dd5c5c5af" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a6617589d290760cb244fe09dd5c5c5af" kindref="member">getCompileSourceSetName</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1ad6974d84d7c7f49a03babe569fadd689" kindref="member">sourceSetName</ref>;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a97906f07f921aa7da0d084dca419b878" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a97906f07f921aa7da0d084dca419b878" kindref="member">isMainSourceSetCompileTask</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>SourceSet.MAIN_SOURCE_SET_NAME.equals(<ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a6617589d290760cb244fe09dd5c5c5af" kindref="member">getCompileSourceSetName</ref>());</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>@Optional</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>@InputFiles</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>@PathSensitive(PathSensitivity.RELATIVE)</highlight></codeline>
+<codeline lineno="145" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1aef62661a049eabb4bc194701cb69fadd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>FileCollection<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1aef62661a049eabb4bc194701cb69fadd" kindref="member">getXtcModuleDependencies</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a8a3382495c561891e7f1f91b38c0375f" kindref="member">compileModuleDependencies</ref>;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO<sp/>Why<sp/>do<sp/>we<sp/>even<sp/>have<sp/>these<sp/>internals?</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>@Internal</highlight></codeline>
+<codeline lineno="151" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1ab190b74156087310744c79a8385a9265" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Directory<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1ab190b74156087310744c79a8385a9265" kindref="member">getOutputDirectoryInternal</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1afe32c9d991878fecf34a22abb181f1b6" kindref="member">outputDir</ref>;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>@Internal</highlight></codeline>
+<codeline lineno="156" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1ac6b41840cf40accd13a1eb779c5b5787" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Directory<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1ac6b41840cf40accd13a1eb779c5b5787" kindref="member">getResourceDirectoryInternal</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1add69294a979db7d0d31ae28b8fe95af9" kindref="member">resourceDir</ref>;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a96cdd63668153c7e7fe77059afb1e32f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a96cdd63668153c7e7fe77059afb1e32f" kindref="member">resolveXtcVersion</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1ad5eeb85fa936a3321527b231e0205f36" kindref="member">getXtcVersion</ref>().isPresent())<sp/>{</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1ad5eeb85fa936a3321527b231e0205f36" kindref="member">getXtcVersion</ref>().get();</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>failure(</highlight><highlight class="stringliteral">&quot;resolveXtcVersion<sp/>returned<sp/>null,<sp/>no<sp/>XTC<sp/>version<sp/>configured.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a8c7e70868cd2301554e0264abb9d72b5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>String<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a8c7e70868cd2301554e0264abb9d72b5" kindref="member">semanticVersion</ref>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>String<sp/>version)<sp/>{</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>version.endsWith(</highlight><highlight class="stringliteral">&quot;-SNAPSHOT&quot;</highlight><highlight class="normal">)<sp/>?<sp/>version.replace(</highlight><highlight class="stringliteral">&quot;-SNAPSHOT&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;+SNAPSHOT&quot;</highlight><highlight class="normal">)<sp/>:<sp/>version;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1af2337724d2cbe392a2fc64eb5151ce26" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Set&lt;File&gt;<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1af2337724d2cbe392a2fc64eb5151ce26" kindref="member">resolveXtcSourceFiles</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>var<sp/>resolvedSources<sp/>=<sp/><ref refid="d6/dfb/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_source_task_1a9651f550902002011b9a6dfc2f6d22ff" kindref="member">getSource</ref>().filter(this::isTopLevelXtcSourceFile).getFiles();</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>logger.info(</highlight><highlight class="stringliteral">&quot;[plugin]<sp/>Resolved<sp/>top<sp/>level<sp/>sources<sp/>(should<sp/>be<sp/>module<sp/>definitions,<sp/>or<sp/>XTC<sp/>will<sp/>fail<sp/>later):<sp/>{}&quot;</highlight><highlight class="normal">,<sp/>resolvedSources);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>resolvedSources;</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>There<sp/>is<sp/>one<sp/>source<sp/>set<sp/>to<sp/>compile,<sp/>but<sp/>there<sp/>other<sp/>may<sp/>be<sp/>needed<sp/>for<sp/>the<sp/>module<sp/>path.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>compileXXXXtc<sp/>task<sp/>should<sp/>only<sp/>use<sp/>XXX<sp/>as<sp/>sources,<sp/>but<sp/>the<sp/>module<sp/>path<sp/>for<sp/>compilation</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>should<sp/>point<sp/>out<sp/>the<sp/>other<sp/>source<sp/>sets<sp/>as<sp/>well,<sp/>for<sp/>example<sp/>for<sp/>a<sp/>test<sp/>task,<sp/>but<sp/>not<sp/>for<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>main<sp/>task.<sp/>I<sp/>suppose<sp/>the<sp/>most<sp/>generic<sp/>way<sp/>to<sp/>do<sp/>this<sp/>is<sp/>to<sp/>be<sp/>able<sp/>to<sp/>add<sp/>a<sp/>source<sp/>set<sp/>to<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>module<sp/>path<sp/>in<sp/>the<sp/>task,<sp/>but<sp/>let&apos;s<sp/>try<sp/>to<sp/>work<sp/>incrementally.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/>@Internal</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="185" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a9b49ce40238092f1fb82308c66933129" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>String<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a9b49ce40238092f1fb82308c66933129" kindref="member">getJavaLauncherClassName</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>XTC_COMPILER_CLASS_NAME;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>@SuppressWarnings(</highlight><highlight class="stringliteral">&quot;unused&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="comment">//<sp/>No,<sp/>IntelliJ.<sp/>It&apos;s<sp/>not.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a54dd8641434dc11ff44c7b91070296c9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a54dd8641434dc11ff44c7b91070296c9" kindref="member">outputFilename</ref>(final<sp/>String<sp/>from,<sp/>final<sp/>String<sp/>to)<sp/>{</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1af5d4df9b9d1c01d280483b58f292ac15" kindref="member">outputFilenames</ref>.add(from);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1af5d4df9b9d1c01d280483b58f292ac15" kindref="member">outputFilenames</ref>.add(to);</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>@SuppressWarnings(</highlight><highlight class="stringliteral">&quot;unused&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="comment">//<sp/>No,<sp/>IntelliJ.<sp/>It&apos;s<sp/>not.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1ad0e3a5c4b29aff5a3bc4247d0b996c7a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a54dd8641434dc11ff44c7b91070296c9" kindref="member">outputFilename</ref>(final<sp/>Pair&lt;String,<sp/>String&gt;<sp/>pair)<sp/>{</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1af5d4df9b9d1c01d280483b58f292ac15" kindref="member">outputFilenames</ref>.add(pair.getFirst());</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1af5d4df9b9d1c01d280483b58f292ac15" kindref="member">outputFilenames</ref>.add(pair.getSecond());</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/>@SuppressWarnings(</highlight><highlight class="stringliteral">&quot;unused&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="comment">//<sp/>No,<sp/>IntelliJ.<sp/>It&apos;s<sp/>not.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="205" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1abfb2b17d1cd3d38cb34d11207d12bc22" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a54dd8641434dc11ff44c7b91070296c9" kindref="member">outputFilename</ref>(final<sp/>Provider&lt;@NotNull<sp/>String&gt;<sp/>from,<sp/>final<sp/>Provider&lt;@NotNull<sp/>String&gt;<sp/>to)<sp/>{</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1af5d4df9b9d1c01d280483b58f292ac15" kindref="member">outputFilenames</ref>.add(from);</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1af5d4df9b9d1c01d280483b58f292ac15" kindref="member">outputFilenames</ref>.add(to);</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/>@Input</highlight></codeline>
+<codeline lineno="211" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a9a5d135f40e31031be2392646374bfdd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>ListProperty&lt;@NotNull<sp/>String&gt;<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a9a5d135f40e31031be2392646374bfdd" kindref="member">getOutputFilenames</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1af5d4df9b9d1c01d280483b58f292ac15" kindref="member">outputFilenames</ref>;</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/>@Input</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="217" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a8e22e2b204a028cdcd7f64112dcb615d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Property&lt;@NotNull<sp/>Boolean&gt;<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a8e22e2b204a028cdcd7f64112dcb615d" kindref="member">getQualifiedOutputName</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1acc89afe18a95c019f42adf94a1a26284" kindref="member">hasQualifiedOutputName</ref>;</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/>@Input</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="223" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1aa70a1e5482b6263e3a61014549b967e0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Property&lt;@NotNull<sp/>Boolean&gt;<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1aa70a1e5482b6263e3a61014549b967e0" kindref="member">getVersionedOutputName</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1ad5410197112f8252a110272ca54e3c02" kindref="member">hasVersionedOutputName</ref>;</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/>@Optional</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/>@Input</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="230" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1ad5eeb85fa936a3321527b231e0205f36" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Property&lt;@NotNull<sp/>String&gt;<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1ad5eeb85fa936a3321527b231e0205f36" kindref="member">getXtcVersion</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a66147b444f6a7cbbd9409724a9bf06f4" kindref="member">xtcVersion</ref>;</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/>@Input</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="236" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a31e8845be38ded63586ca916e7f83b52" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Property&lt;@NotNull<sp/>Boolean&gt;<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a31e8845be38ded63586ca916e7f83b52" kindref="member">getStrict</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a81a9d57d85ed036be8f30142b5be3322" kindref="member">strict</ref>;</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/>@Input</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="242" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1ac1bca642aca7ebbd5f7a498445b22beb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Property&lt;@NotNull<sp/>Boolean&gt;<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1ac1bca642aca7ebbd5f7a498445b22beb" kindref="member">getRebuild</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a93f2dcd82465e5bf4e7674a4256e2aff" kindref="member">rebuild</ref>;</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/>@Input</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="248" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1af550a301a327bec3eb8f5c6d2e753597" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Property&lt;@NotNull<sp/>Boolean&gt;<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1af550a301a327bec3eb8f5c6d2e753597" kindref="member">getDisableWarnings</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a930624ddbda5e1e4f20b4e538d58a5ad" kindref="member">disableWarnings</ref>;</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/>@InputFiles</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/>@PathSensitive(PathSensitivity.RELATIVE)</highlight></codeline>
+<codeline lineno="254" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1aac2b96db7c093fad0a6a48414e879200" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Provider&lt;@NotNull<sp/>Directory&gt;<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1aac2b96db7c093fad0a6a48414e879200" kindref="member">getResourceDirectory</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>This<sp/>is<sp/>wrong.<sp/>The<sp/>compile<sp/>task<sp/>should<sp/>not<sp/>be<sp/>the<sp/>one<sp/>depending<sp/>on<sp/>resources<sp/>src,<sp/>but<sp/>resources<sp/>build.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>But<sp/>that<sp/>is<sp/>java<sp/>behavior,<sp/>so<sp/>make<sp/>sure<sp/>at<sp/>least<sp/>we<sp/>get<sp/>the<sp/>resource<sp/>input<sp/>dependency.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>objects.directoryProperty().value(<ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1ac6b41840cf40accd13a1eb779c5b5787" kindref="member">getResourceDirectoryInternal</ref>());</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/>@OutputDirectory</highlight></codeline>
+<codeline lineno="261" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1afa62bdafbd5c92cb53c8ec91a740ae09" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Provider&lt;@NotNull<sp/>Directory&gt;<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1afa62bdafbd5c92cb53c8ec91a740ae09" kindref="member">getOutputDirectory</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO<sp/>We<sp/>can<sp/>make<sp/>this<sp/>configurable<sp/>later.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>objects.directoryProperty().value(<ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1ab190b74156087310744c79a8385a9265" kindref="member">getOutputDirectoryInternal</ref>());</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"></highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/>@InputFiles</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/>@PathSensitive(PathSensitivity.RELATIVE)</highlight></codeline>
+<codeline lineno="276" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a8031321865e9a8799ef34498915c7ec8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>FileTree<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a8031321865e9a8799ef34498915c7ec8" kindref="member">getAllXtcSourceFiles</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d6/dfb/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_source_task_1a9651f550902002011b9a6dfc2f6d22ff" kindref="member">getSource</ref>();<sp/></highlight><highlight class="comment">//<sp/>All<sp/>.x<sp/>files<sp/>in<sp/>the<sp/>source<sp/>tree<sp/>for<sp/>dependency<sp/>tracking</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"></highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/>@TaskAction</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="282" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a32670fce9a91e6c86083387a79b1300d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a32670fce9a91e6c86083387a79b1300d" kindref="member">executeTask</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super.executeTask();</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"></highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Create<sp/>and<sp/>execute<sp/>the<sp/>compile<sp/>strategy<sp/>(builds<sp/>CompilerOptions<sp/>internally<sp/>after<sp/>javatools<sp/>is<sp/>loaded)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>var<sp/>strategy<sp/>=<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1aabfb851525ccb07415ed37bb6fdecf46" kindref="member">createCompileStrategy</ref>();</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>exitCode<sp/>=<sp/>strategy.execute(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(exitCode<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>failure(</highlight><highlight class="stringliteral">&quot;Compilation<sp/>failed<sp/>with<sp/>exit<sp/>code:<sp/>{}&quot;</highlight><highlight class="normal">,<sp/>exitCode);</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a26323250127c860f8ebfa5bd38f0bb16" kindref="member">finalizeOutputs</ref>();</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"></highlight></codeline>
+<codeline lineno="294" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1aabfb851525ccb07415ed37bb6fdecf46" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="de/dd4/interfaceorg_1_1xtclang_1_1plugin_1_1launchers_1_1_execution_strategy" kindref="compound">ExecutionStrategy</ref><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1aabfb851525ccb07415ed37bb6fdecf46" kindref="member">createCompileStrategy</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="de/d68/enumorg_1_1xtclang_1_1plugin_1_1launchers_1_1_execution_mode" kindref="compound">ExecutionMode</ref><sp/>mode<sp/>=<sp/><ref refid="df/dc8/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_launcher_task_extension_1aa454b73f4dce7487a398abf0ffcd7078" kindref="member">getExecutionMode</ref>().get();</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(mode)<sp/>{</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>DIRECT<sp/>-&gt;<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy" kindref="compound">DirectStrategy</ref>(logger,<sp/><ref refid="d6/d70/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_launcher_task_1ad63c7e81c57a843a96371c08a1aa9141" kindref="member">getDirectRuntimeService</ref>());</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>ATTACHED<sp/>-&gt;<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="de/d3c/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_attached_strategy" kindref="compound">AttachedStrategy&lt;&gt;</ref>(logger,<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a747da33fb20a3f9a22e480a67e6d0031" kindref="member">resolveJavaExecutable</ref>());</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>DETACHED<sp/>-&gt;<sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>UnsupportedOperationException(</highlight><highlight class="stringliteral">&quot;DETACHED<sp/>mode<sp/>not<sp/>supported<sp/>for<sp/>compile<sp/>tasks&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"></highlight></codeline>
+<codeline lineno="303" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a747da33fb20a3f9a22e480a67e6d0031" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>String<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a747da33fb20a3f9a22e480a67e6d0031" kindref="member">resolveJavaExecutable</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>String<sp/>executable<sp/>=<sp/><ref refid="d6/d70/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_launcher_task_1ad4e498f3af6d8c1da4593d1e742ceb77" kindref="member">toolchainExecutable</ref>.getOrNull();</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(executable<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>failure(</highlight><highlight class="stringliteral">&quot;Java<sp/>toolchain<sp/>not<sp/>configured<sp/>-<sp/>cannot<sp/>resolve<sp/>java<sp/>executable<sp/>for<sp/>forked<sp/>compilation&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>executable;</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"></highlight></codeline>
+<codeline lineno="315" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a26323250127c860f8ebfa5bd38f0bb16" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a26323250127c860f8ebfa5bd38f0bb16" kindref="member">finalizeOutputs</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>objects.fileTree().from(<ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1afa62bdafbd5c92cb53c8ec91a740ae09" kindref="member">getOutputDirectory</ref>()).filter(f<sp/>-&gt;<sp/>isValidXtcModuleSafe(f,<sp/>logger)).getFiles().forEach(this::renameOutput);</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"></highlight></codeline>
+<codeline lineno="319" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a81f0df430478349b2efd3f84573e391f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a81f0df430478349b2efd3f84573e391f" kindref="member">renameOutput</ref>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>File<sp/>oldFile)<sp/>{</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>String<sp/>oldName<sp/>=<sp/>oldFile.getName();</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>String<sp/>newName<sp/>=<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1ad630fa91d26d41f093eb2f56f3ac6bdb" kindref="member">resolveOutputFilename</ref>(oldName);</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(oldName.equals(newName))<sp/>{</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>logger.info(</highlight><highlight class="stringliteral">&quot;[plugin]<sp/>Finalizing<sp/>compiler<sp/>output<sp/>XTC<sp/>binary<sp/>filename:<sp/>&apos;{}&apos;&quot;</highlight><highlight class="normal">,<sp/>oldName);</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>File<sp/>path<sp/>=<sp/>oldFile.getParentFile();</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>File<sp/>newFile<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>File(path,<sp/>newName);</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((!newFile.exists()<sp/>||<sp/>newFile.delete())<sp/>&amp;&amp;<sp/>oldFile.renameTo(newFile))<sp/>{</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>logger.info(</highlight><highlight class="stringliteral">&quot;[plugin]<sp/>Renamed<sp/>and<sp/>finalized<sp/>compiler<sp/>output<sp/>XTC<sp/>filename:<sp/>&apos;{}&apos;<sp/>to<sp/>&apos;{}&apos;<sp/>(path:<sp/>&apos;{}&apos;)&quot;</highlight><highlight class="normal">,<sp/>oldName,<sp/>newName,<sp/>path.getAbsolutePath());</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>failure(</highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>rename<sp/>&apos;{}&apos;<sp/>to<sp/>&apos;{}&apos;.<sp/>Output<sp/>file<sp/>already<sp/>exists<sp/>and<sp/>could<sp/>not<sp/>be<sp/>deleted:<sp/>&apos;{}&apos;&quot;</highlight><highlight class="normal">,<sp/>oldFile,<sp/>newFile,<sp/>newFile.getAbsoluteFile());</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"></highlight></codeline>
+<codeline lineno="335" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1ac901d4eb05eb85083768d2fc6669107d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1ac901d4eb05eb85083768d2fc6669107d" kindref="member">isTopLevelXtcSourceFile</ref>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>File<sp/>file)<sp/>{</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>!file.isDirectory()<sp/>&amp;&amp;<sp/><ref refid="d6/dfb/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_source_task_1ac41cf719bcdbb007d1341e222f8a0271" kindref="member">isXtcSourceFile</ref>(file)<sp/>&amp;&amp;<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a59df797fd8cae620e48006cca33eea75" kindref="member">isTopLevelSource</ref>(file);</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"></highlight></codeline>
+<codeline lineno="339" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a59df797fd8cae620e48006cca33eea75" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a59df797fd8cae620e48006cca33eea75" kindref="member">isTopLevelSource</ref>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>File<sp/>file)<sp/>{</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/>file.isFile();</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>var<sp/>dir<sp/>=<sp/>file.getParentFile();</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/>dir<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>dir.isDirectory();</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>var<sp/>isTopLevelSrc<sp/>=<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1aa00d5f142310dc1eabd450f194e79cef" kindref="member">getSourceDirectoriesInternal</ref>().contains(dir);</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>logger.debug(</highlight><highlight class="stringliteral">&quot;[plugin]<sp/>Checking<sp/>if<sp/>{}<sp/>is<sp/>a<sp/>module<sp/>definition<sp/>(currently,<sp/>just<sp/>checking<sp/>if<sp/>it&apos;s<sp/>a<sp/>top<sp/>level<sp/>file):<sp/>{}&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>file.getAbsolutePath(),<sp/>isTopLevelSrc);</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(isTopLevelSrc<sp/>||<sp/></highlight><highlight class="stringliteral">&quot;mack.x&quot;</highlight><highlight class="normal">.equalsIgnoreCase(file.getName()))<sp/>{</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>logger.info(</highlight><highlight class="stringliteral">&quot;[plugin]<sp/>Found<sp/>module<sp/>definition:<sp/>{}&quot;</highlight><highlight class="normal">,<sp/>file.getAbsolutePath());</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="350"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="353" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1aa00d5f142310dc1eabd450f194e79cef" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>Set&lt;File&gt;<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1aa00d5f142310dc1eabd450f194e79cef" kindref="member">getSourceDirectoriesInternal</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1ac64696adb72c990cd5cb7e1873b74e16" kindref="member">sourceSetDirs</ref>;</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"></highlight></codeline>
+<codeline lineno="357" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1ad630fa91d26d41f093eb2f56f3ac6bdb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>String<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1ad630fa91d26d41f093eb2f56f3ac6bdb" kindref="member">resolveOutputFilename</ref>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>String<sp/>from)<sp/>{</highlight></codeline>
+<codeline lineno="358"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>List&lt;String&gt;<sp/>list<sp/>=<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1af5d4df9b9d1c01d280483b58f292ac15" kindref="member">outputFilenames</ref>.get();</highlight></codeline>
+<codeline lineno="359"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>list.size();<sp/>i<sp/>+=<sp/>2)<sp/>{</highlight></codeline>
+<codeline lineno="360"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>String<sp/>key<sp/>=<sp/>list.get(i);</highlight></codeline>
+<codeline lineno="361"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>String<sp/>value<sp/>=<sp/>list.get(i<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="362"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(key.equals(from))<sp/>{</highlight></codeline>
+<codeline lineno="363"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>value;</highlight></codeline>
+<codeline lineno="364"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="366"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>from;</highlight></codeline>
+<codeline lineno="367"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="368"><highlight class="normal"></highlight></codeline>
+<codeline lineno="369"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="370" refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a4a1804c8060f6cb8efb90fb736e395c9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>List&lt;SourceSet&gt;<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a4a1804c8060f6cb8efb90fb736e395c9" kindref="member">getDependentSourceSets</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="371"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Note:<sp/>The<sp/>parent<sp/>implementation<sp/>now<sp/>captures<sp/>source<sp/>set<sp/>output<sp/>directories<sp/>at<sp/>configuration<sp/>time</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="372"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>to<sp/>avoid<sp/>Project<sp/>references<sp/>during<sp/>execution,<sp/>so<sp/>we<sp/>can<sp/>safely<sp/>use<sp/>it</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="373"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>super.getDependentSourceSets().stream()</highlight></codeline>
+<codeline lineno="374"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.filter(sourceSet<sp/>-&gt;<sp/>{</highlight></codeline>
+<codeline lineno="375"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>For<sp/>main<sp/>source<sp/>set<sp/>compile<sp/>tasks,<sp/>only<sp/>include<sp/>the<sp/>main<sp/>source<sp/>set</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="376"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a97906f07f921aa7da0d084dca419b878" kindref="member">isMainSourceSetCompileTask</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="377"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>sourceSet.getName().equals(<ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a6617589d290760cb244fe09dd5c5c5af" kindref="member">getCompileSourceSetName</ref>());</highlight></codeline>
+<codeline lineno="378"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="379"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="380"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>})</highlight></codeline>
+<codeline lineno="381"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.toList();</highlight></codeline>
+<codeline lineno="382"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="383"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/tasks/XtcCompileTask.java"/>
+  </compounddef>
+</doxygen>

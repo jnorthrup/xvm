@@ -1,0 +1,255 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d8/d81/_xtc_project_creator_integration_test_8java" kind="file" language="Java">
+    <compoundname>XtcProjectCreatorIntegrationTest.java</compoundname>
+    <includes local="no">java.io.BufferedReader</includes>
+    <includes local="no">java.io.IOException</includes>
+    <includes local="no">java.io.InputStreamReader</includes>
+    <includes local="no">java.nio.file.Files</includes>
+    <includes local="no">java.nio.file.Path</includes>
+    <includes local="no">java.util.Arrays</includes>
+    <includes local="no">java.util.concurrent.TimeUnit</includes>
+    <includes local="no">java.util.stream.Stream</includes>
+    <includes local="no">org.junit.jupiter.api.Test</includes>
+    <includes local="no">org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable</includes>
+    <includes local="no">org.junit.jupiter.api.io.TempDir</includes>
+    <includes local="no">org.xvm.asm.BuildInfo</includes>
+    <includes local="no">org.junit.jupiter.api.Assertions.assertEquals</includes>
+    <includes local="no">org.junit.jupiter.api.Assertions.assertTrue</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/test/java/org/xvm/tool/XtcProjectCreatorIntegrationTest.java</label>
+        <link refid="d8/d81/_xtc_project_creator_integration_test_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.io.BufferedReader</label>
+      </node>
+      <node id="3">
+        <label>java.io.IOException</label>
+      </node>
+      <node id="4">
+        <label>java.io.InputStreamReader</label>
+      </node>
+      <node id="5">
+        <label>java.nio.file.Files</label>
+      </node>
+      <node id="6">
+        <label>java.nio.file.Path</label>
+      </node>
+      <node id="7">
+        <label>java.util.Arrays</label>
+      </node>
+      <node id="8">
+        <label>java.util.concurrent.TimeUnit</label>
+      </node>
+      <node id="9">
+        <label>java.util.stream.Stream</label>
+      </node>
+      <node id="14">
+        <label>org.junit.jupiter.api.Assertions.assertEquals</label>
+      </node>
+      <node id="15">
+        <label>org.junit.jupiter.api.Assertions.assertTrue</label>
+      </node>
+      <node id="10">
+        <label>org.junit.jupiter.api.Test</label>
+      </node>
+      <node id="11">
+        <label>org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable</label>
+      </node>
+      <node id="12">
+        <label>org.junit.jupiter.api.io.TempDir</label>
+      </node>
+      <node id="13">
+        <label>org.xvm.asm.BuildInfo</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test" prot="public">org::xvm::tool::XtcProjectCreatorIntegrationTest</innerclass>
+    <innernamespace refid="d1/d15/namespaceorg_1_1xvm_1_1tool">org::xvm::tool</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.tool;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.BufferedReader;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.IOException;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.InputStreamReader;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.nio.file.Files;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.nio.file.Path;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Arrays;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.concurrent.TimeUnit;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.stream.Stream;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.Test;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.io.TempDir;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.BuildInfo;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.Assertions.assertEquals;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.junit.jupiter.api.Assertions.assertTrue;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal">@EnabledIfEnvironmentVariable(named<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;RUN_INTEGRATION_TESTS&quot;</highlight><highlight class="normal">,<sp/>matches<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;true&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>disabledReason<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Spawns<sp/>multiple<sp/>Gradle<sp/>builds<sp/>which<sp/>are<sp/>slow<sp/>with<sp/>empty<sp/>cache&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="48" refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test" refkind="compound"><highlight class="normal">public<sp/>class<sp/><ref refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test" kindref="compound">XtcProjectCreatorIntegrationTest</ref><sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1ad12efa3459dbd3e777fa4de61b4f7f34" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1ad12efa3459dbd3e777fa4de61b4f7f34" kindref="member">GRADLE_TIMEOUT_SECONDS</ref><sp/>=<sp/>120;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>@TempDir</highlight></codeline>
+<codeline lineno="53" refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1a5cb0194c2c9e214392e72be7c4919437" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Path<sp/><ref refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1a5cb0194c2c9e214392e72be7c4919437" kindref="member">tempDir</ref>;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="56" refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1a99ad79d7aafef7464290e773f9aeb2df" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1a99ad79d7aafef7464290e773f9aeb2df" kindref="member">testApplicationProjectConfigures</ref>()<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Path<sp/>projectPath<sp/>=<sp/><ref refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1a5cb0194c2c9e214392e72be7c4919437" kindref="member">tempDir</ref>.resolve(</highlight><highlight class="stringliteral">&quot;testapp&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>creator<sp/>=<sp/><ref refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1a9b5085f35d45c40c694cdf6c92260cbc" kindref="member">createProjectCreator</ref>(projectPath,<sp/>XtcProjectCreator.ProjectType.APPLICATION,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>result<sp/>=<sp/>creator.create();</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(result.success(),<sp/></highlight><highlight class="stringliteral">&quot;Project<sp/>creation<sp/>should<sp/>succeed:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>result.message());</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1a007111a878035f38617a70150ec8afc7" kindref="member">addMavenLocalToProject</ref>(projectPath);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>gradleResult<sp/>=<sp/><ref refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1a6c674d1db336dfe0605e6c418b5862e8" kindref="member">runGradle</ref>(projectPath,<sp/></highlight><highlight class="stringliteral">&quot;tasks&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(0,<sp/>gradleResult.exitCode(),</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Gradle<sp/>tasks<sp/>should<sp/>succeed<sp/>for<sp/>application<sp/>project.\nOutput:\n&quot;</highlight><highlight class="normal"><sp/>+<sp/>gradleResult.output());</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="71" refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1a21bb75c25bbdb55bdcb6848b42dac0b8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1a21bb75c25bbdb55bdcb6848b42dac0b8" kindref="member">testLibraryProjectConfigures</ref>()<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Path<sp/>projectPath<sp/>=<sp/><ref refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1a5cb0194c2c9e214392e72be7c4919437" kindref="member">tempDir</ref>.resolve(</highlight><highlight class="stringliteral">&quot;testlib&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>creator<sp/>=<sp/><ref refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1a9b5085f35d45c40c694cdf6c92260cbc" kindref="member">createProjectCreator</ref>(projectPath,<sp/>XtcProjectCreator.ProjectType.LIBRARY,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>result<sp/>=<sp/>creator.create();</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(result.success(),<sp/></highlight><highlight class="stringliteral">&quot;Project<sp/>creation<sp/>should<sp/>succeed:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>result.message());</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1a007111a878035f38617a70150ec8afc7" kindref="member">addMavenLocalToProject</ref>(projectPath);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>gradleResult<sp/>=<sp/><ref refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1a6c674d1db336dfe0605e6c418b5862e8" kindref="member">runGradle</ref>(projectPath,<sp/></highlight><highlight class="stringliteral">&quot;tasks&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(0,<sp/>gradleResult.exitCode(),</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Gradle<sp/>tasks<sp/>should<sp/>succeed<sp/>for<sp/>library<sp/>project.\nOutput:\n&quot;</highlight><highlight class="normal"><sp/>+<sp/>gradleResult.output());</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="86" refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1af0e8117cc9fc6bcdb71f45d51c433a40" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1af0e8117cc9fc6bcdb71f45d51c433a40" kindref="member">testServiceProjectConfigures</ref>()<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Path<sp/>projectPath<sp/>=<sp/><ref refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1a5cb0194c2c9e214392e72be7c4919437" kindref="member">tempDir</ref>.resolve(</highlight><highlight class="stringliteral">&quot;testsvc&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>XtcProjectCreator<sp/>creator<sp/>=<sp/><ref refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1a9b5085f35d45c40c694cdf6c92260cbc" kindref="member">createProjectCreator</ref>(projectPath,<sp/>XtcProjectCreator.ProjectType.SERVICE,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>XtcProjectCreator.Result<sp/>result<sp/>=<sp/>creator.create();</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(result.success(),<sp/></highlight><highlight class="stringliteral">&quot;Project<sp/>creation<sp/>should<sp/>succeed:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>result.message());</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1a007111a878035f38617a70150ec8afc7" kindref="member">addMavenLocalToProject</ref>(projectPath);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1aa0c422957e4a4074737d09ec671182a0" kindref="member">GradleResult</ref><sp/>gradleResult<sp/>=<sp/><ref refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1a6c674d1db336dfe0605e6c418b5862e8" kindref="member">runGradle</ref>(projectPath,<sp/></highlight><highlight class="stringliteral">&quot;tasks&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(0,<sp/>gradleResult.exitCode(),</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Gradle<sp/>tasks<sp/>should<sp/>succeed<sp/>for<sp/>service<sp/>project.\nOutput:\n&quot;</highlight><highlight class="normal"><sp/>+<sp/>gradleResult.output());</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>@Test</highlight></codeline>
+<codeline lineno="101" refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1a6af0e0fbfb9236f6a4a8cdeeb65d6059" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1a6af0e0fbfb9236f6a4a8cdeeb65d6059" kindref="member">testMultiModuleProjectConfigures</ref>()<sp/>throws<sp/>Exception<sp/>{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Path<sp/>projectPath<sp/>=<sp/><ref refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1a5cb0194c2c9e214392e72be7c4919437" kindref="member">tempDir</ref>.resolve(</highlight><highlight class="stringliteral">&quot;testmulti&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>creator<sp/>=<sp/><ref refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1a9b5085f35d45c40c694cdf6c92260cbc" kindref="member">createProjectCreator</ref>(projectPath,<sp/>XtcProjectCreator.ProjectType.APPLICATION,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>result<sp/>=<sp/>creator.create();</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertTrue(result.success(),<sp/></highlight><highlight class="stringliteral">&quot;Project<sp/>creation<sp/>should<sp/>succeed:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>result.message());</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1a007111a878035f38617a70150ec8afc7" kindref="member">addMavenLocalToProject</ref>(projectPath);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>gradleResult<sp/>=<sp/><ref refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1a6c674d1db336dfe0605e6c418b5862e8" kindref="member">runGradle</ref>(projectPath,<sp/></highlight><highlight class="stringliteral">&quot;tasks&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assertEquals(0,<sp/>gradleResult.exitCode(),</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Gradle<sp/>tasks<sp/>should<sp/>succeed<sp/>for<sp/>multi-module<sp/>project.\nOutput:\n&quot;</highlight><highlight class="normal"><sp/>+<sp/>gradleResult.output());</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119" refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1a9b5085f35d45c40c694cdf6c92260cbc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>XtcProjectCreator<sp/><ref refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1a9b5085f35d45c40c694cdf6c92260cbc" kindref="member">createProjectCreator</ref>(Path<sp/>projectPath,<sp/>XtcProjectCreator.ProjectType<sp/><ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref>,<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>multiModule)<sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Use<sp/>the<sp/>actual<sp/>XDK<sp/>version<sp/>from<sp/>this<sp/>build<sp/>so<sp/>it<sp/>matches<sp/>what<sp/>was<sp/>published<sp/>to<sp/>mavenLocal</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>XtcProjectCreator(projectPath,<sp/><ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref>,<sp/>multiModule,<sp/><ref refid="d2/d88/classorg_1_1xvm_1_1asm_1_1_build_info" kindref="compound">BuildInfo</ref>.<ref refid="d2/d88/classorg_1_1xvm_1_1asm_1_1_build_info_1a59e7b6db4d04628b76305a54efccd5de" kindref="member">getXdkVersion</ref>(),<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128" refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1a007111a878035f38617a70150ec8afc7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1a007111a878035f38617a70150ec8afc7" kindref="member">addMavenLocalToProject</ref>(Path<sp/>projectPath)<sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>settingsFile<sp/>=<sp/>projectPath.resolve(</highlight><highlight class="stringliteral">&quot;settings.gradle.kts&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>content<sp/>=<sp/>Files.readString(settingsFile);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Add<sp/>mavenLocal()<sp/>as<sp/>first<sp/>repository<sp/>in<sp/>pluginManagement</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>modified<sp/>=<sp/>content.replace(</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;pluginManagement<sp/>{\n<sp/><sp/><sp/><sp/>repositories<sp/>{&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;pluginManagement<sp/>{\n<sp/><sp/><sp/><sp/>repositories<sp/>{\n<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mavenLocal()&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Also<sp/>add<sp/>to<sp/>dependencyResolutionManagement<sp/>if<sp/>present</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>modified<sp/>=<sp/>modified.replace(</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;dependencyResolutionManagement<sp/>{\n<sp/><sp/><sp/><sp/>repositories<sp/>{&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;dependencyResolutionManagement<sp/>{\n<sp/><sp/><sp/><sp/>repositories<sp/>{\n<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mavenLocal()&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Files.writeString(settingsFile,<sp/>modified);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150" refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1a6c674d1db336dfe0605e6c418b5862e8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1aa0c422957e4a4074737d09ec671182a0" kindref="member">GradleResult</ref><sp/><ref refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1a6c674d1db336dfe0605e6c418b5862e8" kindref="member">runGradle</ref>(Path<sp/>projectPath,<sp/>@SuppressWarnings(</highlight><highlight class="stringliteral">&quot;SameParameterValue&quot;</highlight><highlight class="normal">)<sp/>String...<sp/>tasks)<sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>IOException,<sp/>InterruptedException<sp/>{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>gradlewName<sp/>=<sp/>System.getProperty(</highlight><highlight class="stringliteral">&quot;os.name&quot;</highlight><highlight class="normal">).toLowerCase().contains(</highlight><highlight class="stringliteral">&quot;win&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/></highlight><highlight class="stringliteral">&quot;gradlew.bat&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;gradlew&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String[]<sp/>command<sp/>=<sp/>Stream.concat(</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Stream.of(projectPath.resolve(gradlewName).toString(),<sp/></highlight><highlight class="stringliteral">&quot;--no-daemon&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Arrays.stream(tasks)</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>).toArray(String[]::new);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>pb<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ProcessBuilder(command);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pb.directory(projectPath.toFile());</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pb.redirectErrorStream(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>process<sp/>=<sp/>pb.start();</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>output<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>StringBuilder();</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>(var<sp/>reader<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>BufferedReader(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>InputStreamReader(process.getInputStream())))<sp/>{</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>line;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>((line<sp/>=<sp/>reader.readLine())<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>output.append(line).append(</highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>completed<sp/>=<sp/>process.waitFor(<ref refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1ad12efa3459dbd3e777fa4de61b4f7f34" kindref="member">GRADLE_TIMEOUT_SECONDS</ref>,<sp/>TimeUnit.SECONDS);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!completed)<sp/>{</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>process.destroyForcibly();</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1aa0c422957e4a4074737d09ec671182a0" kindref="member">GradleResult</ref>(-1,<sp/></highlight><highlight class="stringliteral">&quot;Gradle<sp/>timed<sp/>out<sp/>after<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1ad12efa3459dbd3e777fa4de61b4f7f34" kindref="member">GRADLE_TIMEOUT_SECONDS</ref><sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>seconds\n&quot;</highlight><highlight class="normal"><sp/>+<sp/>output);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1aa0c422957e4a4074737d09ec671182a0" kindref="member">GradleResult</ref>(process.exitValue(),<sp/>output.toString());</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183" refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1aa0c422957e4a4074737d09ec671182a0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>record<sp/><ref refid="d7/df7/classorg_1_1xvm_1_1tool_1_1_xtc_project_creator_integration_test_1aa0c422957e4a4074737d09ec671182a0" kindref="member">GradleResult</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>exitCode,<sp/>String<sp/>output)<sp/>{}</highlight></codeline>
+<codeline lineno="184"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/test/java/org/xvm/tool/XtcProjectCreatorIntegrationTest.java"/>
+  </compounddef>
+</doxygen>

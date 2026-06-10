@@ -1,0 +1,1064 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support" kind="interface" language="Java" prot="public">
+    <compoundname>org::xvm::runtime::template::IndexSupport</compoundname>
+    <derivedcompoundref refid="db/dbb/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_delegate" prot="public" virt="non-virtual">org.xvm.runtime.template._native.collections.arrays.xRTDelegate</derivedcompoundref>
+    <derivedcompoundref refid="d5/daa/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_type" prot="public" virt="non-virtual">org.xvm.runtime.template._native.reflect.xRTType</derivedcompoundref>
+    <derivedcompoundref refid="dc/db7/classorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1x_array" prot="public" virt="non-virtual">org.xvm.runtime.template.collections.xArray</derivedcompoundref>
+    <derivedcompoundref refid="df/d22/classorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1x_tuple" prot="public" virt="non-virtual">org.xvm.runtime.template.collections.xTuple</derivedcompoundref>
+    <derivedcompoundref refid="d9/d25/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string" prot="public" virt="non-virtual">org.xvm.runtime.template.text.xString</derivedcompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1a4004461f133186a032e4b6502fd435a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.runtime.template.IndexSupport.extractArrayValue</definition>
+        <argsstring>(Frame frame, ObjectHandle hTarget, long lIndex, int iReturn)</argsstring>
+        <name>extractArrayValue</name>
+        <qualifiedname>org.xvm.runtime.template.IndexSupport.extractArrayValue</qualifiedname>
+        <reimplementedby refid="db/dbb/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_delegate_1ae2f6022f6eb4dd3a1fcdf99d7c4183d5">extractArrayValue</reimplementedby>
+        <reimplementedby refid="d5/daa/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_type_1a958ebd99dba9e1a40ba42df782365183">extractArrayValue</reimplementedby>
+        <reimplementedby refid="dc/db7/classorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1x_array_1a8f8f77ae4ce866fd100ec5a5f8b1fa00">extractArrayValue</reimplementedby>
+        <reimplementedby refid="df/d22/classorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1x_tuple_1a93108719dc993b603d3e0ebb604b4469">extractArrayValue</reimplementedby>
+        <reimplementedby refid="d9/d25/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1a9776a673d2f9e8b614ec02699ada07d6">extractArrayValue</reimplementedby>
+        <param>
+          <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref></type>
+          <declname>hTarget</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>lIndex</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>iReturn</declname>
+        </param>
+        <briefdescription>
+<para>Extract an array or tuple element at a given index. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current frame </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the array or tuple handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the element index </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>iReturn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register id to place the extracted element into</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" kindref="member">Op#R_NEXT</ref></computeroutput> or <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a549a5479622c9633613d0c47a886c542" kindref="member">Op#R_EXCEPTION</ref></computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/template/IndexSupport.java" line="34" column="9"/>
+        <referencedby refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1aa7aa518d94d12d3dcd847455c45436d6" compoundref="d5/d79/_index_support_8java" startline="291" endline="309">org.xvm.runtime.template.IndexSupport.forEach</referencedby>
+        <referencedby refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1ae8fc1ca29f2bd51eb7c9ac73499433c6" compoundref="d5/d79/_index_support_8java" startline="234" endline="266">org.xvm.runtime.template.IndexSupport.invokePostDec</referencedby>
+        <referencedby refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1ad09150df13cb5587bfa2942e8bde3231" compoundref="d5/d79/_index_support_8java" startline="142" endline="174">org.xvm.runtime.template.IndexSupport.invokePostInc</referencedby>
+        <referencedby refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1a850d6c8dfd45ff022f784ca7b4b1d0e0" compoundref="d5/d79/_index_support_8java" startline="186" endline="222">org.xvm.runtime.template.IndexSupport.invokePreDec</referencedby>
+        <referencedby refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1a2fef23eba9255bdfd3a682e148f274af" compoundref="d5/d79/_index_support_8java" startline="94" endline="130">org.xvm.runtime.template.IndexSupport.invokePreInc</referencedby>
+        <referencedby refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1aa8eed63cf5fb06f7df69a1640c693da5" compoundref="d5/d79/_index_support_8java" startline="269" endline="289">org.xvm.runtime.template.IndexSupport.toArray</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1a20b95d38f97d4e7049b170aea311d575" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.runtime.template.IndexSupport.assignArrayValue</definition>
+        <argsstring>(Frame frame, ObjectHandle hTarget, long lIndex, ObjectHandle hValue)</argsstring>
+        <name>assignArrayValue</name>
+        <qualifiedname>org.xvm.runtime.template.IndexSupport.assignArrayValue</qualifiedname>
+        <reimplementedby refid="db/dbb/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_delegate_1ae7e173522de2a14ec03a2ce8907e8db8">assignArrayValue</reimplementedby>
+        <reimplementedby refid="d5/daa/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_type_1abfdfb01c898646f084be83b593ade284">assignArrayValue</reimplementedby>
+        <reimplementedby refid="dc/db7/classorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1x_array_1ac6ccc284fadd45ee6141c1eb37354e24">assignArrayValue</reimplementedby>
+        <reimplementedby refid="df/d22/classorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1x_tuple_1a96d37bc25cb6f8d81369b2b9237b4a9c">assignArrayValue</reimplementedby>
+        <reimplementedby refid="d9/d25/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1a5f5c8e8488e126a5ed7fa2506dec2a1b">assignArrayValue</reimplementedby>
+        <param>
+          <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref></type>
+          <declname>hTarget</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>lIndex</declname>
+        </param>
+        <param>
+          <type><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref></type>
+          <declname>hValue</declname>
+        </param>
+        <briefdescription>
+<para>Place the specified element into an array or tuple at a given index. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current frame </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the array or tuple handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the element index</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" kindref="member">Op#R_NEXT</ref></computeroutput> or <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a549a5479622c9633613d0c47a886c542" kindref="member">Op#R_EXCEPTION</ref></computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/template/IndexSupport.java" line="45" column="9"/>
+        <referencedby refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1ae8fc1ca29f2bd51eb7c9ac73499433c6" compoundref="d5/d79/_index_support_8java" startline="234" endline="266">org.xvm.runtime.template.IndexSupport.invokePostDec</referencedby>
+        <referencedby refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1ad09150df13cb5587bfa2942e8bde3231" compoundref="d5/d79/_index_support_8java" startline="142" endline="174">org.xvm.runtime.template.IndexSupport.invokePostInc</referencedby>
+        <referencedby refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1a850d6c8dfd45ff022f784ca7b4b1d0e0" compoundref="d5/d79/_index_support_8java" startline="186" endline="222">org.xvm.runtime.template.IndexSupport.invokePreDec</referencedby>
+        <referencedby refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1a2fef23eba9255bdfd3a682e148f274af" compoundref="d5/d79/_index_support_8java" startline="94" endline="130">org.xvm.runtime.template.IndexSupport.invokePreInc</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1af288c4579c08f8c8f830edaaf44b30d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref></type>
+        <definition>TypeConstant org.xvm.runtime.template.IndexSupport.getElementType</definition>
+        <argsstring>(Frame frame, ObjectHandle hTarget, long lIndex)</argsstring>
+        <name>getElementType</name>
+        <qualifiedname>org.xvm.runtime.template.IndexSupport.getElementType</qualifiedname>
+        <reimplementedby refid="db/dbb/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_delegate_1a1f00b2a0ac24280d671f35c2a268a711">getElementType</reimplementedby>
+        <reimplementedby refid="d5/daa/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_type_1a7a5c9ffbf1dc92f3137ba7abaa97adff">getElementType</reimplementedby>
+        <reimplementedby refid="dc/db7/classorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1x_array_1a0dd5d16330ca7bbc9682dacdf3930903">getElementType</reimplementedby>
+        <reimplementedby refid="df/d22/classorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1x_tuple_1a9525ec9327689b8424f8e64a078416eb">getElementType</reimplementedby>
+        <reimplementedby refid="d9/d25/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1ab83b848f562bf21bf5ede8eca0579fc5">getElementType</reimplementedby>
+        <param>
+          <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref></type>
+          <declname>hTarget</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>lIndex</declname>
+        </param>
+        <exceptions> throws <ref refid="da/de5/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_exception_handle_1_1_wrapper_exception" kindref="compound">ExceptionHandle.WrapperException</ref></exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the [declared] element type at the specified index </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/template/IndexSupport.java" line="50" column="19"/>
+        <referencedby refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1ae22349cdc02677dda90f13741fe553be" compoundref="d5/d79/_index_support_8java" startline="68" endline="82">org.xvm.runtime.template.IndexSupport.makeRef</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1ae095091a438b81026590b10298e9d399" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>long</type>
+        <definition>long org.xvm.runtime.template.IndexSupport.size</definition>
+        <argsstring>(ObjectHandle hTarget)</argsstring>
+        <name>size</name>
+        <qualifiedname>org.xvm.runtime.template.IndexSupport.size</qualifiedname>
+        <reimplementedby refid="db/dbb/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_delegate_1ac8befa84f6a1428b44dc7f7827c5c58f">size</reimplementedby>
+        <reimplementedby refid="d5/daa/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_type_1afc84daec522fde1bd80910241d749fe9">size</reimplementedby>
+        <reimplementedby refid="dc/db7/classorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1x_array_1a0efec025173d0f54b92f41a7e3fda193">size</reimplementedby>
+        <reimplementedby refid="df/d22/classorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1x_tuple_1af696e1d73774ac25926283127ea0c8da">size</reimplementedby>
+        <reimplementedby refid="d9/d25/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1ac5b5b46cb28ea7beed42634e85d9b57f">size</reimplementedby>
+        <param>
+          <type><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref></type>
+          <declname>hTarget</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the element count </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/template/IndexSupport.java" line="56" column="10"/>
+        <referencedby refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1aa7aa518d94d12d3dcd847455c45436d6" compoundref="d5/d79/_index_support_8java" startline="291" endline="309">org.xvm.runtime.template.IndexSupport.forEach</referencedby>
+        <referencedby refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1aa8eed63cf5fb06f7df69a1640c693da5" compoundref="d5/d79/_index_support_8java" startline="269" endline="289">org.xvm.runtime.template.IndexSupport.toArray</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1ae22349cdc02677dda90f13741fe553be" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default int</type>
+        <definition>default int org.xvm.runtime.template.IndexSupport.makeRef</definition>
+        <argsstring>(Frame frame, ObjectHandle hTarget, long lIndex, boolean fReadOnly, int iReturn)</argsstring>
+        <name>makeRef</name>
+        <qualifiedname>org.xvm.runtime.template.IndexSupport.makeRef</qualifiedname>
+        <param>
+          <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref></type>
+          <declname>hTarget</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>lIndex</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>fReadOnly</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>iReturn</declname>
+        </param>
+        <briefdescription>
+<para>Place a Var/Ref to the element value at the specified index into the specified register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current frame </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the array or tuple handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the element index </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>iReturn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register id to place the extracted element into</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>one of the <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" kindref="member">Op#R_NEXT</ref></computeroutput>, <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a00e0f1e4447b75bfad17b2a6e21fe44e" kindref="member">Op#R_CALL</ref></computeroutput> or <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a549a5479622c9633613d0c47a886c542" kindref="member">Op#R_EXCEPTION</ref></computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/template/IndexSupport.java" line="68" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/template/IndexSupport.java" bodystart="68" bodyend="82"/>
+        <references refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a288e3c2de804cd868396b461434d9875" compoundref="dd/dc6/_frame_8java" startline="800" endline="853">org.xvm.runtime.Frame.assignValue</references>
+        <references refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1af610688c2252d166cd8b0fbff9da7542" compoundref="d5/d4e/_class_template_8java" startline="221" endline="229">org.xvm.runtime.ClassTemplate.ensureParameterizedClass</references>
+        <references refid="d8/d69/classorg_1_1xvm_1_1runtime_1_1_service_context_1aa4ce9f5c6ea680ef7e3aef858bacae23" compoundref="d3/d6e/_service_context_8java" startline="2044">org.xvm.runtime.ServiceContext.f_container</references>
+        <references refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a7419371b163ade87e8962e502c38236e" compoundref="dd/dc6/_frame_8java" startline="67">org.xvm.runtime.Frame.f_context</references>
+        <references refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1af288c4579c08f8c8f830edaaf44b30d5">org.xvm.runtime.template.IndexSupport.getElementType</references>
+        <references refid="df/d36/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1a6ed630be1874489916744a320150ba9e" compoundref="d3/d59/x_ref_8java" startline="64">org.xvm.runtime.template.reflect.xRef.INSTANCE</references>
+        <references refid="d1/d6d/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_var_1a4c6502e35564e82bcf168ec186e9ce3b" compoundref="dc/dff/x_var_8java" startline="32">org.xvm.runtime.template.reflect.xVar.INSTANCE</references>
+        <references refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1af0bf8b407c9c863fe95276b38ed323d6" compoundref="dd/dc6/_frame_8java" startline="1280" endline="1282">org.xvm.runtime.Frame.raiseException</references>
+        <referencedby refid="db/dbb/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_delegate_1a20042697baa701d8dbbaac97a05adbd5" compoundref="d9/d24/x_r_t_delegate_8java" startline="220" endline="242">org.xvm.runtime.template._native.collections.arrays.xRTDelegate.invokeNative1</referencedby>
+        <referencedby refid="dc/db7/classorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1x_array_1ac400cd4d0a5008f5ce1daf5744c32dd1" compoundref="df/d47/x_array_8java" startline="438" endline="472">org.xvm.runtime.template.collections.xArray.invokeNative1</referencedby>
+        <referencedby refid="df/d22/classorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1x_tuple_1a7a23fcba5280a51c7ce0036f84ccf22c" compoundref="d3/d5f/x_tuple_8java" startline="175" endline="215">org.xvm.runtime.template.collections.xTuple.invokeNative1</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1a2fef23eba9255bdfd3a682e148f274af" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default int</type>
+        <definition>default int org.xvm.runtime.template.IndexSupport.invokePreInc</definition>
+        <argsstring>(Frame frame, ObjectHandle hTarget, long lIndex, int iReturn)</argsstring>
+        <name>invokePreInc</name>
+        <qualifiedname>org.xvm.runtime.template.IndexSupport.invokePreInc</qualifiedname>
+        <reimplementedby refid="d5/dab/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1_bit_based_delegate_1a42019af70b87987acf5e2780a7c5bc21">invokePreInc</reimplementedby>
+        <reimplementedby refid="d6/d51/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1_byte_based_delegate_1a40c45fd1937698356b01cee3da1e8f79">invokePreInc</reimplementedby>
+        <reimplementedby refid="d1/d4b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1_long_delegate_1a2c3be738a2e49a4009ad9d840b28b32e">invokePreInc</reimplementedby>
+        <reimplementedby refid="d5/d4c/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_char_delegate_1a1883a13e499d1d42280225771abe98a2">invokePreInc</reimplementedby>
+        <reimplementedby refid="dc/db7/classorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1x_array_1aab128375308cfbd6de6de4eddb9b31c9">invokePreInc</reimplementedby>
+        <param>
+          <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref></type>
+          <declname>hTarget</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>lIndex</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>iReturn</declname>
+        </param>
+        <briefdescription>
+<para>Increment the element value and place the result into the specified register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current frame </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the array or tuple handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the element index </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>iReturn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register id to place the extracted element into</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>one of the <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" kindref="member">Op#R_NEXT</ref></computeroutput>, <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a00e0f1e4447b75bfad17b2a6e21fe44e" kindref="member">Op#R_CALL</ref></computeroutput> or <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a549a5479622c9633613d0c47a886c542" kindref="member">Op#R_EXCEPTION</ref></computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/template/IndexSupport.java" line="94" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/template/IndexSupport.java" bodystart="94" bodyend="130"/>
+        <references refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a752906d9277e9e94278493cac254f1fc" compoundref="d1/dc0/_op_8java" startline="2103">org.xvm.asm.Op.A_STACK</references>
+        <references refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a3a3f5f339815d6a094131a3b9d362924" compoundref="dd/dc6/_frame_8java" startline="1811" endline="1822">org.xvm.runtime.Frame.addContinuation</references>
+        <references refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1a20b95d38f97d4e7049b170aea311d575">org.xvm.runtime.template.IndexSupport.assignArrayValue</references>
+        <references refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a288e3c2de804cd868396b461434d9875" compoundref="dd/dc6/_frame_8java" startline="800" endline="853">org.xvm.runtime.Frame.assignValue</references>
+        <references refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1a4004461f133186a032e4b6502fd435a1">org.xvm.runtime.template.IndexSupport.extractArrayValue</references>
+        <references refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle_1a15a84e78be8166b39deb18cad3aaf4c4" compoundref="d7/dae/_object_handle_8java" startline="124" endline="126">org.xvm.runtime.ObjectHandle.getOpSupport</references>
+        <references refid="d5/d35/interfaceorg_1_1xvm_1_1runtime_1_1_op_support_1a588643790e55115e3a47a2404fec4754">org.xvm.runtime.OpSupport.invokeNext</references>
+        <references refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1acb637e3dd34085589469cc0b550e129d" compoundref="dd/dc6/_frame_8java" startline="96">org.xvm.runtime.Frame.m_frameNext</references>
+        <references refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a9082b419ab2fed651263ce32ccdc731d" compoundref="dd/dc6/_frame_8java" startline="771" endline="781">org.xvm.runtime.Frame.popStack</references>
+        <references refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a00e0f1e4447b75bfad17b2a6e21fe44e" compoundref="d1/dc0/_op_8java" startline="2216">org.xvm.asm.Op.R_CALL</references>
+        <references refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a549a5479622c9633613d0c47a886c542" compoundref="d1/dc0/_op_8java" startline="2206">org.xvm.asm.Op.R_EXCEPTION</references>
+        <references refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" compoundref="d1/dc0/_op_8java" startline="2196">org.xvm.asm.Op.R_NEXT</references>
+      </memberdef>
+      <memberdef kind="function" id="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1ad09150df13cb5587bfa2942e8bde3231" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default int</type>
+        <definition>default int org.xvm.runtime.template.IndexSupport.invokePostInc</definition>
+        <argsstring>(Frame frame, ObjectHandle hTarget, long lIndex, int iReturn)</argsstring>
+        <name>invokePostInc</name>
+        <qualifiedname>org.xvm.runtime.template.IndexSupport.invokePostInc</qualifiedname>
+        <reimplementedby refid="d5/dab/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1_bit_based_delegate_1a9eb0ce26266c39be6c0c339b50f9be0e">invokePostInc</reimplementedby>
+        <reimplementedby refid="d6/d51/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1_byte_based_delegate_1a2e94f1e44339b9a952943b80001d8753">invokePostInc</reimplementedby>
+        <reimplementedby refid="d1/d4b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1_long_delegate_1a882f31d7c58e0e0c1244f7bec9999842">invokePostInc</reimplementedby>
+        <reimplementedby refid="d5/d4c/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_char_delegate_1a472d110a3e004ad9580836f8aa6f4aa8">invokePostInc</reimplementedby>
+        <reimplementedby refid="dc/db7/classorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1x_array_1ac66d33e8df9de97cd57d198166e34996">invokePostInc</reimplementedby>
+        <param>
+          <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref></type>
+          <declname>hTarget</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>lIndex</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>iReturn</declname>
+        </param>
+        <briefdescription>
+<para>Place the element value into the specified register and increment the value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current frame </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the array or tuple handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the element index </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>iReturn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register id to place the extracted element into</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>one of the <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" kindref="member">Op#R_NEXT</ref></computeroutput>, <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a00e0f1e4447b75bfad17b2a6e21fe44e" kindref="member">Op#R_CALL</ref></computeroutput> or <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a549a5479622c9633613d0c47a886c542" kindref="member">Op#R_EXCEPTION</ref></computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/template/IndexSupport.java" line="142" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/template/IndexSupport.java" bodystart="142" bodyend="174"/>
+        <references refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a752906d9277e9e94278493cac254f1fc" compoundref="d1/dc0/_op_8java" startline="2103">org.xvm.asm.Op.A_STACK</references>
+        <references refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a3a3f5f339815d6a094131a3b9d362924" compoundref="dd/dc6/_frame_8java" startline="1811" endline="1822">org.xvm.runtime.Frame.addContinuation</references>
+        <references refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1a20b95d38f97d4e7049b170aea311d575">org.xvm.runtime.template.IndexSupport.assignArrayValue</references>
+        <references refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a288e3c2de804cd868396b461434d9875" compoundref="dd/dc6/_frame_8java" startline="800" endline="853">org.xvm.runtime.Frame.assignValue</references>
+        <references refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1a4004461f133186a032e4b6502fd435a1">org.xvm.runtime.template.IndexSupport.extractArrayValue</references>
+        <references refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle_1a15a84e78be8166b39deb18cad3aaf4c4" compoundref="d7/dae/_object_handle_8java" startline="124" endline="126">org.xvm.runtime.ObjectHandle.getOpSupport</references>
+        <references refid="d5/d35/interfaceorg_1_1xvm_1_1runtime_1_1_op_support_1a588643790e55115e3a47a2404fec4754">org.xvm.runtime.OpSupport.invokeNext</references>
+        <references refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1acb637e3dd34085589469cc0b550e129d" compoundref="dd/dc6/_frame_8java" startline="96">org.xvm.runtime.Frame.m_frameNext</references>
+        <references refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a9082b419ab2fed651263ce32ccdc731d" compoundref="dd/dc6/_frame_8java" startline="771" endline="781">org.xvm.runtime.Frame.popStack</references>
+        <references refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a00e0f1e4447b75bfad17b2a6e21fe44e" compoundref="d1/dc0/_op_8java" startline="2216">org.xvm.asm.Op.R_CALL</references>
+        <references refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a549a5479622c9633613d0c47a886c542" compoundref="d1/dc0/_op_8java" startline="2206">org.xvm.asm.Op.R_EXCEPTION</references>
+        <references refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" compoundref="d1/dc0/_op_8java" startline="2196">org.xvm.asm.Op.R_NEXT</references>
+      </memberdef>
+      <memberdef kind="function" id="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1a850d6c8dfd45ff022f784ca7b4b1d0e0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default int</type>
+        <definition>default int org.xvm.runtime.template.IndexSupport.invokePreDec</definition>
+        <argsstring>(Frame frame, ObjectHandle hTarget, long lIndex, int iReturn)</argsstring>
+        <name>invokePreDec</name>
+        <qualifiedname>org.xvm.runtime.template.IndexSupport.invokePreDec</qualifiedname>
+        <reimplementedby refid="d5/dab/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1_bit_based_delegate_1ac9e8b504911c8612d835e308b54af76f">invokePreDec</reimplementedby>
+        <reimplementedby refid="d6/d51/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1_byte_based_delegate_1add16ffc2e5009608fd44ff2d34809e34">invokePreDec</reimplementedby>
+        <reimplementedby refid="d1/d4b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1_long_delegate_1aa6747ca1aa8cdb244aec074844547a73">invokePreDec</reimplementedby>
+        <reimplementedby refid="d5/d4c/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_char_delegate_1a97851da2a7506f0bcb5916d75bc006e7">invokePreDec</reimplementedby>
+        <reimplementedby refid="dc/db7/classorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1x_array_1a92654d1c0e5dc7d596331a6d26dd668d">invokePreDec</reimplementedby>
+        <param>
+          <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref></type>
+          <declname>hTarget</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>lIndex</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>iReturn</declname>
+        </param>
+        <briefdescription>
+<para>Decrement the element value and place the result into the specified register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current frame </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the array or tuple handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the element index </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>iReturn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register id to place the extracted element into</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>one of the <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" kindref="member">Op#R_NEXT</ref></computeroutput>, <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a00e0f1e4447b75bfad17b2a6e21fe44e" kindref="member">Op#R_CALL</ref></computeroutput> or <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a549a5479622c9633613d0c47a886c542" kindref="member">Op#R_EXCEPTION</ref></computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/template/IndexSupport.java" line="186" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/template/IndexSupport.java" bodystart="186" bodyend="222"/>
+        <references refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a752906d9277e9e94278493cac254f1fc" compoundref="d1/dc0/_op_8java" startline="2103">org.xvm.asm.Op.A_STACK</references>
+        <references refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a3a3f5f339815d6a094131a3b9d362924" compoundref="dd/dc6/_frame_8java" startline="1811" endline="1822">org.xvm.runtime.Frame.addContinuation</references>
+        <references refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1a20b95d38f97d4e7049b170aea311d575">org.xvm.runtime.template.IndexSupport.assignArrayValue</references>
+        <references refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a288e3c2de804cd868396b461434d9875" compoundref="dd/dc6/_frame_8java" startline="800" endline="853">org.xvm.runtime.Frame.assignValue</references>
+        <references refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1a4004461f133186a032e4b6502fd435a1">org.xvm.runtime.template.IndexSupport.extractArrayValue</references>
+        <references refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle_1a15a84e78be8166b39deb18cad3aaf4c4" compoundref="d7/dae/_object_handle_8java" startline="124" endline="126">org.xvm.runtime.ObjectHandle.getOpSupport</references>
+        <references refid="d5/d35/interfaceorg_1_1xvm_1_1runtime_1_1_op_support_1af5f199ab8e213439299c8a4f0749b7e5">org.xvm.runtime.OpSupport.invokePrev</references>
+        <references refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1acb637e3dd34085589469cc0b550e129d" compoundref="dd/dc6/_frame_8java" startline="96">org.xvm.runtime.Frame.m_frameNext</references>
+        <references refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a9082b419ab2fed651263ce32ccdc731d" compoundref="dd/dc6/_frame_8java" startline="771" endline="781">org.xvm.runtime.Frame.popStack</references>
+        <references refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a00e0f1e4447b75bfad17b2a6e21fe44e" compoundref="d1/dc0/_op_8java" startline="2216">org.xvm.asm.Op.R_CALL</references>
+        <references refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a549a5479622c9633613d0c47a886c542" compoundref="d1/dc0/_op_8java" startline="2206">org.xvm.asm.Op.R_EXCEPTION</references>
+        <references refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" compoundref="d1/dc0/_op_8java" startline="2196">org.xvm.asm.Op.R_NEXT</references>
+      </memberdef>
+      <memberdef kind="function" id="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1ae8fc1ca29f2bd51eb7c9ac73499433c6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default int</type>
+        <definition>default int org.xvm.runtime.template.IndexSupport.invokePostDec</definition>
+        <argsstring>(Frame frame, ObjectHandle hTarget, long lIndex, int iReturn)</argsstring>
+        <name>invokePostDec</name>
+        <qualifiedname>org.xvm.runtime.template.IndexSupport.invokePostDec</qualifiedname>
+        <reimplementedby refid="d5/dab/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1_bit_based_delegate_1a11bac0bfcbe0414e1f45b8d30f21506c">invokePostDec</reimplementedby>
+        <reimplementedby refid="d6/d51/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1_byte_based_delegate_1a42d0649e727c818c97834a1237aefed4">invokePostDec</reimplementedby>
+        <reimplementedby refid="d1/d4b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1_long_delegate_1aa04177e467af9444d1799babfa44d122">invokePostDec</reimplementedby>
+        <reimplementedby refid="d5/d4c/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_char_delegate_1a1ef1c59b2dde29d42a70e09bd4d0794d">invokePostDec</reimplementedby>
+        <reimplementedby refid="dc/db7/classorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1x_array_1a9d06423b832fbaa59fcdcdd9d1d8ad21">invokePostDec</reimplementedby>
+        <param>
+          <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref></type>
+          <declname>hTarget</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>lIndex</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>iReturn</declname>
+        </param>
+        <briefdescription>
+<para>Place the element value into the specified register and decrement the value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current frame </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the array or tuple handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the element index </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>iReturn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register id to place the extracted element into</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>one of the <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" kindref="member">Op#R_NEXT</ref></computeroutput>, <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a00e0f1e4447b75bfad17b2a6e21fe44e" kindref="member">Op#R_CALL</ref></computeroutput> or <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a549a5479622c9633613d0c47a886c542" kindref="member">Op#R_EXCEPTION</ref></computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/template/IndexSupport.java" line="234" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/template/IndexSupport.java" bodystart="234" bodyend="266"/>
+        <references refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a752906d9277e9e94278493cac254f1fc" compoundref="d1/dc0/_op_8java" startline="2103">org.xvm.asm.Op.A_STACK</references>
+        <references refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a3a3f5f339815d6a094131a3b9d362924" compoundref="dd/dc6/_frame_8java" startline="1811" endline="1822">org.xvm.runtime.Frame.addContinuation</references>
+        <references refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1a20b95d38f97d4e7049b170aea311d575">org.xvm.runtime.template.IndexSupport.assignArrayValue</references>
+        <references refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a288e3c2de804cd868396b461434d9875" compoundref="dd/dc6/_frame_8java" startline="800" endline="853">org.xvm.runtime.Frame.assignValue</references>
+        <references refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1a4004461f133186a032e4b6502fd435a1">org.xvm.runtime.template.IndexSupport.extractArrayValue</references>
+        <references refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle_1a15a84e78be8166b39deb18cad3aaf4c4" compoundref="d7/dae/_object_handle_8java" startline="124" endline="126">org.xvm.runtime.ObjectHandle.getOpSupport</references>
+        <references refid="d5/d35/interfaceorg_1_1xvm_1_1runtime_1_1_op_support_1af5f199ab8e213439299c8a4f0749b7e5">org.xvm.runtime.OpSupport.invokePrev</references>
+        <references refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1acb637e3dd34085589469cc0b550e129d" compoundref="dd/dc6/_frame_8java" startline="96">org.xvm.runtime.Frame.m_frameNext</references>
+        <references refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a9082b419ab2fed651263ce32ccdc731d" compoundref="dd/dc6/_frame_8java" startline="771" endline="781">org.xvm.runtime.Frame.popStack</references>
+        <references refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a00e0f1e4447b75bfad17b2a6e21fe44e" compoundref="d1/dc0/_op_8java" startline="2216">org.xvm.asm.Op.R_CALL</references>
+        <references refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a549a5479622c9633613d0c47a886c542" compoundref="d1/dc0/_op_8java" startline="2206">org.xvm.asm.Op.R_EXCEPTION</references>
+        <references refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" compoundref="d1/dc0/_op_8java" startline="2196">org.xvm.asm.Op.R_NEXT</references>
+      </memberdef>
+      <memberdef kind="function" id="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1aa8eed63cf5fb06f7df69a1640c693da5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default <ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref>[]</type>
+        <definition>default ObjectHandle[] org.xvm.runtime.template.IndexSupport.toArray</definition>
+        <argsstring>(Frame frame, ObjectHandle hTarget)</argsstring>
+        <name>toArray</name>
+        <qualifiedname>org.xvm.runtime.template.IndexSupport.toArray</qualifiedname>
+        <reimplementedby refid="dc/db7/classorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1x_array_1a46fdf2990d91eb0ea6b70928bf40094b">toArray</reimplementedby>
+        <param>
+          <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref></type>
+          <declname>hTarget</declname>
+        </param>
+        <exceptions> throws <ref refid="da/de5/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_exception_handle_1_1_wrapper_exception" kindref="compound">ExceptionHandle.WrapperException</ref> </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/template/IndexSupport.java" line="269" column="26" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/template/IndexSupport.java" bodystart="269" bodyend="289"/>
+        <references refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a752906d9277e9e94278493cac254f1fc" compoundref="d1/dc0/_op_8java" startline="2103">org.xvm.asm.Op.A_STACK</references>
+        <references refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1a4004461f133186a032e4b6502fd435a1">org.xvm.runtime.template.IndexSupport.extractArrayValue</references>
+        <references refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a549a5479622c9633613d0c47a886c542" compoundref="d1/dc0/_op_8java" startline="2206">org.xvm.asm.Op.R_EXCEPTION</references>
+        <references refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" compoundref="d1/dc0/_op_8java" startline="2196">org.xvm.asm.Op.R_NEXT</references>
+        <references refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1ae095091a438b81026590b10298e9d399">org.xvm.runtime.template.IndexSupport.size</references>
+        <referencedby refid="df/d22/classorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1x_tuple_1aa544ab7d6c7cf3850bbaa6325f7b2bcf" compoundref="d3/d5f/x_tuple_8java" startline="123" endline="135">org.xvm.runtime.template.collections.xTuple.construct</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1aa7aa518d94d12d3dcd847455c45436d6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default void</type>
+        <definition>default void org.xvm.runtime.template.IndexSupport.forEach</definition>
+        <argsstring>(Frame frame, ObjectHandle hTarget, Consumer&lt; ObjectHandle &gt; consumer)</argsstring>
+        <name>forEach</name>
+        <qualifiedname>org.xvm.runtime.template.IndexSupport.forEach</qualifiedname>
+        <param>
+          <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref></type>
+          <declname>hTarget</declname>
+        </param>
+        <param>
+          <type>Consumer&lt; <ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref> &gt;</type>
+          <declname>consumer</declname>
+        </param>
+        <exceptions> throws <ref refid="da/de5/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_exception_handle_1_1_wrapper_exception" kindref="compound">ExceptionHandle.WrapperException</ref> </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/template/IndexSupport.java" line="291" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/template/IndexSupport.java" bodystart="291" bodyend="309"/>
+        <references refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a752906d9277e9e94278493cac254f1fc" compoundref="d1/dc0/_op_8java" startline="2103">org.xvm.asm.Op.A_STACK</references>
+        <references refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1a4004461f133186a032e4b6502fd435a1">org.xvm.runtime.template.IndexSupport.extractArrayValue</references>
+        <references refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a549a5479622c9633613d0c47a886c542" compoundref="d1/dc0/_op_8java" startline="2206">org.xvm.asm.Op.R_EXCEPTION</references>
+        <references refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" compoundref="d1/dc0/_op_8java" startline="2196">org.xvm.asm.Op.R_NEXT</references>
+        <references refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1ae095091a438b81026590b10298e9d399">org.xvm.runtime.template.IndexSupport.size</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Support for index-based (array or tuple) op-codes. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>org.xvm.runtime.template.IndexSupport</label>
+        <link refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support"/>
+      </node>
+      <node id="4">
+        <label>org.xvm.runtime.template._native.collections.arrays.BitBasedDelegate</label>
+        <link refid="d5/dab/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1_bit_based_delegate"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>org.xvm.runtime.template._native.collections.arrays.ByteBasedBitView</label>
+        <link refid="de/dbc/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1_byte_based_bit_view"/>
+        <childnode refid="35" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>org.xvm.runtime.template._native.collections.arrays.ByteBasedDelegate</label>
+        <link refid="d6/d51/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1_byte_based_delegate"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>org.xvm.runtime.template._native.collections.arrays.LongBasedBitView</label>
+        <link refid="dc/de4/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1_long_based_bit_view"/>
+        <childnode refid="35" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>org.xvm.runtime.template._native.collections.arrays.LongBasedDelegate</label>
+        <link refid="d6/dff/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1_long_based_delegate"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>org.xvm.runtime.template._native.collections.arrays.LongDelegate</label>
+        <link refid="d1/d4b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1_long_delegate"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>org.xvm.runtime.template._native.collections.arrays.LongLongDelegate</label>
+        <link refid="dd/d90/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1_long_long_delegate"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTBitDelegate</label>
+        <link refid="d6/d41/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_bit_delegate"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTBooleanDelegate</label>
+        <link refid="d6/d6c/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_boolean_delegate"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTCharDelegate</label>
+        <link refid="d5/d4c/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_char_delegate"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTDelegate</label>
+        <link refid="db/dbb/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_delegate"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTFloat64Delegate</label>
+        <link refid="d8/d63/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_float64_delegate"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTInt128Delegate</label>
+        <link refid="d2/d17/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_int128_delegate"/>
+        <childnode refid="18" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTInt16Delegate</label>
+        <link refid="db/daa/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_int16_delegate"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTInt32Delegate</label>
+        <link refid="d6/d7f/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_int32_delegate"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTInt64Delegate</label>
+        <link refid="dc/d45/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_int64_delegate"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTInt8Delegate</label>
+        <link refid="de/d06/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_int8_delegate"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTNibbleDelegate</label>
+        <link refid="d6/d5f/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_nibble_delegate"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTSlicingDelegate</label>
+        <link refid="d8/dc1/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_slicing_delegate"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTStringDelegate</label>
+        <link refid="da/d57/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_string_delegate"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTUInt128Delegate</label>
+        <link refid="d7/d5a/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_u_int128_delegate"/>
+        <childnode refid="18" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTUInt16Delegate</label>
+        <link refid="d5/d5e/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_u_int16_delegate"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTUInt32Delegate</label>
+        <link refid="d4/dc2/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_u_int32_delegate"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTUInt64Delegate</label>
+        <link refid="d1/dc0/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_u_int64_delegate"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTUInt8Delegate</label>
+        <link refid="db/d96/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_u_int8_delegate"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTView</label>
+        <link refid="d7/d49/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTViewFromBit</label>
+        <link refid="d5/dcf/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_from_bit"/>
+        <childnode refid="25" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTViewFromBitToBoolean</label>
+        <link refid="da/def/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_from_bit_to_boolean"/>
+        <childnode refid="26" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTViewFromBitToByte</label>
+        <link refid="db/dc8/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_from_bit_to_byte"/>
+        <childnode refid="26" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTViewFromBitToNibble</label>
+        <link refid="db/d43/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_from_bit_to_nibble"/>
+        <childnode refid="26" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTViewFromByte</label>
+        <link refid="db/d53/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_from_byte"/>
+        <childnode refid="25" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTViewFromByteToFloat64</label>
+        <link refid="d3/d5c/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_from_byte_to_float64"/>
+        <childnode refid="30" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTViewFromByteToInt16</label>
+        <link refid="db/dbc/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_from_byte_to_int16"/>
+        <childnode refid="30" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTViewFromByteToInt64</label>
+        <link refid="d0/de4/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_from_byte_to_int64"/>
+        <childnode refid="30" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTViewFromByteToInt8</label>
+        <link refid="d5/d9c/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_from_byte_to_int8"/>
+        <childnode refid="30" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTViewToBit</label>
+        <link refid="d7/d51/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_to_bit"/>
+        <childnode refid="25" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTViewToBitFromFloat64</label>
+        <link refid="d4/deb/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_to_bit_from_float64"/>
+        <childnode refid="35" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTViewToBitFromInt128</label>
+        <link refid="df/dcb/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_to_bit_from_int128"/>
+        <childnode refid="39" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTViewToBitFromInt16</label>
+        <link refid="da/d3d/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_to_bit_from_int16"/>
+        <childnode refid="39" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTViewToBitFromInt32</label>
+        <link refid="db/df6/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_to_bit_from_int32"/>
+        <childnode refid="39" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="43">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTViewToBitFromInt64</label>
+        <link refid="d0/d20/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_to_bit_from_int64"/>
+        <childnode refid="39" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTViewToBitFromInt8</label>
+        <link refid="d7/d49/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_to_bit_from_int8"/>
+        <childnode refid="36" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTViewToBitFromNibble</label>
+        <link refid="d5/d0f/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_to_bit_from_nibble"/>
+        <childnode refid="35" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="44">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTViewToBitFromUInt128</label>
+        <link refid="d0/def/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_to_bit_from_u_int128"/>
+        <childnode refid="39" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="45">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTViewToBitFromUInt16</label>
+        <link refid="d7/d7e/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_to_bit_from_u_int16"/>
+        <childnode refid="39" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="46">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTViewToBitFromUInt32</label>
+        <link refid="de/d9c/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_to_bit_from_u_int32"/>
+        <childnode refid="39" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTViewToBitFromUInt64</label>
+        <link refid="d0/d7b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_to_bit_from_u_int64"/>
+        <childnode refid="39" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTViewToBitFromUInt8</label>
+        <link refid="da/d6b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_to_bit_from_u_int8"/>
+        <childnode refid="36" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>org.xvm.runtime.template._native.reflect.xRTType</label>
+        <link refid="d5/daa/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_type"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="52">
+        <label>org.xvm.runtime.template.collections.BitBasedArray</label>
+        <link refid="d6/d78/classorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1_bit_based_array"/>
+        <childnode refid="51" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>org.xvm.runtime.template.collections.xArray</label>
+        <link refid="dc/db7/classorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1x_array"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="53">
+        <label>org.xvm.runtime.template.collections.xBitArray</label>
+        <link refid="d6/d33/classorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1x_bit_array"/>
+        <childnode refid="52" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="55">
+        <label>org.xvm.runtime.template.collections.xByteArray</label>
+        <link refid="d1/d8d/classorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1x_byte_array"/>
+        <childnode refid="51" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="54">
+        <label>org.xvm.runtime.template.collections.xNibbleArray</label>
+        <link refid="dc/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1x_nibble_array"/>
+        <childnode refid="52" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="56">
+        <label>org.xvm.runtime.template.collections.xTuple</label>
+        <link refid="df/d22/classorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1x_tuple"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="57">
+        <label>org.xvm.runtime.template.text.xString</label>
+        <link refid="d9/d25/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/template/IndexSupport.java" line="23" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/template/IndexSupport.java" bodystart="23" bodyend="310"/>
+    <listofallmembers>
+      <member refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1a20b95d38f97d4e7049b170aea311d575" prot="public" virt="non-virtual"><scope>org::xvm::runtime::template::IndexSupport</scope><name>assignArrayValue</name></member>
+      <member refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1a4004461f133186a032e4b6502fd435a1" prot="public" virt="non-virtual"><scope>org::xvm::runtime::template::IndexSupport</scope><name>extractArrayValue</name></member>
+      <member refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1aa7aa518d94d12d3dcd847455c45436d6" prot="public" virt="non-virtual"><scope>org::xvm::runtime::template::IndexSupport</scope><name>forEach</name></member>
+      <member refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1af288c4579c08f8c8f830edaaf44b30d5" prot="public" virt="non-virtual"><scope>org::xvm::runtime::template::IndexSupport</scope><name>getElementType</name></member>
+      <member refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1ae8fc1ca29f2bd51eb7c9ac73499433c6" prot="public" virt="non-virtual"><scope>org::xvm::runtime::template::IndexSupport</scope><name>invokePostDec</name></member>
+      <member refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1ad09150df13cb5587bfa2942e8bde3231" prot="public" virt="non-virtual"><scope>org::xvm::runtime::template::IndexSupport</scope><name>invokePostInc</name></member>
+      <member refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1a850d6c8dfd45ff022f784ca7b4b1d0e0" prot="public" virt="non-virtual"><scope>org::xvm::runtime::template::IndexSupport</scope><name>invokePreDec</name></member>
+      <member refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1a2fef23eba9255bdfd3a682e148f274af" prot="public" virt="non-virtual"><scope>org::xvm::runtime::template::IndexSupport</scope><name>invokePreInc</name></member>
+      <member refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1ae22349cdc02677dda90f13741fe553be" prot="public" virt="non-virtual"><scope>org::xvm::runtime::template::IndexSupport</scope><name>makeRef</name></member>
+      <member refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1ae095091a438b81026590b10298e9d399" prot="public" virt="non-virtual"><scope>org::xvm::runtime::template::IndexSupport</scope><name>size</name></member>
+      <member refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support_1aa8eed63cf5fb06f7df69a1640c693da5" prot="public" virt="non-virtual"><scope>org::xvm::runtime::template::IndexSupport</scope><name>toArray</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

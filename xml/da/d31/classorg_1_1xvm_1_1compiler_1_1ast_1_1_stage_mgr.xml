@@ -1,0 +1,957 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr" kind="class" language="Java" prot="public">
+    <compoundname>org::xvm::compiler::ast::StageMgr</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aaed80adbf4e0165a4b14b8ddc4dbc686" prot="private" static="no" mutable="no">
+        <type><ref refid="d2/de1/enumorg_1_1xvm_1_1compiler_1_1_compiler_1_1_stage" kindref="compound">Stage</ref></type>
+        <definition>Stage org.xvm.compiler.ast.StageMgr.m_target</definition>
+        <argsstring></argsstring>
+        <name>m_target</name>
+        <qualifiedname>org.xvm.compiler.ast.StageMgr.m_target</qualifiedname>
+        <briefdescription>
+<para>Target stage for this stage manager. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" line="431" column="19" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" bodystart="431" bodyend="-1"/>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aba2f949f40b71acadf8df79b462ad075" compoundref="d0/d41/_stage_mgr_8java" startline="111" endline="143">org.xvm.compiler.ast.StageMgr.fastForward</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a03957fde47cd1fa0fb7c60e8adf1ac3e" compoundref="d0/d41/_stage_mgr_8java" startline="372" endline="374">org.xvm.compiler.ast.StageMgr.markComplete</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a18a188cb398841552baeafef174aea19" compoundref="d0/d41/_stage_mgr_8java" startline="171" endline="239">org.xvm.compiler.ast.StageMgr.processInternal</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1ab28a2f82b342c1717bb75f8d5ef7d048" compoundref="d0/d41/_stage_mgr_8java" startline="36" endline="43">org.xvm.compiler.ast.StageMgr.StageMgr</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a8eb83393273e47f3812b93f8329396c4" compoundref="d0/d41/_stage_mgr_8java" startline="53" endline="60">org.xvm.compiler.ast.StageMgr.StageMgr</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a024ee7d2255fe28928ef248c2fc409cd" prot="private" static="no" mutable="no">
+        <type>List&lt; <ref refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node" kindref="compound">AstNode</ref> &gt;</type>
+        <definition>List&lt;AstNode&gt; org.xvm.compiler.ast.StageMgr.m_listRevisit</definition>
+        <argsstring></argsstring>
+        <name>m_listRevisit</name>
+        <qualifiedname>org.xvm.compiler.ast.StageMgr.m_listRevisit</qualifiedname>
+        <briefdescription>
+<para>List of nodes that still require processing. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" line="436" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" bodystart="436" bodyend="-1"/>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aba2f949f40b71acadf8df79b462ad075" compoundref="d0/d41/_stage_mgr_8java" startline="111" endline="143">org.xvm.compiler.ast.StageMgr.fastForward</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a02a5c126f4f200b113e8111215fd1bd2" compoundref="d0/d41/_stage_mgr_8java" startline="66" endline="69">org.xvm.compiler.ast.StageMgr.isComplete</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1acd38d96ed0adcf809f1ccb88ff99370c" compoundref="d0/d41/_stage_mgr_8java" startline="77" endline="102">org.xvm.compiler.ast.StageMgr.processComplete</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a02aebaef70eacfcd2572280dad6bff4b" compoundref="d0/d41/_stage_mgr_8java" startline="283" endline="295">org.xvm.compiler.ast.StageMgr.requestRevisit</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1ab28a2f82b342c1717bb75f8d5ef7d048" compoundref="d0/d41/_stage_mgr_8java" startline="36" endline="43">org.xvm.compiler.ast.StageMgr.StageMgr</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a8eb83393273e47f3812b93f8329396c4" compoundref="d0/d41/_stage_mgr_8java" startline="53" endline="60">org.xvm.compiler.ast.StageMgr.StageMgr</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aa61edc23c990a59b0c8e62249dd44f2c" compoundref="d0/d41/_stage_mgr_8java" startline="417" endline="423">org.xvm.compiler.ast.StageMgr.takeRevisitList</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1adf11d9dfb6cf985339b84c4c1fc92e3a" prot="private" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean org.xvm.compiler.ast.StageMgr.m_fLastAttempt</definition>
+        <argsstring></argsstring>
+        <name>m_fLastAttempt</name>
+        <qualifiedname>org.xvm.compiler.ast.StageMgr.m_fLastAttempt</qualifiedname>
+        <briefdescription>
+<para>Last attempt flag. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" line="441" column="21" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" bodystart="441" bodyend="-1"/>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a8a198c7b51e7eeecafb77f2b21048450" compoundref="d0/d41/_stage_mgr_8java" startline="149" endline="151">org.xvm.compiler.ast.StageMgr.isLastAttempt</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a53e99cdbf52e1b8f658e7b265b1dc7c0" compoundref="d0/d41/_stage_mgr_8java" startline="157" endline="159">org.xvm.compiler.ast.StageMgr.markLastAttempt</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a5877d35230afa7e34a8eddd0de7f65f9" prot="private" static="no" mutable="no">
+        <type>final <ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref></type>
+        <definition>final ErrorListener org.xvm.compiler.ast.StageMgr.m_errs</definition>
+        <argsstring></argsstring>
+        <name>m_errs</name>
+        <qualifiedname>org.xvm.compiler.ast.StageMgr.m_errs</qualifiedname>
+        <briefdescription>
+<para>Error list to log processing errors to. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" line="446" column="33" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" bodystart="446" bodyend="-1"/>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aa3f4b2f1192f5bac3986c552928eaafe" compoundref="d0/d41/_stage_mgr_8java" startline="164" endline="166">org.xvm.compiler.ast.StageMgr.getErrorListener</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1acd38d96ed0adcf809f1ccb88ff99370c" compoundref="d0/d41/_stage_mgr_8java" startline="77" endline="102">org.xvm.compiler.ast.StageMgr.processComplete</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a18a188cb398841552baeafef174aea19" compoundref="d0/d41/_stage_mgr_8java" startline="171" endline="239">org.xvm.compiler.ast.StageMgr.processInternal</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1ab28a2f82b342c1717bb75f8d5ef7d048" compoundref="d0/d41/_stage_mgr_8java" startline="36" endline="43">org.xvm.compiler.ast.StageMgr.StageMgr</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a8eb83393273e47f3812b93f8329396c4" compoundref="d0/d41/_stage_mgr_8java" startline="53" endline="60">org.xvm.compiler.ast.StageMgr.StageMgr</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a60573eefad7a5444b265a16d35840be7" prot="private" static="no" mutable="no">
+        <type><ref refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node" kindref="compound">AstNode</ref></type>
+        <definition>AstNode org.xvm.compiler.ast.StageMgr.m_cur</definition>
+        <argsstring></argsstring>
+        <name>m_cur</name>
+        <qualifiedname>org.xvm.compiler.ast.StageMgr.m_cur</qualifiedname>
+        <briefdescription>
+<para>The current node being processed if processing is occurring. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" line="451" column="21" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" bodystart="451" bodyend="-1"/>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aa54905973797d225d3e9f6aeabb5b36e" compoundref="d0/d41/_stage_mgr_8java" startline="254" endline="260">org.xvm.compiler.ast.StageMgr.ensureCurrentNode</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a02a5c126f4f200b113e8111215fd1bd2" compoundref="d0/d41/_stage_mgr_8java" startline="66" endline="69">org.xvm.compiler.ast.StageMgr.isComplete</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a18a188cb398841552baeafef174aea19" compoundref="d0/d41/_stage_mgr_8java" startline="171" endline="239">org.xvm.compiler.ast.StageMgr.processInternal</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a5fefd1ceb0666110f7da5947d88ddfa2" prot="private" static="no" mutable="no">
+        <type>byte</type>
+        <definition>byte org.xvm.compiler.ast.StageMgr.m_nFlags</definition>
+        <argsstring></argsstring>
+        <name>m_nFlags</name>
+        <qualifiedname>org.xvm.compiler.ast.StageMgr.m_nFlags</qualifiedname>
+        <briefdescription>
+<para>The processing flags associated with the currently processing node. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" line="456" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" bodystart="456" bodyend="-1"/>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a9ad29b8776149f24189579c42f6ae436" compoundref="d0/d41/_stage_mgr_8java" startline="357" endline="359">org.xvm.compiler.ast.StageMgr.deferChildren</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a0a260f6929ad74051887d9d708bd4aed" compoundref="d0/d41/_stage_mgr_8java" startline="365" endline="367">org.xvm.compiler.ast.StageMgr.isChildrenDeferred</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a1f725c1794b585a5618ff99c0de90405" compoundref="d0/d41/_stage_mgr_8java" startline="350" endline="352">org.xvm.compiler.ast.StageMgr.isChildrenProcessed</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a1fb6ab2435b7cdd81ef6f9344ea83a8d" compoundref="d0/d41/_stage_mgr_8java" startline="300" endline="302">org.xvm.compiler.ast.StageMgr.isRevisitRequested</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aa004282ce42718950823a4a43429f6e7" compoundref="d0/d41/_stage_mgr_8java" startline="322" endline="345">org.xvm.compiler.ast.StageMgr.processChildrenExcept</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a18a188cb398841552baeafef174aea19" compoundref="d0/d41/_stage_mgr_8java" startline="171" endline="239">org.xvm.compiler.ast.StageMgr.processInternal</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a02aebaef70eacfcd2572280dad6bff4b" compoundref="d0/d41/_stage_mgr_8java" startline="283" endline="295">org.xvm.compiler.ast.StageMgr.requestRevisit</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a31acf792a6ee53c8d864e489eec5308b" prot="private" static="no" mutable="no">
+        <type><ref refid="d6/d1a/interfaceorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1_1_child_iterator" kindref="compound">ChildIterator</ref></type>
+        <definition>ChildIterator org.xvm.compiler.ast.StageMgr.m_iterKids</definition>
+        <argsstring></argsstring>
+        <name>m_iterKids</name>
+        <qualifiedname>org.xvm.compiler.ast.StageMgr.m_iterKids</qualifiedname>
+        <briefdescription>
+<para>The current <ref refid="d6/d1a/interfaceorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1_1_child_iterator" kindref="compound">ChildIterator</ref>, if processing is currently active and the node being processed is a child node. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" line="462" column="27" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" bodystart="462" bodyend="-1"/>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aa004282ce42718950823a4a43429f6e7" compoundref="d0/d41/_stage_mgr_8java" startline="322" endline="345">org.xvm.compiler.ast.StageMgr.processChildrenExcept</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a85e52fb2cae3ea26068e338fd3d31200" compoundref="d0/d41/_stage_mgr_8java" startline="265" endline="278">org.xvm.compiler.ast.StageMgr.replaceSelf</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1acf47b10e87b2dbb8fe083602a5cf3f0e" prot="private" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int org.xvm.compiler.ast.StageMgr.QUEUED_SELF</definition>
+        <argsstring></argsstring>
+        <name>QUEUED_SELF</name>
+        <qualifiedname>org.xvm.compiler.ast.StageMgr.QUEUED_SELF</qualifiedname>
+        <initializer>= 0x1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" line="464" column="30" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" bodystart="464" bodyend="-1"/>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a1fb6ab2435b7cdd81ef6f9344ea83a8d" compoundref="d0/d41/_stage_mgr_8java" startline="300" endline="302">org.xvm.compiler.ast.StageMgr.isRevisitRequested</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a02aebaef70eacfcd2572280dad6bff4b" compoundref="d0/d41/_stage_mgr_8java" startline="283" endline="295">org.xvm.compiler.ast.StageMgr.requestRevisit</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a4037c70feaf60dc3359bbc892a8ee96a" prot="private" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int org.xvm.compiler.ast.StageMgr.VISITED_KIDS</definition>
+        <argsstring></argsstring>
+        <name>VISITED_KIDS</name>
+        <qualifiedname>org.xvm.compiler.ast.StageMgr.VISITED_KIDS</qualifiedname>
+        <initializer>= 0x2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" line="465" column="30" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" bodystart="465" bodyend="-1"/>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a1f725c1794b585a5618ff99c0de90405" compoundref="d0/d41/_stage_mgr_8java" startline="350" endline="352">org.xvm.compiler.ast.StageMgr.isChildrenProcessed</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aa004282ce42718950823a4a43429f6e7" compoundref="d0/d41/_stage_mgr_8java" startline="322" endline="345">org.xvm.compiler.ast.StageMgr.processChildrenExcept</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a3e01cdbb44d0994c5fc0377215008a0f" prot="private" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int org.xvm.compiler.ast.StageMgr.DEFER_KIDS</definition>
+        <argsstring></argsstring>
+        <name>DEFER_KIDS</name>
+        <qualifiedname>org.xvm.compiler.ast.StageMgr.DEFER_KIDS</qualifiedname>
+        <initializer>= 0x4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" line="466" column="30" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" bodystart="466" bodyend="-1"/>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a9ad29b8776149f24189579c42f6ae436" compoundref="d0/d41/_stage_mgr_8java" startline="357" endline="359">org.xvm.compiler.ast.StageMgr.deferChildren</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a0a260f6929ad74051887d9d708bd4aed" compoundref="d0/d41/_stage_mgr_8java" startline="365" endline="367">org.xvm.compiler.ast.StageMgr.isChildrenDeferred</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1ab28a2f82b342c1717bb75f8d5ef7d048" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.xvm.compiler.ast.StageMgr.StageMgr</definition>
+        <argsstring>(AstNode node, Stage stageTarget, ErrorListener errs)</argsstring>
+        <name>StageMgr</name>
+        <qualifiedname>org.xvm.compiler.ast.StageMgr.StageMgr</qualifiedname>
+        <param>
+          <type><ref refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node" kindref="compound">AstNode</ref></type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type><ref refid="d2/de1/enumorg_1_1xvm_1_1compiler_1_1_compiler_1_1_stage" kindref="compound">Stage</ref></type>
+          <declname>stageTarget</declname>
+        </param>
+        <param>
+          <type><ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref></type>
+          <declname>errs</declname>
+        </param>
+        <briefdescription>
+<para>Construct a <ref refid="d2/de1/enumorg_1_1xvm_1_1compiler_1_1_compiler_1_1_stage" kindref="compound">Stage</ref> Manager that will progress the specified node (and any under it) to the specified target stage. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the node to process </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>stageTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target stage </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>errs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the optional error list to log to </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" line="36" column="12" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" bodystart="36" bodyend="43"/>
+        <references refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener_1ac7ff60e616d9e82aa72cf11ba767d749" compoundref="d9/d86/_error_listener_8java" startline="433">org.xvm.asm.ErrorListener.BLACKHOLE</references>
+        <references refid="d2/de1/enumorg_1_1xvm_1_1compiler_1_1_compiler_1_1_stage_1ab8dcdc981d38757069f77353964370d1" compoundref="d3/d4e/compiler_2_compiler_8java" startline="428" endline="434">org.xvm.compiler.Compiler.Stage.isTargetable</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a5877d35230afa7e34a8eddd0de7f65f9" compoundref="d0/d41/_stage_mgr_8java" startline="446">org.xvm.compiler.ast.StageMgr.m_errs</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a024ee7d2255fe28928ef248c2fc409cd" compoundref="d0/d41/_stage_mgr_8java" startline="436">org.xvm.compiler.ast.StageMgr.m_listRevisit</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aaed80adbf4e0165a4b14b8ddc4dbc686" compoundref="d0/d41/_stage_mgr_8java" startline="431">org.xvm.compiler.ast.StageMgr.m_target</references>
+      </memberdef>
+      <memberdef kind="function" id="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a8eb83393273e47f3812b93f8329396c4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.xvm.compiler.ast.StageMgr.StageMgr</definition>
+        <argsstring>(List&lt; AstNode &gt; list, Stage stageTarget, ErrorListener errs)</argsstring>
+        <name>StageMgr</name>
+        <qualifiedname>org.xvm.compiler.ast.StageMgr.StageMgr</qualifiedname>
+        <param>
+          <type>List&lt; <ref refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node" kindref="compound">AstNode</ref> &gt;</type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type><ref refid="d2/de1/enumorg_1_1xvm_1_1compiler_1_1_compiler_1_1_stage" kindref="compound">Stage</ref></type>
+          <declname>stageTarget</declname>
+        </param>
+        <param>
+          <type><ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref></type>
+          <declname>errs</declname>
+        </param>
+        <briefdescription>
+<para>Construct a <ref refid="d2/de1/enumorg_1_1xvm_1_1compiler_1_1_compiler_1_1_stage" kindref="compound">Stage</ref> Manager that will progress the specified nodes (and any under them) to the specified target stage. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the list of nodes to process </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>stageTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target stage </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>errs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the optional error list to log to </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" line="53" column="12" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" bodystart="53" bodyend="60"/>
+        <references refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener_1ac7ff60e616d9e82aa72cf11ba767d749" compoundref="d9/d86/_error_listener_8java" startline="433">org.xvm.asm.ErrorListener.BLACKHOLE</references>
+        <references refid="d2/de1/enumorg_1_1xvm_1_1compiler_1_1_compiler_1_1_stage_1ab8dcdc981d38757069f77353964370d1" compoundref="d3/d4e/compiler_2_compiler_8java" startline="428" endline="434">org.xvm.compiler.Compiler.Stage.isTargetable</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a5877d35230afa7e34a8eddd0de7f65f9" compoundref="d0/d41/_stage_mgr_8java" startline="446">org.xvm.compiler.ast.StageMgr.m_errs</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a024ee7d2255fe28928ef248c2fc409cd" compoundref="d0/d41/_stage_mgr_8java" startline="436">org.xvm.compiler.ast.StageMgr.m_listRevisit</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aaed80adbf4e0165a4b14b8ddc4dbc686" compoundref="d0/d41/_stage_mgr_8java" startline="431">org.xvm.compiler.ast.StageMgr.m_target</references>
+      </memberdef>
+      <memberdef kind="function" id="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a02a5c126f4f200b113e8111215fd1bd2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.compiler.ast.StageMgr.isComplete</definition>
+        <argsstring>()</argsstring>
+        <name>isComplete</name>
+        <qualifiedname>org.xvm.compiler.ast.StageMgr.isComplete</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true iff the stage manager has completed the processing of the nodes to achieve the target stage </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" line="66" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" bodystart="66" bodyend="69"/>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aa3f4b2f1192f5bac3986c552928eaafe" compoundref="d0/d41/_stage_mgr_8java" startline="164" endline="166">org.xvm.compiler.ast.StageMgr.getErrorListener</references>
+        <references refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener_1ab4f079242e254d31108367806de5659b" compoundref="d9/d86/_error_listener_8java" startline="101" endline="103">org.xvm.asm.ErrorListener.isAbortDesired</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a60573eefad7a5444b265a16d35840be7" compoundref="d0/d41/_stage_mgr_8java" startline="451">org.xvm.compiler.ast.StageMgr.m_cur</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a024ee7d2255fe28928ef248c2fc409cd" compoundref="d0/d41/_stage_mgr_8java" startline="436">org.xvm.compiler.ast.StageMgr.m_listRevisit</references>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aba2f949f40b71acadf8df79b462ad075" compoundref="d0/d41/_stage_mgr_8java" startline="111" endline="143">org.xvm.compiler.ast.StageMgr.fastForward</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1acd38d96ed0adcf809f1ccb88ff99370c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.compiler.ast.StageMgr.processComplete</definition>
+        <argsstring>()</argsstring>
+        <name>processComplete</name>
+        <qualifiedname>org.xvm.compiler.ast.StageMgr.processComplete</qualifiedname>
+        <briefdescription>
+<para>Process all of the nodes that can be processed at this point. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true iff the stage manager has completed the processing of the nodes to achieve the target stage </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" line="77" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" bodystart="77" bodyend="102"/>
+        <references refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity_1a470906cb0c737a6d70b2d9ff265ab9fd" compoundref="d0/ddf/_severity_8java" startline="10">org.xvm.util.Severity.ERROR</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a5877d35230afa7e34a8eddd0de7f65f9" compoundref="d0/d41/_stage_mgr_8java" startline="446">org.xvm.compiler.ast.StageMgr.m_errs</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a024ee7d2255fe28928ef248c2fc409cd" compoundref="d0/d41/_stage_mgr_8java" startline="436">org.xvm.compiler.ast.StageMgr.m_listRevisit</references>
+        <references refid="d3/d97/classorg_1_1xvm_1_1compiler_1_1_compiler_1ad8eaa8ded14b54becbf97878baee5ad9" compoundref="d3/d4e/compiler_2_compiler_8java" startline="691">org.xvm.compiler.Compiler.NAME_UNRESOLVABLE</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a18a188cb398841552baeafef174aea19" compoundref="d0/d41/_stage_mgr_8java" startline="171" endline="239">org.xvm.compiler.ast.StageMgr.processInternal</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aa61edc23c990a59b0c8e62249dd44f2c" compoundref="d0/d41/_stage_mgr_8java" startline="417" endline="423">org.xvm.compiler.ast.StageMgr.takeRevisitList</references>
+        <referencedby refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1ab413ed11c62c43fcc5aeae7642669293" compoundref="db/d57/_ast_node_8java" startline="748" endline="806">org.xvm.compiler.ast.AstNode.catchUpChildren</referencedby>
+        <referencedby refid="da/d20/classorg_1_1xvm_1_1compiler_1_1_eval_compiler_1ac4cb93bce6dae1fbead6d50482785a11" compoundref="dc/dc7/_eval_compiler_8java" startline="66" endline="145">org.xvm.compiler.EvalCompiler.createLambda</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aba2f949f40b71acadf8df79b462ad075" compoundref="d0/d41/_stage_mgr_8java" startline="111" endline="143">org.xvm.compiler.ast.StageMgr.fastForward</referencedby>
+        <referencedby refid="d3/d97/classorg_1_1xvm_1_1compiler_1_1_compiler_1a86db6a048784202a7a9345cb44c928d5" compoundref="d3/d4e/compiler_2_compiler_8java" startline="117" endline="137">org.xvm.compiler.Compiler.generateInitialFileStructure</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aba2f949f40b71acadf8df79b462ad075" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.compiler.ast.StageMgr.fastForward</definition>
+        <argsstring>(int cMaxIters)</argsstring>
+        <name>fastForward</name>
+        <qualifiedname>org.xvm.compiler.ast.StageMgr.fastForward</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>cMaxIters</declname>
+        </param>
+        <briefdescription>
+<para>From whatever stage the one node is at, iterate through the stages to the target stage. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cMaxIters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the maximum number of iterations to try to fast-forward to the target stage</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true iff the fast-forward was successful </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" line="111" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" bodystart="111" bodyend="143"/>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a02a5c126f4f200b113e8111215fd1bd2" compoundref="d0/d41/_stage_mgr_8java" startline="66" endline="69">org.xvm.compiler.ast.StageMgr.isComplete</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a024ee7d2255fe28928ef248c2fc409cd" compoundref="d0/d41/_stage_mgr_8java" startline="436">org.xvm.compiler.ast.StageMgr.m_listRevisit</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aaed80adbf4e0165a4b14b8ddc4dbc686" compoundref="d0/d41/_stage_mgr_8java" startline="431">org.xvm.compiler.ast.StageMgr.m_target</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a53e99cdbf52e1b8f658e7b265b1dc7c0" compoundref="d0/d41/_stage_mgr_8java" startline="157" endline="159">org.xvm.compiler.ast.StageMgr.markLastAttempt</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1acd38d96ed0adcf809f1ccb88ff99370c" compoundref="d0/d41/_stage_mgr_8java" startline="77" endline="102">org.xvm.compiler.ast.StageMgr.processComplete</references>
+        <references refid="d2/de1/enumorg_1_1xvm_1_1compiler_1_1_compiler_1_1_stage_1ab815588374c95d1611b157f86da9f6e7" compoundref="d3/d4e/compiler_2_compiler_8java" startline="413">org.xvm.compiler.Compiler.Stage.Registered</references>
+        <references refid="d2/de1/enumorg_1_1xvm_1_1compiler_1_1_compiler_1_1_stage_1a24163e5a8112d01c0a64d89666a2b21b" compoundref="d3/d4e/compiler_2_compiler_8java" startline="523" endline="529">org.xvm.compiler.Compiler.Stage.valueOf</references>
+        <referencedby refid="dc/dd0/classorg_1_1xvm_1_1compiler_1_1ast_1_1_lambda_expression_1a1026aad426d88b69ae7363ca2f501696" compoundref="db/d9d/_lambda_expression_8java" startline="706" endline="785">org.xvm.compiler.ast.LambdaExpression.createContext</referencedby>
+        <referencedby refid="dc/dd0/classorg_1_1xvm_1_1compiler_1_1ast_1_1_lambda_expression_1a20847bd96158199851e4cbc40f3f9083" compoundref="db/d9d/_lambda_expression_8java" startline="894" endline="905">org.xvm.compiler.ast.LambdaExpression.ensurePrepared</referencedby>
+        <referencedby refid="db/d21/classorg_1_1xvm_1_1compiler_1_1ast_1_1_type_composition_statement_1a9b423e462fb9274ab0b581ac48caae03" compoundref="de/d5f/_type_composition_statement_8java" startline="383" endline="1374">org.xvm.compiler.ast.TypeCompositionStatement.registerStructures</referencedby>
+        <referencedby refid="df/d48/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_module_1aa227a634d099912d56a38363f8e4f08c" compoundref="df/d0a/x_module_8java" startline="271" endline="308">org.xvm.runtime.template.reflect.xModule.resolveClassOrType</referencedby>
+        <referencedby refid="d2/df8/namespaceorg_1_1xvm_1_1compiler_1_1ast_1a32c7e34c76725494fb9cf686172b956a" compoundref="d3/da1/_expression_8java" startline="467" endline="473">org.xvm.compiler.ast.testFitAsType</referencedby>
+        <referencedby refid="d8/ddd/classorg_1_1xvm_1_1compiler_1_1ast_1_1_new_expression_1ad0c422e03cc533f8e0afdfc4af55965b" compoundref="da/d95/_new_expression_8java" startline="259" endline="746">org.xvm.compiler.ast.NewExpression.validate</referencedby>
+        <referencedby refid="d2/df8/namespaceorg_1_1xvm_1_1compiler_1_1ast_1add9787e821f115440ae2145d173e7d4e" compoundref="d3/da1/_expression_8java" startline="480" endline="492">org.xvm.compiler.ast.validateAsType</referencedby>
+        <referencedby refid="da/d6d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_property_declaration_statement_1ab53b8b18b5353e72b77dc681f3d33d5b" compoundref="db/d3c/_property_declaration_statement_8java" startline="335" endline="518">org.xvm.compiler.ast.PropertyDeclarationStatement.validateContent</referencedby>
+        <referencedby refid="dd/d20/classorg_1_1xvm_1_1compiler_1_1ast_1_1_rel_op_expression_1a6a74353d4f0dbd0c17dc964fda9b4ea3" compoundref="d6/da5/_rel_op_expression_8java" startline="409" endline="582">org.xvm.compiler.ast.RelOpExpression.validateMulti</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a8a198c7b51e7eeecafb77f2b21048450" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.compiler.ast.StageMgr.isLastAttempt</definition>
+        <argsstring>()</argsstring>
+        <name>isLastAttempt</name>
+        <qualifiedname>org.xvm.compiler.ast.StageMgr.isLastAttempt</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true iff the manager is on its last attempt to perform the required action; any deferral will be reported as an error </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" line="149" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" bodystart="149" bodyend="151"/>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1adf11d9dfb6cf985339b84c4c1fc92e3a" compoundref="d0/d41/_stage_mgr_8java" startline="441">org.xvm.compiler.ast.StageMgr.m_fLastAttempt</references>
+        <referencedby refid="da/d6d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_property_declaration_statement_1ab53b8b18b5353e72b77dc681f3d33d5b" compoundref="db/d3c/_property_declaration_statement_8java" startline="335" endline="518">org.xvm.compiler.ast.PropertyDeclarationStatement.validateContent</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a53e99cdbf52e1b8f658e7b265b1dc7c0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.compiler.ast.StageMgr.markLastAttempt</definition>
+        <argsstring>()</argsstring>
+        <name>markLastAttempt</name>
+        <qualifiedname>org.xvm.compiler.ast.StageMgr.markLastAttempt</qualifiedname>
+        <briefdescription>
+<para>Indicate that the manager is on its last attempt to perform the required action; any deferral will be reported as an error. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" line="157" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" bodystart="157" bodyend="159"/>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1adf11d9dfb6cf985339b84c4c1fc92e3a" compoundref="d0/d41/_stage_mgr_8java" startline="441">org.xvm.compiler.ast.StageMgr.m_fLastAttempt</references>
+        <referencedby refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1ab413ed11c62c43fcc5aeae7642669293" compoundref="db/d57/_ast_node_8java" startline="748" endline="806">org.xvm.compiler.ast.AstNode.catchUpChildren</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aba2f949f40b71acadf8df79b462ad075" compoundref="d0/d41/_stage_mgr_8java" startline="111" endline="143">org.xvm.compiler.ast.StageMgr.fastForward</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aa3f4b2f1192f5bac3986c552928eaafe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref></type>
+        <definition>ErrorListener org.xvm.compiler.ast.StageMgr.getErrorListener</definition>
+        <argsstring>()</argsstring>
+        <name>getErrorListener</name>
+        <qualifiedname>org.xvm.compiler.ast.StageMgr.getErrorListener</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>this <ref refid="d2/de1/enumorg_1_1xvm_1_1compiler_1_1_compiler_1_1_stage" kindref="compound">Stage</ref> Manager&apos;s error list </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" line="164" column="26" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" bodystart="164" bodyend="166"/>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a5877d35230afa7e34a8eddd0de7f65f9" compoundref="d0/d41/_stage_mgr_8java" startline="446">org.xvm.compiler.ast.StageMgr.m_errs</references>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a02a5c126f4f200b113e8111215fd1bd2" compoundref="d0/d41/_stage_mgr_8java" startline="66" endline="69">org.xvm.compiler.ast.StageMgr.isComplete</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a18a188cb398841552baeafef174aea19" compoundref="d0/d41/_stage_mgr_8java" startline="171" endline="239">org.xvm.compiler.ast.StageMgr.processInternal</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aa54905973797d225d3e9f6aeabb5b36e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node" kindref="compound">AstNode</ref></type>
+        <definition>AstNode org.xvm.compiler.ast.StageMgr.ensureCurrentNode</definition>
+        <argsstring>()</argsstring>
+        <name>ensureCurrentNode</name>
+        <qualifiedname>org.xvm.compiler.ast.StageMgr.ensureCurrentNode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the node currently being processed </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" line="254" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" bodystart="254" bodyend="260"/>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a60573eefad7a5444b265a16d35840be7" compoundref="d0/d41/_stage_mgr_8java" startline="451">org.xvm.compiler.ast.StageMgr.m_cur</references>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a03957fde47cd1fa0fb7c60e8adf1ac3e" compoundref="d0/d41/_stage_mgr_8java" startline="372" endline="374">org.xvm.compiler.ast.StageMgr.markComplete</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aa004282ce42718950823a4a43429f6e7" compoundref="d0/d41/_stage_mgr_8java" startline="322" endline="345">org.xvm.compiler.ast.StageMgr.processChildrenExcept</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a85e52fb2cae3ea26068e338fd3d31200" compoundref="d0/d41/_stage_mgr_8java" startline="265" endline="278">org.xvm.compiler.ast.StageMgr.replaceSelf</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a02aebaef70eacfcd2572280dad6bff4b" compoundref="d0/d41/_stage_mgr_8java" startline="283" endline="295">org.xvm.compiler.ast.StageMgr.requestRevisit</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a85e52fb2cae3ea26068e338fd3d31200" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.compiler.ast.StageMgr.replaceSelf</definition>
+        <argsstring>(AstNode node)</argsstring>
+        <name>replaceSelf</name>
+        <qualifiedname>org.xvm.compiler.ast.StageMgr.replaceSelf</qualifiedname>
+        <param>
+          <type><ref refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node" kindref="compound">AstNode</ref></type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+<para>Replace the currently-being-processed node with another node. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" line="265" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" bodystart="265" bodyend="278"/>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aa54905973797d225d3e9f6aeabb5b36e" compoundref="d0/d41/_stage_mgr_8java" startline="254" endline="260">org.xvm.compiler.ast.StageMgr.ensureCurrentNode</references>
+        <references refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1a26e85601c4a05d0959bb072af4a06c82" compoundref="db/d57/_ast_node_8java" startline="1811" endline="1813">org.xvm.compiler.ast.AstNode.getDumpDesc</references>
+        <references refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1a7acbf38bac0b95fd44609ad11c0b5410" compoundref="db/d57/_ast_node_8java" startline="79" endline="81">org.xvm.compiler.ast.AstNode.getParent</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a31acf792a6ee53c8d864e489eec5308b" compoundref="d0/d41/_stage_mgr_8java" startline="462">org.xvm.compiler.ast.StageMgr.m_iterKids</references>
+        <references refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1ab1923ccc169d6ec71659663ae176bbf5" compoundref="db/d57/_ast_node_8java" startline="149" endline="158">org.xvm.compiler.ast.AstNode.replaceChild</references>
+        <references refid="d6/d1a/interfaceorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1_1_child_iterator_1aa1c8ba388b77aab99980058a317cb9b4" compoundref="db/d57/_ast_node_8java" startline="1934" endline="1936">org.xvm.compiler.ast.AstNode.ChildIterator.replaceWith</references>
+      </memberdef>
+      <memberdef kind="function" id="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a02aebaef70eacfcd2572280dad6bff4b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.compiler.ast.StageMgr.requestRevisit</definition>
+        <argsstring>()</argsstring>
+        <name>requestRevisit</name>
+        <qualifiedname>org.xvm.compiler.ast.StageMgr.requestRevisit</qualifiedname>
+        <briefdescription>
+<para>Mark the current node as needing to be revisited. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" line="283" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" bodystart="283" bodyend="295"/>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aa54905973797d225d3e9f6aeabb5b36e" compoundref="d0/d41/_stage_mgr_8java" startline="254" endline="260">org.xvm.compiler.ast.StageMgr.ensureCurrentNode</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a1fb6ab2435b7cdd81ef6f9344ea83a8d" compoundref="d0/d41/_stage_mgr_8java" startline="300" endline="302">org.xvm.compiler.ast.StageMgr.isRevisitRequested</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a024ee7d2255fe28928ef248c2fc409cd" compoundref="d0/d41/_stage_mgr_8java" startline="436">org.xvm.compiler.ast.StageMgr.m_listRevisit</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a5fefd1ceb0666110f7da5947d88ddfa2" compoundref="d0/d41/_stage_mgr_8java" startline="456">org.xvm.compiler.ast.StageMgr.m_nFlags</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1acf47b10e87b2dbb8fe083602a5cf3f0e" compoundref="d0/d41/_stage_mgr_8java" startline="464">org.xvm.compiler.ast.StageMgr.QUEUED_SELF</references>
+        <referencedby refid="dc/dd0/classorg_1_1xvm_1_1compiler_1_1ast_1_1_lambda_expression_1a26b8eeee139f807d84ca5bc19527358c" compoundref="db/d9d/_lambda_expression_8java" startline="253" endline="297">org.xvm.compiler.ast.LambdaExpression.generateCode</referencedby>
+        <referencedby refid="db/d21/classorg_1_1xvm_1_1compiler_1_1ast_1_1_type_composition_statement_1ad08028e8725f2025a2091649ddaf3c33" compoundref="de/d5f/_type_composition_statement_8java" startline="2356" endline="2496">org.xvm.compiler.ast.TypeCompositionStatement.generateCode</referencedby>
+        <referencedby refid="de/dc2/classorg_1_1xvm_1_1compiler_1_1ast_1_1_annotated_type_expression_1a5b76a16386f564de2b29bde012c3f360" compoundref="d3/da6/_annotated_type_expression_8java" startline="182" endline="195">org.xvm.compiler.ast.AnnotatedTypeExpression.resolveNames</referencedby>
+        <referencedby refid="d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement_1a15f9f3177e4ea8b835568cafc93e4d57" compoundref="d2/d94/_import_statement_8java" startline="167" endline="190">org.xvm.compiler.ast.ImportStatement.resolveNames</referencedby>
+        <referencedby refid="d4/d3c/classorg_1_1xvm_1_1compiler_1_1ast_1_1_method_declaration_statement_1a26af0f1ace1154db50b200893f52bf8e" compoundref="d8/d19/_method_declaration_statement_8java" startline="459" endline="583">org.xvm.compiler.ast.MethodDeclarationStatement.resolveNames</referencedby>
+        <referencedby refid="d0/de9/classorg_1_1xvm_1_1compiler_1_1ast_1_1_named_type_expression_1a880d0155b89bdef98e4b08d02842933c" compoundref="d1/d1d/_named_type_expression_8java" startline="409" endline="540">org.xvm.compiler.ast.NamedTypeExpression.resolveNames</referencedby>
+        <referencedby refid="da/d6d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_property_declaration_statement_1a648ff198c86c1f0f742f848914041a28" compoundref="db/d3c/_property_declaration_statement_8java" startline="327" endline="332">org.xvm.compiler.ast.PropertyDeclarationStatement.resolveNames</referencedby>
+        <referencedby refid="db/d21/classorg_1_1xvm_1_1compiler_1_1ast_1_1_type_composition_statement_1a074ebe6ef35d73e0163f270bc0c0c9fc" compoundref="de/d5f/_type_composition_statement_8java" startline="1473" endline="2041">org.xvm.compiler.ast.TypeCompositionStatement.resolveNames</referencedby>
+        <referencedby refid="d3/dd1/classorg_1_1xvm_1_1compiler_1_1ast_1_1_type_expression_1a14a05573de63747684e22b1c4c96d80e" compoundref="df/da4/_type_expression_8java" startline="179" endline="185">org.xvm.compiler.ast.TypeExpression.resolveNames</referencedby>
+        <referencedby refid="dd/d14/classorg_1_1xvm_1_1compiler_1_1ast_1_1_annotation_expression_1a89fccaf29c7d6262fb70772ed36d5ba0" compoundref="da/ded/_annotation_expression_8java" startline="191" endline="331">org.xvm.compiler.ast.AnnotationExpression.validateContent</referencedby>
+        <referencedby refid="da/d6d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_property_declaration_statement_1ab53b8b18b5353e72b77dc681f3d33d5b" compoundref="db/d3c/_property_declaration_statement_8java" startline="335" endline="518">org.xvm.compiler.ast.PropertyDeclarationStatement.validateContent</referencedby>
+        <referencedby refid="db/d21/classorg_1_1xvm_1_1compiler_1_1ast_1_1_type_composition_statement_1a8e93ae3bf55742cd36ec453cd1f8c882" compoundref="de/d5f/_type_composition_statement_8java" startline="2044" endline="2162">org.xvm.compiler.ast.TypeCompositionStatement.validateContent</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a1fb6ab2435b7cdd81ef6f9344ea83a8d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.compiler.ast.StageMgr.isRevisitRequested</definition>
+        <argsstring>()</argsstring>
+        <name>isRevisitRequested</name>
+        <qualifiedname>org.xvm.compiler.ast.StageMgr.isRevisitRequested</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true iff this node has invoked <ref refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a02aebaef70eacfcd2572280dad6bff4b" kindref="member">requestRevisit()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" line="300" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" bodystart="300" bodyend="302"/>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a5fefd1ceb0666110f7da5947d88ddfa2" compoundref="d0/d41/_stage_mgr_8java" startline="456">org.xvm.compiler.ast.StageMgr.m_nFlags</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1acf47b10e87b2dbb8fe083602a5cf3f0e" compoundref="d0/d41/_stage_mgr_8java" startline="464">org.xvm.compiler.ast.StageMgr.QUEUED_SELF</references>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a18a188cb398841552baeafef174aea19" compoundref="d0/d41/_stage_mgr_8java" startline="171" endline="239">org.xvm.compiler.ast.StageMgr.processInternal</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a02aebaef70eacfcd2572280dad6bff4b" compoundref="d0/d41/_stage_mgr_8java" startline="283" endline="295">org.xvm.compiler.ast.StageMgr.requestRevisit</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1ac4b88f5565fbbf5be7e769ccce9e5093" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.compiler.ast.StageMgr.processChildren</definition>
+        <argsstring>()</argsstring>
+        <name>processChildren</name>
+        <qualifiedname>org.xvm.compiler.ast.StageMgr.processChildren</qualifiedname>
+        <briefdescription>
+<para>Suspend the processing of the current node and process each of its children, only returning to the current node after all of the children return. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true iff the processing of the children completed without an explicit indication of incompleteness </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" line="311" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" bodystart="311" bodyend="313"/>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aa004282ce42718950823a4a43429f6e7" compoundref="d0/d41/_stage_mgr_8java" startline="322" endline="345">org.xvm.compiler.ast.StageMgr.processChildrenExcept</references>
+        <referencedby refid="db/d21/classorg_1_1xvm_1_1compiler_1_1ast_1_1_type_composition_statement_1ad08028e8725f2025a2091649ddaf3c33" compoundref="de/d5f/_type_composition_statement_8java" startline="2356" endline="2496">org.xvm.compiler.ast.TypeCompositionStatement.generateCode</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a18a188cb398841552baeafef174aea19" compoundref="d0/d41/_stage_mgr_8java" startline="171" endline="239">org.xvm.compiler.ast.StageMgr.processInternal</referencedby>
+        <referencedby refid="db/d21/classorg_1_1xvm_1_1compiler_1_1ast_1_1_type_composition_statement_1a9b423e462fb9274ab0b581ac48caae03" compoundref="de/d5f/_type_composition_statement_8java" startline="383" endline="1374">org.xvm.compiler.ast.TypeCompositionStatement.registerStructures</referencedby>
+        <referencedby refid="de/dc2/classorg_1_1xvm_1_1compiler_1_1ast_1_1_annotated_type_expression_1a5b76a16386f564de2b29bde012c3f360" compoundref="d3/da6/_annotated_type_expression_8java" startline="182" endline="195">org.xvm.compiler.ast.AnnotatedTypeExpression.resolveNames</referencedby>
+        <referencedby refid="d0/de9/classorg_1_1xvm_1_1compiler_1_1ast_1_1_named_type_expression_1a880d0155b89bdef98e4b08d02842933c" compoundref="d1/d1d/_named_type_expression_8java" startline="409" endline="540">org.xvm.compiler.ast.NamedTypeExpression.resolveNames</referencedby>
+        <referencedby refid="db/d21/classorg_1_1xvm_1_1compiler_1_1ast_1_1_type_composition_statement_1a074ebe6ef35d73e0163f270bc0c0c9fc" compoundref="de/d5f/_type_composition_statement_8java" startline="1473" endline="2041">org.xvm.compiler.ast.TypeCompositionStatement.resolveNames</referencedby>
+        <referencedby refid="d3/dd1/classorg_1_1xvm_1_1compiler_1_1ast_1_1_type_expression_1a14a05573de63747684e22b1c4c96d80e" compoundref="df/da4/_type_expression_8java" startline="179" endline="185">org.xvm.compiler.ast.TypeExpression.resolveNames</referencedby>
+        <referencedby refid="dd/d14/classorg_1_1xvm_1_1compiler_1_1ast_1_1_annotation_expression_1a89fccaf29c7d6262fb70772ed36d5ba0" compoundref="da/ded/_annotation_expression_8java" startline="191" endline="331">org.xvm.compiler.ast.AnnotationExpression.validateContent</referencedby>
+        <referencedby refid="db/d21/classorg_1_1xvm_1_1compiler_1_1ast_1_1_type_composition_statement_1a8e93ae3bf55742cd36ec453cd1f8c882" compoundref="de/d5f/_type_composition_statement_8java" startline="2044" endline="2162">org.xvm.compiler.ast.TypeCompositionStatement.validateContent</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aa004282ce42718950823a4a43429f6e7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.compiler.ast.StageMgr.processChildrenExcept</definition>
+        <argsstring>(Predicate&lt; AstNode &gt; exclude)</argsstring>
+        <name>processChildrenExcept</name>
+        <qualifiedname>org.xvm.compiler.ast.StageMgr.processChildrenExcept</qualifiedname>
+        <param>
+          <type>Predicate&lt; <ref refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node" kindref="compound">AstNode</ref> &gt;</type>
+          <declname>exclude</declname>
+        </param>
+        <briefdescription>
+<para>Suspend the processing of the current node and process each of its children, only returning to the current node after all of the children return. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true iff the processing of the children completed without an explicit indication of incompleteness </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" line="322" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" bodystart="322" bodyend="345"/>
+        <references refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1acd1a36ebb4f90e33ef02cc53cd1b71cd" compoundref="db/d57/_ast_node_8java" startline="138" endline="141">org.xvm.compiler.ast.AstNode.children</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aa54905973797d225d3e9f6aeabb5b36e" compoundref="d0/d41/_stage_mgr_8java" startline="254" endline="260">org.xvm.compiler.ast.StageMgr.ensureCurrentNode</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a31acf792a6ee53c8d864e489eec5308b" compoundref="d0/d41/_stage_mgr_8java" startline="462">org.xvm.compiler.ast.StageMgr.m_iterKids</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a5fefd1ceb0666110f7da5947d88ddfa2" compoundref="d0/d41/_stage_mgr_8java" startline="456">org.xvm.compiler.ast.StageMgr.m_nFlags</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a18a188cb398841552baeafef174aea19" compoundref="d0/d41/_stage_mgr_8java" startline="171" endline="239">org.xvm.compiler.ast.StageMgr.processInternal</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a4037c70feaf60dc3359bbc892a8ee96a" compoundref="d0/d41/_stage_mgr_8java" startline="465">org.xvm.compiler.ast.StageMgr.VISITED_KIDS</references>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1ac4b88f5565fbbf5be7e769ccce9e5093" compoundref="d0/d41/_stage_mgr_8java" startline="311" endline="313">org.xvm.compiler.ast.StageMgr.processChildren</referencedby>
+        <referencedby refid="d4/d3c/classorg_1_1xvm_1_1compiler_1_1ast_1_1_method_declaration_statement_1a01ad5d4a3de033184cd79fe9931c56fc" compoundref="d8/d19/_method_declaration_statement_8java" startline="298" endline="456">org.xvm.compiler.ast.MethodDeclarationStatement.registerStructures</referencedby>
+        <referencedby refid="de/d68/classorg_1_1xvm_1_1compiler_1_1_eval_compiler_1_1_eval_statement_1ae8b0db1022f20576989687e5e55f87b3" compoundref="dc/dc7/_eval_compiler_8java" startline="366" endline="370">org.xvm.compiler.EvalCompiler.EvalStatement.registerStructures</referencedby>
+        <referencedby refid="d4/d3c/classorg_1_1xvm_1_1compiler_1_1ast_1_1_method_declaration_statement_1a26af0f1ace1154db50b200893f52bf8e" compoundref="d8/d19/_method_declaration_statement_8java" startline="459" endline="583">org.xvm.compiler.ast.MethodDeclarationStatement.resolveNames</referencedby>
+        <referencedby refid="d0/de9/classorg_1_1xvm_1_1compiler_1_1ast_1_1_named_type_expression_1a880d0155b89bdef98e4b08d02842933c" compoundref="d1/d1d/_named_type_expression_8java" startline="409" endline="540">org.xvm.compiler.ast.NamedTypeExpression.resolveNames</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a1f725c1794b585a5618ff99c0de90405" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.compiler.ast.StageMgr.isChildrenProcessed</definition>
+        <argsstring>()</argsstring>
+        <name>isChildrenProcessed</name>
+        <qualifiedname>org.xvm.compiler.ast.StageMgr.isChildrenProcessed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true once <ref refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1ac4b88f5565fbbf5be7e769ccce9e5093" kindref="member">processChildren()</ref> has been invoked </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" line="350" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" bodystart="350" bodyend="352"/>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a5fefd1ceb0666110f7da5947d88ddfa2" compoundref="d0/d41/_stage_mgr_8java" startline="456">org.xvm.compiler.ast.StageMgr.m_nFlags</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a4037c70feaf60dc3359bbc892a8ee96a" compoundref="d0/d41/_stage_mgr_8java" startline="465">org.xvm.compiler.ast.StageMgr.VISITED_KIDS</references>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a18a188cb398841552baeafef174aea19" compoundref="d0/d41/_stage_mgr_8java" startline="171" endline="239">org.xvm.compiler.ast.StageMgr.processInternal</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a9ad29b8776149f24189579c42f6ae436" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.compiler.ast.StageMgr.deferChildren</definition>
+        <argsstring>()</argsstring>
+        <name>deferChildren</name>
+        <qualifiedname>org.xvm.compiler.ast.StageMgr.deferChildren</qualifiedname>
+        <briefdescription>
+<para>Specify that the children should <bold>not</bold> be processed by this stage. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" line="357" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" bodystart="357" bodyend="359"/>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a3e01cdbb44d0994c5fc0377215008a0f" compoundref="d0/d41/_stage_mgr_8java" startline="466">org.xvm.compiler.ast.StageMgr.DEFER_KIDS</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a5fefd1ceb0666110f7da5947d88ddfa2" compoundref="d0/d41/_stage_mgr_8java" startline="456">org.xvm.compiler.ast.StageMgr.m_nFlags</references>
+        <referencedby refid="d4/d3c/classorg_1_1xvm_1_1compiler_1_1ast_1_1_method_declaration_statement_1ad727dacfbf73f8c85363b25d130d613c" compoundref="d8/d19/_method_declaration_statement_8java" startline="930" endline="935">org.xvm.compiler.ast.MethodDeclarationStatement.compileBody</referencedby>
+        <referencedby refid="dc/dd0/classorg_1_1xvm_1_1compiler_1_1ast_1_1_lambda_expression_1a26b8eeee139f807d84ca5bc19527358c" compoundref="db/d9d/_lambda_expression_8java" startline="253" endline="297">org.xvm.compiler.ast.LambdaExpression.generateCode</referencedby>
+        <referencedby refid="d4/d3c/classorg_1_1xvm_1_1compiler_1_1ast_1_1_method_declaration_statement_1af130a5375241b43b27f8d202b7daa176" compoundref="d8/d19/_method_declaration_statement_8java" startline="882" endline="928">org.xvm.compiler.ast.MethodDeclarationStatement.generateCode</referencedby>
+        <referencedby refid="dc/dd0/classorg_1_1xvm_1_1compiler_1_1ast_1_1_lambda_expression_1a5417cf0108d1f76f188db59797826000" compoundref="db/d9d/_lambda_expression_8java" startline="226" endline="234">org.xvm.compiler.ast.LambdaExpression.registerStructures</referencedby>
+        <referencedby refid="d4/d3c/classorg_1_1xvm_1_1compiler_1_1ast_1_1_method_declaration_statement_1a01ad5d4a3de033184cd79fe9931c56fc" compoundref="d8/d19/_method_declaration_statement_8java" startline="298" endline="456">org.xvm.compiler.ast.MethodDeclarationStatement.registerStructures</referencedby>
+        <referencedby refid="dc/dd0/classorg_1_1xvm_1_1compiler_1_1ast_1_1_lambda_expression_1a30b2bde5b031dab99dc098c3a394785b" compoundref="db/d9d/_lambda_expression_8java" startline="237" endline="242">org.xvm.compiler.ast.LambdaExpression.resolveNames</referencedby>
+        <referencedby refid="d4/d3c/classorg_1_1xvm_1_1compiler_1_1ast_1_1_method_declaration_statement_1a26af0f1ace1154db50b200893f52bf8e" compoundref="d8/d19/_method_declaration_statement_8java" startline="459" endline="583">org.xvm.compiler.ast.MethodDeclarationStatement.resolveNames</referencedby>
+        <referencedby refid="d0/de9/classorg_1_1xvm_1_1compiler_1_1ast_1_1_named_type_expression_1a880d0155b89bdef98e4b08d02842933c" compoundref="d1/d1d/_named_type_expression_8java" startline="409" endline="540">org.xvm.compiler.ast.NamedTypeExpression.resolveNames</referencedby>
+        <referencedby refid="de/d68/classorg_1_1xvm_1_1compiler_1_1_eval_compiler_1_1_eval_statement_1a2750c234542ae9db7eb58e2ab25d38d4" compoundref="dc/dc7/_eval_compiler_8java" startline="373" endline="375">org.xvm.compiler.EvalCompiler.EvalStatement.resolveNames</referencedby>
+        <referencedby refid="dc/dd0/classorg_1_1xvm_1_1compiler_1_1ast_1_1_lambda_expression_1a480ef000d02bdf33334400ce48e025ba" compoundref="db/d9d/_lambda_expression_8java" startline="245" endline="250">org.xvm.compiler.ast.LambdaExpression.validateContent</referencedby>
+        <referencedby refid="d4/d3c/classorg_1_1xvm_1_1compiler_1_1ast_1_1_method_declaration_statement_1ab53d0685468545fd1f6bf34ce315a1b6" compoundref="d8/d19/_method_declaration_statement_8java" startline="586" endline="788">org.xvm.compiler.ast.MethodDeclarationStatement.validateContent</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a0a260f6929ad74051887d9d708bd4aed" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.compiler.ast.StageMgr.isChildrenDeferred</definition>
+        <argsstring>()</argsstring>
+        <name>isChildrenDeferred</name>
+        <qualifiedname>org.xvm.compiler.ast.StageMgr.isChildrenDeferred</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true iff it has been specified that the processing of the children for this stage will be deferred </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" line="365" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" bodystart="365" bodyend="367"/>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a3e01cdbb44d0994c5fc0377215008a0f" compoundref="d0/d41/_stage_mgr_8java" startline="466">org.xvm.compiler.ast.StageMgr.DEFER_KIDS</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a5fefd1ceb0666110f7da5947d88ddfa2" compoundref="d0/d41/_stage_mgr_8java" startline="456">org.xvm.compiler.ast.StageMgr.m_nFlags</references>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a18a188cb398841552baeafef174aea19" compoundref="d0/d41/_stage_mgr_8java" startline="171" endline="239">org.xvm.compiler.ast.StageMgr.processInternal</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a03957fde47cd1fa0fb7c60e8adf1ac3e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.compiler.ast.StageMgr.markComplete</definition>
+        <argsstring>()</argsstring>
+        <name>markComplete</name>
+        <qualifiedname>org.xvm.compiler.ast.StageMgr.markComplete</qualifiedname>
+        <briefdescription>
+<para>Mark the current node as completing. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" line="372" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" bodystart="372" bodyend="374"/>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aa54905973797d225d3e9f6aeabb5b36e" compoundref="d0/d41/_stage_mgr_8java" startline="254" endline="260">org.xvm.compiler.ast.StageMgr.ensureCurrentNode</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aaed80adbf4e0165a4b14b8ddc4dbc686" compoundref="d0/d41/_stage_mgr_8java" startline="431">org.xvm.compiler.ast.StageMgr.m_target</references>
+        <references refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1a65e9055a5267e5cab5b156a562240171" compoundref="db/d57/_ast_node_8java" startline="285" endline="290">org.xvm.compiler.ast.AstNode.setStage</references>
+        <referencedby refid="dc/dd0/classorg_1_1xvm_1_1compiler_1_1ast_1_1_lambda_expression_1a26b8eeee139f807d84ca5bc19527358c" compoundref="db/d9d/_lambda_expression_8java" startline="253" endline="297">org.xvm.compiler.ast.LambdaExpression.generateCode</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a18a188cb398841552baeafef174aea19" compoundref="d0/d41/_stage_mgr_8java" startline="171" endline="239">org.xvm.compiler.ast.StageMgr.processInternal</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a5a4ab0f28d2d6e37da65a7f838ed2e13" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.compiler.ast.StageMgr.logDeferredAsErrors</definition>
+        <argsstring>(ErrorListener errs)</argsstring>
+        <name>logDeferredAsErrors</name>
+        <qualifiedname>org.xvm.compiler.ast.StageMgr.logDeferredAsErrors</qualifiedname>
+        <param>
+          <type><ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref></type>
+          <declname>errs</declname>
+        </param>
+        <briefdescription>
+<para>Log the remaining unresolved nodes as errors. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>errs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the error listener to log errors into </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" line="381" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" bodystart="381" bodyend="406"/>
+        <references refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity_1a2beccdd1b1fc27a08e81ea3243aae21c" compoundref="d0/ddf/_severity_8java" startline="10">org.xvm.util.Severity.FATAL</references>
+        <references refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_component_1a636d54ad5118c958ec247782d0756646" compoundref="d0/d23/_component_8java" startline="249" endline="251">org.xvm.asm.Component.getIdentityConstant</references>
+        <references refid="d3/d97/classorg_1_1xvm_1_1compiler_1_1_compiler_1a3ab468eca2753b8966bb45b3a69de174" compoundref="d3/d4e/compiler_2_compiler_8java" startline="659">org.xvm.compiler.Compiler.INFINITE_RESOLVE_LOOP</references>
+        <references refid="d7/d57/classorg_1_1xvm_1_1asm_1_1_xvm_structure_1aef9bafec30978481b0b85752101acb28" compoundref="d4/d04/_xvm_structure_8java" startline="396" endline="399">org.xvm.asm.XvmStructure.log</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aa61edc23c990a59b0c8e62249dd44f2c" compoundref="d0/d41/_stage_mgr_8java" startline="417" endline="423">org.xvm.compiler.ast.StageMgr.takeRevisitList</references>
+        <referencedby refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1ab413ed11c62c43fcc5aeae7642669293" compoundref="db/d57/_ast_node_8java" startline="748" endline="806">org.xvm.compiler.ast.AstNode.catchUpChildren</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a18a188cb398841552baeafef174aea19" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.compiler.ast.StageMgr.processInternal</definition>
+        <argsstring>(AstNode node)</argsstring>
+        <name>processInternal</name>
+        <qualifiedname>org.xvm.compiler.ast.StageMgr.processInternal</qualifiedname>
+        <param>
+          <type><ref refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node" kindref="compound">AstNode</ref></type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the node to attempt to advance to the target stage </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" line="171" column="23" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" bodystart="171" bodyend="239"/>
+        <references refid="d2/de1/enumorg_1_1xvm_1_1compiler_1_1_compiler_1_1_stage_1a5584beb0fba9a7facde830e5982287c9" compoundref="d3/d4e/compiler_2_compiler_8java" startline="472" endline="476">org.xvm.compiler.Compiler.Stage.ensureValid</references>
+        <references refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1ae89c3dc30ce39bc60374913eb05d39b7" compoundref="db/d57/_ast_node_8java" startline="729" endline="730">org.xvm.compiler.ast.AstNode.generateCode</references>
+        <references refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1a26e85601c4a05d0959bb072af4a06c82" compoundref="db/d57/_ast_node_8java" startline="1811" endline="1813">org.xvm.compiler.ast.AstNode.getDumpDesc</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aa3f4b2f1192f5bac3986c552928eaafe" compoundref="d0/d41/_stage_mgr_8java" startline="164" endline="166">org.xvm.compiler.ast.StageMgr.getErrorListener</references>
+        <references refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1abbd50fbda960c508e62670ecc084ac89" compoundref="db/d57/_ast_node_8java" startline="263" endline="265">org.xvm.compiler.ast.AstNode.getStage</references>
+        <references refid="d2/de1/enumorg_1_1xvm_1_1compiler_1_1_compiler_1_1_stage_1aee5699732011f0637f5bd46ac64a9e08" compoundref="d3/d4e/compiler_2_compiler_8java" startline="450" endline="455">org.xvm.compiler.Compiler.Stage.getTransitionStage</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a0a260f6929ad74051887d9d708bd4aed" compoundref="d0/d41/_stage_mgr_8java" startline="365" endline="367">org.xvm.compiler.ast.StageMgr.isChildrenDeferred</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a1f725c1794b585a5618ff99c0de90405" compoundref="d0/d41/_stage_mgr_8java" startline="350" endline="352">org.xvm.compiler.ast.StageMgr.isChildrenProcessed</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a1fb6ab2435b7cdd81ef6f9344ea83a8d" compoundref="d0/d41/_stage_mgr_8java" startline="300" endline="302">org.xvm.compiler.ast.StageMgr.isRevisitRequested</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a60573eefad7a5444b265a16d35840be7" compoundref="d0/d41/_stage_mgr_8java" startline="451">org.xvm.compiler.ast.StageMgr.m_cur</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a5877d35230afa7e34a8eddd0de7f65f9" compoundref="d0/d41/_stage_mgr_8java" startline="446">org.xvm.compiler.ast.StageMgr.m_errs</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a5fefd1ceb0666110f7da5947d88ddfa2" compoundref="d0/d41/_stage_mgr_8java" startline="456">org.xvm.compiler.ast.StageMgr.m_nFlags</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aaed80adbf4e0165a4b14b8ddc4dbc686" compoundref="d0/d41/_stage_mgr_8java" startline="431">org.xvm.compiler.ast.StageMgr.m_target</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a03957fde47cd1fa0fb7c60e8adf1ac3e" compoundref="d0/d41/_stage_mgr_8java" startline="372" endline="374">org.xvm.compiler.ast.StageMgr.markComplete</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1ac4b88f5565fbbf5be7e769ccce9e5093" compoundref="d0/d41/_stage_mgr_8java" startline="311" endline="313">org.xvm.compiler.ast.StageMgr.processChildren</references>
+        <references refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1a472b320b4e42c2b0821361c2cad36c27" compoundref="db/d57/_ast_node_8java" startline="682" endline="683">org.xvm.compiler.ast.AstNode.registerStructures</references>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a5272dd759be48753f4cffd3feea30c67" compoundref="d0/d41/_stage_mgr_8java" startline="241" endline="249">org.xvm.compiler.ast.StageMgr.requiredStage</references>
+        <references refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1a2348a6605cdd3a62db2dd79bd83ec7b1" compoundref="db/d57/_ast_node_8java" startline="709" endline="710">org.xvm.compiler.ast.AstNode.resolveNames</references>
+        <references refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1a65e9055a5267e5cab5b156a562240171" compoundref="db/d57/_ast_node_8java" startline="285" endline="290">org.xvm.compiler.ast.AstNode.setStage</references>
+        <references refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1a698a2f47af7a10192af317f92c290d4b" compoundref="db/d57/_ast_node_8java" startline="720" endline="721">org.xvm.compiler.ast.AstNode.validateContent</references>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aa004282ce42718950823a4a43429f6e7" compoundref="d0/d41/_stage_mgr_8java" startline="322" endline="345">org.xvm.compiler.ast.StageMgr.processChildrenExcept</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1acd38d96ed0adcf809f1ccb88ff99370c" compoundref="d0/d41/_stage_mgr_8java" startline="77" endline="102">org.xvm.compiler.ast.StageMgr.processComplete</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a5272dd759be48753f4cffd3feea30c67" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d2/de1/enumorg_1_1xvm_1_1compiler_1_1_compiler_1_1_stage" kindref="compound">Stage</ref></type>
+        <definition>Stage org.xvm.compiler.ast.StageMgr.requiredStage</definition>
+        <argsstring>(Stage target)</argsstring>
+        <name>requiredStage</name>
+        <qualifiedname>org.xvm.compiler.ast.StageMgr.requiredStage</qualifiedname>
+        <param>
+          <type><ref refid="d2/de1/enumorg_1_1xvm_1_1compiler_1_1_compiler_1_1_stage" kindref="compound">Stage</ref></type>
+          <declname>target</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" line="241" column="19" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" bodystart="241" bodyend="249"/>
+        <references refid="d2/de1/enumorg_1_1xvm_1_1compiler_1_1_compiler_1_1_stage_1a52b4d8febb7e09bf83ee7489f35412ca" compoundref="d3/d4e/compiler_2_compiler_8java" startline="411">org.xvm.compiler.Compiler.Stage.Initial</references>
+        <references refid="d2/de1/enumorg_1_1xvm_1_1compiler_1_1_compiler_1_1_stage_1ab815588374c95d1611b157f86da9f6e7" compoundref="d3/d4e/compiler_2_compiler_8java" startline="413">org.xvm.compiler.Compiler.Stage.Registered</references>
+        <references refid="d2/de1/enumorg_1_1xvm_1_1compiler_1_1_compiler_1_1_stage_1a432d393426b25dd1c4f648707c677b48" compoundref="d3/d4e/compiler_2_compiler_8java" startline="417">org.xvm.compiler.Compiler.Stage.Resolved</references>
+        <references refid="d2/de1/enumorg_1_1xvm_1_1compiler_1_1_compiler_1_1_stage_1a56c25c44f66e131fccb3c755f2daadca" compoundref="d3/d4e/compiler_2_compiler_8java" startline="419">org.xvm.compiler.Compiler.Stage.Validated</references>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a18a188cb398841552baeafef174aea19" compoundref="d0/d41/_stage_mgr_8java" startline="171" endline="239">org.xvm.compiler.ast.StageMgr.processInternal</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aa61edc23c990a59b0c8e62249dd44f2c" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; <ref refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node" kindref="compound">AstNode</ref> &gt;</type>
+        <definition>List&lt; AstNode &gt; org.xvm.compiler.ast.StageMgr.takeRevisitList</definition>
+        <argsstring>()</argsstring>
+        <name>takeRevisitList</name>
+        <qualifiedname>org.xvm.compiler.ast.StageMgr.takeRevisitList</qualifiedname>
+        <briefdescription>
+<para>Obtain the list of nodes that still require processing. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Note: Normally the revisiting is performed by calling <computeroutput><ref refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1acd38d96ed0adcf809f1ccb88ff99370c" kindref="member">processComplete()</ref></computeroutput> in a loop until it returns <javadoccode>true</javadoccode>. Only call this method directly if assuming the responsibility for finishing all of the processing.</para>
+<para><simplesect kind="return"><para>a list of nodes to revisit </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" line="417" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" bodystart="417" bodyend="423"/>
+        <references refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a024ee7d2255fe28928ef248c2fc409cd" compoundref="d0/d41/_stage_mgr_8java" startline="436">org.xvm.compiler.ast.StageMgr.m_listRevisit</references>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a5a4ab0f28d2d6e37da65a7f838ed2e13" compoundref="d0/d41/_stage_mgr_8java" startline="381" endline="406">org.xvm.compiler.ast.StageMgr.logDeferredAsErrors</referencedby>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1acd38d96ed0adcf809f1ccb88ff99370c" compoundref="d0/d41/_stage_mgr_8java" startline="77" endline="102">org.xvm.compiler.ast.StageMgr.processComplete</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A <ref refid="d2/de1/enumorg_1_1xvm_1_1compiler_1_1_compiler_1_1_stage" kindref="compound">Stage</ref> Manager is used to shepherd the AST nodes through their various stages. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="5">
+        <label>Cloneable</label>
+      </node>
+      <node id="7">
+        <label>Iterable&lt; AstNode &gt;</label>
+      </node>
+      <node id="8">
+        <label>Iterator&lt; AstNode &gt;</label>
+      </node>
+      <node id="1">
+        <label>org.xvm.compiler.ast.StageMgr</label>
+        <link refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>m_target</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>m_errs</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>m_cur</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>m_iterKids</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>org.xvm.asm.ErrorListener</label>
+        <link refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>BLACKHOLE</edgelabel>
+          <edgelabel>RUNTIME</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>org.xvm.compiler.Compiler.Stage</label>
+        <link refid="d2/de1/enumorg_1_1xvm_1_1compiler_1_1_compiler_1_1_stage"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>STAGES</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>org.xvm.compiler.ast.AstNode</label>
+        <link refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>m_stage</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>m_parent</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>org.xvm.compiler.ast.AstNode.ChildIterator</label>
+        <link refid="d6/d1a/interfaceorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1_1_child_iterator"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>EMPTY</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" line="27" column="7" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/StageMgr.java" bodystart="27" bodyend="467"/>
+    <listofallmembers>
+      <member refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a3e01cdbb44d0994c5fc0377215008a0f" prot="private" virt="non-virtual"><scope>org::xvm::compiler::ast::StageMgr</scope><name>DEFER_KIDS</name></member>
+      <member refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a9ad29b8776149f24189579c42f6ae436" prot="public" virt="non-virtual"><scope>org::xvm::compiler::ast::StageMgr</scope><name>deferChildren</name></member>
+      <member refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aa54905973797d225d3e9f6aeabb5b36e" prot="public" virt="non-virtual"><scope>org::xvm::compiler::ast::StageMgr</scope><name>ensureCurrentNode</name></member>
+      <member refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aba2f949f40b71acadf8df79b462ad075" prot="public" virt="non-virtual"><scope>org::xvm::compiler::ast::StageMgr</scope><name>fastForward</name></member>
+      <member refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aa3f4b2f1192f5bac3986c552928eaafe" prot="public" virt="non-virtual"><scope>org::xvm::compiler::ast::StageMgr</scope><name>getErrorListener</name></member>
+      <member refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a0a260f6929ad74051887d9d708bd4aed" prot="public" virt="non-virtual"><scope>org::xvm::compiler::ast::StageMgr</scope><name>isChildrenDeferred</name></member>
+      <member refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a1f725c1794b585a5618ff99c0de90405" prot="public" virt="non-virtual"><scope>org::xvm::compiler::ast::StageMgr</scope><name>isChildrenProcessed</name></member>
+      <member refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a02a5c126f4f200b113e8111215fd1bd2" prot="public" virt="non-virtual"><scope>org::xvm::compiler::ast::StageMgr</scope><name>isComplete</name></member>
+      <member refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a8a198c7b51e7eeecafb77f2b21048450" prot="public" virt="non-virtual"><scope>org::xvm::compiler::ast::StageMgr</scope><name>isLastAttempt</name></member>
+      <member refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a1fb6ab2435b7cdd81ef6f9344ea83a8d" prot="public" virt="non-virtual"><scope>org::xvm::compiler::ast::StageMgr</scope><name>isRevisitRequested</name></member>
+      <member refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a5a4ab0f28d2d6e37da65a7f838ed2e13" prot="public" virt="non-virtual"><scope>org::xvm::compiler::ast::StageMgr</scope><name>logDeferredAsErrors</name></member>
+      <member refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a60573eefad7a5444b265a16d35840be7" prot="private" virt="non-virtual"><scope>org::xvm::compiler::ast::StageMgr</scope><name>m_cur</name></member>
+      <member refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a5877d35230afa7e34a8eddd0de7f65f9" prot="private" virt="non-virtual"><scope>org::xvm::compiler::ast::StageMgr</scope><name>m_errs</name></member>
+      <member refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1adf11d9dfb6cf985339b84c4c1fc92e3a" prot="private" virt="non-virtual"><scope>org::xvm::compiler::ast::StageMgr</scope><name>m_fLastAttempt</name></member>
+      <member refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a31acf792a6ee53c8d864e489eec5308b" prot="private" virt="non-virtual"><scope>org::xvm::compiler::ast::StageMgr</scope><name>m_iterKids</name></member>
+      <member refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a024ee7d2255fe28928ef248c2fc409cd" prot="private" virt="non-virtual"><scope>org::xvm::compiler::ast::StageMgr</scope><name>m_listRevisit</name></member>
+      <member refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a5fefd1ceb0666110f7da5947d88ddfa2" prot="private" virt="non-virtual"><scope>org::xvm::compiler::ast::StageMgr</scope><name>m_nFlags</name></member>
+      <member refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aaed80adbf4e0165a4b14b8ddc4dbc686" prot="private" virt="non-virtual"><scope>org::xvm::compiler::ast::StageMgr</scope><name>m_target</name></member>
+      <member refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a03957fde47cd1fa0fb7c60e8adf1ac3e" prot="public" virt="non-virtual"><scope>org::xvm::compiler::ast::StageMgr</scope><name>markComplete</name></member>
+      <member refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a53e99cdbf52e1b8f658e7b265b1dc7c0" prot="public" virt="non-virtual"><scope>org::xvm::compiler::ast::StageMgr</scope><name>markLastAttempt</name></member>
+      <member refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1ac4b88f5565fbbf5be7e769ccce9e5093" prot="public" virt="non-virtual"><scope>org::xvm::compiler::ast::StageMgr</scope><name>processChildren</name></member>
+      <member refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aa004282ce42718950823a4a43429f6e7" prot="public" virt="non-virtual"><scope>org::xvm::compiler::ast::StageMgr</scope><name>processChildrenExcept</name></member>
+      <member refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1acd38d96ed0adcf809f1ccb88ff99370c" prot="public" virt="non-virtual"><scope>org::xvm::compiler::ast::StageMgr</scope><name>processComplete</name></member>
+      <member refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a18a188cb398841552baeafef174aea19" prot="protected" virt="non-virtual"><scope>org::xvm::compiler::ast::StageMgr</scope><name>processInternal</name></member>
+      <member refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1acf47b10e87b2dbb8fe083602a5cf3f0e" prot="private" virt="non-virtual"><scope>org::xvm::compiler::ast::StageMgr</scope><name>QUEUED_SELF</name></member>
+      <member refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a85e52fb2cae3ea26068e338fd3d31200" prot="public" virt="non-virtual"><scope>org::xvm::compiler::ast::StageMgr</scope><name>replaceSelf</name></member>
+      <member refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a02aebaef70eacfcd2572280dad6bff4b" prot="public" virt="non-virtual"><scope>org::xvm::compiler::ast::StageMgr</scope><name>requestRevisit</name></member>
+      <member refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a5272dd759be48753f4cffd3feea30c67" prot="private" virt="non-virtual"><scope>org::xvm::compiler::ast::StageMgr</scope><name>requiredStage</name></member>
+      <member refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1ab28a2f82b342c1717bb75f8d5ef7d048" prot="public" virt="non-virtual"><scope>org::xvm::compiler::ast::StageMgr</scope><name>StageMgr</name></member>
+      <member refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a8eb83393273e47f3812b93f8329396c4" prot="public" virt="non-virtual"><scope>org::xvm::compiler::ast::StageMgr</scope><name>StageMgr</name></member>
+      <member refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1aa61edc23c990a59b0c8e62249dd44f2c" prot="private" virt="non-virtual"><scope>org::xvm::compiler::ast::StageMgr</scope><name>takeRevisitList</name></member>
+      <member refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a4037c70feaf60dc3359bbc892a8ee96a" prot="private" virt="non-virtual"><scope>org::xvm::compiler::ast::StageMgr</scope><name>VISITED_KIDS</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

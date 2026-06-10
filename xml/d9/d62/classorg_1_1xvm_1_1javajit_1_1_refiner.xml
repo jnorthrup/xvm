@@ -1,0 +1,189 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d9/d62/classorg_1_1xvm_1_1javajit_1_1_refiner" kind="class" language="Java" prot="public">
+    <compoundname>org::xvm::javajit::Refiner</compoundname>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="d9/d62/classorg_1_1xvm_1_1javajit_1_1_refiner_1a51b57cc4d880f3e55baad14494aa0239" prot="public" static="yes" mutable="no">
+        <type>final <ref refid="d9/d62/classorg_1_1xvm_1_1javajit_1_1_refiner" kindref="compound">Refiner</ref></type>
+        <definition>final Refiner org.xvm.javajit.Refiner.DefaultRefiner</definition>
+        <argsstring></argsstring>
+        <name>DefaultRefiner</name>
+        <qualifiedname>org.xvm.javajit.Refiner.DefaultRefiner</qualifiedname>
+        <initializer>= new <ref refid="d9/d62/classorg_1_1xvm_1_1javajit_1_1_refiner" kindref="compound">Refiner</ref>()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Refiner.java" line="22" column="33" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Refiner.java" bodystart="22" bodyend="-1"/>
+        <referencedby refid="d0/d5f/classorg_1_1xvm_1_1javajit_1_1_xvm_1a1b9d6a5f1e726d5e9ecdbeb61b562a32" compoundref="db/d45/_xvm_8java" startline="229" endline="243">org.xvm.javajit.Xvm.createTypeSystem</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d9/d62/classorg_1_1xvm_1_1javajit_1_1_refiner_1a6108f93012e0bd5938f7be63f02dccb5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d4/de1/classorg_1_1xvm_1_1asm_1_1_version" kindref="compound">Version</ref></type>
+        <definition>Version org.xvm.javajit.Refiner.whichVersion</definition>
+        <argsstring>(ModuleConstant module, VersionTree versions, List&lt; Version &gt; prefs)</argsstring>
+        <name>whichVersion</name>
+        <qualifiedname>org.xvm.javajit.Refiner.whichVersion</qualifiedname>
+        <param>
+          <type><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant" kindref="compound">ModuleConstant</ref></type>
+          <declname>module</declname>
+        </param>
+        <param>
+          <type><ref refid="df/df1/classorg_1_1xvm_1_1asm_1_1_version_tree" kindref="compound">VersionTree</ref></type>
+          <declname>versions</declname>
+        </param>
+        <param>
+          <type>List&lt; <ref refid="d4/de1/classorg_1_1xvm_1_1asm_1_1_version" kindref="compound">Version</ref> &gt;</type>
+          <declname>prefs</declname>
+        </param>
+        <briefdescription>
+<para>Select a <ref refid="d4/de1/classorg_1_1xvm_1_1asm_1_1_version" kindref="compound">Version</ref> of a Module to use. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>An implementation may choose to throw an Exception or return <computeroutput>null</computeroutput> to indicate that none of the available Module Versions is acceptable, which will kill the linking process.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>module</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the identifier of the Module (never null) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>versions</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the available Module Versions that do not conflict with previously discovered <ref refid="d4/de1/classorg_1_1xvm_1_1asm_1_1_version" kindref="compound">Version</ref> constraints (never null, never empty) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>prefs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a list of preferred versions (never null, may be empty)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the <ref refid="d4/de1/classorg_1_1xvm_1_1asm_1_1_version" kindref="compound">Version</ref> of the Module to use </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Refiner.java" line="36" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Refiner.java" bodystart="36" bodyend="59"/>
+        <references refid="df/df1/classorg_1_1xvm_1_1asm_1_1_version_tree_1ae6c4e18513980a581f53daf6f3f29d83" compoundref="df/de3/_version_tree_8java" startline="206" endline="209">org.xvm.asm.VersionTree&lt; V &gt;.findHighestVersion</references>
+        <references refid="d4/de1/classorg_1_1xvm_1_1asm_1_1_version_1a21cc170f9b6986c0a97371a0d8aba95e" compoundref="d1/dd6/_version_8java" startline="290" endline="297">org.xvm.asm.Version.getReleaseCategory</references>
+        <references refid="d4/de1/classorg_1_1xvm_1_1asm_1_1_version_1ac98fb8d51be56e9b31dad06e5b517f2e" compoundref="d1/dd6/_version_8java" startline="278" endline="285">org.xvm.asm.Version.isGARelease</references>
+        <references refid="df/df1/classorg_1_1xvm_1_1asm_1_1_version_tree_1a39c43b6b4d6026dca1792031bee04cc8" compoundref="df/de3/_version_tree_8java" startline="46" endline="101">org.xvm.asm.VersionTree&lt; V &gt;.iterator</references>
+      </memberdef>
+      <memberdef kind="function" id="d9/d62/classorg_1_1xvm_1_1javajit_1_1_refiner_1a727cb39f1e570cc5ab780181760aaada" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.javajit.Refiner.shouldDefine</definition>
+        <argsstring>(String name)</argsstring>
+        <name>shouldDefine</name>
+        <qualifiedname>org.xvm.javajit.Refiner.shouldDefine</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Make a decision whether to define or exclude the specified name. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a condition name that can be defined or not (never null)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput> to define the name; <computeroutput>false</computeroutput> to make the name <emphasis>not defined</emphasis> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Refiner.java" line="68" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Refiner.java" bodystart="68" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/d62/classorg_1_1xvm_1_1javajit_1_1_refiner_1af530b65d9678457e054753c83d8e1137" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.javajit.Refiner.shouldUse</definition>
+        <argsstring>(ModuleConstant module, boolean desired)</argsstring>
+        <name>shouldUse</name>
+        <qualifiedname>org.xvm.javajit.Refiner.shouldUse</qualifiedname>
+        <param>
+          <type><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant" kindref="compound">ModuleConstant</ref></type>
+          <declname>module</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>desired</declname>
+        </param>
+        <briefdescription>
+<para>Determine if the specified Module dependency should be used or excluded. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>module</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the depended-upon Module (never null) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>desired</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>true</computeroutput> iff the dependency is marked as &quot;desired&quot;</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput> iff the dependency should be used; <computeroutput>false</computeroutput> to <emphasis>disallow</emphasis> the dependency </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Refiner.java" line="81" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Refiner.java" bodystart="81" bodyend="84"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A Module <ref refid="d9/d62/classorg_1_1xvm_1_1javajit_1_1_refiner" kindref="compound">Refiner</ref> is the &quot;decision maker&quot; for selecting among various version, dependency, and conditional-define options for Module(s) being fed to a <ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker" kindref="compound">Linker</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class can be extended to provide customized refinement decisions for <ref refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" kindref="compound">TypeSystem</ref> linking. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>org.xvm.javajit.Refiner</label>
+        <link refid="d9/d62/classorg_1_1xvm_1_1javajit_1_1_refiner"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>DefaultRefiner</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>org.xvm.javajit.Refiner</label>
+        <link refid="d9/d62/classorg_1_1xvm_1_1javajit_1_1_refiner"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>DefaultRefiner</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Refiner.java" line="21" column="7" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Refiner.java" bodystart="21" bodyend="85"/>
+    <listofallmembers>
+      <member refid="d9/d62/classorg_1_1xvm_1_1javajit_1_1_refiner_1a51b57cc4d880f3e55baad14494aa0239" prot="public" virt="non-virtual"><scope>org::xvm::javajit::Refiner</scope><name>DefaultRefiner</name></member>
+      <member refid="d9/d62/classorg_1_1xvm_1_1javajit_1_1_refiner_1a727cb39f1e570cc5ab780181760aaada" prot="public" virt="non-virtual"><scope>org::xvm::javajit::Refiner</scope><name>shouldDefine</name></member>
+      <member refid="d9/d62/classorg_1_1xvm_1_1javajit_1_1_refiner_1af530b65d9678457e054753c83d8e1137" prot="public" virt="non-virtual"><scope>org::xvm::javajit::Refiner</scope><name>shouldUse</name></member>
+      <member refid="d9/d62/classorg_1_1xvm_1_1javajit_1_1_refiner_1a6108f93012e0bd5938f7be63f02dccb5" prot="public" virt="non-virtual"><scope>org::xvm::javajit::Refiner</scope><name>whichVersion</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

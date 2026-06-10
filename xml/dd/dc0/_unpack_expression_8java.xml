@@ -1,0 +1,271 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="dd/dc0/_unpack_expression_8java" kind="file" language="Java">
+    <compoundname>UnpackExpression.java</compoundname>
+    <includes local="no">java.util.List</includes>
+    <includes local="no">org.xvm.asm.Argument</includes>
+    <includes local="no">org.xvm.asm.Constant</includes>
+    <includes local="no">org.xvm.asm.Constant.Format</includes>
+    <includes local="no">org.xvm.asm.ConstantPool</includes>
+    <includes local="no">org.xvm.asm.ErrorListener</includes>
+    <includes local="no">org.xvm.asm.MethodStructure.Code</includes>
+    <includes local="no">org.xvm.asm.Register</includes>
+    <includes local="no">org.xvm.asm.ast.ConstantExprAST</includes>
+    <includes local="no">org.xvm.asm.ast.ExprAST</includes>
+    <includes local="no">org.xvm.asm.ast.MultiExprAST</includes>
+    <includes local="no">org.xvm.asm.ast.UnpackExprAST</includes>
+    <includes local="no">org.xvm.asm.constants.ArrayConstant</includes>
+    <includes local="no">org.xvm.asm.constants.TypeConstant</includes>
+    <includes local="no">org.xvm.asm.op.I_Get</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/UnpackExpression.java</label>
+        <link refid="dd/dc0/_unpack_expression_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.util.List</label>
+      </node>
+      <node id="3">
+        <label>org.xvm.asm.Argument</label>
+      </node>
+      <node id="4">
+        <label>org.xvm.asm.Constant</label>
+      </node>
+      <node id="5">
+        <label>org.xvm.asm.Constant.Format</label>
+      </node>
+      <node id="6">
+        <label>org.xvm.asm.ConstantPool</label>
+      </node>
+      <node id="7">
+        <label>org.xvm.asm.ErrorListener</label>
+      </node>
+      <node id="8">
+        <label>org.xvm.asm.MethodStructure.Code</label>
+      </node>
+      <node id="9">
+        <label>org.xvm.asm.Register</label>
+      </node>
+      <node id="10">
+        <label>org.xvm.asm.ast.ConstantExprAST</label>
+      </node>
+      <node id="11">
+        <label>org.xvm.asm.ast.ExprAST</label>
+      </node>
+      <node id="12">
+        <label>org.xvm.asm.ast.MultiExprAST</label>
+      </node>
+      <node id="13">
+        <label>org.xvm.asm.ast.UnpackExprAST</label>
+      </node>
+      <node id="14">
+        <label>org.xvm.asm.constants.ArrayConstant</label>
+      </node>
+      <node id="15">
+        <label>org.xvm.asm.constants.TypeConstant</label>
+      </node>
+      <node id="16">
+        <label>org.xvm.asm.op.I_Get</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="de/d0a/classorg_1_1xvm_1_1compiler_1_1ast_1_1_unpack_expression" prot="public">org::xvm::compiler::ast::UnpackExpression</innerclass>
+    <innernamespace refid="d2/df8/namespaceorg_1_1xvm_1_1compiler_1_1ast">org::xvm::compiler::ast</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.compiler.ast;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Argument;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Constant;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Constant.Format;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ConstantPool;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ErrorListener;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.MethodStructure.Code;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Register;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ast.ConstantExprAST;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ast.ExprAST;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ast.MultiExprAST;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ast.UnpackExprAST;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.constants.ArrayConstant;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.constants.TypeConstant;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.op.I_Get;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="de/d0a/classorg_1_1xvm_1_1compiler_1_1ast_1_1_unpack_expression" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="de/d0a/classorg_1_1xvm_1_1compiler_1_1ast_1_1_unpack_expression_1a6cfc82a9910637e53cd6e53082228e61" kindref="member">UnpackExpression</ref></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="d4/dcd/classorg_1_1xvm_1_1compiler_1_1ast_1_1_synthetic_expression_1a534ab065bc9fd3c225277ff480196eed" kindref="member">SyntheticExpression</ref><sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>constructors<sp/>--------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="de/d0a/classorg_1_1xvm_1_1compiler_1_1ast_1_1_unpack_expression_1a6cfc82a9910637e53cd6e53082228e61" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="de/d0a/classorg_1_1xvm_1_1compiler_1_1ast_1_1_unpack_expression_1a6cfc82a9910637e53cd6e53082228e61" kindref="member">UnpackExpression</ref>(Expression<sp/>exprTuple,<sp/><ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref><sp/>errs)<sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(exprTuple);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(exprTuple.isValidated())<sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/d0a/classorg_1_1xvm_1_1compiler_1_1ast_1_1_unpack_expression_1a19e4e4a0b0f515612410795a7725c5fc" kindref="member">adoptValidation</ref>(</highlight><highlight class="keyword">null</highlight><highlight class="normal">,<sp/>exprTuple,<sp/>errs);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>Expression<sp/>compilation<sp/>----------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="44" refid="de/d0a/classorg_1_1xvm_1_1compiler_1_1ast_1_1_unpack_expression_1a2d1e3499112d6492257c855ab7d07f15" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="de/d0a/classorg_1_1xvm_1_1compiler_1_1ast_1_1_unpack_expression_1a2d1e3499112d6492257c855ab7d07f15" kindref="member">hasSingleValueImpl</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="49" refid="de/d0a/classorg_1_1xvm_1_1compiler_1_1ast_1_1_unpack_expression_1a379436fb630859d3ec5e8f5ade28448c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="de/d0a/classorg_1_1xvm_1_1compiler_1_1ast_1_1_unpack_expression_1a379436fb630859d3ec5e8f5ade28448c" kindref="member">hasMultiValueImpl</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="54" refid="de/d0a/classorg_1_1xvm_1_1compiler_1_1ast_1_1_unpack_expression_1a6386df3c93163659d5210754458c4a9d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref>[]<sp/><ref refid="de/d0a/classorg_1_1xvm_1_1compiler_1_1ast_1_1_unpack_expression_1a6386df3c93163659d5210754458c4a9d" kindref="member">getImplicitTypes</ref>(<ref refid="d1/dc8/classorg_1_1xvm_1_1compiler_1_1ast_1_1_context" kindref="compound">Context</ref><sp/>ctx)<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d2/df8/namespaceorg_1_1xvm_1_1compiler_1_1ast_1a66c3a94c98c58d4329efad2483111171" kindref="member">isValidated</ref>()</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/><ref refid="d2/df8/namespaceorg_1_1xvm_1_1compiler_1_1ast_1a503df9796596726aa52bb39f19c1161c" kindref="member">getTypes</ref>()</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="d4/dcd/classorg_1_1xvm_1_1compiler_1_1ast_1_1_synthetic_expression_1a3031f07035b2520cc3c5e204574d2026" kindref="member">expr</ref>.getImplicitType(ctx).getParamTypesArray();</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="61" refid="de/d0a/classorg_1_1xvm_1_1compiler_1_1ast_1_1_unpack_expression_1a77999b93479198c21d67545099e64156" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d0/da6/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_type_fit" kindref="compound">TypeFit</ref><sp/><ref refid="de/d0a/classorg_1_1xvm_1_1compiler_1_1ast_1_1_unpack_expression_1a77999b93479198c21d67545099e64156" kindref="member">testFitMulti</ref>(<ref refid="d1/dc8/classorg_1_1xvm_1_1compiler_1_1ast_1_1_context" kindref="compound">Context</ref><sp/>ctx,<sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref>[]<sp/>atypeRequired,<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>fExhaustive,</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref><sp/>errs)<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/>typeTuple<sp/>=<sp/>pool().ensureTupleType(atypeRequired);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d4/dcd/classorg_1_1xvm_1_1compiler_1_1ast_1_1_synthetic_expression_1a3031f07035b2520cc3c5e204574d2026" kindref="member">expr</ref>.testFit(ctx,<sp/>typeTuple,<sp/>fExhaustive,<sp/>errs);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="69" refid="de/d0a/classorg_1_1xvm_1_1compiler_1_1ast_1_1_unpack_expression_1aff0674f0dc2485b0b981d7971bdfec3d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>Expression<sp/><ref refid="de/d0a/classorg_1_1xvm_1_1compiler_1_1ast_1_1_unpack_expression_1aff0674f0dc2485b0b981d7971bdfec3d" kindref="member">validateMulti</ref>(<ref refid="d1/dc8/classorg_1_1xvm_1_1compiler_1_1ast_1_1_context" kindref="compound">Context</ref><sp/>ctx,<sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref>[]<sp/>atypeRequired,<sp/><ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref><sp/>errs)<sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/>typeTuple<sp/>=<sp/>pool().ensureTupleType(atypeRequired);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Expression<sp/>exprOld<sp/>=<sp/><ref refid="d4/dcd/classorg_1_1xvm_1_1compiler_1_1ast_1_1_synthetic_expression_1a3031f07035b2520cc3c5e204574d2026" kindref="member">expr</ref>;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Expression<sp/>exprNew<sp/>=<sp/>exprOld.validate(ctx,<sp/>typeTuple,<sp/>errs);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>exprNew<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>null</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="de/d0a/classorg_1_1xvm_1_1compiler_1_1ast_1_1_unpack_expression_1a19e4e4a0b0f515612410795a7725c5fc" kindref="member">adoptValidation</ref>(ctx,<sp/><ref refid="d4/dcd/classorg_1_1xvm_1_1compiler_1_1ast_1_1_synthetic_expression_1a3031f07035b2520cc3c5e204574d2026" kindref="member">expr</ref><sp/>=<sp/>exprNew,<sp/>errs);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="82" refid="de/d0a/classorg_1_1xvm_1_1compiler_1_1ast_1_1_unpack_expression_1a987d8f370b6118b5f9a0eb2bb598e8f0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/d0a/classorg_1_1xvm_1_1compiler_1_1ast_1_1_unpack_expression_1a987d8f370b6118b5f9a0eb2bb598e8f0" kindref="member">generateVoid</ref>(<ref refid="d1/dc8/classorg_1_1xvm_1_1compiler_1_1ast_1_1_context" kindref="compound">Context</ref><sp/>ctx,<sp/><ref refid="da/d56/classorg_1_1xvm_1_1asm_1_1_method_structure_1_1_code" kindref="compound">Code</ref><sp/>code,<sp/><ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref><sp/>errs)<sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/dcd/classorg_1_1xvm_1_1compiler_1_1ast_1_1_synthetic_expression_1a3031f07035b2520cc3c5e204574d2026" kindref="member">expr</ref>.generateVoid(ctx,<sp/>code,<sp/>errs);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="87" refid="de/d0a/classorg_1_1xvm_1_1compiler_1_1ast_1_1_unpack_expression_1a4079a8d741433e88ae47f8e6f41329ee" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="dd/da8/interfaceorg_1_1xvm_1_1asm_1_1_argument" kindref="compound">Argument</ref>[]<sp/><ref refid="de/d0a/classorg_1_1xvm_1_1compiler_1_1ast_1_1_unpack_expression_1a4079a8d741433e88ae47f8e6f41329ee" kindref="member">generateArguments</ref>(<ref refid="d1/dc8/classorg_1_1xvm_1_1compiler_1_1ast_1_1_context" kindref="compound">Context</ref><sp/>ctx,<sp/><ref refid="da/d56/classorg_1_1xvm_1_1asm_1_1_method_structure_1_1_code" kindref="compound">Code</ref><sp/>code,<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>fLocalPropOk,<sp/><ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref><sp/>errs)<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d2/df8/namespaceorg_1_1xvm_1_1compiler_1_1ast_1a78f984fe5485e867eba060482df2831b" kindref="member">isConstant</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d2/df8/namespaceorg_1_1xvm_1_1compiler_1_1ast_1a398d299f25957a8fb424ca5b346920b2" kindref="member">toConstants</ref>();</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d4/dcd/classorg_1_1xvm_1_1compiler_1_1ast_1_1_synthetic_expression_1a3031f07035b2520cc3c5e204574d2026" kindref="member">expr</ref><sp/>instanceof<sp/><ref refid="d3/d0b/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_expression" kindref="compound">TupleExpression</ref><sp/>exprTuple)<sp/>{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;Expression&gt;<sp/>listExprs<sp/>=<sp/>exprTuple.getExpressions();</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cExprs<sp/><sp/><sp/><sp/>=<sp/>listExprs.size();</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/da8/interfaceorg_1_1xvm_1_1asm_1_1_argument" kindref="compound">Argument</ref>[]<sp/><sp/><sp/><sp/><sp/><sp/><sp/>aArgs<sp/><sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="dd/da8/interfaceorg_1_1xvm_1_1asm_1_1_argument" kindref="compound">Argument</ref>[cExprs];</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>cExprs;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Expression<sp/><ref refid="d4/dcd/classorg_1_1xvm_1_1compiler_1_1ast_1_1_synthetic_expression_1a3031f07035b2520cc3c5e204574d2026" kindref="member">expr</ref><sp/>=<sp/>listExprs.get(i);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/da8/interfaceorg_1_1xvm_1_1asm_1_1_argument" kindref="compound">Argument</ref><sp/><sp/><sp/>arg<sp/><sp/>=<sp/><ref refid="d4/dcd/classorg_1_1xvm_1_1compiler_1_1ast_1_1_synthetic_expression_1a3031f07035b2520cc3c5e204574d2026" kindref="member">expr</ref>.generateArgument(ctx,<sp/>code,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/>errs);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>aArgs[i]<sp/>=<sp/><ref refid="d4/dcd/classorg_1_1xvm_1_1compiler_1_1ast_1_1_synthetic_expression_1a3031f07035b2520cc3c5e204574d2026" kindref="member">expr</ref>.ensurePointInTime(code,<sp/>arg,<sp/>listExprs,<sp/>i);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>aArgs;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/da8/interfaceorg_1_1xvm_1_1asm_1_1_argument" kindref="compound">Argument</ref><sp/>argTuple<sp/>=<sp/><ref refid="d4/dcd/classorg_1_1xvm_1_1compiler_1_1ast_1_1_synthetic_expression_1a3031f07035b2520cc3c5e204574d2026" kindref="member">expr</ref>.generateArgument(ctx,<sp/>code,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/>errs);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref><sp/><sp/><sp/>pool<sp/><sp/><sp/><sp/>=<sp/>pool();</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref>[]<sp/>aTypes<sp/><sp/>=<sp/><ref refid="d2/df8/namespaceorg_1_1xvm_1_1compiler_1_1ast_1a503df9796596726aa52bb39f19c1161c" kindref="member">getTypes</ref>();</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cValues<sp/>=<sp/>aTypes.length;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/db3/classorg_1_1xvm_1_1asm_1_1_register" kindref="compound">Register</ref>[]<sp/><sp/><sp/><sp/><sp/>aRegs<sp/><sp/><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="dc/db3/classorg_1_1xvm_1_1asm_1_1_register" kindref="compound">Register</ref>[cValues];</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>cValues;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/d95/classorg_1_1xvm_1_1compiler_1_1ast_1_1_assignable" kindref="compound">Assignable</ref><sp/>LValue<sp/><sp/><sp/>=<sp/><ref refid="d2/df8/namespaceorg_1_1xvm_1_1compiler_1_1ast_1a32a54f39a3291efbb42f5066ab29a616" kindref="member">createTempVar</ref>(code,<sp/>aTypes[i]);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/db3/classorg_1_1xvm_1_1asm_1_1_register" kindref="compound">Register</ref><sp/><sp/><sp/>regValue<sp/>=<sp/>LValue.<ref refid="d4/d95/classorg_1_1xvm_1_1compiler_1_1ast_1_1_assignable_1a8971cf4c8ada725b8d6c9562f07fa6d1" kindref="member">getRegister</ref>();</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.<ref refid="da/d56/classorg_1_1xvm_1_1asm_1_1_method_structure_1_1_code_1a332a938e1ddcfd9d4e32b1ac2bdc9bc7" kindref="member">add</ref>(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d7/d21/classorg_1_1xvm_1_1asm_1_1op_1_1_i___get" kindref="compound">I_Get</ref>(argTuple,<sp/>pool.<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a2ec8671262a104639f588c1fda6ffb0e" kindref="member">ensureIntConstant</ref>(i),<sp/>regValue));</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>aRegs[i]<sp/>=<sp/>regValue;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>aRegs;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="123" refid="de/d0a/classorg_1_1xvm_1_1compiler_1_1ast_1_1_unpack_expression_1ae237db44a71a9245f79401b166dd76fd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d4/de4/classorg_1_1xvm_1_1asm_1_1ast_1_1_expr_a_s_t" kindref="compound">ExprAST</ref><sp/><ref refid="de/d0a/classorg_1_1xvm_1_1compiler_1_1ast_1_1_unpack_expression_1ae237db44a71a9245f79401b166dd76fd" kindref="member">getExprAST</ref>(<ref refid="d1/dc8/classorg_1_1xvm_1_1compiler_1_1ast_1_1_context" kindref="compound">Context</ref><sp/>ctx)<sp/>{</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d2/df8/namespaceorg_1_1xvm_1_1compiler_1_1ast_1a78f984fe5485e867eba060482df2831b" kindref="member">isConstant</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>constant<sp/>is<sp/>already<sp/>unpacked;<sp/>we<sp/>need<sp/>to<sp/>pass<sp/>it<sp/>on</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref>[]<sp/>aconst<sp/>=<sp/><ref refid="d2/df8/namespaceorg_1_1xvm_1_1compiler_1_1ast_1a398d299f25957a8fb424ca5b346920b2" kindref="member">toConstants</ref>();</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cVals<sp/><sp/>=<sp/>aconst.length;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/de4/classorg_1_1xvm_1_1asm_1_1ast_1_1_expr_a_s_t" kindref="compound">ExprAST</ref>[]<sp/><sp/>aAst<sp/><sp/><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d4/de4/classorg_1_1xvm_1_1asm_1_1ast_1_1_expr_a_s_t" kindref="compound">ExprAST</ref>[cVals];</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>cVals;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>aAst[i]<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d0/d15/classorg_1_1xvm_1_1asm_1_1ast_1_1_constant_expr_a_s_t" kindref="compound">ConstantExprAST</ref>(aconst[i]);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="dd/dfd/classorg_1_1xvm_1_1asm_1_1ast_1_1_multi_expr_a_s_t" kindref="compound">MultiExprAST</ref>(aAst);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d1/dba/classorg_1_1xvm_1_1asm_1_1ast_1_1_unpack_expr_a_s_t" kindref="compound">UnpackExprAST</ref>(<ref refid="d4/dcd/classorg_1_1xvm_1_1compiler_1_1ast_1_1_synthetic_expression_1a3031f07035b2520cc3c5e204574d2026" kindref="member">expr</ref>.getExprAST(ctx),<sp/><ref refid="d2/df8/namespaceorg_1_1xvm_1_1compiler_1_1ast_1a503df9796596726aa52bb39f19c1161c" kindref="member">getTypes</ref>());</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>helpers<sp/>------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147" refid="de/d0a/classorg_1_1xvm_1_1compiler_1_1ast_1_1_unpack_expression_1a19e4e4a0b0f515612410795a7725c5fc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>Expression<sp/><ref refid="de/d0a/classorg_1_1xvm_1_1compiler_1_1ast_1_1_unpack_expression_1a19e4e4a0b0f515612410795a7725c5fc" kindref="member">adoptValidation</ref>(<ref refid="d1/dc8/classorg_1_1xvm_1_1compiler_1_1ast_1_1_context" kindref="compound">Context</ref><sp/>ctx,<sp/>Expression<sp/>exprTuple,<sp/><ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref><sp/>errs)<sp/>{</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/>typeTuple<sp/>=<sp/>exprTuple.getType();</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/>typeTuple.<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a4e7af43ff55014cf11bd3048a0999813" kindref="member">isTuple</ref>()<sp/>&amp;&amp;<sp/>typeTuple.<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a2bcbac55a61a443daa9b3057cd5c939a" kindref="member">isParamsSpecified</ref>();</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref>[]<sp/>atypeField<sp/>=<sp/>typeTuple.<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a2f3a54700023df00fa3911cadfb95e29" kindref="member">getParamTypesArray</ref>();</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref>[]<sp/><sp/><sp/><sp/><sp/>aconstVal<sp/><sp/>=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(exprTuple.isConstant())<sp/>{</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref><sp/>constTuple<sp/>=<sp/>exprTuple.toConstant();</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/>constTuple.<ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1a73cb82bf62ce4b879ee7bd9f7216ae07" kindref="member">getFormat</ref>()<sp/>==<sp/><ref refid="dc/d9c/enumorg_1_1xvm_1_1asm_1_1_component_1_1_format" kindref="compound">Format</ref>.Tuple;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>aconstVal<sp/>=<sp/>((<ref refid="dc/d90/classorg_1_1xvm_1_1asm_1_1constants_1_1_array_constant" kindref="compound">ArrayConstant</ref>)<sp/>constTuple).getValue();</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d2/df8/namespaceorg_1_1xvm_1_1compiler_1_1ast_1ae2a50c76117a3b36aba47740459da9f4" kindref="member">finishValidations</ref>(ctx,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">,<sp/>atypeField,<sp/><ref refid="d4/dcd/classorg_1_1xvm_1_1compiler_1_1ast_1_1_synthetic_expression_1a3031f07035b2520cc3c5e204574d2026" kindref="member">expr</ref>.getTypeFit().addUnpack(),<sp/>aconstVal,<sp/>errs);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>debugging<sp/>assistance<sp/>------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="167" refid="de/d0a/classorg_1_1xvm_1_1compiler_1_1ast_1_1_unpack_expression_1a003a200f681a3ba4e2e205b31f6f19d5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="de/d0a/classorg_1_1xvm_1_1compiler_1_1ast_1_1_unpack_expression_1a003a200f681a3ba4e2e205b31f6f19d5" kindref="member">toString</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;Unpacked:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="d4/dcd/classorg_1_1xvm_1_1compiler_1_1ast_1_1_synthetic_expression_1ad4610dd112957bbd6de6d18b8682502c" kindref="member">getUnderlyingExpression</ref>().toString();</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="170"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/UnpackExpression.java"/>
+  </compounddef>
+</doxygen>

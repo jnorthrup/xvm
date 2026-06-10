@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="dd/db5/_var_handles_8java" kind="file" language="Java">
+    <compoundname>VarHandles.java</compoundname>
+    <includes local="no">java.lang.invoke.MethodHandles</includes>
+    <includes local="no">java.lang.invoke.VarHandle</includes>
+    <includes local="no">java.lang.reflect.Field</includes>
+    <includes local="no">java.lang.reflect.Modifier</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/concurrent/VarHandles.java</label>
+        <link refid="dd/db5/_var_handles_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.lang.invoke.MethodHandles</label>
+      </node>
+      <node id="3">
+        <label>java.lang.invoke.VarHandle</label>
+      </node>
+      <node id="4">
+        <label>java.lang.reflect.Field</label>
+      </node>
+      <node id="5">
+        <label>java.lang.reflect.Modifier</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="db/dfb/classorg_1_1xvm_1_1util_1_1concurrent_1_1_var_handles" prot="public">org::xvm::util::concurrent::VarHandles</innerclass>
+    <innernamespace refid="dd/d7b/namespaceorg_1_1xvm_1_1util_1_1concurrent">org::xvm::util::concurrent</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.util.concurrent;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.invoke.MethodHandles;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.invoke.VarHandle;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.reflect.Field;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.reflect.Modifier;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="db/dfb/classorg_1_1xvm_1_1util_1_1concurrent_1_1_var_handles" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="db/dfb/classorg_1_1xvm_1_1util_1_1concurrent_1_1_var_handles" kindref="compound">VarHandles</ref><sp/>{</highlight></codeline>
+<codeline lineno="18" refid="db/dfb/classorg_1_1xvm_1_1util_1_1concurrent_1_1_var_handles_1ac9aa329f873b0c6f82b6c55b00540651" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>VarHandle<sp/><ref refid="db/dfb/classorg_1_1xvm_1_1util_1_1concurrent_1_1_var_handles_1ac9aa329f873b0c6f82b6c55b00540651" kindref="member">of</ref>(Class&lt;?&gt;<sp/>clz,<sp/>String<sp/>fieldName)<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Field<sp/>field<sp/>=<sp/>clz.getDeclaredField(fieldName);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MethodHandles.Lookup<sp/>lookup<sp/>=<sp/>MethodHandles.privateLookupIn(clz,<sp/>MethodHandles.lookup());</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Modifier.isStatic(field.getModifiers())</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>lookup.findStaticVarHandle(clz,<sp/>fieldName,<sp/>field.getType())</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>lookup.findVarHandle(clz,<sp/>fieldName,<sp/>field.getType());</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(ReflectiveOperationException<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>IllegalStateException(e);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="db/dfb/classorg_1_1xvm_1_1util_1_1concurrent_1_1_var_handles_1a473c28dc09003247a30a341c38dabc41" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>VarHandle<sp/><ref refid="db/dfb/classorg_1_1xvm_1_1util_1_1concurrent_1_1_var_handles_1a473c28dc09003247a30a341c38dabc41" kindref="member">ofArray</ref>(Class&lt;?&gt;<sp/>arrayClz)<sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>MethodHandles.arrayElementVarHandle(arrayClz);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/concurrent/VarHandles.java"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,400 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="da/dd6/_blocking_queue_adapter_8java" kind="file" language="Java">
+    <compoundname>BlockingQueueAdapter.java</compoundname>
+    <includes local="no">java.util.Collection</includes>
+    <includes local="no">java.util.Iterator</includes>
+    <includes local="no">java.util.Objects</includes>
+    <includes local="no">java.util.Queue</includes>
+    <includes local="no">java.util.Spliterator</includes>
+    <includes local="no">java.util.concurrent.BlockingQueue</includes>
+    <includes local="no">java.util.concurrent.ConcurrentLinkedDeque</includes>
+    <includes local="no">java.util.concurrent.TimeUnit</includes>
+    <includes local="no">java.util.concurrent.atomic.AtomicReference</includes>
+    <includes local="no">java.util.concurrent.locks.LockSupport</includes>
+    <includes local="no">java.util.function.Consumer</includes>
+    <includes local="no">java.util.function.IntFunction</includes>
+    <includes local="no">java.util.function.Predicate</includes>
+    <includes local="no">java.util.stream.Stream</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/concurrent/BlockingQueueAdapter.java</label>
+        <link refid="da/dd6/_blocking_queue_adapter_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.util.Collection</label>
+      </node>
+      <node id="3">
+        <label>java.util.Iterator</label>
+      </node>
+      <node id="4">
+        <label>java.util.Objects</label>
+      </node>
+      <node id="5">
+        <label>java.util.Queue</label>
+      </node>
+      <node id="6">
+        <label>java.util.Spliterator</label>
+      </node>
+      <node id="7">
+        <label>java.util.concurrent.BlockingQueue</label>
+      </node>
+      <node id="8">
+        <label>java.util.concurrent.ConcurrentLinkedDeque</label>
+      </node>
+      <node id="9">
+        <label>java.util.concurrent.TimeUnit</label>
+      </node>
+      <node id="10">
+        <label>java.util.concurrent.atomic.AtomicReference</label>
+      </node>
+      <node id="11">
+        <label>java.util.concurrent.locks.LockSupport</label>
+      </node>
+      <node id="12">
+        <label>java.util.function.Consumer</label>
+      </node>
+      <node id="13">
+        <label>java.util.function.IntFunction</label>
+      </node>
+      <node id="14">
+        <label>java.util.function.Predicate</label>
+      </node>
+      <node id="15">
+        <label>java.util.stream.Stream</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter" prot="public">org::xvm::util::concurrent::BlockingQueueAdapter</innerclass>
+    <innernamespace refid="dd/d7b/namespaceorg_1_1xvm_1_1util_1_1concurrent">org::xvm::util::concurrent</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="dd/d7b/namespaceorg_1_1xvm_1_1util_1_1concurrent" refkind="compound"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.util.concurrent;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Collection;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Iterator;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Objects;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Queue;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Spliterator;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.concurrent.BlockingQueue;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.concurrent.ConcurrentLinkedDeque;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.concurrent.TimeUnit;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.concurrent.atomic.AtomicReference;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.concurrent.locks.LockSupport;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.function.Consumer;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.function.IntFunction;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.function.Predicate;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.stream.Stream;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1aa0909aeafddca3cd7ba959c49ddb7487" kindref="member">BlockingQueueAdapter</ref>&lt;E&gt;<sp/></highlight><highlight class="keyword">implements</highlight><highlight class="normal"><sp/>BlockingQueue&lt;E&gt;<sp/>{</highlight></codeline>
+<codeline lineno="38" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1aa0909aeafddca3cd7ba959c49ddb7487" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1aa0909aeafddca3cd7ba959c49ddb7487" kindref="member">BlockingQueueAdapter</ref>(Queue&lt;E&gt;<sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1adf662574b90f5591b6203311db607019" kindref="member">delegate</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.delegate<sp/>=<sp/>Objects.requireNonNull(<ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1adf662574b90f5591b6203311db607019" kindref="member">delegate</ref>,<sp/></highlight><highlight class="stringliteral">&quot;null<sp/>delegate&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="43" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a196226210e656e07a1cd785223b04f90" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>E<sp/></highlight><highlight class="keyword">remove</highlight><highlight class="normal">()<sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1adf662574b90f5591b6203311db607019" kindref="member">delegate</ref>.remove();</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="48" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a3f07fc3d738f9e7c066300adca2e0afb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>E<sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a3f07fc3d738f9e7c066300adca2e0afb" kindref="member">poll</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1adf662574b90f5591b6203311db607019" kindref="member">delegate</ref>.poll();</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="53" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1aac849327413a10aa12055386c9331114" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>E<sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1aac849327413a10aa12055386c9331114" kindref="member">element</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1adf662574b90f5591b6203311db607019" kindref="member">delegate</ref>.element();</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="58" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a2cb60ca15f976bce218eff085c60176e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>E<sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a2cb60ca15f976bce218eff085c60176e" kindref="member">peek</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1adf662574b90f5591b6203311db607019" kindref="member">delegate</ref>.peek();</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="63" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1aa44b2e184946689e7d8a739a38918c31" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">remove</highlight><highlight class="normal">(Object<sp/>o)<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1adf662574b90f5591b6203311db607019" kindref="member">delegate</ref>.remove(o);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="68" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1accf793cc5b14d24341ba2e9f0456e13c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1accf793cc5b14d24341ba2e9f0456e13c" kindref="member">containsAll</ref>(Collection&lt;?&gt;<sp/>c)<sp/>{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1adf662574b90f5591b6203311db607019" kindref="member">delegate</ref>.containsAll(c);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="73" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a94461e915e49f9ef8a4ab14ceefaa2c7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a94461e915e49f9ef8a4ab14ceefaa2c7" kindref="member">removeAll</ref>(Collection&lt;?&gt;<sp/>c)<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1adf662574b90f5591b6203311db607019" kindref="member">delegate</ref>.removeAll(c);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="78" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a834cf8a90235002d5dc9c851e9207f68" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a834cf8a90235002d5dc9c851e9207f68" kindref="member">removeIf</ref>(Predicate&lt;?<sp/>super<sp/>E&gt;<sp/>filter)<sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1adf662574b90f5591b6203311db607019" kindref="member">delegate</ref>.removeIf(filter);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="83" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a8537dbdee278f28802c26960eab10c80" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a8537dbdee278f28802c26960eab10c80" kindref="member">retainAll</ref>(Collection&lt;?&gt;<sp/>c)<sp/>{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1adf662574b90f5591b6203311db607019" kindref="member">delegate</ref>.retainAll(c);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="88" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1aa157ed09e53b1c18bbecf09dd7ac89f1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1aa157ed09e53b1c18bbecf09dd7ac89f1" kindref="member">clear</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1adf662574b90f5591b6203311db607019" kindref="member">delegate</ref>.clear();</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="93" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1aed14e3eb7b23cb067969a5916e4b1879" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Spliterator&lt;E&gt;<sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1aed14e3eb7b23cb067969a5916e4b1879" kindref="member">spliterator</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1adf662574b90f5591b6203311db607019" kindref="member">delegate</ref>.spliterator();</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="98" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1af289493f9433d3ad824796e9bc945ccc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Stream&lt;E&gt;<sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1af289493f9433d3ad824796e9bc945ccc" kindref="member">stream</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1adf662574b90f5591b6203311db607019" kindref="member">delegate</ref>.stream();</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="103" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a821c895c4c1a9c90b0862e13c6daf883" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Stream&lt;E&gt;<sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a821c895c4c1a9c90b0862e13c6daf883" kindref="member">parallelStream</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1adf662574b90f5591b6203311db607019" kindref="member">delegate</ref>.parallelStream();</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="108" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a55f4e22e210297b4e54cdedbbc96511b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a55f4e22e210297b4e54cdedbbc96511b" kindref="member">size</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1adf662574b90f5591b6203311db607019" kindref="member">delegate</ref>.size();</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="113" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1abcbf0d3b54d9a34263e1cece4181fade" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1abcbf0d3b54d9a34263e1cece4181fade" kindref="member">isEmpty</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1adf662574b90f5591b6203311db607019" kindref="member">delegate</ref>.isEmpty();</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="118" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a52de374a4d584d261ddfb8d04c39c75f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a52de374a4d584d261ddfb8d04c39c75f" kindref="member">contains</ref>(Object<sp/>o)<sp/>{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1adf662574b90f5591b6203311db607019" kindref="member">delegate</ref>.contains(o);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="123" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a4019769c637e27b1cbfcde57c6b5af33" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Iterator&lt;E&gt;<sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a4019769c637e27b1cbfcde57c6b5af33" kindref="member">iterator</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1adf662574b90f5591b6203311db607019" kindref="member">delegate</ref>.iterator();</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="128" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a280c2563c0e045db3821d08613348226" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a280c2563c0e045db3821d08613348226" kindref="member">forEach</ref>(Consumer&lt;?<sp/>super<sp/>E&gt;<sp/>action)<sp/>{</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1adf662574b90f5591b6203311db607019" kindref="member">delegate</ref>.forEach(action);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="133" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1aa0eeb70c022b828375c29356998ea042" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Object[]<sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1aa0eeb70c022b828375c29356998ea042" kindref="member">toArray</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1adf662574b90f5591b6203311db607019" kindref="member">delegate</ref>.toArray();</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="138" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1af4e5abb1fbe737dec45dfc91ecd32dcb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>&lt;T&gt;<sp/>T[]<sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1af4e5abb1fbe737dec45dfc91ecd32dcb" kindref="member">toArray</ref>(T[]<sp/>a)<sp/>{</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1adf662574b90f5591b6203311db607019" kindref="member">delegate</ref>.toArray(a);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="143" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1ac221c08aacbcb5f27f1219145c94819b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>&lt;T&gt;<sp/>T[]<sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1ac221c08aacbcb5f27f1219145c94819b" kindref="member">toArray</ref>(IntFunction&lt;T[]&gt;<sp/>generator)<sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1adf662574b90f5591b6203311db607019" kindref="member">delegate</ref>.toArray(generator);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>BlockingQueue<sp/>methods<sp/>-----------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="151" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a6a3f9e0cf16b8e4cdb25b87a99017f4e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a6a3f9e0cf16b8e4cdb25b87a99017f4e" kindref="member">remainingCapacity</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Integer.MAX_VALUE;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="156" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1af61c9efb914277e4c0ab53d404e15d0c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1af61c9efb914277e4c0ab53d404e15d0c" kindref="member">drainTo</ref>(Collection&lt;?<sp/>super<sp/>E&gt;<sp/>c)<sp/>{</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1af61c9efb914277e4c0ab53d404e15d0c" kindref="member">drainTo</ref>(c,<sp/>Integer.MAX_VALUE);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="161" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a8048c062c82744fba3655e821c25b3d1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a8048c062c82744fba3655e821c25b3d1" kindref="member">drainTo</ref>(Collection&lt;?<sp/>super<sp/>E&gt;<sp/>c,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>maxElements)<sp/>{</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Objects.requireNonNull(c,<sp/></highlight><highlight class="stringliteral">&quot;null<sp/>target&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(;<sp/>i<sp/>&lt;<sp/>maxElements;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>E<sp/>value<sp/>=<sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a3f07fc3d738f9e7c066300adca2e0afb" kindref="member">poll</ref>();</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(value<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>c.add(value);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>blocking<sp/>aware<sp/>methods</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="179" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a278b9c3f6d668549c00c1f0869a25aab" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a278b9c3f6d668549c00c1f0869a25aab" kindref="member">put</ref>(E<sp/>value)<sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>InterruptedException<sp/>{</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>UnsupportedOperationException();</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="184" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1afbdef31c69fcfa3690919aa8e792c8aa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1afbdef31c69fcfa3690919aa8e792c8aa" kindref="member">offer</ref>(E<sp/>value,<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>timeout,<sp/>TimeUnit<sp/>unit)<sp/>{</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>UnsupportedOperationException();</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="189" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a53fcb27dcb18a9af9419a1cc0419dede" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a53fcb27dcb18a9af9419a1cc0419dede" kindref="member">add</ref>(E<sp/>value)<sp/>{</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1afbdef31c69fcfa3690919aa8e792c8aa" kindref="member">offer</ref>(value);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="194" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1af16fdcd3499baf6787012446581d075a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1af16fdcd3499baf6787012446581d075a" kindref="member">offer</ref>(E<sp/>value)<sp/>{</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1adf662574b90f5591b6203311db607019" kindref="member">delegate</ref>.offer(Objects.requireNonNull(value,<sp/></highlight><highlight class="stringliteral">&quot;null<sp/>value&quot;</highlight><highlight class="normal">)))<sp/>{</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1ad477c14177bc38bb6c5de030672fc478" kindref="member">signal</ref>();</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="204" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a5aae9f684352cebdbf3914a31a6a490c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a5aae9f684352cebdbf3914a31a6a490c" kindref="member">addAll</ref>(Collection&lt;?<sp/>extends<sp/>E&gt;<sp/>c)<sp/>{</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>result<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(E<sp/>value<sp/>:<sp/>c)<sp/>{</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result<sp/>|=<sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a53fcb27dcb18a9af9419a1cc0419dede" kindref="member">add</ref>(value);</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/>@SuppressWarnings(</highlight><highlight class="stringliteral">&quot;all&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="215" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a2511696da19abf8fc2a3131531af3863" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/>E<sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a2511696da19abf8fc2a3131531af3863" kindref="member">take</ref>()<sp/>throws<sp/>InterruptedException<sp/>{</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>poll(max)<sp/>will<sp/>never<sp/>return<sp/>null</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a3f07fc3d738f9e7c066300adca2e0afb" kindref="member">poll</ref>(Long.MAX_VALUE,<sp/>TimeUnit.NANOSECONDS);</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="221" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1ad11415ddaaa5edfdece46a2d927190fd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>E<sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1ad11415ddaaa5edfdece46a2d927190fd" kindref="member">poll</ref>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>timeout,<sp/>TimeUnit<sp/>unit)<sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>InterruptedException<sp/>{</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>E<sp/>value<sp/>=<sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a3f07fc3d738f9e7c066300adca2e0afb" kindref="member">poll</ref>();</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>value<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>?<sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1ae9e686635478cf2c1b31840f8d4c3826" kindref="member">pollInternal</ref>(timeout,<sp/>unit)<sp/>:<sp/>value;</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight></codeline>
+<codeline lineno="236" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1ae9e686635478cf2c1b31840f8d4c3826" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>E<sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1ae9e686635478cf2c1b31840f8d4c3826" kindref="member">pollInternal</ref>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>timeout,<sp/>TimeUnit<sp/>unit)<sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>InterruptedException<sp/>{</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Objects.requireNonNull(unit,<sp/></highlight><highlight class="stringliteral">&quot;null<sp/>unit&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>E<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>value;</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Thread<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>thread<sp/>=<sp/>Thread.currentThread();</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AtomicReference&lt;Thread&gt;<sp/>parker<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>AtomicReference&lt;&gt;(thread);</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a721e996b4227a06fa293c43bd751fdb6" kindref="member">awaiting</ref>.push(parker);</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>deadlineMs<sp/>=<sp/>timeout<sp/>==<sp/>Long.MAX_VALUE</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>Long.MAX_VALUE</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>System.currentTimeMillis()<sp/>+<sp/>unit.toMillis(timeout);</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">do</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>before<sp/>parking,<sp/>we<sp/>must<sp/>double-check<sp/>that<sp/>a<sp/>value<sp/>hasn&apos;t<sp/>been<sp/>concurrently<sp/>added</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>value<sp/>=<sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a3f07fc3d738f9e7c066300adca2e0afb" kindref="member">poll</ref>();</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(value<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(timeout<sp/>==<sp/>Long.MAX_VALUE)<sp/>{</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>LockSupport.park(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>LockSupport.parkUntil(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>deadlineMs);</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>now<sp/>that<sp/>we&apos;ve<sp/>awoken<sp/>we&apos;ll<sp/>hopefully<sp/>have<sp/>a<sp/>value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>value<sp/>=<sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a3f07fc3d738f9e7c066300adca2e0afb" kindref="member">poll</ref>();</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(value<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Thread.interrupted())<sp/>{</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a376d92c95ac0619fc1ae6eb00d70ea5a" kindref="member">unwait</ref>(thread,<sp/>parker);</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>InterruptedException();</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(timeout<sp/>!=<sp/>Long.MAX_VALUE<sp/>&amp;&amp;<sp/>System.currentTimeMillis()<sp/>&gt;=<sp/>deadlineMs)<sp/>{</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a376d92c95ac0619fc1ae6eb00d70ea5a" kindref="member">unwait</ref>(thread,<sp/>parker);</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(parker.get()<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>we<sp/>were<sp/>signalled<sp/>but<sp/>didn&apos;t<sp/>get<sp/>a<sp/>value;<sp/>re-push/park</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a721e996b4227a06fa293c43bd751fdb6" kindref="member">awaiting</ref>.push(parker<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>AtomicReference&lt;&gt;(thread));</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>else;<sp/>no<sp/>value<sp/>and<sp/>no<sp/>signal;<sp/>just<sp/>re-park</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(value<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"></highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(parker.get()<sp/>==<sp/>thread<sp/>&amp;&amp;<sp/>!parker.compareAndSet(thread,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>we<sp/>were<sp/>signalled<sp/>independent<sp/>of<sp/>getting<sp/>a<sp/>value;<sp/>pass<sp/>it<sp/>along</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1ad477c14177bc38bb6c5de030672fc478" kindref="member">signal</ref>();</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"></highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>value;</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"></highlight></codeline>
+<codeline lineno="291" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a376d92c95ac0619fc1ae6eb00d70ea5a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a376d92c95ac0619fc1ae6eb00d70ea5a" kindref="member">unwait</ref>(Thread<sp/>thread,<sp/>AtomicReference&lt;Thread&gt;<sp/>parker)<sp/>{</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(parker.compareAndSet(thread,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>we&apos;ve<sp/>marked<sp/>ourselves<sp/>as<sp/>not<sp/>waiting,<sp/>since<sp/>we<sp/>come<sp/>here<sp/>prematurely<sp/>we<sp/>also<sp/>remove</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>ourselves<sp/>from<sp/>awaiting<sp/>to<sp/>avoid<sp/>building<sp/>up<sp/>garbage</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a721e996b4227a06fa293c43bd751fdb6" kindref="member">awaiting</ref>.remove(parker);</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>we<sp/>were<sp/>concurrently<sp/>signalled<sp/>and<sp/>thus<sp/>also<sp/>removed<sp/>from<sp/>awaiting;<sp/>but<sp/>since<sp/>we&apos;re</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>not<sp/>taking<sp/>a<sp/>value<sp/>(and<sp/>were<sp/>signaled)<sp/>we<sp/>need<sp/>to<sp/>pass<sp/>that<sp/>signal<sp/>along<sp/>to<sp/>another</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>waiting<sp/>thread</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1ad477c14177bc38bb6c5de030672fc478" kindref="member">signal</ref>();</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"></highlight></codeline>
+<codeline lineno="307" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1ad477c14177bc38bb6c5de030672fc478" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1ad477c14177bc38bb6c5de030672fc478" kindref="member">signal</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(AtomicReference&lt;Thread&gt;<sp/>parker<sp/>=<sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a721e996b4227a06fa293c43bd751fdb6" kindref="member">awaiting</ref>.poll();</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>parker<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>parker<sp/>=<sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a721e996b4227a06fa293c43bd751fdb6" kindref="member">awaiting</ref>.poll())<sp/>{</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Thread<sp/>thread<sp/>=<sp/>parker.getAndSet(</highlight><highlight class="keyword">null</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(thread<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>LockSupport.unpark(thread);</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>else;<sp/>it<sp/>concurrently<sp/>gave<sp/>up;<sp/>try<sp/>the<sp/>next<sp/>parker</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"></highlight></codeline>
+<codeline lineno="320"><highlight class="normal"></highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>data<sp/>fields<sp/>---------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="322"><highlight class="normal"></highlight></codeline>
+<codeline lineno="326" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1adf662574b90f5591b6203311db607019" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Queue&lt;E&gt;<sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1adf662574b90f5591b6203311db607019" kindref="member">delegate</ref>;</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"></highlight></codeline>
+<codeline lineno="331" refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a721e996b4227a06fa293c43bd751fdb6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>ConcurrentLinkedDeque&lt;AtomicReference&lt;Thread&gt;&gt;<sp/><ref refid="dc/db9/classorg_1_1xvm_1_1util_1_1concurrent_1_1_blocking_queue_adapter_1a721e996b4227a06fa293c43bd751fdb6" kindref="member">awaiting</ref><sp/>=</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ConcurrentLinkedDeque&lt;&gt;();</highlight></codeline>
+<codeline lineno="333"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/concurrent/BlockingQueueAdapter.java"/>
+  </compounddef>
+</doxygen>

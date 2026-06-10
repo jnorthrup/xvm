@@ -1,0 +1,417 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service" kind="class" language="Java" prot="public" abstract="yes">
+    <compoundname>org::xtclang::plugin::runtime::DirectRuntimeBuildService</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">BuildService&lt; BuildServiceParameters.None &gt;</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">AutoCloseable</basecompoundref>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1af7283297bee23d4e48e6a9c4c951f503" prot="private" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String org.xtclang.plugin.runtime.DirectRuntimeBuildService.EXECUTOR_CLASS</definition>
+        <argsstring></argsstring>
+        <name>EXECUTOR_CLASS</name>
+        <qualifiedname>org.xtclang.plugin.runtime.DirectRuntimeBuildService.EXECUTOR_CLASS</qualifiedname>
+        <initializer>= &quot;org.xtclang.plugin.runtime.impl.IsolatedDirectExecutor&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/DirectRuntimeBuildService.java" line="39" column="33" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/DirectRuntimeBuildService.java" bodystart="39" bodyend="-1"/>
+        <referencedby refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ac22dbfa108bdb76d535b9bdea2d99efc" compoundref="d7/d48/_direct_runtime_build_service_8java" startline="90" endline="113">org.xtclang.plugin.runtime.DirectRuntimeBuildService.createRuntimeEntry</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a0a521fe39162485f442bb120a4f7333a" prot="private" static="yes" mutable="no">
+        <type>final Logger</type>
+        <definition>final Logger org.xtclang.plugin.runtime.DirectRuntimeBuildService.LOG</definition>
+        <argsstring></argsstring>
+        <name>LOG</name>
+        <qualifiedname>org.xtclang.plugin.runtime.DirectRuntimeBuildService.LOG</qualifiedname>
+        <initializer>= Logging.getLogger(DirectRuntimeBuildService.class)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/DirectRuntimeBuildService.java" line="40" column="33" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/DirectRuntimeBuildService.java" bodystart="40" bodyend="-1"/>
+        <referencedby refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a39c1c0f546444d195dacaa5db8ce86a0" compoundref="d7/d48/_direct_runtime_build_service_8java" startline="143" endline="151">org.xtclang.plugin.runtime.DirectRuntimeBuildService.close</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ab624fe29e905e32e95758ea31122c04e" prot="private" static="no" mutable="no">
+        <type>final Map&lt; <ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime_1a113de268bd8521656b953612d19acc7b" kindref="member">DirectRuntimeFingerprint</ref>, <ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a44b7401df002a04328725e490fc591d3" kindref="member">RuntimeEntry</ref> &gt;</type>
+        <definition>final Map&lt;DirectRuntimeFingerprint, RuntimeEntry&gt; org.xtclang.plugin.runtime.DirectRuntimeBuildService.runtimes</definition>
+        <argsstring></argsstring>
+        <name>runtimes</name>
+        <qualifiedname>org.xtclang.plugin.runtime.DirectRuntimeBuildService.runtimes</qualifiedname>
+        <initializer>= new ConcurrentHashMap&lt;&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/DirectRuntimeBuildService.java" line="42" column="23" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/DirectRuntimeBuildService.java" bodystart="42" bodyend="-1"/>
+        <referencedby refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a39c1c0f546444d195dacaa5db8ce86a0" compoundref="d7/d48/_direct_runtime_build_service_8java" startline="143" endline="151">org.xtclang.plugin.runtime.DirectRuntimeBuildService.close</referencedby>
+        <referencedby refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ac22dbfa108bdb76d535b9bdea2d99efc" compoundref="d7/d48/_direct_runtime_build_service_8java" startline="90" endline="113">org.xtclang.plugin.runtime.DirectRuntimeBuildService.createRuntimeEntry</referencedby>
+        <referencedby refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ab2dc93123c45fa26b30f58db9d96839f" compoundref="d7/d48/_direct_runtime_build_service_8java" startline="74" endline="88">org.xtclang.plugin.runtime.DirectRuntimeBuildService.getOrCreateRuntime</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a3b7d02898da974fd4ade963f0e1c3056" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xtclang.plugin.runtime.DirectRuntimeBuildService.executeCompile</definition>
+        <argsstring>(final XtcLauncherRuntime runtime, final DirectCompileRequest request, final Logger logger)</argsstring>
+        <name>executeCompile</name>
+        <qualifiedname>org.xtclang.plugin.runtime.DirectRuntimeBuildService.executeCompile</qualifiedname>
+        <param>
+          <type>final <ref refid="d3/d53/namespaceorg_1_1xtclang_1_1plugin_1a7460f78bbb4160fca0627b4e75a10f6f" kindref="member">XtcLauncherRuntime</ref></type>
+          <declname>runtime</declname>
+        </param>
+        <param>
+          <type>final <ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime_1a68244ca57e07ad9ef0639024bef7abfd" kindref="member">DirectCompileRequest</ref></type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>final Logger</type>
+          <declname>logger</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/DirectRuntimeBuildService.java" line="44" column="16" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/DirectRuntimeBuildService.java" bodystart="44" bodyend="46"/>
+        <references refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime_1a68244ca57e07ad9ef0639024bef7abfd" compoundref="d0/d71/_direct_compile_request_8java" startline="6" endline="24">org.xtclang.plugin.runtime.DirectCompileRequest</references>
+        <references refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ac7ceed115fbd0ff2db0d330b942252d5" compoundref="d7/d48/_direct_runtime_build_service_8java" startline="56" endline="72">org.xtclang.plugin.runtime.DirectRuntimeBuildService.invoke</references>
+        <references refid="d3/d53/namespaceorg_1_1xtclang_1_1plugin_1a7460f78bbb4160fca0627b4e75a10f6f" compoundref="d2/d57/_xtc_launcher_runtime_8java" startline="13" endline="34">org.xtclang.plugin.XtcLauncherRuntime</references>
+      </memberdef>
+      <memberdef kind="function" id="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a6a280ca6a8b0694ce90275e311d22fe4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xtclang.plugin.runtime.DirectRuntimeBuildService.executeRun</definition>
+        <argsstring>(final XtcLauncherRuntime runtime, final DirectRunRequest request, final Logger logger)</argsstring>
+        <name>executeRun</name>
+        <qualifiedname>org.xtclang.plugin.runtime.DirectRuntimeBuildService.executeRun</qualifiedname>
+        <param>
+          <type>final <ref refid="d3/d53/namespaceorg_1_1xtclang_1_1plugin_1a7460f78bbb4160fca0627b4e75a10f6f" kindref="member">XtcLauncherRuntime</ref></type>
+          <declname>runtime</declname>
+        </param>
+        <param>
+          <type>final <ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime_1a9fafba589150c689719a1b9e0b47bc9c" kindref="member">DirectRunRequest</ref></type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>final Logger</type>
+          <declname>logger</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/DirectRuntimeBuildService.java" line="48" column="16" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/DirectRuntimeBuildService.java" bodystart="48" bodyend="50"/>
+        <references refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime_1a9fafba589150c689719a1b9e0b47bc9c" compoundref="dd/de9/_direct_run_request_8java" startline="6" endline="19">org.xtclang.plugin.runtime.DirectRunRequest</references>
+        <references refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ac7ceed115fbd0ff2db0d330b942252d5" compoundref="d7/d48/_direct_runtime_build_service_8java" startline="56" endline="72">org.xtclang.plugin.runtime.DirectRuntimeBuildService.invoke</references>
+        <references refid="d3/d53/namespaceorg_1_1xtclang_1_1plugin_1a7460f78bbb4160fca0627b4e75a10f6f" compoundref="d2/d57/_xtc_launcher_runtime_8java" startline="13" endline="34">org.xtclang.plugin.XtcLauncherRuntime</references>
+      </memberdef>
+      <memberdef kind="function" id="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a8f0dfb5a5ca236a7478efd05bcdc2592" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xtclang.plugin.runtime.DirectRuntimeBuildService.executeTest</definition>
+        <argsstring>(final XtcLauncherRuntime runtime, final DirectTestRequest request, final Logger logger)</argsstring>
+        <name>executeTest</name>
+        <qualifiedname>org.xtclang.plugin.runtime.DirectRuntimeBuildService.executeTest</qualifiedname>
+        <param>
+          <type>final <ref refid="d3/d53/namespaceorg_1_1xtclang_1_1plugin_1a7460f78bbb4160fca0627b4e75a10f6f" kindref="member">XtcLauncherRuntime</ref></type>
+          <declname>runtime</declname>
+        </param>
+        <param>
+          <type>final <ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime_1a04f5b6983523a59e9c417e0716d19a02" kindref="member">DirectTestRequest</ref></type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>final Logger</type>
+          <declname>logger</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/DirectRuntimeBuildService.java" line="52" column="16" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/DirectRuntimeBuildService.java" bodystart="52" bodyend="54"/>
+        <references refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime_1a04f5b6983523a59e9c417e0716d19a02" compoundref="da/d50/_direct_test_request_8java" startline="6" endline="20">org.xtclang.plugin.runtime.DirectTestRequest</references>
+        <references refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ac7ceed115fbd0ff2db0d330b942252d5" compoundref="d7/d48/_direct_runtime_build_service_8java" startline="56" endline="72">org.xtclang.plugin.runtime.DirectRuntimeBuildService.invoke</references>
+        <references refid="d3/d53/namespaceorg_1_1xtclang_1_1plugin_1a7460f78bbb4160fca0627b4e75a10f6f" compoundref="d2/d57/_xtc_launcher_runtime_8java" startline="13" endline="34">org.xtclang.plugin.XtcLauncherRuntime</references>
+      </memberdef>
+      <memberdef kind="function" id="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a39c1c0f546444d195dacaa5db8ce86a0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xtclang.plugin.runtime.DirectRuntimeBuildService.close</definition>
+        <argsstring>()</argsstring>
+        <name>close</name>
+        <qualifiedname>org.xtclang.plugin.runtime.DirectRuntimeBuildService.close</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/DirectRuntimeBuildService.java" line="143" column="17" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/DirectRuntimeBuildService.java" bodystart="143" bodyend="151"/>
+        <references refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a0a521fe39162485f442bb120a4f7333a" compoundref="d7/d48/_direct_runtime_build_service_8java" startline="40">org.xtclang.plugin.runtime.DirectRuntimeBuildService.LOG</references>
+        <references refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ab624fe29e905e32e95758ea31122c04e" compoundref="d7/d48/_direct_runtime_build_service_8java" startline="42">org.xtclang.plugin.runtime.DirectRuntimeBuildService.runtimes</references>
+        <referencedby refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a44b7401df002a04328725e490fc591d3" compoundref="d7/d48/_direct_runtime_build_service_8java" startline="153" endline="176">org.xtclang.plugin.runtime.DirectRuntimeBuildService.RuntimeEntry</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ac7ceed115fbd0ff2db0d330b942252d5" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xtclang.plugin.runtime.DirectRuntimeBuildService.invoke</definition>
+        <argsstring>(final XtcLauncherRuntime runtime, final String methodName, final Class&lt;?&gt;[] parameterTypes, final Object request, final Logger logger)</argsstring>
+        <name>invoke</name>
+        <qualifiedname>org.xtclang.plugin.runtime.DirectRuntimeBuildService.invoke</qualifiedname>
+        <param>
+          <type>final <ref refid="d3/d53/namespaceorg_1_1xtclang_1_1plugin_1a7460f78bbb4160fca0627b4e75a10f6f" kindref="member">XtcLauncherRuntime</ref></type>
+          <declname>runtime</declname>
+        </param>
+        <param>
+          <type>final String</type>
+          <declname>methodName</declname>
+        </param>
+        <param>
+          <type>final Class&lt;?&gt;[]</type>
+          <declname>parameterTypes</declname>
+        </param>
+        <param>
+          <type>final Object</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>final Logger</type>
+          <declname>logger</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/DirectRuntimeBuildService.java" line="56" column="17" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/DirectRuntimeBuildService.java" bodystart="56" bodyend="72"/>
+        <references refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ab2dc93123c45fa26b30f58db9d96839f" compoundref="d7/d48/_direct_runtime_build_service_8java" startline="74" endline="88">org.xtclang.plugin.runtime.DirectRuntimeBuildService.getOrCreateRuntime</references>
+        <references refid="d3/d53/namespaceorg_1_1xtclang_1_1plugin_1a7460f78bbb4160fca0627b4e75a10f6f" compoundref="d2/d57/_xtc_launcher_runtime_8java" startline="13" endline="34">org.xtclang.plugin.XtcLauncherRuntime</references>
+        <referencedby refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a3b7d02898da974fd4ade963f0e1c3056" compoundref="d7/d48/_direct_runtime_build_service_8java" startline="44" endline="46">org.xtclang.plugin.runtime.DirectRuntimeBuildService.executeCompile</referencedby>
+        <referencedby refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a6a280ca6a8b0694ce90275e311d22fe4" compoundref="d7/d48/_direct_runtime_build_service_8java" startline="48" endline="50">org.xtclang.plugin.runtime.DirectRuntimeBuildService.executeRun</referencedby>
+        <referencedby refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a8f0dfb5a5ca236a7478efd05bcdc2592" compoundref="d7/d48/_direct_runtime_build_service_8java" startline="52" endline="54">org.xtclang.plugin.runtime.DirectRuntimeBuildService.executeTest</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ab2dc93123c45fa26b30f58db9d96839f" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a44b7401df002a04328725e490fc591d3" kindref="member">RuntimeEntry</ref></type>
+        <definition>RuntimeEntry org.xtclang.plugin.runtime.DirectRuntimeBuildService.getOrCreateRuntime</definition>
+        <argsstring>(final XtcLauncherRuntime runtime, final Logger logger)</argsstring>
+        <name>getOrCreateRuntime</name>
+        <qualifiedname>org.xtclang.plugin.runtime.DirectRuntimeBuildService.getOrCreateRuntime</qualifiedname>
+        <param>
+          <type>final <ref refid="d3/d53/namespaceorg_1_1xtclang_1_1plugin_1a7460f78bbb4160fca0627b4e75a10f6f" kindref="member">XtcLauncherRuntime</ref></type>
+          <declname>runtime</declname>
+        </param>
+        <param>
+          <type>final Logger</type>
+          <declname>logger</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/DirectRuntimeBuildService.java" line="74" column="26" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/DirectRuntimeBuildService.java" bodystart="74" bodyend="88"/>
+        <references refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a79b95f7c95bb68a8d71b3fc294033c11" compoundref="d7/d48/_direct_runtime_build_service_8java" startline="126" endline="132">org.xtclang.plugin.runtime.DirectRuntimeBuildService.codeSourceUrl</references>
+        <references refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ac22dbfa108bdb76d535b9bdea2d99efc" compoundref="d7/d48/_direct_runtime_build_service_8java" startline="90" endline="113">org.xtclang.plugin.runtime.DirectRuntimeBuildService.createRuntimeEntry</references>
+        <references refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime_1a113de268bd8521656b953612d19acc7b" compoundref="d3/dd8/_direct_runtime_fingerprint_8java" startline="24" endline="75">org.xtclang.plugin.runtime.DirectRuntimeFingerprint</references>
+        <references refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a44b7401df002a04328725e490fc591d3" compoundref="d7/d48/_direct_runtime_build_service_8java" startline="153" endline="176">org.xtclang.plugin.runtime.DirectRuntimeBuildService.RuntimeEntry</references>
+        <references refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ab624fe29e905e32e95758ea31122c04e" compoundref="d7/d48/_direct_runtime_build_service_8java" startline="42">org.xtclang.plugin.runtime.DirectRuntimeBuildService.runtimes</references>
+        <references refid="d3/d53/namespaceorg_1_1xtclang_1_1plugin_1a7460f78bbb4160fca0627b4e75a10f6f" compoundref="d2/d57/_xtc_launcher_runtime_8java" startline="13" endline="34">org.xtclang.plugin.XtcLauncherRuntime</references>
+        <referencedby refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ac7ceed115fbd0ff2db0d330b942252d5" compoundref="d7/d48/_direct_runtime_build_service_8java" startline="56" endline="72">org.xtclang.plugin.runtime.DirectRuntimeBuildService.invoke</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ac22dbfa108bdb76d535b9bdea2d99efc" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a44b7401df002a04328725e490fc591d3" kindref="member">RuntimeEntry</ref></type>
+        <definition>RuntimeEntry org.xtclang.plugin.runtime.DirectRuntimeBuildService.createRuntimeEntry</definition>
+        <argsstring>(final XtcLauncherRuntime runtime, final Logger logger)</argsstring>
+        <name>createRuntimeEntry</name>
+        <qualifiedname>org.xtclang.plugin.runtime.DirectRuntimeBuildService.createRuntimeEntry</qualifiedname>
+        <param>
+          <type>final <ref refid="d3/d53/namespaceorg_1_1xtclang_1_1plugin_1a7460f78bbb4160fca0627b4e75a10f6f" kindref="member">XtcLauncherRuntime</ref></type>
+          <declname>runtime</declname>
+        </param>
+        <param>
+          <type>final Logger</type>
+          <declname>logger</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/DirectRuntimeBuildService.java" line="90" column="26" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/DirectRuntimeBuildService.java" bodystart="90" bodyend="113"/>
+        <references refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a2116380a426897be07e5ef8cbe091638" compoundref="d7/d48/_direct_runtime_build_service_8java" startline="115" endline="124">org.xtclang.plugin.runtime.DirectRuntimeBuildService.createRuntimeUrls</references>
+        <references refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime_1a68244ca57e07ad9ef0639024bef7abfd" compoundref="d0/d71/_direct_compile_request_8java" startline="6" endline="24">org.xtclang.plugin.runtime.DirectCompileRequest</references>
+        <references refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime_1a9fafba589150c689719a1b9e0b47bc9c" compoundref="dd/de9/_direct_run_request_8java" startline="6" endline="19">org.xtclang.plugin.runtime.DirectRunRequest</references>
+        <references refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime_1a04f5b6983523a59e9c417e0716d19a02" compoundref="da/d50/_direct_test_request_8java" startline="6" endline="20">org.xtclang.plugin.runtime.DirectTestRequest</references>
+        <references refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1af7283297bee23d4e48e6a9c4c951f503" compoundref="d7/d48/_direct_runtime_build_service_8java" startline="39">org.xtclang.plugin.runtime.DirectRuntimeBuildService.EXECUTOR_CLASS</references>
+        <references refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a44b7401df002a04328725e490fc591d3" compoundref="d7/d48/_direct_runtime_build_service_8java" startline="153" endline="176">org.xtclang.plugin.runtime.DirectRuntimeBuildService.RuntimeEntry</references>
+        <references refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ab624fe29e905e32e95758ea31122c04e" compoundref="d7/d48/_direct_runtime_build_service_8java" startline="42">org.xtclang.plugin.runtime.DirectRuntimeBuildService.runtimes</references>
+        <references refid="d3/d53/namespaceorg_1_1xtclang_1_1plugin_1a7460f78bbb4160fca0627b4e75a10f6f" compoundref="d2/d57/_xtc_launcher_runtime_8java" startline="13" endline="34">org.xtclang.plugin.XtcLauncherRuntime</references>
+        <referencedby refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ab2dc93123c45fa26b30f58db9d96839f" compoundref="d7/d48/_direct_runtime_build_service_8java" startline="74" endline="88">org.xtclang.plugin.runtime.DirectRuntimeBuildService.getOrCreateRuntime</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a44b7401df002a04328725e490fc591d3" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>record</type>
+        <definition>record org.xtclang.plugin.runtime.DirectRuntimeBuildService.RuntimeEntry</definition>
+        <argsstring>(PluginRuntimeClassLoader classLoader, Method compileMethod, Method runMethod, Method testMethod) implements Closeable</argsstring>
+        <name>RuntimeEntry</name>
+        <qualifiedname>org.xtclang.plugin.runtime.DirectRuntimeBuildService.RuntimeEntry</qualifiedname>
+        <param>
+          <type><ref refid="d0/d43/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_plugin_runtime_class_loader" kindref="compound">PluginRuntimeClassLoader</ref></type>
+          <declname>classLoader</declname>
+        </param>
+        <param>
+          <type>Method</type>
+          <declname>compileMethod</declname>
+        </param>
+        <param>
+          <type>Method</type>
+          <declname>runMethod</declname>
+        </param>
+        <param>
+          <type>Method</type>
+          <declname>testMethod</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/DirectRuntimeBuildService.java" line="153" column="20" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/DirectRuntimeBuildService.java" bodystart="153" bodyend="176"/>
+        <references refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a39c1c0f546444d195dacaa5db8ce86a0" compoundref="d7/d48/_direct_runtime_build_service_8java" startline="143" endline="151">org.xtclang.plugin.runtime.DirectRuntimeBuildService.close</references>
+        <referencedby refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ac22dbfa108bdb76d535b9bdea2d99efc" compoundref="d7/d48/_direct_runtime_build_service_8java" startline="90" endline="113">org.xtclang.plugin.runtime.DirectRuntimeBuildService.createRuntimeEntry</referencedby>
+        <referencedby refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ab2dc93123c45fa26b30f58db9d96839f" compoundref="d7/d48/_direct_runtime_build_service_8java" startline="74" endline="88">org.xtclang.plugin.runtime.DirectRuntimeBuildService.getOrCreateRuntime</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a2116380a426897be07e5ef8cbe091638" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>URL[]</type>
+        <definition>static URL[] org.xtclang.plugin.runtime.DirectRuntimeBuildService.createRuntimeUrls</definition>
+        <argsstring>(final XtcLauncherRuntime runtime)</argsstring>
+        <name>createRuntimeUrls</name>
+        <qualifiedname>org.xtclang.plugin.runtime.DirectRuntimeBuildService.createRuntimeUrls</qualifiedname>
+        <param>
+          <type>final <ref refid="d3/d53/namespaceorg_1_1xtclang_1_1plugin_1a7460f78bbb4160fca0627b4e75a10f6f" kindref="member">XtcLauncherRuntime</ref></type>
+          <declname>runtime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/DirectRuntimeBuildService.java" line="115" column="24" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/DirectRuntimeBuildService.java" bodystart="115" bodyend="124"/>
+        <references refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a79b95f7c95bb68a8d71b3fc294033c11" compoundref="d7/d48/_direct_runtime_build_service_8java" startline="126" endline="132">org.xtclang.plugin.runtime.DirectRuntimeBuildService.codeSourceUrl</references>
+        <references refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a09b038dfb883fb300fc8def3fadf8755" compoundref="d7/d48/_direct_runtime_build_service_8java" startline="134" endline="140">org.xtclang.plugin.runtime.DirectRuntimeBuildService.toUrl</references>
+        <references refid="d3/d53/namespaceorg_1_1xtclang_1_1plugin_1a7460f78bbb4160fca0627b4e75a10f6f" compoundref="d2/d57/_xtc_launcher_runtime_8java" startline="13" endline="34">org.xtclang.plugin.XtcLauncherRuntime</references>
+        <referencedby refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ac22dbfa108bdb76d535b9bdea2d99efc" compoundref="d7/d48/_direct_runtime_build_service_8java" startline="90" endline="113">org.xtclang.plugin.runtime.DirectRuntimeBuildService.createRuntimeEntry</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a79b95f7c95bb68a8d71b3fc294033c11" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>URL</type>
+        <definition>static URL org.xtclang.plugin.runtime.DirectRuntimeBuildService.codeSourceUrl</definition>
+        <argsstring>()</argsstring>
+        <name>codeSourceUrl</name>
+        <qualifiedname>org.xtclang.plugin.runtime.DirectRuntimeBuildService.codeSourceUrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/DirectRuntimeBuildService.java" line="126" column="24" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/DirectRuntimeBuildService.java" bodystart="126" bodyend="132"/>
+        <referencedby refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a2116380a426897be07e5ef8cbe091638" compoundref="d7/d48/_direct_runtime_build_service_8java" startline="115" endline="124">org.xtclang.plugin.runtime.DirectRuntimeBuildService.createRuntimeUrls</referencedby>
+        <referencedby refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ab2dc93123c45fa26b30f58db9d96839f" compoundref="d7/d48/_direct_runtime_build_service_8java" startline="74" endline="88">org.xtclang.plugin.runtime.DirectRuntimeBuildService.getOrCreateRuntime</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a09b038dfb883fb300fc8def3fadf8755" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>URL</type>
+        <definition>static URL org.xtclang.plugin.runtime.DirectRuntimeBuildService.toUrl</definition>
+        <argsstring>(final File file)</argsstring>
+        <name>toUrl</name>
+        <qualifiedname>org.xtclang.plugin.runtime.DirectRuntimeBuildService.toUrl</qualifiedname>
+        <param>
+          <type>final File</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/DirectRuntimeBuildService.java" line="134" column="24" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/DirectRuntimeBuildService.java" bodystart="134" bodyend="140"/>
+        <referencedby refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a2116380a426897be07e5ef8cbe091638" compoundref="d7/d48/_direct_runtime_build_service_8java" startline="115" endline="124">org.xtclang.plugin.runtime.DirectRuntimeBuildService.createRuntimeUrls</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Build-scoped owner for isolated direct-mode runtimes. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The important constraint here is scope: direct execution may reuse an isolated runtime within one build, but it must not leak that runtime into later builds via daemon-global static state. Gradle shared services give us exactly that lifecycle.</para>
+<para>Each cached entry is keyed by the resolved launcher runtime classpath plus the plugin code source. That lets multiple direct tasks in the same build reuse the same isolated classloader when they truly target the same runtime, while still separating builds or runtime changes cleanly. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>AutoCloseable</label>
+      </node>
+      <node id="2">
+        <label>BuildService&lt; BuildServiceParameters.None &gt;</label>
+      </node>
+      <node id="1">
+        <label>org.xtclang.plugin.runtime.DirectRuntimeBuildService</label>
+        <link refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>AutoCloseable</label>
+      </node>
+      <node id="2">
+        <label>BuildService&lt; BuildServiceParameters.None &gt;</label>
+      </node>
+      <node id="1">
+        <label>org.xtclang.plugin.runtime.DirectRuntimeBuildService</label>
+        <link refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/DirectRuntimeBuildService.java" line="36" column="17" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/DirectRuntimeBuildService.java" bodystart="37" bodyend="177"/>
+    <listofallmembers>
+      <member refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a39c1c0f546444d195dacaa5db8ce86a0" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::runtime::DirectRuntimeBuildService</scope><name>close</name></member>
+      <member refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a79b95f7c95bb68a8d71b3fc294033c11" prot="private" virt="non-virtual"><scope>org::xtclang::plugin::runtime::DirectRuntimeBuildService</scope><name>codeSourceUrl</name></member>
+      <member refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ac22dbfa108bdb76d535b9bdea2d99efc" prot="private" virt="non-virtual"><scope>org::xtclang::plugin::runtime::DirectRuntimeBuildService</scope><name>createRuntimeEntry</name></member>
+      <member refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a2116380a426897be07e5ef8cbe091638" prot="private" virt="non-virtual"><scope>org::xtclang::plugin::runtime::DirectRuntimeBuildService</scope><name>createRuntimeUrls</name></member>
+      <member refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a3b7d02898da974fd4ade963f0e1c3056" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::runtime::DirectRuntimeBuildService</scope><name>executeCompile</name></member>
+      <member refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a6a280ca6a8b0694ce90275e311d22fe4" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::runtime::DirectRuntimeBuildService</scope><name>executeRun</name></member>
+      <member refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a8f0dfb5a5ca236a7478efd05bcdc2592" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::runtime::DirectRuntimeBuildService</scope><name>executeTest</name></member>
+      <member refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1af7283297bee23d4e48e6a9c4c951f503" prot="private" virt="non-virtual"><scope>org::xtclang::plugin::runtime::DirectRuntimeBuildService</scope><name>EXECUTOR_CLASS</name></member>
+      <member refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ab2dc93123c45fa26b30f58db9d96839f" prot="private" virt="non-virtual"><scope>org::xtclang::plugin::runtime::DirectRuntimeBuildService</scope><name>getOrCreateRuntime</name></member>
+      <member refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ac7ceed115fbd0ff2db0d330b942252d5" prot="private" virt="non-virtual"><scope>org::xtclang::plugin::runtime::DirectRuntimeBuildService</scope><name>invoke</name></member>
+      <member refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a0a521fe39162485f442bb120a4f7333a" prot="private" virt="non-virtual"><scope>org::xtclang::plugin::runtime::DirectRuntimeBuildService</scope><name>LOG</name></member>
+      <member refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a44b7401df002a04328725e490fc591d3" prot="private" virt="non-virtual"><scope>org::xtclang::plugin::runtime::DirectRuntimeBuildService</scope><name>RuntimeEntry</name></member>
+      <member refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1ab624fe29e905e32e95758ea31122c04e" prot="private" virt="non-virtual"><scope>org::xtclang::plugin::runtime::DirectRuntimeBuildService</scope><name>runtimes</name></member>
+      <member refid="df/d9b/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_direct_runtime_build_service_1a09b038dfb883fb300fc8def3fadf8755" prot="private" virt="non-virtual"><scope>org::xtclang::plugin::runtime::DirectRuntimeBuildService</scope><name>toUrl</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

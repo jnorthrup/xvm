@@ -1,0 +1,242 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d8/d9d/classorg_1_1xvm_1_1util_1_1_transient_hasher_reference" kind="class" language="Java" prot="package">
+    <compoundname>org::xvm::util::TransientHasherReference</compoundname>
+    <basecompoundref refid="d2/d56/classorg_1_1xvm_1_1util_1_1_hasher_reference" prot="public" virt="non-virtual">org::xvm::util::HasherReference&lt; T &gt;</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">AutoCloseable</basecompoundref>
+    <templateparamlist>
+      <param>
+        <type>T</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="d8/d9d/classorg_1_1xvm_1_1util_1_1_transient_hasher_reference_1a4bd9b08fba6cf149d8dc7e9dc177a53b" prot="private" static="yes" mutable="no">
+        <type>final AtomicReferenceArray&lt; <ref refid="d8/d9d/classorg_1_1xvm_1_1util_1_1_transient_hasher_reference_1acf0611f9dafe58ae79429369e75ad224" kindref="member">TransientHasherReference</ref>&lt;?&gt; &gt;</type>
+        <definition>final AtomicReferenceArray&lt;TransientHasherReference&lt;?&gt; &gt; org.xvm.util.TransientHasherReference&lt; T &gt;.HEADS</definition>
+        <argsstring></argsstring>
+        <name>HEADS</name>
+        <qualifiedname>org.xvm.util.TransientHasherReference.HEADS</qualifiedname>
+        <initializer>                                        =
+new AtomicReferenceArray&lt;&gt;(Integer.highestOneBit(Runtime.getRuntime().availableProcessors()) &lt;&lt; 1)</initializer>
+        <briefdescription>
+<para>Stacks of <computeroutput><ref refid="d8/d9d/classorg_1_1xvm_1_1util_1_1_transient_hasher_reference" kindref="compound">TransientHasherReference</ref></computeroutput>s. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/TransientHasherReference.java" line="16" column="47" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/TransientHasherReference.java" bodystart="16" bodyend="-1"/>
+        <referencedby refid="d8/d9d/classorg_1_1xvm_1_1util_1_1_transient_hasher_reference_1a98d79108d1406697699ac7fc36abd086" compoundref="d8/dd5/_transient_hasher_reference_8java" startline="63" endline="70">org.xvm.util.TransientHasherReference&lt; T &gt;.close</referencedby>
+        <referencedby refid="d8/d9d/classorg_1_1xvm_1_1util_1_1_transient_hasher_reference_1ada9e1062a5adbec9fc8856bb4eb430f9" compoundref="d8/dd5/_transient_hasher_reference_8java" startline="40" endline="57">org.xvm.util.TransientHasherReference&lt; T &gt;.of</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="d8/d9d/classorg_1_1xvm_1_1util_1_1_transient_hasher_reference_1a0b7bca94b6e1b0f9739c278805f09e22" prot="private" static="no" mutable="no">
+        <type><ref refid="d8/d9d/classorg_1_1xvm_1_1util_1_1_transient_hasher_reference_1acf0611f9dafe58ae79429369e75ad224" kindref="member">TransientHasherReference</ref>&lt;?&gt;</type>
+        <definition>TransientHasherReference&lt;?&gt; org.xvm.util.TransientHasherReference&lt; T &gt;.next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <qualifiedname>org.xvm.util.TransientHasherReference.next</qualifiedname>
+        <briefdescription>
+<para>The next in our stack. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/TransientHasherReference.java" line="22" column="38" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/TransientHasherReference.java" bodystart="22" bodyend="-1"/>
+        <referencedby refid="d8/d9d/classorg_1_1xvm_1_1util_1_1_transient_hasher_reference_1a98d79108d1406697699ac7fc36abd086" compoundref="d8/dd5/_transient_hasher_reference_8java" startline="63" endline="70">org.xvm.util.TransientHasherReference&lt; T &gt;.close</referencedby>
+        <referencedby refid="d8/d9d/classorg_1_1xvm_1_1util_1_1_transient_hasher_reference_1ada9e1062a5adbec9fc8856bb4eb430f9" compoundref="d8/dd5/_transient_hasher_reference_8java" startline="40" endline="57">org.xvm.util.TransientHasherReference&lt; T &gt;.of</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="d8/d9d/classorg_1_1xvm_1_1util_1_1_transient_hasher_reference_1acf0611f9dafe58ae79429369e75ad224" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.xvm.util.TransientHasherReference&lt; T &gt;.TransientHasherReference</definition>
+        <argsstring>(T referent, Hasher&lt;? super T &gt; hasher)</argsstring>
+        <name>TransientHasherReference</name>
+        <qualifiedname>org.xvm.util.TransientHasherReference.TransientHasherReference</qualifiedname>
+        <param>
+          <type>T</type>
+          <declname>referent</declname>
+        </param>
+        <param>
+          <type><ref refid="db/db8/interfaceorg_1_1xvm_1_1util_1_1_hasher" kindref="compound">Hasher</ref>&lt;? super T &gt;</type>
+          <declname>hasher</declname>
+        </param>
+        <briefdescription>
+<para>Construct a <computeroutput><ref refid="d8/d9d/classorg_1_1xvm_1_1util_1_1_transient_hasher_reference" kindref="compound">TransientHasherReference</ref></computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>referent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the referent </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hasher</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the hasher </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/TransientHasherReference.java" line="30" column="15" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/TransientHasherReference.java" bodystart="30" bodyend="32"/>
+        <references refid="d2/d56/classorg_1_1xvm_1_1util_1_1_hasher_reference_1a4c6eb635cc03bf2ae8709d599582eb60" compoundref="d8/dff/_hasher_reference_8java" startline="12">org.xvm.util.HasherReference&lt; T &gt;.hasher</references>
+        <references refid="d2/d56/classorg_1_1xvm_1_1util_1_1_hasher_reference_1ae74cf087b4c2c4596397b06c55de82da" compoundref="d8/dff/_hasher_reference_8java" startline="17">org.xvm.util.HasherReference&lt; T &gt;.referent</references>
+        <referencedby refid="d8/d9d/classorg_1_1xvm_1_1util_1_1_transient_hasher_reference_1ada9e1062a5adbec9fc8856bb4eb430f9" compoundref="d8/dd5/_transient_hasher_reference_8java" startline="40" endline="57">org.xvm.util.TransientHasherReference&lt; T &gt;.of</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="d8/d9d/classorg_1_1xvm_1_1util_1_1_transient_hasher_reference_1ada9e1062a5adbec9fc8856bb4eb430f9" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>static&lt; T &gt; <ref refid="d8/d9d/classorg_1_1xvm_1_1util_1_1_transient_hasher_reference_1acf0611f9dafe58ae79429369e75ad224" kindref="member">TransientHasherReference</ref>&lt; T &gt;</type>
+        <definition>static&lt; T &gt; TransientHasherReference&lt; T &gt; org.xvm.util.TransientHasherReference&lt; T &gt;.of</definition>
+        <argsstring>(T referent, Hasher&lt;? super T &gt; hasher)</argsstring>
+        <name>of</name>
+        <qualifiedname>org.xvm.util.TransientHasherReference.of</qualifiedname>
+        <param>
+          <type>T</type>
+          <declname>referent</declname>
+        </param>
+        <param>
+          <type><ref refid="db/db8/interfaceorg_1_1xvm_1_1util_1_1_hasher" kindref="compound">Hasher</ref>&lt;? super T &gt;</type>
+          <declname>hasher</declname>
+        </param>
+        <briefdescription>
+<para>Return a <computeroutput><ref refid="d8/d9d/classorg_1_1xvm_1_1util_1_1_transient_hasher_reference" kindref="compound">TransientHasherReference</ref></computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>referent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the referent </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the reference </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/TransientHasherReference.java" line="40" column="45" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/TransientHasherReference.java" bodystart="40" bodyend="57"/>
+        <references refid="d2/d56/classorg_1_1xvm_1_1util_1_1_hasher_reference_1a4c6eb635cc03bf2ae8709d599582eb60" compoundref="d8/dff/_hasher_reference_8java" startline="12">org.xvm.util.HasherReference&lt; T &gt;.hasher</references>
+        <references refid="d8/d9d/classorg_1_1xvm_1_1util_1_1_transient_hasher_reference_1a4bd9b08fba6cf149d8dc7e9dc177a53b" compoundref="d8/dd5/_transient_hasher_reference_8java" startline="16">org.xvm.util.TransientHasherReference&lt; T &gt;.HEADS</references>
+        <references refid="d8/d9d/classorg_1_1xvm_1_1util_1_1_transient_hasher_reference_1a0b7bca94b6e1b0f9739c278805f09e22" compoundref="d8/dd5/_transient_hasher_reference_8java" startline="22">org.xvm.util.TransientHasherReference&lt; T &gt;.next</references>
+        <references refid="d2/d56/classorg_1_1xvm_1_1util_1_1_hasher_reference_1ae74cf087b4c2c4596397b06c55de82da" compoundref="d8/dff/_hasher_reference_8java" startline="17">org.xvm.util.HasherReference&lt; T &gt;.referent</references>
+        <references refid="d2/d56/classorg_1_1xvm_1_1util_1_1_hasher_reference_1a5aabcaa2d78232dd7d60dd99fecdf2e7" compoundref="d8/dff/_hasher_reference_8java" startline="35" endline="38">org.xvm.util.HasherReference&lt; T &gt;.reset</references>
+        <references refid="d8/d9d/classorg_1_1xvm_1_1util_1_1_transient_hasher_reference_1acf0611f9dafe58ae79429369e75ad224" compoundref="d8/dd5/_transient_hasher_reference_8java" startline="30" endline="32">org.xvm.util.TransientHasherReference&lt; T &gt;.TransientHasherReference</references>
+        <referencedby refid="dd/d24/classorg_1_1xvm_1_1util_1_1_hasher_map_1a9549392ebc5258adfc6a12461b78522b" compoundref="da/db7/_hasher_map_8java" startline="53" endline="55">org.xvm.util.HasherMap&lt; K, V &gt;.transientKeyDown</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d8/d9d/classorg_1_1xvm_1_1util_1_1_transient_hasher_reference_1a98d79108d1406697699ac7fc36abd086" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.util.TransientHasherReference&lt; T &gt;.close</definition>
+        <argsstring>()</argsstring>
+        <name>close</name>
+        <qualifiedname>org.xvm.util.TransientHasherReference.close</qualifiedname>
+        <briefdescription>
+<para>Recycle this ref. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/TransientHasherReference.java" line="63" column="17" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/TransientHasherReference.java" bodystart="63" bodyend="70"/>
+        <references refid="d8/d9d/classorg_1_1xvm_1_1util_1_1_transient_hasher_reference_1a4bd9b08fba6cf149d8dc7e9dc177a53b" compoundref="d8/dd5/_transient_hasher_reference_8java" startline="16">org.xvm.util.TransientHasherReference&lt; T &gt;.HEADS</references>
+        <references refid="d8/d9d/classorg_1_1xvm_1_1util_1_1_transient_hasher_reference_1a0b7bca94b6e1b0f9739c278805f09e22" compoundref="d8/dd5/_transient_hasher_reference_8java" startline="22">org.xvm.util.TransientHasherReference&lt; T &gt;.next</references>
+        <references refid="d2/d56/classorg_1_1xvm_1_1util_1_1_hasher_reference_1a5aabcaa2d78232dd7d60dd99fecdf2e7" compoundref="d8/dff/_hasher_reference_8java" startline="35" endline="38">org.xvm.util.HasherReference&lt; T &gt;.reset</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A pooled <computeroutput><ref refid="d2/d56/classorg_1_1xvm_1_1util_1_1_hasher_reference" kindref="compound">HasherReference</ref></computeroutput> intended for use in short-lived operations. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><computeroutput><ref refid="d8/d9d/classorg_1_1xvm_1_1util_1_1_transient_hasher_reference" kindref="compound">TransientHasherReference</ref></computeroutput> are obtained from the pool via <computeroutput><ref refid="d8/d9d/classorg_1_1xvm_1_1util_1_1_transient_hasher_reference_1ada9e1062a5adbec9fc8856bb4eb430f9" kindref="member">of</ref></computeroutput> and returned to the pool via <computeroutput><ref refid="d8/d9d/classorg_1_1xvm_1_1util_1_1_transient_hasher_reference_1a98d79108d1406697699ac7fc36abd086" kindref="member">close</ref></computeroutput>. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>AutoCloseable</label>
+      </node>
+      <node id="3">
+        <label>Supplier&lt; T &gt;</label>
+      </node>
+      <node id="1">
+        <label>org.xvm.util.TransientHasherReference&lt; T &gt;</label>
+        <link refid="d8/d9d/classorg_1_1xvm_1_1util_1_1_transient_hasher_reference"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>org.xvm.util.HasherReference&lt; T &gt;</label>
+        <link refid="d2/d56/classorg_1_1xvm_1_1util_1_1_hasher_reference"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="5">
+        <label>AutoCloseable</label>
+      </node>
+      <node id="3">
+        <label>Supplier&lt; T &gt;</label>
+      </node>
+      <node id="1">
+        <label>org.xvm.util.TransientHasherReference&lt; T &gt;</label>
+        <link refid="d8/d9d/classorg_1_1xvm_1_1util_1_1_transient_hasher_reference"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>org.xvm.util.Hasher&lt;? super T &gt;</label>
+        <link refid="db/db8/interfaceorg_1_1xvm_1_1util_1_1_hasher"/>
+      </node>
+      <node id="2">
+        <label>org.xvm.util.HasherReference&lt; T &gt;</label>
+        <link refid="d2/d56/classorg_1_1xvm_1_1util_1_1_hasher_reference"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>hasher</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>org.xvm.util.TransientHasherReference&lt;?&gt;</label>
+        <link refid="d8/d9d/classorg_1_1xvm_1_1util_1_1_transient_hasher_reference"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/TransientHasherReference.java" line="11" column="1" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/TransientHasherReference.java" bodystart="12" bodyend="71"/>
+    <listofallmembers>
+      <member refid="d8/d9d/classorg_1_1xvm_1_1util_1_1_transient_hasher_reference_1a98d79108d1406697699ac7fc36abd086" prot="public" virt="non-virtual"><scope>org::xvm::util::TransientHasherReference</scope><name>close</name></member>
+      <member refid="d2/d56/classorg_1_1xvm_1_1util_1_1_hasher_reference_1ad353369a065a4a455258895a996804ed" prot="public" virt="non-virtual"><scope>org::xvm::util::TransientHasherReference</scope><name>equals</name></member>
+      <member refid="d2/d56/classorg_1_1xvm_1_1util_1_1_hasher_reference_1a12cd5e8f58f014321e248784de57aafe" prot="public" virt="non-virtual"><scope>org::xvm::util::TransientHasherReference</scope><name>get</name></member>
+      <member refid="d2/d56/classorg_1_1xvm_1_1util_1_1_hasher_reference_1a774ad18ba6821fb76187376c0bf06269" prot="public" virt="non-virtual"><scope>org::xvm::util::TransientHasherReference</scope><name>hashCode</name></member>
+      <member refid="d2/d56/classorg_1_1xvm_1_1util_1_1_hasher_reference_1a4c6eb635cc03bf2ae8709d599582eb60" prot="private" virt="non-virtual"><scope>org::xvm::util::TransientHasherReference</scope><name>hasher</name></member>
+      <member refid="d2/d56/classorg_1_1xvm_1_1util_1_1_hasher_reference_1a8e3ce14f0293f1ce93fe7b05cd0ec398" prot="public" virt="non-virtual"><scope>org::xvm::util::TransientHasherReference</scope><name>HasherReference</name></member>
+      <member refid="d8/d9d/classorg_1_1xvm_1_1util_1_1_transient_hasher_reference_1a4bd9b08fba6cf149d8dc7e9dc177a53b" prot="private" virt="non-virtual"><scope>org::xvm::util::TransientHasherReference</scope><name>HEADS</name></member>
+      <member refid="d8/d9d/classorg_1_1xvm_1_1util_1_1_transient_hasher_reference_1a0b7bca94b6e1b0f9739c278805f09e22" prot="private" virt="non-virtual"><scope>org::xvm::util::TransientHasherReference</scope><name>next</name></member>
+      <member refid="d8/d9d/classorg_1_1xvm_1_1util_1_1_transient_hasher_reference_1ada9e1062a5adbec9fc8856bb4eb430f9" prot="public" virt="non-virtual"><scope>org::xvm::util::TransientHasherReference</scope><name>of</name></member>
+      <member refid="d2/d56/classorg_1_1xvm_1_1util_1_1_hasher_reference_1ae74cf087b4c2c4596397b06c55de82da" prot="private" virt="non-virtual"><scope>org::xvm::util::TransientHasherReference</scope><name>referent</name></member>
+      <member refid="d2/d56/classorg_1_1xvm_1_1util_1_1_hasher_reference_1a5aabcaa2d78232dd7d60dd99fecdf2e7" prot="protected" virt="non-virtual"><scope>org::xvm::util::TransientHasherReference</scope><name>reset</name></member>
+      <member refid="d8/d9d/classorg_1_1xvm_1_1util_1_1_transient_hasher_reference_1acf0611f9dafe58ae79429369e75ad224" prot="protected" virt="non-virtual"><scope>org::xvm::util::TransientHasherReference</scope><name>TransientHasherReference</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

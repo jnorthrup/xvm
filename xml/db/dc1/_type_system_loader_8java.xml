@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="db/dc1/_type_system_loader_8java" kind="file" language="Java">
+    <compoundname>TypeSystemLoader.java</compoundname>
+    <includes local="no">java.io.PrintStream</includes>
+    <includes local="no">java.util.Arrays</includes>
+    <includes local="no">java.util.function.Predicate</includes>
+    <includes local="no">org.xvm.asm.ModuleStructure</includes>
+    <includes local="no">org.xvm.asm.Constants.ECSTASY_MODULE</includes>
+    <includes local="no">org.xvm.util.Handy.require</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/TypeSystemLoader.java</label>
+        <link refid="db/dc1/_type_system_loader_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.io.PrintStream</label>
+      </node>
+      <node id="3">
+        <label>java.util.Arrays</label>
+      </node>
+      <node id="4">
+        <label>java.util.function.Predicate</label>
+      </node>
+      <node id="6">
+        <label>org.xvm.asm.Constants.ECSTASY_MODULE</label>
+      </node>
+      <node id="5">
+        <label>org.xvm.asm.ModuleStructure</label>
+      </node>
+      <node id="7">
+        <label>org.xvm.util.Handy.require</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader" prot="public">org::xvm::javajit::TypeSystemLoader</innerclass>
+    <innernamespace refid="dc/d1b/namespaceorg_1_1xvm_1_1javajit">org::xvm::javajit</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.javajit;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.PrintStream;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Arrays;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.function.Predicate;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ModuleStructure;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.asm.Constants.ECSTASY_MODULE;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.util.Handy.require;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader_1a8b21763a996d8d59ae5d60a52a10aae5" kindref="member">TypeSystemLoader</ref></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/>ClassLoader<sp/>{</highlight></codeline>
+<codeline lineno="29" refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader_1a8b21763a996d8d59ae5d60a52a10aae5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader_1a8b21763a996d8d59ae5d60a52a10aae5" kindref="member">TypeSystemLoader</ref>(<ref refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" kindref="compound">TypeSystem</ref><sp/><ref refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader_1a62a08b1228a4639e587b7d87633b9524" kindref="member">typeSystem</ref>,<sp/>String<sp/>name,<sp/><ref refid="d3/de5/classorg_1_1xvm_1_1javajit_1_1_module_loader" kindref="compound">ModuleLoader</ref>[]<sp/><ref refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader_1abbb3c0ff5e838b5e6883e4d33acd43cc" kindref="member">shared</ref>,<sp/><ref refid="d2/d13/classorg_1_1xvm_1_1asm_1_1_module_structure" kindref="compound">ModuleStructure</ref>[]<sp/><ref refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader_1a0766b8a99f2edbb3ad017c13655155c2" kindref="member">owned</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(</highlight><highlight class="stringliteral">&quot;xvm:&quot;</highlight><highlight class="normal"><sp/>+<sp/>name,<sp/><ref refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader_1a8b21763a996d8d59ae5d60a52a10aae5" kindref="member">TypeSystemLoader</ref>.class.getClassLoader());</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>require(</highlight><highlight class="stringliteral">&quot;typeSystem&quot;</highlight><highlight class="normal">,<sp/><ref refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader_1a62a08b1228a4639e587b7d87633b9524" kindref="member">typeSystem</ref>);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>require(</highlight><highlight class="stringliteral">&quot;name&quot;</highlight><highlight class="normal">,<sp/>name);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>require(</highlight><highlight class="stringliteral">&quot;shared&quot;</highlight><highlight class="normal">,<sp/><ref refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader_1abbb3c0ff5e838b5e6883e4d33acd43cc" kindref="member">shared</ref>);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>require(</highlight><highlight class="stringliteral">&quot;owned&quot;</highlight><highlight class="normal">,<sp/><ref refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader_1a0766b8a99f2edbb3ad017c13655155c2" kindref="member">owned</ref>);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>a<sp/>type<sp/>system<sp/>always<sp/>shares-in<sp/>at<sp/>least<sp/>the<sp/>Ecstasy<sp/>module,<sp/>except<sp/>that<sp/>the<sp/>native</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>container<sp/>(with<sp/>nothing<sp/>shared-in)<sp/>is<sp/>where<sp/>that<sp/>Ecstasy<sp/>module<sp/>comes<sp/>from</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/>shared.length<sp/>&gt;<sp/>0<sp/>||<sp/>Arrays.stream(<ref refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader_1a0766b8a99f2edbb3ad017c13655155c2" kindref="member">owned</ref>).anyMatch(m<sp/>-&gt;<sp/>m.getName().equals(ECSTASY_MODULE));</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.typeSystem<sp/>=<sp/><ref refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader_1a62a08b1228a4639e587b7d87633b9524" kindref="member">typeSystem</ref>;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.shared<sp/><sp/><sp/><sp/><sp/>=<sp/><ref refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader_1abbb3c0ff5e838b5e6883e4d33acd43cc" kindref="member">shared</ref>;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.owned<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d3/de5/classorg_1_1xvm_1_1javajit_1_1_module_loader" kindref="compound">ModuleLoader</ref>[<ref refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader_1a0766b8a99f2edbb3ad017c13655155c2" kindref="member">owned</ref>.length];</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>populate<sp/>the<sp/>module<sp/>loaders</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader_1a0766b8a99f2edbb3ad017c13655155c2" kindref="member">owned</ref>.length;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.owned[i]<sp/>=<sp/><ref refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader_1a62a08b1228a4639e587b7d87633b9524" kindref="member">typeSystem</ref>.xvm.createModuleLoader(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/><ref refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader_1a0766b8a99f2edbb3ad017c13655155c2" kindref="member">owned</ref>[i]);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader_1a62a08b1228a4639e587b7d87633b9524" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" kindref="compound">TypeSystem</ref><sp/><ref refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader_1a62a08b1228a4639e587b7d87633b9524" kindref="member">typeSystem</ref>;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58" refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader_1abbb3c0ff5e838b5e6883e4d33acd43cc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="d3/de5/classorg_1_1xvm_1_1javajit_1_1_module_loader" kindref="compound">ModuleLoader</ref>[]<sp/><ref refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader_1abbb3c0ff5e838b5e6883e4d33acd43cc" kindref="member">shared</ref>;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader_1a0766b8a99f2edbb3ad017c13655155c2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="d3/de5/classorg_1_1xvm_1_1javajit_1_1_module_loader" kindref="compound">ModuleLoader</ref>[]<sp/><ref refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader_1a0766b8a99f2edbb3ad017c13655155c2" kindref="member">owned</ref>;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="66" refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader_1a233f9f4acb4f0d8369dc42c8f4c3f4eb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>Class&lt;?&gt;<sp/><ref refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader_1a233f9f4acb4f0d8369dc42c8f4c3f4eb" kindref="member">findClass</ref>(String<sp/>name)</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>ClassNotFoundException<sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="d3/de5/classorg_1_1xvm_1_1javajit_1_1_module_loader" kindref="compound">ModuleLoader</ref><sp/>loader<sp/>:<sp/><ref refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader_1a0766b8a99f2edbb3ad017c13655155c2" kindref="member">owned</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(name.startsWith(loader.prefix))<sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>loader.findClass(name);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="d3/de5/classorg_1_1xvm_1_1javajit_1_1_module_loader" kindref="compound">ModuleLoader</ref><sp/>loader<sp/>:<sp/><ref refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader_1abbb3c0ff5e838b5e6883e4d33acd43cc" kindref="member">shared</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(name.startsWith(loader.prefix))<sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>loader.findClass(name);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ClassNotFoundException(name);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>debugging<sp/>-----------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85" refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader_1a26028fefc6e097c5f203694c3df6544d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader_1a26028fefc6e097c5f203694c3df6544d" kindref="member">dump</ref>(PrintStream<sp/>out,<sp/>Predicate&lt;String&gt;<sp/>filter)<sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Arrays.stream(shared).forEach(loader<sp/>-&gt;<sp/>loader.dump(out));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Arrays.stream(<ref refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader_1a0766b8a99f2edbb3ad017c13655155c2" kindref="member">owned</ref>).forEach(loader<sp/>-&gt;<sp/>loader.dump(out,<sp/>filter));</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/TypeSystemLoader.java"/>
+  </compounddef>
+</doxygen>

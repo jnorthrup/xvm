@@ -1,0 +1,25 @@
+var classorg_1_1xvm_1_1runtime_1_1_class_composition_1_1_field_info =
+[
+    [ "FieldInfo", "d1/d50/classorg_1_1xvm_1_1runtime_1_1_class_composition_1_1_field_info.html#a3a6fd3cd77a3644080a4de233a348d9d", null ],
+    [ "createRefHandle", "d1/d50/classorg_1_1xvm_1_1runtime_1_1_class_composition_1_1_field_info.html#ad53233cc3988e0ace72e0ea800cfc301", null ],
+    [ "getIndex", "d1/d50/classorg_1_1xvm_1_1runtime_1_1_class_composition_1_1_field_info.html#aeb440a3f19adbba9506c0b254014b243", null ],
+    [ "getName", "d1/d50/classorg_1_1xvm_1_1runtime_1_1_class_composition_1_1_field_info.html#a305d0317ae75930bec840bb013e0ff6b", null ],
+    [ "getType", "d1/d50/classorg_1_1xvm_1_1runtime_1_1_class_composition_1_1_field_info.html#aa2ac5ef9f9a9def51266387110deb738", null ],
+    [ "isAllowedUnassigned", "d1/d50/classorg_1_1xvm_1_1runtime_1_1_class_composition_1_1_field_info.html#af9d53d3c53e9d2d4fdc1eca90072751f", null ],
+    [ "isInflated", "d1/d50/classorg_1_1xvm_1_1runtime_1_1_class_composition_1_1_field_info.html#a237398cc64669b8e4d597217cae08afe", null ],
+    [ "isLazy", "d1/d50/classorg_1_1xvm_1_1runtime_1_1_class_composition_1_1_field_info.html#a1852c06311a2eef03871f51729890b7f", null ],
+    [ "isRegular", "d1/d50/classorg_1_1xvm_1_1runtime_1_1_class_composition_1_1_field_info.html#aa8bc44a970ef0b277aa46f9a8f5746f1", null ],
+    [ "isSynthetic", "d1/d50/classorg_1_1xvm_1_1runtime_1_1_class_composition_1_1_field_info.html#a3a77f1bd2b45e315bad7915a6ab11ab2", null ],
+    [ "isTransient", "d1/d50/classorg_1_1xvm_1_1runtime_1_1_class_composition_1_1_field_info.html#abc5ca027377d9f4a43da7d1b96743130", null ],
+    [ "isUnassigned", "d1/d50/classorg_1_1xvm_1_1runtime_1_1_class_composition_1_1_field_info.html#a984ff253383a3d49e683aaac1fcdbc43", null ],
+    [ "toString", "d1/d50/classorg_1_1xvm_1_1runtime_1_1_class_composition_1_1_field_info.html#af21650d4f316fa0a235cd1e2085e91fc", null ],
+    [ "constInit", "d1/d50/classorg_1_1xvm_1_1runtime_1_1_class_composition_1_1_field_info.html#a1604069e66168b4e9e0be2586910c667", null ],
+    [ "f_clzRef", "d1/d50/classorg_1_1xvm_1_1runtime_1_1_class_composition_1_1_field_info.html#aa31768d0998ab73a0907c3b8b5be7014", null ],
+    [ "f_enid", "d1/d50/classorg_1_1xvm_1_1runtime_1_1_class_composition_1_1_field_info.html#a72011dd0bee52aa45653755a6d42e33c", null ],
+    [ "f_fLazy", "d1/d50/classorg_1_1xvm_1_1runtime_1_1_class_composition_1_1_field_info.html#a225c4bcba933b0d8a86a0cc1e189e06b", null ],
+    [ "f_fSynthetic", "d1/d50/classorg_1_1xvm_1_1runtime_1_1_class_composition_1_1_field_info.html#ae20d4569d637bf4de9040b92579b4cf4", null ],
+    [ "f_fTransient", "d1/d50/classorg_1_1xvm_1_1runtime_1_1_class_composition_1_1_field_info.html#a9631dc44c02682e9f774e79bae191042", null ],
+    [ "f_fUnassigned", "d1/d50/classorg_1_1xvm_1_1runtime_1_1_class_composition_1_1_field_info.html#ac6f0935368082eb0268e8e8455752d27", null ],
+    [ "f_nIndex", "d1/d50/classorg_1_1xvm_1_1runtime_1_1_class_composition_1_1_field_info.html#aab48f6deb9dfcb604c68bfbe55d4cebd", null ],
+    [ "f_type", "d1/d50/classorg_1_1xvm_1_1runtime_1_1_class_composition_1_1_field_info.html#a0517e1cdf7e7859ba4f8ba3bae5cf949", null ]
+];

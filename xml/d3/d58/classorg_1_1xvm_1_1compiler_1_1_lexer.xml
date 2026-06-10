@@ -1,0 +1,765 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer" kind="class" language="Java" prot="public">
+    <compoundname>org::xvm::compiler::Lexer</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Iterator&lt; Token &gt;</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a5cde7f185dfe67453240c4e39efc7865" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.xvm.compiler.Lexer.Lexer</definition>
+        <argsstring>(Source source, ErrorListener errorListener)</argsstring>
+        <name>Lexer</name>
+        <qualifiedname>org.xvm.compiler.Lexer.Lexer</qualifiedname>
+        <param>
+          <type><ref refid="d5/d95/classorg_1_1xvm_1_1compiler_1_1_source" kindref="compound">Source</ref></type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type><ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref></type>
+          <declname>errorListener</declname>
+        </param>
+        <briefdescription>
+<para>Construct an Ecstasy lexical analyzer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the source to parse </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" line="44" column="12" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" bodystart="44" bodyend="56"/>
+        <references refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a31b6e1f09846d4f8d652f96b9fa3bc72" compoundref="d7/da7/_lexer_8java" startline="301" endline="315">org.xvm.compiler.Lexer.eatWhitespace</references>
+        <referencedby refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a683e4c8f2d31c8ecae9674ccd1f08ab0" compoundref="d7/da7/_lexer_8java" startline="127" endline="154">org.xvm.compiler.Lexer.createLexer</referencedby>
+        <referencedby refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a78381f2b1278a8cb2c5f2c38eb377a59" compoundref="d7/da7/_lexer_8java" startline="61" endline="65">org.xvm.compiler.Lexer.Lexer</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a1d268d304bdbdf949623a02602694a30" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.compiler.Lexer.hasNext</definition>
+        <argsstring>()</argsstring>
+        <name>hasNext</name>
+        <qualifiedname>org.xvm.compiler.Lexer.hasNext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" line="71" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" bodystart="71" bodyend="73"/>
+        <referencedby refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a683e4c8f2d31c8ecae9674ccd1f08ab0" compoundref="d7/da7/_lexer_8java" startline="127" endline="154">org.xvm.compiler.Lexer.createLexer</referencedby>
+        <referencedby refid="df/db7/classorg_1_1xvm_1_1compiler_1_1_lexer_test_1a2d6533fc0278a0a313dbe589486f1c67" compoundref="d1/d10/_lexer_test_8java" startline="87" endline="103">org.xvm.compiler.LexerTest.lexit</referencedby>
+        <referencedby refid="d4/db1/classorg_1_1xvm_1_1runtime_1_1template_1_1numbers_1_1x_int_literal_1a87e8730dbc697ed7992a18dc60a9e980" compoundref="dc/dcd/x_int_literal_8java" startline="377" endline="395">org.xvm.runtime.template.numbers.xIntLiteral.parseBigInteger</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a1e95e945d6b65b35db6c2b9743254525" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.compiler.Lexer.emit</definition>
+        <argsstring>(Consumer&lt; Token &gt; consumer)</argsstring>
+        <name>emit</name>
+        <qualifiedname>org.xvm.compiler.Lexer.emit</qualifiedname>
+        <param>
+          <type>Consumer&lt; <ref refid="db/db5/classorg_1_1xvm_1_1compiler_1_1_token" kindref="compound">Token</ref> &gt;</type>
+          <declname>consumer</declname>
+        </param>
+        <briefdescription>
+<para>Lexically analyze the source, emitting a stream of tokens to the specified consumer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>consumer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the <ref refid="db/db5/classorg_1_1xvm_1_1compiler_1_1_token" kindref="compound">Token</ref> Consumer </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" line="114" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" bodystart="114" bodyend="118"/>
+        <references refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a27068a1be6240ba46bc1a654faba7e83" compoundref="d7/da7/_lexer_8java" startline="238" endline="244">org.xvm.compiler.Lexer.next</references>
+      </memberdef>
+      <memberdef kind="function" id="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a683e4c8f2d31c8ecae9674ccd1f08ab0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a5cde7f185dfe67453240c4e39efc7865" kindref="member">Lexer</ref></type>
+        <definition>Lexer org.xvm.compiler.Lexer.createLexer</definition>
+        <argsstring>(Token[] atoken)</argsstring>
+        <name>createLexer</name>
+        <qualifiedname>org.xvm.compiler.Lexer.createLexer</qualifiedname>
+        <param>
+          <type><ref refid="db/db5/classorg_1_1xvm_1_1compiler_1_1_token" kindref="compound">Token</ref>[]</type>
+          <declname>atoken</declname>
+        </param>
+        <briefdescription>
+<para>Create a temporary lexer that provides a stream of tokens as specified. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>atoken</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the tokens to stream</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a new <ref refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer" kindref="compound">Lexer</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" line="127" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" bodystart="127" bodyend="154"/>
+        <references refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a1d268d304bdbdf949623a02602694a30" compoundref="d7/da7/_lexer_8java" startline="71" endline="73">org.xvm.compiler.Lexer.hasNext</references>
+        <references refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a5cde7f185dfe67453240c4e39efc7865" compoundref="d7/da7/_lexer_8java" startline="44" endline="56">org.xvm.compiler.Lexer.Lexer</references>
+        <references refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a27068a1be6240ba46bc1a654faba7e83" compoundref="d7/da7/_lexer_8java" startline="238" endline="244">org.xvm.compiler.Lexer.next</references>
+        <referencedby refid="d5/db8/classorg_1_1xvm_1_1compiler_1_1_parser_1a4e070288843d110684b4a5c3c0e86e68" compoundref="d2/de6/_parser_8java" startline="52" endline="54">org.xvm.compiler.Parser.Parser</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a27068a1be6240ba46bc1a654faba7e83" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="db/db5/classorg_1_1xvm_1_1compiler_1_1_token" kindref="compound">Token</ref></type>
+        <definition>Token org.xvm.compiler.Lexer.next</definition>
+        <argsstring>()</argsstring>
+        <name>next</name>
+        <qualifiedname>org.xvm.compiler.Lexer.next</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" line="238" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" bodystart="238" bodyend="244"/>
+        <references refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a8b840f238ad8348a603c580babbbf323" compoundref="d7/da7/_lexer_8java" startline="461" endline="1074">org.xvm.compiler.Lexer.eatToken</references>
+        <references refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a31b6e1f09846d4f8d652f96b9fa3bc72" compoundref="d7/da7/_lexer_8java" startline="301" endline="315">org.xvm.compiler.Lexer.eatWhitespace</references>
+        <references refid="db/db5/classorg_1_1xvm_1_1compiler_1_1_token_1ac6e35e2db36f323a939ba5586a87166b" compoundref="dd/df5/_token_8java" startline="61" endline="64">org.xvm.compiler.Token.noteWhitespace</references>
+        <referencedby refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a683e4c8f2d31c8ecae9674ccd1f08ab0" compoundref="d7/da7/_lexer_8java" startline="127" endline="154">org.xvm.compiler.Lexer.createLexer</referencedby>
+        <referencedby refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1af3874a852aa414287d26ec2b5d6f272b" compoundref="d7/da7/_lexer_8java" startline="342" endline="389">org.xvm.compiler.Lexer.eatTemplateExpression</referencedby>
+        <referencedby refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a1e95e945d6b65b35db6c2b9743254525" compoundref="d7/da7/_lexer_8java" startline="114" endline="118">org.xvm.compiler.Lexer.emit</referencedby>
+        <referencedby refid="df/db7/classorg_1_1xvm_1_1compiler_1_1_lexer_test_1a2d6533fc0278a0a313dbe589486f1c67" compoundref="d1/d10/_lexer_test_8java" startline="87" endline="103">org.xvm.compiler.LexerTest.lexit</referencedby>
+        <referencedby refid="d4/db1/classorg_1_1xvm_1_1runtime_1_1template_1_1numbers_1_1x_int_literal_1a87e8730dbc697ed7992a18dc60a9e980" compoundref="dc/dcd/x_int_literal_8java" startline="377" endline="395">org.xvm.runtime.template.numbers.xIntLiteral.parseBigInteger</referencedby>
+        <referencedby refid="d4/db1/classorg_1_1xvm_1_1runtime_1_1template_1_1numbers_1_1x_int_literal_1aafc8db110d22ff11421be63bd4e3fe57" compoundref="dc/dcd/x_int_literal_8java" startline="402" endline="427">org.xvm.runtime.template.numbers.xIntLiteral.parsePackedInteger</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a78381f2b1278a8cb2c5f2c38eb377a59" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.xvm.compiler.Lexer.Lexer</definition>
+        <argsstring>(Lexer parent)</argsstring>
+        <name>Lexer</name>
+        <qualifiedname>org.xvm.compiler.Lexer.Lexer</qualifiedname>
+        <param>
+          <type>Lexer</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>parent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a <ref refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer" kindref="compound">Lexer</ref> that this <ref refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer" kindref="compound">Lexer</ref> can delegate to </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" line="61" column="15" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" bodystart="61" bodyend="65"/>
+        <references refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a5cde7f185dfe67453240c4e39efc7865" compoundref="d7/da7/_lexer_8java" startline="44" endline="56">org.xvm.compiler.Lexer.Lexer</references>
+      </memberdef>
+      <memberdef kind="function" id="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a96b3815d6bfa33baf062099a30069632" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="db/db5/classorg_1_1xvm_1_1compiler_1_1_token" kindref="compound">Token</ref></type>
+        <definition>Token org.xvm.compiler.Lexer.eatStringLiteral</definition>
+        <argsstring>(long lInitPos)</argsstring>
+        <name>eatStringLiteral</name>
+        <qualifiedname>org.xvm.compiler.Lexer.eatStringLiteral</qualifiedname>
+        <param>
+          <type>long</type>
+          <declname>lInitPos</declname>
+        </param>
+        <briefdescription>
+<para>Eat a string literal. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>a string literal as a token </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" line="251" column="21" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" bodystart="251" bodyend="253"/>
+        <referencedby refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a8b840f238ad8348a603c580babbbf323" compoundref="d7/da7/_lexer_8java" startline="461" endline="1074">org.xvm.compiler.Lexer.eatToken</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a235ec241889b12a3e59dd52f62dabe4b" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="db/db5/classorg_1_1xvm_1_1compiler_1_1_token" kindref="compound">Token</ref></type>
+        <definition>Token org.xvm.compiler.Lexer.eatMultilineLiteral</definition>
+        <argsstring>(long lInitPos)</argsstring>
+        <name>eatMultilineLiteral</name>
+        <qualifiedname>org.xvm.compiler.Lexer.eatMultilineLiteral</qualifiedname>
+        <param>
+          <type>long</type>
+          <declname>lInitPos</declname>
+        </param>
+        <briefdescription>
+<para>Eat a string literal that is in the freeform/multi-line form. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>a string literal as a token </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" line="260" column="21" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" bodystart="260" bodyend="262"/>
+        <referencedby refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a8b840f238ad8348a603c580babbbf323" compoundref="d7/da7/_lexer_8java" startline="461" endline="1074">org.xvm.compiler.Lexer.eatToken</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a47b83484109465ee8de1e5f16a43d180" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="db/db5/classorg_1_1xvm_1_1compiler_1_1_token" kindref="compound">Token</ref></type>
+        <definition>Token org.xvm.compiler.Lexer.eatTemplateLiteral</definition>
+        <argsstring>(long lInitPos)</argsstring>
+        <name>eatTemplateLiteral</name>
+        <qualifiedname>org.xvm.compiler.Lexer.eatTemplateLiteral</qualifiedname>
+        <param>
+          <type>long</type>
+          <declname>lInitPos</declname>
+        </param>
+        <briefdescription>
+<para>Eat a template literal. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A template literal is a string literal that may contain expressions; for example: <blockquote><para><computeroutput><preformatted>
+  $&quot;x={x}&quot;
+</preformatted></computeroutput></para>
+</blockquote></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>lInitPos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the start of the template literal</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the resulting token </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" line="275" column="21" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" bodystart="275" bodyend="277"/>
+        <referencedby refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a8b840f238ad8348a603c580babbbf323" compoundref="d7/da7/_lexer_8java" startline="461" endline="1074">org.xvm.compiler.Lexer.eatToken</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1ae1bc9110d2bc18f35b8f09409765ac6d" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="db/db5/classorg_1_1xvm_1_1compiler_1_1_token" kindref="compound">Token</ref></type>
+        <definition>Token org.xvm.compiler.Lexer.eatMultilineTemplateLiteral</definition>
+        <argsstring>(long lInitPos)</argsstring>
+        <name>eatMultilineTemplateLiteral</name>
+        <qualifiedname>org.xvm.compiler.Lexer.eatMultilineTemplateLiteral</qualifiedname>
+        <param>
+          <type>long</type>
+          <declname>lInitPos</declname>
+        </param>
+        <briefdescription>
+<para>Eat a template literal that uses the multi-line format. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A template literal is a string literal that may contain expressions; for example: <blockquote><para><computeroutput><preformatted>
+   $|# TOML doc
+    |[name]
+    |first = &quot;{person.firstname}&quot;
+    |last = &quot;{person.lastname}&quot;
+</preformatted></computeroutput></para>
+</blockquote></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>lInitPos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the start of the template literal</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the resulting token </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" line="293" column="21" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" bodystart="293" bodyend="295"/>
+        <referencedby refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a8b840f238ad8348a603c580babbbf323" compoundref="d7/da7/_lexer_8java" startline="461" endline="1074">org.xvm.compiler.Lexer.eatToken</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a31b6e1f09846d4f8d652f96b9fa3bc72" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.compiler.Lexer.eatWhitespace</definition>
+        <argsstring>()</argsstring>
+        <name>eatWhitespace</name>
+        <qualifiedname>org.xvm.compiler.Lexer.eatWhitespace</qualifiedname>
+        <briefdescription>
+<para>Eat the characters defined as whitespace, which include line terminators and the file terminator. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Whitespace does not include comments. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" line="301" column="23" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" bodystart="301" bodyend="315"/>
+        <references refid="d5/d95/classorg_1_1xvm_1_1compiler_1_1_source_1ae1c6e3ec7d223c11b82957a8e65ef8a0" compoundref="d3/d13/_source_8java" startline="186" endline="188">org.xvm.compiler.Source.hasNext</references>
+        <references refid="d5/d95/classorg_1_1xvm_1_1compiler_1_1_source_1acdbed6fa4114a513bea65098f3c3bbe3" compoundref="d3/d13/_source_8java" startline="288" endline="339">org.xvm.compiler.Source.rewind</references>
+        <referencedby refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a5cde7f185dfe67453240c4e39efc7865" compoundref="d7/da7/_lexer_8java" startline="44" endline="56">org.xvm.compiler.Lexer.Lexer</referencedby>
+        <referencedby refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a27068a1be6240ba46bc1a654faba7e83" compoundref="d7/da7/_lexer_8java" startline="238" endline="244">org.xvm.compiler.Lexer.next</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a607cd4928a5b7658a6ecbd15cb491571" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.compiler.Lexer.isMultilineContinued</definition>
+        <argsstring>()</argsstring>
+        <name>isMultilineContinued</name>
+        <qualifiedname>org.xvm.compiler.Lexer.isMultilineContinued</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" line="317" column="23" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" bodystart="317" bodyend="332"/>
+        <references refid="d5/d95/classorg_1_1xvm_1_1compiler_1_1_source_1ae1c6e3ec7d223c11b82957a8e65ef8a0" compoundref="d3/d13/_source_8java" startline="186" endline="188">org.xvm.compiler.Source.hasNext</references>
+        <references refid="d5/d95/classorg_1_1xvm_1_1compiler_1_1_source_1a045e25fdb06e5edd4f6e2018748fafeb" compoundref="d3/d13/_source_8java" startline="201" endline="278">org.xvm.compiler.Source.next</references>
+        <referencedby refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a5cc0ab5a2d50f866eebd65da95a9aacf" compoundref="d7/da7/_lexer_8java" startline="399" endline="435">org.xvm.compiler.Lexer.eatBinaryLiteral</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1af3874a852aa414287d26ec2b5d6f272b" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="db/db5/classorg_1_1xvm_1_1compiler_1_1_token" kindref="compound">Token</ref>[]</type>
+        <definition>Token[] org.xvm.compiler.Lexer.eatTemplateExpression</definition>
+        <argsstring>(boolean fMultiline)</argsstring>
+        <name>eatTemplateExpression</name>
+        <qualifiedname>org.xvm.compiler.Lexer.eatTemplateExpression</qualifiedname>
+        <param>
+          <type>boolean</type>
+          <declname>fMultiline</declname>
+        </param>
+        <briefdescription>
+<para>Eat an inline template expression that begins with a &apos;{&apos; and ends with a &apos;}&apos;. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The contents <bold>between</bold> the opening and closing curlies are returned as an array of tokens.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fMultiline</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>true iff this is a multi-line format</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the tokens found between the opening and closing curly braces </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" line="342" column="21" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" bodystart="342" bodyend="389"/>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a2c718f3cb60aacf18f3eb88dfea8b94f" compoundref="dd/df5/_token_8java" startline="480">org.xvm.compiler.Token.Id.BIT_OR</references>
+        <references refid="d5/d95/classorg_1_1xvm_1_1compiler_1_1_source_1a721e9db31df23346b6719edce761540b" compoundref="d3/d13/_source_8java" startline="415" endline="417">org.xvm.compiler.Source.calculateLine</references>
+        <references refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity_1a470906cb0c737a6d70b2d9ff265ab9fd" compoundref="d0/ddf/_severity_8java" startline="10">org.xvm.util.Severity.ERROR</references>
+        <references refid="db/db5/classorg_1_1xvm_1_1compiler_1_1_token_1a1cb8a54437f4fc1d61fbdd5ca1c2abab" compoundref="dd/df5/_token_8java" startline="83" endline="85">org.xvm.compiler.Token.getEndPosition</references>
+        <references refid="db/db5/classorg_1_1xvm_1_1compiler_1_1_token_1a66a941b6a9ad91b2a61d08b626f9fb3b" compoundref="dd/df5/_token_8java" startline="110" endline="112">org.xvm.compiler.Token.getId</references>
+        <references refid="db/db5/classorg_1_1xvm_1_1compiler_1_1_token_1a1c5057511e8bcf0a4b91dd081d6dc3c2" compoundref="dd/df5/_token_8java" startline="74" endline="76">org.xvm.compiler.Token.getStartPosition</references>
+        <references refid="db/db5/classorg_1_1xvm_1_1compiler_1_1_token_1aa04746d39a8788ba7e1019350aefae54" compoundref="dd/df5/_token_8java" startline="101" endline="103">org.xvm.compiler.Token.hasTrailingWhitespace</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1acfad2d30df1bc746f8f98c8dc0ecd877" compoundref="dd/df5/_token_8java" startline="466">org.xvm.compiler.Token.Id.L_CURLY</references>
+        <references refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a27068a1be6240ba46bc1a654faba7e83" compoundref="d7/da7/_lexer_8java" startline="238" endline="244">org.xvm.compiler.Lexer.next</references>
+      </memberdef>
+      <memberdef kind="function" id="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a5cc0ab5a2d50f866eebd65da95a9aacf" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="db/db5/classorg_1_1xvm_1_1compiler_1_1_token" kindref="compound">Token</ref></type>
+        <definition>Token org.xvm.compiler.Lexer.eatBinaryLiteral</definition>
+        <argsstring>(long lInitPos, boolean fMultiline)</argsstring>
+        <name>eatBinaryLiteral</name>
+        <qualifiedname>org.xvm.compiler.Lexer.eatBinaryLiteral</qualifiedname>
+        <param>
+          <type>long</type>
+          <declname>lInitPos</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>fMultiline</declname>
+        </param>
+        <briefdescription>
+<para>Parse the binary literal value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>lInitPos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the location of the &quot;#&quot; at the start of the binary literal value </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fMultiline</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>true iff the format is a multiline format</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the binary literal </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" line="399" column="21" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" bodystart="399" bodyend="435"/>
+        <references refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity_1a470906cb0c737a6d70b2d9ff265ab9fd" compoundref="d0/ddf/_severity_8java" startline="10">org.xvm.util.Severity.ERROR</references>
+        <references refid="d5/d95/classorg_1_1xvm_1_1compiler_1_1_source_1a504a14f4ae461bbdd8b41d26a41eccda" compoundref="d3/d13/_source_8java" startline="379" endline="394">org.xvm.compiler.Source.getPosition</references>
+        <references refid="d5/d95/classorg_1_1xvm_1_1compiler_1_1_source_1ae1c6e3ec7d223c11b82957a8e65ef8a0" compoundref="d3/d13/_source_8java" startline="186" endline="188">org.xvm.compiler.Source.hasNext</references>
+        <references refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a607cd4928a5b7658a6ecbd15cb491571" compoundref="d7/da7/_lexer_8java" startline="317" endline="332">org.xvm.compiler.Lexer.isMultilineContinued</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1af648f8a3276f1adb7341f218d8fbba4b" compoundref="dd/df5/_token_8java" startline="599">org.xvm.compiler.Token.Id.LIT_BINSTR</references>
+        <references refid="d5/d95/classorg_1_1xvm_1_1compiler_1_1_source_1a045e25fdb06e5edd4f6e2018748fafeb" compoundref="d3/d13/_source_8java" startline="201" endline="278">org.xvm.compiler.Source.next</references>
+        <references refid="d5/d95/classorg_1_1xvm_1_1compiler_1_1_source_1acdbed6fa4114a513bea65098f3c3bbe3" compoundref="d3/d13/_source_8java" startline="288" endline="339">org.xvm.compiler.Source.rewind</references>
+        <references refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a49f272811503bd0d73779fa293fdb0b0" compoundref="d7/da7/_lexer_8java" startline="437" endline="454">org.xvm.compiler.Lexer.toBinary</references>
+        <referencedby refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a8b840f238ad8348a603c580babbbf323" compoundref="d7/da7/_lexer_8java" startline="461" endline="1074">org.xvm.compiler.Lexer.eatToken</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a49f272811503bd0d73779fa293fdb0b0" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>byte[]</type>
+        <definition>byte[] org.xvm.compiler.Lexer.toBinary</definition>
+        <argsstring>(char[] ach)</argsstring>
+        <name>toBinary</name>
+        <qualifiedname>org.xvm.compiler.Lexer.toBinary</qualifiedname>
+        <param>
+          <type>char[]</type>
+          <declname>ach</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" line="437" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" bodystart="437" bodyend="454"/>
+        <referencedby refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a5cc0ab5a2d50f866eebd65da95a9aacf" compoundref="d7/da7/_lexer_8java" startline="399" endline="435">org.xvm.compiler.Lexer.eatBinaryLiteral</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a8b840f238ad8348a603c580babbbf323" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="db/db5/classorg_1_1xvm_1_1compiler_1_1_token" kindref="compound">Token</ref></type>
+        <definition>Token org.xvm.compiler.Lexer.eatToken</definition>
+        <argsstring>()</argsstring>
+        <name>eatToken</name>
+        <qualifiedname>org.xvm.compiler.Lexer.eatToken</qualifiedname>
+        <briefdescription>
+<para>Parse a single token. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the next <ref refid="db/db5/classorg_1_1xvm_1_1compiler_1_1_token" kindref="compound">Token</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" line="461" column="21" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" bodystart="461" bodyend="1074"/>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a557c620247eef9a7e6f81f6fc064e59d" compoundref="dd/df5/_token_8java" startline="470">org.xvm.compiler.Token.Id.ADD</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1ab468523bc8dcf2552af037ef8c8f672f" compoundref="dd/df5/_token_8java" startline="489">org.xvm.compiler.Token.Id.ADD_ASN</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a3a2f1132e10606521def44142899c316" compoundref="dd/df5/_token_8java" startline="488">org.xvm.compiler.Token.Id.ASN</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a83169e0424879d441a5475373ab763c4" compoundref="dd/df5/_token_8java" startline="515">org.xvm.compiler.Token.Id.ASN_EXPR</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1adc8db5f2f3c05b2afc79f62198275f2b" compoundref="dd/df5/_token_8java" startline="464">org.xvm.compiler.Token.Id.ASYNC_PAREN</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1ab6312eba9616ce76970c59cac73fb92e" compoundref="dd/df5/_token_8java" startline="461">org.xvm.compiler.Token.Id.AT</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a39fef0b223b9df2678de7b140a167158" compoundref="dd/df5/_token_8java" startline="460">org.xvm.compiler.Token.Id.BIN_FILE</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a6c3520d6d3796efe889ec36a07a4fb59" compoundref="dd/df5/_token_8java" startline="479">org.xvm.compiler.Token.Id.BIT_AND</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a072e0d7ffba406df183dd9760c0b4b54" compoundref="dd/df5/_token_8java" startline="497">org.xvm.compiler.Token.Id.BIT_AND_ASN</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a1ac557baf60c8174264f6bdcf06763b0" compoundref="dd/df5/_token_8java" startline="482">org.xvm.compiler.Token.Id.BIT_NOT</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a2c718f3cb60aacf18f3eb88dfea8b94f" compoundref="dd/df5/_token_8java" startline="480">org.xvm.compiler.Token.Id.BIT_OR</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a8c01c0d661b62c5515b655fb1e750d2f" compoundref="dd/df5/_token_8java" startline="498">org.xvm.compiler.Token.Id.BIT_OR_ASN</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1ab6aaca0e53f9c9bbc5ff60d0fa9189d4" compoundref="dd/df5/_token_8java" startline="481">org.xvm.compiler.Token.Id.BIT_XOR</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a3af3c3eff511057ecc5c6bcb48b25dc6" compoundref="dd/df5/_token_8java" startline="499">org.xvm.compiler.Token.Id.BIT_XOR_ASN</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a42c188a05b69a391647fab8620f3b981" compoundref="dd/df5/_token_8java" startline="449">org.xvm.compiler.Token.Id.COLON</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1ab814b311af21dc2ee78b4cf1ed73cff4" compoundref="dd/df5/_token_8java" startline="451">org.xvm.compiler.Token.Id.COMMA</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a528b838bb6672c19715c809d5d17a277" compoundref="dd/df5/_token_8java" startline="505">org.xvm.compiler.Token.Id.COMP_EQ</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1ac4855e6b0403d819fc1b5616bc351a57" compoundref="dd/df5/_token_8java" startline="510">org.xvm.compiler.Token.Id.COMP_GT</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a8bee7881d8eae9b634c706d6804280b7" compoundref="dd/df5/_token_8java" startline="511">org.xvm.compiler.Token.Id.COMP_GTEQ</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1acc4bba447198ef27088308dba17a5752" compoundref="dd/df5/_token_8java" startline="508">org.xvm.compiler.Token.Id.COMP_LT</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a78204eb3003a675030eef03f8be11d23" compoundref="dd/df5/_token_8java" startline="509">org.xvm.compiler.Token.Id.COMP_LTEQ</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a9ceae979a3848b1038a650b13f8a0cef" compoundref="dd/df5/_token_8java" startline="506">org.xvm.compiler.Token.Id.COMP_NEQ</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1af5b25b33e13613c4c14da92f2d2fe561" compoundref="dd/df5/_token_8java" startline="507">org.xvm.compiler.Token.Id.COMP_ORD</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a73af94eaf05cc489196d67723a251c48" compoundref="dd/df5/_token_8java" startline="462">org.xvm.compiler.Token.Id.COND</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1aab34cce8f5200c96e8bfaa8f2c025527" compoundref="dd/df5/_token_8java" startline="484">org.xvm.compiler.Token.Id.COND_AND</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1afbe58a730d00ded9dd1e640c7502c8d2" compoundref="dd/df5/_token_8java" startline="500">org.xvm.compiler.Token.Id.COND_AND_ASN</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a1b9bad681e45b19e89eec1dfa6f722cf" compoundref="dd/df5/_token_8java" startline="502">org.xvm.compiler.Token.Id.COND_ASN</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1ab3224c5ec7ee041ef16614120ebc9bf7" compoundref="dd/df5/_token_8java" startline="487">org.xvm.compiler.Token.Id.COND_ELSE</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a1137697e7a67c9c3c5d47c8e4985033e" compoundref="dd/df5/_token_8java" startline="504">org.xvm.compiler.Token.Id.COND_ELSE_ASN</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1ab1bd63f0f10dae9718eaddf8dd5c6914" compoundref="dd/df5/_token_8java" startline="503">org.xvm.compiler.Token.Id.COND_NN_ASN</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a15f022a2454f6874e644b959a82b40c4" compoundref="dd/df5/_token_8java" startline="486">org.xvm.compiler.Token.Id.COND_OR</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1ad0e9116d440574018f3ff2e975714abb" compoundref="dd/df5/_token_8java" startline="501">org.xvm.compiler.Token.Id.COND_OR_ASN</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1ad75a49994b178b811d50c8de3de5d86a" compoundref="dd/df5/_token_8java" startline="485">org.xvm.compiler.Token.Id.COND_XOR</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1aae92d346fd249e677cb69e5375275f2f" compoundref="dd/df5/_token_8java" startline="513">org.xvm.compiler.Token.Id.DEC</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a9a2dbb680061fdfd34c159af3c6b5f73" compoundref="dd/df5/_token_8java" startline="457">org.xvm.compiler.Token.Id.DIR_CUR</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a37f76917fcf6bc48815c07051932af34" compoundref="dd/df5/_token_8java" startline="458">org.xvm.compiler.Token.Id.DIR_PARENT</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1af735da51cf014e8142feecade675e45a" compoundref="dd/df5/_token_8java" startline="473">org.xvm.compiler.Token.Id.DIV</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1af845363b94a4817bec11f04e31e11584" compoundref="dd/df5/_token_8java" startline="492">org.xvm.compiler.Token.Id.DIV_ASN</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a510899d5e71b14b8f590966b7ddddbea" compoundref="dd/df5/_token_8java" startline="475">org.xvm.compiler.Token.Id.DIVREM</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a639017f1ed2c2203406ce3bdaf496c64" compoundref="dd/df5/_token_8java" startline="452">org.xvm.compiler.Token.Id.DOT</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a9e65182242d86de4859ecd35f552a148" compoundref="dd/df5/_token_8java" startline="456">org.xvm.compiler.Token.Id.E_RANGE_E</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1ac634d5df385478d4d535a054e6e29be3" compoundref="dd/df5/_token_8java" startline="454">org.xvm.compiler.Token.Id.E_RANGE_I</references>
+        <references refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a5cc0ab5a2d50f866eebd65da95a9aacf" compoundref="d7/da7/_lexer_8java" startline="399" endline="435">org.xvm.compiler.Lexer.eatBinaryLiteral</references>
+        <references refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a002e154eb4c87c92344e50511f9d52b4" compoundref="d7/da7/_lexer_8java" startline="1081" endline="1196">org.xvm.compiler.Lexer.eatCharLiteral</references>
+        <references refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a235ec241889b12a3e59dd52f62dabe4b" compoundref="d7/da7/_lexer_8java" startline="260" endline="262">org.xvm.compiler.Lexer.eatMultilineLiteral</references>
+        <references refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1ae1bc9110d2bc18f35b8f09409765ac6d" compoundref="d7/da7/_lexer_8java" startline="293" endline="295">org.xvm.compiler.Lexer.eatMultilineTemplateLiteral</references>
+        <references refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a96b3815d6bfa33baf062099a30069632" compoundref="d7/da7/_lexer_8java" startline="251" endline="253">org.xvm.compiler.Lexer.eatStringLiteral</references>
+        <references refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a47b83484109465ee8de1e5f16a43d180" compoundref="d7/da7/_lexer_8java" startline="275" endline="277">org.xvm.compiler.Lexer.eatTemplateLiteral</references>
+        <references refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity_1a470906cb0c737a6d70b2d9ff265ab9fd" compoundref="d0/ddf/_severity_8java" startline="10">org.xvm.util.Severity.ERROR</references>
+        <references refid="db/db5/classorg_1_1xvm_1_1compiler_1_1_token_1a1cb8a54437f4fc1d61fbdd5ca1c2abab" compoundref="dd/df5/_token_8java" startline="83" endline="85">org.xvm.compiler.Token.getEndPosition</references>
+        <references refid="db/db5/classorg_1_1xvm_1_1compiler_1_1_token_1a66a941b6a9ad91b2a61d08b626f9fb3b" compoundref="dd/df5/_token_8java" startline="110" endline="112">org.xvm.compiler.Token.getId</references>
+        <references refid="d5/d95/classorg_1_1xvm_1_1compiler_1_1_source_1a504a14f4ae461bbdd8b41d26a41eccda" compoundref="d3/d13/_source_8java" startline="379" endline="394">org.xvm.compiler.Source.getPosition</references>
+        <references refid="db/db5/classorg_1_1xvm_1_1compiler_1_1_token_1a1c5057511e8bcf0a4b91dd081d6dc3c2" compoundref="dd/df5/_token_8java" startline="74" endline="76">org.xvm.compiler.Token.getStartPosition</references>
+        <references refid="db/db5/classorg_1_1xvm_1_1compiler_1_1_token_1ac63b09643d3f46b81b894b31f7fa5130" compoundref="dd/df5/_token_8java" startline="119" endline="121">org.xvm.compiler.Token.getValue</references>
+        <references refid="d5/d95/classorg_1_1xvm_1_1compiler_1_1_source_1ae1c6e3ec7d223c11b82957a8e65ef8a0" compoundref="d3/d13/_source_8java" startline="186" endline="188">org.xvm.compiler.Source.hasNext</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1aee5aa619205e9dfcdebdbf7058dcd0ed" compoundref="dd/df5/_token_8java" startline="455">org.xvm.compiler.Token.Id.I_RANGE_E</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a7b99bc5cb97c0c781751aaad5cd0ffd6" compoundref="dd/df5/_token_8java" startline="453">org.xvm.compiler.Token.Id.I_RANGE_I</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a09580c0c4d35648e91a51252a3bd1466" compoundref="dd/df5/_token_8java" startline="592">org.xvm.compiler.Token.Id.IDENTIFIER</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1ab44d938fc437cc67c9a4452986aaa56b" compoundref="dd/df5/_token_8java" startline="512">org.xvm.compiler.Token.Id.INC</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1acfad2d30df1bc746f8f98c8dc0ecd877" compoundref="dd/df5/_token_8java" startline="466">org.xvm.compiler.Token.Id.L_CURLY</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a3b7e2dda26292d03ceed5f783ebdab53" compoundref="dd/df5/_token_8java" startline="463">org.xvm.compiler.Token.Id.L_PAREN</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1ac7649dd0cb67c9f248d57ce2b14085ce" compoundref="dd/df5/_token_8java" startline="468">org.xvm.compiler.Token.Id.L_SQUARE</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1afa016768634335ec735fffd1c169bec5" compoundref="dd/df5/_token_8java" startline="514">org.xvm.compiler.Token.Id.LAMBDA</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a18f3a3b7f30d39c049253ade19bb15f4" compoundref="dd/df5/_token_8java" startline="622">org.xvm.compiler.Token.Id.LIT_BFLOAT16</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a4d4b33f71b1c2b021b120e8cdc0b69d1" compoundref="dd/df5/_token_8java" startline="595">org.xvm.compiler.Token.Id.LIT_BIT</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a1364d243a75a60776a97d0b04c9c6cc9" compoundref="dd/df5/_token_8java" startline="617">org.xvm.compiler.Token.Id.LIT_DEC128</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a55a5da7244b176689b8735817104a80c" compoundref="dd/df5/_token_8java" startline="615">org.xvm.compiler.Token.Id.LIT_DEC32</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1afca2cc6686c1522f2b0bb10fdbbdc139" compoundref="dd/df5/_token_8java" startline="616">org.xvm.compiler.Token.Id.LIT_DEC64</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1ae5e4620207307f6333d4c81f74125c4b" compoundref="dd/df5/_token_8java" startline="618">org.xvm.compiler.Token.Id.LIT_DECN</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1abf96fe2607bd2ad39a4dd36d64e08c6d" compoundref="dd/df5/_token_8java" startline="626">org.xvm.compiler.Token.Id.LIT_FLOAT128</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a5553a26834048cdf44f23aadb2a7d75d" compoundref="dd/df5/_token_8java" startline="623">org.xvm.compiler.Token.Id.LIT_FLOAT16</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1ac852b85e04df77c01cfb3f54be12956c" compoundref="dd/df5/_token_8java" startline="624">org.xvm.compiler.Token.Id.LIT_FLOAT32</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a87780a66e0a0f9d026f179f02b5bcbb7" compoundref="dd/df5/_token_8java" startline="625">org.xvm.compiler.Token.Id.LIT_FLOAT64</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a34dacda01f3d87ff4ff5fb09c1a078d7" compoundref="dd/df5/_token_8java" startline="620">org.xvm.compiler.Token.Id.LIT_FLOAT8E4</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1ad9dc70de2c72526cec626c787b65e07f" compoundref="dd/df5/_token_8java" startline="621">org.xvm.compiler.Token.Id.LIT_FLOAT8E5</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a8ff8149b8f7dc13c536741346700da60" compoundref="dd/df5/_token_8java" startline="627">org.xvm.compiler.Token.Id.LIT_FLOATN</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a5bc477b2380d191ccef5a073fe510de2" compoundref="dd/df5/_token_8java" startline="605">org.xvm.compiler.Token.Id.LIT_INT128</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a572c72cd7b18a756d82acfa760b5ab6a" compoundref="dd/df5/_token_8java" startline="602">org.xvm.compiler.Token.Id.LIT_INT16</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a3f480a9c0150287a1e168f38bbdf737d" compoundref="dd/df5/_token_8java" startline="603">org.xvm.compiler.Token.Id.LIT_INT32</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1acfd5a8e725a89c52fb220bdc3f805edd" compoundref="dd/df5/_token_8java" startline="604">org.xvm.compiler.Token.Id.LIT_INT64</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a8c50c1a5dd457db28cf55923f1ad88fb" compoundref="dd/df5/_token_8java" startline="601">org.xvm.compiler.Token.Id.LIT_INT8</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1adae3c391fb81afc4037abbf9b2ed16b2" compoundref="dd/df5/_token_8java" startline="606">org.xvm.compiler.Token.Id.LIT_INTN</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1abef5db714742d6473b90b492a34bc925" compoundref="dd/df5/_token_8java" startline="596">org.xvm.compiler.Token.Id.LIT_NIBBLE</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1aaabdebb1f5cad5f2b1c8477ccac14f3d" compoundref="dd/df5/_token_8java" startline="611">org.xvm.compiler.Token.Id.LIT_UINT128</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1aad86920663d77c11e9b71fdd2a63ca52" compoundref="dd/df5/_token_8java" startline="608">org.xvm.compiler.Token.Id.LIT_UINT16</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a553a8e3a88a5259bdda657761986264a" compoundref="dd/df5/_token_8java" startline="609">org.xvm.compiler.Token.Id.LIT_UINT32</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a9ed922074de7d78017511e885f1abafd" compoundref="dd/df5/_token_8java" startline="610">org.xvm.compiler.Token.Id.LIT_UINT64</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1afbd6a2d8f309304f2b3ca851e4d33599" compoundref="dd/df5/_token_8java" startline="607">org.xvm.compiler.Token.Id.LIT_UINT8</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a5d83cf0d0ff0ff4737a18ea31ca48d45" compoundref="dd/df5/_token_8java" startline="612">org.xvm.compiler.Token.Id.LIT_UINTN</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a7c9fe9c19a73c96bfb00b45d62ec1b2d" compoundref="dd/df5/_token_8java" startline="474">org.xvm.compiler.Token.Id.MOD</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1ae2d95bcdac545029e5613f1911b501eb" compoundref="dd/df5/_token_8java" startline="493">org.xvm.compiler.Token.Id.MOD_ASN</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a6852cfe88110b57f8eb23a4f558fb931" compoundref="dd/df5/_token_8java" startline="472">org.xvm.compiler.Token.Id.MUL</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1ac7c7c06c243dd4b05e7cc62ff5cd2759" compoundref="dd/df5/_token_8java" startline="491">org.xvm.compiler.Token.Id.MUL_ASN</references>
+        <references refid="d5/d95/classorg_1_1xvm_1_1compiler_1_1_source_1a045e25fdb06e5edd4f6e2018748fafeb" compoundref="d3/d13/_source_8java" startline="201" endline="278">org.xvm.compiler.Source.next</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a03eff6ec5fd4d78784d108528623e4dc" compoundref="dd/df5/_token_8java" startline="483">org.xvm.compiler.Token.Id.NOT</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a00f21b9997a7ba8adb1d4e26b08348b3" compoundref="dd/df5/_token_8java" startline="467">org.xvm.compiler.Token.Id.R_CURLY</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a8ae88190c8302cfd045fc17e7b01edc5" compoundref="dd/df5/_token_8java" startline="465">org.xvm.compiler.Token.Id.R_PAREN</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a49aad9e43113a1e497d7573a00cc55db" compoundref="dd/df5/_token_8java" startline="469">org.xvm.compiler.Token.Id.R_SQUARE</references>
+        <references refid="db/db5/classorg_1_1xvm_1_1compiler_1_1_token_1ab0212de72a0160601eff9e6bc0ada01d" compoundref="dd/df5/_token_8java" startline="195" endline="198">org.xvm.compiler.Token.refine</references>
+        <references refid="d5/d95/classorg_1_1xvm_1_1compiler_1_1_source_1acdbed6fa4114a513bea65098f3c3bbe3" compoundref="d3/d13/_source_8java" startline="288" endline="339">org.xvm.compiler.Source.rewind</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a4d0e5693d9d05785fb2f5097fe24cca7" compoundref="dd/df5/_token_8java" startline="450">org.xvm.compiler.Token.Id.SEMICOLON</references>
+        <references refid="d5/d95/classorg_1_1xvm_1_1compiler_1_1_source_1a71ad30101b1abfd4b64416007c1bf951" compoundref="d3/d13/_source_8java" startline="402" endline="406">org.xvm.compiler.Source.setPosition</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a235d5f406600294a4b600b8bf649d795" compoundref="dd/df5/_token_8java" startline="476">org.xvm.compiler.Token.Id.SHL</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1af3b7a182d98eca8424e8ccf4dd096290" compoundref="dd/df5/_token_8java" startline="494">org.xvm.compiler.Token.Id.SHL_ASN</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1ac343939c45942fd40bb102b1ee85fb43" compoundref="dd/df5/_token_8java" startline="477">org.xvm.compiler.Token.Id.SHR</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a731a684833eea54b01f23c1541de04c1" compoundref="dd/df5/_token_8java" startline="495">org.xvm.compiler.Token.Id.SHR_ASN</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1ad11471cbc259536f8157de7ffa209b68" compoundref="dd/df5/_token_8java" startline="459">org.xvm.compiler.Token.Id.STR_FILE</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a9f57d904c1504a0914703716d9c6285c" compoundref="dd/df5/_token_8java" startline="471">org.xvm.compiler.Token.Id.SUB</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a2f96c44b6293b0ef826892b29c4d4708" compoundref="dd/df5/_token_8java" startline="490">org.xvm.compiler.Token.Id.SUB_ASN</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a7d710d43c2ee35fca68c1a9f5e28d87d" compoundref="dd/df5/_token_8java" startline="584">org.xvm.compiler.Token.Id.TODO</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1ae93b44b9a60697d59a1d4994fd5611bf" compoundref="dd/df5/_token_8java" startline="478">org.xvm.compiler.Token.Id.USHR</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a1f2b54338c6c9ddf294f255f27819c7f" compoundref="dd/df5/_token_8java" startline="496">org.xvm.compiler.Token.Id.USHR_ASN</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a69e59ee0c780812a62f07cce3379d36e" compoundref="dd/df5/_token_8java" startline="698" endline="700">org.xvm.compiler.Token.Id.valueByContextSensitiveText</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a7f3f29fe12ed326caee0c4193c44ba46" compoundref="dd/df5/_token_8java" startline="710" endline="712">org.xvm.compiler.Token.Id.valueByPrefix</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a6e19407808562b2b679ee9198000a863" compoundref="dd/df5/_token_8java" startline="686" endline="688">org.xvm.compiler.Token.Id.valueByText</references>
+        <referencedby refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a27068a1be6240ba46bc1a654faba7e83" compoundref="d7/da7/_lexer_8java" startline="238" endline="244">org.xvm.compiler.Lexer.next</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a002e154eb4c87c92344e50511f9d52b4" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="db/db5/classorg_1_1xvm_1_1compiler_1_1_token" kindref="compound">Token</ref></type>
+        <definition>Token org.xvm.compiler.Lexer.eatCharLiteral</definition>
+        <argsstring>(long lInitPos)</argsstring>
+        <name>eatCharLiteral</name>
+        <qualifiedname>org.xvm.compiler.Lexer.eatCharLiteral</qualifiedname>
+        <param>
+          <type>long</type>
+          <declname>lInitPos</declname>
+        </param>
+        <briefdescription>
+<para>Eat a character literal. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>a character literal as a token </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" line="1081" column="21" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" bodystart="1081" bodyend="1196"/>
+        <references refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity_1a470906cb0c737a6d70b2d9ff265ab9fd" compoundref="d0/ddf/_severity_8java" startline="10">org.xvm.util.Severity.ERROR</references>
+        <references refid="d5/d95/classorg_1_1xvm_1_1compiler_1_1_source_1a504a14f4ae461bbdd8b41d26a41eccda" compoundref="d3/d13/_source_8java" startline="379" endline="394">org.xvm.compiler.Source.getPosition</references>
+        <references refid="d5/d95/classorg_1_1xvm_1_1compiler_1_1_source_1ae1c6e3ec7d223c11b82957a8e65ef8a0" compoundref="d3/d13/_source_8java" startline="186" endline="188">org.xvm.compiler.Source.hasNext</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1ae1ef040e80ead2472f9773e33f7adb12" compoundref="dd/df5/_token_8java" startline="597">org.xvm.compiler.Token.Id.LIT_CHAR</references>
+        <references refid="d5/d95/classorg_1_1xvm_1_1compiler_1_1_source_1a045e25fdb06e5edd4f6e2018748fafeb" compoundref="d3/d13/_source_8java" startline="201" endline="278">org.xvm.compiler.Source.next</references>
+        <references refid="d5/d95/classorg_1_1xvm_1_1compiler_1_1_source_1acdbed6fa4114a513bea65098f3c3bbe3" compoundref="d3/d13/_source_8java" startline="288" endline="339">org.xvm.compiler.Source.rewind</references>
+        <referencedby refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a8b840f238ad8348a603c580babbbf323" compoundref="d7/da7/_lexer_8java" startline="461" endline="1074">org.xvm.compiler.Lexer.eatToken</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a6a603ab82c68c218a60aab0c15e4c8d1" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>static boolean org.xvm.compiler.Lexer.isValidIdentifier</definition>
+        <argsstring>(String sName)</argsstring>
+        <name>isValidIdentifier</name>
+        <qualifiedname>org.xvm.compiler.Lexer.isValidIdentifier</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>sName</declname>
+        </param>
+        <briefdescription>
+<para>Validate the specified identifier. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the identifier</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true iff the identifier is a lexically valid identifier </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" line="82" column="27" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" bodystart="82" bodyend="104"/>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a6e19407808562b2b679ee9198000a863" compoundref="dd/df5/_token_8java" startline="686" endline="688">org.xvm.compiler.Token.Id.valueByText</references>
+        <referencedby refid="d5/dc6/classorg_1_1xvm_1_1tool_1_1_module_info_1_1_dir_node_1a468e0e9ce845cc1b5199de78f748335b" compoundref="d1/d97/_module_info_8java" startline="908" endline="935">org.xvm.tool.ModuleInfo.DirNode.buildSourceTree</referencedby>
+        <referencedby refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a665da2b19b8f7ee9f3717ed4cae66dc3" compoundref="d7/da7/_lexer_8java" startline="205" endline="235">org.xvm.compiler.Lexer.isValidQualifiedModule</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1ab4bfacdc4000baf55ac55b4589390c0b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>static boolean org.xvm.compiler.Lexer.isValidRFC1035Label</definition>
+        <argsstring>(String sName)</argsstring>
+        <name>isValidRFC1035Label</name>
+        <qualifiedname>org.xvm.compiler.Lexer.isValidRFC1035Label</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>sName</declname>
+        </param>
+        <briefdescription>
+<para>Validate the specified RFC1035 label. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the RFC1035 label</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true iff the name is a lexically valid RFC1035 label </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" line="166" column="27" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" bodystart="166" bodyend="196"/>
+        <referencedby refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a665da2b19b8f7ee9f3717ed4cae66dc3" compoundref="d7/da7/_lexer_8java" startline="205" endline="235">org.xvm.compiler.Lexer.isValidQualifiedModule</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a665da2b19b8f7ee9f3717ed4cae66dc3" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>static boolean org.xvm.compiler.Lexer.isValidQualifiedModule</definition>
+        <argsstring>(String sName)</argsstring>
+        <name>isValidQualifiedModule</name>
+        <qualifiedname>org.xvm.compiler.Lexer.isValidQualifiedModule</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>sName</declname>
+        </param>
+        <briefdescription>
+<para>Validate the specified module name. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the module name</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true iff the name is a lexically valid qualified module name </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" line="205" column="27" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" bodystart="205" bodyend="235"/>
+        <references refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a6a603ab82c68c218a60aab0c15e4c8d1" compoundref="d7/da7/_lexer_8java" startline="82" endline="104">org.xvm.compiler.Lexer.isValidIdentifier</references>
+        <references refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1ab4bfacdc4000baf55ac55b4589390c0b" compoundref="d7/da7/_lexer_8java" startline="166" endline="196">org.xvm.compiler.Lexer.isValidRFC1035Label</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>An Ecstasy source code parser supporting both demand-based and stream-based parsing. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Iterator&lt; Token &gt;</label>
+      </node>
+      <node id="1">
+        <label>org.xvm.compiler.Lexer</label>
+        <link refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Iterator&lt; Token &gt;</label>
+      </node>
+      <node id="1">
+        <label>org.xvm.compiler.Lexer</label>
+        <link refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" line="35" column="7" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/Lexer.java" bodystart="36" bodyend="2861"/>
+    <listofallmembers>
+      <member refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a683e4c8f2d31c8ecae9674ccd1f08ab0" prot="public" virt="non-virtual"><scope>org::xvm::compiler::Lexer</scope><name>createLexer</name></member>
+      <member refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a5cc0ab5a2d50f866eebd65da95a9aacf" prot="protected" virt="non-virtual"><scope>org::xvm::compiler::Lexer</scope><name>eatBinaryLiteral</name></member>
+      <member refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a002e154eb4c87c92344e50511f9d52b4" prot="protected" virt="non-virtual"><scope>org::xvm::compiler::Lexer</scope><name>eatCharLiteral</name></member>
+      <member refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a235ec241889b12a3e59dd52f62dabe4b" prot="protected" virt="non-virtual"><scope>org::xvm::compiler::Lexer</scope><name>eatMultilineLiteral</name></member>
+      <member refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1ae1bc9110d2bc18f35b8f09409765ac6d" prot="protected" virt="non-virtual"><scope>org::xvm::compiler::Lexer</scope><name>eatMultilineTemplateLiteral</name></member>
+      <member refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a96b3815d6bfa33baf062099a30069632" prot="protected" virt="non-virtual"><scope>org::xvm::compiler::Lexer</scope><name>eatStringLiteral</name></member>
+      <member refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1af3874a852aa414287d26ec2b5d6f272b" prot="protected" virt="non-virtual"><scope>org::xvm::compiler::Lexer</scope><name>eatTemplateExpression</name></member>
+      <member refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a47b83484109465ee8de1e5f16a43d180" prot="protected" virt="non-virtual"><scope>org::xvm::compiler::Lexer</scope><name>eatTemplateLiteral</name></member>
+      <member refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a8b840f238ad8348a603c580babbbf323" prot="protected" virt="non-virtual"><scope>org::xvm::compiler::Lexer</scope><name>eatToken</name></member>
+      <member refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a31b6e1f09846d4f8d652f96b9fa3bc72" prot="protected" virt="non-virtual"><scope>org::xvm::compiler::Lexer</scope><name>eatWhitespace</name></member>
+      <member refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a1e95e945d6b65b35db6c2b9743254525" prot="public" virt="non-virtual"><scope>org::xvm::compiler::Lexer</scope><name>emit</name></member>
+      <member refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a1d268d304bdbdf949623a02602694a30" prot="public" virt="non-virtual"><scope>org::xvm::compiler::Lexer</scope><name>hasNext</name></member>
+      <member refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a607cd4928a5b7658a6ecbd15cb491571" prot="protected" virt="non-virtual"><scope>org::xvm::compiler::Lexer</scope><name>isMultilineContinued</name></member>
+      <member refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a6a603ab82c68c218a60aab0c15e4c8d1" prot="public" virt="non-virtual"><scope>org::xvm::compiler::Lexer</scope><name>isValidIdentifier</name></member>
+      <member refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a665da2b19b8f7ee9f3717ed4cae66dc3" prot="public" virt="non-virtual"><scope>org::xvm::compiler::Lexer</scope><name>isValidQualifiedModule</name></member>
+      <member refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1ab4bfacdc4000baf55ac55b4589390c0b" prot="public" virt="non-virtual"><scope>org::xvm::compiler::Lexer</scope><name>isValidRFC1035Label</name></member>
+      <member refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a5cde7f185dfe67453240c4e39efc7865" prot="public" virt="non-virtual"><scope>org::xvm::compiler::Lexer</scope><name>Lexer</name></member>
+      <member refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a78381f2b1278a8cb2c5f2c38eb377a59" prot="protected" virt="non-virtual"><scope>org::xvm::compiler::Lexer</scope><name>Lexer</name></member>
+      <member refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a27068a1be6240ba46bc1a654faba7e83" prot="public" virt="non-virtual"><scope>org::xvm::compiler::Lexer</scope><name>next</name></member>
+      <member refid="d3/d58/classorg_1_1xvm_1_1compiler_1_1_lexer_1a49f272811503bd0d73779fa293fdb0b0" prot="protected" virt="non-virtual"><scope>org::xvm::compiler::Lexer</scope><name>toBinary</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

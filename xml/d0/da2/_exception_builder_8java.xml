@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d0/da2/_exception_builder_8java" kind="file" language="Java">
+    <compoundname>ExceptionBuilder.java</compoundname>
+    <includes local="no">java.lang.classfile.ClassBuilder</includes>
+    <includes local="no">java.lang.classfile.ClassFile</includes>
+    <includes local="no">java.lang.constant.ClassDesc</includes>
+    <includes local="no">java.lang.constant.MethodTypeDesc</includes>
+    <includes local="no">org.xvm.asm.ConstantPool</includes>
+    <includes local="no">org.xvm.asm.constants.TypeConstant</includes>
+    <includes local="no">org.xvm.javajit.TypeSystem</includes>
+    <includes local="no">org.xvm.javajit.TypeSystem.ClassfileShape</includes>
+    <includes local="no">java.lang.constant.ConstantDescs.CD_Throwable</includes>
+    <includes local="no">java.lang.constant.ConstantDescs.CD_void</includes>
+    <includes local="no">java.lang.constant.ConstantDescs.INIT_NAME</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/builders/ExceptionBuilder.java</label>
+        <link refid="d0/da2/_exception_builder_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.lang.classfile.ClassBuilder</label>
+      </node>
+      <node id="3">
+        <label>java.lang.classfile.ClassFile</label>
+      </node>
+      <node id="4">
+        <label>java.lang.constant.ClassDesc</label>
+      </node>
+      <node id="10">
+        <label>java.lang.constant.ConstantDescs.CD_Throwable</label>
+      </node>
+      <node id="11">
+        <label>java.lang.constant.ConstantDescs.CD_void</label>
+      </node>
+      <node id="12">
+        <label>java.lang.constant.ConstantDescs.INIT_NAME</label>
+      </node>
+      <node id="5">
+        <label>java.lang.constant.MethodTypeDesc</label>
+      </node>
+      <node id="6">
+        <label>org.xvm.asm.ConstantPool</label>
+      </node>
+      <node id="7">
+        <label>org.xvm.asm.constants.TypeConstant</label>
+      </node>
+      <node id="8">
+        <label>org.xvm.javajit.TypeSystem</label>
+      </node>
+      <node id="9">
+        <label>org.xvm.javajit.TypeSystem.ClassfileShape</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="d4/d35/classorg_1_1xvm_1_1javajit_1_1builders_1_1_exception_builder" prot="public">org::xvm::javajit::builders::ExceptionBuilder</innerclass>
+    <innernamespace refid="dc/dfd/namespaceorg_1_1xvm_1_1javajit_1_1builders">org::xvm::javajit::builders</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.javajit.builders;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.classfile.ClassBuilder;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.classfile.ClassFile;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.constant.ClassDesc;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.constant.MethodTypeDesc;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ConstantPool;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.constants.TypeConstant;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.javajit.TypeSystem;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.javajit.TypeSystem.ClassfileShape;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>java.lang.constant.ConstantDescs.CD_Throwable;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>java.lang.constant.ConstantDescs.CD_void;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>java.lang.constant.ConstantDescs.INIT_NAME;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="d4/d35/classorg_1_1xvm_1_1javajit_1_1builders_1_1_exception_builder" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d4/d35/classorg_1_1xvm_1_1javajit_1_1builders_1_1_exception_builder_1a7009fb0948e154b6b0b2b907d20a4796" kindref="member">ExceptionBuilder</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="dd/dbd/classorg_1_1xvm_1_1javajit_1_1builders_1_1_common_builder_1aca54a7ddc23afcd18b358f61745cee24" kindref="member">CommonBuilder</ref><sp/>{</highlight></codeline>
+<codeline lineno="31" refid="d4/d35/classorg_1_1xvm_1_1javajit_1_1builders_1_1_exception_builder_1a7009fb0948e154b6b0b2b907d20a4796" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d4/d35/classorg_1_1xvm_1_1javajit_1_1builders_1_1_exception_builder_1a7009fb0948e154b6b0b2b907d20a4796" kindref="member">ExceptionBuilder</ref>(<ref refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" kindref="compound">TypeSystem</ref><sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a876c5cede4aa68e422421b854b5303d5" kindref="member">typeSystem</ref>,<sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/><ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(<ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a876c5cede4aa68e422421b854b5303d5" kindref="member">typeSystem</ref>,<sp/><ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref>);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="36" refid="d4/d35/classorg_1_1xvm_1_1javajit_1_1builders_1_1_exception_builder_1a908348f42120b20d585611c31ac200fe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d4/d35/classorg_1_1xvm_1_1javajit_1_1builders_1_1_exception_builder_1a908348f42120b20d585611c31ac200fe" kindref="member">assembleImplMethods</ref>(String<sp/>className,<sp/>ClassBuilder<sp/>classBuilder)<sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super.assembleImplMethods(className,<sp/>classBuilder);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/d35/classorg_1_1xvm_1_1javajit_1_1builders_1_1_exception_builder_1a53cc14e97996ef4a085219bb9f296f48" kindref="member">assembleCreateException</ref>(className,<sp/>classBuilder);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="d4/d35/classorg_1_1xvm_1_1javajit_1_1builders_1_1_exception_builder_1a53cc14e97996ef4a085219bb9f296f48" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d4/d35/classorg_1_1xvm_1_1javajit_1_1builders_1_1_exception_builder_1a53cc14e97996ef4a085219bb9f296f48" kindref="member">assembleCreateException</ref>(String<sp/>className,<sp/>ClassBuilder<sp/>classBuilder)<sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>jitName<sp/><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;$createJavaException&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MethodTypeDesc<sp/>createMD<sp/>=<sp/>MethodTypeDesc.of(<ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a370d6c70c0e4c271bd44214d78ad77e1" kindref="member">CD_nException</ref>,<sp/>CD_Throwable);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ClassDesc<sp/><sp/><sp/><sp/><sp/><sp/>javaExCD<sp/>=<sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1aaca1cf5be77c1edc05f878312c7d91b6" kindref="member">getShapeDesc</ref>(className,<sp/><ref refid="d3/d22/enumorg_1_1xvm_1_1javajit_1_1_type_system_1_1_classfile_shape" kindref="compound">ClassfileShape</ref>.<ref refid="d3/d22/enumorg_1_1xvm_1_1javajit_1_1_type_system_1_1_classfile_shape_1ab2d48b6ce08a805f2c973ef39bd1a84e" kindref="member">Exception</ref>);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ClassDesc<sp/><sp/><sp/><sp/><sp/><sp/>thisCD<sp/><sp/><sp/>=<sp/>ClassDesc.of(className);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MethodTypeDesc<sp/>initMD<sp/><sp/><sp/>=<sp/>MethodTypeDesc.of(CD_void,<sp/>CD_Throwable,<sp/>thisCD);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>classBuilder.withMethodBody(jitName,<sp/>createMD,<sp/>ClassFile.ACC_PUBLIC,<sp/>code<sp/>-&gt;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.new_(javaExCD)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.dup()</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.aload(code.parameterSlot(0))</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.aload(0)</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.invokespecial(javaExCD,<sp/>INIT_NAME,<sp/>initMD)</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.areturn()</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="d4/d35/classorg_1_1xvm_1_1javajit_1_1builders_1_1_exception_builder_1ab71539e1da695cdf6baa291d84174d0c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d4/d35/classorg_1_1xvm_1_1javajit_1_1builders_1_1_exception_builder_1ab71539e1da695cdf6baa291d84174d0c" kindref="member">assembleJavaException</ref>(String<sp/>className,<sp/>ClassBuilder<sp/>classBuilder)<sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref><sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a2ab1a400e5e015ab107e18b99b6218f9" kindref="member">pool</ref><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a876c5cede4aa68e422421b854b5303d5" kindref="member">typeSystem</ref>.pool();</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/>superType<sp/>=<sp/><ref refid="dd/dbd/classorg_1_1xvm_1_1javajit_1_1builders_1_1_common_builder_1a260df1e7da184e0b23e796581f044b40" kindref="member">typeInfo</ref>.getExtends();</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ClassDesc<sp/><sp/><sp/><sp/>superCD;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(superType.<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1ae687665cf8d543f091e4f400bdc50258" kindref="member">equals</ref>(<ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a2ab1a400e5e015ab107e18b99b6218f9" kindref="member">pool</ref>.typeException()))<sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>superCD<sp/>=<sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a370d6c70c0e4c271bd44214d78ad77e1" kindref="member">CD_nException</ref>;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>superCD<sp/>=<sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1aaca1cf5be77c1edc05f878312c7d91b6" kindref="member">getShapeDesc</ref>(<ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1abefba3b79244dabe05de6ee9edef1153" kindref="member">ensureJitClassName</ref>(superType),<sp/><ref refid="d3/d22/enumorg_1_1xvm_1_1javajit_1_1_type_system_1_1_classfile_shape" kindref="compound">ClassfileShape</ref>.<ref refid="d3/d22/enumorg_1_1xvm_1_1javajit_1_1_type_system_1_1_classfile_shape_1ab2d48b6ce08a805f2c973ef39bd1a84e" kindref="member">Exception</ref>);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ClassDesc<sp/>exCD<sp/>=<sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1abd168c260b5a414fff432010a8b57bd3" kindref="member">ensureClassDesc</ref>(<ref refid="dd/dbd/classorg_1_1xvm_1_1javajit_1_1builders_1_1_common_builder_1ad6133bb314499222603a078db645e833" kindref="member">thisType</ref>);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>classBuilder.withFlags(ClassFile.ACC_PUBLIC)</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.withSuperclass(superCD);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>classBuilder.withMethodBody(INIT_NAME,<sp/>MethodTypeDesc.of(CD_void,<sp/>CD_Throwable,<sp/>exCD),</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ClassFile.ACC_PUBLIC,<sp/>code<sp/>-&gt;<sp/>{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MethodTypeDesc<sp/>superMD<sp/>=<sp/><sp/>MethodTypeDesc.of(CD_void,</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CD_Throwable,<sp/>ensureClassDesc(superType));</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.aload(0)</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.aload(1)</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.aload(2)</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.checkcast(CD_Exception)</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.invokespecial(superCD,<sp/>INIT_NAME,<sp/>superMD)</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.return_();</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/builders/ExceptionBuilder.java"/>
+  </compounddef>
+</doxygen>

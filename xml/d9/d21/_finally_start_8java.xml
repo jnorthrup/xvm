@@ -1,0 +1,267 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d9/d21/_finally_start_8java" kind="file" language="Java">
+    <compoundname>FinallyStart.java</compoundname>
+    <includes local="no">java.io.DataInput</includes>
+    <includes local="no">java.io.IOException</includes>
+    <includes local="no">java.lang.classfile.CodeBuilder</includes>
+    <includes local="no">org.xvm.asm.Constant</includes>
+    <includes local="no">org.xvm.asm.Op</includes>
+    <includes local="no">org.xvm.asm.OpVar</includes>
+    <includes local="no">org.xvm.asm.Register</includes>
+    <includes local="no">org.xvm.asm.Scope</includes>
+    <includes local="no">org.xvm.javajit.BuildContext</includes>
+    <includes local="no">org.xvm.javajit.Builder</includes>
+    <includes local="no">org.xvm.javajit.RegisterInfo</includes>
+    <includes local="no">org.xvm.runtime.Frame</includes>
+    <includes local="no">org.xvm.runtime.template.xNullable</includes>
+    <includes local="no">java.lang.constant.ConstantDescs.CD_Throwable</includes>
+    <includes local="no">org.xvm.javajit.Builder.CD_Exception</includes>
+    <includes local="no">org.xvm.javajit.Builder.CD_nException</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/op/FinallyStart.java</label>
+        <link refid="d9/d21/_finally_start_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.io.DataInput</label>
+      </node>
+      <node id="3">
+        <label>java.io.IOException</label>
+      </node>
+      <node id="4">
+        <label>java.lang.classfile.CodeBuilder</label>
+      </node>
+      <node id="15">
+        <label>java.lang.constant.ConstantDescs.CD_Throwable</label>
+      </node>
+      <node id="5">
+        <label>org.xvm.asm.Constant</label>
+      </node>
+      <node id="6">
+        <label>org.xvm.asm.Op</label>
+      </node>
+      <node id="7">
+        <label>org.xvm.asm.OpVar</label>
+      </node>
+      <node id="8">
+        <label>org.xvm.asm.Register</label>
+      </node>
+      <node id="9">
+        <label>org.xvm.asm.Scope</label>
+      </node>
+      <node id="10">
+        <label>org.xvm.javajit.BuildContext</label>
+      </node>
+      <node id="11">
+        <label>org.xvm.javajit.Builder</label>
+      </node>
+      <node id="16">
+        <label>org.xvm.javajit.Builder.CD_Exception</label>
+      </node>
+      <node id="17">
+        <label>org.xvm.javajit.Builder.CD_nException</label>
+      </node>
+      <node id="12">
+        <label>org.xvm.javajit.RegisterInfo</label>
+      </node>
+      <node id="13">
+        <label>org.xvm.runtime.Frame</label>
+      </node>
+      <node id="14">
+        <label>org.xvm.runtime.template.xNullable</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="d0/db5/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_start" prot="public">org::xvm::asm::op::FinallyStart</innerclass>
+    <innernamespace refid="d5/d78/namespaceorg_1_1xvm_1_1asm_1_1op">org::xvm::asm::op</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.asm.op;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.DataInput;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.IOException;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.classfile.CodeBuilder;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Constant;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Op;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.OpVar;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Register;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Scope;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.javajit.BuildContext;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.javajit.Builder;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.javajit.RegisterInfo;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.Frame;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.template.xNullable;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>java.lang.constant.ConstantDescs.CD_Throwable;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.javajit.Builder.CD_Exception;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.javajit.Builder.CD_nException;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="d0/db5/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_start" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d0/db5/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_start_1a5469ae24b152c27ee32fad5ca193fa65" kindref="member">FinallyStart</ref></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="df/d84/classorg_1_1xvm_1_1asm_1_1_op_var_1ae70e488b11ffd52f13ce505d5dea897e" kindref="member">OpVar</ref><sp/>{</highlight></codeline>
+<codeline lineno="42" refid="d0/db5/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_start_1a5469ae24b152c27ee32fad5ca193fa65" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d0/db5/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_start_1a5469ae24b152c27ee32fad5ca193fa65" kindref="member">FinallyStart</ref>(<ref refid="dc/db3/classorg_1_1xvm_1_1asm_1_1_register" kindref="compound">Register</ref><sp/>reg)<sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(reg);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="d0/db5/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_start_1a1d186049ff815ef650a8d0e21fd2d6bb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d0/db5/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_start_1a1d186049ff815ef650a8d0e21fd2d6bb" kindref="member">FinallyStart</ref>(DataInput<sp/>in,<sp/><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref>[]<sp/>aconst)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(in,<sp/>aconst);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="58" refid="d0/db5/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_start_1ac1ceff723eeaecd804585ff6787c554b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d0/db5/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_start_1ac1ceff723eeaecd804585ff6787c554b" kindref="member">isTypeAware</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="63" refid="d0/db5/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_start_1af368481f3de683541af4bf31817e33f7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d0/db5/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_start_1af368481f3de683541af4bf31817e33f7" kindref="member">getOpCode</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1ae9b659bae8c3493398187b14fd192f3c" kindref="member">OP_FINALLY</ref>;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="68" refid="d0/db5/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_start_1af3fdc73dc29b9d3cd00f2bc92d0b45d0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d0/db5/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_start_1af3fdc73dc29b9d3cd00f2bc92d0b45d0" kindref="member">isEnter</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="73" refid="d0/db5/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_start_1a5c79c4b29f60fe0a6a9a9d354515874c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d0/db5/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_start_1a5c79c4b29f60fe0a6a9a9d354515874c" kindref="member">isExit</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="78" refid="d0/db5/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_start_1a33f5227ad0dd8287d4f2c04fcf237d00" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d0/db5/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_start_1a33f5227ad0dd8287d4f2c04fcf237d00" kindref="member">process</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frame,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iPC)<sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a321f6cfe0ed273dfc26a4b362d3c4322" kindref="member">exitScope</ref>();</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a5ec89b13e99a3d2142d1e5bdab1b51ff" kindref="member">popGuard</ref>();</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a60f4f7cd8b2c638237d87024dce1e322" kindref="member">enterScope</ref>(<ref refid="df/d84/classorg_1_1xvm_1_1asm_1_1_op_var_1a375ae5fb3d05fd9a2fd266421dd110ee" kindref="member">m_nVar</ref>);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>this<sp/>op-code<sp/>can<sp/>only<sp/>be<sp/>reached<sp/>by<sp/>the<sp/>normal<sp/>flow<sp/>of<sp/>execution,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>while<sp/>upon<sp/>an<sp/>exception,<sp/>the<sp/>GuardAll<sp/>would<sp/>jump<sp/>to<sp/>the<sp/>very<sp/>next<sp/>op</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>(called<sp/>from<sp/>Frame.findGuard)<sp/>with<sp/>an<sp/>exception<sp/>handle<sp/>at<sp/>anNextVar[iScope]<sp/>+<sp/>1,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>so<sp/>we<sp/>need<sp/>to<sp/>initialize<sp/>the<sp/>exception<sp/>slot<sp/>(to<sp/>Null)<sp/>when<sp/>coming<sp/>in<sp/>normally;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>presence<sp/>or<sp/>absence<sp/>of<sp/>the<sp/>exception<sp/>will<sp/>be<sp/>checked<sp/>by<sp/>the<sp/>FinallyEnd</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a7f32b494665071137a049dca719be1f5" kindref="member">introduceResolvedVar</ref>(<ref refid="df/d84/classorg_1_1xvm_1_1asm_1_1_op_var_1a375ae5fb3d05fd9a2fd266421dd110ee" kindref="member">m_nVar</ref>,<sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1ae3030b18f186a2d66c8a9ee63768686b" kindref="member">poolContext</ref>().<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a14baa743e9f767289a1841f3486d4268" kindref="member">typeException१</ref>(),<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref>.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a085ca11c115017812716b9efa72c4a82" kindref="member">VAR_STANDARD</ref>,<sp/><ref refid="d2/dc0/classorg_1_1xvm_1_1runtime_1_1template_1_1x_nullable" kindref="compound">xNullable</ref>.<ref refid="d2/dc0/classorg_1_1xvm_1_1runtime_1_1template_1_1x_nullable_1ad186af96be452e69949afd5c707641fb" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>iPC<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="96" refid="d0/db5/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_start_1a79ff596e0a98c675f9c43ffd409a7051" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d0/db5/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_start_1a79ff596e0a98c675f9c43ffd409a7051" kindref="member">markReachable</ref>(<ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op" kindref="compound">Op</ref>[]<sp/>aop)<sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super.markReachable(aop);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a9030ceea60a1616982b1fa9286b43c82" kindref="member">findCorrespondingOp</ref>(aop,<sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a250aadfa5ce93954a92bddba61539cc6" kindref="member">OP_FINALLY_END</ref>).<ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1ae90ef606105774d369691d446daad8a4" kindref="member">markNecessary</ref>();</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="102" refid="d0/db5/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_start_1a6c4d90ba43ae0a66d872d4b2d61b9ced" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d0/db5/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_start_1a6c4d90ba43ae0a66d872d4b2d61b9ced" kindref="member">simulate</ref>(<ref refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_scope" kindref="compound">Scope</ref><sp/>scope)<sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>scope.<ref refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_scope_1a9ca3361e66b8ca5624296e6f70f5753c" kindref="member">exit</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>scope.<ref refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_scope_1aa4958d030b73cd78b48e04fb58a249f3" kindref="member">exitGuardAll</ref>();</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>scope.<ref refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_scope_1affd560e8ab0e21f15a9f1394b5522a5c" kindref="member">enter</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>super<sp/>call<sp/>allocates<sp/>a<sp/>var<sp/>for<sp/>the<sp/>exception</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super.simulate(scope);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>JIT<sp/>support<sp/>---------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="114" refid="d0/db5/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_start_1a529890e3a3c1a3edcf084e97416241bb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d0/db5/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_start_1a529890e3a3c1a3edcf084e97416241bb" kindref="member">computeTypes</ref>(<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref><sp/>bctx)<sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bctx.<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a7af55df7db695cc7e6e8d8827bb72399" kindref="member">exitScope</ref>(</highlight><highlight class="keyword">null</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bctx.<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1aecafc1b8ac9f3e5b3c4edd43e5fd12d9" kindref="member">enterScope</ref>(</highlight><highlight class="keyword">null</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>we<sp/>could<sp/>be<sp/>called<sp/>for<sp/>dead<sp/>code<sp/>to<sp/>correctly<sp/>compute<sp/>the<sp/>scopes,<sp/>but<sp/>should<sp/>not</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>compute<sp/>types<sp/>further</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(bctx.<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a24b60b4ca6e03388a930f812c9dc96fc" kindref="member">typeMatrix</ref>.<ref refid="de/d98/classorg_1_1xvm_1_1javajit_1_1_type_matrix_1a589c4b7aa071ae34335c1d7e3d8daf81" kindref="member">isReached</ref>(<ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a6772aeabb16b5d4ab914566fb58729e6" kindref="member">getAddress</ref>()))<sp/>{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bctx.<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a24b60b4ca6e03388a930f812c9dc96fc" kindref="member">typeMatrix</ref>.<ref refid="de/d98/classorg_1_1xvm_1_1javajit_1_1_type_matrix_1ad7b0810d0a90688a8ad35664ab26893a" kindref="member">assign</ref>(<ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a6772aeabb16b5d4ab914566fb58729e6" kindref="member">getAddress</ref>(),<sp/><ref refid="df/d84/classorg_1_1xvm_1_1asm_1_1_op_var_1a375ae5fb3d05fd9a2fd266421dd110ee" kindref="member">m_nVar</ref>,<sp/>bctx.<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a5d764079d34ac62b2c4329a982e536bb" kindref="member">pool</ref>().<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a14baa743e9f767289a1841f3486d4268" kindref="member">typeException१</ref>());</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="126" refid="d0/db5/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_start_1afbe61ca7fa883a6d2e6572ab199b41c1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d0/db5/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_start_1afbe61ca7fa883a6d2e6572ab199b41c1" kindref="member">build</ref>(<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref><sp/>bctx,<sp/>CodeBuilder<sp/>code)<sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="da/de9/classorg_1_1xvm_1_1javajit_1_1_scope" kindref="compound">org.xvm.javajit.Scope</ref><sp/>scopeGuarded<sp/>=<sp/>bctx.<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a7af55df7db695cc7e6e8d8827bb72399" kindref="member">exitScope</ref>(code);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/>scopeGuarded.parent<sp/>==<sp/>bctx.<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a7596f171b352b8ddbe032a754287476c" kindref="member">scope</ref>;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>this<sp/>op<sp/>can<sp/>only<sp/>be<sp/>reached<sp/>normally</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>java.lang.classfile.Label<sp/>labelFin<sp/>=<sp/>code.newLabel();</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.goto_(labelFin);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>add<sp/>to<sp/>the<sp/>exception<sp/>table</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>java.lang.classfile.Label<sp/>labelCatch<sp/>=<sp/>code.newLabel();</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.exceptionCatch(scopeGuarded.<ref refid="da/de9/classorg_1_1xvm_1_1javajit_1_1_scope_1a11b1c5974e1ed523539970deeb083905" kindref="member">startLabel</ref>,<sp/>scopeGuarded.<ref refid="da/de9/classorg_1_1xvm_1_1javajit_1_1_scope_1a8416f8e162d740cf5c1ce089a678909b" kindref="member">endLabel</ref>,<sp/>labelCatch,<sp/>CD_Throwable);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/>slotRethrow<sp/>=<sp/>bctx.<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a7596f171b352b8ddbe032a754287476c" kindref="member">scope</ref>.<ref refid="da/de9/classorg_1_1xvm_1_1javajit_1_1_scope_1a62602b2ad6ee56f0538e0e549611a00a" kindref="member">getRethrow</ref>();</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/>slotRethrow<sp/>&gt;=<sp/>0;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.labelBinding(labelCatch)</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.astore(slotRethrow)</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.labelBinding(labelFin);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>enter<sp/>the<sp/>&quot;finally<sp/>{}&quot;<sp/>scope</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bctx.<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1aecafc1b8ac9f3e5b3c4edd43e5fd12d9" kindref="member">enterScope</ref>(code);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>initialize<sp/>&quot;try.exception&quot;<sp/>synthetic<sp/>variable</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>(TODO:<sp/>we<sp/>only<sp/>need<sp/>it<sp/>if<sp/>the<sp/>m_nVar<sp/>variable<sp/>is<sp/>used)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref><sp/>regEx<sp/>=<sp/>bctx.<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1abd2c717e032126846ea0430d472ed12b" kindref="member">introduceRegister</ref>(code,<sp/><ref refid="df/d84/classorg_1_1xvm_1_1asm_1_1_op_var_1a375ae5fb3d05fd9a2fd266421dd110ee" kindref="member">m_nVar</ref>,<sp/>bctx.<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a5d764079d34ac62b2c4329a982e536bb" kindref="member">pool</ref>().<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a14baa743e9f767289a1841f3486d4268" kindref="member">typeException१</ref>(),<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>java.lang.classfile.Label<sp/>labelNull<sp/>=<sp/>code.newLabel();</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>java.lang.classfile.Label<sp/>labelEnd<sp/><sp/>=<sp/>code.newLabel();</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.aload(slotRethrow)</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.dup()</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.ifnull(labelNull)</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.checkcast(CD_nException)</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.getfield(CD_nException,<sp/></highlight><highlight class="stringliteral">&quot;exception&quot;</highlight><highlight class="normal">,<sp/>CD_Exception);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bctx.<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a4b67f051810bb65d0efc3128083cbb94" kindref="member">storeValue</ref>(code,<sp/>regEx);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.goto_(labelEnd)</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.labelBinding(labelNull)</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.pop();</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder" kindref="compound">Builder</ref>.<ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a4aee617093e3a072aca4ea78f08315b9" kindref="member">loadNull</ref>(code);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bctx.<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a4b67f051810bb65d0efc3128083cbb94" kindref="member">storeValue</ref>(code,<sp/>regEx);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.labelBinding(labelEnd);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="167"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/op/FinallyStart.java"/>
+  </compounddef>
+</doxygen>

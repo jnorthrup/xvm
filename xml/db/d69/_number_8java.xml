@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="db/d69/_number_8java" kind="file" language="Java">
+    <compoundname>Number.java</compoundname>
+    <includes local="no">org.xtclang.ecstasy.Exception</includes>
+    <includes local="no">org.xtclang.ecstasy.collections.Array</includes>
+    <includes local="no">org.xtclang.ecstasy.collections.ArrayᐸBitᐳ</includes>
+    <includes local="no">org.xtclang.ecstasy.collections.ArrayᐸNibbleᐳ</includes>
+    <includes local="no">org.xtclang.ecstasy.collections.ArrayᐸUInt8ᐳ</includes>
+    <includes local="no">org.xtclang.ecstasy.nConst</includes>
+    <includes local="no">org.xvm.javajit.Ctx</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Number.java</label>
+        <link refid="db/d69/_number_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>org.xtclang.ecstasy.Exception</label>
+      </node>
+      <node id="3">
+        <label>org.xtclang.ecstasy.collections.Array</label>
+      </node>
+      <node id="4">
+        <label>org.xtclang.ecstasy.collections.ArrayᐸBitᐳ</label>
+      </node>
+      <node id="5">
+        <label>org.xtclang.ecstasy.collections.ArrayᐸNibbleᐳ</label>
+      </node>
+      <node id="6">
+        <label>org.xtclang.ecstasy.collections.ArrayᐸUInt8ᐳ</label>
+      </node>
+      <node id="7">
+        <label>org.xtclang.ecstasy.nConst</label>
+      </node>
+      <node id="8">
+        <label>org.xvm.javajit.Ctx</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number" prot="public">org::xtclang::ecstasy::numbers::Number</innerclass>
+    <innerclass refid="dd/dd5/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1_1_illegal_math" prot="public">org::xtclang::ecstasy::numbers::Number::IllegalMath</innerclass>
+    <innerclass refid="dc/d81/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1_1_division_by_zero" prot="public">org::xtclang::ecstasy::numbers::Number::DivisionByZero</innerclass>
+    <innernamespace refid="d4/d3b/namespaceorg_1_1xtclang_1_1ecstasy_1_1numbers">org::xtclang::ecstasy::numbers</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xtclang.ecstasy.numbers;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xtclang.ecstasy.Exception;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xtclang.ecstasy.collections.Array;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xtclang.ecstasy.collections.ArrayᐸBitᐳ;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xtclang.ecstasy.collections.ArrayᐸNibbleᐳ;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xtclang.ecstasy.collections.ArrayᐸUInt8ᐳ;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xtclang.ecstasy.nConst;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.javajit.Ctx;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">abstract</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1a36de7b842fddcdf1ee31dfa08b647762" kindref="member">Number</ref></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="d3/d6c/classorg_1_1xtclang_1_1ecstasy_1_1n_const_1af4ad43348793264eef07ccd9833bd48e" kindref="member">nConst</ref></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>implements<sp/><ref refid="db/d83/interfaceorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_convertible" kindref="compound">FPConvertible</ref><sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1a0fcd61bb43299119a70576e02bea8fd8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="d8/dac/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_bit_xE1_x90_xB3" kindref="compound">ArrayᐸBitᐳ</ref><sp/><ref refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1a0fcd61bb43299119a70576e02bea8fd8" kindref="member">$bitArray</ref><sp/>=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1a36de7b842fddcdf1ee31dfa08b647762" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/><ref refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1a36de7b842fddcdf1ee31dfa08b647762" kindref="member">Number</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(</highlight><highlight class="keyword">null</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1aea15c1d3ad3233bcd0db336359b1d10e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d8/dac/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_bit_xE1_x90_xB3" kindref="compound">ArrayᐸBitᐳ</ref><sp/><ref refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1aea15c1d3ad3233bcd0db336359b1d10e" kindref="member">bits$get</ref>(<ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx" kindref="compound">Ctx</ref><sp/>ctx)<sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1a0fcd61bb43299119a70576e02bea8fd8" kindref="member">$bitArray</ref><sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>bits<sp/>=<sp/><ref refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1a6d6114641e06bfc9e3c0f6604d9ba380" kindref="member">bitLength$get$p</ref>();</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1a0fcd61bb43299119a70576e02bea8fd8" kindref="member">$bitArray</ref><sp/>=<sp/><ref refid="d8/dac/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_bit_xE1_x90_xB3" kindref="compound">ArrayᐸBitᐳ</ref>.<ref refid="d8/dac/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_bit_xE1_x90_xB3_1a338ed60253796956a0be18fad6202b6e" kindref="member">$fromLongs</ref>(ctx,<sp/><ref refid="d7/d3b/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array" kindref="compound">Array</ref>.<ref refid="d9/d1d/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_1_1_mutability" kindref="compound">Mutability</ref>.<ref refid="d9/d1d/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_1_1_mutability_1afb8bef6231a3aa7cc30c5fae70cfad23" kindref="member">Constant</ref>,<sp/>bits,<sp/><ref refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1a9cbd347efd5776a364118c8802ea99dd" kindref="member">$longValues</ref>());</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1a0fcd61bb43299119a70576e02bea8fd8" kindref="member">$bitArray</ref>;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1a5f59341969d6b6d53aa782812e037fba" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d8/dac/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_bit_xE1_x90_xB3" kindref="compound">ArrayᐸBitᐳ</ref><sp/><ref refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1a5f59341969d6b6d53aa782812e037fba" kindref="member">toBitArray</ref>(<ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx" kindref="compound">Ctx</ref><sp/>ctx,<sp/><ref refid="d7/d3b/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array" kindref="compound">Array</ref>.<ref refid="d9/d1d/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_1_1_mutability" kindref="compound">Mutability</ref><sp/>mutability)<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>bits<sp/>=<sp/><ref refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1a6d6114641e06bfc9e3c0f6604d9ba380" kindref="member">bitLength$get$p</ref>();</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(mutability<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>||<sp/>mutability<sp/>==<sp/><ref refid="d7/d3b/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array" kindref="compound">Array</ref>.<ref refid="d9/d1d/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_1_1_mutability" kindref="compound">Mutability</ref>.<ref refid="d9/d1d/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_1_1_mutability_1afb8bef6231a3aa7cc30c5fae70cfad23" kindref="member">Constant</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1aea15c1d3ad3233bcd0db336359b1d10e" kindref="member">bits$get</ref>(ctx);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/dac/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_bit_xE1_x90_xB3" kindref="compound">ArrayᐸBitᐳ</ref>.<ref refid="d8/dac/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_bit_xE1_x90_xB3_1a338ed60253796956a0be18fad6202b6e" kindref="member">$fromLongs</ref>(ctx,<sp/>mutability,<sp/>bits,<sp/><ref refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1a9cbd347efd5776a364118c8802ea99dd" kindref="member">$longValues</ref>());</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1a51ddf53892d77bfdb99ac5bc3da31b8c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d5/d20/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_u_int8_xE1_x90_xB3" kindref="compound">ArrayᐸUInt8ᐳ</ref><sp/><ref refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1a51ddf53892d77bfdb99ac5bc3da31b8c" kindref="member">toByteArray</ref>(<ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx" kindref="compound">Ctx</ref><sp/>ctx,<sp/><ref refid="d7/d3b/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array" kindref="compound">Array</ref>.<ref refid="d9/d1d/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_1_1_mutability" kindref="compound">Mutability</ref><sp/>mutability)<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>bits<sp/>=<sp/><ref refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1a6d6114641e06bfc9e3c0f6604d9ba380" kindref="member">bitLength$get$p</ref>();</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d5/d20/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_u_int8_xE1_x90_xB3" kindref="compound">ArrayᐸUInt8ᐳ</ref>.<ref refid="d5/d20/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_u_int8_xE1_x90_xB3_1a12d69960d9c623931100e0bf78e91ad4" kindref="member">$fromLongs</ref>(ctx,<sp/>mutability,<sp/>bits,<sp/><ref refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1a9cbd347efd5776a364118c8802ea99dd" kindref="member">$longValues</ref>());</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72" refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1abc6d6c311f0d9f4cf7bd038894cda4e7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d9/df4/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_nibble_xE1_x90_xB3" kindref="compound">ArrayᐸNibbleᐳ</ref><sp/><ref refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1abc6d6c311f0d9f4cf7bd038894cda4e7" kindref="member">toNibbleArray</ref>(<ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx" kindref="compound">Ctx</ref><sp/>ctx,<sp/><ref refid="d7/d3b/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array" kindref="compound">Array</ref>.<ref refid="d9/d1d/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_1_1_mutability" kindref="compound">Mutability</ref><sp/>mutability)<sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>bits<sp/>=<sp/><ref refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1a6d6114641e06bfc9e3c0f6604d9ba380" kindref="member">bitLength$get$p</ref>();</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d9/df4/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_nibble_xE1_x90_xB3" kindref="compound">ArrayᐸNibbleᐳ</ref>.<ref refid="d9/df4/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_nibble_xE1_x90_xB3_1a62b32af79fc6619c44833cc5f7e2567e" kindref="member">$fromLongs</ref>(ctx,<sp/>mutability,<sp/>bits,<sp/><ref refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1a9cbd347efd5776a364118c8802ea99dd" kindref="member">$longValues</ref>());</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83" refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1a6d6114641e06bfc9e3c0f6604d9ba380" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">abstract</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1a6d6114641e06bfc9e3c0f6604d9ba380" kindref="member">bitLength$get$p</ref>();</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88" refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1a9cbd347efd5776a364118c8802ea99dd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">abstract</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal">[]<sp/><ref refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1a9cbd347efd5776a364118c8802ea99dd" kindref="member">$longValues</ref>();</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93" refid="dd/dd5/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1_1_illegal_math" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="dd/dd5/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1_1_illegal_math_1a287b5f3875b95e5a80cbb325a67523b1" kindref="member">IllegalMath</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="d2/db4/classorg_1_1xtclang_1_1ecstasy_1_1_exception_1a6c5d3067164291df741a6be1efc5a217" kindref="member">Exception</ref><sp/>{</highlight></codeline>
+<codeline lineno="94" refid="dd/dd5/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1_1_illegal_math_1a287b5f3875b95e5a80cbb325a67523b1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="dd/dd5/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1_1_illegal_math_1a287b5f3875b95e5a80cbb325a67523b1" kindref="member">IllegalMath</ref>(<ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx" kindref="compound">Ctx</ref><sp/>ctx)<sp/>{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(ctx);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102" refid="dc/d81/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1_1_division_by_zero" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="dc/d81/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1_1_division_by_zero_1ab2bca75b8f0a2c94ef15c2241614a15b" kindref="member">DivisionByZero</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="dd/dd5/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1_1_illegal_math_1a287b5f3875b95e5a80cbb325a67523b1" kindref="member">IllegalMath</ref><sp/>{</highlight></codeline>
+<codeline lineno="103" refid="dc/d81/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1_1_division_by_zero_1ab2bca75b8f0a2c94ef15c2241614a15b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="dc/d81/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1_1_division_by_zero_1ab2bca75b8f0a2c94ef15c2241614a15b" kindref="member">DivisionByZero</ref>(<ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx" kindref="compound">Ctx</ref><sp/>ctx)<sp/>{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(ctx);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Number.java"/>
+  </compounddef>
+</doxygen>

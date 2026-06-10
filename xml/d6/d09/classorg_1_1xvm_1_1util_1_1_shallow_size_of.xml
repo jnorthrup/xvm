@@ -1,0 +1,322 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of" kind="class" language="Java" prot="public">
+    <compoundname>org::xvm::util::ShallowSizeOf</compoundname>
+    <sectiondef kind="package-static-attrib">
+      <memberdef kind="variable" id="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1a6303338808a9b35cbc0b8e82debed821" prot="package" static="yes" mutable="no">
+        <type>final boolean</type>
+        <definition>final boolean org.xvm.util.ShallowSizeOf.COMPRESSED</definition>
+        <argsstring></argsstring>
+        <name>COMPRESSED</name>
+        <qualifiedname>org.xvm.util.ShallowSizeOf.COMPRESSED</qualifiedname>
+        <initializer>= Runtime.getRuntime().maxMemory() &lt; 30L * 1024 * 1024 * 1024</initializer>
+        <briefdescription>
+<para><javadoccode>true</javadoccode> if this JVM uses compressed references and object headers </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ShallowSizeOf.java" line="20" column="26" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ShallowSizeOf.java" bodystart="20" bodyend="-1"/>
+        <referencedby refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1ac5fdbb53ed275cee1ef24924ce057a44" compoundref="de/da0/_shallow_size_of_8java" startline="105" endline="129">org.xvm.util.ShallowSizeOf.fieldOf</referencedby>
+        <referencedby refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1aa71195e0216c32c38cd4be323a6e96fe" compoundref="de/da0/_shallow_size_of_8java" startline="137" endline="149">org.xvm.util.ShallowSizeOf.fieldOf</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1a534e99f22f90d9f9af1ae751a7f37761" prot="private" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int org.xvm.util.ShallowSizeOf.HEADER</definition>
+        <argsstring></argsstring>
+        <name>HEADER</name>
+        <qualifiedname>org.xvm.util.ShallowSizeOf.HEADER</qualifiedname>
+        <initializer>= <ref refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1a6303338808a9b35cbc0b8e82debed821" kindref="member">COMPRESSED</ref> ? 12 : 16</initializer>
+        <briefdescription>
+<para>The size of an object header. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ShallowSizeOf.java" line="25" column="30" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ShallowSizeOf.java" bodystart="25" bodyend="-1"/>
+        <referencedby refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1a1d1711ff05416da5ff29814ebc44adbf" compoundref="de/da0/_shallow_size_of_8java" startline="59" endline="61">org.xvm.util.ShallowSizeOf.arrayOf</referencedby>
+        <referencedby refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1a3a6215a2b067746ab68f07f1a6f30367" compoundref="de/da0/_shallow_size_of_8java" startline="70" endline="96">org.xvm.util.ShallowSizeOf.instanceOf</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1ab33aad0b526163de75812c5fba750f4e" prot="private" static="yes" mutable="no">
+        <type>final Map&lt; Class&lt;?&gt;, Long &gt;</type>
+        <definition>final Map&lt;Class&lt;?&gt;, Long&gt; org.xvm.util.ShallowSizeOf.SIZE_BY_CLASS</definition>
+        <argsstring></argsstring>
+        <name>SIZE_BY_CLASS</name>
+        <qualifiedname>org.xvm.util.ShallowSizeOf.SIZE_BY_CLASS</qualifiedname>
+        <initializer>= new ConcurrentHashMap&lt;&gt;()</initializer>
+        <briefdescription>
+<para>A mapping of Java class type to its instances shallow object size. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ShallowSizeOf.java" line="30" column="30" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ShallowSizeOf.java" bodystart="30" bodyend="-1"/>
+        <referencedby refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1a3a6215a2b067746ab68f07f1a6f30367" compoundref="de/da0/_shallow_size_of_8java" startline="70" endline="96">org.xvm.util.ShallowSizeOf.instanceOf</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1a7c017252dbb134f4e8e01fdc4f0b3766" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.xvm.util.ShallowSizeOf.ShallowSizeOf</definition>
+        <argsstring>()</argsstring>
+        <name>ShallowSizeOf</name>
+        <qualifiedname>org.xvm.util.ShallowSizeOf.ShallowSizeOf</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ShallowSizeOf.java" line="32" column="13" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ShallowSizeOf.java" bodystart="32" bodyend="32"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1a5829e9d86439a5643cf1a48ab7128b43" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>static long org.xvm.util.ShallowSizeOf.object</definition>
+        <argsstring>(Object o)</argsstring>
+        <name>object</name>
+        <qualifiedname>org.xvm.util.ShallowSizeOf.object</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Return the shallow size of the given object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>o</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the object to size</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the object size </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ShallowSizeOf.java" line="41" column="24" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ShallowSizeOf.java" bodystart="41" bodyend="49"/>
+        <references refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1a10eed16a13234026f940de9838955d2a" compoundref="de/da0/_shallow_size_of_8java" startline="157" endline="159">org.xvm.util.ShallowSizeOf.align</references>
+        <references refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1a1d1711ff05416da5ff29814ebc44adbf" compoundref="de/da0/_shallow_size_of_8java" startline="59" endline="61">org.xvm.util.ShallowSizeOf.arrayOf</references>
+        <references refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1a3a6215a2b067746ab68f07f1a6f30367" compoundref="de/da0/_shallow_size_of_8java" startline="70" endline="96">org.xvm.util.ShallowSizeOf.instanceOf</references>
+      </memberdef>
+      <memberdef kind="function" id="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1a1d1711ff05416da5ff29814ebc44adbf" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>static long org.xvm.util.ShallowSizeOf.arrayOf</definition>
+        <argsstring>(Class&lt;?&gt; clzComp, int slots)</argsstring>
+        <name>arrayOf</name>
+        <qualifiedname>org.xvm.util.ShallowSizeOf.arrayOf</qualifiedname>
+        <param>
+          <type>Class&lt;?&gt;</type>
+          <declname>clzComp</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>slots</declname>
+        </param>
+        <briefdescription>
+<para>Return the shallow size of an array of a given type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>clzComp</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the array&apos;s component type </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>slots</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of slots in the array</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the size in bytes </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ShallowSizeOf.java" line="59" column="24" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ShallowSizeOf.java" bodystart="59" bodyend="61"/>
+        <references refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1a10eed16a13234026f940de9838955d2a" compoundref="de/da0/_shallow_size_of_8java" startline="157" endline="159">org.xvm.util.ShallowSizeOf.align</references>
+        <references refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1ac5fdbb53ed275cee1ef24924ce057a44" compoundref="de/da0/_shallow_size_of_8java" startline="105" endline="129">org.xvm.util.ShallowSizeOf.fieldOf</references>
+        <references refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1a534e99f22f90d9f9af1ae751a7f37761" compoundref="de/da0/_shallow_size_of_8java" startline="25">org.xvm.util.ShallowSizeOf.HEADER</references>
+        <referencedby refid="da/def/classorg_1_1xvm_1_1runtime_1_1gc_1_1_long_array_object_manager_1a5d9a90977b5739e98fb25ffa652c6830" compoundref="de/d27/_long_array_object_manager_8java" startline="28" endline="30">org.xvm.runtime.gc.LongArrayObjectManager.getByteSize</referencedby>
+        <referencedby refid="da/dc5/classorg_1_1xvm_1_1runtime_1_1gc_1_1_phantom_gc_test_1a39bf5f2ea247246d7fd230db09a0cea4" compoundref="db/d32/_phantom_gc_test_8java" startline="26" endline="86">org.xvm.runtime.gc.PhantomGcTest.main</referencedby>
+        <referencedby refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1a5829e9d86439a5643cf1a48ab7128b43" compoundref="de/da0/_shallow_size_of_8java" startline="41" endline="49">org.xvm.util.ShallowSizeOf.object</referencedby>
+        <referencedby refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1a247492aac3b3a19f0cb403d01c28f2b7" compoundref="d6/d0c/_mark_and_sweep_gc_space_tests_8java" startline="171" endline="193">org.xvm.runtime.gc.MarkAndSweepGcSpaceTests.shouldOOMEOnHardLimit</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1a3a6215a2b067746ab68f07f1a6f30367" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>static long org.xvm.util.ShallowSizeOf.instanceOf</definition>
+        <argsstring>(Class&lt;?&gt; clz)</argsstring>
+        <name>instanceOf</name>
+        <qualifiedname>org.xvm.util.ShallowSizeOf.instanceOf</qualifiedname>
+        <param>
+          <type>Class&lt;?&gt;</type>
+          <declname>clz</declname>
+        </param>
+        <briefdescription>
+<para>Return a rough estimate of the shallow size of instances of a given java class. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>clz</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the class</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>its estimated shallow size in bytes </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ShallowSizeOf.java" line="70" column="24" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ShallowSizeOf.java" bodystart="70" bodyend="96"/>
+        <references refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1ac5fdbb53ed275cee1ef24924ce057a44" compoundref="de/da0/_shallow_size_of_8java" startline="105" endline="129">org.xvm.util.ShallowSizeOf.fieldOf</references>
+        <references refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1a534e99f22f90d9f9af1ae751a7f37761" compoundref="de/da0/_shallow_size_of_8java" startline="25">org.xvm.util.ShallowSizeOf.HEADER</references>
+        <references refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1a3a6215a2b067746ab68f07f1a6f30367" compoundref="de/da0/_shallow_size_of_8java" startline="70" endline="96">org.xvm.util.ShallowSizeOf.instanceOf</references>
+        <references refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1ab33aad0b526163de75812c5fba750f4e" compoundref="de/da0/_shallow_size_of_8java" startline="30">org.xvm.util.ShallowSizeOf.SIZE_BY_CLASS</references>
+        <referencedby refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1a3a6215a2b067746ab68f07f1a6f30367" compoundref="de/da0/_shallow_size_of_8java" startline="70" endline="96">org.xvm.util.ShallowSizeOf.instanceOf</referencedby>
+        <referencedby refid="da/dc5/classorg_1_1xvm_1_1runtime_1_1gc_1_1_phantom_gc_test_1a39bf5f2ea247246d7fd230db09a0cea4" compoundref="db/d32/_phantom_gc_test_8java" startline="26" endline="86">org.xvm.runtime.gc.PhantomGcTest.main</referencedby>
+        <referencedby refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1a5829e9d86439a5643cf1a48ab7128b43" compoundref="de/da0/_shallow_size_of_8java" startline="41" endline="49">org.xvm.util.ShallowSizeOf.object</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1ac5fdbb53ed275cee1ef24924ce057a44" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>static int org.xvm.util.ShallowSizeOf.fieldOf</definition>
+        <argsstring>(Class&lt;?&gt; clz)</argsstring>
+        <name>fieldOf</name>
+        <qualifiedname>org.xvm.util.ShallowSizeOf.fieldOf</qualifiedname>
+        <param>
+          <type>Class&lt;?&gt;</type>
+          <declname>clz</declname>
+        </param>
+        <briefdescription>
+<para>Return the size of a field of the given Java class in bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>clz</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the field class</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the byte size </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ShallowSizeOf.java" line="105" column="23" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ShallowSizeOf.java" bodystart="105" bodyend="129"/>
+        <references refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1a6303338808a9b35cbc0b8e82debed821" compoundref="de/da0/_shallow_size_of_8java" startline="20">org.xvm.util.ShallowSizeOf.COMPRESSED</references>
+        <referencedby refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1a1d1711ff05416da5ff29814ebc44adbf" compoundref="de/da0/_shallow_size_of_8java" startline="59" endline="61">org.xvm.util.ShallowSizeOf.arrayOf</referencedby>
+        <referencedby refid="dd/dbd/classorg_1_1xvm_1_1javajit_1_1builders_1_1_common_builder_1a54a4490c13df6ae5a300592bf46f2ced" compoundref="d3/d9a/_common_builder_8java" startline="229" endline="243">org.xvm.javajit.builders.CommonBuilder.computePropertySize</referencedby>
+        <referencedby refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1a3a6215a2b067746ab68f07f1a6f30367" compoundref="de/da0/_shallow_size_of_8java" startline="70" endline="96">org.xvm.util.ShallowSizeOf.instanceOf</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1aa71195e0216c32c38cd4be323a6e96fe" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>static int org.xvm.util.ShallowSizeOf.fieldOf</definition>
+        <argsstring>(ClassDesc cd)</argsstring>
+        <name>fieldOf</name>
+        <qualifiedname>org.xvm.util.ShallowSizeOf.fieldOf</qualifiedname>
+        <param>
+          <type>ClassDesc</type>
+          <declname>cd</declname>
+        </param>
+        <briefdescription>
+<para>Return the size of a field of the given ClassDesc in bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the field ClassDesc</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the byte size </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ShallowSizeOf.java" line="137" column="23" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ShallowSizeOf.java" bodystart="137" bodyend="149"/>
+        <references refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1a6303338808a9b35cbc0b8e82debed821" compoundref="de/da0/_shallow_size_of_8java" startline="20">org.xvm.util.ShallowSizeOf.COMPRESSED</references>
+      </memberdef>
+      <memberdef kind="function" id="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1a10eed16a13234026f940de9838955d2a" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>static long org.xvm.util.ShallowSizeOf.align</definition>
+        <argsstring>(long cb)</argsstring>
+        <name>align</name>
+        <qualifiedname>org.xvm.util.ShallowSizeOf.align</qualifiedname>
+        <param>
+          <type>long</type>
+          <declname>cb</declname>
+        </param>
+        <briefdescription>
+<para>Compute the aligned size of object of a given size. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cb</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the object size </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the aligned size </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ShallowSizeOf.java" line="157" column="24" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ShallowSizeOf.java" bodystart="157" bodyend="159"/>
+        <referencedby refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1a1d1711ff05416da5ff29814ebc44adbf" compoundref="de/da0/_shallow_size_of_8java" startline="59" endline="61">org.xvm.util.ShallowSizeOf.arrayOf</referencedby>
+        <referencedby refid="dd/dbd/classorg_1_1xvm_1_1javajit_1_1builders_1_1_common_builder_1ade3c5c5c2308d4803d78243423c098e2" compoundref="d3/d9a/_common_builder_8java" startline="138" endline="154">org.xvm.javajit.builders.CommonBuilder.assembleImpl</referencedby>
+        <referencedby refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1a5829e9d86439a5643cf1a48ab7128b43" compoundref="de/da0/_shallow_size_of_8java" startline="41" endline="49">org.xvm.util.ShallowSizeOf.object</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A set of helpers for computing the shallow size of objects. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ShallowSizeOf.java" line="16" column="13" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ShallowSizeOf.java" bodystart="16" bodyend="160"/>
+    <listofallmembers>
+      <member refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1a10eed16a13234026f940de9838955d2a" prot="public" virt="non-virtual"><scope>org::xvm::util::ShallowSizeOf</scope><name>align</name></member>
+      <member refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1a1d1711ff05416da5ff29814ebc44adbf" prot="public" virt="non-virtual"><scope>org::xvm::util::ShallowSizeOf</scope><name>arrayOf</name></member>
+      <member refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1a6303338808a9b35cbc0b8e82debed821" prot="package" virt="non-virtual"><scope>org::xvm::util::ShallowSizeOf</scope><name>COMPRESSED</name></member>
+      <member refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1ac5fdbb53ed275cee1ef24924ce057a44" prot="public" virt="non-virtual"><scope>org::xvm::util::ShallowSizeOf</scope><name>fieldOf</name></member>
+      <member refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1aa71195e0216c32c38cd4be323a6e96fe" prot="public" virt="non-virtual"><scope>org::xvm::util::ShallowSizeOf</scope><name>fieldOf</name></member>
+      <member refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1a534e99f22f90d9f9af1ae751a7f37761" prot="private" virt="non-virtual"><scope>org::xvm::util::ShallowSizeOf</scope><name>HEADER</name></member>
+      <member refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1a3a6215a2b067746ab68f07f1a6f30367" prot="public" virt="non-virtual"><scope>org::xvm::util::ShallowSizeOf</scope><name>instanceOf</name></member>
+      <member refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1a5829e9d86439a5643cf1a48ab7128b43" prot="public" virt="non-virtual"><scope>org::xvm::util::ShallowSizeOf</scope><name>object</name></member>
+      <member refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1a7c017252dbb134f4e8e01fdc4f0b3766" prot="private" virt="non-virtual"><scope>org::xvm::util::ShallowSizeOf</scope><name>ShallowSizeOf</name></member>
+      <member refid="d6/d09/classorg_1_1xvm_1_1util_1_1_shallow_size_of_1ab33aad0b526163de75812c5fba750f4e" prot="private" virt="non-virtual"><scope>org::xvm::util::ShallowSizeOf</scope><name>SIZE_BY_CLASS</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

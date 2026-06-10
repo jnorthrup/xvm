@@ -1,0 +1,7 @@
+var x_r_t_type_template_8java =
+[
+    [ "org.xvm.runtime.template._native.reflect.xRTTypeTemplate", "d2/d49/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_type_template.html", "d2/d49/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_type_template" ],
+    [ "org.xvm.runtime.template._native.reflect.xRTTypeTemplate.TypeTemplateHandle", "df/d6d/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_type_template_1_1_type_template_handle.html", "df/d6d/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_type_template_1_1_type_template_handle" ],
+    [ "org.xvm.runtime.template._native.reflect.xRTTypeTemplate.CreateAnnotationComposition", "d7/dd7/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_type_template_1_1_create_annotation_composition.html", "d7/dd7/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_type_template_1_1_create_annotation_composition" ],
+    [ "org.xvm.runtime.template._native.reflect.xRTTypeTemplate.CreateAnnotationComposition.Stage", "dd/d93/enumorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_type_template_1_1_create_annotation_composition_1_1_stage.html", "dd/d93/enumorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_type_template_1_1_create_annotation_composition_1_1_stage" ]
+];

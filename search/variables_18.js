@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['wait_5ffor_5ffuture_0',['WAIT_FOR_FUTURE',['../d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame.html#a9e9efb223e5061ac43789a094056299f',1,'org::xvm::runtime::Frame']]],
+  ['wait_5ffor_5fio_1',['WAIT_FOR_IO',['../d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame.html#a32fd0fb40b52e669b07bd7ce59a32359',1,'org::xvm::runtime::Frame']]],
+  ['wait_5ffor_5frelief_2',['WAIT_FOR_RELIEF',['../d8/dee/classorg_1_1xvm_1_1runtime_1_1_utils.html#ac6e45702bfb843e042c46bb7150b29e1',1,'org::xvm::runtime::Utils']]],
+  ['waiting_3',['Waiting',['../d3/d81/enumorg_1_1xvm_1_1runtime_1_1_fiber_1_1_fiber_status.html#a404ecc8f59dd9b5c2e23a421634aa46a',1,'org::xvm::runtime::Fiber::FiberStatus']]],
+  ['warning_4',['WARNING',['../db/db5/enumorg_1_1xvm_1_1util_1_1_severity.html#a626cd4de0b9671627c3f7306d1ec85f7',1,'org::xvm::util::Severity']]],
+  ['watch_5',['watch',['../df/d13/classorg_1_1xvm_1_1runtime_1_1_debug_console_1_1_var_display.html#a5acf0aac15f68632ece90faa9e0fb519',1,'org.xvm.runtime.DebugConsole.VarDisplay.watch'],['../d0/da4/classorg_1_1xvm_1_1runtime_1_1gc_1_1_canary_cohort_gc_test_1_1_collectable.html#a5df7471e92f82bc0c6dca118add8637a',1,'org.xvm.runtime.gc.CanaryCohortGcTest.Collectable.watch']]],
+  ['weak_5fmask_6',['WEAK_MASK',['../d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space.html#a75ae607e8b0a9410716a5075049ee3cb',1,'org::xvm::runtime::gc::MarkAndSweepGcSpace']]],
+  ['weak_5fnotifier_5ffield_7',['WEAK_NOTIFIER_FIELD',['../d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space.html#aa731185a64236ea208fe30179eca5af8',1,'org::xvm::runtime::gc::GcSpace']]],
+  ['weak_5freferent_5ffield_8',['WEAK_REFERENT_FIELD',['../d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space.html#a0ce4b2281a4c8e0ddef98a47c2e5b7d6',1,'org::xvm::runtime::gc::GcSpace']]],
+  ['whenfalse_9',['WhenFalse',['../d7/d2f/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_context_1_1_branch.html#a06c4e23ed03fae695cf882e54ce73c4c',1,'org::xvm::compiler::ast::Context::Branch']]],
+  ['whentrue_10',['WhenTrue',['../d7/d2f/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_context_1_1_branch.html#ae0eb13ba018a424c49acfc25877f9e17',1,'org::xvm::compiler::ast::Context::Branch']]],
+  ['while_11',['WHILE',['../d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id.html#a5100749db05a62b55f671f9e9d5d5c74',1,'org::xvm::compiler::Token::Id']]],
+  ['whiledostmt_12',['WhileDoStmt',['../dd/dff/enumorg_1_1xvm_1_1asm_1_1ast_1_1_binary_a_s_t_1_1_node_type.html#add36af802accd8cf64f959693254be42',1,'org::xvm::asm::ast::BinaryAST::NodeType']]],
+  ['widened_13',['Widened',['../d4/d87/enumorg_1_1xvm_1_1javajit_1_1_jit_flavor.html#a0957dd02a275d50c2b28124dc7bbc590',1,'org::xvm::javajit::JitFlavor']]],
+  ['widenedwithdefault_14',['WidenedWithDefault',['../d4/d87/enumorg_1_1xvm_1_1javajit_1_1_jit_flavor.html#a277eda7d6bc526af1eb44eb61a2b0168',1,'org::xvm::javajit::JitFlavor']]],
+  ['worstseverity_15',['worstSeverity',['../d4/d51/classorg_1_1xvm_1_1tool_1_1_launcher_error_handling_test_1_1_test_error_listener.html#a578eb1376392460c6cf6b55495f224db',1,'org::xvm::tool::LauncherErrorHandlingTest::TestErrorListener']]],
+  ['write_16',['Write',['../d3/d03/enumorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file_1_1_write_option.html#a6cbdde51bd43bb6f541109fb55dba1cc',1,'org::xvm::runtime::template::_native::fs::xOSFile::WriteOption']]],
+  ['write_5fonly_17',['WRITE_ONLY',['../d5/d3b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file.html#ade9836da71c105a6c3f3e96fb012f56b',1,'org::xvm::runtime::template::_native::fs::xOSFile']]],
+  ['writeable_5fcapture_18',['WRITEABLE_CAPTURE',['../d3/d97/classorg_1_1xvm_1_1compiler_1_1_compiler.html#a87a0e7b3ce9d314ccc8cac27bbfec229',1,'org::xvm::compiler::Compiler']]],
+  ['wrong_5ftype_19',['WRONG_TYPE',['../d3/d97/classorg_1_1xvm_1_1compiler_1_1_compiler.html#a31d32ee2e694a6159c9f4ff60819bc8e',1,'org::xvm::compiler::Compiler']]],
+  ['wrong_5ftype_5farity_20',['WRONG_TYPE_ARITY',['../d3/d97/classorg_1_1xvm_1_1compiler_1_1_compiler.html#a4c81fb90c242e407c72bb7e3a9db53e9',1,'org::xvm::compiler::Compiler']]]
+];

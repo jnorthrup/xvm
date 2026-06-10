@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d2/daf/_invoke__0_t_8java" kind="file" language="Java">
+    <compoundname>Invoke_0T.java</compoundname>
+    <includes local="no">java.io.DataInput</includes>
+    <includes local="no">java.io.DataOutput</includes>
+    <includes local="no">java.io.IOException</includes>
+    <includes local="no">org.xvm.asm.Argument</includes>
+    <includes local="no">org.xvm.asm.Constant</includes>
+    <includes local="no">org.xvm.asm.OpInvocable</includes>
+    <includes local="no">org.xvm.asm.constants.MethodConstant</includes>
+    <includes local="no">org.xvm.runtime.Frame</includes>
+    <includes local="no">org.xvm.runtime.ObjectHandle</includes>
+    <includes local="no">org.xvm.runtime.ObjectHandle.ExceptionHandle</includes>
+    <includes local="no">org.xvm.runtime.Utils</includes>
+    <includes local="no">org.xvm.util.Handy.readPackedInt</includes>
+    <includes local="no">org.xvm.util.Handy.writePackedLong</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/op/Invoke_0T.java</label>
+        <link refid="d2/daf/_invoke__0_t_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.io.DataInput</label>
+      </node>
+      <node id="3">
+        <label>java.io.DataOutput</label>
+      </node>
+      <node id="4">
+        <label>java.io.IOException</label>
+      </node>
+      <node id="5">
+        <label>org.xvm.asm.Argument</label>
+      </node>
+      <node id="6">
+        <label>org.xvm.asm.Constant</label>
+      </node>
+      <node id="7">
+        <label>org.xvm.asm.OpInvocable</label>
+      </node>
+      <node id="8">
+        <label>org.xvm.asm.constants.MethodConstant</label>
+      </node>
+      <node id="9">
+        <label>org.xvm.runtime.Frame</label>
+      </node>
+      <node id="10">
+        <label>org.xvm.runtime.ObjectHandle</label>
+      </node>
+      <node id="11">
+        <label>org.xvm.runtime.ObjectHandle.ExceptionHandle</label>
+      </node>
+      <node id="12">
+        <label>org.xvm.runtime.Utils</label>
+      </node>
+      <node id="13">
+        <label>org.xvm.util.Handy.readPackedInt</label>
+      </node>
+      <node id="14">
+        <label>org.xvm.util.Handy.writePackedLong</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="dc/db9/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__0_t" prot="public">org::xvm::asm::op::Invoke_0T</innerclass>
+    <innernamespace refid="d5/d78/namespaceorg_1_1xvm_1_1asm_1_1op">org::xvm::asm::op</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.asm.op;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.DataInput;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.DataOutput;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.IOException;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Argument;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Constant;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.OpInvocable;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.constants.MethodConstant;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.Frame;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.ObjectHandle;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.ObjectHandle.ExceptionHandle;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.Utils;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.util.Handy.readPackedInt;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.util.Handy.writePackedLong;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="dc/db9/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__0_t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="dc/db9/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__0_t_1ad438ab76248f00d39920829e92240c1c" kindref="member">Invoke_0T</ref></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="d3/da4/classorg_1_1xvm_1_1asm_1_1_op_invocable_1a7db3dca9a87c5c19dac2f03e144927c6" kindref="member">OpInvocable</ref><sp/>{</highlight></codeline>
+<codeline lineno="35" refid="dc/db9/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__0_t_1ad438ab76248f00d39920829e92240c1c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__0_t_1ad438ab76248f00d39920829e92240c1c" kindref="member">Invoke_0T</ref>(<ref refid="dd/da8/interfaceorg_1_1xvm_1_1asm_1_1_argument" kindref="compound">Argument</ref><sp/>argTarget,<sp/><ref refid="d6/d7b/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_constant" kindref="compound">MethodConstant</ref><sp/>constMethod,<sp/><ref refid="dd/da8/interfaceorg_1_1xvm_1_1asm_1_1_argument" kindref="compound">Argument</ref><sp/>argReturn)<sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(argTarget,<sp/>constMethod);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/da4/classorg_1_1xvm_1_1asm_1_1_op_invocable_1a41107ee52aca804cfa8372d7b56efcf4" kindref="member">m_argReturn</ref><sp/>=<sp/>argReturn;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="dc/db9/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__0_t_1a0aacf4fdaff934e9d3253c1b0fe32de2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__0_t_1a0aacf4fdaff934e9d3253c1b0fe32de2" kindref="member">Invoke_0T</ref>(DataInput<sp/>in,<sp/><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref>[]<sp/>aconst)</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(in,<sp/>aconst);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/da4/classorg_1_1xvm_1_1asm_1_1_op_invocable_1a6b6c7f7003474e41784f206f983137e0" kindref="member">m_nRetValue</ref><sp/>=<sp/>readPackedInt(in);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="55" refid="dc/db9/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__0_t_1acab4f47424156454c2e1de8dc1355ff1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__0_t_1acab4f47424156454c2e1de8dc1355ff1" kindref="member">write</ref>(DataOutput<sp/>out,<sp/><ref refid="dd/d3d/classorg_1_1xvm_1_1asm_1_1_op_1_1_constant_registry" kindref="compound">ConstantRegistry</ref><sp/>registry)</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super.write(out,<sp/>registry);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d3/da4/classorg_1_1xvm_1_1asm_1_1_op_invocable_1a41107ee52aca804cfa8372d7b56efcf4" kindref="member">m_argReturn</ref><sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/da4/classorg_1_1xvm_1_1asm_1_1_op_invocable_1a6b6c7f7003474e41784f206f983137e0" kindref="member">m_nRetValue</ref><sp/>=<sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1ae13a7aa9786aa74ad20d3965517b168c" kindref="member">encodeArgument</ref>(<ref refid="d3/da4/classorg_1_1xvm_1_1asm_1_1_op_invocable_1a41107ee52aca804cfa8372d7b56efcf4" kindref="member">m_argReturn</ref>,<sp/>registry);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>writePackedLong(out,<sp/><ref refid="d3/da4/classorg_1_1xvm_1_1asm_1_1_op_invocable_1a6b6c7f7003474e41784f206f983137e0" kindref="member">m_nRetValue</ref>);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="67" refid="dc/db9/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__0_t_1aeac1ce49ea65243dc405da4b21c48954" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__0_t_1aeac1ce49ea65243dc405da4b21c48954" kindref="member">getOpCode</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1ab2b80e2e3dfbe4bc18873e841fd616f0" kindref="member">OP_NVOK_0T</ref>;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="72" refid="dc/db9/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__0_t_1ab280c7c51e10af2973425fbf63a63a22" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__0_t_1ab280c7c51e10af2973425fbf63a63a22" kindref="member">process</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frame,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iPC)<sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hTarget<sp/>=<sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a7d0b2d5bcb8b1cde338b2eec63bd4e3d" kindref="member">getArgument</ref>(<ref refid="d3/da4/classorg_1_1xvm_1_1asm_1_1_op_invocable_1ada0de7c0cea9c59ecd86779d65718e28" kindref="member">m_nTarget</ref>);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a6585d2f24036bf08119b8ee9ce8f781d" kindref="member">isDeferred</ref>(hTarget)</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>hTarget.<ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle_1ad5d8221113efecafa862d6050e6bac87" kindref="member">proceed</ref>(frame,<sp/>frameCaller<sp/>-&gt;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__0_t_1ade91f1eca63c0ea3111576f5c671b119" kindref="member">complete</ref>(frameCaller,<sp/>frameCaller.popStack()))</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="dc/db9/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__0_t_1ade91f1eca63c0ea3111576f5c671b119" kindref="member">complete</ref>(frame,<sp/>hTarget);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(<ref refid="da/d17/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_exception_handle" kindref="compound">ExceptionHandle</ref>.<ref refid="da/de5/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_exception_handle_1_1_wrapper_exception" kindref="compound">WrapperException</ref><sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1af0bf8b407c9c863fe95276b38ed323d6" kindref="member">raiseException</ref>(e);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85" refid="dc/db9/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__0_t_1ade91f1eca63c0ea3111576f5c671b119" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="dc/db9/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__0_t_1ade91f1eca63c0ea3111576f5c671b119" kindref="member">complete</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frame,<sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hTarget)<sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/da4/classorg_1_1xvm_1_1asm_1_1_op_invocable_1a47a8d5ab47f09343eff6a070a77bda5c" kindref="member">checkReturnTupleRegister</ref>(frame,<sp/>hTarget);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d3/da4/classorg_1_1xvm_1_1asm_1_1_op_invocable_1ad2f7b73a1f3dd0a5c5695fe02ca43b4c" kindref="member">getCallChain</ref>(frame,<sp/>hTarget).<ref refid="df/db4/classorg_1_1xvm_1_1runtime_1_1_call_chain_1aa2a2a926f784a81c031ed9d96190c4a6" kindref="member">invokeT</ref>(frame,<sp/>hTarget,<sp/><ref refid="d8/dee/classorg_1_1xvm_1_1runtime_1_1_utils" kindref="compound">Utils</ref>.<ref refid="d8/dee/classorg_1_1xvm_1_1runtime_1_1_utils_1aded48cc82c8bdd76f1249cedf0c301cb" kindref="member">OBJECTS_NONE</ref>,<sp/><ref refid="d3/da4/classorg_1_1xvm_1_1asm_1_1_op_invocable_1a6b6c7f7003474e41784f206f983137e0" kindref="member">m_nRetValue</ref>);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/op/Invoke_0T.java"/>
+  </compounddef>
+</doxygen>

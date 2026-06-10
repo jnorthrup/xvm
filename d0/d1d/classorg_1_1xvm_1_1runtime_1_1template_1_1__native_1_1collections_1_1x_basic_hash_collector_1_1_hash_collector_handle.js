@@ -1,0 +1,5 @@
+var classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1x_basic_hash_collector_1_1_hash_collector_handle =
+[
+    [ "HashCollectorHandle", "d0/d1d/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1x_basic_hash_collector_1_1_hash_collector_handle.html#aebd8694d376580cdde1c5a7f308f2ef5", null ],
+    [ "collector", "d0/d1d/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1x_basic_hash_collector_1_1_hash_collector_handle.html#abc237ab38efb0b5bf0cb7f06a2cee86f", null ]
+];

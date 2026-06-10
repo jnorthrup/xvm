@@ -1,0 +1,25 @@
+var classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_module =
+[
+    [ "xModule", "df/d48/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_module.html#ac30bad521cac8945fccf7a361f33bbaf", null ],
+    [ "createConstHandle", "df/d48/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_module.html#a345e0d45411733ebfbfff0ff6ff8c3b4", null ],
+    [ "ensureArrayComposition", "df/d48/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_module.html#a7b6368ec778c89b5e222bef979c8b0f1", null ],
+    [ "ensureEmptyArray", "df/d48/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_module.html#a962c92c1daa9ca546bf407154afe5b1e", null ],
+    [ "ensureListMapType", "df/d48/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_module.html#a9d7c05509f9f07aa547a8bc708fb7a4c", null ],
+    [ "getPropertyModulesByPath", "df/d48/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_module.html#a24130b9703061c434aeec9440ccd6f0a", null ],
+    [ "getPropertyQualifiedName", "df/d48/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_module.html#a1b5aa9ec2ad2d96e62d2dd5fe09a0e51", null ],
+    [ "getPropertySimpleName", "df/d48/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_module.html#abcc25c077f2b2715ddab117e0bd433ae", null ],
+    [ "getPropertyVersion", "df/d48/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_module.html#a5ce02076260402f60dcaaca5d032e919", null ],
+    [ "initNative", "df/d48/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_module.html#a9a8b7e1ddfc047d514be91c8ba31d488", null ],
+    [ "invokeClassForName", "df/d48/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_module.html#ac9c8f2ddfcba4f005537e061847c9d89", null ],
+    [ "invokeNativeGet", "df/d48/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_module.html#ab08dc9c380220aa13c03f393ea30212d", null ],
+    [ "invokeNativeNN", "df/d48/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_module.html#ae971bc70e6cae33440498580a429a214", null ],
+    [ "invokeTypeForName", "df/d48/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_module.html#a8080f295da5c23906aba9b2577a427ad", null ],
+    [ "resolveClass", "df/d48/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_module.html#a0968b0e9f538c69a8a6799611e505860", null ],
+    [ "resolveClassOrType", "df/d48/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_module.html#aa227a634d099912d56a38363f8e4f08c", null ],
+    [ "resolveType", "df/d48/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_module.html#ae5c7ad412b79e8f083070abf56166b39", null ],
+    [ "EMPTY_MODULE_ARRAY", "df/d48/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_module.html#a729bf3e059a194326b885653a1823514", null ],
+    [ "INSTANCE", "df/d48/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_module.html#ae8d25a34ed14f71a7270eda701849436", null ],
+    [ "LISTMAP_TYPE", "df/d48/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_module.html#a43c59e19c043f364b8c04142d92fd179", null ],
+    [ "MODULE_ARRAY_TYPE", "df/d48/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_module.html#a532eb57a5ced50d2b018cd9ecaa3923d", null ],
+    [ "VERSION_DEFAULT", "df/d48/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_module.html#ad2695bd88d8670b82aea771a84c9329b", null ]
+];

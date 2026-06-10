@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d6/df5/_runtime_8java" kind="file" language="Java">
+    <compoundname>Runtime.java</compoundname>
+    <includes local="no">java.util.HashSet</includes>
+    <includes local="no">java.util.Map</includes>
+    <includes local="no">java.util.Set</includes>
+    <includes local="no">java.util.WeakHashMap</includes>
+    <includes local="no">java.util.concurrent.ThreadFactory</includes>
+    <includes local="no">java.util.concurrent.ThreadPoolExecutor</includes>
+    <includes local="no">java.util.concurrent.TimeUnit</includes>
+    <includes local="no">java.util.concurrent.atomic.AtomicLong</includes>
+    <includes local="no">org.xvm.asm.ConstantPool</includes>
+    <includes local="no">org.xvm.util.concurrent.ConcurrentLinkedBlockingQueue</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java</label>
+        <link refid="d6/df5/_runtime_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.util.HashSet</label>
+      </node>
+      <node id="3">
+        <label>java.util.Map</label>
+      </node>
+      <node id="4">
+        <label>java.util.Set</label>
+      </node>
+      <node id="5">
+        <label>java.util.WeakHashMap</label>
+      </node>
+      <node id="6">
+        <label>java.util.concurrent.ThreadFactory</label>
+      </node>
+      <node id="7">
+        <label>java.util.concurrent.ThreadPoolExecutor</label>
+      </node>
+      <node id="8">
+        <label>java.util.concurrent.TimeUnit</label>
+      </node>
+      <node id="9">
+        <label>java.util.concurrent.atomic.AtomicLong</label>
+      </node>
+      <node id="10">
+        <label>org.xvm.asm.ConstantPool</label>
+      </node>
+      <node id="11">
+        <label>org.xvm.util.concurrent.ConcurrentLinkedBlockingQueue</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime" prot="public">org::xvm::runtime::Runtime</innerclass>
+    <innernamespace refid="d5/da0/namespaceorg_1_1xvm_1_1runtime">org::xvm::runtime</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.runtime;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.HashSet;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Map;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Set;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.WeakHashMap;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.concurrent.ThreadFactory;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.concurrent.ThreadPoolExecutor;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.concurrent.TimeUnit;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.concurrent.atomic.AtomicLong;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ConstantPool;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.util.concurrent.ConcurrentLinkedBlockingQueue;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ac98c7ffdc616aa4e98161b792c4c1d87" kindref="member">Runtime</ref><sp/>{</highlight></codeline>
+<codeline lineno="24" refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ac98c7ffdc616aa4e98161b792c4c1d87" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ac98c7ffdc616aa4e98161b792c4c1d87" kindref="member">Runtime</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>parallelism<sp/>=<sp/>Integer.parseInt(System.getProperty(</highlight><highlight class="stringliteral">&quot;xvm.parallelism&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;0&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(parallelism<sp/>&lt;=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>parallelism<sp/>=<sp/>java.lang.Runtime.getRuntime().availableProcessors();</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ThreadGroup<sp/>groupXVM<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ThreadGroup(</highlight><highlight class="stringliteral">&quot;XVM&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ThreadFactory<sp/>factoryXVM<sp/>=<sp/>r<sp/>-&gt;<sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Thread<sp/>thread<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Thread(groupXVM,<sp/>r);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>thread.setDaemon(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>thread.setName(</highlight><highlight class="stringliteral">&quot;XvmWorker@&quot;</highlight><highlight class="normal"><sp/>+<sp/>thread.hashCode());</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>thread;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>replace<sp/>with<sp/>a<sp/>fair<sp/>scheduling<sp/>based<sp/>ExecutorService</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1aeca84620cac19b8680c18827757387d0" kindref="member">f_executorXVM</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ThreadPoolExecutor(parallelism,<sp/>parallelism,<sp/>0,<sp/>TimeUnit.SECONDS,</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="df/db2/classorg_1_1xvm_1_1util_1_1concurrent_1_1_concurrent_linked_blocking_queue" kindref="compound">ConcurrentLinkedBlockingQueue&lt;&gt;</ref>(),<sp/>factoryXVM);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ThreadGroup<sp/>groupIO<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ThreadGroup(</highlight><highlight class="stringliteral">&quot;IO&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ThreadFactory<sp/>factoryIO<sp/>=<sp/>r<sp/>-&gt;<sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Thread<sp/>thread<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Thread(groupIO,<sp/>r);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>thread.setDaemon(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>thread.setName(</highlight><highlight class="stringliteral">&quot;IOWorker@&quot;</highlight><highlight class="normal"><sp/>+<sp/>thread.hashCode());</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>thread;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a2e20b1ce6fba656df2fa086d2be4751c" kindref="member">f_executorIO</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ThreadPoolExecutor(parallelism,<sp/>1024,<sp/>0,<sp/>TimeUnit.SECONDS,</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="df/db2/classorg_1_1xvm_1_1util_1_1concurrent_1_1_concurrent_linked_blocking_queue" kindref="compound">ConcurrentLinkedBlockingQueue&lt;&gt;</ref>(),<sp/>factoryIO);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a266593b2fc56d14b319aee064b2e8a91" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a266593b2fc56d14b319aee064b2e8a91" kindref="member">start</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a9175ef4d41bc3970a945589915cecb8d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a9175ef4d41bc3970a945589915cecb8d" kindref="member">registerContainer</ref>(<ref refid="d1/df8/classorg_1_1xvm_1_1runtime_1_1_container" kindref="compound">Container</ref><sp/>container)<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">synchronized</highlight><highlight class="normal"><sp/>(<ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ab7ec2f65a4290d18a3ed28692eb52aca" kindref="member">f_containers</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ab7ec2f65a4290d18a3ed28692eb52aca" kindref="member">f_containers</ref>.putIfAbsent(container,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69" refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ac20b59781d2fc471d6cb28cc5430144f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Set&lt;Container&gt;<sp/><ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ac20b59781d2fc471d6cb28cc5430144f" kindref="member">containers</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">synchronized</highlight><highlight class="normal"><sp/>(<ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ab7ec2f65a4290d18a3ed28692eb52aca" kindref="member">f_containers</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>HashSet&lt;&gt;(<ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ab7ec2f65a4290d18a3ed28692eb52aca" kindref="member">f_containers</ref>.keySet());</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78" refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a1ad6d2948e760a16c0f47f6cf29d7098" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d1/df8/classorg_1_1xvm_1_1runtime_1_1_container" kindref="compound">Container</ref><sp/><ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a1ad6d2948e760a16c0f47f6cf29d7098" kindref="member">findContainer</ref>(<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref><sp/>pool)<sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="d1/df8/classorg_1_1xvm_1_1runtime_1_1_container" kindref="compound">Container</ref><sp/>container<sp/>:<sp/><ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ab7ec2f65a4290d18a3ed28692eb52aca" kindref="member">f_containers</ref>.keySet())<sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(container.getConstantPool()<sp/>==<sp/>pool)<sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>container;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92" refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a276060f5d0262fffbb388a01366909f8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a276060f5d0262fffbb388a01366909f8" kindref="member">submitService</ref>(Runnable<sp/>task)<sp/>{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1aeca84620cac19b8680c18827757387d0" kindref="member">f_executorXVM</ref>.submit(task);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ad8e1d93ea0a777fef17fcce21eb84479" kindref="member">m_lastXvmSubmitNanos</ref><sp/>=<sp/>System.nanoTime();</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102" refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a5850fcb5c3803f10dcab6f3ab684efa3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a5850fcb5c3803f10dcab6f3ab684efa3" kindref="member">submitIO</ref>(Runnable<sp/>task)<sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a2e20b1ce6fba656df2fa086d2be4751c" kindref="member">f_executorIO</ref>.submit(task);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109" refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ad94180c06d188c08c1f604dee9bf6d11" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ad94180c06d188c08c1f604dee9bf6d11" kindref="member">makeUniqueId</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a1db6b19c2ca7fd70a974e4a0b5aaca6e" kindref="member">f_idProducer</ref>.getAndIncrement();</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113" refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a7355b633e9b6fcb6ddbe3d0d05c5f638" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a7355b633e9b6fcb6ddbe3d0d05c5f638" kindref="member">shutdownXVM</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a2e20b1ce6fba656df2fa086d2be4751c" kindref="member">f_executorIO</ref><sp/>.shutdown();</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1aeca84620cac19b8680c18827757387d0" kindref="member">f_executorXVM</ref>.shutdown();</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118" refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a7f5d36149c863403931e18a87a282608" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a7f5d36149c863403931e18a87a282608" kindref="member">isIdle</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>very<sp/>naive;<sp/>replace</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ad8e1d93ea0a777fef17fcce21eb84479" kindref="member">m_lastXvmSubmitNanos</ref><sp/>&lt;<sp/>System.nanoTime()<sp/>-<sp/>TimeUnit.MILLISECONDS.toNanos(10)</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;&amp;<sp/><ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1aeca84620cac19b8680c18827757387d0" kindref="member">f_executorXVM</ref>.getActiveCount()<sp/>==<sp/>0;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124" refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a70c7b854ab274a5542eb790dcb0f4ba0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a70c7b854ab274a5542eb790dcb0f4ba0" kindref="member">isDebuggerActive</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a352ae4666d7b7b9e134991366b4cff8d" kindref="member">m_fDebugger</ref>;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128" refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a348314e041c9aed47100d4a0d5533490" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a348314e041c9aed47100d4a0d5533490" kindref="member">setDebuggerActive</ref>(</highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>fActive)<sp/>{</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a352ae4666d7b7b9e134991366b4cff8d" kindref="member">m_fDebugger</ref><sp/>=<sp/>fActive;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>constants<sp/>and<sp/>fields<sp/>------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138" refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1aeca84620cac19b8680c18827757387d0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>ThreadPoolExecutor<sp/><ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1aeca84620cac19b8680c18827757387d0" kindref="member">f_executorXVM</ref>;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143" refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a2e20b1ce6fba656df2fa086d2be4751c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>ThreadPoolExecutor<sp/><ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a2e20b1ce6fba656df2fa086d2be4751c" kindref="member">f_executorIO</ref>;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148" refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ab7ec2f65a4290d18a3ed28692eb52aca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Map&lt;Container,<sp/>Object&gt;<sp/><ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ab7ec2f65a4290d18a3ed28692eb52aca" kindref="member">f_containers</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>WeakHashMap&lt;&gt;();</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153" refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a1db6b19c2ca7fd70a974e4a0b5aaca6e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>AtomicLong<sp/><ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a1db6b19c2ca7fd70a974e4a0b5aaca6e" kindref="member">f_idProducer</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>AtomicLong();</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158" refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ad8e1d93ea0a777fef17fcce21eb84479" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ad8e1d93ea0a777fef17fcce21eb84479" kindref="member">m_lastXvmSubmitNanos</ref>;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163" refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a352ae4666d7b7b9e134991366b4cff8d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a352ae4666d7b7b9e134991366b4cff8d" kindref="member">m_fDebugger</ref>;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java"/>
+  </compounddef>
+</doxygen>

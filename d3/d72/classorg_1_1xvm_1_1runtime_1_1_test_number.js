@@ -1,0 +1,27 @@
+var classorg_1_1xvm_1_1runtime_1_1_test_number =
+[
+    [ "longAdd", "d3/d72/classorg_1_1xvm_1_1runtime_1_1_test_number.html#a47be92c58ae83d8e726629268105283b", null ],
+    [ "longSub", "d3/d72/classorg_1_1xvm_1_1runtime_1_1_test_number.html#a7038e57f4387c949b4eb8f56e6db584a", null ],
+    [ "longUnsignedAdd", "d3/d72/classorg_1_1xvm_1_1runtime_1_1_test_number.html#aab0705149cf446d4840f96fe76d5dab7", null ],
+    [ "longUnsignedSub", "d3/d72/classorg_1_1xvm_1_1runtime_1_1_test_number.html#a186e8d3bc7a60574da679603138fff4f", null ],
+    [ "test128Signed", "d3/d72/classorg_1_1xvm_1_1runtime_1_1_test_number.html#a50d28fc83aee570ddb3a215d5d913076", null ],
+    [ "test128Unsigned", "d3/d72/classorg_1_1xvm_1_1runtime_1_1_test_number.html#a62568866dec4555927d5ed91823e3851", null ],
+    [ "test32Signed", "d3/d72/classorg_1_1xvm_1_1runtime_1_1_test_number.html#acad06b1a869379b00a16f602d2f9baf7", null ],
+    [ "test32Unsigned", "d3/d72/classorg_1_1xvm_1_1runtime_1_1_test_number.html#a33f81f0959df35decee62c1716bca771", null ],
+    [ "test64Signed", "d3/d72/classorg_1_1xvm_1_1runtime_1_1_test_number.html#ac5069598829dc582c533f99976ca61fc", null ],
+    [ "test64Unsigned", "d3/d72/classorg_1_1xvm_1_1runtime_1_1_test_number.html#a318a6248f87cb22970f6195e2c0e0542", null ],
+    [ "MAX128", "d3/d72/classorg_1_1xvm_1_1runtime_1_1_test_number.html#af9ea0f4a4f414ff815c41a3fba813627", null ],
+    [ "MAX128L", "d3/d72/classorg_1_1xvm_1_1runtime_1_1_test_number.html#aaea9d83e7d5afa6f86e3034ed605bb20", null ],
+    [ "MAX31U", "d3/d72/classorg_1_1xvm_1_1runtime_1_1_test_number.html#ae1cc3d7d8b383791892aa2fa605836aa", null ],
+    [ "MAX32", "d3/d72/classorg_1_1xvm_1_1runtime_1_1_test_number.html#a67f102b9e965c559a3636ca855e6e79f", null ],
+    [ "MAX32U", "d3/d72/classorg_1_1xvm_1_1runtime_1_1_test_number.html#ae4365c5e604202c31339cc3e2c5ec695", null ],
+    [ "MAX63U", "d3/d72/classorg_1_1xvm_1_1runtime_1_1_test_number.html#a01971a401c41d01607c46d54d62df24a", null ],
+    [ "MAX64", "d3/d72/classorg_1_1xvm_1_1runtime_1_1_test_number.html#a5876b9818f5476d956860999b0d68e33", null ],
+    [ "MAX64U", "d3/d72/classorg_1_1xvm_1_1runtime_1_1_test_number.html#ab73fdd824211ae2b7fda36e6a9c07db8", null ],
+    [ "MIN128", "d3/d72/classorg_1_1xvm_1_1runtime_1_1_test_number.html#a0081c7d806e30819241a6384e3559ee2", null ],
+    [ "MIN128H", "d3/d72/classorg_1_1xvm_1_1runtime_1_1_test_number.html#ac3b0c504b0bec5a41bcf0fad722883d6", null ],
+    [ "MIN32", "d3/d72/classorg_1_1xvm_1_1runtime_1_1_test_number.html#a5535bd73e777427fb3def607c1c4f15b", null ],
+    [ "MIN32H", "d3/d72/classorg_1_1xvm_1_1runtime_1_1_test_number.html#ac2df8634bef1c2af45a5e95c98231d30", null ],
+    [ "MIN64", "d3/d72/classorg_1_1xvm_1_1runtime_1_1_test_number.html#abc20b0240b73fe1fe2e02f8896ebc8e5", null ],
+    [ "MIN64H", "d3/d72/classorg_1_1xvm_1_1runtime_1_1_test_number.html#ae51a3f9297051ed6429bed6cde45ebff", null ]
+];

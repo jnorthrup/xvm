@@ -1,0 +1,6 @@
+var enumorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_type_template_1_1_create_annotation_composition_1_1_stage =
+[
+    [ "Argument", "dd/d93/enumorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_type_template_1_1_create_annotation_composition_1_1_stage.html#ad038d32ba4ccf32b120f8f9bbc6ae2d2", null ],
+    [ "ArgValue", "dd/d93/enumorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_type_template_1_1_create_annotation_composition_1_1_stage.html#ae76e7403467b4e5f9dd1501af847f731", null ],
+    [ "Template", "dd/d93/enumorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_type_template_1_1_create_annotation_composition_1_1_stage.html#ad0e061f673c467b53ceca7427f937d0a", null ]
+];

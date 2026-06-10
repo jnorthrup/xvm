@@ -1,0 +1,236 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="de/dc3/_invoke__1_n_8java" kind="file" language="Java">
+    <compoundname>Invoke_1N.java</compoundname>
+    <includes local="no">java.io.DataInput</includes>
+    <includes local="no">java.io.DataOutput</includes>
+    <includes local="no">java.io.IOException</includes>
+    <includes local="no">java.lang.classfile.CodeBuilder</includes>
+    <includes local="no">org.xvm.asm.Argument</includes>
+    <includes local="no">org.xvm.asm.Constant</includes>
+    <includes local="no">org.xvm.asm.OpInvocable</includes>
+    <includes local="no">org.xvm.asm.constants.MethodConstant</includes>
+    <includes local="no">org.xvm.javajit.BuildContext</includes>
+    <includes local="no">org.xvm.runtime.Frame</includes>
+    <includes local="no">org.xvm.runtime.ObjectHandle</includes>
+    <includes local="no">org.xvm.runtime.ObjectHandle.ExceptionHandle</includes>
+    <includes local="no">org.xvm.util.Handy.readPackedInt</includes>
+    <includes local="no">org.xvm.util.Handy.writePackedLong</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/op/Invoke_1N.java</label>
+        <link refid="de/dc3/_invoke__1_n_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.io.DataInput</label>
+      </node>
+      <node id="3">
+        <label>java.io.DataOutput</label>
+      </node>
+      <node id="4">
+        <label>java.io.IOException</label>
+      </node>
+      <node id="5">
+        <label>java.lang.classfile.CodeBuilder</label>
+      </node>
+      <node id="6">
+        <label>org.xvm.asm.Argument</label>
+      </node>
+      <node id="7">
+        <label>org.xvm.asm.Constant</label>
+      </node>
+      <node id="8">
+        <label>org.xvm.asm.OpInvocable</label>
+      </node>
+      <node id="9">
+        <label>org.xvm.asm.constants.MethodConstant</label>
+      </node>
+      <node id="10">
+        <label>org.xvm.javajit.BuildContext</label>
+      </node>
+      <node id="11">
+        <label>org.xvm.runtime.Frame</label>
+      </node>
+      <node id="12">
+        <label>org.xvm.runtime.ObjectHandle</label>
+      </node>
+      <node id="13">
+        <label>org.xvm.runtime.ObjectHandle.ExceptionHandle</label>
+      </node>
+      <node id="14">
+        <label>org.xvm.util.Handy.readPackedInt</label>
+      </node>
+      <node id="15">
+        <label>org.xvm.util.Handy.writePackedLong</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n" prot="public">org::xvm::asm::op::Invoke_1N</innerclass>
+    <innernamespace refid="d5/d78/namespaceorg_1_1xvm_1_1asm_1_1op">org::xvm::asm::op</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.asm.op;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.DataInput;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.DataOutput;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.IOException;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.classfile.CodeBuilder;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Argument;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Constant;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.OpInvocable;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.constants.MethodConstant;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.javajit.BuildContext;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.Frame;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.ObjectHandle;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.ObjectHandle.ExceptionHandle;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.util.Handy.readPackedInt;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.util.Handy.writePackedLong;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1aa285665e7018153da8de80ef5198bdd2" kindref="member">Invoke_1N</ref></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="d3/da4/classorg_1_1xvm_1_1asm_1_1_op_invocable_1a7db3dca9a87c5c19dac2f03e144927c6" kindref="member">OpInvocable</ref><sp/>{</highlight></codeline>
+<codeline lineno="37" refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1aa285665e7018153da8de80ef5198bdd2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1aa285665e7018153da8de80ef5198bdd2" kindref="member">Invoke_1N</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nTarget,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nMethodId,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nArg,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">[]<sp/>anRet)<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super((<ref refid="dd/da8/interfaceorg_1_1xvm_1_1asm_1_1_argument" kindref="compound">Argument</ref>)<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/da4/classorg_1_1xvm_1_1asm_1_1_op_invocable_1ada0de7c0cea9c59ecd86779d65718e28" kindref="member">m_nTarget</ref><sp/>=<sp/>nTarget;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/da4/classorg_1_1xvm_1_1asm_1_1_op_invocable_1aea0174438d0a44a5b7916fefba99854f" kindref="member">m_nMethodId</ref><sp/>=<sp/>nMethodId;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1aa583b15fd86036af7443fd85cec3d88a" kindref="member">m_nArgValue</ref><sp/>=<sp/>nArg;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/da4/classorg_1_1xvm_1_1asm_1_1_op_invocable_1a4112d689fd285adcceb5e8afa1e7b64d" kindref="member">m_anRetValue</ref><sp/>=<sp/>anRet;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1af87a23ea6c3f178bb84fee6edfcb565b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1af87a23ea6c3f178bb84fee6edfcb565b" kindref="member">Invoke_1N</ref>(<ref refid="dd/da8/interfaceorg_1_1xvm_1_1asm_1_1_argument" kindref="compound">Argument</ref><sp/>argTarget,<sp/><ref refid="d6/d7b/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_constant" kindref="compound">MethodConstant</ref><sp/>constMethod,<sp/><ref refid="dd/da8/interfaceorg_1_1xvm_1_1asm_1_1_argument" kindref="compound">Argument</ref><sp/>argValue,<sp/><ref refid="dd/da8/interfaceorg_1_1xvm_1_1asm_1_1_argument" kindref="compound">Argument</ref>[]<sp/>aArgReturn)<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(argTarget,<sp/>constMethod);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1aa138dc6ada74b3fa2acf3296f2ee16d8" kindref="member">m_argValue</ref><sp/>=<sp/>argValue;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/da4/classorg_1_1xvm_1_1asm_1_1_op_invocable_1a6a4a983e334e8db3ea56e03bad59ac39" kindref="member">m_aArgReturn</ref><sp/>=<sp/>aArgReturn;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1a41adf919cf88863684f0466f60d3e9fd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1a41adf919cf88863684f0466f60d3e9fd" kindref="member">Invoke_1N</ref>(DataInput<sp/>in,<sp/><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref>[]<sp/>aconst)</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(in,<sp/>aconst);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1aa583b15fd86036af7443fd85cec3d88a" kindref="member">m_nArgValue</ref><sp/>=<sp/>readPackedInt(in);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/da4/classorg_1_1xvm_1_1asm_1_1_op_invocable_1a4112d689fd285adcceb5e8afa1e7b64d" kindref="member">m_anRetValue</ref><sp/>=<sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a804201231fcd4aae5087671decd4f24d" kindref="member">readIntArray</ref>(in);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="76" refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1ab62a0edf5ee2aaa4320ed712f0cd1601" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1ab62a0edf5ee2aaa4320ed712f0cd1601" kindref="member">write</ref>(DataOutput<sp/>out,<sp/><ref refid="dd/d3d/classorg_1_1xvm_1_1asm_1_1_op_1_1_constant_registry" kindref="compound">ConstantRegistry</ref><sp/>registry)</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super.write(out,<sp/>registry);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1aa138dc6ada74b3fa2acf3296f2ee16d8" kindref="member">m_argValue</ref><sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1aa583b15fd86036af7443fd85cec3d88a" kindref="member">m_nArgValue</ref><sp/>=<sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1ae13a7aa9786aa74ad20d3965517b168c" kindref="member">encodeArgument</ref>(<ref refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1aa138dc6ada74b3fa2acf3296f2ee16d8" kindref="member">m_argValue</ref>,<sp/>registry);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/da4/classorg_1_1xvm_1_1asm_1_1_op_invocable_1a4112d689fd285adcceb5e8afa1e7b64d" kindref="member">m_anRetValue</ref><sp/>=<sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1aadb2fca2f2cfc547a082b77491f0fb12" kindref="member">encodeArguments</ref>(<ref refid="d3/da4/classorg_1_1xvm_1_1asm_1_1_op_invocable_1a6a4a983e334e8db3ea56e03bad59ac39" kindref="member">m_aArgReturn</ref>,<sp/>registry);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>writePackedLong(out,<sp/><ref refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1aa583b15fd86036af7443fd85cec3d88a" kindref="member">m_nArgValue</ref>);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a8afe6e3e8e9c568c6fafb5baa5cab555" kindref="member">writeIntArray</ref>(out,<sp/><ref refid="d3/da4/classorg_1_1xvm_1_1asm_1_1_op_invocable_1a4112d689fd285adcceb5e8afa1e7b64d" kindref="member">m_anRetValue</ref>);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="90" refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1a1d87975cb86bf15b44f4674ecc782865" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1a1d87975cb86bf15b44f4674ecc782865" kindref="member">getOpCode</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1ae9ef325ff9843e897239a098f7edd86d" kindref="member">OP_NVOK_1N</ref>;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="95" refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1a24cc3629410a0cd43a31b6e2f4c1cc5e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1a24cc3629410a0cd43a31b6e2f4c1cc5e" kindref="member">isMultiReturn</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="100" refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1a95140310ba317ac58c76c4be225f8df1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1a95140310ba317ac58c76c4be225f8df1" kindref="member">process</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frame,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iPC)<sp/>{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hTarget<sp/>=<sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a7d0b2d5bcb8b1cde338b2eec63bd4e3d" kindref="member">getArgument</ref>(<ref refid="d3/da4/classorg_1_1xvm_1_1asm_1_1_op_invocable_1ada0de7c0cea9c59ecd86779d65718e28" kindref="member">m_nTarget</ref>);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hArg<sp/><sp/><sp/><sp/>=<sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a7d0b2d5bcb8b1cde338b2eec63bd4e3d" kindref="member">getArgument</ref>(<ref refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1aa583b15fd86036af7443fd85cec3d88a" kindref="member">m_nArgValue</ref>);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a6585d2f24036bf08119b8ee9ce8f781d" kindref="member">isDeferred</ref>(hTarget)</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>hTarget.<ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle_1ad5d8221113efecafa862d6050e6bac87" kindref="member">proceed</ref>(frame,<sp/>frameCaller<sp/>-&gt;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1a6d8dc54ddfc4ff891ec21639dc812905" kindref="member">resolveArg</ref>(frameCaller,<sp/>frameCaller.popStack(),<sp/>hArg))</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1a6d8dc54ddfc4ff891ec21639dc812905" kindref="member">resolveArg</ref>(frame,<sp/>hTarget,<sp/>hArg);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(<ref refid="da/d17/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_exception_handle" kindref="compound">ExceptionHandle</ref>.<ref refid="da/de5/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_exception_handle_1_1_wrapper_exception" kindref="compound">WrapperException</ref><sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1af0bf8b407c9c863fe95276b38ed323d6" kindref="member">raiseException</ref>(e);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114" refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1a6d8dc54ddfc4ff891ec21639dc812905" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1a6d8dc54ddfc4ff891ec21639dc812905" kindref="member">resolveArg</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frame,<sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hTarget,<sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hArg)<sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a6585d2f24036bf08119b8ee9ce8f781d" kindref="member">isDeferred</ref>(hArg)</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>hArg.<ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle_1ad5d8221113efecafa862d6050e6bac87" kindref="member">proceed</ref>(frame,<sp/>frameCaller<sp/>-&gt;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1a73fbf01f838599fd4aa9d05e6914b944" kindref="member">complete</ref>(frameCaller,<sp/>hTarget,<sp/>frameCaller.popStack()))</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1a73fbf01f838599fd4aa9d05e6914b944" kindref="member">complete</ref>(frame,<sp/>hTarget,<sp/>hArg);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121" refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1a73fbf01f838599fd4aa9d05e6914b944" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1a73fbf01f838599fd4aa9d05e6914b944" kindref="member">complete</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frame,<sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hTarget,<sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hArg)<sp/>{</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/da4/classorg_1_1xvm_1_1asm_1_1_op_invocable_1a850d911969880df2c442b54180d2db4c" kindref="member">checkReturnRegisters</ref>(frame,<sp/>hTarget);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d3/da4/classorg_1_1xvm_1_1asm_1_1_op_invocable_1ad2f7b73a1f3dd0a5c5695fe02ca43b4c" kindref="member">getCallChain</ref>(frame,<sp/>hTarget).<ref refid="df/db4/classorg_1_1xvm_1_1runtime_1_1_call_chain_1a262725683ab3f7ae6aef19504cec5744" kindref="member">invoke</ref>(frame,<sp/>hTarget,<sp/>hArg,<sp/><ref refid="d3/da4/classorg_1_1xvm_1_1asm_1_1_op_invocable_1a4112d689fd285adcceb5e8afa1e7b64d" kindref="member">m_anRetValue</ref>);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="128" refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1a2d3fca2a8bde8cb35e88478106c30d0a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1a2d3fca2a8bde8cb35e88478106c30d0a" kindref="member">registerConstants</ref>(<ref refid="dd/d3d/classorg_1_1xvm_1_1asm_1_1_op_1_1_constant_registry" kindref="compound">ConstantRegistry</ref><sp/>registry)<sp/>{</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super.registerConstants(registry);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1aa138dc6ada74b3fa2acf3296f2ee16d8" kindref="member">m_argValue</ref><sp/>=<sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1ae950fbb2b8b6e5a82d788a1824afb06b" kindref="member">registerArgument</ref>(<ref refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1aa138dc6ada74b3fa2acf3296f2ee16d8" kindref="member">m_argValue</ref>,<sp/>registry);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="135" refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1ad677dcb8384287d5327b197e3a892660" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>String<sp/><ref refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1ad677dcb8384287d5327b197e3a892660" kindref="member">getParamsString</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dd/da8/interfaceorg_1_1xvm_1_1asm_1_1_argument" kindref="compound">Argument</ref>.<ref refid="dd/da8/interfaceorg_1_1xvm_1_1asm_1_1_argument_1a0e636964ea97dfaf921b944339628dee" kindref="member">toIdString</ref>(<ref refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1aa138dc6ada74b3fa2acf3296f2ee16d8" kindref="member">m_argValue</ref>,<sp/><ref refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1aa583b15fd86036af7443fd85cec3d88a" kindref="member">m_nArgValue</ref>);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>JIT<sp/>support<sp/>---------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="142" refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1af94ed2b5b892ba688d3b2bc590e2b0bd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1af94ed2b5b892ba688d3b2bc590e2b0bd" kindref="member">computeTypes</ref>(<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref><sp/>bctx)<sp/>{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/da4/classorg_1_1xvm_1_1asm_1_1_op_invocable_1ae92c9473d0023229be967ab11ff48c03" kindref="member">computeInvokeTypes</ref>(bctx,<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">[]<sp/>{<ref refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1aa583b15fd86036af7443fd85cec3d88a" kindref="member">m_nArgValue</ref>});</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="147" refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1a2005acb544d413e8564956a9706bf5c4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1a2005acb544d413e8564956a9706bf5c4" kindref="member">build</ref>(<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref><sp/>bctx,<sp/>CodeBuilder<sp/>code)<sp/>{</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d3/da4/classorg_1_1xvm_1_1asm_1_1_op_invocable_1a93e30bed6c0595c6fea063250b05d877" kindref="member">buildInvoke</ref>(bctx,<sp/>code,<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">[]<sp/>{<ref refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1aa583b15fd86036af7443fd85cec3d88a" kindref="member">m_nArgValue</ref>});</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>fields<sp/>--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153" refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1aa583b15fd86036af7443fd85cec3d88a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1aa583b15fd86036af7443fd85cec3d88a" kindref="member">m_nArgValue</ref>;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155" refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1aa138dc6ada74b3fa2acf3296f2ee16d8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="dd/da8/interfaceorg_1_1xvm_1_1asm_1_1_argument" kindref="compound">Argument</ref><sp/><ref refid="dc/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_invoke__1_n_1aa138dc6ada74b3fa2acf3296f2ee16d8" kindref="member">m_argValue</ref>;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/op/Invoke_1N.java"/>
+  </compounddef>
+</doxygen>

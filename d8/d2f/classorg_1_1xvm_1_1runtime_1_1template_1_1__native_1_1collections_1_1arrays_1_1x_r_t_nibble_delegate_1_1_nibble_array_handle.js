@@ -1,0 +1,7 @@
+var classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_nibble_delegate_1_1_nibble_array_handle =
+[
+    [ "NibbleArrayHandle", "d8/d2f/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_nibble_delegate_1_1_nibble_array_handle.html#ab64313f9588af51fe4b7e40d13a5253b", null ],
+    [ "compareTo", "d8/d2f/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_nibble_delegate_1_1_nibble_array_handle.html#a5987401f5a0a6bee515c4f4f194d132e", null ],
+    [ "getBitCount", "d8/d2f/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_nibble_delegate_1_1_nibble_array_handle.html#a2c01e68018595ae749e7c85b0dd2970d", null ],
+    [ "purgeUnusedSpace", "d8/d2f/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_nibble_delegate_1_1_nibble_array_handle.html#a1c5deedfe44fc9cf4d4513137a8ebf73", null ]
+];

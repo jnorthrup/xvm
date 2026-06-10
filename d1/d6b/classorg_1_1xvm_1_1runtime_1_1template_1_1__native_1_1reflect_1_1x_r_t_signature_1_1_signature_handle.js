@@ -1,0 +1,25 @@
+var classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_signature_1_1_signature_handle =
+[
+    [ "SignatureHandle", "d1/d6b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_signature_1_1_signature_handle.html#addf4c90b840a01ce4d276c363c575808", null ],
+    [ "SignatureHandle", "d1/d6b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_signature_1_1_signature_handle.html#a2ebc8c7d600fee238815eab6e7b602b9", null ],
+    [ "getMethod", "d1/d6b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_signature_1_1_signature_handle.html#a0e9329e090480ac02c3fcb666974670c", null ],
+    [ "getMethodId", "d1/d6b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_signature_1_1_signature_handle.html#ae8cbf7e8a9d301ad845615bbd368aa06", null ],
+    [ "getName", "d1/d6b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_signature_1_1_signature_handle.html#a734c0faef91ae717bfbb12bc5ac20e1f", null ],
+    [ "getParam", "d1/d6b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_signature_1_1_signature_handle.html#a2525147c71e5df45a7ad03c00b17f695", null ],
+    [ "getParamCount", "d1/d6b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_signature_1_1_signature_handle.html#ab5e96785e8e98160ffb25b2e39f35e3f", null ],
+    [ "getParamType", "d1/d6b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_signature_1_1_signature_handle.html#a1d1927369798ca48f549a984eb5cef34", null ],
+    [ "getParamTypes", "d1/d6b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_signature_1_1_signature_handle.html#ac59b9fa175e8b534978eb39195a2a353", null ],
+    [ "getReturn", "d1/d6b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_signature_1_1_signature_handle.html#a7815f91e97ddfbf71cf991a596123e0c", null ],
+    [ "getReturnCount", "d1/d6b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_signature_1_1_signature_handle.html#a0cb386cb0d43cebd15f93950c5705e3e", null ],
+    [ "getReturnType", "d1/d6b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_signature_1_1_signature_handle.html#a9f634a956d96986bd9790e8beabdcc79", null ],
+    [ "getReturnTypes", "d1/d6b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_signature_1_1_signature_handle.html#a04e3c03925a2d92695c9f0c4c57fff2e", null ],
+    [ "getType", "d1/d6b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_signature_1_1_signature_handle.html#a98dc3f783f1df01390a5dd760f6f12d2", null ],
+    [ "getVarCount", "d1/d6b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_signature_1_1_signature_handle.html#a641e1558530c5d2eae51870799c18564", null ],
+    [ "isAsync", "d1/d6b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_signature_1_1_signature_handle.html#a6098dd4e7353be8ef322fcfee855b805", null ],
+    [ "toString", "d1/d6b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_signature_1_1_signature_handle.html#a904d4dd00cbc4e85092ac791f1fba5ee", null ],
+    [ "f_chain", "d1/d6b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_signature_1_1_signature_handle.html#a4b9e42e84e6c1771eaa81e26e4a3714c", null ],
+    [ "f_idMethod", "d1/d6b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_signature_1_1_signature_handle.html#ab2975a5c4e20b4668bb533c6f4428cf9", null ],
+    [ "f_method", "d1/d6b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_signature_1_1_signature_handle.html#a04022118bdcde1f21e5943266614cff7", null ],
+    [ "f_nDepth", "d1/d6b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_signature_1_1_signature_handle.html#a38c39b1169e267e86f231fb9d68311ce", null ],
+    [ "f_type", "d1/d6b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_signature_1_1_signature_handle.html#aacd942535575bd77c621b3edc00f3160", null ]
+];

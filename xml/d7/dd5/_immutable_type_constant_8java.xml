@@ -1,0 +1,364 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d7/dd5/_immutable_type_constant_8java" kind="file" language="Java">
+    <compoundname>ImmutableTypeConstant.java</compoundname>
+    <includes local="no">java.io.DataInput</includes>
+    <includes local="no">java.io.DataOutput</includes>
+    <includes local="no">java.io.IOException</includes>
+    <includes local="no">java.util.function.Consumer</includes>
+    <includes local="no">org.xvm.asm.Component</includes>
+    <includes local="no">org.xvm.asm.Constant</includes>
+    <includes local="no">org.xvm.asm.ConstantPool</includes>
+    <includes local="no">org.xvm.asm.ErrorListener</includes>
+    <includes local="no">org.xvm.javajit.ModuleLoader</includes>
+    <includes local="no">org.xvm.javajit.TypeSystem</includes>
+    <includes local="no">org.xvm.util.Hash</includes>
+    <includes local="no">org.xvm.util.Severity</includes>
+    <includes local="no">org.xvm.util.Handy.readMagnitude</includes>
+    <includes local="no">org.xvm.util.Handy.writePackedLong</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/constants/ImmutableTypeConstant.java</label>
+        <link refid="d7/dd5/_immutable_type_constant_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.io.DataInput</label>
+      </node>
+      <node id="3">
+        <label>java.io.DataOutput</label>
+      </node>
+      <node id="4">
+        <label>java.io.IOException</label>
+      </node>
+      <node id="5">
+        <label>java.util.function.Consumer</label>
+      </node>
+      <node id="6">
+        <label>org.xvm.asm.Component</label>
+      </node>
+      <node id="7">
+        <label>org.xvm.asm.Constant</label>
+      </node>
+      <node id="8">
+        <label>org.xvm.asm.ConstantPool</label>
+      </node>
+      <node id="9">
+        <label>org.xvm.asm.ErrorListener</label>
+      </node>
+      <node id="10">
+        <label>org.xvm.javajit.ModuleLoader</label>
+      </node>
+      <node id="11">
+        <label>org.xvm.javajit.TypeSystem</label>
+      </node>
+      <node id="14">
+        <label>org.xvm.util.Handy.readMagnitude</label>
+      </node>
+      <node id="15">
+        <label>org.xvm.util.Handy.writePackedLong</label>
+      </node>
+      <node id="12">
+        <label>org.xvm.util.Hash</label>
+      </node>
+      <node id="13">
+        <label>org.xvm.util.Severity</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant" prot="public">org::xvm::asm::constants::ImmutableTypeConstant</innerclass>
+    <innernamespace refid="d3/dcd/namespaceorg_1_1xvm_1_1asm_1_1constants">org::xvm::asm::constants</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.asm.constants;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.DataInput;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.DataOutput;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.IOException;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.function.Consumer;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Component;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Constant;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ConstantPool;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ErrorListener;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.javajit.ModuleLoader;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.javajit.TypeSystem;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.util.Hash;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.util.Severity;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.util.Handy.readMagnitude;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.util.Handy.writePackedLong;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1aad23afcc05114ac657eab46d49d0c85c" kindref="member">ImmutableTypeConstant</ref></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a23240778e0a7cde7c10ce379be4ddae7" kindref="member">TypeConstant</ref><sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>constructors<sp/>--------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1aad23afcc05114ac657eab46d49d0c85c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1aad23afcc05114ac657eab46d49d0c85c" kindref="member">ImmutableTypeConstant</ref>(<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref><sp/>pool,<sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a23240778e0a7cde7c10ce379be4ddae7" kindref="member">TypeConstant</ref><sp/>constType)<sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(pool);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(constType<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>IllegalArgumentException(</highlight><highlight class="stringliteral">&quot;type<sp/>required&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!constType.<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a89c0fd91491747b5b883885ff2dc8beb" kindref="member">isSingleDefiningConstant</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>IllegalArgumentException(</highlight><highlight class="stringliteral">&quot;immutability<sp/>cannot<sp/>be<sp/>specified<sp/>for<sp/>a<sp/>relational<sp/>type&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a4ee92553fe51766b99916ea56b38f7e8" kindref="member">m_constType</ref><sp/>=<sp/>constType;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a3dd726a126a153baa4c854d7e3625769" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a3dd726a126a153baa4c854d7e3625769" kindref="member">ImmutableTypeConstant</ref>(<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref><sp/>pool,<sp/><ref refid="d7/d71/enumorg_1_1xvm_1_1asm_1_1_constant_1_1_format" kindref="compound">Format</ref><sp/>format,<sp/>DataInput<sp/>in)</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(pool);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a9c43cd1b82eeafe143801538496f1a08" kindref="member">m_iType</ref><sp/>=<sp/>readMagnitude(in);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="68" refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1ab245ed816423c26f45145609b34eee89" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1ab245ed816423c26f45145609b34eee89" kindref="member">resolveConstants</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a4ee92553fe51766b99916ea56b38f7e8" kindref="member">m_constType</ref><sp/>=<sp/><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1abb94bf2f63ad2caba56a57f1557d1a09" kindref="member">getConstantPool</ref>().<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a73a94e2e0d105c95a3574349a4816baa" kindref="member">getConstant</ref>(<ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a9c43cd1b82eeafe143801538496f1a08" kindref="member">m_iType</ref>,<sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a23240778e0a7cde7c10ce379be4ddae7" kindref="member">TypeConstant</ref>.class);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>TypeConstant<sp/>methods<sp/>------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="76" refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a74c55008e9eaaacbd7c513f378fcdb07" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a74c55008e9eaaacbd7c513f378fcdb07" kindref="member">isModifyingType</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="81" refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a2c392fca6742024d74ec96e35660cbe5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a23240778e0a7cde7c10ce379be4ddae7" kindref="member">TypeConstant</ref><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a2c392fca6742024d74ec96e35660cbe5" kindref="member">getUnderlyingType</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a4ee92553fe51766b99916ea56b38f7e8" kindref="member">m_constType</ref>;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="86" refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a528cae8dea7653f0ce8a6ad0f702a86d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a528cae8dea7653f0ce8a6ad0f702a86d" kindref="member">isImmutabilitySpecified</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="91" refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a344fb06f3c875a9ed2c996d4976d3a68" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a344fb06f3c875a9ed2c996d4976d3a68" kindref="member">isImmutable</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="96" refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a91e6984957b483bb38f071c76944cbb1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a91e6984957b483bb38f071c76944cbb1" kindref="member">isOnlyImmutable</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a2c392fca6742024d74ec96e35660cbe5" kindref="member">getUnderlyingType</ref>().<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1ae687665cf8d543f091e4f400bdc50258" kindref="member">equals</ref>(<ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1abb94bf2f63ad2caba56a57f1557d1a09" kindref="member">getConstantPool</ref>().typeObject());</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="101" refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1ac60a9096b66953201a64670695246816" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a23240778e0a7cde7c10ce379be4ddae7" kindref="member">TypeConstant</ref><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1ac60a9096b66953201a64670695246816" kindref="member">freeze</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="106" refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1abd235c3aa8a6f08dc41c54ab8437040b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a23240778e0a7cde7c10ce379be4ddae7" kindref="member">TypeConstant</ref><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1abd235c3aa8a6f08dc41c54ab8437040b" kindref="member">ensureAccess</ref>(<ref refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access" kindref="compound">Access</ref><sp/>access)<sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>make<sp/>sure<sp/>it&apos;s<sp/>&quot;immutable<sp/>private<sp/>C&quot;<sp/>rather<sp/>than<sp/>&quot;private<sp/>immutable<sp/>C&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a2d39b2981e4c368e25aa7df0dbf677ec" kindref="member">cloneSingle</ref>(<ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1abb94bf2f63ad2caba56a57f1557d1a09" kindref="member">getConstantPool</ref>(),<sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a2c392fca6742024d74ec96e35660cbe5" kindref="member">getUnderlyingType</ref>().<ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1abd235c3aa8a6f08dc41c54ab8437040b" kindref="member">ensureAccess</ref>(access));</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="112" refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1ac0215bc2ce234653116451b08d5ddd06" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1ac0215bc2ce234653116451b08d5ddd06" kindref="member">isNullable</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a4ee92553fe51766b99916ea56b38f7e8" kindref="member">m_constType</ref>.isNullable();</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="117" refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a8424d9c444ae608ddb4437fff621a4c1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a23240778e0a7cde7c10ce379be4ddae7" kindref="member">TypeConstant</ref><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a8424d9c444ae608ddb4437fff621a4c1" kindref="member">removeNullable</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1ac0215bc2ce234653116451b08d5ddd06" kindref="member">isNullable</ref>()</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a2d39b2981e4c368e25aa7df0dbf677ec" kindref="member">cloneSingle</ref>(<ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1abb94bf2f63ad2caba56a57f1557d1a09" kindref="member">getConstantPool</ref>(),<sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a4ee92553fe51766b99916ea56b38f7e8" kindref="member">m_constType</ref>.removeNullable())</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="124" refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a2d39b2981e4c368e25aa7df0dbf677ec" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a23240778e0a7cde7c10ce379be4ddae7" kindref="member">TypeConstant</ref><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a2d39b2981e4c368e25aa7df0dbf677ec" kindref="member">cloneSingle</ref>(<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref><sp/>pool,<sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a23240778e0a7cde7c10ce379be4ddae7" kindref="member">TypeConstant</ref><sp/><ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref>.isImmutabilitySpecified()<sp/>||</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>!<ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref>.containsUnresolved()<sp/>&amp;&amp;<sp/><ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref>.isImmutable()</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/><ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>pool.<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a54bb20bb28a4096242b12f8e36bf0c35" kindref="member">ensureImmutableTypeConstant</ref>(<ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref>);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="132" refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1aa8884b8d33f596a7e57c6fd86081ecd3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a23240778e0a7cde7c10ce379be4ddae7" kindref="member">TypeConstant</ref><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1aa8884b8d33f596a7e57c6fd86081ecd3" kindref="member">resolveConstraints</ref>(</highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>fPendingOnly)<sp/>{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a23240778e0a7cde7c10ce379be4ddae7" kindref="member">TypeConstant</ref><sp/>constOriginal<sp/>=<sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a2c392fca6742024d74ec96e35660cbe5" kindref="member">getUnderlyingType</ref>();</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a23240778e0a7cde7c10ce379be4ddae7" kindref="member">TypeConstant</ref><sp/>constResolved<sp/>=<sp/>constOriginal.<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a254c4badd085774cbc2132dfc3ad3d6b" kindref="member">resolveConstraints</ref>(fPendingOnly);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>constResolved<sp/>==<sp/>constOriginal</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>this</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>constResolved.<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1ad90296ef77b6cdc4577731cd12cb43fb" kindref="member">freeze</ref>();</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="141" refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1aa51c1f8f6edb64f12b6f68cb458ea274" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a23240778e0a7cde7c10ce379be4ddae7" kindref="member">TypeConstant</ref><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1aa51c1f8f6edb64f12b6f68cb458ea274" kindref="member">resolveAutoNarrowing</ref>(<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref><sp/>pool,<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>fRetainParams,</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a23240778e0a7cde7c10ce379be4ddae7" kindref="member">TypeConstant</ref><sp/>typeTarget,<sp/><ref refid="d5/d9c/classorg_1_1xvm_1_1asm_1_1constants_1_1_identity_constant" kindref="compound">IdentityConstant</ref><sp/>idCtx)<sp/>{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a2c392fca6742024d74ec96e35660cbe5" kindref="member">getUnderlyingType</ref>()</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a23777e256e9ff664389846290e15ae2b" kindref="member">resolveAutoNarrowing</ref>(pool,<sp/>fRetainParams,<sp/>typeTarget,<sp/>idCtx).<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1ad90296ef77b6cdc4577731cd12cb43fb" kindref="member">freeze</ref>();</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="148" refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1adbffdf402d46f66e4aaed7c8cdc9c72b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/><ref refid="dc/dfb/enumorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1_1_relation" kindref="compound">Relation</ref><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1adbffdf402d46f66e4aaed7c8cdc9c72b" kindref="member">calculateRelationToLeft</ref>(<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a23240778e0a7cde7c10ce379be4ddae7" kindref="member">TypeConstant</ref><sp/>typeLeft)<sp/>{</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a2c392fca6742024d74ec96e35660cbe5" kindref="member">getUnderlyingType</ref>().<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1abbf0736363bf401bf4b84e47b2e9b199" kindref="member">calculateRelationToLeft</ref>(typeLeft.<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a578ff0fcd75be17af4c1f03431c95e25" kindref="member">removeImmutable</ref>());</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="153" refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a870c0f736b9e2d50716d16a70be8b175" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/><ref refid="dc/dfb/enumorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1_1_relation" kindref="compound">Relation</ref><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a870c0f736b9e2d50716d16a70be8b175" kindref="member">calculateRelationToRight</ref>(<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a23240778e0a7cde7c10ce379be4ddae7" kindref="member">TypeConstant</ref><sp/>typeRight)<sp/>{</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>immutability<sp/>aspect<sp/>has<sp/>already<sp/>been<sp/>checked<sp/>at<sp/>TypeConstant.calculateRelation()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a2c392fca6742024d74ec96e35660cbe5" kindref="member">getUnderlyingType</ref>().<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1ace8852d370477902003e0c1f458b529a" kindref="member">calculateRelationToRight</ref>(typeRight);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>TypeInfo<sp/>support<sp/>----------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="162" refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1aa94e6c4f2d7daaed4f09e8aba7a99f9c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/><ref refid="dc/db2/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_info" kindref="compound">TypeInfo</ref><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1aa94e6c4f2d7daaed4f09e8aba7a99f9c" kindref="member">buildTypeInfo</ref>(<ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref><sp/>errs)<sp/>{</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>&quot;immutable&quot;<sp/>keyword<sp/>does<sp/>not<sp/>affect<sp/>the<sp/>TypeInfo,<sp/>even<sp/>though<sp/>the<sp/>type<sp/>itself<sp/>is</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>slightly<sp/>different</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a4ee92553fe51766b99916ea56b38f7e8" kindref="member">m_constType</ref>.ensureTypeInfoInternal(errs);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>type<sp/>comparison<sp/>support<sp/>---------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="172" refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1ae65e3725c4429a9eb5e866ce2b16cc81" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1ae65e3725c4429a9eb5e866ce2b16cc81" kindref="member">isDuckTypeAbleFrom</ref>(<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a23240778e0a7cde7c10ce379be4ddae7" kindref="member">TypeConstant</ref><sp/>typeRight)<sp/>{</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>typeRight.<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1adaf51d4a7bd5a80191c6be1550a47362" kindref="member">isImmutable</ref>()<sp/>&amp;&amp;<sp/>super.isDuckTypeAbleFrom(typeRight);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>JIT<sp/>support<sp/>---------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="180" refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a6621536e3a125ae541c7cc45a6cb6612" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a6621536e3a125ae541c7cc45a6cb6612" kindref="member">ensureJitClassName</ref>(<ref refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" kindref="compound">TypeSystem</ref><sp/>ts)<sp/>{</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a4ee92553fe51766b99916ea56b38f7e8" kindref="member">m_constType</ref>.ensureJitClassName(ts);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>Constant<sp/>methods<sp/>----------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="188" refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a5a9b26223e0b50cc8bad4d6872143e4e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d7/d71/enumorg_1_1xvm_1_1asm_1_1_constant_1_1_format" kindref="compound">Format</ref><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a5a9b26223e0b50cc8bad4d6872143e4e" kindref="member">getFormat</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d7/d71/enumorg_1_1xvm_1_1asm_1_1_constant_1_1_format" kindref="compound">Format</ref>.<ref refid="d7/d71/enumorg_1_1xvm_1_1asm_1_1_constant_1_1_format_1ae481e52558ba40c1d78752e04781d0e9" kindref="member">ImmutableType</ref>;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="193" refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1aa375ba73a5be72b088280faa632ddc3e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>Object<sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1aa375ba73a5be72b088280faa632ddc3e" kindref="member">getLocator</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a4ee92553fe51766b99916ea56b38f7e8" kindref="member">m_constType</ref>;</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="198" refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a79677749ecacfc1c71a1c1d6a280f659" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a79677749ecacfc1c71a1c1d6a280f659" kindref="member">containsUnresolved</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>!<ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1ae0631978fa01dca3e3b13ddeb110e254" kindref="member">isHashCached</ref>()<sp/>&amp;&amp;<sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a4ee92553fe51766b99916ea56b38f7e8" kindref="member">m_constType</ref>.containsUnresolved();</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="203" refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a7519b5ed016d352b59bdfcf0e5cd1973" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a7519b5ed016d352b59bdfcf0e5cd1973" kindref="member">forEachUnderlying</ref>(Consumer&lt;Constant&gt;<sp/>visitor)<sp/>{</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>visitor.accept(<ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a4ee92553fe51766b99916ea56b38f7e8" kindref="member">m_constType</ref>);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="208" refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a650b83658bccec6cf6fe3446cabdc90d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a650b83658bccec6cf6fe3446cabdc90d" kindref="member">compareDetails</ref>(<ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref><sp/>obj)<sp/>{</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>obj<sp/>instanceof<sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1aad23afcc05114ac657eab46d49d0c85c" kindref="member">ImmutableTypeConstant</ref><sp/>that</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>this.<ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a4ee92553fe51766b99916ea56b38f7e8" kindref="member">m_constType</ref>.compareTo(that.m_constType)</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>-1;</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="215" refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a8ddd8187649680ce6504525aa2cebbee" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a8ddd8187649680ce6504525aa2cebbee" kindref="member">getValueString</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;immutable<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a4ee92553fe51766b99916ea56b38f7e8" kindref="member">m_constType</ref>.getValueString();</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>XvmStructure<sp/>methods<sp/>------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="223" refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1aa2efeeb64976eba087867846e8889b0e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1aa2efeeb64976eba087867846e8889b0e" kindref="member">registerConstants</ref>(<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref><sp/>pool)<sp/>{</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a4ee92553fe51766b99916ea56b38f7e8" kindref="member">m_constType</ref><sp/>=<sp/>pool.<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a96af322337d3cfdb2a927e0221651113" kindref="member">register</ref>(<ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a4ee92553fe51766b99916ea56b38f7e8" kindref="member">m_constType</ref>);</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="228" refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a63958c5a53f2bdad0deb5f35a31fd520" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a63958c5a53f2bdad0deb5f35a31fd520" kindref="member">assemble</ref>(DataOutput<sp/>out)</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>out.writeByte(<ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a5a9b26223e0b50cc8bad4d6872143e4e" kindref="member">getFormat</ref>().ordinal());</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>writePackedLong(out,<sp/><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1aa02aef3580917355f7e639ded65f340a" kindref="member">indexOf</ref>(<ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a4ee92553fe51766b99916ea56b38f7e8" kindref="member">m_constType</ref>));</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="235" refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1af34b5c68bdd870276fe35891f16242ba" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1af34b5c68bdd870276fe35891f16242ba" kindref="member">validate</ref>(<ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref><sp/>errs)<sp/>{</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1adee7de37b7ee6bb1e5fd2cb2b51917da" kindref="member">isValidated</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>fHalt<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>immutable<sp/>type<sp/>constant<sp/>can<sp/>modify<sp/>any<sp/>type<sp/>constant<sp/>other<sp/>than<sp/>an<sp/>immutable</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>type<sp/>constant</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a23240778e0a7cde7c10ce379be4ddae7" kindref="member">TypeConstant</ref><sp/><ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref><sp/>=<sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a4ee92553fe51766b99916ea56b38f7e8" kindref="member">m_constType</ref>;</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref><sp/>instanceof<sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1aad23afcc05114ac657eab46d49d0c85c" kindref="member">ImmutableTypeConstant</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fHalt<sp/>|=<sp/><ref refid="d7/d57/classorg_1_1xvm_1_1asm_1_1_xvm_structure_1aef9bafec30978481b0b85752101acb28" kindref="member">log</ref>(errs,<sp/><ref refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity" kindref="compound">Severity</ref>.<ref refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity_1a626cd4de0b9671627c3f7306d1ec85f7" kindref="member">WARNING</ref>,<sp/><ref refid="df/df8/interfaceorg_1_1xvm_1_1asm_1_1_constants_1afbc16567ee6c8406b59642bb34d7d20f" kindref="member">VE_IMMUTABLE_REDUNDANT</ref>);</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>a<sp/>service<sp/>type<sp/>cannot<sp/>be<sp/>immutable</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref>.isExplicitClassIdentity(</highlight><highlight class="keyword">true</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d5/d9c/classorg_1_1xvm_1_1asm_1_1constants_1_1_identity_constant" kindref="compound">IdentityConstant</ref><sp/>idClz<sp/>=<sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a353638d6998559fdf26fd8c684058306" kindref="member">getSingleUnderlyingClass</ref>(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(idClz.<ref refid="d5/d9c/classorg_1_1xvm_1_1asm_1_1constants_1_1_identity_constant_1aa29694ab03c70660ac3aec1d3ff48d58" kindref="member">getComponent</ref>().<ref refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_component_1a13169d15163910a9ab1f6959100f5cbd" kindref="member">getFormat</ref>()<sp/>==<sp/><ref refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_component" kindref="compound">Component</ref>.<ref refid="dc/d9c/enumorg_1_1xvm_1_1asm_1_1_component_1_1_format" kindref="compound">Format</ref>.<ref refid="dc/d9c/enumorg_1_1xvm_1_1asm_1_1_component_1_1_format_1ab73cba0e28458e106535540be82b77b9" kindref="member">SERVICE</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d57/classorg_1_1xvm_1_1asm_1_1_xvm_structure_1aef9bafec30978481b0b85752101acb28" kindref="member">log</ref>(errs,<sp/><ref refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity" kindref="compound">Severity</ref>.<ref refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity_1a470906cb0c737a6d70b2d9ff265ab9fd" kindref="member">ERROR</ref>,<sp/><ref refid="df/df8/interfaceorg_1_1xvm_1_1asm_1_1_constants_1a33c10647ee7f47732da6541e6a9ae942" kindref="member">VE_IMMUTABLE_SERVICE_ILLEGAL</ref>,<sp/><ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref>.getValueString());</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fHalt<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"></highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!fHalt)<sp/>{</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>super.validate(errs);</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>Object<sp/>methods<sp/>------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal"></highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="267" refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1affc5fd0ee51011c6bf2150d92dfe1c86" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1affc5fd0ee51011c6bf2150d92dfe1c86" kindref="member">computeHashCode</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d1/d1e/classorg_1_1xvm_1_1util_1_1_hash" kindref="compound">Hash</ref>.<ref refid="d1/d1e/classorg_1_1xvm_1_1util_1_1_hash_1a14035f395b9874e8dfa54dd6c142fd6b" kindref="member">of</ref>(<ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a4ee92553fe51766b99916ea56b38f7e8" kindref="member">m_constType</ref>);</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal"></highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>fields<sp/>--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="273"><highlight class="normal"></highlight></codeline>
+<codeline lineno="277" refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a9c43cd1b82eeafe143801538496f1a08" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a9c43cd1b82eeafe143801538496f1a08" kindref="member">m_iType</ref>;</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"></highlight></codeline>
+<codeline lineno="282" refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a4ee92553fe51766b99916ea56b38f7e8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a23240778e0a7cde7c10ce379be4ddae7" kindref="member">TypeConstant</ref><sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a4ee92553fe51766b99916ea56b38f7e8" kindref="member">m_constType</ref>;</highlight></codeline>
+<codeline lineno="283"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/constants/ImmutableTypeConstant.java"/>
+  </compounddef>
+</doxygen>

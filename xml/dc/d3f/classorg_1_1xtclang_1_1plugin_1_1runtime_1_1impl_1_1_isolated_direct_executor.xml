@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="dc/d3f/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1impl_1_1_isolated_direct_executor" kind="class" language="Java" prot="public">
+    <compoundname>org::xtclang::plugin::runtime::impl::IsolatedDirectExecutor</compoundname>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="dc/d3f/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1impl_1_1_isolated_direct_executor_1a2d74a1715a8e9333bb45c05c4a8159f5" prot="private" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int org.xtclang.plugin.runtime.impl.IsolatedDirectExecutor.DEFAULT_ERROR_LIMIT</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_ERROR_LIMIT</name>
+        <qualifiedname>org.xtclang.plugin.runtime.impl.IsolatedDirectExecutor.DEFAULT_ERROR_LIMIT</qualifiedname>
+        <initializer>= 100</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/impl/IsolatedDirectExecutor.java" line="18" column="30" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/impl/IsolatedDirectExecutor.java" bodystart="18" bodyend="-1"/>
+        <referencedby refid="dc/d3f/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1impl_1_1_isolated_direct_executor_1a333fe628e2e554b3f6b6fb22979d2510" compoundref="d5/d0f/_isolated_direct_executor_8java" startline="28" endline="33">org.xtclang.plugin.runtime.impl.IsolatedDirectExecutor.executeCompile</referencedby>
+        <referencedby refid="dc/d3f/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1impl_1_1_isolated_direct_executor_1a8eb274c244351733587c3f62cb2e01d3" compoundref="d5/d0f/_isolated_direct_executor_8java" startline="35" endline="40">org.xtclang.plugin.runtime.impl.IsolatedDirectExecutor.executeRun</referencedby>
+        <referencedby refid="dc/d3f/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1impl_1_1_isolated_direct_executor_1a9b7e840936bd6df206126b19984bd70b" compoundref="d5/d0f/_isolated_direct_executor_8java" startline="42" endline="47">org.xtclang.plugin.runtime.impl.IsolatedDirectExecutor.executeTest</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="dc/d3f/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1impl_1_1_isolated_direct_executor_1add6d344fa279f4732490b3fe1e63edfc" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.xtclang.plugin.runtime.impl.IsolatedDirectExecutor.IsolatedDirectExecutor</definition>
+        <argsstring>()</argsstring>
+        <name>IsolatedDirectExecutor</name>
+        <qualifiedname>org.xtclang.plugin.runtime.impl.IsolatedDirectExecutor.IsolatedDirectExecutor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/impl/IsolatedDirectExecutor.java" line="20" column="13" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/impl/IsolatedDirectExecutor.java" bodystart="20" bodyend="21"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="dc/d3f/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1impl_1_1_isolated_direct_executor_1a333fe628e2e554b3f6b6fb22979d2510" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>static int org.xtclang.plugin.runtime.impl.IsolatedDirectExecutor.executeCompile</definition>
+        <argsstring>(final DirectCompileRequest request, final Logger logger)</argsstring>
+        <name>executeCompile</name>
+        <qualifiedname>org.xtclang.plugin.runtime.impl.IsolatedDirectExecutor.executeCompile</qualifiedname>
+        <param>
+          <type>final <ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime_1a68244ca57e07ad9ef0639024bef7abfd" kindref="member">DirectCompileRequest</ref></type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>final Logger</type>
+          <declname>logger</declname>
+        </param>
+        <briefdescription>
+<para>These entry points are loaded inside <computeroutput><ref refid="d0/d43/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1_plugin_runtime_class_loader" kindref="compound">org.xtclang.plugin.runtime.PluginRuntimeClassLoader</ref></computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>That is why this class is allowed to use the real javatools APIs directly while the outer Gradle task classes are not. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/impl/IsolatedDirectExecutor.java" line="28" column="23" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/impl/IsolatedDirectExecutor.java" bodystart="28" bodyend="33"/>
+        <references refid="d3/d85/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1impl_1_1_isolated_launcher_options_builder_1af57d8c26bc2498398249b9dab75ce45a" compoundref="da/d06/_isolated_launcher_options_builder_8java" startline="15" endline="40">org.xtclang.plugin.runtime.impl.IsolatedLauncherOptionsBuilder.buildCompilerOptions</references>
+        <references refid="dc/d3f/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1impl_1_1_isolated_direct_executor_1a701acf65a7ee0f1370a7e5bc68ce5b28" compoundref="d5/d0f/_isolated_direct_executor_8java" startline="49" endline="63">org.xtclang.plugin.runtime.impl.IsolatedDirectExecutor.createConsole</references>
+        <references refid="dc/d3f/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1impl_1_1_isolated_direct_executor_1a2d74a1715a8e9333bb45c05c4a8159f5" compoundref="d5/d0f/_isolated_direct_executor_8java" startline="18">org.xtclang.plugin.runtime.impl.IsolatedDirectExecutor.DEFAULT_ERROR_LIMIT</references>
+        <references refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime_1a68244ca57e07ad9ef0639024bef7abfd" compoundref="d0/d71/_direct_compile_request_8java" startline="6" endline="24">org.xtclang.plugin.runtime.DirectCompileRequest</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1adaac93117385461df64403914d2d98b9" compoundref="d1/d7c/_launcher_8java" startline="183" endline="196">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.launch</references>
+      </memberdef>
+      <memberdef kind="function" id="dc/d3f/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1impl_1_1_isolated_direct_executor_1a8eb274c244351733587c3f62cb2e01d3" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>static int org.xtclang.plugin.runtime.impl.IsolatedDirectExecutor.executeRun</definition>
+        <argsstring>(final DirectRunRequest request, final Logger logger)</argsstring>
+        <name>executeRun</name>
+        <qualifiedname>org.xtclang.plugin.runtime.impl.IsolatedDirectExecutor.executeRun</qualifiedname>
+        <param>
+          <type>final <ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime_1a9fafba589150c689719a1b9e0b47bc9c" kindref="member">DirectRunRequest</ref></type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>final Logger</type>
+          <declname>logger</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/impl/IsolatedDirectExecutor.java" line="35" column="23" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/impl/IsolatedDirectExecutor.java" bodystart="35" bodyend="40"/>
+        <references refid="d3/d85/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1impl_1_1_isolated_launcher_options_builder_1a403b43ea617a8a2c5aba80234652b189" compoundref="da/d06/_isolated_launcher_options_builder_8java" startline="42" endline="52">org.xtclang.plugin.runtime.impl.IsolatedLauncherOptionsBuilder.buildRunnerOptions</references>
+        <references refid="dc/d3f/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1impl_1_1_isolated_direct_executor_1a701acf65a7ee0f1370a7e5bc68ce5b28" compoundref="d5/d0f/_isolated_direct_executor_8java" startline="49" endline="63">org.xtclang.plugin.runtime.impl.IsolatedDirectExecutor.createConsole</references>
+        <references refid="dc/d3f/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1impl_1_1_isolated_direct_executor_1a2d74a1715a8e9333bb45c05c4a8159f5" compoundref="d5/d0f/_isolated_direct_executor_8java" startline="18">org.xtclang.plugin.runtime.impl.IsolatedDirectExecutor.DEFAULT_ERROR_LIMIT</references>
+        <references refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime_1a9fafba589150c689719a1b9e0b47bc9c" compoundref="dd/de9/_direct_run_request_8java" startline="6" endline="19">org.xtclang.plugin.runtime.DirectRunRequest</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a82885a928db87cc0bca2140179c4c217" compoundref="d1/d7c/_launcher_8java" startline="363" endline="393">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.run</references>
+      </memberdef>
+      <memberdef kind="function" id="dc/d3f/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1impl_1_1_isolated_direct_executor_1a9b7e840936bd6df206126b19984bd70b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>static int org.xtclang.plugin.runtime.impl.IsolatedDirectExecutor.executeTest</definition>
+        <argsstring>(final DirectTestRequest request, final Logger logger)</argsstring>
+        <name>executeTest</name>
+        <qualifiedname>org.xtclang.plugin.runtime.impl.IsolatedDirectExecutor.executeTest</qualifiedname>
+        <param>
+          <type>final <ref refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime_1a04f5b6983523a59e9c417e0716d19a02" kindref="member">DirectTestRequest</ref></type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>final Logger</type>
+          <declname>logger</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/impl/IsolatedDirectExecutor.java" line="42" column="23" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/impl/IsolatedDirectExecutor.java" bodystart="42" bodyend="47"/>
+        <references refid="d3/d85/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1impl_1_1_isolated_launcher_options_builder_1abf75d8ead562acafc32c4a8193871540" compoundref="da/d06/_isolated_launcher_options_builder_8java" startline="54" endline="64">org.xtclang.plugin.runtime.impl.IsolatedLauncherOptionsBuilder.buildTestRunnerOptions</references>
+        <references refid="dc/d3f/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1impl_1_1_isolated_direct_executor_1a701acf65a7ee0f1370a7e5bc68ce5b28" compoundref="d5/d0f/_isolated_direct_executor_8java" startline="49" endline="63">org.xtclang.plugin.runtime.impl.IsolatedDirectExecutor.createConsole</references>
+        <references refid="dc/d3f/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1impl_1_1_isolated_direct_executor_1a2d74a1715a8e9333bb45c05c4a8159f5" compoundref="d5/d0f/_isolated_direct_executor_8java" startline="18">org.xtclang.plugin.runtime.impl.IsolatedDirectExecutor.DEFAULT_ERROR_LIMIT</references>
+        <references refid="df/da6/namespaceorg_1_1xtclang_1_1plugin_1_1runtime_1a04f5b6983523a59e9c417e0716d19a02" compoundref="da/d50/_direct_test_request_8java" startline="6" endline="20">org.xtclang.plugin.runtime.DirectTestRequest</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a82885a928db87cc0bca2140179c4c217" compoundref="d1/d7c/_launcher_8java" startline="363" endline="393">org.xvm.tool.Launcher&lt; T extends LauncherOptions &gt;.run</references>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="dc/d3f/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1impl_1_1_isolated_direct_executor_1a701acf65a7ee0f1370a7e5bc68ce5b28" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="dd/dbc/interfaceorg_1_1xvm_1_1tool_1_1_console" kindref="compound">Console</ref></type>
+        <definition>static Console org.xtclang.plugin.runtime.impl.IsolatedDirectExecutor.createConsole</definition>
+        <argsstring>(final Logger logger)</argsstring>
+        <name>createConsole</name>
+        <qualifiedname>org.xtclang.plugin.runtime.impl.IsolatedDirectExecutor.createConsole</qualifiedname>
+        <param>
+          <type>final Logger</type>
+          <declname>logger</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/impl/IsolatedDirectExecutor.java" line="49" column="28" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/impl/IsolatedDirectExecutor.java" bodystart="49" bodyend="63"/>
+        <references refid="dd/dbc/interfaceorg_1_1xvm_1_1tool_1_1_console_1ac38790fb3cb014b685153564849f5e23" compoundref="d7/dcc/src_2main_2java_2org_2xvm_2tool_2_console_8java" startline="95" endline="124">org.xvm.tool.Console.formatTemplate</references>
+        <referencedby refid="dc/d3f/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1impl_1_1_isolated_direct_executor_1a333fe628e2e554b3f6b6fb22979d2510" compoundref="d5/d0f/_isolated_direct_executor_8java" startline="28" endline="33">org.xtclang.plugin.runtime.impl.IsolatedDirectExecutor.executeCompile</referencedby>
+        <referencedby refid="dc/d3f/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1impl_1_1_isolated_direct_executor_1a8eb274c244351733587c3f62cb2e01d3" compoundref="d5/d0f/_isolated_direct_executor_8java" startline="35" endline="40">org.xtclang.plugin.runtime.impl.IsolatedDirectExecutor.executeRun</referencedby>
+        <referencedby refid="dc/d3f/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1impl_1_1_isolated_direct_executor_1a9b7e840936bd6df206126b19984bd70b" compoundref="d5/d0f/_isolated_direct_executor_8java" startline="42" endline="47">org.xtclang.plugin.runtime.impl.IsolatedDirectExecutor.executeTest</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/impl/IsolatedDirectExecutor.java" line="17" column="13" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/runtime/impl/IsolatedDirectExecutor.java" bodystart="17" bodyend="64"/>
+    <listofallmembers>
+      <member refid="dc/d3f/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1impl_1_1_isolated_direct_executor_1a701acf65a7ee0f1370a7e5bc68ce5b28" prot="private" virt="non-virtual"><scope>org::xtclang::plugin::runtime::impl::IsolatedDirectExecutor</scope><name>createConsole</name></member>
+      <member refid="dc/d3f/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1impl_1_1_isolated_direct_executor_1a2d74a1715a8e9333bb45c05c4a8159f5" prot="private" virt="non-virtual"><scope>org::xtclang::plugin::runtime::impl::IsolatedDirectExecutor</scope><name>DEFAULT_ERROR_LIMIT</name></member>
+      <member refid="dc/d3f/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1impl_1_1_isolated_direct_executor_1a333fe628e2e554b3f6b6fb22979d2510" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::runtime::impl::IsolatedDirectExecutor</scope><name>executeCompile</name></member>
+      <member refid="dc/d3f/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1impl_1_1_isolated_direct_executor_1a8eb274c244351733587c3f62cb2e01d3" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::runtime::impl::IsolatedDirectExecutor</scope><name>executeRun</name></member>
+      <member refid="dc/d3f/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1impl_1_1_isolated_direct_executor_1a9b7e840936bd6df206126b19984bd70b" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::runtime::impl::IsolatedDirectExecutor</scope><name>executeTest</name></member>
+      <member refid="dc/d3f/classorg_1_1xtclang_1_1plugin_1_1runtime_1_1impl_1_1_isolated_direct_executor_1add6d344fa279f4732490b3fe1e63edfc" prot="private" virt="non-virtual"><scope>org::xtclang::plugin::runtime::impl::IsolatedDirectExecutor</scope><name>IsolatedDirectExecutor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

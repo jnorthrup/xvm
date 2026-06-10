@@ -1,0 +1,225 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="dc/d18/_reg_alloc_a_s_t_8java" kind="file" language="Java">
+    <compoundname>RegAllocAST.java</compoundname>
+    <includes local="no">java.io.DataInput</includes>
+    <includes local="no">java.io.DataOutput</includes>
+    <includes local="no">java.io.IOException</includes>
+    <includes local="no">org.xvm.asm.Constant</includes>
+    <includes local="no">org.xvm.asm.constants.StringConstant</includes>
+    <includes local="no">org.xvm.asm.constants.TypeConstant</includes>
+    <includes local="no">org.xvm.asm.ast.BinaryAST.NodeType.AnnoNamedRegAlloc</includes>
+    <includes local="no">org.xvm.asm.ast.BinaryAST.NodeType.AnnoRegAlloc</includes>
+    <includes local="no">org.xvm.asm.ast.BinaryAST.NodeType.NamedRegAlloc</includes>
+    <includes local="no">org.xvm.asm.ast.BinaryAST.NodeType.RegAlloc</includes>
+    <includes local="no">org.xvm.util.Handy.readPackedInt</includes>
+    <includes local="no">org.xvm.util.Handy.writePackedLong</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/ast/RegAllocAST.java</label>
+        <link refid="dc/d18/_reg_alloc_a_s_t_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.io.DataInput</label>
+      </node>
+      <node id="3">
+        <label>java.io.DataOutput</label>
+      </node>
+      <node id="4">
+        <label>java.io.IOException</label>
+      </node>
+      <node id="5">
+        <label>org.xvm.asm.Constant</label>
+      </node>
+      <node id="8">
+        <label>org.xvm.asm.ast.BinaryAST.NodeType.AnnoNamedRegAlloc</label>
+      </node>
+      <node id="9">
+        <label>org.xvm.asm.ast.BinaryAST.NodeType.AnnoRegAlloc</label>
+      </node>
+      <node id="10">
+        <label>org.xvm.asm.ast.BinaryAST.NodeType.NamedRegAlloc</label>
+      </node>
+      <node id="11">
+        <label>org.xvm.asm.ast.BinaryAST.NodeType.RegAlloc</label>
+      </node>
+      <node id="6">
+        <label>org.xvm.asm.constants.StringConstant</label>
+      </node>
+      <node id="7">
+        <label>org.xvm.asm.constants.TypeConstant</label>
+      </node>
+      <node id="12">
+        <label>org.xvm.util.Handy.readPackedInt</label>
+      </node>
+      <node id="13">
+        <label>org.xvm.util.Handy.writePackedLong</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t" prot="public">org::xvm::asm::ast::RegAllocAST</innerclass>
+    <innernamespace refid="d1/dde/namespaceorg_1_1xvm_1_1asm_1_1ast">org::xvm::asm::ast</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.asm.ast;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.DataInput;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.DataOutput;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.IOException;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Constant;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.constants.StringConstant;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.constants.TypeConstant;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.asm.ast.BinaryAST.NodeType.AnnoNamedRegAlloc;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.asm.ast.BinaryAST.NodeType.AnnoRegAlloc;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.asm.ast.BinaryAST.NodeType.NamedRegAlloc;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.asm.ast.BinaryAST.NodeType.RegAlloc;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.util.Handy.readPackedInt;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.util.Handy.writePackedLong;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1ab7e0b0e9d7d2647852100f90ba1a28d5" kindref="member">RegAllocAST</ref></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="d4/de4/classorg_1_1xvm_1_1asm_1_1ast_1_1_expr_a_s_t" kindref="compound">ExprAST</ref><sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1aa6dc726c1d0b58909135db01d118e13c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="dd/dff/enumorg_1_1xvm_1_1asm_1_1ast_1_1_binary_a_s_t_1_1_node_type" kindref="compound">NodeType</ref><sp/><ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1aa6dc726c1d0b58909135db01d118e13c" kindref="member">nodeType</ref>;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a0511406ce81c1be6562a1d87db73876c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">transient</highlight><highlight class="normal"><sp/><ref refid="d9/dbf/classorg_1_1xvm_1_1asm_1_1ast_1_1_register_a_s_t" kindref="compound">RegisterAST</ref><sp/><ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a0511406ce81c1be6562a1d87db73876c" kindref="member">reg</ref>;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1ab7e0b0e9d7d2647852100f90ba1a28d5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1ab7e0b0e9d7d2647852100f90ba1a28d5" kindref="member">RegAllocAST</ref>(<ref refid="dd/dff/enumorg_1_1xvm_1_1asm_1_1ast_1_1_binary_a_s_t_1_1_node_type" kindref="compound">NodeType</ref><sp/><ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1aa6dc726c1d0b58909135db01d118e13c" kindref="member">nodeType</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.nodeType<sp/>=<sp/><ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1aa6dc726c1d0b58909135db01d118e13c" kindref="member">nodeType</ref>;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1ae3a73956ed050444ccf3dc17624bc976" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1ae3a73956ed050444ccf3dc17624bc976" kindref="member">RegAllocAST</ref>(<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/><ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref>,<sp/><ref refid="d0/db5/classorg_1_1xvm_1_1asm_1_1constants_1_1_string_constant" kindref="compound">StringConstant</ref><sp/>name)<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/><ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref><sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.reg<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d9/dbf/classorg_1_1xvm_1_1asm_1_1ast_1_1_register_a_s_t" kindref="compound">RegisterAST</ref>(<ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref>,<sp/>name);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.nodeType<sp/>=<sp/>name<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>?<sp/>RegAlloc<sp/>:<sp/>NamedRegAlloc;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a5b8d5898673a3c3268d9208ca1a6f992" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a5b8d5898673a3c3268d9208ca1a6f992" kindref="member">RegAllocAST</ref>(<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/>refType,<sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/><ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref>,<sp/><ref refid="d0/db5/classorg_1_1xvm_1_1asm_1_1constants_1_1_string_constant" kindref="compound">StringConstant</ref><sp/>name)<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/>refType<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/><ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref><sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.reg<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d9/dbf/classorg_1_1xvm_1_1asm_1_1ast_1_1_register_a_s_t" kindref="compound">RegisterAST</ref>(refType,<sp/><ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref>,<sp/>name);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.nodeType<sp/>=<sp/>name<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>?<sp/>AnnoRegAlloc<sp/>:<sp/>AnnoNamedRegAlloc;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a02310a2a587fd696a94390e89883b846" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d9/dbf/classorg_1_1xvm_1_1asm_1_1ast_1_1_register_a_s_t" kindref="compound">RegisterAST</ref><sp/><ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a02310a2a587fd696a94390e89883b846" kindref="member">getRegister</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a0511406ce81c1be6562a1d87db73876c" kindref="member">reg</ref>;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a8d76a83ddbf25d3850326d1a2e222a76" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref><sp/><ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a8d76a83ddbf25d3850326d1a2e222a76" kindref="member">getRefType</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a0511406ce81c1be6562a1d87db73876c" kindref="member">reg</ref>.getRefType();</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75" refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1ae3055ecf7c3c286fa89e26ed8cac3db5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1ae3055ecf7c3c286fa89e26ed8cac3db5" kindref="member">getName</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a0511406ce81c1be6562a1d87db73876c" kindref="member">reg</ref>.getName();</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="80" refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a859f9247b1984f4f6e97050848a57380" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/><ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a859f9247b1984f4f6e97050848a57380" kindref="member">getType</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i)<sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/>i<sp/>==<sp/>0;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a0511406ce81c1be6562a1d87db73876c" kindref="member">reg</ref>.getType(0);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="86" refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a74564d66e63fa71d1d6754fffe3a63b3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a74564d66e63fa71d1d6754fffe3a63b3" kindref="member">isAssignable</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="91" refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a6d45ba4b3e9f5b0ec3239906cdf9db14" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="dd/dff/enumorg_1_1xvm_1_1asm_1_1ast_1_1_binary_a_s_t_1_1_node_type" kindref="compound">NodeType</ref><sp/><ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a6d45ba4b3e9f5b0ec3239906cdf9db14" kindref="member">nodeType</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1aa6dc726c1d0b58909135db01d118e13c" kindref="member">nodeType</ref>;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="96" refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a2f9388cd9c95f562d09a19d610a95c13" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a2f9388cd9c95f562d09a19d610a95c13" kindref="member">readBody</ref>(DataInput<sp/>in,<sp/><ref refid="d7/d33/interfaceorg_1_1xvm_1_1asm_1_1ast_1_1_binary_a_s_t_1_1_constant_resolver" kindref="compound">ConstantResolver</ref><sp/>res)</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/>refType<sp/>=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1aa6dc726c1d0b58909135db01d118e13c" kindref="member">nodeType</ref><sp/>==<sp/>AnnoRegAlloc<sp/>||<sp/><ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1aa6dc726c1d0b58909135db01d118e13c" kindref="member">nodeType</ref><sp/>==<sp/>AnnoNamedRegAlloc)<sp/>{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>refType<sp/>=<sp/>res.getConstant(readPackedInt(in),<sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref>.class);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/><sp/><sp/><ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref><sp/>=<sp/>res.getConstant(readPackedInt(in),<sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref>.class);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d0/db5/classorg_1_1xvm_1_1asm_1_1constants_1_1_string_constant" kindref="compound">StringConstant</ref><sp/>name<sp/>=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1aa6dc726c1d0b58909135db01d118e13c" kindref="member">nodeType</ref><sp/>==<sp/>NamedRegAlloc<sp/>||<sp/><ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1aa6dc726c1d0b58909135db01d118e13c" kindref="member">nodeType</ref><sp/>==<sp/>AnnoNamedRegAlloc)<sp/>{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>name<sp/>=<sp/>res.getConstant(readPackedInt(in),<sp/><ref refid="d0/db5/classorg_1_1xvm_1_1asm_1_1constants_1_1_string_constant" kindref="compound">StringConstant</ref>.class);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a0511406ce81c1be6562a1d87db73876c" kindref="member">reg</ref><sp/>=<sp/>refType<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d9/dbf/classorg_1_1xvm_1_1asm_1_1ast_1_1_register_a_s_t" kindref="compound">RegisterAST</ref>(<ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref>,<sp/>name)</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d9/dbf/classorg_1_1xvm_1_1asm_1_1ast_1_1_register_a_s_t" kindref="compound">RegisterAST</ref>(refType,<sp/><ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref>,<sp/>name);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>res.register(<ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a0511406ce81c1be6562a1d87db73876c" kindref="member">reg</ref>);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="115" refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a144700d5a7f5706244ea06c3a4fc5059" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a144700d5a7f5706244ea06c3a4fc5059" kindref="member">prepareWrite</ref>(<ref refid="d7/d33/interfaceorg_1_1xvm_1_1asm_1_1ast_1_1_binary_a_s_t_1_1_constant_resolver" kindref="compound">ConstantResolver</ref><sp/>res)<sp/>{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>while<sp/>the<sp/>data<sp/>is<sp/>on<sp/>the<sp/>RegisterAST<sp/>instance,<sp/>it&apos;s<sp/>technically<sp/>&quot;owned<sp/>by&quot;<sp/>this;<sp/>all</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>other<sp/>use<sp/>sites<sp/>for<sp/>the<sp/>RegisterAST<sp/>rely<sp/>solely<sp/>on<sp/>the<sp/>register&apos;s<sp/>id</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>reg.refType<sp/>=<sp/><sp/><sp/>(<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref>)<sp/>res.<ref refid="d7/d33/interfaceorg_1_1xvm_1_1asm_1_1ast_1_1_binary_a_s_t_1_1_constant_resolver_1a8f277942ab2cd569f0ae16db0e7680f8" kindref="member">register</ref>(<ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a0511406ce81c1be6562a1d87db73876c" kindref="member">reg</ref>.refType);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>reg.type<sp/><sp/><sp/><sp/>=<sp/><sp/><sp/>(<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref>)<sp/>res.<ref refid="d7/d33/interfaceorg_1_1xvm_1_1asm_1_1ast_1_1_binary_a_s_t_1_1_constant_resolver_1a8f277942ab2cd569f0ae16db0e7680f8" kindref="member">register</ref>(<ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a0511406ce81c1be6562a1d87db73876c" kindref="member">reg</ref>.type);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>reg.name<sp/><sp/><sp/><sp/>=<sp/>(<ref refid="d0/db5/classorg_1_1xvm_1_1asm_1_1constants_1_1_string_constant" kindref="compound">StringConstant</ref>)<sp/>res.<ref refid="d7/d33/interfaceorg_1_1xvm_1_1asm_1_1ast_1_1_binary_a_s_t_1_1_constant_resolver_1a8f277942ab2cd569f0ae16db0e7680f8" kindref="member">register</ref>(<ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a0511406ce81c1be6562a1d87db73876c" kindref="member">reg</ref>.name);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>res.<ref refid="d7/d33/interfaceorg_1_1xvm_1_1asm_1_1ast_1_1_binary_a_s_t_1_1_constant_resolver_1a8f277942ab2cd569f0ae16db0e7680f8" kindref="member">register</ref>(<ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a0511406ce81c1be6562a1d87db73876c" kindref="member">reg</ref>);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="125" refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1ad31d796915287ab9cec5d2fe82e0fd9e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1ad31d796915287ab9cec5d2fe82e0fd9e" kindref="member">writeBody</ref>(DataOutput<sp/>out,<sp/><ref refid="d7/d33/interfaceorg_1_1xvm_1_1asm_1_1ast_1_1_binary_a_s_t_1_1_constant_resolver" kindref="compound">ConstantResolver</ref><sp/>res)</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>what<sp/>is<sp/>notable<sp/>about<sp/>the<sp/>serialization<sp/>format<sp/>is<sp/>that<sp/>it<sp/>does<sp/>*not*<sp/>include<sp/>the<sp/>register</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>id<sp/>(number);<sp/>register<sp/>ids<sp/>are<sp/>required<sp/>to<sp/>be<sp/>gap-less<sp/>and<sp/>ascending,<sp/>so<sp/>the<sp/>id<sp/>can<sp/>be</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>calculated<sp/>by<sp/>the<sp/>resolver<sp/>when<sp/>the<sp/>AST<sp/>is<sp/>read<sp/>back<sp/>into<sp/>its<sp/>object<sp/>form<sp/>from<sp/>binary</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1aa6dc726c1d0b58909135db01d118e13c" kindref="member">nodeType</ref><sp/>==<sp/>AnnoRegAlloc<sp/>||<sp/><ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1aa6dc726c1d0b58909135db01d118e13c" kindref="member">nodeType</ref><sp/>==<sp/>AnnoNamedRegAlloc)<sp/>{</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>writePackedLong(out,<sp/>res.indexOf(<ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a0511406ce81c1be6562a1d87db73876c" kindref="member">reg</ref>.refType));</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>writePackedLong(out,<sp/>res.indexOf(<ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a0511406ce81c1be6562a1d87db73876c" kindref="member">reg</ref>.type));</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1aa6dc726c1d0b58909135db01d118e13c" kindref="member">nodeType</ref><sp/>==<sp/>NamedRegAlloc<sp/>||<sp/><ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1aa6dc726c1d0b58909135db01d118e13c" kindref="member">nodeType</ref><sp/>==<sp/>AnnoNamedRegAlloc)<sp/>{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>writePackedLong(out,<sp/>res.indexOf(<ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a0511406ce81c1be6562a1d87db73876c" kindref="member">reg</ref>.name));</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="140" refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a1b346c88bdc013ec9205979b5fbb8e05" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a1b346c88bdc013ec9205979b5fbb8e05" kindref="member">toString</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/>typeRef<sp/>=<sp/><ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a0511406ce81c1be6562a1d87db73876c" kindref="member">reg</ref>.getRefType();</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/><ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref><sp/><sp/><sp/><sp/>=<sp/><ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a0511406ce81c1be6562a1d87db73876c" kindref="member">reg</ref>.getType();</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>StringBuilder<sp/>buf<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>StringBuilder();</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(typeRef<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buf.append(typeRef.<ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1a6c31fef7d5d3cfcc485b7b73819f4b94" kindref="member">getValueString</ref>())</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.append(</highlight><highlight class="charliteral">&apos;<sp/>&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buf.append(<ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref>.getValueString())</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.append(</highlight><highlight class="charliteral">&apos;<sp/>&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.append(<ref refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t_1a0511406ce81c1be6562a1d87db73876c" kindref="member">reg</ref>);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>buf.toString();</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="154"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/ast/RegAllocAST.java"/>
+  </compounddef>
+</doxygen>

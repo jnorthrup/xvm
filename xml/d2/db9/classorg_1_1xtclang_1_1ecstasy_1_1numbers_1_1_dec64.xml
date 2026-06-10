@@ -1,0 +1,1435 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64" kind="class" language="Java" prot="public">
+    <compoundname>org::xtclang::ecstasy::numbers::Dec64</compoundname>
+    <basecompoundref refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number" prot="public" virt="non-virtual">org.xtclang.ecstasy.numbers.DecimalFPNumber</basecompoundref>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a123e4c109901082c9fca063d0b778b75" prot="private" static="yes" mutable="no">
+        <type>final long</type>
+        <definition>final long org.xtclang.ecstasy.numbers.Dec64.$SIGN_BIT</definition>
+        <argsstring></argsstring>
+        <name>$SIGN_BIT</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.$SIGN_BIT</qualifiedname>
+        <initializer>= 1L &lt;&lt; 63</initializer>
+        <briefdescription>
+<para>The sign bit for a 64-bit IEEE 754 decimal. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="19" column="31" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="19" bodyend="-1"/>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1aaff265cc38beedc5e97b0069779f2819" compoundref="d0/db8/_dec64_8java" startline="472" endline="509">org.xtclang.ecstasy.numbers.Dec64.$toBigDecimal</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a1ecc70e95e74b78eaff140d891d24ae9" compoundref="d0/db8/_dec64_8java" startline="421" endline="463">org.xtclang.ecstasy.numbers.Dec64.$toLongBits</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1ad347f17270695fe746207e462b9ac84c" prot="private" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int org.xtclang.ecstasy.numbers.Dec64.$G3_SHIFT</definition>
+        <argsstring></argsstring>
+        <name>$G3_SHIFT</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.$G3_SHIFT</qualifiedname>
+        <initializer>= 59</initializer>
+        <briefdescription>
+<para>The amount to shift the G3 bit of a 64-bit IEEE 754 decimal. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="24" column="30" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a2005ea97ff7ae0d790023c3eaec461c3" prot="private" static="yes" mutable="no">
+        <type>final long</type>
+        <definition>final long org.xtclang.ecstasy.numbers.Dec64.$G0_G3_MASK</definition>
+        <argsstring></argsstring>
+        <name>$G0_G3_MASK</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.$G0_G3_MASK</qualifiedname>
+        <initializer>= 0b1111L &lt;&lt; $G3_SHIFT</initializer>
+        <briefdescription>
+<para>The bit mask for the G0-G3 bits of a 64-bit IEEE 754 decimal. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="29" column="31" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="29" bodyend="-1"/>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a24f10f8d47a9f06d6ed17816849f713d" compoundref="d0/db8/_dec64_8java" startline="406" endline="411">org.xtclang.ecstasy.numbers.Dec64.$ensureFiniteBits</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a3307fd842637031644beacd9f0974fb9" prot="private" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int org.xtclang.ecstasy.numbers.Dec64.$G4_SHIFT</definition>
+        <argsstring></argsstring>
+        <name>$G4_SHIFT</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.$G4_SHIFT</qualifiedname>
+        <initializer>= 58</initializer>
+        <briefdescription>
+<para>The amount to shift the G4 bit of a 64-bit IEEE 754 decimal. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="34" column="30" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="34" bodyend="-1"/>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a0b6340ee6ea1971db38ac68e36aa50e3" compoundref="d0/db8/_dec64_8java" startline="344" endline="356">org.xtclang.ecstasy.numbers.Dec64.$getSignificand</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a1ecc70e95e74b78eaff140d891d24ae9" compoundref="d0/db8/_dec64_8java" startline="421" endline="463">org.xtclang.ecstasy.numbers.Dec64.$toLongBits</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a0e6cfd59e0ce3f3d77e3c8e0d45260a4" prot="private" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int org.xtclang.ecstasy.numbers.Dec64.$G5_SHIFT</definition>
+        <argsstring></argsstring>
+        <name>$G5_SHIFT</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.$G5_SHIFT</qualifiedname>
+        <initializer>= 57</initializer>
+        <briefdescription>
+<para>The amount to shift the G5 bit of a 64-bit IEEE 754 decimal. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="39" column="30" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a0b64b1c9334b23bab81c46df8cd14f6a" prot="private" static="yes" mutable="no">
+        <type>final long</type>
+        <definition>final long org.xtclang.ecstasy.numbers.Dec64.$G5_SIGNAL</definition>
+        <argsstring></argsstring>
+        <name>$G5_SIGNAL</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.$G5_SIGNAL</qualifiedname>
+        <initializer>= 1L &lt;&lt; $G5_SHIFT</initializer>
+        <briefdescription>
+<para>The value of the G5 bit that indicates that a 64-bit IEEE 754 decimal is a signaling NaN, if the decimal is a NaN. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="45" column="31" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a7cfa53665e86c892647f5ec71d28d4b4" prot="private" static="yes" mutable="no">
+        <type>final long</type>
+        <definition>final long org.xtclang.ecstasy.numbers.Dec64.$G0_G4_INF</definition>
+        <argsstring></argsstring>
+        <name>$G0_G4_INF</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.$G0_G4_INF</qualifiedname>
+        <initializer>= 0b11110L &lt;&lt; $G4_SHIFT</initializer>
+        <briefdescription>
+<para>The value for the G0-G4 bits of a 64-bit IEEE 754 decimal that indicate that the decimal value is infinite. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="51" column="31" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1ac7016019521aefff0722ef06310e8210" prot="private" static="yes" mutable="no">
+        <type>final long</type>
+        <definition>final long org.xtclang.ecstasy.numbers.Dec64.$G0_G4_NAN</definition>
+        <argsstring></argsstring>
+        <name>$G0_G4_NAN</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.$G0_G4_NAN</qualifiedname>
+        <initializer>= 0b11111L &lt;&lt; $G4_SHIFT</initializer>
+        <briefdescription>
+<para>The value for the G0-G4 bits of a 64-bit IEEE 754 decimal that indicate that the decimal value is &quot;Not a Number&quot; (NaN). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="67" column="31" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="67" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1af989251ca678cefe3cad51ed975e5294" prot="public" static="yes" mutable="no">
+        <type>final long</type>
+        <definition>final long org.xtclang.ecstasy.numbers.Dec64.$POS_INFINITY</definition>
+        <argsstring></argsstring>
+        <name>$POS_INFINITY</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.$POS_INFINITY</qualifiedname>
+        <initializer>= $G0_G4_INF</initializer>
+        <briefdescription>
+<para>The decimal value for positive infinity. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="56" column="30" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="56" bodyend="-1"/>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a6940b37a08d971f74f3633ff4e7ad4c5" compoundref="d0/db8/_dec64_8java" startline="141" endline="172">org.xtclang.ecstasy.numbers.Dec64.$div</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a392b706579acfc3988fb198d9a8e51d9" compoundref="d0/db8/_dec64_8java" startline="212" endline="228">org.xtclang.ecstasy.numbers.Dec64.$mul</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a8135ce0603cb485651ff7539b536647a" compoundref="d0/db8/_dec64_8java" startline="239" endline="246">org.xtclang.ecstasy.numbers.Dec64.$neg</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a5a6c1eaae0b3452ff04b4ef7420fc27d" compoundref="d0/db8/_dec64_8java" startline="259" endline="281">org.xtclang.ecstasy.numbers.Dec64.$sub</referencedby>
+        <referencedby refid="db/d83/interfaceorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_convertible_1a86e6107c24bd9911a1861877e2bb9012" compoundref="d5/d86/_f_p_convertible_8java" startline="62" endline="70">org.xtclang.ecstasy.numbers.FPConvertible.toDec64$p</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1aecf243bf48db4a356b14434c5cdd24e9" prot="public" static="yes" mutable="no">
+        <type>final long</type>
+        <definition>final long org.xtclang.ecstasy.numbers.Dec64.$NEG_INFINITY</definition>
+        <argsstring></argsstring>
+        <name>$NEG_INFINITY</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.$NEG_INFINITY</qualifiedname>
+        <initializer>= $SIGN_BIT | $G0_G4_INF</initializer>
+        <briefdescription>
+<para>The decimal value for negative infinity. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="61" column="30" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="61" bodyend="-1"/>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a6940b37a08d971f74f3633ff4e7ad4c5" compoundref="d0/db8/_dec64_8java" startline="141" endline="172">org.xtclang.ecstasy.numbers.Dec64.$div</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a392b706579acfc3988fb198d9a8e51d9" compoundref="d0/db8/_dec64_8java" startline="212" endline="228">org.xtclang.ecstasy.numbers.Dec64.$mul</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a8135ce0603cb485651ff7539b536647a" compoundref="d0/db8/_dec64_8java" startline="239" endline="246">org.xtclang.ecstasy.numbers.Dec64.$neg</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a5a6c1eaae0b3452ff04b4ef7420fc27d" compoundref="d0/db8/_dec64_8java" startline="259" endline="281">org.xtclang.ecstasy.numbers.Dec64.$sub</referencedby>
+        <referencedby refid="db/d83/interfaceorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_convertible_1a86e6107c24bd9911a1861877e2bb9012" compoundref="d5/d86/_f_p_convertible_8java" startline="62" endline="70">org.xtclang.ecstasy.numbers.FPConvertible.toDec64$p</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1ab6046852c6a5f03b26d53a131761fe21" prot="public" static="yes" mutable="no">
+        <type>final long</type>
+        <definition>final long org.xtclang.ecstasy.numbers.Dec64.$NaN</definition>
+        <argsstring></argsstring>
+        <name>$NaN</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.$NaN</qualifiedname>
+        <initializer>= $G0_G4_NAN</initializer>
+        <briefdescription>
+<para>The decimal value for a &quot;quiet&quot; Not-A-Number (NaN). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="72" column="30" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="72" bodyend="-1"/>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a9943d9d3db02f39d962ba64437458d2a" compoundref="d0/db8/_dec64_8java" startline="113" endline="128">org.xtclang.ecstasy.numbers.Dec64.$add</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a6940b37a08d971f74f3633ff4e7ad4c5" compoundref="d0/db8/_dec64_8java" startline="141" endline="172">org.xtclang.ecstasy.numbers.Dec64.$div</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a62fde56256002a090e9d405d4af74b86" compoundref="d0/db8/_dec64_8java" startline="185" endline="199">org.xtclang.ecstasy.numbers.Dec64.$mod</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a392b706579acfc3988fb198d9a8e51d9" compoundref="d0/db8/_dec64_8java" startline="212" endline="228">org.xtclang.ecstasy.numbers.Dec64.$mul</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a8135ce0603cb485651ff7539b536647a" compoundref="d0/db8/_dec64_8java" startline="239" endline="246">org.xtclang.ecstasy.numbers.Dec64.$neg</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a5a6c1eaae0b3452ff04b4ef7420fc27d" compoundref="d0/db8/_dec64_8java" startline="259" endline="281">org.xtclang.ecstasy.numbers.Dec64.$sub</referencedby>
+        <referencedby refid="db/d83/interfaceorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_convertible_1a86e6107c24bd9911a1861877e2bb9012" compoundref="d5/d86/_f_p_convertible_8java" startline="62" endline="70">org.xtclang.ecstasy.numbers.FPConvertible.toDec64$p</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a6645538afd7be85680a98bef244d9f17" prot="public" static="yes" mutable="no">
+        <type>final long</type>
+        <definition>final long org.xtclang.ecstasy.numbers.Dec64.$SNaN</definition>
+        <argsstring></argsstring>
+        <name>$SNaN</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.$SNaN</qualifiedname>
+        <initializer>= $G0_G4_NAN | $G5_SIGNAL</initializer>
+        <briefdescription>
+<para>The decimal value for a signaling Not-A-Number (NaN). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="77" column="30" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="77" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1ae235bc7e35ed593b930138b4545f20e0" prot="public" static="no" mutable="no">
+        <type>final long</type>
+        <definition>final long org.xtclang.ecstasy.numbers.Dec64.$bits</definition>
+        <argsstring></argsstring>
+        <name>$bits</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.$bits</qualifiedname>
+        <briefdescription>
+<para>The value of this IEEE-754-2008 64-bit decimal contained in a <javadoccode>long</javadoccode>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="82" column="23" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="82" bodyend="-1"/>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a7f26ab516b5e7244f1ef271b2fbfd9b8" compoundref="d0/db8/_dec64_8java" startline="327" endline="329">org.xtclang.ecstasy.numbers.Dec64.$getByte</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a74ef0e6a9725463efc30e4afbbbd68df" compoundref="d0/db8/_dec64_8java" startline="361" endline="371">org.xtclang.ecstasy.numbers.Dec64.$getExponent</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a0b6340ee6ea1971db38ac68e36aa50e3" compoundref="d0/db8/_dec64_8java" startline="344" endline="356">org.xtclang.ecstasy.numbers.Dec64.$getSignificand</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a6717443ff506fdfbe4495f0cc47bc496" compoundref="d0/db8/_dec64_8java" startline="337" endline="339">org.xtclang.ecstasy.numbers.Dec64.$isZero</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a09c7582ec375f53b1bf8be81369c1d23" compoundref="d0/db8/_dec64_8java" startline="332" endline="334">org.xtclang.ecstasy.numbers.Dec64.$leftmost7Bits</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a7893dc690668e0bc1dffcf1fc208e7d6" compoundref="d0/db8/_dec64_8java" startline="511" endline="513">org.xtclang.ecstasy.numbers.Dec64.$longValues</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a8c3630f391627726066cc45aaa82baa4" compoundref="d0/db8/_dec64_8java" startline="375" endline="381">org.xtclang.ecstasy.numbers.Dec64.$toBigDecimal</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a54d29027e1a2e0a58da0296ca3c6b20c" compoundref="d0/db8/_dec64_8java" startline="90" endline="92">org.xtclang.ecstasy.numbers.Dec64.Dec64</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a5b923b3be1ef6cd85d2241fbf40aaeeb" compoundref="d0/db8/_dec64_8java" startline="386" endline="388">org.xtclang.ecstasy.numbers.Dec64.hashCode</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1ac9323e039de52c7c7eeae9db4d20ae89" compoundref="d0/db8/_dec64_8java" startline="286" endline="288">org.xtclang.ecstasy.numbers.Dec64.toDec64$p</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a54d29027e1a2e0a58da0296ca3c6b20c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.xtclang.ecstasy.numbers.Dec64.Dec64</definition>
+        <argsstring>(long nBits)</argsstring>
+        <name>Dec64</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.Dec64</qualifiedname>
+        <param>
+          <type>long</type>
+          <declname>nBits</declname>
+        </param>
+        <briefdescription>
+<para>Construct a decimal value from a Java <javadoccode>long</javadoccode> whose format is that of an IEEE-754-2008 64-bit decimal. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nBits</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a 64-bit Java <javadoccode>long</javadoccode> containing the bits of an IEEE-754-2008 decimal </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="90" column="12" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="90" bodyend="92"/>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1ae235bc7e35ed593b930138b4545f20e0" compoundref="d0/db8/_dec64_8java" startline="82">org.xtclang.ecstasy.numbers.Dec64.$bits</references>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a651426bc6310b05c8dca7559ea88956d" compoundref="d0/db8/_dec64_8java" startline="96" endline="98">org.xtclang.ecstasy.numbers.Dec64.$box</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a144379775485f3fddec6c8f0e0320f80" compoundref="d0/db8/_dec64_8java" startline="304" endline="306">org.xtclang.ecstasy.numbers.Dec64.$compare</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1aac11906a43edc63c72c4d37e4b1b88cc" compoundref="d0/db8/_dec64_8java" startline="391" endline="393">org.xtclang.ecstasy.numbers.Dec64.equals</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1ac9323e039de52c7c7eeae9db4d20ae89" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long org.xtclang.ecstasy.numbers.Dec64.toDec64$p</definition>
+        <argsstring>(Ctx ctx)</argsstring>
+        <name>toDec64$p</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.toDec64$p</qualifiedname>
+        <reimplements refid="db/d83/interfaceorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_convertible_1a86e6107c24bd9911a1861877e2bb9012">toDec64$p</reimplements>
+        <param>
+          <type><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx" kindref="compound">Ctx</ref></type>
+          <declname>ctx</declname>
+        </param>
+        <briefdescription>
+<para>Implementation of the method. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><preformatted>
+toDec64()
+</preformatted></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the build context</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>this <ref refid="db/d83/interfaceorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_convertible" kindref="compound">FPConvertible</ref> value converted to an <ref refid="d7/d4b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_int8" kindref="compound">Int8</ref> value inside a Java <javadoccode>int</javadoccode> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="286" column="17" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="286" bodyend="288"/>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1ae235bc7e35ed593b930138b4545f20e0" compoundref="d0/db8/_dec64_8java" startline="82">org.xtclang.ecstasy.numbers.Dec64.$bits</references>
+      </memberdef>
+      <memberdef kind="function" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a8c1f1fcd735294fd2bdb9e279c4fde4e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xtclang.ecstasy.numbers.Dec64.$getByteLength</definition>
+        <argsstring>()</argsstring>
+        <name>$getByteLength</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.$getByteLength</qualifiedname>
+        <reimplements refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1a8d686fb7056752668c7e29a47ba970f3">$getByteLength</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the size of the IEEE-754-2008 formatted decimal, in bytes. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="322" column="16" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="322" bodyend="324"/>
+      </memberdef>
+      <memberdef kind="function" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a7f26ab516b5e7244f1ef271b2fbfd9b8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xtclang.ecstasy.numbers.Dec64.$getByte</definition>
+        <argsstring>(int i)</argsstring>
+        <name>$getByte</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.$getByte</qualifiedname>
+        <reimplements refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1a4d478029c22d66c778a95bf70b50d1c4">$getByte</reimplements>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>Obtain a byte of the IEEE-754-2008 formatted decimal. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>i</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the index of the byte, where 0 is the most significant byte, and <computeroutput>(<computeroutput><ref refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1a47a45a96c72da12a2935f5943a4d7caf" kindref="member">$getBitLength()</ref></computeroutput>-1)</computeroutput> is the least significant byte</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the byte at the specified index </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="327" column="16" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="327" bodyend="329"/>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1ae235bc7e35ed593b930138b4545f20e0" compoundref="d0/db8/_dec64_8java" startline="82">org.xtclang.ecstasy.numbers.Dec64.$bits</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a7f26ab516b5e7244f1ef271b2fbfd9b8" compoundref="d0/db8/_dec64_8java" startline="327" endline="329">org.xtclang.ecstasy.numbers.Dec64.$getByte</references>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a7f26ab516b5e7244f1ef271b2fbfd9b8" compoundref="d0/db8/_dec64_8java" startline="327" endline="329">org.xtclang.ecstasy.numbers.Dec64.$getByte</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a6717443ff506fdfbe4495f0cc47bc496" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xtclang.ecstasy.numbers.Dec64.$isZero</definition>
+        <argsstring>()</argsstring>
+        <name>$isZero</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.$isZero</qualifiedname>
+        <reimplements refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1ab93d265c03c7aad882e80c897994c41f">$isZero</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true iff the decimal is zero, including both positive and negative zero </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="337" column="20" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="337" bodyend="339"/>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1ae235bc7e35ed593b930138b4545f20e0" compoundref="d0/db8/_dec64_8java" startline="82">org.xtclang.ecstasy.numbers.Dec64.$bits</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a6717443ff506fdfbe4495f0cc47bc496" compoundref="d0/db8/_dec64_8java" startline="337" endline="339">org.xtclang.ecstasy.numbers.Dec64.$isZero</references>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a6940b37a08d971f74f3633ff4e7ad4c5" compoundref="d0/db8/_dec64_8java" startline="141" endline="172">org.xtclang.ecstasy.numbers.Dec64.$div</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a6717443ff506fdfbe4495f0cc47bc496" compoundref="d0/db8/_dec64_8java" startline="337" endline="339">org.xtclang.ecstasy.numbers.Dec64.$isZero</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a0b6340ee6ea1971db38ac68e36aa50e3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long org.xtclang.ecstasy.numbers.Dec64.$getSignificand</definition>
+        <argsstring>()</argsstring>
+        <name>$getSignificand</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.$getSignificand</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the significand of the decimal as a Java <javadoccode>long</javadoccode> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="344" column="17" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="344" bodyend="356"/>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1ae235bc7e35ed593b930138b4545f20e0" compoundref="d0/db8/_dec64_8java" startline="82">org.xtclang.ecstasy.numbers.Dec64.$bits</references>
+        <references refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1a033d6f1dc17b0e182b82e5e2e93c606f" compoundref="da/dad/_decimal_f_p_number_8java" startline="468" endline="525">org.xtclang.ecstasy.numbers.DecimalFPNumber.$decletToInt</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a24f10f8d47a9f06d6ed17816849f713d" compoundref="d0/db8/_dec64_8java" startline="406" endline="411">org.xtclang.ecstasy.numbers.Dec64.$ensureFiniteBits</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a3307fd842637031644beacd9f0974fb9" compoundref="d0/db8/_dec64_8java" startline="34">org.xtclang.ecstasy.numbers.Dec64.$G4_SHIFT</references>
+        <referencedby refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1a1c9d6292685b4c4243e0a95c61f03e17" compoundref="da/dad/_decimal_f_p_number_8java" startline="318" endline="381">org.xtclang.ecstasy.numbers.DecimalFPNumber.$isSameValue</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a74ef0e6a9725463efc30e4afbbbd68df" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xtclang.ecstasy.numbers.Dec64.$getExponent</definition>
+        <argsstring>()</argsstring>
+        <name>$getExponent</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.$getExponent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the exponent of the decimal as a Java <computeroutput>int</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="361" column="16" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="361" bodyend="371"/>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1ae235bc7e35ed593b930138b4545f20e0" compoundref="d0/db8/_dec64_8java" startline="82">org.xtclang.ecstasy.numbers.Dec64.$bits</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a24f10f8d47a9f06d6ed17816849f713d" compoundref="d0/db8/_dec64_8java" startline="406" endline="411">org.xtclang.ecstasy.numbers.Dec64.$ensureFiniteBits</references>
+        <referencedby refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1a1c9d6292685b4c4243e0a95c61f03e17" compoundref="da/dad/_decimal_f_p_number_8java" startline="318" endline="381">org.xtclang.ecstasy.numbers.DecimalFPNumber.$isSameValue</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a8c3630f391627726066cc45aaa82baa4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>BigDecimal</type>
+        <definition>BigDecimal org.xtclang.ecstasy.numbers.Dec64.$toBigDecimal</definition>
+        <argsstring>()</argsstring>
+        <name>$toBigDecimal</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.$toBigDecimal</qualifiedname>
+        <reimplements refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1a738b69c38a9083f4b308f19b05718200">$toBigDecimal</reimplements>
+        <briefdescription>
+<para>Obtain the decimal value as a Java BigDecimal, iff the decimal is finite. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>a BigDecimal, or null if the decimal is not finite </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="375" column="23" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="375" bodyend="381"/>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1ae235bc7e35ed593b930138b4545f20e0" compoundref="d0/db8/_dec64_8java" startline="82">org.xtclang.ecstasy.numbers.Dec64.$bits</references>
+        <references refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1a9506b4903db8bc9dcb81b7c13345d712" compoundref="da/dad/_decimal_f_p_number_8java" startline="25">org.xtclang.ecstasy.numbers.DecimalFPNumber.$dec</references>
+        <references refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1ad358676c75c6b307d9a1be00e35cf3fe" compoundref="da/dad/_decimal_f_p_number_8java" startline="222" endline="227">org.xtclang.ecstasy.numbers.DecimalFPNumber.$isFinite</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a8c3630f391627726066cc45aaa82baa4" compoundref="d0/db8/_dec64_8java" startline="375" endline="381">org.xtclang.ecstasy.numbers.Dec64.$toBigDecimal</references>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a9943d9d3db02f39d962ba64437458d2a" compoundref="d0/db8/_dec64_8java" startline="113" endline="128">org.xtclang.ecstasy.numbers.Dec64.$add</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a6940b37a08d971f74f3633ff4e7ad4c5" compoundref="d0/db8/_dec64_8java" startline="141" endline="172">org.xtclang.ecstasy.numbers.Dec64.$div</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a62fde56256002a090e9d405d4af74b86" compoundref="d0/db8/_dec64_8java" startline="185" endline="199">org.xtclang.ecstasy.numbers.Dec64.$mod</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a392b706579acfc3988fb198d9a8e51d9" compoundref="d0/db8/_dec64_8java" startline="212" endline="228">org.xtclang.ecstasy.numbers.Dec64.$mul</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a8135ce0603cb485651ff7539b536647a" compoundref="d0/db8/_dec64_8java" startline="239" endline="246">org.xtclang.ecstasy.numbers.Dec64.$neg</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a5a6c1eaae0b3452ff04b4ef7420fc27d" compoundref="d0/db8/_dec64_8java" startline="259" endline="281">org.xtclang.ecstasy.numbers.Dec64.$sub</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a8c3630f391627726066cc45aaa82baa4" compoundref="d0/db8/_dec64_8java" startline="375" endline="381">org.xtclang.ecstasy.numbers.Dec64.$toBigDecimal</referencedby>
+        <referencedby refid="d8/d15/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_int128_test_1a723ff0f5f3074e093173c0617ad24369" compoundref="d8/d16/_int128_test_8java" startline="301" endline="309">org.xtclang.ecstasy.numbers.Int128Test.shouldConvertToDec64</referencedby>
+        <referencedby refid="d3/d02/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_int16_test_1ac8e2e476b675ac0bfc58b1ec108ea486" compoundref="db/dd1/_int16_test_8java" startline="245" endline="253">org.xtclang.ecstasy.numbers.Int16Test.shouldConvertToDec64</referencedby>
+        <referencedby refid="db/d29/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_int32_test_1abc427178dfa933014d13619314e1d7c1" compoundref="dd/d6e/_int32_test_8java" startline="264" endline="272">org.xtclang.ecstasy.numbers.Int32Test.shouldConvertToDec64</referencedby>
+        <referencedby refid="d3/d12/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_int64_test_1ac5afecb3af6f3682a81e52f881e7e33d" compoundref="d2/d74/_int64_test_8java" startline="265" endline="273">org.xtclang.ecstasy.numbers.Int64Test.shouldConvertToDec64</referencedby>
+        <referencedby refid="d0/d93/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_int8_test_1a77f6cc1b7747586b1c9c7e3f8cba951c" compoundref="db/da0/_int8_test_8java" startline="227" endline="235">org.xtclang.ecstasy.numbers.Int8Test.shouldConvertToDec64</referencedby>
+        <referencedby refid="d0/d5e/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_u_int128_test_1a60915f3e847cb28ec4bcff5fada5dd2a" compoundref="d7/d2c/_u_int128_test_8java" startline="289" endline="300">org.xtclang.ecstasy.numbers.UInt128Test.shouldConvertToDec64</referencedby>
+        <referencedby refid="d9/d39/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_u_int16_test_1a21e5dc4aaa4be1ce02c4da4855747607" compoundref="df/d91/_u_int16_test_8java" startline="201" endline="209">org.xtclang.ecstasy.numbers.UInt16Test.shouldConvertToDec64</referencedby>
+        <referencedby refid="da/d2a/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_u_int32_test_1a7a70f786bd3ac3f5b2bde561d9099c2e" compoundref="d2/dd3/_u_int32_test_8java" startline="246" endline="254">org.xtclang.ecstasy.numbers.UInt32Test.shouldConvertToDec64</referencedby>
+        <referencedby refid="d8/de9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_u_int8_test_1a74461663510edcf88863b94a4a1c5440" compoundref="d6/da4/_u_int8_test_8java" startline="184" endline="192">org.xtclang.ecstasy.numbers.UInt8Test.shouldConvertToDec64</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a5b923b3be1ef6cd85d2241fbf40aaeeb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xtclang.ecstasy.numbers.Dec64.hashCode</definition>
+        <argsstring>()</argsstring>
+        <name>hashCode</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.hashCode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="386" column="16" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="386" bodyend="388"/>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1ae235bc7e35ed593b930138b4545f20e0" compoundref="d0/db8/_dec64_8java" startline="82">org.xtclang.ecstasy.numbers.Dec64.$bits</references>
+      </memberdef>
+      <memberdef kind="function" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1aac11906a43edc63c72c4d37e4b1b88cc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xtclang.ecstasy.numbers.Dec64.equals</definition>
+        <argsstring>(java.lang.Object obj)</argsstring>
+        <name>equals</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.equals</qualifiedname>
+        <param>
+          <type>java.lang.Object</type>
+          <declname>obj</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="391" column="20" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="391" bodyend="393"/>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a54d29027e1a2e0a58da0296ca3c6b20c" compoundref="d0/db8/_dec64_8java" startline="90" endline="92">org.xtclang.ecstasy.numbers.Dec64.Dec64</references>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a651426bc6310b05c8dca7559ea88956d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a54d29027e1a2e0a58da0296ca3c6b20c" kindref="member">Dec64</ref></type>
+        <definition>static Dec64 org.xtclang.ecstasy.numbers.Dec64.$box</definition>
+        <argsstring>(long value)</argsstring>
+        <name>$box</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.$box</qualifiedname>
+        <param>
+          <type>long</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="96" column="25" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="96" bodyend="98"/>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a54d29027e1a2e0a58da0296ca3c6b20c" compoundref="d0/db8/_dec64_8java" startline="90" endline="92">org.xtclang.ecstasy.numbers.Dec64.Dec64</references>
+        <referencedby refid="d7/d6e/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_dec64_xE1_x90_xB3_1a4306e9f753900bcc901e2ebf80f42446" compoundref="d1/d54/_array_xE1_x90_xB8_dec64_xE1_x90_xB3_8java" startline="85" endline="87">org.xtclang.ecstasy.collections.ArrayᐸDec64ᐳ.getElement$p</referencedby>
+        <referencedby refid="d8/d15/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_int128_test_1a723ff0f5f3074e093173c0617ad24369" compoundref="d8/d16/_int128_test_8java" startline="301" endline="309">org.xtclang.ecstasy.numbers.Int128Test.shouldConvertToDec64</referencedby>
+        <referencedby refid="d3/d02/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_int16_test_1ac8e2e476b675ac0bfc58b1ec108ea486" compoundref="db/dd1/_int16_test_8java" startline="245" endline="253">org.xtclang.ecstasy.numbers.Int16Test.shouldConvertToDec64</referencedby>
+        <referencedby refid="db/d29/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_int32_test_1abc427178dfa933014d13619314e1d7c1" compoundref="dd/d6e/_int32_test_8java" startline="264" endline="272">org.xtclang.ecstasy.numbers.Int32Test.shouldConvertToDec64</referencedby>
+        <referencedby refid="d3/d12/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_int64_test_1ac5afecb3af6f3682a81e52f881e7e33d" compoundref="d2/d74/_int64_test_8java" startline="265" endline="273">org.xtclang.ecstasy.numbers.Int64Test.shouldConvertToDec64</referencedby>
+        <referencedby refid="d0/d93/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_int8_test_1a77f6cc1b7747586b1c9c7e3f8cba951c" compoundref="db/da0/_int8_test_8java" startline="227" endline="235">org.xtclang.ecstasy.numbers.Int8Test.shouldConvertToDec64</referencedby>
+        <referencedby refid="d0/d5e/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_u_int128_test_1a60915f3e847cb28ec4bcff5fada5dd2a" compoundref="d7/d2c/_u_int128_test_8java" startline="289" endline="300">org.xtclang.ecstasy.numbers.UInt128Test.shouldConvertToDec64</referencedby>
+        <referencedby refid="d9/d39/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_u_int16_test_1a21e5dc4aaa4be1ce02c4da4855747607" compoundref="df/d91/_u_int16_test_8java" startline="201" endline="209">org.xtclang.ecstasy.numbers.UInt16Test.shouldConvertToDec64</referencedby>
+        <referencedby refid="da/d2a/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_u_int32_test_1a7a70f786bd3ac3f5b2bde561d9099c2e" compoundref="d2/dd3/_u_int32_test_8java" startline="246" endline="254">org.xtclang.ecstasy.numbers.UInt32Test.shouldConvertToDec64</referencedby>
+        <referencedby refid="d8/de9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_u_int8_test_1a74461663510edcf88863b94a4a1c5440" compoundref="d6/da4/_u_int8_test_8java" startline="184" endline="192">org.xtclang.ecstasy.numbers.UInt8Test.shouldConvertToDec64</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a9943d9d3db02f39d962ba64437458d2a" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>static long org.xtclang.ecstasy.numbers.Dec64.$add</definition>
+        <argsstring>(Ctx ctx, long bits1, long bits2)</argsstring>
+        <name>$add</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.$add</qualifiedname>
+        <param>
+          <type><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx" kindref="compound">Ctx</ref></type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>bits1</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>bits2</declname>
+        </param>
+        <briefdescription>
+<para>Add two <ref refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64" kindref="compound">Dec64</ref> values, each represented by a IEEE-754-2008 64-bit decimal packed into a <javadoccode>long</javadoccode>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current <computeroutput><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx" kindref="compound">Ctx</ref></computeroutput> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bits1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target IEEE-754-2008 64-bit decimal value </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bits2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the IEEE-754-2008 64-bit decimal to add to the target value</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the result of the addition as a IEEE-754-2008 64-bit decimal packed into a <javadoccode>long</javadoccode> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="113" column="24" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="113" bodyend="128"/>
+        <references refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1ad358676c75c6b307d9a1be00e35cf3fe" compoundref="da/dad/_decimal_f_p_number_8java" startline="222" endline="227">org.xtclang.ecstasy.numbers.DecimalFPNumber.$isFinite</references>
+        <references refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1afdba6315ee51d4cff145d4688545f301" compoundref="da/dad/_decimal_f_p_number_8java" startline="204" endline="208">org.xtclang.ecstasy.numbers.DecimalFPNumber.$isSigned</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a09c7582ec375f53b1bf8be81369c1d23" compoundref="d0/db8/_dec64_8java" startline="332" endline="334">org.xtclang.ecstasy.numbers.Dec64.$leftmost7Bits</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1ab6046852c6a5f03b26d53a131761fe21" compoundref="d0/db8/_dec64_8java" startline="72">org.xtclang.ecstasy.numbers.Dec64.$NaN</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a8c3630f391627726066cc45aaa82baa4" compoundref="d0/db8/_dec64_8java" startline="375" endline="381">org.xtclang.ecstasy.numbers.Dec64.$toBigDecimal</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a1ecc70e95e74b78eaff140d891d24ae9" compoundref="d0/db8/_dec64_8java" startline="421" endline="463">org.xtclang.ecstasy.numbers.Dec64.$toLongBits</references>
+      </memberdef>
+      <memberdef kind="function" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a6940b37a08d971f74f3633ff4e7ad4c5" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>static long org.xtclang.ecstasy.numbers.Dec64.$div</definition>
+        <argsstring>(Ctx ctx, long bits1, long bits2)</argsstring>
+        <name>$div</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.$div</qualifiedname>
+        <param>
+          <type><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx" kindref="compound">Ctx</ref></type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>bits1</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>bits2</declname>
+        </param>
+        <briefdescription>
+<para>Divide two <ref refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64" kindref="compound">Dec64</ref> values, each represented by an IEEE-754-2008 64-bit decimal packed into a <javadoccode>long</javadoccode>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current <computeroutput><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx" kindref="compound">Ctx</ref></computeroutput> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bits1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target IEEE-754-2008 64-bit decimal dividend </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bits2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the IEEE-754-2008 64-bit decimal divisor</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the result of the division as an IEEE-754-2008 64-bit decimal packed into a <javadoccode>long</javadoccode> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="141" column="24" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="141" bodyend="172"/>
+        <references refid="d2/db4/classorg_1_1xtclang_1_1ecstasy_1_1_exception_1a6ebc9e5976a1294ef6622756d13a2390" compoundref="dd/d7d/_exception_8java" startline="52" endline="54">org.xtclang.ecstasy.Exception.$init</references>
+        <references refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1ad358676c75c6b307d9a1be00e35cf3fe" compoundref="da/dad/_decimal_f_p_number_8java" startline="222" endline="227">org.xtclang.ecstasy.numbers.DecimalFPNumber.$isFinite</references>
+        <references refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1a01e3cbb099adeb9a994376838cd00c7d" compoundref="da/dad/_decimal_f_p_number_8java" startline="272" endline="274">org.xtclang.ecstasy.numbers.DecimalFPNumber.$isNaN</references>
+        <references refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1afdba6315ee51d4cff145d4688545f301" compoundref="da/dad/_decimal_f_p_number_8java" startline="204" endline="208">org.xtclang.ecstasy.numbers.DecimalFPNumber.$isSigned</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a6717443ff506fdfbe4495f0cc47bc496" compoundref="d0/db8/_dec64_8java" startline="337" endline="339">org.xtclang.ecstasy.numbers.Dec64.$isZero</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a09c7582ec375f53b1bf8be81369c1d23" compoundref="d0/db8/_dec64_8java" startline="332" endline="334">org.xtclang.ecstasy.numbers.Dec64.$leftmost7Bits</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1ab6046852c6a5f03b26d53a131761fe21" compoundref="d0/db8/_dec64_8java" startline="72">org.xtclang.ecstasy.numbers.Dec64.$NaN</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1aecf243bf48db4a356b14434c5cdd24e9" compoundref="d0/db8/_dec64_8java" startline="61">org.xtclang.ecstasy.numbers.Dec64.$NEG_INFINITY</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1af989251ca678cefe3cad51ed975e5294" compoundref="d0/db8/_dec64_8java" startline="56">org.xtclang.ecstasy.numbers.Dec64.$POS_INFINITY</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a8c3630f391627726066cc45aaa82baa4" compoundref="d0/db8/_dec64_8java" startline="375" endline="381">org.xtclang.ecstasy.numbers.Dec64.$toBigDecimal</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a1ecc70e95e74b78eaff140d891d24ae9" compoundref="d0/db8/_dec64_8java" startline="421" endline="463">org.xtclang.ecstasy.numbers.Dec64.$toLongBits</references>
+      </memberdef>
+      <memberdef kind="function" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a62fde56256002a090e9d405d4af74b86" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>static long org.xtclang.ecstasy.numbers.Dec64.$mod</definition>
+        <argsstring>(Ctx ctx, long bits1, long bits2)</argsstring>
+        <name>$mod</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.$mod</qualifiedname>
+        <param>
+          <type><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx" kindref="compound">Ctx</ref></type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>bits1</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>bits2</declname>
+        </param>
+        <briefdescription>
+<para>Get the modulus of two <ref refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64" kindref="compound">Dec64</ref> values, each represented by an IEEE-754-2008 64-bit decimal packed into a <javadoccode>long</javadoccode>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current <computeroutput><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx" kindref="compound">Ctx</ref></computeroutput> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bits1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target IEEE-754-2008 64-bit decimal value </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bits2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the IEEE-754-2008 64-bit decimal dividend</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the result of the operation as an IEEE-754-2008 64-bit decimal packed into a <javadoccode>long</javadoccode> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="185" column="24" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="185" bodyend="199"/>
+        <references refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1ad358676c75c6b307d9a1be00e35cf3fe" compoundref="da/dad/_decimal_f_p_number_8java" startline="222" endline="227">org.xtclang.ecstasy.numbers.DecimalFPNumber.$isFinite</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a09c7582ec375f53b1bf8be81369c1d23" compoundref="d0/db8/_dec64_8java" startline="332" endline="334">org.xtclang.ecstasy.numbers.Dec64.$leftmost7Bits</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1ab6046852c6a5f03b26d53a131761fe21" compoundref="d0/db8/_dec64_8java" startline="72">org.xtclang.ecstasy.numbers.Dec64.$NaN</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a8c3630f391627726066cc45aaa82baa4" compoundref="d0/db8/_dec64_8java" startline="375" endline="381">org.xtclang.ecstasy.numbers.Dec64.$toBigDecimal</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a1ecc70e95e74b78eaff140d891d24ae9" compoundref="d0/db8/_dec64_8java" startline="421" endline="463">org.xtclang.ecstasy.numbers.Dec64.$toLongBits</references>
+      </memberdef>
+      <memberdef kind="function" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a392b706579acfc3988fb198d9a8e51d9" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>static long org.xtclang.ecstasy.numbers.Dec64.$mul</definition>
+        <argsstring>(Ctx ctx, long bits1, long bits2)</argsstring>
+        <name>$mul</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.$mul</qualifiedname>
+        <param>
+          <type><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx" kindref="compound">Ctx</ref></type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>bits1</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>bits2</declname>
+        </param>
+        <briefdescription>
+<para>Multiply two <ref refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64" kindref="compound">Dec64</ref> values, each represented by an IEEE-754-2008 64-bit decimal packed into a <javadoccode>long</javadoccode>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current <computeroutput><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx" kindref="compound">Ctx</ref></computeroutput> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bits1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target IEEE-754-2008 64-bit decimal value </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bits2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the IEEE-754-2008 64-bit decimal to multiply the target value by</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the result of the multiplication as an IEEE-754-2008 64-bit decimal packed into a <javadoccode>long</javadoccode> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="212" column="24" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="212" bodyend="228"/>
+        <references refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1ad358676c75c6b307d9a1be00e35cf3fe" compoundref="da/dad/_decimal_f_p_number_8java" startline="222" endline="227">org.xtclang.ecstasy.numbers.DecimalFPNumber.$isFinite</references>
+        <references refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1a01e3cbb099adeb9a994376838cd00c7d" compoundref="da/dad/_decimal_f_p_number_8java" startline="272" endline="274">org.xtclang.ecstasy.numbers.DecimalFPNumber.$isNaN</references>
+        <references refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1afdba6315ee51d4cff145d4688545f301" compoundref="da/dad/_decimal_f_p_number_8java" startline="204" endline="208">org.xtclang.ecstasy.numbers.DecimalFPNumber.$isSigned</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a09c7582ec375f53b1bf8be81369c1d23" compoundref="d0/db8/_dec64_8java" startline="332" endline="334">org.xtclang.ecstasy.numbers.Dec64.$leftmost7Bits</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1ab6046852c6a5f03b26d53a131761fe21" compoundref="d0/db8/_dec64_8java" startline="72">org.xtclang.ecstasy.numbers.Dec64.$NaN</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1aecf243bf48db4a356b14434c5cdd24e9" compoundref="d0/db8/_dec64_8java" startline="61">org.xtclang.ecstasy.numbers.Dec64.$NEG_INFINITY</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1af989251ca678cefe3cad51ed975e5294" compoundref="d0/db8/_dec64_8java" startline="56">org.xtclang.ecstasy.numbers.Dec64.$POS_INFINITY</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a8c3630f391627726066cc45aaa82baa4" compoundref="d0/db8/_dec64_8java" startline="375" endline="381">org.xtclang.ecstasy.numbers.Dec64.$toBigDecimal</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a1ecc70e95e74b78eaff140d891d24ae9" compoundref="d0/db8/_dec64_8java" startline="421" endline="463">org.xtclang.ecstasy.numbers.Dec64.$toLongBits</references>
+      </memberdef>
+      <memberdef kind="function" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a8135ce0603cb485651ff7539b536647a" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>static long org.xtclang.ecstasy.numbers.Dec64.$neg</definition>
+        <argsstring>(Ctx ctx, long bits)</argsstring>
+        <name>$neg</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.$neg</qualifiedname>
+        <param>
+          <type><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx" kindref="compound">Ctx</ref></type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>bits</declname>
+        </param>
+        <briefdescription>
+<para>Negate a <ref refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64" kindref="compound">Dec64</ref> value represented by an IEEE-754-2008 64-bit decimal packed into an <javadoccode>long</javadoccode>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current <computeroutput><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx" kindref="compound">Ctx</ref></computeroutput> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bits</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target IEEE-754-2008 64-bit decimal value</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the negated IEEE-754-2008 64-bit decimal packed into an <javadoccode>long</javadoccode> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="239" column="24" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="239" bodyend="246"/>
+        <references refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1ad358676c75c6b307d9a1be00e35cf3fe" compoundref="da/dad/_decimal_f_p_number_8java" startline="222" endline="227">org.xtclang.ecstasy.numbers.DecimalFPNumber.$isFinite</references>
+        <references refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1a01e3cbb099adeb9a994376838cd00c7d" compoundref="da/dad/_decimal_f_p_number_8java" startline="272" endline="274">org.xtclang.ecstasy.numbers.DecimalFPNumber.$isNaN</references>
+        <references refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1afdba6315ee51d4cff145d4688545f301" compoundref="da/dad/_decimal_f_p_number_8java" startline="204" endline="208">org.xtclang.ecstasy.numbers.DecimalFPNumber.$isSigned</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a09c7582ec375f53b1bf8be81369c1d23" compoundref="d0/db8/_dec64_8java" startline="332" endline="334">org.xtclang.ecstasy.numbers.Dec64.$leftmost7Bits</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1ab6046852c6a5f03b26d53a131761fe21" compoundref="d0/db8/_dec64_8java" startline="72">org.xtclang.ecstasy.numbers.Dec64.$NaN</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1aecf243bf48db4a356b14434c5cdd24e9" compoundref="d0/db8/_dec64_8java" startline="61">org.xtclang.ecstasy.numbers.Dec64.$NEG_INFINITY</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1af989251ca678cefe3cad51ed975e5294" compoundref="d0/db8/_dec64_8java" startline="56">org.xtclang.ecstasy.numbers.Dec64.$POS_INFINITY</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a8c3630f391627726066cc45aaa82baa4" compoundref="d0/db8/_dec64_8java" startline="375" endline="381">org.xtclang.ecstasy.numbers.Dec64.$toBigDecimal</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a1ecc70e95e74b78eaff140d891d24ae9" compoundref="d0/db8/_dec64_8java" startline="421" endline="463">org.xtclang.ecstasy.numbers.Dec64.$toLongBits</references>
+      </memberdef>
+      <memberdef kind="function" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a5a6c1eaae0b3452ff04b4ef7420fc27d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>static long org.xtclang.ecstasy.numbers.Dec64.$sub</definition>
+        <argsstring>(Ctx ctx, long bits1, long bits2)</argsstring>
+        <name>$sub</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.$sub</qualifiedname>
+        <param>
+          <type><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx" kindref="compound">Ctx</ref></type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>bits1</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>bits2</declname>
+        </param>
+        <briefdescription>
+<para>Subtract one <ref refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64" kindref="compound">Dec64</ref> value from another, each represented by a IEEE-754-2008 64-bit decimal packed into an <javadoccode>int</javadoccode>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current <computeroutput><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx" kindref="compound">Ctx</ref></computeroutput> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bits1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target IEEE-754-2008 64-bit decimal value </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bits2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the IEEE-754-2008 64-bit decimal to subtract from the target value</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the result of the subtraction as a IEEE-754-2008 64-bit decimal packed into an <javadoccode>int</javadoccode> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="259" column="24" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="259" bodyend="281"/>
+        <references refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1ad358676c75c6b307d9a1be00e35cf3fe" compoundref="da/dad/_decimal_f_p_number_8java" startline="222" endline="227">org.xtclang.ecstasy.numbers.DecimalFPNumber.$isFinite</references>
+        <references refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1a01e3cbb099adeb9a994376838cd00c7d" compoundref="da/dad/_decimal_f_p_number_8java" startline="272" endline="274">org.xtclang.ecstasy.numbers.DecimalFPNumber.$isNaN</references>
+        <references refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1afdba6315ee51d4cff145d4688545f301" compoundref="da/dad/_decimal_f_p_number_8java" startline="204" endline="208">org.xtclang.ecstasy.numbers.DecimalFPNumber.$isSigned</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a09c7582ec375f53b1bf8be81369c1d23" compoundref="d0/db8/_dec64_8java" startline="332" endline="334">org.xtclang.ecstasy.numbers.Dec64.$leftmost7Bits</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1ab6046852c6a5f03b26d53a131761fe21" compoundref="d0/db8/_dec64_8java" startline="72">org.xtclang.ecstasy.numbers.Dec64.$NaN</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1aecf243bf48db4a356b14434c5cdd24e9" compoundref="d0/db8/_dec64_8java" startline="61">org.xtclang.ecstasy.numbers.Dec64.$NEG_INFINITY</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1af989251ca678cefe3cad51ed975e5294" compoundref="d0/db8/_dec64_8java" startline="56">org.xtclang.ecstasy.numbers.Dec64.$POS_INFINITY</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a8c3630f391627726066cc45aaa82baa4" compoundref="d0/db8/_dec64_8java" startline="375" endline="381">org.xtclang.ecstasy.numbers.Dec64.$toBigDecimal</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a1ecc70e95e74b78eaff140d891d24ae9" compoundref="d0/db8/_dec64_8java" startline="421" endline="463">org.xtclang.ecstasy.numbers.Dec64.$toLongBits</references>
+      </memberdef>
+      <memberdef kind="function" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a144379775485f3fddec6c8f0e0320f80" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>static int org.xtclang.ecstasy.numbers.Dec64.$compare</definition>
+        <argsstring>(long bits1, long bits2)</argsstring>
+        <name>$compare</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.$compare</qualifiedname>
+        <param>
+          <type>long</type>
+          <declname>bits1</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>bits2</declname>
+        </param>
+        <briefdescription>
+<para>The internal compare method for two <ref refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64" kindref="compound">Dec64</ref> values called by the compare methods generated in <computeroutput><ref refid="dd/dbd/classorg_1_1xvm_1_1javajit_1_1builders_1_1_common_builder_1abc2eae6a82bf2fc48e7f557a6e030994" kindref="member">org.xvm.javajit.builders.CommonBuilder#assembleConstCompare</ref></computeroutput> and also in <computeroutput><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1aa104f9075ede2d0b394954f3f30c635e" kindref="member">TypeConstant#buildCompare</ref></computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bits1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the bits of the first value </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bits2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the bits of the second value</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a negative integer if the first <ref refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64" kindref="compound">Dec64</ref> is lower than the second, zero if both <ref refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64" kindref="compound">Dec64</ref> values are equal, or a positive integer if the first <ref refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64" kindref="compound">Dec64</ref> is greater than the second. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="304" column="23" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="304" bodyend="306"/>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a54d29027e1a2e0a58da0296ca3c6b20c" compoundref="d0/db8/_dec64_8java" startline="90" endline="92">org.xtclang.ecstasy.numbers.Dec64.Dec64</references>
+        <referencedby refid="d4/d1c/classorg_1_1xtclang_1_1ecstasy_1_1n_type_1acc68173ff919dbf352886ba24fc47851" compoundref="d0/da7/n_type_8java" startline="113" endline="164">org.xtclang.ecstasy.nType.compare</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a5356127f562b121aaaf3b6a97ce839a5" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>static boolean org.xtclang.ecstasy.numbers.Dec64.$equals</definition>
+        <argsstring>(long value1, long value2)</argsstring>
+        <name>$equals</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.$equals</qualifiedname>
+        <param>
+          <type>long</type>
+          <declname>value1</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>value2</declname>
+        </param>
+        <briefdescription>
+<para>The internal equals method for two <ref refid="d3/dce/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec32" kindref="compound">Dec32</ref> values called by the equals methods generated in <computeroutput><ref refid="dd/dbd/classorg_1_1xvm_1_1javajit_1_1builders_1_1_common_builder_1a3b55300479dc499d1c417e0ea62a6256" kindref="member">org.xvm.javajit.builders.CommonBuilder#assembleConstEquals</ref></computeroutput> Method} and also in <computeroutput><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1aa104f9075ede2d0b394954f3f30c635e" kindref="member">TypeConstant#buildCompare</ref></computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><javadoccode>true</javadoccode> if the two <ref refid="d3/dce/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec32" kindref="compound">Dec32</ref> values are equal, <javadoccode>false</javadoccode> otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="315" column="27" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="315" bodyend="317"/>
+      </memberdef>
+      <memberdef kind="function" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a24f10f8d47a9f06d6ed17816849f713d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>static long org.xtclang.ecstasy.numbers.Dec64.$ensureFiniteBits</definition>
+        <argsstring>(long nBits)</argsstring>
+        <name>$ensureFiniteBits</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.$ensureFiniteBits</qualifiedname>
+        <param>
+          <type>long</type>
+          <declname>nBits</declname>
+        </param>
+        <briefdescription>
+<para>Test the passed bits to ensure that they are finite; if they are not, throw an exception. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nBits</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the 64-bit IEEE-754-2008 decimal value</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a finite 64-bit IEEE-754-2008 decimal value</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>NumberFormatException</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if the decimal is either a NaN or an Infinity value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="406" column="24" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="406" bodyend="411"/>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a2005ea97ff7ae0d790023c3eaec461c3" compoundref="d0/db8/_dec64_8java" startline="29">org.xtclang.ecstasy.numbers.Dec64.$G0_G3_MASK</references>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a74ef0e6a9725463efc30e4afbbbd68df" compoundref="d0/db8/_dec64_8java" startline="361" endline="371">org.xtclang.ecstasy.numbers.Dec64.$getExponent</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a0b6340ee6ea1971db38ac68e36aa50e3" compoundref="d0/db8/_dec64_8java" startline="344" endline="356">org.xtclang.ecstasy.numbers.Dec64.$getSignificand</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1aaff265cc38beedc5e97b0069779f2819" compoundref="d0/db8/_dec64_8java" startline="472" endline="509">org.xtclang.ecstasy.numbers.Dec64.$toBigDecimal</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a1ecc70e95e74b78eaff140d891d24ae9" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>static long org.xtclang.ecstasy.numbers.Dec64.$toLongBits</definition>
+        <argsstring>(Ctx ctx, BigDecimal dec)</argsstring>
+        <name>$toLongBits</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.$toLongBits</qualifiedname>
+        <param>
+          <type><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx" kindref="compound">Ctx</ref></type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>BigDecimal</type>
+          <declname>dec</declname>
+        </param>
+        <briefdescription>
+<para>Convert a Java BigDecimal to an IEEE 754 64-bit decimal contained in a Java <javadoccode>long</javadoccode>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a Java BigDecimal value</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a Java <javadoccode>long</javadoccode> that contains a 64-bit IEEE 754 decimal value </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="421" column="24" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="421" bodyend="463"/>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a3307fd842637031644beacd9f0974fb9" compoundref="d0/db8/_dec64_8java" startline="34">org.xtclang.ecstasy.numbers.Dec64.$G4_SHIFT</references>
+        <references refid="d2/db4/classorg_1_1xtclang_1_1ecstasy_1_1_exception_1a6ebc9e5976a1294ef6622756d13a2390" compoundref="dd/d7d/_exception_8java" startline="52" endline="54">org.xtclang.ecstasy.Exception.$init</references>
+        <references refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1aaf8e985be21d7cf83fe1ae07439590ff" compoundref="da/dad/_decimal_f_p_number_8java" startline="425" endline="427">org.xtclang.ecstasy.numbers.DecimalFPNumber.$intToDeclet</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a123e4c109901082c9fca063d0b778b75" compoundref="d0/db8/_dec64_8java" startline="19">org.xtclang.ecstasy.numbers.Dec64.$SIGN_BIT</references>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a9943d9d3db02f39d962ba64437458d2a" compoundref="d0/db8/_dec64_8java" startline="113" endline="128">org.xtclang.ecstasy.numbers.Dec64.$add</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a6940b37a08d971f74f3633ff4e7ad4c5" compoundref="d0/db8/_dec64_8java" startline="141" endline="172">org.xtclang.ecstasy.numbers.Dec64.$div</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a62fde56256002a090e9d405d4af74b86" compoundref="d0/db8/_dec64_8java" startline="185" endline="199">org.xtclang.ecstasy.numbers.Dec64.$mod</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a392b706579acfc3988fb198d9a8e51d9" compoundref="d0/db8/_dec64_8java" startline="212" endline="228">org.xtclang.ecstasy.numbers.Dec64.$mul</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a8135ce0603cb485651ff7539b536647a" compoundref="d0/db8/_dec64_8java" startline="239" endline="246">org.xtclang.ecstasy.numbers.Dec64.$neg</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a5a6c1eaae0b3452ff04b4ef7420fc27d" compoundref="d0/db8/_dec64_8java" startline="259" endline="281">org.xtclang.ecstasy.numbers.Dec64.$sub</referencedby>
+        <referencedby refid="db/d83/interfaceorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_convertible_1a86e6107c24bd9911a1861877e2bb9012" compoundref="d5/d86/_f_p_convertible_8java" startline="62" endline="70">org.xtclang.ecstasy.numbers.FPConvertible.toDec64$p</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1aaff265cc38beedc5e97b0069779f2819" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>BigDecimal</type>
+        <definition>static BigDecimal org.xtclang.ecstasy.numbers.Dec64.$toBigDecimal</definition>
+        <argsstring>(long nBits)</argsstring>
+        <name>$toBigDecimal</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.$toBigDecimal</qualifiedname>
+        <param>
+          <type>long</type>
+          <declname>nBits</declname>
+        </param>
+        <briefdescription>
+<para>Convert the bits of an IEEE 754 decimal to a Java BigDecimal. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nBits</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a 64-bit value containing an IEEE 754 decimal</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a Java BigDecimal </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="472" column="30" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="472" bodyend="509"/>
+        <references refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1a033d6f1dc17b0e182b82e5e2e93c606f" compoundref="da/dad/_decimal_f_p_number_8java" startline="468" endline="525">org.xtclang.ecstasy.numbers.DecimalFPNumber.$decletToInt</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a24f10f8d47a9f06d6ed17816849f713d" compoundref="d0/db8/_dec64_8java" startline="406" endline="411">org.xtclang.ecstasy.numbers.Dec64.$ensureFiniteBits</references>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a123e4c109901082c9fca063d0b778b75" compoundref="d0/db8/_dec64_8java" startline="19">org.xtclang.ecstasy.numbers.Dec64.$SIGN_BIT</references>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a09c7582ec375f53b1bf8be81369c1d23" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xtclang.ecstasy.numbers.Dec64.$leftmost7Bits</definition>
+        <argsstring>()</argsstring>
+        <name>$leftmost7Bits</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.$leftmost7Bits</qualifiedname>
+        <reimplements refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1ac495310ef4b302ec0c79410bb603afbd">$leftmost7Bits</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>an int whose 7 LSBs are (left to right): S, G0, G1, G2, G3, G4, G5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="332" column="19" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="332" bodyend="334"/>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1ae235bc7e35ed593b930138b4545f20e0" compoundref="d0/db8/_dec64_8java" startline="82">org.xtclang.ecstasy.numbers.Dec64.$bits</references>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a9943d9d3db02f39d962ba64437458d2a" compoundref="d0/db8/_dec64_8java" startline="113" endline="128">org.xtclang.ecstasy.numbers.Dec64.$add</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a6940b37a08d971f74f3633ff4e7ad4c5" compoundref="d0/db8/_dec64_8java" startline="141" endline="172">org.xtclang.ecstasy.numbers.Dec64.$div</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a62fde56256002a090e9d405d4af74b86" compoundref="d0/db8/_dec64_8java" startline="185" endline="199">org.xtclang.ecstasy.numbers.Dec64.$mod</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a392b706579acfc3988fb198d9a8e51d9" compoundref="d0/db8/_dec64_8java" startline="212" endline="228">org.xtclang.ecstasy.numbers.Dec64.$mul</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a8135ce0603cb485651ff7539b536647a" compoundref="d0/db8/_dec64_8java" startline="239" endline="246">org.xtclang.ecstasy.numbers.Dec64.$neg</referencedby>
+        <referencedby refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a5a6c1eaae0b3452ff04b4ef7420fc27d" compoundref="d0/db8/_dec64_8java" startline="259" endline="281">org.xtclang.ecstasy.numbers.Dec64.$sub</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a7893dc690668e0bc1dffcf1fc208e7d6" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long[]</type>
+        <definition>long[] org.xtclang.ecstasy.numbers.Dec64.$longValues</definition>
+        <argsstring>()</argsstring>
+        <name>$longValues</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.$longValues</qualifiedname>
+        <reimplements refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1a9cbd347efd5776a364118c8802ea99dd">$longValues</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the number as an array of longs. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="511" column="20" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="511" bodyend="513"/>
+        <references refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1ae235bc7e35ed593b930138b4545f20e0" compoundref="d0/db8/_dec64_8java" startline="82">org.xtclang.ecstasy.numbers.Dec64.$bits</references>
+      </memberdef>
+      <memberdef kind="function" id="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a28b456f43998152572c517fae239db65" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long org.xtclang.ecstasy.numbers.Dec64.bitLength$get$p</definition>
+        <argsstring>()</argsstring>
+        <name>bitLength$get$p</name>
+        <qualifiedname>org.xtclang.ecstasy.numbers.Dec64.bitLength$get$p</qualifiedname>
+        <reimplements refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1a6d6114641e06bfc9e3c0f6604d9ba380">bitLength$get$p</reimplements>
+        <briefdescription>
+<para>The native implementation of the Number.x property: </para>
+        </briefdescription>
+        <detaileddescription>
+<para><preformatted>
+    @RO Int bitLength.get()
+</preformatted> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="516" column="20" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="516" bodyend="518"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Native <ref refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64" kindref="compound">Dec64</ref> wrapper. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>org.xtclang.ecstasy.numbers.Dec64</label>
+        <link refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>org.xtclang.ecstasy.Comparable</label>
+        <link refid="d3/d6c/interfaceorg_1_1xtclang_1_1ecstasy_1_1_comparable"/>
+      </node>
+      <node id="9">
+        <label>org.xtclang.ecstasy.Const</label>
+        <link refid="df/d35/interfaceorg_1_1xtclang_1_1ecstasy_1_1_const"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>org.xtclang.ecstasy.Object</label>
+        <link refid="d4/d24/interfaceorg_1_1xtclang_1_1ecstasy_1_1_object"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>org.xtclang.ecstasy.nConst</label>
+        <link refid="d3/d6c/classorg_1_1xtclang_1_1ecstasy_1_1n_const"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>org.xtclang.ecstasy.nObj</label>
+        <link refid="d9/dcd/classorg_1_1xtclang_1_1ecstasy_1_1n_obj"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>org.xtclang.ecstasy.numbers.DecimalFPNumber</label>
+        <link refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>org.xtclang.ecstasy.numbers.FPConvertible</label>
+        <link refid="db/d83/interfaceorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_convertible"/>
+      </node>
+      <node id="3">
+        <label>org.xtclang.ecstasy.numbers.FPNumber</label>
+        <link refid="d0/df0/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_number"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>org.xtclang.ecstasy.numbers.Number</label>
+        <link refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>org.xtclang.ecstasy.numbers.Dec64</label>
+        <link refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>org.xtclang.ecstasy.Comparable</label>
+        <link refid="d3/d6c/interfaceorg_1_1xtclang_1_1ecstasy_1_1_comparable"/>
+      </node>
+      <node id="9">
+        <label>org.xtclang.ecstasy.Const</label>
+        <link refid="df/d35/interfaceorg_1_1xtclang_1_1ecstasy_1_1_const"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>org.xtclang.ecstasy.Object</label>
+        <link refid="d4/d24/interfaceorg_1_1xtclang_1_1ecstasy_1_1_object"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>org.xtclang.ecstasy.collections.ArrayᐸBitᐳ</label>
+        <link refid="d8/dac/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_bit_xE1_x90_xB3"/>
+        <childnode refid="12" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>org.xtclang.ecstasy.collections.nLongBasedArray&lt; ArrayᐸBitᐳ &gt;</label>
+        <link refid="d0/d75/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1n_long_based_array"/>
+      </node>
+      <node id="5">
+        <label>org.xtclang.ecstasy.nConst</label>
+        <link refid="d3/d6c/classorg_1_1xtclang_1_1ecstasy_1_1n_const"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>org.xtclang.ecstasy.nObj</label>
+        <link refid="d9/dcd/classorg_1_1xtclang_1_1ecstasy_1_1n_obj"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>org.xtclang.ecstasy.numbers.DecimalFPNumber</label>
+        <link refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>org.xtclang.ecstasy.numbers.FPConvertible</label>
+        <link refid="db/d83/interfaceorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_convertible"/>
+      </node>
+      <node id="3">
+        <label>org.xtclang.ecstasy.numbers.FPNumber</label>
+        <link refid="d0/df0/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_number"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>org.xtclang.ecstasy.numbers.Number</label>
+        <link refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>$bitArray</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" line="15" column="7" bodyfile="/Users/jim/work/xvm/javatools_jitbridge/src/main/java/org/xtclang/ecstasy/numbers/Dec64.java" bodystart="15" bodyend="519"/>
+    <listofallmembers>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a9943d9d3db02f39d962ba64437458d2a" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$add</name></member>
+      <member refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1a0fcd61bb43299119a70576e02bea8fd8" prot="private" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$bitArray</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1ae235bc7e35ed593b930138b4545f20e0" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$bits</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a651426bc6310b05c8dca7559ea88956d" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$box</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a144379775485f3fddec6c8f0e0320f80" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$compare</name></member>
+      <member refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1a8aae23c0f773d24e5097a5b07e1bb111" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$compareForObjectOrder</name></member>
+      <member refid="d9/dcd/classorg_1_1xtclang_1_1ecstasy_1_1n_obj_1a444049580f24e6f38cfbb125a29527b9" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$ctx</name></member>
+      <member refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1a9506b4903db8bc9dcb81b7c13345d712" prot="protected" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$dec</name></member>
+      <member refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1aa8d19ad785c29ee1df12a7a5ac09bbbc" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$decletToDigits</name></member>
+      <member refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1a033d6f1dc17b0e182b82e5e2e93c606f" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$decletToInt</name></member>
+      <member refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1a895d7c5e0607211046c95fcb999dba60" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$digitsToDeclet</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a6940b37a08d971f74f3633ff4e7ad4c5" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$div</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a24f10f8d47a9f06d6ed17816849f713d" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$ensureFiniteBits</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a5356127f562b121aaaf3b6a97ce839a5" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$equals</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a2005ea97ff7ae0d790023c3eaec461c3" prot="private" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$G0_G3_MASK</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a7cfa53665e86c892647f5ec71d28d4b4" prot="private" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$G0_G4_INF</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1ac7016019521aefff0722ef06310e8210" prot="private" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$G0_G4_NAN</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1ad347f17270695fe746207e462b9ac84c" prot="private" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$G3_SHIFT</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a3307fd842637031644beacd9f0974fb9" prot="private" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$G4_SHIFT</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a0e6cfd59e0ce3f3d77e3c8e0d45260a4" prot="private" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$G5_SHIFT</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a0b64b1c9334b23bab81c46df8cd14f6a" prot="private" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$G5_SIGNAL</name></member>
+      <member refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1a47a45a96c72da12a2935f5943a4d7caf" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$getBitLength</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a7f26ab516b5e7244f1ef271b2fbfd9b8" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$getByte</name></member>
+      <member refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1ab6c0ae7274546765e7223aa37ac8b34e" prot="public" virt="non-virtual" ambiguityscope="org::xtclang::ecstasy::numbers::DecimalFPNumber."><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$getByte</name></member>
+      <member refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1a522c0b4d7bfe57d3da52131173e52c23" prot="public" virt="non-virtual" ambiguityscope="org::xtclang::ecstasy::numbers::DecimalFPNumber."><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$getByte</name></member>
+      <member refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1a34c903b983e1ece4de2d21fe0e811cf2" prot="public" virt="non-virtual" ambiguityscope="org::xtclang::ecstasy::numbers::DecimalFPNumber."><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$getByte</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a8c1f1fcd735294fd2bdb9e279c4fde4e" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$getByteLength</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a74ef0e6a9725463efc30e4afbbbd68df" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$getExponent</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a0b6340ee6ea1971db38ac68e36aa50e3" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$getSignificand</name></member>
+      <member refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1aaf8e985be21d7cf83fe1ae07439590ff" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$intToDeclet</name></member>
+      <member refid="d9/dcd/classorg_1_1xtclang_1_1ecstasy_1_1n_obj_1a86c1ea238f8cbea999d80c6c00150f6f" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$isA</name></member>
+      <member refid="d9/dcd/classorg_1_1xtclang_1_1ecstasy_1_1n_obj_1af72e534a21cfefe8e1aa3579b26308e9" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$isA</name></member>
+      <member refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1ad358676c75c6b307d9a1be00e35cf3fe" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$isFinite</name></member>
+      <member refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1a0cba2c9da0cb40985f8a775832d179a4" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$isFinite</name></member>
+      <member refid="d3/d6c/classorg_1_1xtclang_1_1ecstasy_1_1n_const_1a43369a36fefef57c3fdc06f31a83ab84" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$isImmut</name></member>
+      <member refid="d9/dcd/classorg_1_1xtclang_1_1ecstasy_1_1n_obj_1a82bbc6cec5dfca4bb80b15e7f1f2ae8c" prot="public" virt="non-virtual" ambiguityscope="org::xtclang::ecstasy::nObj."><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$isImmut</name></member>
+      <member refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1a293c52054d22d51d50030a6ea1f255af" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$isInfinite</name></member>
+      <member refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1a891b9a9931e36a01d9de6b0d932b1857" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$isInfinite</name></member>
+      <member refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1a01e3cbb099adeb9a994376838cd00c7d" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$isNaN</name></member>
+      <member refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1a5fa2a82c2875b91b9218708cc43ca6bc" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$isNaN</name></member>
+      <member refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1ac2f64a1fc3fc88892660df16de28bd63" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$isQuietNaN</name></member>
+      <member refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1a1c9d6292685b4c4243e0a95c61f03e17" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$isSameValue</name></member>
+      <member refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1a944dfedc913b159a98ef60695c06ccd5" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$isSignalingNaN</name></member>
+      <member refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1afdba6315ee51d4cff145d4688545f301" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$isSigned</name></member>
+      <member refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1a8a4183b6a4b715ef01ff372b811ac500" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$isSigned</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a6717443ff506fdfbe4495f0cc47bc496" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$isZero</name></member>
+      <member refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1a6d3b5cc97c9a1961a920157ce1c6e504" prot="public" virt="non-virtual" ambiguityscope="org::xtclang::ecstasy::numbers::DecimalFPNumber."><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$isZero</name></member>
+      <member refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1ac6399c40a9e7f0db5fbdf83c926043fb" prot="public" virt="non-virtual" ambiguityscope="org::xtclang::ecstasy::numbers::DecimalFPNumber."><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$isZero</name></member>
+      <member refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1abc9684a2ead814648d22d811a3ef9b7a" prot="public" virt="non-virtual" ambiguityscope="org::xtclang::ecstasy::numbers::DecimalFPNumber."><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$isZero</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a09c7582ec375f53b1bf8be81369c1d23" prot="protected" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$leftmost7Bits</name></member>
+      <member refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1ae180aa3e62f0544c0d7bd71f4c1f13f3" prot="protected" virt="non-virtual" ambiguityscope="org::xtclang::ecstasy::numbers::DecimalFPNumber."><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$leftmost7Bits</name></member>
+      <member refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1a1510a08502e23cd88efae5d13b9be88f" prot="protected" virt="non-virtual" ambiguityscope="org::xtclang::ecstasy::numbers::DecimalFPNumber."><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$leftmost7Bits</name></member>
+      <member refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1a4a1c8722b1825edd18abec1a60a6f5a5" prot="protected" virt="non-virtual" ambiguityscope="org::xtclang::ecstasy::numbers::DecimalFPNumber."><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$leftmost7Bits</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a7893dc690668e0bc1dffcf1fc208e7d6" prot="protected" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$longValues</name></member>
+      <member refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1aa64795585f693c4afcc86910d8e9e731" prot="protected" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$LS46BITS</name></member>
+      <member refid="d9/dcd/classorg_1_1xtclang_1_1ecstasy_1_1n_obj_1aecba1eaccb2774caba79de2aa6a70c42" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$makeImmut</name></member>
+      <member refid="d9/dcd/classorg_1_1xtclang_1_1ecstasy_1_1n_obj_1a1246512f085deab1b8d39c6c6f52de57" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$makeImmut</name></member>
+      <member refid="d9/dcd/classorg_1_1xtclang_1_1ecstasy_1_1n_obj_1ab1b31de96e1a61b263f41f73c052f6de" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$meta</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a62fde56256002a090e9d405d4af74b86" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$mod</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a392b706579acfc3988fb198d9a8e51d9" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$mul</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1ab6046852c6a5f03b26d53a131761fe21" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$NaN</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a8135ce0603cb485651ff7539b536647a" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$neg</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1aecf243bf48db4a356b14434c5cdd24e9" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$NEG_INFINITY</name></member>
+      <member refid="d9/dcd/classorg_1_1xtclang_1_1ecstasy_1_1n_obj_1a9f55730c411ef5cb9a5affa69027dcd8" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$owner</name></member>
+      <member refid="d9/dcd/classorg_1_1xtclang_1_1ecstasy_1_1n_obj_1ac385df705741994f223344822998bcfe" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$ownerId</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1af989251ca678cefe3cad51ed975e5294" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$POS_INFINITY</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a123e4c109901082c9fca063d0b778b75" prot="private" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$SIGN_BIT</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a6645538afd7be85680a98bef244d9f17" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$SNaN</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a5a6c1eaae0b3452ff04b4ef7420fc27d" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$sub</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a8c3630f391627726066cc45aaa82baa4" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$toBigDecimal</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1aaff265cc38beedc5e97b0069779f2819" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$toBigDecimal</name></member>
+      <member refid="d0/df0/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_number_1a6404b846870c624978e0378c3437701c" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$toBigInteger</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a1ecc70e95e74b78eaff140d891d24ae9" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$toLongBits</name></member>
+      <member refid="d9/dcd/classorg_1_1xtclang_1_1ecstasy_1_1n_obj_1a6d8ecb0086b302d385dbb19c682538dd" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$type</name></member>
+      <member refid="d9/dcd/classorg_1_1xtclang_1_1ecstasy_1_1n_obj_1a0ee00d5e601cfc356563588762d1b017" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$type</name></member>
+      <member refid="d9/dcd/classorg_1_1xtclang_1_1ecstasy_1_1n_obj_1a1d0778f722db7f2bb5a8b5332e366686" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$type</name></member>
+      <member refid="d9/dcd/classorg_1_1xtclang_1_1ecstasy_1_1n_obj_1ace0120f56806be5abeddeb09e6406281" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$xvm</name></member>
+      <member refid="d9/dcd/classorg_1_1xtclang_1_1ecstasy_1_1n_obj_1a8354c38559c231eb4ea8aac70b235680" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>$xvmType</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a28b456f43998152572c517fae239db65" prot="protected" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>bitLength$get$p</name></member>
+      <member refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1aea15c1d3ad3233bcd0db336359b1d10e" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>bits$get</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a54d29027e1a2e0a58da0296ca3c6b20c" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>Dec64</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1aac11906a43edc63c72c4d37e4b1b88cc" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>equals</name></member>
+      <member refid="d9/dcd/classorg_1_1xtclang_1_1ecstasy_1_1n_obj_1af190798b86f1cc7e3a39ff4916152cdf" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>equals$p</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1a5b923b3be1ef6cd85d2241fbf40aaeeb" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>hashCode</name></member>
+      <member refid="d3/d6c/classorg_1_1xtclang_1_1ecstasy_1_1n_const_1af4ad43348793264eef07ccd9833bd48e" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>nConst</name></member>
+      <member refid="d9/dcd/classorg_1_1xtclang_1_1ecstasy_1_1n_obj_1aa5a1e6a7a578706f68ed6b62cc1be713" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>nObj</name></member>
+      <member refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1a36de7b842fddcdf1ee31dfa08b647762" prot="protected" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>Number</name></member>
+      <member refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1a5f59341969d6b6d53aa782812e037fba" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>toBitArray</name></member>
+      <member refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1a51ddf53892d77bfdb99ac5bc3da31b8c" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>toByteArray</name></member>
+      <member refid="db/d83/interfaceorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_convertible_1ae90b289cea21384ce9e6572c9f9087a7" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>toDec128$p</name></member>
+      <member refid="db/d83/interfaceorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_convertible_1afb322407613f8fd4c7c7c5e08345d4e0" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>toDec32$p</name></member>
+      <member refid="d2/db9/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_dec64_1ac9323e039de52c7c7eeae9db4d20ae89" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>toDec64$p</name></member>
+      <member refid="db/d83/interfaceorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_convertible_1a9e3e30340b35b93c4a4836bb4ebe809b" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>toFloat32$p</name></member>
+      <member refid="db/d83/interfaceorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_convertible_1afea4830d254557c8cfb5239c6d688b1c" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>toFloat64$p</name></member>
+      <member refid="d0/df0/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_number_1ac012d7640a33145a54c28c707d837550" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>toInt128$FP$p</name></member>
+      <member refid="d0/df0/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_number_1ad49c6aa13437b1e7b803d8c550c62fdb" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>toInt16$FP$p</name></member>
+      <member refid="d0/df0/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_number_1acf19380f2395ddc62b31e88066b6f7af" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>toInt32$FP$p</name></member>
+      <member refid="d0/df0/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_number_1a06d8386ffd6c305137c0309f31c0686c" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>toInt64$FP$p</name></member>
+      <member refid="d0/df0/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_number_1a1e0ebb1a916c47d957c54c3b1c39c6b1" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>toInt8$FP$p</name></member>
+      <member refid="dd/d9b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_number_1abc6d6c311f0d9f4cf7bd038894cda4e7" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>toNibbleArray</name></member>
+      <member refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1aed8322df9dc3cf9d8030a8a9c7b6bec3" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>toString</name></member>
+      <member refid="d6/d67/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_decimal_f_p_number_1a07590d74c2f1f6ea2b4a9b8691a839dd" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>toString</name></member>
+      <member refid="d0/df0/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_number_1a84e026f46fc7799129928dd05cd08c44" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>toUInt128$FP$p</name></member>
+      <member refid="d0/df0/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_number_1a9a82bfdbf23e2305ef06f52df0cb5491" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>toUInt16$FP$p</name></member>
+      <member refid="d0/df0/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_number_1aa3fcb587140b97382a3241ebbd543318" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>toUInt32$FP$p</name></member>
+      <member refid="d0/df0/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_number_1a1b39bc9d081d1805b72ea48b565be6f0" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>toUInt64$FP$p</name></member>
+      <member refid="d0/df0/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_number_1af17f9dfc035321b83e28ab3177977eed" prot="public" virt="non-virtual"><scope>org::xtclang::ecstasy::numbers::Dec64</scope><name>toUInt8$FP$p</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

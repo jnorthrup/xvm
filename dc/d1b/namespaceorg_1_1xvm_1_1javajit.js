@@ -1,0 +1,38 @@
+var namespaceorg_1_1xvm_1_1javajit =
+[
+    [ "builders", "dc/dfd/namespaceorg_1_1xvm_1_1javajit_1_1builders.html", "dc/dfd/namespaceorg_1_1xvm_1_1javajit_1_1builders" ],
+    [ "registers", "d3/d55/namespaceorg_1_1xvm_1_1javajit_1_1registers.html", [
+      [ "ExtendedSlot", "d3/d55/namespaceorg_1_1xvm_1_1javajit_1_1registers.html#a38ce932a1b0e52aad25a10d4b517cbf3", null ],
+      [ "MultiSlot", "d3/d55/namespaceorg_1_1xvm_1_1javajit_1_1registers.html#a1db4cf612c9f98971a1f744f7312e86e", null ],
+      [ "Narrowed", "d3/d55/namespaceorg_1_1xvm_1_1javajit_1_1registers.html#aab0be1d167f26e3257aceb9722499505", null ],
+      [ "Ref", "d3/d55/namespaceorg_1_1xvm_1_1javajit_1_1registers.html#a336f2f78b16f611df81cac708b47bb1e", null ],
+      [ "SingleSlot", "d3/d55/namespaceorg_1_1xvm_1_1javajit_1_1registers.html#a5847e7c8aecd0f00aeb295a217310792", null ]
+    ] ],
+    [ "BuildContext", "d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context.html", "d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" ],
+    [ "Builder", "d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder.html", "d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder" ],
+    [ "Container", "d7/d78/classorg_1_1xvm_1_1javajit_1_1_container.html", "d7/d78/classorg_1_1xvm_1_1javajit_1_1_container" ],
+    [ "Ctx", "dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx.html", "dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx" ],
+    [ "Injector", "d9/dbf/classorg_1_1xvm_1_1javajit_1_1_injector.html", "d9/dbf/classorg_1_1xvm_1_1javajit_1_1_injector" ],
+    [ "InPlaceSupport", "d5/de8/interfaceorg_1_1xvm_1_1javajit_1_1_in_place_support.html", "d5/de8/interfaceorg_1_1xvm_1_1javajit_1_1_in_place_support" ],
+    [ "JitConnector", "da/d82/classorg_1_1xvm_1_1javajit_1_1_jit_connector.html", "da/d82/classorg_1_1xvm_1_1javajit_1_1_jit_connector" ],
+    [ "JitCtorDesc", "d7/d41/classorg_1_1xvm_1_1javajit_1_1_jit_ctor_desc.html", "d7/d41/classorg_1_1xvm_1_1javajit_1_1_jit_ctor_desc" ],
+    [ "JitFlavor", "d4/d87/enumorg_1_1xvm_1_1javajit_1_1_jit_flavor.html", "d4/d87/enumorg_1_1xvm_1_1javajit_1_1_jit_flavor" ],
+    [ "JitMethodDesc", "d0/d2b/classorg_1_1xvm_1_1javajit_1_1_jit_method_desc.html", "d0/d2b/classorg_1_1xvm_1_1javajit_1_1_jit_method_desc" ],
+    [ "JitParamDesc", "d7/d14/classorg_1_1xvm_1_1javajit_1_1_jit_param_desc.html", "d7/d14/classorg_1_1xvm_1_1javajit_1_1_jit_param_desc" ],
+    [ "JitTypeDesc", "d5/d1d/classorg_1_1xvm_1_1javajit_1_1_jit_type_desc.html", "d5/d1d/classorg_1_1xvm_1_1javajit_1_1_jit_type_desc" ],
+    [ "Linker", "df/dab/classorg_1_1xvm_1_1javajit_1_1_linker.html", "df/dab/classorg_1_1xvm_1_1javajit_1_1_linker" ],
+    [ "ModuleLoader", "d3/de5/classorg_1_1xvm_1_1javajit_1_1_module_loader.html", "d3/de5/classorg_1_1xvm_1_1javajit_1_1_module_loader" ],
+    [ "NativeNames", "d2/d32/classorg_1_1xvm_1_1javajit_1_1_native_names.html", "d2/d32/classorg_1_1xvm_1_1javajit_1_1_native_names" ],
+    [ "NativeTypeSystem", "d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system.html", "d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system" ],
+    [ "NumberSupport", "d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support.html", "d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support" ],
+    [ "NumberSupportDec", "d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec.html", "d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec" ],
+    [ "NumberSupportInt128", "de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128.html", "de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128" ],
+    [ "Refiner", "d9/d62/classorg_1_1xvm_1_1javajit_1_1_refiner.html", "d9/d62/classorg_1_1xvm_1_1javajit_1_1_refiner" ],
+    [ "RegisterInfo", "d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info.html", "d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" ],
+    [ "Scope", "da/de9/classorg_1_1xvm_1_1javajit_1_1_scope.html", "da/de9/classorg_1_1xvm_1_1javajit_1_1_scope" ],
+    [ "TextSupport", "de/d70/interfaceorg_1_1xvm_1_1javajit_1_1_text_support.html", "de/d70/interfaceorg_1_1xvm_1_1javajit_1_1_text_support" ],
+    [ "TypeMatrix", "de/d98/classorg_1_1xvm_1_1javajit_1_1_type_matrix.html", "de/d98/classorg_1_1xvm_1_1javajit_1_1_type_matrix" ],
+    [ "TypeSystem", "d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system.html", "d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" ],
+    [ "TypeSystemLoader", "d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader.html", "d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader" ],
+    [ "Xvm", "d0/d5f/classorg_1_1xvm_1_1javajit_1_1_xvm.html", "d0/d5f/classorg_1_1xvm_1_1javajit_1_1_xvm" ]
+];

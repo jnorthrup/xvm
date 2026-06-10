@@ -1,0 +1,1406 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space" kind="class" language="Java" prot="public">
+    <compoundname>org::xvm::runtime::gc::MarkAndSweepGcSpace</compoundname>
+    <basecompoundref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space" prot="public" virt="non-virtual">org.xvm.runtime.gc.GcSpace</basecompoundref>
+    <templateparamlist>
+      <param>
+        <type>V</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="package-static-attrib">
+      <memberdef kind="variable" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a40244db93fb3d215e98ce361678ac559" prot="package" static="yes" mutable="no">
+        <type>final long</type>
+        <definition>final long org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.MARKER_MASK</definition>
+        <argsstring></argsstring>
+        <name>MARKER_MASK</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.MARKER_MASK</qualifiedname>
+        <initializer>= 0x1</initializer>
+        <briefdescription>
+<para>The bit-mask in the header used to mark the object as being reachable. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="419" column="23" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="419" bodyend="-1"/>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a319c336fa8e86bf902d5deaef0d9ad57" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="53" endline="72">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.allocate</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ae090e5ec7999d519d31cc799fa86b615" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="149" endline="190">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.gc</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ae0ddefdba3c3bf49de5d42dc21e7c938" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="278" endline="300">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.handleWeakSweep</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a59da13b99a626862ede56ab3367dcdac" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="201" endline="221">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.walkAndMark</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a5d112cde928592e2c6ac519855a6a84d" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="231" endline="275">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.walkAndMarkIterative</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a75ae607e8b0a9410716a5075049ee3cb" prot="package" static="yes" mutable="no">
+        <type>final long</type>
+        <definition>final long org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.WEAK_MASK</definition>
+        <argsstring></argsstring>
+        <name>WEAK_MASK</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.WEAK_MASK</qualifiedname>
+        <initializer>= 0x2</initializer>
+        <briefdescription>
+<para>The bit-mask in the header used to indicate if the object represents a &quot;weak&quot; ref which requires special handling. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="425" column="23" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="425" bodyend="-1"/>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aa1f0ad83934b939b14ee24e7031dbb6e" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="75" endline="83">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.allocateWeak</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ae090e5ec7999d519d31cc799fa86b615" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="149" endline="190">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.gc</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a59da13b99a626862ede56ab3367dcdac" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="201" endline="221">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.walkAndMark</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a5d112cde928592e2c6ac519855a6a84d" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="231" endline="275">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.walkAndMarkIterative</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a81fadb7a3a96114392a2ff7a820f42bf" prot="package" static="yes" mutable="no">
+        <type>final long</type>
+        <definition>final long org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.FIELD_COUNT_MASK</definition>
+        <argsstring></argsstring>
+        <name>FIELD_COUNT_MASK</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.FIELD_COUNT_MASK</qualifiedname>
+        <initializer>= 0xFFC</initializer>
+        <briefdescription>
+<para>The bit-mask in the header encoding the. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="430" column="23" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="430" bodyend="-1"/>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a8e1294951e9cf88a15384bdf5e2755ac" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="397" endline="400">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.getFieldCount</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aeea11af4d687feed1947a919ef26e298" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="408" endline="414">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.setFieldCount</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a8ddb687cd5ec50313b2c6fd2696fa0f8" prot="package" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.FIELD_COUNT_SHIFT</definition>
+        <argsstring></argsstring>
+        <name>FIELD_COUNT_SHIFT</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.FIELD_COUNT_SHIFT</qualifiedname>
+        <initializer>= 2</initializer>
+        <briefdescription>
+<para>The right shift of the post masked <computeroutput><ref refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a81fadb7a3a96114392a2ff7a820f42bf" kindref="member">FIELD_COUNT_MASK</ref></computeroutput> to obtain the mask. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="435" column="22" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="435" bodyend="-1"/>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a8e1294951e9cf88a15384bdf5e2755ac" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="397" endline="400">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.getFieldCount</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aeea11af4d687feed1947a919ef26e298" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="408" endline="414">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.setFieldCount</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="package-attrib">
+      <memberdef kind="variable" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a6f701c4f01d4d06b0e8f3fc24f04a7b9" prot="package" static="no" mutable="no">
+        <type>final <ref refid="d4/d2c/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_object_manager" kindref="compound">ObjectManager</ref>&lt; V &gt;</type>
+        <definition>final ObjectManager&lt;V&gt; org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.f_accessor</definition>
+        <argsstring></argsstring>
+        <name>f_accessor</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.f_accessor</qualifiedname>
+        <briefdescription>
+<para>The means by which we access an objects storage. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="440" column="25" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="440" bodyend="-1"/>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a319c336fa8e86bf902d5deaef0d9ad57" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="53" endline="72">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.allocate</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ae090e5ec7999d519d31cc799fa86b615" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="149" endline="190">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.gc</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a720c48ad8338ad2e8353397ed991bc35" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="380" endline="389">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.getAndSetHeaderBit</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a6e8be100b3e88374b499d3d65f9e4608" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="124" endline="126">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.getField</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a8e1294951e9cf88a15384bdf5e2755ac" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="397" endline="400">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.getFieldCount</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a637fc08ad26ee8007ccfa608378dde0d" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="368" endline="370">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.getHeaderBit</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ae0ddefdba3c3bf49de5d42dc21e7c938" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="278" endline="300">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.handleWeakSweep</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aee3b7723fdb31b6b746731d57ebb9cbb" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="37" endline="50">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.MarkAndSweepGcSpace</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a42d978ef90fc819d5cdb04c869f593d0" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="129" endline="131">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.setField</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aeea11af4d687feed1947a919ef26e298" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="408" endline="414">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.setFieldCount</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a59da13b99a626862ede56ab3367dcdac" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="201" endline="221">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.walkAndMark</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a5d112cde928592e2c6ac519855a6a84d" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="231" endline="275">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.walkAndMarkIterative</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a8b0e17d9813161f8d448cc57ecb36b87" prot="package" static="no" mutable="no">
+        <type>final LongConsumer</type>
+        <definition>final LongConsumer org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.f_clearedListener</definition>
+        <argsstring></argsstring>
+        <name>f_clearedListener</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.f_clearedListener</qualifiedname>
+        <briefdescription>
+<para>The listener to notify when weak-refs become clearable. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="445" column="24" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="445" bodyend="-1"/>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ae090e5ec7999d519d31cc799fa86b615" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="149" endline="190">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.gc</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aee3b7723fdb31b6b746731d57ebb9cbb" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="37" endline="50">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.MarkAndSweepGcSpace</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a42163f6e398c2d1f11e72b7a3f5b57ef" prot="package" static="no" mutable="no">
+        <type>final long</type>
+        <definition>final long org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.f_cbLimitSoft</definition>
+        <argsstring></argsstring>
+        <name>f_cbLimitSoft</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.f_cbLimitSoft</qualifiedname>
+        <briefdescription>
+<para>The size in bytes we will try to stay below. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="450" column="16" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="450" bodyend="-1"/>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a319c336fa8e86bf902d5deaef0d9ad57" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="53" endline="72">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.allocate</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aee3b7723fdb31b6b746731d57ebb9cbb" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="37" endline="50">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.MarkAndSweepGcSpace</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a3c498666eb3913061804ba5fb0e666a0" prot="package" static="no" mutable="no">
+        <type>final long</type>
+        <definition>final long org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.f_cbLimitHard</definition>
+        <argsstring></argsstring>
+        <name>f_cbLimitHard</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.f_cbLimitHard</qualifiedname>
+        <briefdescription>
+<para>The maximum size (in bytes) we can grow to. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="455" column="16" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="455" bodyend="-1"/>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a319c336fa8e86bf902d5deaef0d9ad57" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="53" endline="72">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.allocate</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aee3b7723fdb31b6b746731d57ebb9cbb" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="37" endline="50">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.MarkAndSweepGcSpace</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a5f5c3bc5e2998dd4a912725be686f4bb" prot="package" static="no" mutable="no">
+        <type>long</type>
+        <definition>long org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.m_cBytes</definition>
+        <argsstring></argsstring>
+        <name>m_cBytes</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.m_cBytes</qualifiedname>
+        <briefdescription>
+<para>The amount of memory retained by this <computeroutput><ref refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space" kindref="compound">MarkAndSweepGcSpace</ref></computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="460" column="10" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="460" bodyend="-1"/>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a319c336fa8e86bf902d5deaef0d9ad57" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="53" endline="72">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.allocate</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ae090e5ec7999d519d31cc799fa86b615" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="149" endline="190">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.gc</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a9e3a25ee65a5b84f878f8a9c42e63e3f" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="144" endline="146">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.getByteCount</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ad5cab3f86bc8bd673040788677ac37e4" prot="package" static="no" mutable="no">
+        <type>int</type>
+        <definition>int org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.m_nTopFree</definition>
+        <argsstring></argsstring>
+        <name>m_nTopFree</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.m_nTopFree</qualifiedname>
+        <briefdescription>
+<para>The index of the top element in <computeroutput><ref refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ad5cab3f86bc8bd673040788677ac37e4" kindref="member">m_nTopFree</ref></computeroutput> that represents a free slot in <computeroutput><ref refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aa5d209b50c3e14aa861b3e32634073ff" kindref="member">m_aObjects</ref></computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="465" column="9" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="465" bodyend="-1"/>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a319c336fa8e86bf902d5deaef0d9ad57" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="53" endline="72">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.allocate</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ae090e5ec7999d519d31cc799fa86b615" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="149" endline="190">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.gc</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aee3b7723fdb31b6b746731d57ebb9cbb" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="37" endline="50">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.MarkAndSweepGcSpace</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ac396a060f47d4d44b19cb0abe6c15591" prot="package" static="no" mutable="no">
+        <type>int[]</type>
+        <definition>int [] org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.m_anFreeSlots</definition>
+        <argsstring></argsstring>
+        <name>m_anFreeSlots</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.m_anFreeSlots</qualifiedname>
+        <initializer>= new int[1024]</initializer>
+        <briefdescription>
+<para>The slots available in <computeroutput><ref refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aa5d209b50c3e14aa861b3e32634073ff" kindref="member">m_aObjects</ref></computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="470" column="9" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="470" bodyend="-1"/>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a319c336fa8e86bf902d5deaef0d9ad57" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="53" endline="72">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.allocate</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ae090e5ec7999d519d31cc799fa86b615" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="149" endline="190">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.gc</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1afb5fc807c445b3669cada518baad882d" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="305" endline="328">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.grow</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aee3b7723fdb31b6b746731d57ebb9cbb" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="37" endline="50">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.MarkAndSweepGcSpace</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aa5d209b50c3e14aa861b3e32634073ff" prot="package" static="no" mutable="no">
+        <type>V[]</type>
+        <definition>V [] org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.m_aObjects</definition>
+        <argsstring></argsstring>
+        <name>m_aObjects</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.m_aObjects</qualifiedname>
+        <initializer>= (V[]) new Object[m_anFreeSlots.length]</initializer>
+        <briefdescription>
+<para>References to our objects, based on their <computeroutput><ref refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aadb87fda2f97952ad6a62db64d7f5f5d" kindref="member">slot(long)</ref></computeroutput> address. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="476" column="7" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="476" bodyend="-1"/>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a319c336fa8e86bf902d5deaef0d9ad57" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="53" endline="72">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.allocate</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a47cad10609fd917c5b0b4285704da2f6" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="102" endline="121">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.ensure</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ae090e5ec7999d519d31cc799fa86b615" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="149" endline="190">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.gc</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1afb5fc807c445b3669cada518baad882d" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="305" endline="328">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.grow</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ae0ddefdba3c3bf49de5d42dc21e7c938" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="278" endline="300">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.handleWeakSweep</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a1208e6dc21f743fd564bfa6c1df99d34" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="86" endline="93">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.isValid</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a774af1173cc46d68613ca6f8288fa17b" prot="package" static="no" mutable="no">
+        <type>final Set&lt; Supplier&lt;? extends <ref refid="d4/d58/interfaceorg_1_1xvm_1_1util_1_1_long_muterator" kindref="compound">LongMuterator</ref> &gt; &gt;</type>
+        <definition>final Set&lt;Supplier&lt;? extends LongMuterator&gt; &gt; org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.f_setRoots</definition>
+        <argsstring></argsstring>
+        <name>f_setRoots</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.f_setRoots</qualifiedname>
+        <initializer>= new HashSet&lt;&gt;()</initializer>
+        <briefdescription>
+<para>The &quot;gc&quot; roots for this space. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="481" column="15" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="481" bodyend="-1"/>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1abf68b05346ed5cd7223c0ada865672a1" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="134" endline="136">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.addRoot</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ae090e5ec7999d519d31cc799fa86b615" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="149" endline="190">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.gc</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1adddd139d01f5e2ef73a88790d1780445" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="139" endline="141">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.removeRoot</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a0b318ad59d969c58981b189a40863caf" prot="package" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.m_fAllocationMarker</definition>
+        <argsstring></argsstring>
+        <name>m_fAllocationMarker</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.m_fAllocationMarker</qualifiedname>
+        <briefdescription>
+<para>The marker to set on newly allocated objects. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="486" column="13" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="486" bodyend="-1"/>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a319c336fa8e86bf902d5deaef0d9ad57" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="53" endline="72">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.allocate</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ae090e5ec7999d519d31cc799fa86b615" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="149" endline="190">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.gc</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a94a279a951ea714c6abaffcc0496e338" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.MarkAndSweepGcSpace</definition>
+        <argsstring>(ObjectManager&lt; V &gt; accessor, LongConsumer clearedListener)</argsstring>
+        <name>MarkAndSweepGcSpace</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.MarkAndSweepGcSpace</qualifiedname>
+        <param>
+          <type><ref refid="d4/d2c/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_object_manager" kindref="compound">ObjectManager</ref>&lt; V &gt;</type>
+          <declname>accessor</declname>
+        </param>
+        <param>
+          <type>LongConsumer</type>
+          <declname>clearedListener</declname>
+        </param>
+        <briefdescription>
+<para>Construct a <computeroutput><ref refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space" kindref="compound">MarkAndSweepGcSpace</ref></computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>accessor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the accessor of accessing the contents of an object </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>clearedListener</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a function to invoke with a pointer to a weak-ref once it&apos;s been cleared </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="25" column="12" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="25" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aee3b7723fdb31b6b746731d57ebb9cbb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.MarkAndSweepGcSpace</definition>
+        <argsstring>(ObjectManager&lt; V &gt; accessor, LongConsumer clearedListener, long cbLimitSoft, long cbLimitHard)</argsstring>
+        <name>MarkAndSweepGcSpace</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.MarkAndSweepGcSpace</qualifiedname>
+        <param>
+          <type><ref refid="d4/d2c/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_object_manager" kindref="compound">ObjectManager</ref>&lt; V &gt;</type>
+          <declname>accessor</declname>
+        </param>
+        <param>
+          <type>LongConsumer</type>
+          <declname>clearedListener</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>cbLimitSoft</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>cbLimitHard</declname>
+        </param>
+        <briefdescription>
+<para>Construct a <computeroutput><ref refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space" kindref="compound">MarkAndSweepGcSpace</ref></computeroutput> with limits. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>accessor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the accessor of accessing the contents of an object </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>clearedListener</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a function to invoke with a pointer to a weak-ref once it&apos;s been cleared </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cbLimitSoft</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the byte size to try to stay within </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cbLimitHard</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the maximum allowable byte size </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="37" column="12" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="37" bodyend="50"/>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a6f701c4f01d4d06b0e8f3fc24f04a7b9" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="440">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.f_accessor</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a3c498666eb3913061804ba5fb0e666a0" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="455">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.f_cbLimitHard</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a42163f6e398c2d1f11e72b7a3f5b57ef" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="450">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.f_cbLimitSoft</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a8b0e17d9813161f8d448cc57ecb36b87" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="445">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.f_clearedListener</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ac396a060f47d4d44b19cb0abe6c15591" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="470">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.m_anFreeSlots</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ad5cab3f86bc8bd673040788677ac37e4" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="465">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.m_nTopFree</references>
+      </memberdef>
+      <memberdef kind="function" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a319c336fa8e86bf902d5deaef0d9ad57" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.allocate</definition>
+        <argsstring>(int cFields)</argsstring>
+        <name>allocate</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.allocate</qualifiedname>
+        <reimplements refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a469b6a1e680045c0a9dd63b4d7401a64">allocate</reimplements>
+        <param>
+          <type>int</type>
+          <declname>cFields</declname>
+        </param>
+        <exceptions> throws OutOfMemoryError </exceptions>
+        <briefdescription>
+<para>Allocate an object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cFields</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of fields to be able to store </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the address of the allocated resource </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="53" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="53" bodyend="72"/>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ad5e505cca38ebb050a0cf662053e2b7f" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="337" endline="339">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.address</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a6f701c4f01d4d06b0e8f3fc24f04a7b9" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="440">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.f_accessor</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a3c498666eb3913061804ba5fb0e666a0" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="455">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.f_cbLimitHard</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a42163f6e398c2d1f11e72b7a3f5b57ef" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="450">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.f_cbLimitSoft</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ae090e5ec7999d519d31cc799fa86b615" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="149" endline="190">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.gc</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a720c48ad8338ad2e8353397ed991bc35" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="380" endline="389">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.getAndSetHeaderBit</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1afb5fc807c445b3669cada518baad882d" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="305" endline="328">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.grow</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ac396a060f47d4d44b19cb0abe6c15591" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="470">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.m_anFreeSlots</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aa5d209b50c3e14aa861b3e32634073ff" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="476">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.m_aObjects</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a5f5c3bc5e2998dd4a912725be686f4bb" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="460">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.m_cBytes</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a0b318ad59d969c58981b189a40863caf" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="486">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.m_fAllocationMarker</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ad5cab3f86bc8bd673040788677ac37e4" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="465">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.m_nTopFree</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a40244db93fb3d215e98ce361678ac559" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="419">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.MARKER_MASK</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aeea11af4d687feed1947a919ef26e298" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="408" endline="414">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.setFieldCount</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aadb87fda2f97952ad6a62db64d7f5f5d" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="347" endline="349">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.slot</references>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aa1f0ad83934b939b14ee24e7031dbb6e" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="75" endline="83">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.allocateWeak</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aa1f0ad83934b939b14ee24e7031dbb6e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.allocateWeak</definition>
+        <argsstring>(int cFields)</argsstring>
+        <name>allocateWeak</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.allocateWeak</qualifiedname>
+        <reimplements refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1ae860182a3561085d949bf8b7da9f1ddb">allocateWeak</reimplements>
+        <param>
+          <type>int</type>
+          <declname>cFields</declname>
+        </param>
+        <exceptions> throws OutOfMemoryError </exceptions>
+        <briefdescription>
+<para>Allocate a weak-ref based object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>As the object is indicated to a &quot;weak&quot; reference, <computeroutput><ref refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a6e8be100b3e88374b499d3d65f9e4608" kindref="member">field 0</ref></computeroutput> must be the field which stores the weak referent, and <computeroutput><ref refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a6e8be100b3e88374b499d3d65f9e4608" kindref="member">field 1</ref></computeroutput> if it exists is used to store the notifier (if any).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cFields</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of fields to be able to store </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the address of the allocated resource </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="75" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="75" bodyend="83"/>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ad5e505cca38ebb050a0cf662053e2b7f" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="337" endline="339">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.address</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a319c336fa8e86bf902d5deaef0d9ad57" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="53" endline="72">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.allocate</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a47cad10609fd917c5b0b4285704da2f6" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="102" endline="121">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.ensure</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a720c48ad8338ad2e8353397ed991bc35" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="380" endline="389">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.getAndSetHeaderBit</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a75ae607e8b0a9410716a5075049ee3cb" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="425">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.WEAK_MASK</references>
+      </memberdef>
+      <memberdef kind="function" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a1208e6dc21f743fd564bfa6c1df99d34" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.isValid</definition>
+        <argsstring>(long address)</argsstring>
+        <name>isValid</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.isValid</qualifiedname>
+        <reimplements refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a52977baf58485cb20c97bf3749438e96">isValid</reimplements>
+        <param>
+          <type>long</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+<para>Return <javadoccode>true</javadoccode> if the address maps to an object in this <computeroutput><ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space" kindref="compound">GcSpace</ref></computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the address </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><javadoccode>true</javadoccode> if the address maps to an object in this <computeroutput><ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space" kindref="compound">GcSpace</ref></computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="86" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="86" bodyend="93"/>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ad5e505cca38ebb050a0cf662053e2b7f" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="337" endline="339">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.address</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a043386c925902269331604880f7fdb1d" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="357" endline="359">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.isLocal</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aa5d209b50c3e14aa861b3e32634073ff" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="476">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.m_aObjects</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aadb87fda2f97952ad6a62db64d7f5f5d" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="347" endline="349">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.slot</references>
+      </memberdef>
+      <memberdef kind="function" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a6e8be100b3e88374b499d3d65f9e4608" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.getField</definition>
+        <argsstring>(long address, int index)</argsstring>
+        <name>getField</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.getField</qualifiedname>
+        <reimplements refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a70228f9d8da3cbf746e9e9a5d79bb2ea">getField</reimplements>
+        <param>
+          <type>long</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <exceptions> throws <ref refid="d6/de2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_seg_fault" kindref="compound">SegFault</ref> </exceptions>
+        <briefdescription>
+<para>Get the field value at a given index. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the object address </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the field index</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the field value </para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>SegFault</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if the supplied address does not map to a live object </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="124" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="124" bodyend="126"/>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ad5e505cca38ebb050a0cf662053e2b7f" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="337" endline="339">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.address</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a47cad10609fd917c5b0b4285704da2f6" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="102" endline="121">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.ensure</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a6f701c4f01d4d06b0e8f3fc24f04a7b9" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="440">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.f_accessor</references>
+      </memberdef>
+      <memberdef kind="function" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a42d978ef90fc819d5cdb04c869f593d0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.setField</definition>
+        <argsstring>(long address, int index, long handle)</argsstring>
+        <name>setField</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.setField</qualifiedname>
+        <reimplements refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1af081dc3f1a888800cef1721393ebcef2">setField</reimplements>
+        <param>
+          <type>long</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>handle</declname>
+        </param>
+        <exceptions> throws <ref refid="d6/de2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_seg_fault" kindref="compound">SegFault</ref> </exceptions>
+        <briefdescription>
+<para>Set the field value at a given index. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the object address </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the field index </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value to set </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>SegFault</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if the supplied address does not map to a live object </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="129" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="129" bodyend="131"/>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ad5e505cca38ebb050a0cf662053e2b7f" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="337" endline="339">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.address</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a47cad10609fd917c5b0b4285704da2f6" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="102" endline="121">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.ensure</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a6f701c4f01d4d06b0e8f3fc24f04a7b9" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="440">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.f_accessor</references>
+      </memberdef>
+      <memberdef kind="function" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1abf68b05346ed5cd7223c0ada865672a1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.addRoot</definition>
+        <argsstring>(Supplier&lt;? extends LongMuterator &gt; root)</argsstring>
+        <name>addRoot</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.addRoot</qualifiedname>
+        <reimplements refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1ad4157d3290045f2ba3c983bb2ea29b92">addRoot</reimplements>
+        <param>
+          <type>Supplier&lt;? extends <ref refid="d4/d58/interfaceorg_1_1xvm_1_1util_1_1_long_muterator" kindref="compound">LongMuterator</ref> &gt;</type>
+          <declname>root</declname>
+        </param>
+        <briefdescription>
+<para>Add a gc root to this space. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Added roots must ultimately be <computeroutput><ref refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1adddd139d01f5e2ef73a88790d1780445" kindref="member">removed</ref></computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>root</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the root object </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="134" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="134" bodyend="136"/>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a774af1173cc46d68613ca6f8288fa17b" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="481">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.f_setRoots</references>
+      </memberdef>
+      <memberdef kind="function" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1adddd139d01f5e2ef73a88790d1780445" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.removeRoot</definition>
+        <argsstring>(Supplier&lt;? extends LongMuterator &gt; root)</argsstring>
+        <name>removeRoot</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.removeRoot</qualifiedname>
+        <reimplements refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a6e0c09c03d62d83e7d43a625913be6b0">removeRoot</reimplements>
+        <param>
+          <type>Supplier&lt;? extends <ref refid="d4/d58/interfaceorg_1_1xvm_1_1util_1_1_long_muterator" kindref="compound">LongMuterator</ref> &gt;</type>
+          <declname>root</declname>
+        </param>
+        <briefdescription>
+<para>Remove a gc root from this space. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>root</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the root object </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="139" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="139" bodyend="141"/>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a774af1173cc46d68613ca6f8288fa17b" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="481">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.f_setRoots</references>
+      </memberdef>
+      <memberdef kind="function" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a9e3a25ee65a5b84f878f8a9c42e63e3f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.getByteCount</definition>
+        <argsstring>()</argsstring>
+        <name>getByteCount</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.getByteCount</qualifiedname>
+        <reimplements refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a7b6aff42bd4b27fd817c0ffe5122cb7d">getByteCount</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the amount of memory consumed by objects managed by this <computeroutput><ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space" kindref="compound">GcSpace</ref></computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="144" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="144" bodyend="146"/>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a5f5c3bc5e2998dd4a912725be686f4bb" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="460">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.m_cBytes</references>
+      </memberdef>
+      <memberdef kind="function" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ae090e5ec7999d519d31cc799fa86b615" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.gc</definition>
+        <argsstring>()</argsstring>
+        <name>gc</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.gc</qualifiedname>
+        <reimplements refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a913d0c95c433bc7cbf05b3345c9f3652">gc</reimplements>
+        <briefdescription>
+<para>Perform a garbage collection cycle in an attempt to reclaim memory. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="149" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="149" bodyend="190"/>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ad5e505cca38ebb050a0cf662053e2b7f" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="337" endline="339">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.address</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a6f701c4f01d4d06b0e8f3fc24f04a7b9" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="440">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.f_accessor</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a8b0e17d9813161f8d448cc57ecb36b87" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="445">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.f_clearedListener</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a774af1173cc46d68613ca6f8288fa17b" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="481">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.f_setRoots</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ae0ddefdba3c3bf49de5d42dc21e7c938" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="278" endline="300">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.handleWeakSweep</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ac396a060f47d4d44b19cb0abe6c15591" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="470">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.m_anFreeSlots</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aa5d209b50c3e14aa861b3e32634073ff" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="476">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.m_aObjects</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a5f5c3bc5e2998dd4a912725be686f4bb" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="460">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.m_cBytes</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a0b318ad59d969c58981b189a40863caf" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="486">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.m_fAllocationMarker</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ad5cab3f86bc8bd673040788677ac37e4" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="465">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.m_nTopFree</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a40244db93fb3d215e98ce361678ac559" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="419">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.MARKER_MASK</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a59da13b99a626862ede56ab3367dcdac" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="201" endline="221">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.walkAndMark</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a75ae607e8b0a9410716a5075049ee3cb" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="425">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.WEAK_MASK</references>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a319c336fa8e86bf902d5deaef0d9ad57" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="53" endline="72">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.allocate</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a47cad10609fd917c5b0b4285704da2f6" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>V</type>
+        <definition>V org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.ensure</definition>
+        <argsstring>(long address)</argsstring>
+        <name>ensure</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.ensure</qualifiedname>
+        <param>
+          <type>long</type>
+          <declname>address</declname>
+        </param>
+        <exceptions> throws <ref refid="d6/de2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_seg_fault" kindref="compound">SegFault</ref> </exceptions>
+        <briefdescription>
+<para>Tests if the address is valid and if no return the storage object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the address of the object </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the object </para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>SegFault</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if the address is invalid </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="102" column="15" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="102" bodyend="121"/>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ad5e505cca38ebb050a0cf662053e2b7f" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="337" endline="339">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.address</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a043386c925902269331604880f7fdb1d" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="357" endline="359">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.isLocal</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aa5d209b50c3e14aa861b3e32634073ff" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="476">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.m_aObjects</references>
+        <references refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a164c8ac1ffb0bbfd1fcbdc6aa17a6b53" compoundref="de/d15/_gc_space_8java" startline="94">org.xvm.runtime.gc.GcSpace.NULL</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aadb87fda2f97952ad6a62db64d7f5f5d" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="347" endline="349">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.slot</references>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aa1f0ad83934b939b14ee24e7031dbb6e" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="75" endline="83">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.allocateWeak</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a6e8be100b3e88374b499d3d65f9e4608" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="124" endline="126">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.getField</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a42d978ef90fc819d5cdb04c869f593d0" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="129" endline="131">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.setField</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a59da13b99a626862ede56ab3367dcdac" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="201" endline="221">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.walkAndMark</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a5d112cde928592e2c6ac519855a6a84d" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="231" endline="275">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.walkAndMarkIterative</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a59da13b99a626862ede56ab3367dcdac" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int[]</type>
+        <definition>int[] org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.walkAndMark</definition>
+        <argsstring>(int[] state, long address, boolean fReachableMarker, int depth)</argsstring>
+        <name>walkAndMark</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.walkAndMark</qualifiedname>
+        <param>
+          <type>int[]</type>
+          <declname>state</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>fReachableMarker</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>depth</declname>
+        </param>
+        <briefdescription>
+<para>Walk and mark the graph of objects reachable from a given object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>reusable int[] tracking the walk state for iterative marking, or <javadoccode>null</javadoccode> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the source object address </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fReachableMarker</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value to mark the objects with </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>depth</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the recursion depth </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the current state or <javadoccode>null</javadoccode> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="201" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="201" bodyend="221"/>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ad5e505cca38ebb050a0cf662053e2b7f" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="337" endline="339">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.address</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a47cad10609fd917c5b0b4285704da2f6" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="102" endline="121">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.ensure</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a6f701c4f01d4d06b0e8f3fc24f04a7b9" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="440">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.f_accessor</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a720c48ad8338ad2e8353397ed991bc35" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="380" endline="389">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.getAndSetHeaderBit</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a8e1294951e9cf88a15384bdf5e2755ac" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="397" endline="400">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.getFieldCount</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a637fc08ad26ee8007ccfa608378dde0d" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="368" endline="370">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.getHeaderBit</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a043386c925902269331604880f7fdb1d" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="357" endline="359">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.isLocal</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a40244db93fb3d215e98ce361678ac559" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="419">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.MARKER_MASK</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a59da13b99a626862ede56ab3367dcdac" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="201" endline="221">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.walkAndMark</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a5d112cde928592e2c6ac519855a6a84d" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="231" endline="275">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.walkAndMarkIterative</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a75ae607e8b0a9410716a5075049ee3cb" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="425">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.WEAK_MASK</references>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ae090e5ec7999d519d31cc799fa86b615" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="149" endline="190">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.gc</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a59da13b99a626862ede56ab3367dcdac" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="201" endline="221">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.walkAndMark</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a5d112cde928592e2c6ac519855a6a84d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int[]</type>
+        <definition>int[] org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.walkAndMarkIterative</definition>
+        <argsstring>(int[] state, long address, int cFields, boolean fReachableMarker)</argsstring>
+        <name>walkAndMarkIterative</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.walkAndMarkIterative</qualifiedname>
+        <param>
+          <type>int[]</type>
+          <declname>state</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>cFields</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>fReachableMarker</declname>
+        </param>
+        <briefdescription>
+<para>Walk and mark the graph of objects reachable from a given object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>reusable int[] tracking the walk state for iterative marking, or <javadoccode>null</javadoccode> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the source object address </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fReachableMarker</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value to mark the objects with </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the current state or <javadoccode>null</javadoccode> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="231" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="231" bodyend="275"/>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ad5e505cca38ebb050a0cf662053e2b7f" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="337" endline="339">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.address</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a47cad10609fd917c5b0b4285704da2f6" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="102" endline="121">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.ensure</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a6f701c4f01d4d06b0e8f3fc24f04a7b9" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="440">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.f_accessor</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a720c48ad8338ad2e8353397ed991bc35" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="380" endline="389">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.getAndSetHeaderBit</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a8e1294951e9cf88a15384bdf5e2755ac" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="397" endline="400">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.getFieldCount</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a637fc08ad26ee8007ccfa608378dde0d" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="368" endline="370">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.getHeaderBit</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a043386c925902269331604880f7fdb1d" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="357" endline="359">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.isLocal</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a40244db93fb3d215e98ce361678ac559" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="419">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.MARKER_MASK</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aadb87fda2f97952ad6a62db64d7f5f5d" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="347" endline="349">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.slot</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a75ae607e8b0a9410716a5075049ee3cb" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="425">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.WEAK_MASK</references>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a59da13b99a626862ede56ab3367dcdac" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="201" endline="221">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.walkAndMark</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ae0ddefdba3c3bf49de5d42dc21e7c938" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int[]</type>
+        <definition>int[] org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.handleWeakSweep</definition>
+        <argsstring>(V weak, int nWeak, int[] anNotify, int nNotifyTop, boolean fReachableMarker)</argsstring>
+        <name>handleWeakSweep</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.handleWeakSweep</qualifiedname>
+        <param>
+          <type>V</type>
+          <declname>weak</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nWeak</declname>
+        </param>
+        <param>
+          <type>int[]</type>
+          <declname>anNotify</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nNotifyTop</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>fReachableMarker</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="278" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="278" bodyend="300"/>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a6f701c4f01d4d06b0e8f3fc24f04a7b9" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="440">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.f_accessor</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a8e1294951e9cf88a15384bdf5e2755ac" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="397" endline="400">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.getFieldCount</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a637fc08ad26ee8007ccfa608378dde0d" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="368" endline="370">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.getHeaderBit</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a043386c925902269331604880f7fdb1d" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="357" endline="359">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.isLocal</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aa5d209b50c3e14aa861b3e32634073ff" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="476">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.m_aObjects</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a40244db93fb3d215e98ce361678ac559" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="419">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.MARKER_MASK</references>
+        <references refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a164c8ac1ffb0bbfd1fcbdc6aa17a6b53" compoundref="de/d15/_gc_space_8java" startline="94">org.xvm.runtime.gc.GcSpace.NULL</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aadb87fda2f97952ad6a62db64d7f5f5d" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="347" endline="349">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.slot</references>
+        <references refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1aa731185a64236ea208fe30179eca5af8" compoundref="de/d15/_gc_space_8java" startline="104">org.xvm.runtime.gc.GcSpace.WEAK_NOTIFIER_FIELD</references>
+        <references refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a0ce4b2281a4c8e0ddef98a47c2e5b7d6" compoundref="de/d15/_gc_space_8java" startline="99">org.xvm.runtime.gc.GcSpace.WEAK_REFERENT_FIELD</references>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ae090e5ec7999d519d31cc799fa86b615" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="149" endline="190">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.gc</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1afb5fc807c445b3669cada518baad882d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.grow</definition>
+        <argsstring>()</argsstring>
+        <name>grow</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.grow</qualifiedname>
+        <exceptions> throws OutOfMemoryError </exceptions>
+        <briefdescription>
+<para>Expand the size of this space. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="305" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="305" bodyend="328"/>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ac396a060f47d4d44b19cb0abe6c15591" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="470">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.m_anFreeSlots</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aa5d209b50c3e14aa861b3e32634073ff" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="476">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.m_aObjects</references>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a319c336fa8e86bf902d5deaef0d9ad57" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="53" endline="72">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.allocate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ad5e505cca38ebb050a0cf662053e2b7f" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.address</definition>
+        <argsstring>(int slot)</argsstring>
+        <name>address</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.address</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>slot</declname>
+        </param>
+        <briefdescription>
+<para>Return the address of a slot. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>slot</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the slot </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the address </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="337" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="337" bodyend="339"/>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aadb87fda2f97952ad6a62db64d7f5f5d" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="347" endline="349">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.slot</references>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a319c336fa8e86bf902d5deaef0d9ad57" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="53" endline="72">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.allocate</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aa1f0ad83934b939b14ee24e7031dbb6e" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="75" endline="83">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.allocateWeak</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a47cad10609fd917c5b0b4285704da2f6" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="102" endline="121">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.ensure</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ae090e5ec7999d519d31cc799fa86b615" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="149" endline="190">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.gc</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a6e8be100b3e88374b499d3d65f9e4608" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="124" endline="126">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.getField</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a043386c925902269331604880f7fdb1d" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="357" endline="359">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.isLocal</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a1208e6dc21f743fd564bfa6c1df99d34" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="86" endline="93">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.isValid</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a42d978ef90fc819d5cdb04c869f593d0" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="129" endline="131">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.setField</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aadb87fda2f97952ad6a62db64d7f5f5d" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="347" endline="349">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.slot</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a59da13b99a626862ede56ab3367dcdac" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="201" endline="221">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.walkAndMark</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a5d112cde928592e2c6ac519855a6a84d" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="231" endline="275">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.walkAndMarkIterative</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aadb87fda2f97952ad6a62db64d7f5f5d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.slot</definition>
+        <argsstring>(long address)</argsstring>
+        <name>slot</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.slot</qualifiedname>
+        <param>
+          <type>long</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+<para>Return the slot for a given address. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the address </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the slot </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="347" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="347" bodyend="349"/>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ad5e505cca38ebb050a0cf662053e2b7f" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="337" endline="339">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.address</references>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ad5e505cca38ebb050a0cf662053e2b7f" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="337" endline="339">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.address</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a319c336fa8e86bf902d5deaef0d9ad57" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="53" endline="72">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.allocate</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a47cad10609fd917c5b0b4285704da2f6" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="102" endline="121">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.ensure</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ae0ddefdba3c3bf49de5d42dc21e7c938" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="278" endline="300">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.handleWeakSweep</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a1208e6dc21f743fd564bfa6c1df99d34" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="86" endline="93">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.isValid</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a5d112cde928592e2c6ac519855a6a84d" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="231" endline="275">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.walkAndMarkIterative</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a043386c925902269331604880f7fdb1d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.isLocal</definition>
+        <argsstring>(long address)</argsstring>
+        <name>isLocal</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.isLocal</qualifiedname>
+        <param>
+          <type>long</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+<para>Return <javadoccode>true</javadoccode> if the address represents a local address. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the address </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><javadoccode>true</javadoccode> if the address represents a local address </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="357" column="21" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="357" bodyend="359"/>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ad5e505cca38ebb050a0cf662053e2b7f" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="337" endline="339">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.address</references>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a47cad10609fd917c5b0b4285704da2f6" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="102" endline="121">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.ensure</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ae0ddefdba3c3bf49de5d42dc21e7c938" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="278" endline="300">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.handleWeakSweep</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a1208e6dc21f743fd564bfa6c1df99d34" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="86" endline="93">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.isValid</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a59da13b99a626862ede56ab3367dcdac" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="201" endline="221">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.walkAndMark</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a5d112cde928592e2c6ac519855a6a84d" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="231" endline="275">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.walkAndMarkIterative</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a637fc08ad26ee8007ccfa608378dde0d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.getHeaderBit</definition>
+        <argsstring>(V o, long mask)</argsstring>
+        <name>getHeaderBit</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.getHeaderBit</qualifiedname>
+        <param>
+          <type>V</type>
+          <declname>o</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Get a single bit from the header. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>o</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the object to query </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the header mask to check against </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the marker </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="368" column="21" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="368" bodyend="370"/>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a6f701c4f01d4d06b0e8f3fc24f04a7b9" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="440">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.f_accessor</references>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ae0ddefdba3c3bf49de5d42dc21e7c938" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="278" endline="300">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.handleWeakSweep</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a59da13b99a626862ede56ab3367dcdac" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="201" endline="221">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.walkAndMark</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a5d112cde928592e2c6ac519855a6a84d" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="231" endline="275">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.walkAndMarkIterative</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a720c48ad8338ad2e8353397ed991bc35" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.getAndSetHeaderBit</definition>
+        <argsstring>(V o, long mask, boolean value)</argsstring>
+        <name>getAndSetHeaderBit</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.getAndSetHeaderBit</qualifiedname>
+        <param>
+          <type>V</type>
+          <declname>o</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>mask</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Get and set the header bit for the given mask. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>o</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the object </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the header mask </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the updated bit value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the old bit value </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="380" column="21" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="380" bodyend="389"/>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a6f701c4f01d4d06b0e8f3fc24f04a7b9" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="440">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.f_accessor</references>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a319c336fa8e86bf902d5deaef0d9ad57" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="53" endline="72">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.allocate</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aa1f0ad83934b939b14ee24e7031dbb6e" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="75" endline="83">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.allocateWeak</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a59da13b99a626862ede56ab3367dcdac" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="201" endline="221">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.walkAndMark</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a5d112cde928592e2c6ac519855a6a84d" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="231" endline="275">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.walkAndMarkIterative</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a8e1294951e9cf88a15384bdf5e2755ac" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.getFieldCount</definition>
+        <argsstring>(V o)</argsstring>
+        <name>getFieldCount</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.getFieldCount</qualifiedname>
+        <param>
+          <type>V</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Return the number of fields contained in the object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>o</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the object </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the field count </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="397" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="397" bodyend="400"/>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a6f701c4f01d4d06b0e8f3fc24f04a7b9" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="440">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.f_accessor</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a81fadb7a3a96114392a2ff7a820f42bf" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="430">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.FIELD_COUNT_MASK</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a8ddb687cd5ec50313b2c6fd2696fa0f8" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="435">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.FIELD_COUNT_SHIFT</references>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ae0ddefdba3c3bf49de5d42dc21e7c938" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="278" endline="300">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.handleWeakSweep</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a59da13b99a626862ede56ab3367dcdac" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="201" endline="221">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.walkAndMark</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a5d112cde928592e2c6ac519855a6a84d" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="231" endline="275">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.walkAndMarkIterative</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aeea11af4d687feed1947a919ef26e298" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.setFieldCount</definition>
+        <argsstring>(V o, int cFields)</argsstring>
+        <name>setFieldCount</name>
+        <qualifiedname>org.xvm.runtime.gc.MarkAndSweepGcSpace.setFieldCount</qualifiedname>
+        <param>
+          <type>V</type>
+          <declname>o</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>cFields</declname>
+        </param>
+        <briefdescription>
+<para>Set the field count for an object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>o</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the object </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cFields</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the field count </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="408" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="408" bodyend="414"/>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a6f701c4f01d4d06b0e8f3fc24f04a7b9" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="440">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.f_accessor</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a81fadb7a3a96114392a2ff7a820f42bf" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="430">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.FIELD_COUNT_MASK</references>
+        <references refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a8ddb687cd5ec50313b2c6fd2696fa0f8" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="435">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.FIELD_COUNT_SHIFT</references>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a319c336fa8e86bf902d5deaef0d9ad57" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="53" endline="72">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.allocate</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A simple <javadoccode>mark-and-sweep</javadoccode> style collector. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Objects are allocated on the java heap but tracked via the <computeroutput><ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space" kindref="compound">GcSpace</ref></computeroutput>. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;</label>
+        <link refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>org.xvm.runtime.gc.GcSpace</label>
+        <link refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;</label>
+        <link refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>org.xvm.runtime.gc.GcSpace</label>
+        <link refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" line="16" column="7" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/MarkAndSweepGcSpace.java" bodystart="17" bodyend="487"/>
+    <listofallmembers>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ad5e505cca38ebb050a0cf662053e2b7f" prot="private" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>address</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1abf68b05346ed5cd7223c0ada865672a1" prot="public" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>addRoot</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a319c336fa8e86bf902d5deaef0d9ad57" prot="public" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>allocate</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aa1f0ad83934b939b14ee24e7031dbb6e" prot="public" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>allocateWeak</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a47cad10609fd917c5b0b4285704da2f6" prot="private" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>ensure</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a6f701c4f01d4d06b0e8f3fc24f04a7b9" prot="package" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>f_accessor</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a3c498666eb3913061804ba5fb0e666a0" prot="package" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>f_cbLimitHard</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a42163f6e398c2d1f11e72b7a3f5b57ef" prot="package" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>f_cbLimitSoft</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a8b0e17d9813161f8d448cc57ecb36b87" prot="package" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>f_clearedListener</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a774af1173cc46d68613ca6f8288fa17b" prot="package" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>f_setRoots</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a81fadb7a3a96114392a2ff7a820f42bf" prot="package" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>FIELD_COUNT_MASK</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a8ddb687cd5ec50313b2c6fd2696fa0f8" prot="package" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>FIELD_COUNT_SHIFT</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ae090e5ec7999d519d31cc799fa86b615" prot="public" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>gc</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a720c48ad8338ad2e8353397ed991bc35" prot="private" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>getAndSetHeaderBit</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a9e3a25ee65a5b84f878f8a9c42e63e3f" prot="public" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>getByteCount</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a6e8be100b3e88374b499d3d65f9e4608" prot="public" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>getField</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a8e1294951e9cf88a15384bdf5e2755ac" prot="private" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>getFieldCount</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a637fc08ad26ee8007ccfa608378dde0d" prot="private" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>getHeaderBit</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1afb5fc807c445b3669cada518baad882d" prot="private" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>grow</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ae0ddefdba3c3bf49de5d42dc21e7c938" prot="private" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>handleWeakSweep</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a043386c925902269331604880f7fdb1d" prot="private" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>isLocal</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a1208e6dc21f743fd564bfa6c1df99d34" prot="public" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>isValid</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ac396a060f47d4d44b19cb0abe6c15591" prot="package" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>m_anFreeSlots</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aa5d209b50c3e14aa861b3e32634073ff" prot="package" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>m_aObjects</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a5f5c3bc5e2998dd4a912725be686f4bb" prot="package" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>m_cBytes</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a0b318ad59d969c58981b189a40863caf" prot="package" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>m_fAllocationMarker</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ad5cab3f86bc8bd673040788677ac37e4" prot="package" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>m_nTopFree</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a94a279a951ea714c6abaffcc0496e338" prot="public" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>MarkAndSweepGcSpace</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aee3b7723fdb31b6b746731d57ebb9cbb" prot="public" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>MarkAndSweepGcSpace</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a40244db93fb3d215e98ce361678ac559" prot="package" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>MARKER_MASK</name></member>
+      <member refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a164c8ac1ffb0bbfd1fcbdc6aa17a6b53" prot="public" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>NULL</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1adddd139d01f5e2ef73a88790d1780445" prot="public" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>removeRoot</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a42d978ef90fc819d5cdb04c869f593d0" prot="public" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>setField</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aeea11af4d687feed1947a919ef26e298" prot="private" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>setFieldCount</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aadb87fda2f97952ad6a62db64d7f5f5d" prot="private" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>slot</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a59da13b99a626862ede56ab3367dcdac" prot="private" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>walkAndMark</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a5d112cde928592e2c6ac519855a6a84d" prot="private" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>walkAndMarkIterative</name></member>
+      <member refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a75ae607e8b0a9410716a5075049ee3cb" prot="package" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>WEAK_MASK</name></member>
+      <member refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1aa731185a64236ea208fe30179eca5af8" prot="public" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>WEAK_NOTIFIER_FIELD</name></member>
+      <member refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a0ce4b2281a4c8e0ddef98a47c2e5b7d6" prot="public" virt="non-virtual"><scope>org::xvm::runtime::gc::MarkAndSweepGcSpace</scope><name>WEAK_REFERENT_FIELD</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

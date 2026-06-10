@@ -1,0 +1,320 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="da/d81/_assert_v_8java" kind="file" language="Java">
+    <compoundname>AssertV.java</compoundname>
+    <includes local="no">java.io.DataInput</includes>
+    <includes local="no">java.io.DataOutput</includes>
+    <includes local="no">java.io.IOException</includes>
+    <includes local="no">org.xvm.asm.Argument</includes>
+    <includes local="no">org.xvm.asm.Constant</includes>
+    <includes local="no">org.xvm.asm.Op</includes>
+    <includes local="no">org.xvm.asm.Register</includes>
+    <includes local="no">org.xvm.asm.constants.MethodConstant</includes>
+    <includes local="no">org.xvm.asm.constants.StringConstant</includes>
+    <includes local="no">org.xvm.runtime.Frame</includes>
+    <includes local="no">org.xvm.runtime.ObjectHandle</includes>
+    <includes local="no">org.xvm.runtime.Utils</includes>
+    <includes local="no">org.xvm.runtime.template.xBoolean.BooleanHandle</includes>
+    <includes local="no">org.xvm.runtime.template.text.xString</includes>
+    <includes local="no">org.xvm.runtime.template.text.xString.StringHandle</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/op/AssertV.java</label>
+        <link refid="da/d81/_assert_v_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.io.DataInput</label>
+      </node>
+      <node id="3">
+        <label>java.io.DataOutput</label>
+      </node>
+      <node id="4">
+        <label>java.io.IOException</label>
+      </node>
+      <node id="5">
+        <label>org.xvm.asm.Argument</label>
+      </node>
+      <node id="6">
+        <label>org.xvm.asm.Constant</label>
+      </node>
+      <node id="7">
+        <label>org.xvm.asm.Op</label>
+      </node>
+      <node id="8">
+        <label>org.xvm.asm.Register</label>
+      </node>
+      <node id="9">
+        <label>org.xvm.asm.constants.MethodConstant</label>
+      </node>
+      <node id="10">
+        <label>org.xvm.asm.constants.StringConstant</label>
+      </node>
+      <node id="11">
+        <label>org.xvm.runtime.Frame</label>
+      </node>
+      <node id="12">
+        <label>org.xvm.runtime.ObjectHandle</label>
+      </node>
+      <node id="13">
+        <label>org.xvm.runtime.Utils</label>
+      </node>
+      <node id="15">
+        <label>org.xvm.runtime.template.text.xString</label>
+      </node>
+      <node id="16">
+        <label>org.xvm.runtime.template.text.xString.StringHandle</label>
+      </node>
+      <node id="14">
+        <label>org.xvm.runtime.template.xBoolean.BooleanHandle</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v" prot="public">org::xvm::asm::op::AssertV</innerclass>
+    <innerclass refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string" prot="private">org::xvm::asm::op::AssertV::MessageToString</innerclass>
+    <innernamespace refid="d5/d78/namespaceorg_1_1xvm_1_1asm_1_1op">org::xvm::asm::op</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.asm.op;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.DataInput;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.DataOutput;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.IOException;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Argument;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Constant;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Op;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Register;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.constants.MethodConstant;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.constants.StringConstant;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.Frame;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.ObjectHandle;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.Utils;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.template.xBoolean.BooleanHandle;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.template.text.xString;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.template.text.xString.StringHandle;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1acb02f06b33ee2ef8bf24d35cad02e79b" kindref="member">AssertV</ref></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="d1/d78/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_m_1a406945fc33b5226d2069b1be2e9d14f3" kindref="member">AssertM</ref><sp/>{</highlight></codeline>
+<codeline lineno="39" refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1acb02f06b33ee2ef8bf24d35cad02e79b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1acb02f06b33ee2ef8bf24d35cad02e79b" kindref="member">AssertV</ref>(<ref refid="dd/da8/interfaceorg_1_1xvm_1_1asm_1_1_argument" kindref="compound">Argument</ref><sp/>argTest,<sp/><ref refid="d6/d7b/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_constant" kindref="compound">MethodConstant</ref><sp/>constructor,<sp/><ref refid="d0/db5/classorg_1_1xvm_1_1asm_1_1constants_1_1_string_constant" kindref="compound">StringConstant</ref><sp/>constMsg,<sp/><ref refid="dd/da8/interfaceorg_1_1xvm_1_1asm_1_1_argument" kindref="compound">Argument</ref>[]<sp/>aArgValue)<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(argTest,<sp/>constructor,<sp/>constMsg);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a24c31eb2209023393842ae68103351c0" kindref="member">m_aArgValue</ref><sp/>=<sp/>aArgValue;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a4d06bfe7071577cb196d777c4d94583c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a4d06bfe7071577cb196d777c4d94583c" kindref="member">AssertV</ref>(DataInput<sp/>in,<sp/><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref>[]<sp/>aconst)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(in,<sp/>aconst);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a485fc90fa7cb40076aa3d45c4afb2fb7" kindref="member">m_anValue</ref><sp/>=<sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a804201231fcd4aae5087671decd4f24d" kindref="member">readIntArray</ref>(in);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="57" refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a99debdac3f0ba0c4483f5fe0b1d14dbc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a99debdac3f0ba0c4483f5fe0b1d14dbc" kindref="member">write</ref>(DataOutput<sp/>out,<sp/><ref refid="dd/d3d/classorg_1_1xvm_1_1asm_1_1_op_1_1_constant_registry" kindref="compound">ConstantRegistry</ref><sp/>registry)</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super.write(out,<sp/>registry);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a24c31eb2209023393842ae68103351c0" kindref="member">m_aArgValue</ref><sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a485fc90fa7cb40076aa3d45c4afb2fb7" kindref="member">m_anValue</ref><sp/>=<sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1aadb2fca2f2cfc547a082b77491f0fb12" kindref="member">encodeArguments</ref>(<ref refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a24c31eb2209023393842ae68103351c0" kindref="member">m_aArgValue</ref>,<sp/>registry);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a8afe6e3e8e9c568c6fafb5baa5cab555" kindref="member">writeIntArray</ref>(out,<sp/><ref refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a485fc90fa7cb40076aa3d45c4afb2fb7" kindref="member">m_anValue</ref>);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="69" refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a724e4b825b2428071ce6289354798060" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a724e4b825b2428071ce6289354798060" kindref="member">getOpCode</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65bc78e34b940e35da8cd3853a19e1fc" kindref="member">OP_ASSERT_V</ref>;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="74" refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a3ea4e5478633ab651b99a5cd9f098ad7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a3ea4e5478633ab651b99a5cd9f098ad7" kindref="member">evaluate</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frame,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iPC,<sp/><ref refid="d8/d6c/classorg_1_1xvm_1_1runtime_1_1template_1_1x_boolean_1_1_boolean_handle" kindref="compound">BooleanHandle</ref><sp/>hTest)<sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(hTest.<ref refid="d8/d6c/classorg_1_1xvm_1_1runtime_1_1template_1_1x_boolean_1_1_boolean_handle_1ab44a7fad6b8aa00dedd902a3bc964d52" kindref="member">get</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>iPC<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>first,<sp/>get<sp/>the<sp/>unformatted<sp/>String<sp/>from<sp/>the<sp/>constant<sp/>pool<sp/>and<sp/>split<sp/>it<sp/>up<sp/>into<sp/>its</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>pieces</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a9917a8b29036f19dd0135c4678895442" kindref="member">m_asParts</ref><sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/><sp/><sp/>sMsg<sp/><sp/><sp/><sp/>=<sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1ae0b1bbfe2a5e4c58bf81dd03ce1a043a" kindref="member">getString</ref>(<ref refid="d1/d78/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_m_1abe2c9199e2ea3cd4b3da4cfc7f5eb115" kindref="member">m_nMsgConstId</ref>);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>cVals<sp/><sp/><sp/>=<sp/><ref refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a485fc90fa7cb40076aa3d45c4afb2fb7" kindref="member">m_anValue</ref>.length;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String[]<sp/>asParts<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>String[cVals<sp/>+<sp/>1];</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>cVals;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>sReplace<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;{&quot;</highlight><highlight class="normal"><sp/>+<sp/>i<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;}&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>of<sp/>=<sp/>sMsg.indexOf(sReplace);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(of<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>asParts[i]<sp/>=<sp/>sMsg.substring(0,<sp/>of);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sMsg<sp/>=<sp/>sMsg.substring(of<sp/>+<sp/>sReplace.length());</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>asParts[i]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/>sMsg<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>asParts[cVals]<sp/>=<sp/>sMsg;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a9917a8b29036f19dd0135c4678895442" kindref="member">m_asParts</ref><sp/>=<sp/>asParts;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>get<sp/>the<sp/>trace<sp/>variable<sp/>and<sp/>constant<sp/>values<sp/>to<sp/>display;<sp/>note<sp/>that<sp/>some<sp/>values<sp/>could</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>be<sp/>unassigned<sp/>conditional<sp/>returns</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cArgs<sp/>=<sp/><ref refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a485fc90fa7cb40076aa3d45c4afb2fb7" kindref="member">m_anValue</ref>.length;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref>[]<sp/>ahArg<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref>[cArgs];</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>cArgs;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ahArg[i]<sp/>=<sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a7d0b2d5bcb8b1cde338b2eec63bd4e3d" kindref="member">getArgument</ref>(<ref refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a485fc90fa7cb40076aa3d45c4afb2fb7" kindref="member">m_anValue</ref>[i]);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(Exception<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ahArg[i]<sp/>=<sp/><ref refid="d9/d25/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string" kindref="compound">xString</ref>.<ref refid="d9/d25/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1a294e7d29c21ee9c1b9df1d0cfea28a2f" kindref="member">EMPTY_STRING</ref>;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>build<sp/>the<sp/>assertion<sp/>message<sp/>and<sp/>finish<sp/>by<sp/>throwing<sp/>it</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>StringBuilder<sp/><sp/><sp/><sp/><sp/><sp/>sb<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>StringBuilder(<ref refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a9917a8b29036f19dd0135c4678895442" kindref="member">m_asParts</ref>[0]);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d5/dfd/interfaceorg_1_1xvm_1_1runtime_1_1_frame_1_1_continuation" kindref="compound">Frame.Continuation</ref><sp/>doComplete<sp/>=<sp/>(frameCaller)<sp/>-&gt;<sp/><ref refid="db/d50/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_1af8be251f00a04803301c277390884983" kindref="member">complete</ref>(frameCaller,<sp/>iPC,<sp/>sb.toString());</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string" kindref="compound">MessageToString</ref>(sb,<sp/>ahArg,<sp/><ref refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a9917a8b29036f19dd0135c4678895442" kindref="member">m_asParts</ref>,<sp/>doComplete).<ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a204c6ee7a991916666f1eb5ff78dced5" kindref="member">doNext</ref>(frame);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121" refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a728b60a544f9f073bfe83e32308aa3b1" kindref="member">MessageToString</ref></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">implements</highlight><highlight class="normal"><sp/><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref>.Continuation<sp/>{</highlight></codeline>
+<codeline lineno="123" refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a728b60a544f9f073bfe83e32308aa3b1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a728b60a544f9f073bfe83e32308aa3b1" kindref="member">MessageToString</ref>(</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>StringBuilder<sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a23d5c6435f2004363f41b3000d52bea0" kindref="member">sb</ref>,</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref>[]<sp/><sp/><sp/><sp/><sp/><ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a5a27c04dc966a95e275e252b551be009" kindref="member">ahValue</ref>,</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String[]<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a5f328bd7448109447b175238df534e65" kindref="member">asLabel</ref>,</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref>.<ref refid="d5/dfd/interfaceorg_1_1xvm_1_1runtime_1_1_frame_1_1_continuation" kindref="compound">Continuation</ref><sp/><ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a8d3b01e0aacf3d0bf320f407be7c1384" kindref="member">nextStep</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.sb<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a23d5c6435f2004363f41b3000d52bea0" kindref="member">sb</ref>;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.ahValue<sp/><sp/>=<sp/><ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a5a27c04dc966a95e275e252b551be009" kindref="member">ahValue</ref>;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.asLabel<sp/><sp/>=<sp/><ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a5f328bd7448109447b175238df534e65" kindref="member">asLabel</ref>;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.nextStep<sp/>=<sp/><ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a8d3b01e0aacf3d0bf320f407be7c1384" kindref="member">nextStep</ref>;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134" refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a204c6ee7a991916666f1eb5ff78dced5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a204c6ee7a991916666f1eb5ff78dced5" kindref="member">doNext</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frameCaller)<sp/>{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>loop:<sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(++<ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1aa00edac4621e2876e58087094d0422d0" kindref="member">index</ref><sp/>&lt;<sp/><ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a5a27c04dc966a95e275e252b551be009" kindref="member">ahValue</ref>.length)<sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(<ref refid="d8/dee/classorg_1_1xvm_1_1runtime_1_1_utils" kindref="compound">Utils</ref>.<ref refid="d8/dee/classorg_1_1xvm_1_1runtime_1_1_utils_1a09936f41ab6607b85e42521e3ab78a65" kindref="member">callValueOf</ref>(frameCaller,<sp/><ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a5a27c04dc966a95e275e252b551be009" kindref="member">ahValue</ref>[<ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1aa00edac4621e2876e58087094d0422d0" kindref="member">index</ref>]))<sp/>{</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op" kindref="compound">Op</ref>.<ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" kindref="member">R_NEXT</ref>:</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a52695b2c953ab72c80b6d19df82154f2" kindref="member">updateResult</ref>(frameCaller))<sp/>{</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//<sp/>loop;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal"><sp/>loop;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op" kindref="compound">Op</ref>.<ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a00e0f1e4447b75bfad17b2a6e21fe44e" kindref="member">R_CALL</ref>:</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>frameCaller.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1acb637e3dd34085589469cc0b550e129d" kindref="member">m_frameNext</ref>.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a3a3f5f339815d6a094131a3b9d362924" kindref="member">addContinuation</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op" kindref="compound">Op</ref>.<ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a00e0f1e4447b75bfad17b2a6e21fe44e" kindref="member">R_CALL</ref>;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>IllegalStateException();</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a8d3b01e0aacf3d0bf320f407be7c1384" kindref="member">nextStep</ref>.proceed(frameCaller);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="157" refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a8c2b51bdeb85d8860f86208f6b8487c0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a8c2b51bdeb85d8860f86208f6b8487c0" kindref="member">proceed</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frameCaller)<sp/>{</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a52695b2c953ab72c80b6d19df82154f2" kindref="member">updateResult</ref>(frameCaller))<sp/>{</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a204c6ee7a991916666f1eb5ff78dced5" kindref="member">doNext</ref>(frameCaller);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>too<sp/>much<sp/>text;<sp/>enough<sp/>for<sp/>an<sp/>output...</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a8d3b01e0aacf3d0bf320f407be7c1384" kindref="member">nextStep</ref>.proceed(frameCaller);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169" refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a52695b2c953ab72c80b6d19df82154f2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a52695b2c953ab72c80b6d19df82154f2" kindref="member">updateResult</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frameCaller)<sp/>{</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle" kindref="compound">StringHandle</ref><sp/>hMsg<sp/>=<sp/>(<ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle" kindref="compound">StringHandle</ref>)<sp/>frameCaller.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a9082b419ab2fed651263ce32ccdc731d" kindref="member">popStack</ref>();</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">[]<sp/><sp/><sp/><sp/><sp/><sp/><sp/>ach<sp/><sp/>=<sp/>hMsg.<ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle_1af3269bda65c571ad2ce92580c22de87d" kindref="member">getValue</ref>();</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ach.length<sp/>&gt;<sp/><ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a66cf14aa436d8e7d0feffdf60af86dcd" kindref="member">MAX_VAL</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a23d5c6435f2004363f41b3000d52bea0" kindref="member">sb</ref>.append(ach,<sp/>0,<sp/><ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a66cf14aa436d8e7d0feffdf60af86dcd" kindref="member">MAX_VAL</ref>)</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.append(</highlight><highlight class="stringliteral">&quot;...&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a23d5c6435f2004363f41b3000d52bea0" kindref="member">sb</ref>.append(ach);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a23d5c6435f2004363f41b3000d52bea0" kindref="member">sb</ref>.length()<sp/>&gt;<sp/><ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a9159a7de236c352fd86e60ed38860050" kindref="member">MAX_LEN</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a23d5c6435f2004363f41b3000d52bea0" kindref="member">sb</ref>.append(</highlight><highlight class="stringliteral">&quot;...&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a23d5c6435f2004363f41b3000d52bea0" kindref="member">sb</ref>.append(<ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a5f328bd7448109447b175238df534e65" kindref="member">asLabel</ref>[<ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1aa00edac4621e2876e58087094d0422d0" kindref="member">index</ref>+1]);</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189" refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a66cf14aa436d8e7d0feffdf60af86dcd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a66cf14aa436d8e7d0feffdf60af86dcd" kindref="member">MAX_VAL</ref><sp/>=<sp/>2*1024;</highlight></codeline>
+<codeline lineno="190" refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a9159a7de236c352fd86e60ed38860050" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a9159a7de236c352fd86e60ed38860050" kindref="member">MAX_LEN</ref><sp/>=<sp/>16*1024;</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192" refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a23d5c6435f2004363f41b3000d52bea0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>StringBuilder<sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a23d5c6435f2004363f41b3000d52bea0" kindref="member">sb</ref>;</highlight></codeline>
+<codeline lineno="193" refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a5a27c04dc966a95e275e252b551be009" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref>[]<sp/><sp/><sp/><sp/><sp/><ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a5a27c04dc966a95e275e252b551be009" kindref="member">ahValue</ref>;</highlight></codeline>
+<codeline lineno="194" refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a5f328bd7448109447b175238df534e65" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>String[]<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a5f328bd7448109447b175238df534e65" kindref="member">asLabel</ref>;</highlight></codeline>
+<codeline lineno="195" refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a8d3b01e0aacf3d0bf320f407be7c1384" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="d5/dfd/interfaceorg_1_1xvm_1_1runtime_1_1_frame_1_1_continuation" kindref="compound">Frame.Continuation</ref><sp/><ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1a8d3b01e0aacf3d0bf320f407be7c1384" kindref="member">nextStep</ref>;</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197" refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1aa00edac4621e2876e58087094d0422d0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d2/dea/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1_1_message_to_string_1aa00edac4621e2876e58087094d0422d0" kindref="member">index</ref><sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="201" refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a5ec766b194db99a9ff9b1e65f38ba760" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a5ec766b194db99a9ff9b1e65f38ba760" kindref="member">registerConstants</ref>(<ref refid="dd/d3d/classorg_1_1xvm_1_1asm_1_1_op_1_1_constant_registry" kindref="compound">ConstantRegistry</ref><sp/>registry)<sp/>{</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super.registerConstants(registry);</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a126704679a51b438839ed6dd183bb757" kindref="member">registerArguments</ref>(<ref refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a24c31eb2209023393842ae68103351c0" kindref="member">m_aArgValue</ref>,<sp/>registry);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="208" refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a830b17b75d85dc039632a5bb9b38aebe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a830b17b75d85dc039632a5bb9b38aebe" kindref="member">toString</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>StringBuilder<sp/>sb<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>StringBuilder(super.toString());</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sb.append(</highlight><highlight class="stringliteral">&quot;<sp/>(&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0,<sp/>c<sp/>=<sp/>Math.max(<ref refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a485fc90fa7cb40076aa3d45c4afb2fb7" kindref="member">m_anValue</ref><sp/><sp/><sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>?<sp/>0<sp/>:<sp/><ref refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a485fc90fa7cb40076aa3d45c4afb2fb7" kindref="member">m_anValue</ref>.length,</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a24c31eb2209023393842ae68103351c0" kindref="member">m_aArgValue</ref><sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>?<sp/>0<sp/>:<sp/><ref refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a24c31eb2209023393842ae68103351c0" kindref="member">m_aArgValue</ref>.length);<sp/>i<sp/>&lt;<sp/>c;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sb.append(</highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sb.append(<ref refid="dd/da8/interfaceorg_1_1xvm_1_1asm_1_1_argument" kindref="compound">Argument</ref>.<ref refid="dd/da8/interfaceorg_1_1xvm_1_1asm_1_1_argument_1a0e636964ea97dfaf921b944339628dee" kindref="member">toIdString</ref>(<ref refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a24c31eb2209023393842ae68103351c0" kindref="member">m_aArgValue</ref><sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>?<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>:<sp/><ref refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a24c31eb2209023393842ae68103351c0" kindref="member">m_aArgValue</ref>[i],</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a485fc90fa7cb40076aa3d45c4afb2fb7" kindref="member">m_anValue</ref><sp/><sp/><sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>?<sp/><ref refid="dc/db3/classorg_1_1xvm_1_1asm_1_1_register" kindref="compound">Register</ref>.<ref refid="dc/db3/classorg_1_1xvm_1_1asm_1_1_register_1aa8c7d504fa6b27fb5bde90f09866d69e" kindref="member">UNKNOWN</ref><sp/>:<sp/><ref refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a485fc90fa7cb40076aa3d45c4afb2fb7" kindref="member">m_anValue</ref>[i]));</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sb.append(</highlight><highlight class="charliteral">&apos;)&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>sb.toString();</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight></codeline>
+<codeline lineno="226" refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a485fc90fa7cb40076aa3d45c4afb2fb7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">[]<sp/><ref refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a485fc90fa7cb40076aa3d45c4afb2fb7" kindref="member">m_anValue</ref>;</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"></highlight></codeline>
+<codeline lineno="228" refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a24c31eb2209023393842ae68103351c0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="dd/da8/interfaceorg_1_1xvm_1_1asm_1_1_argument" kindref="compound">Argument</ref>[]<sp/><ref refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a24c31eb2209023393842ae68103351c0" kindref="member">m_aArgValue</ref>;</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight></codeline>
+<codeline lineno="230" refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a9917a8b29036f19dd0135c4678895442" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">transient</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/>String[]<sp/><ref refid="da/d34/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_v_1a9917a8b29036f19dd0135c4678895442" kindref="member">m_asParts</ref>;</highlight></codeline>
+<codeline lineno="231"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/op/AssertV.java"/>
+  </compounddef>
+</doxygen>

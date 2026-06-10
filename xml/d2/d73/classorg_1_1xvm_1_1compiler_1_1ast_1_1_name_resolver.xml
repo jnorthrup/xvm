@@ -1,0 +1,2619 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver" kind="class" language="Java" prot="public">
+    <compoundname>org::xvm::compiler::ast::NameResolver</compoundname>
+    <basecompoundref refid="d0/dfb/interfaceorg_1_1xvm_1_1asm_1_1_component_resolver_1_1_resolution_collector" prot="public" virt="non-virtual">org.xvm.asm.ComponentResolver.ResolutionCollector</basecompoundref>
+    <innerclass refid="d3/dc0/interfaceorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_name_resolving" prot="public">org::xvm::compiler::ast::NameResolver::NameResolving</innerclass>
+    <innerclass refid="d1/dd0/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_result" prot="public">org::xvm::compiler::ast::NameResolver::Result</innerclass>
+    <innerclass refid="d5/d23/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_stage" prot="public">org::xvm::compiler::ast::NameResolver::Stage</innerclass>
+    <innerclass refid="df/d46/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_type_mode" prot="public">org::xvm::compiler::ast::NameResolver::TypeMode</innerclass>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a33cbbd1f1eafb5336f278cb6877254ec" prot="private" static="no" mutable="no">
+        <type>final <ref refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node" kindref="compound">AstNode</ref></type>
+        <definition>final AstNode org.xvm.compiler.ast.NameResolver.m_node</definition>
+        <argsstring></argsstring>
+        <name>m_node</name>
+        <qualifiedname>org.xvm.compiler.ast.NameResolver.m_node</qualifiedname>
+        <briefdescription>
+<para>The node that this <ref refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver" kindref="compound">NameResolver</ref> is working for. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" line="773" column="27" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" bodystart="773" bodyend="-1"/>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a64ae1e431754eaaf7fccee14a076277e" compoundref="de/d07/_name_resolver_8java" startline="358" endline="468">org.xvm.compiler.ast.NameResolver.ensurePartiallyResolvedComponent</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1af3eead138686300529507d2ba8bd51c6" compoundref="de/d07/_name_resolver_8java" startline="84" endline="97">org.xvm.compiler.ast.NameResolver.forceResolve</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a8a593e7306c42b13aaa3026c6fa21b0a" compoundref="de/d07/_name_resolver_8java" startline="732" endline="734">org.xvm.compiler.ast.NameResolver.getNode</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a52b040b4e48d2ee12afe5efeaa2751c7" compoundref="de/d07/_name_resolver_8java" startline="602" endline="604">org.xvm.compiler.ast.NameResolver.getPool</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a6173b35dfa703b99da646eea575d61c1" compoundref="de/d07/_name_resolver_8java" startline="66" endline="74">org.xvm.compiler.ast.NameResolver.NameResolver</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1af5d7c43ee194a1779be547c94fe98f27" compoundref="de/d07/_name_resolver_8java" startline="52" endline="57">org.xvm.compiler.ast.NameResolver.NameResolver</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1aa6e0ecc0376eb78f4f285066cfc909cc" compoundref="de/d07/_name_resolver_8java" startline="116" endline="352">org.xvm.compiler.ast.NameResolver.resolve</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ae28686f6525e1cf5d28f7286070e0c8f" compoundref="de/d07/_name_resolver_8java" startline="610" endline="707">org.xvm.compiler.ast.NameResolver.resolvedComponent</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a07f6096d03a3860fb1a44e8d54ead3e6" compoundref="de/d07/_name_resolver_8java" startline="517" endline="561">org.xvm.compiler.ast.NameResolver.resolveFormalDotName</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ae6f5faa7fd46c9a7d203b76c79fc5435" prot="private" static="no" mutable="no">
+        <type>final Iterator&lt; String &gt;</type>
+        <definition>final Iterator&lt;String&gt; org.xvm.compiler.ast.NameResolver.m_iter</definition>
+        <argsstring></argsstring>
+        <name>m_iter</name>
+        <qualifiedname>org.xvm.compiler.ast.NameResolver.m_iter</qualifiedname>
+        <briefdescription>
+<para>The sequence of names to resolve. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" line="778" column="28" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" bodystart="778" bodyend="-1"/>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a6173b35dfa703b99da646eea575d61c1" compoundref="de/d07/_name_resolver_8java" startline="66" endline="74">org.xvm.compiler.ast.NameResolver.NameResolver</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1af5d7c43ee194a1779be547c94fe98f27" compoundref="de/d07/_name_resolver_8java" startline="52" endline="57">org.xvm.compiler.ast.NameResolver.NameResolver</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1aa6e0ecc0376eb78f4f285066cfc909cc" compoundref="de/d07/_name_resolver_8java" startline="116" endline="352">org.xvm.compiler.ast.NameResolver.resolve</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a07f6096d03a3860fb1a44e8d54ead3e6" compoundref="de/d07/_name_resolver_8java" startline="517" endline="561">org.xvm.compiler.ast.NameResolver.resolveFormalDotName</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ae93a3e44a8ff66b0089c6bf4a88bb883" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String org.xvm.compiler.ast.NameResolver.m_sName</definition>
+        <argsstring></argsstring>
+        <name>m_sName</name>
+        <qualifiedname>org.xvm.compiler.ast.NameResolver.m_sName</qualifiedname>
+        <briefdescription>
+<para>The current simple name to resolve. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" line="783" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" bodystart="783" bodyend="-1"/>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a64ae1e431754eaaf7fccee14a076277e" compoundref="de/d07/_name_resolver_8java" startline="358" endline="468">org.xvm.compiler.ast.NameResolver.ensurePartiallyResolvedComponent</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1af3eead138686300529507d2ba8bd51c6" compoundref="de/d07/_name_resolver_8java" startline="84" endline="97">org.xvm.compiler.ast.NameResolver.forceResolve</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a6173b35dfa703b99da646eea575d61c1" compoundref="de/d07/_name_resolver_8java" startline="66" endline="74">org.xvm.compiler.ast.NameResolver.NameResolver</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1af5d7c43ee194a1779be547c94fe98f27" compoundref="de/d07/_name_resolver_8java" startline="52" endline="57">org.xvm.compiler.ast.NameResolver.NameResolver</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1aa6e0ecc0376eb78f4f285066cfc909cc" compoundref="de/d07/_name_resolver_8java" startline="116" endline="352">org.xvm.compiler.ast.NameResolver.resolve</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ae28686f6525e1cf5d28f7286070e0c8f" compoundref="de/d07/_name_resolver_8java" startline="610" endline="707">org.xvm.compiler.ast.NameResolver.resolvedComponent</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a07f6096d03a3860fb1a44e8d54ead3e6" compoundref="de/d07/_name_resolver_8java" startline="517" endline="561">org.xvm.compiler.ast.NameResolver.resolveFormalDotName</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a561e2d687f129d9c6b12ac01e66d40ec" compoundref="de/d07/_name_resolver_8java" startline="473" endline="506">org.xvm.compiler.ast.NameResolver.resolveImport</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a87a4485c1332dee0e3c53ddd28885a01" prot="private" static="no" mutable="no">
+        <type><ref refid="d5/d23/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_stage" kindref="compound">Stage</ref></type>
+        <definition>Stage org.xvm.compiler.ast.NameResolver.m_stage</definition>
+        <argsstring></argsstring>
+        <name>m_stage</name>
+        <qualifiedname>org.xvm.compiler.ast.NameResolver.m_stage</qualifiedname>
+        <initializer>= <ref refid="d5/d23/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_stage_1a488d2da5ab39dcf942706420115ccbe2" kindref="member">Stage.CHECK_IMPORTS</ref></initializer>
+        <briefdescription>
+<para>The current internal status of the name resolution. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" line="788" column="19" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" bodystart="788" bodyend="-1"/>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a64ae1e431754eaaf7fccee14a076277e" compoundref="de/d07/_name_resolver_8java" startline="358" endline="468">org.xvm.compiler.ast.NameResolver.ensurePartiallyResolvedComponent</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1af3eead138686300529507d2ba8bd51c6" compoundref="de/d07/_name_resolver_8java" startline="84" endline="97">org.xvm.compiler.ast.NameResolver.forceResolve</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1afa1de9c894f175b66fe1162277356385" compoundref="de/d07/_name_resolver_8java" startline="567" endline="581">org.xvm.compiler.ast.NameResolver.getResult</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1add04e154399e5137c98f4445afad062a" compoundref="de/d07/_name_resolver_8java" startline="102" endline="104">org.xvm.compiler.ast.NameResolver.isFirstTime</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1aa6e0ecc0376eb78f4f285066cfc909cc" compoundref="de/d07/_name_resolver_8java" startline="116" endline="352">org.xvm.compiler.ast.NameResolver.resolve</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ae28686f6525e1cf5d28f7286070e0c8f" compoundref="de/d07/_name_resolver_8java" startline="610" endline="707">org.xvm.compiler.ast.NameResolver.resolvedComponent</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a07f6096d03a3860fb1a44e8d54ead3e6" compoundref="de/d07/_name_resolver_8java" startline="517" endline="561">org.xvm.compiler.ast.NameResolver.resolveFormalDotName</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a561e2d687f129d9c6b12ac01e66d40ec" compoundref="de/d07/_name_resolver_8java" startline="473" endline="506">org.xvm.compiler.ast.NameResolver.resolveImport</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a5763ae3b7441ae04776e25fa6cb204cb" prot="private" static="no" mutable="no">
+        <type><ref refid="d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement" kindref="compound">ImportStatement</ref></type>
+        <definition>ImportStatement org.xvm.compiler.ast.NameResolver.m_stmtImport</definition>
+        <argsstring></argsstring>
+        <name>m_stmtImport</name>
+        <qualifiedname>org.xvm.compiler.ast.NameResolver.m_stmtImport</qualifiedname>
+        <briefdescription>
+<para>The import statement selected by the import-checking phase, if any possible match was found. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" line="793" column="29" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" bodystart="793" bodyend="-1"/>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1aa6e0ecc0376eb78f4f285066cfc909cc" compoundref="de/d07/_name_resolver_8java" startline="116" endline="352">org.xvm.compiler.ast.NameResolver.resolve</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ad38a5e7ec7009e89cba09d3cf3189479" prot="private" static="no" mutable="no">
+        <type><ref refid="d8/dc7/classorg_1_1xvm_1_1compiler_1_1ast_1_1_statement_block" kindref="compound">StatementBlock</ref></type>
+        <definition>StatementBlock org.xvm.compiler.ast.NameResolver.m_blockImport</definition>
+        <argsstring></argsstring>
+        <name>m_blockImport</name>
+        <qualifiedname>org.xvm.compiler.ast.NameResolver.m_blockImport</qualifiedname>
+        <briefdescription>
+<para>The node that the import was registered with, if any possible import match was found. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" line="798" column="28" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" bodystart="798" bodyend="-1"/>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1aa6e0ecc0376eb78f4f285066cfc909cc" compoundref="de/d07/_name_resolver_8java" startline="116" endline="352">org.xvm.compiler.ast.NameResolver.resolve</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a27e8bcb202158a071a8d8c15321b4540" prot="private" static="no" mutable="no">
+        <type><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref></type>
+        <definition>Constant org.xvm.compiler.ast.NameResolver.m_constantFirst</definition>
+        <argsstring></argsstring>
+        <name>m_constantFirst</name>
+        <qualifiedname>org.xvm.compiler.ast.NameResolver.m_constantFirst</qualifiedname>
+        <briefdescription>
+<para>The constant representing what the first node has resolved to. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is information is used to determine whether or not a virtual child name was fully qualified. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" line="804" column="22" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" bodystart="804" bodyend="-1"/>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a5d3bfae5134fb4637f10bd63a3afdc8d" compoundref="de/d07/_name_resolver_8java" startline="587" endline="589">org.xvm.compiler.ast.NameResolver.getBaseConstant</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1aa6e0ecc0376eb78f4f285066cfc909cc" compoundref="de/d07/_name_resolver_8java" startline="116" endline="352">org.xvm.compiler.ast.NameResolver.resolve</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a90ccdedb45b8ce8d86403ce481ce58af" prot="private" static="no" mutable="no">
+        <type><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref></type>
+        <definition>Constant org.xvm.compiler.ast.NameResolver.m_constant</definition>
+        <argsstring></argsstring>
+        <name>m_constant</name>
+        <qualifiedname>org.xvm.compiler.ast.NameResolver.m_constant</qualifiedname>
+        <briefdescription>
+<para>The constant representing what the node has thus far resolved to. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" line="809" column="22" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" bodystart="809" bodyend="-1"/>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a64ae1e431754eaaf7fccee14a076277e" compoundref="de/d07/_name_resolver_8java" startline="358" endline="468">org.xvm.compiler.ast.NameResolver.ensurePartiallyResolvedComponent</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1af3eead138686300529507d2ba8bd51c6" compoundref="de/d07/_name_resolver_8java" startline="84" endline="97">org.xvm.compiler.ast.NameResolver.forceResolve</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a94a047ae50f253723d2f8c8fa5d92773" compoundref="de/d07/_name_resolver_8java" startline="595" endline="597">org.xvm.compiler.ast.NameResolver.getConstant</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1aa6e0ecc0376eb78f4f285066cfc909cc" compoundref="de/d07/_name_resolver_8java" startline="116" endline="352">org.xvm.compiler.ast.NameResolver.resolve</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ae28686f6525e1cf5d28f7286070e0c8f" compoundref="de/d07/_name_resolver_8java" startline="610" endline="707">org.xvm.compiler.ast.NameResolver.resolvedComponent</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ad4d8c852939f35043ffe2892bcd809c8" compoundref="de/d07/_name_resolver_8java" startline="710" endline="729">org.xvm.compiler.ast.NameResolver.resolvedConstant</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a07f6096d03a3860fb1a44e8d54ead3e6" compoundref="de/d07/_name_resolver_8java" startline="517" endline="561">org.xvm.compiler.ast.NameResolver.resolveFormalDotName</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a561e2d687f129d9c6b12ac01e66d40ec" compoundref="de/d07/_name_resolver_8java" startline="473" endline="506">org.xvm.compiler.ast.NameResolver.resolveImport</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ac05b469e2fe58fda343d28babef303e5" prot="private" static="no" mutable="no">
+        <type><ref refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_component" kindref="compound">Component</ref></type>
+        <definition>Component org.xvm.compiler.ast.NameResolver.m_component</definition>
+        <argsstring></argsstring>
+        <name>m_component</name>
+        <qualifiedname>org.xvm.compiler.ast.NameResolver.m_component</qualifiedname>
+        <briefdescription>
+<para>The component representing what the node has thus far resolved to. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" line="814" column="23" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" bodystart="814" bodyend="-1"/>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a64ae1e431754eaaf7fccee14a076277e" compoundref="de/d07/_name_resolver_8java" startline="358" endline="468">org.xvm.compiler.ast.NameResolver.ensurePartiallyResolvedComponent</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ae28686f6525e1cf5d28f7286070e0c8f" compoundref="de/d07/_name_resolver_8java" startline="610" endline="707">org.xvm.compiler.ast.NameResolver.resolvedComponent</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ad4d8c852939f35043ffe2892bcd809c8" compoundref="de/d07/_name_resolver_8java" startline="710" endline="729">org.xvm.compiler.ast.NameResolver.resolvedConstant</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a561e2d687f129d9c6b12ac01e66d40ec" compoundref="de/d07/_name_resolver_8java" startline="473" endline="506">org.xvm.compiler.ast.NameResolver.resolveImport</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1af71f5f6fbe33064ae7596c4354e77b6f" prot="private" static="no" mutable="no">
+        <type>final boolean</type>
+        <definition>final boolean org.xvm.compiler.ast.NameResolver.m_fTypeGoal</definition>
+        <argsstring></argsstring>
+        <name>m_fTypeGoal</name>
+        <qualifiedname>org.xvm.compiler.ast.NameResolver.m_fTypeGoal</qualifiedname>
+        <briefdescription>
+<para>The goal of the <ref refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver" kindref="compound">NameResolver</ref> is either a type or a more general value (which itself might be a type). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Name resolution can be completely generic (&quot;I need any value, including a type or a
+multi-method&quot;), or can be a bit more specific (&quot;I am resolving for a type&quot;). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" line="823" column="27" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" bodystart="823" bodyend="-1"/>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a6173b35dfa703b99da646eea575d61c1" compoundref="de/d07/_name_resolver_8java" startline="66" endline="74">org.xvm.compiler.ast.NameResolver.NameResolver</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1af5d7c43ee194a1779be547c94fe98f27" compoundref="de/d07/_name_resolver_8java" startline="52" endline="57">org.xvm.compiler.ast.NameResolver.NameResolver</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ae28686f6525e1cf5d28f7286070e0c8f" compoundref="de/d07/_name_resolver_8java" startline="610" endline="707">org.xvm.compiler.ast.NameResolver.resolvedComponent</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ad4d8c852939f35043ffe2892bcd809c8" compoundref="de/d07/_name_resolver_8java" startline="710" endline="729">org.xvm.compiler.ast.NameResolver.resolvedConstant</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a190981a8208736f2931ed7bbe3e8e484" prot="private" static="no" mutable="no">
+        <type><ref refid="df/d46/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_type_mode" kindref="compound">TypeMode</ref></type>
+        <definition>TypeMode org.xvm.compiler.ast.NameResolver.m_typeMode</definition>
+        <argsstring></argsstring>
+        <name>m_typeMode</name>
+        <qualifiedname>org.xvm.compiler.ast.NameResolver.m_typeMode</qualifiedname>
+        <briefdescription>
+<para>Set to TYPE or FORMAL_TYPE mode once a type definition or a formal type parameter have been encountered. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" line="829" column="22" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" bodystart="829" bodyend="-1"/>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a64ae1e431754eaaf7fccee14a076277e" compoundref="de/d07/_name_resolver_8java" startline="358" endline="468">org.xvm.compiler.ast.NameResolver.ensurePartiallyResolvedComponent</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ae28686f6525e1cf5d28f7286070e0c8f" compoundref="de/d07/_name_resolver_8java" startline="610" endline="707">org.xvm.compiler.ast.NameResolver.resolvedComponent</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ad4d8c852939f35043ffe2892bcd809c8" compoundref="de/d07/_name_resolver_8java" startline="710" endline="729">org.xvm.compiler.ast.NameResolver.resolvedConstant</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ab7fb9355ce9a6fbe27260b4061370842" prot="private" static="no" mutable="no">
+        <type><ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref></type>
+        <definition>ErrorListener org.xvm.compiler.ast.NameResolver.m_errs</definition>
+        <argsstring></argsstring>
+        <name>m_errs</name>
+        <qualifiedname>org.xvm.compiler.ast.NameResolver.m_errs</qualifiedname>
+        <briefdescription>
+<para>The <ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref> to log errors to. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" line="834" column="27" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" bodystart="834" bodyend="-1"/>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a64ae1e431754eaaf7fccee14a076277e" compoundref="de/d07/_name_resolver_8java" startline="358" endline="468">org.xvm.compiler.ast.NameResolver.ensurePartiallyResolvedComponent</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ab562f68915556ec58861110a262f741c" compoundref="de/d07/_name_resolver_8java" startline="737" endline="739">org.xvm.compiler.ast.NameResolver.getErrorListener</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1aa6e0ecc0376eb78f4f285066cfc909cc" compoundref="de/d07/_name_resolver_8java" startline="116" endline="352">org.xvm.compiler.ast.NameResolver.resolve</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ae28686f6525e1cf5d28f7286070e0c8f" compoundref="de/d07/_name_resolver_8java" startline="610" endline="707">org.xvm.compiler.ast.NameResolver.resolvedComponent</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1af5d7c43ee194a1779be547c94fe98f27" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.xvm.compiler.ast.NameResolver.NameResolver</definition>
+        <argsstring>(AstNode node, String sName)</argsstring>
+        <name>NameResolver</name>
+        <qualifiedname>org.xvm.compiler.ast.NameResolver.NameResolver</qualifiedname>
+        <param>
+          <type><ref refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node" kindref="compound">AstNode</ref></type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>sName</declname>
+        </param>
+        <briefdescription>
+<para>Create a resolver for a single name, for the purpose of resolving a reference to a value (including a type, which can be treated as if it were a value) or a multi-method (which can also be treated as if it were a value). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the node which is requesting the resolution of the name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the name to resolve </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" line="52" column="12" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" bodystart="52" bodyend="57"/>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1af71f5f6fbe33064ae7596c4354e77b6f" compoundref="de/d07/_name_resolver_8java" startline="823">org.xvm.compiler.ast.NameResolver.m_fTypeGoal</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ae6f5faa7fd46c9a7d203b76c79fc5435" compoundref="de/d07/_name_resolver_8java" startline="778">org.xvm.compiler.ast.NameResolver.m_iter</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a33cbbd1f1eafb5336f278cb6877254ec" compoundref="de/d07/_name_resolver_8java" startline="773">org.xvm.compiler.ast.NameResolver.m_node</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ae93a3e44a8ff66b0089c6bf4a88bb883" compoundref="de/d07/_name_resolver_8java" startline="783">org.xvm.compiler.ast.NameResolver.m_sName</references>
+        <referencedby refid="d3/dc0/interfaceorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_name_resolving_1a25df744d4f55832c6443f57923a6b8ff">org.xvm.compiler.ast.NameResolver.NameResolving.getNameResolver</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a561e2d687f129d9c6b12ac01e66d40ec" compoundref="de/d07/_name_resolver_8java" startline="473" endline="506">org.xvm.compiler.ast.NameResolver.resolveImport</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a6173b35dfa703b99da646eea575d61c1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.xvm.compiler.ast.NameResolver.NameResolver</definition>
+        <argsstring>(AstNode node, Iterator&lt; String &gt; iterNames)</argsstring>
+        <name>NameResolver</name>
+        <qualifiedname>org.xvm.compiler.ast.NameResolver.NameResolver</qualifiedname>
+        <param>
+          <type><ref refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node" kindref="compound">AstNode</ref></type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>Iterator&lt; String &gt;</type>
+          <declname>iterNames</declname>
+        </param>
+        <briefdescription>
+<para>Create a resolver used during the resolveNames() process that can evaluate a sequence of names, for the purpose of resolving a &quot;type name&quot;. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the <ref refid="d3/dc0/interfaceorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_name_resolving" kindref="compound">NameResolving</ref> <ref refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node" kindref="compound">AstNode</ref> for which the resolution is occurring </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>iterNames</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the iterator of the sequence of names </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" line="66" column="12" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" bodystart="66" bodyend="74"/>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1af71f5f6fbe33064ae7596c4354e77b6f" compoundref="de/d07/_name_resolver_8java" startline="823">org.xvm.compiler.ast.NameResolver.m_fTypeGoal</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ae6f5faa7fd46c9a7d203b76c79fc5435" compoundref="de/d07/_name_resolver_8java" startline="778">org.xvm.compiler.ast.NameResolver.m_iter</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a33cbbd1f1eafb5336f278cb6877254ec" compoundref="de/d07/_name_resolver_8java" startline="773">org.xvm.compiler.ast.NameResolver.m_node</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ae93a3e44a8ff66b0089c6bf4a88bb883" compoundref="de/d07/_name_resolver_8java" startline="783">org.xvm.compiler.ast.NameResolver.m_sName</references>
+      </memberdef>
+      <memberdef kind="function" id="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1af3eead138686300529507d2ba8bd51c6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref></type>
+        <definition>Constant org.xvm.compiler.ast.NameResolver.forceResolve</definition>
+        <argsstring>(ErrorListener errs)</argsstring>
+        <name>forceResolve</name>
+        <qualifiedname>org.xvm.compiler.ast.NameResolver.forceResolve</qualifiedname>
+        <param>
+          <type><ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref></type>
+          <declname>errs</declname>
+        </param>
+        <briefdescription>
+<para>If the compilation stage is past the stage in which deferral can occur, then just force the completion of the resolution and treat anything else as an error. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>errs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the error list to log any errors to</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the constant representing the name, or null if the name could not be resolved </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" line="84" column="21" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" bodystart="84" bodyend="97"/>
+        <references refid="d5/d23/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_stage_1ae424efb3ab6f415748e4b8238ff2d258" compoundref="de/d07/_name_resolver_8java" startline="760">org.xvm.compiler.ast.NameResolver.Stage.ERROR</references>
+        <references refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity_1a470906cb0c737a6d70b2d9ff265ab9fd" compoundref="d0/ddf/_severity_8java" startline="10">org.xvm.util.Severity.ERROR</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a90ccdedb45b8ce8d86403ce481ce58af" compoundref="de/d07/_name_resolver_8java" startline="809">org.xvm.compiler.ast.NameResolver.m_constant</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a33cbbd1f1eafb5336f278cb6877254ec" compoundref="de/d07/_name_resolver_8java" startline="773">org.xvm.compiler.ast.NameResolver.m_node</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ae93a3e44a8ff66b0089c6bf4a88bb883" compoundref="de/d07/_name_resolver_8java" startline="783">org.xvm.compiler.ast.NameResolver.m_sName</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a87a4485c1332dee0e3c53ddd28885a01" compoundref="de/d07/_name_resolver_8java" startline="788">org.xvm.compiler.ast.NameResolver.m_stage</references>
+        <references refid="d3/d97/classorg_1_1xvm_1_1compiler_1_1_compiler_1ad8eaa8ded14b54becbf97878baee5ad9" compoundref="d3/d4e/compiler_2_compiler_8java" startline="691">org.xvm.compiler.Compiler.NAME_UNRESOLVABLE</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1aa6e0ecc0376eb78f4f285066cfc909cc" compoundref="de/d07/_name_resolver_8java" startline="116" endline="352">org.xvm.compiler.ast.NameResolver.resolve</references>
+        <referencedby refid="d3/dcb/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_expression_1af90da930a93d346aaf4301a4bf1d6831" compoundref="da/dfb/_name_expression_8java" startline="1829" endline="2254">org.xvm.compiler.ast.NameExpression.resolveRawArgument</referencedby>
+        <referencedby refid="db/def/classorg_1_1xvm_1_1compiler_1_1ast_1_1_annotation_expression_1_1_validating_context_1a0f68e54af15ba771b509bf5511c228f5" compoundref="da/ded/_annotation_expression_8java" startline="525" endline="527">org.xvm.compiler.ast.AnnotationExpression.ValidatingContext.resolveRegularName</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1add04e154399e5137c98f4445afad062a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.compiler.ast.NameResolver.isFirstTime</definition>
+        <argsstring>()</argsstring>
+        <name>isFirstTime</name>
+        <qualifiedname>org.xvm.compiler.ast.NameResolver.isFirstTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true iff the <ref refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver" kindref="compound">NameResolver</ref> has not begun the process of resolving the name </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" line="102" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" bodystart="102" bodyend="104"/>
+        <references refid="d5/d23/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_stage_1a488d2da5ab39dcf942706420115ccbe2" compoundref="de/d07/_name_resolver_8java" startline="760">org.xvm.compiler.ast.NameResolver.Stage.CHECK_IMPORTS</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a87a4485c1332dee0e3c53ddd28885a01" compoundref="de/d07/_name_resolver_8java" startline="788">org.xvm.compiler.ast.NameResolver.m_stage</references>
+      </memberdef>
+      <memberdef kind="function" id="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1aa6e0ecc0376eb78f4f285066cfc909cc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d1/dd0/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_result" kindref="compound">Result</ref></type>
+        <definition>Result org.xvm.compiler.ast.NameResolver.resolve</definition>
+        <argsstring>(ErrorListener errs)</argsstring>
+        <name>resolve</name>
+        <qualifiedname>org.xvm.compiler.ast.NameResolver.resolve</qualifiedname>
+        <param>
+          <type><ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref></type>
+          <declname>errs</declname>
+        </param>
+        <briefdescription>
+<para>Resolve the name, or at least try to make progress doing so. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>errs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the error list to log any errors etc. to</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>one of <computeroutput><ref refid="d1/dd0/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_result_1a6c1245feb9f6764eee3524a3f1a900ab" kindref="member">Result#DEFERRED</ref></computeroutput> to indicate that the <ref refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver" kindref="compound">NameResolver</ref> needs to be revisited, <computeroutput><ref refid="d1/dd0/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_result_1a3da5e4ca06cba758eb6577aac83a45d8" kindref="member">Result#ERROR</ref></computeroutput> to indicate that the <ref refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver" kindref="compound">NameResolver</ref> has logged an error to <javadoccode>errs</javadoccode> and given up all hope of resolving the name, or <computeroutput><ref refid="d1/dd0/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_result_1a9d2a7001d714bea4ac72bd2a91a21da8" kindref="member">Result#RESOLVED</ref></computeroutput> to indicate that the name has been successfully resolved </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" line="116" column="19" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" bodystart="116" bodyend="352"/>
+        <references refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1abad999298a588d6d9c5501b37260c687" compoundref="db/d57/_ast_node_8java" startline="826" endline="839">org.xvm.compiler.ast.AstNode.canResolveNames</references>
+        <references refid="d1/dd0/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_result_1a6c1245feb9f6764eee3524a3f1a900ab" compoundref="de/d07/_name_resolver_8java" startline="755">org.xvm.compiler.ast.NameResolver.Result.DEFERRED</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a64ae1e431754eaaf7fccee14a076277e" compoundref="de/d07/_name_resolver_8java" startline="358" endline="468">org.xvm.compiler.ast.NameResolver.ensurePartiallyResolvedComponent</references>
+        <references refid="d1/dd0/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_result_1a3da5e4ca06cba758eb6577aac83a45d8" compoundref="de/d07/_name_resolver_8java" startline="755">org.xvm.compiler.ast.NameResolver.Result.ERROR</references>
+        <references refid="d5/d23/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_stage_1ae424efb3ab6f415748e4b8238ff2d258" compoundref="de/d07/_name_resolver_8java" startline="760">org.xvm.compiler.ast.NameResolver.Stage.ERROR</references>
+        <references refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity_1a470906cb0c737a6d70b2d9ff265ab9fd" compoundref="d0/ddf/_severity_8java" startline="10">org.xvm.util.Severity.ERROR</references>
+        <references refid="d5/d9c/classorg_1_1xvm_1_1asm_1_1constants_1_1_identity_constant_1ab7558f875fca868f3349e53de263949f" compoundref="d7/db7/_identity_constant_8java" startline="224" endline="230">org.xvm.asm.constants.IdentityConstant.getClassIdentity</references>
+        <references refid="d5/d9c/classorg_1_1xvm_1_1asm_1_1constants_1_1_identity_constant_1aa29694ab03c70660ac3aec1d3ff48d58" compoundref="d7/db7/_identity_constant_8java" startline="549" endline="556">org.xvm.asm.constants.IdentityConstant.getComponent</references>
+        <references refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1a30f30a707b7e887b78a6b6417b6545e4" compoundref="db/d57/_ast_node_8java" startline="362" endline="364">org.xvm.compiler.ast.AstNode.getComponentResolver</references>
+        <references refid="d7/d57/classorg_1_1xvm_1_1asm_1_1_xvm_structure_1a4d739793d59c903d447c0fc55438c002" compoundref="d4/d04/_xvm_structure_8java" startline="149" endline="151">org.xvm.asm.XvmStructure.getIdentityConstant</references>
+        <references refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a5689ba7258cff299149082b053563234" compoundref="d9/d9d/_constant_pool_8java" startline="1257" endline="1264">org.xvm.asm.ConstantPool.getImplicitlyImportedComponent</references>
+        <references refid="df/de8/classorg_1_1xvm_1_1asm_1_1constants_1_1_class_constant_1acf77320123c130924aae6544d388d898" compoundref="d5/d40/_class_constant_8java" startline="102" endline="123">org.xvm.asm.constants.ClassConstant.getOutermost</references>
+        <references refid="d4/d90/classorg_1_1xvm_1_1asm_1_1_method_structure_1acbbe3e42714eb4e77c24ac2c381b456f" compoundref="db/d6f/_method_structure_8java" startline="501" endline="503">org.xvm.asm.MethodStructure.getParam</references>
+        <references refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1afd98c1fadcfca518eaf89a680ba802da" compoundref="d8/d90/_type_constant_8java" startline="470" endline="474">org.xvm.asm.constants.TypeConstant.getParamType</references>
+        <references refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1a7acbf38bac0b95fd44609ad11c0b5410" compoundref="db/d57/_ast_node_8java" startline="79" endline="81">org.xvm.compiler.ast.AstNode.getParent</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a52b040b4e48d2ee12afe5efeaa2751c7" compoundref="de/d07/_name_resolver_8java" startline="602" endline="604">org.xvm.compiler.ast.NameResolver.getPool</references>
+        <references refid="d6/d7b/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_constant_1aa8cbb125f4e26d13c934f07b1995ad5a" compoundref="de/dbd/_method_constant_8java" startline="181" endline="183">org.xvm.asm.constants.MethodConstant.getRawParams</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1afa1de9c894f175b66fe1162277356385" compoundref="de/d07/_name_resolver_8java" startline="567" endline="581">org.xvm.compiler.ast.NameResolver.getResult</references>
+        <references refid="d0/d0f/classorg_1_1xvm_1_1asm_1_1_parameter_1a6f681eb0290414503f5419a1ddaa5b35" compoundref="d1/d12/asm_2_parameter_8java" startline="221" endline="223">org.xvm.asm.Parameter.getType</references>
+        <references refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1ab998fae1d92615499907aff19095afe5" compoundref="db/d57/_ast_node_8java" startline="341" endline="343">org.xvm.compiler.ast.AstNode.isComponentNode</references>
+        <references refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a6fe1fc4cd146b089adae6b8059f3088f" compoundref="d8/d90/_type_constant_8java" startline="704" endline="706">org.xvm.asm.constants.TypeConstant.isTypeOfType</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ad38a5e7ec7009e89cba09d3cf3189479" compoundref="de/d07/_name_resolver_8java" startline="798">org.xvm.compiler.ast.NameResolver.m_blockImport</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a90ccdedb45b8ce8d86403ce481ce58af" compoundref="de/d07/_name_resolver_8java" startline="809">org.xvm.compiler.ast.NameResolver.m_constant</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a27e8bcb202158a071a8d8c15321b4540" compoundref="de/d07/_name_resolver_8java" startline="804">org.xvm.compiler.ast.NameResolver.m_constantFirst</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ab7fb9355ce9a6fbe27260b4061370842" compoundref="de/d07/_name_resolver_8java" startline="834">org.xvm.compiler.ast.NameResolver.m_errs</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ae6f5faa7fd46c9a7d203b76c79fc5435" compoundref="de/d07/_name_resolver_8java" startline="778">org.xvm.compiler.ast.NameResolver.m_iter</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a33cbbd1f1eafb5336f278cb6877254ec" compoundref="de/d07/_name_resolver_8java" startline="773">org.xvm.compiler.ast.NameResolver.m_node</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ae93a3e44a8ff66b0089c6bf4a88bb883" compoundref="de/d07/_name_resolver_8java" startline="783">org.xvm.compiler.ast.NameResolver.m_sName</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a87a4485c1332dee0e3c53ddd28885a01" compoundref="de/d07/_name_resolver_8java" startline="788">org.xvm.compiler.ast.NameResolver.m_stage</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a5763ae3b7441ae04776e25fa6cb204cb" compoundref="de/d07/_name_resolver_8java" startline="793">org.xvm.compiler.ast.NameResolver.m_stmtImport</references>
+        <references refid="d3/d97/classorg_1_1xvm_1_1compiler_1_1_compiler_1a1cdf9dceee5a4cbd83b65b17a89a8b23" compoundref="d3/d4e/compiler_2_compiler_8java" startline="663">org.xvm.compiler.Compiler.NAME_COLLISION</references>
+        <references refid="d3/d97/classorg_1_1xvm_1_1compiler_1_1_compiler_1ac0fcdabbee2206ca44750c3350152081" compoundref="d3/d4e/compiler_2_compiler_8java" startline="683">org.xvm.compiler.Compiler.NAME_MISSING</references>
+        <references refid="d3/d97/classorg_1_1xvm_1_1compiler_1_1_compiler_1ad8eaa8ded14b54becbf97878baee5ad9" compoundref="d3/d4e/compiler_2_compiler_8java" startline="691">org.xvm.compiler.Compiler.NAME_UNRESOLVABLE</references>
+        <references refid="d3/d97/classorg_1_1xvm_1_1compiler_1_1_compiler_1aa5044d889f5c3faf4f1f11b36294742b" compoundref="d3/d4e/compiler_2_compiler_8java" startline="667">org.xvm.compiler.Compiler.NOT_CLASS_TYPE</references>
+        <references refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access_1a84a72f3810804fc51923e6a8c9f6dbd5" compoundref="d3/d79/asm_2_constants_8java" startline="101">org.xvm.asm.Constants.Access.PRIVATE</references>
+        <references refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access_1a9b9da042570910b72fa8d1d86a224c94" compoundref="d3/d79/asm_2_constants_8java" startline="99">org.xvm.asm.Constants.Access.PUBLIC</references>
+        <references refid="d5/d23/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_stage_1a7f566781cf64eb5c35cb81a041c4200f" compoundref="de/d07/_name_resolver_8java" startline="760">org.xvm.compiler.ast.NameResolver.Stage.RESOLVE_DOT_NAME</references>
+        <references refid="d5/d23/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_stage_1ab68571967696a907e1d7807a1025189f" compoundref="de/d07/_name_resolver_8java" startline="760">org.xvm.compiler.ast.NameResolver.Stage.RESOLVE_FIRST_NAME</references>
+        <references refid="d5/d23/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_stage_1a0ca1212e6ac716a518f89c72f3cc3f69" compoundref="de/d07/_name_resolver_8java" startline="760">org.xvm.compiler.ast.NameResolver.Stage.RESOLVE_TURTLES</references>
+        <references refid="d4/d98/enumorg_1_1xvm_1_1asm_1_1_component_resolver_1_1_resolution_result_1ad4364ace89ac3cd153dbd5df608794fe" compoundref="d1/d8e/_component_resolver_8java" startline="24">org.xvm.asm.ComponentResolver.ResolutionResult.RESOLVED</references>
+        <references refid="d1/dd0/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_result_1a9d2a7001d714bea4ac72bd2a91a21da8" compoundref="de/d07/_name_resolver_8java" startline="755">org.xvm.compiler.ast.NameResolver.Result.RESOLVED</references>
+        <references refid="d5/d23/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_stage_1a48fe83865515c08eb427e9b560588962" compoundref="de/d07/_name_resolver_8java" startline="760">org.xvm.compiler.ast.NameResolver.Stage.RESOLVED</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ae28686f6525e1cf5d28f7286070e0c8f" compoundref="de/d07/_name_resolver_8java" startline="610" endline="707">org.xvm.compiler.ast.NameResolver.resolvedComponent</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a07f6096d03a3860fb1a44e8d54ead3e6" compoundref="de/d07/_name_resolver_8java" startline="517" endline="561">org.xvm.compiler.ast.NameResolver.resolveFormalDotName</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a561e2d687f129d9c6b12ac01e66d40ec" compoundref="de/d07/_name_resolver_8java" startline="473" endline="506">org.xvm.compiler.ast.NameResolver.resolveImport</references>
+        <references refid="d8/dc7/classorg_1_1xvm_1_1compiler_1_1ast_1_1_statement_block_1a14d022b571c16051ee60827032fb52b8" compoundref="d6/dce/_statement_block_8java" startline="532" endline="543">org.xvm.compiler.ast.StatementBlock.resolveImportBySingleName</references>
+        <references refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_component_1a608a74f6aafb74c10136af3ebd60f4e4" compoundref="d0/d23/_component_8java" startline="2062" endline="2064">org.xvm.asm.Component.resolveName</references>
+        <references refid="d5/d6c/interfaceorg_1_1xvm_1_1asm_1_1_component_resolver_1a6037b4a5bc92f2419e66f2e9e195fc62">org.xvm.asm.ComponentResolver.resolveName</references>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1af3eead138686300529507d2ba8bd51c6" compoundref="de/d07/_name_resolver_8java" startline="84" endline="97">org.xvm.compiler.ast.NameResolver.forceResolve</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a561e2d687f129d9c6b12ac01e66d40ec" compoundref="de/d07/_name_resolver_8java" startline="473" endline="506">org.xvm.compiler.ast.NameResolver.resolveImport</referencedby>
+        <referencedby refid="d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement_1a15f9f3177e4ea8b835568cafc93e4d57" compoundref="d2/d94/_import_statement_8java" startline="167" endline="190">org.xvm.compiler.ast.ImportStatement.resolveNames</referencedby>
+        <referencedby refid="d0/de9/classorg_1_1xvm_1_1compiler_1_1ast_1_1_named_type_expression_1a880d0155b89bdef98e4b08d02842933c" compoundref="d1/d1d/_named_type_expression_8java" startline="409" endline="540">org.xvm.compiler.ast.NamedTypeExpression.resolveNames</referencedby>
+        <referencedby refid="d0/de9/classorg_1_1xvm_1_1compiler_1_1ast_1_1_named_type_expression_1ad951ed075b392233b36b2905db37d820" compoundref="d1/d1d/_named_type_expression_8java" startline="543" endline="673">org.xvm.compiler.ast.NamedTypeExpression.validate</referencedby>
+        <referencedby refid="d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement_1a13518b1a6d48835e0bfc5cd845627e25" compoundref="d2/d94/_import_statement_8java" startline="196" endline="213">org.xvm.compiler.ast.ImportStatement.validateImpl</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1afa1de9c894f175b66fe1162277356385" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d1/dd0/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_result" kindref="compound">Result</ref></type>
+        <definition>Result org.xvm.compiler.ast.NameResolver.getResult</definition>
+        <argsstring>()</argsstring>
+        <name>getResult</name>
+        <qualifiedname>org.xvm.compiler.ast.NameResolver.getResult</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the result of the <ref refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver" kindref="compound">NameResolver</ref> thus far; the ERROR and RESOLVED states are the terminal states </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" line="567" column="19" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" bodystart="567" bodyend="581"/>
+        <references refid="d1/dd0/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_result_1a6c1245feb9f6764eee3524a3f1a900ab" compoundref="de/d07/_name_resolver_8java" startline="755">org.xvm.compiler.ast.NameResolver.Result.DEFERRED</references>
+        <references refid="d1/dd0/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_result_1a3da5e4ca06cba758eb6577aac83a45d8" compoundref="de/d07/_name_resolver_8java" startline="755">org.xvm.compiler.ast.NameResolver.Result.ERROR</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a87a4485c1332dee0e3c53ddd28885a01" compoundref="de/d07/_name_resolver_8java" startline="788">org.xvm.compiler.ast.NameResolver.m_stage</references>
+        <references refid="d1/dd0/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_result_1a9d2a7001d714bea4ac72bd2a91a21da8" compoundref="de/d07/_name_resolver_8java" startline="755">org.xvm.compiler.ast.NameResolver.Result.RESOLVED</references>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1aa6e0ecc0376eb78f4f285066cfc909cc" compoundref="de/d07/_name_resolver_8java" startline="116" endline="352">org.xvm.compiler.ast.NameResolver.resolve</referencedby>
+        <referencedby refid="da/dff/classorg_1_1xvm_1_1compiler_1_1ast_1_1_statement_block_1_1_nested_block_context_1a5315b6a851b55653e9d1c480d6cf406c" compoundref="d6/dce/_statement_block_8java" startline="1495" endline="1510">org.xvm.compiler.ast.StatementBlock.NestedBlockContext.resolveRegularName</referencedby>
+        <referencedby refid="dc/dc5/classorg_1_1xvm_1_1compiler_1_1ast_1_1_statement_block_1_1_root_context_1abc321f55bb0da6fc59b39df24b4d8896" compoundref="d6/dce/_statement_block_8java" startline="851" endline="1132">org.xvm.compiler.ast.StatementBlock.RootContext.resolveRegularName</referencedby>
+        <referencedby refid="d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement_1a13518b1a6d48835e0bfc5cd845627e25" compoundref="d2/d94/_import_statement_8java" startline="196" endline="213">org.xvm.compiler.ast.ImportStatement.validateImpl</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a5d3bfae5134fb4637f10bd63a3afdc8d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref></type>
+        <definition>Constant org.xvm.compiler.ast.NameResolver.getBaseConstant</definition>
+        <argsstring>()</argsstring>
+        <name>getBaseConstant</name>
+        <qualifiedname>org.xvm.compiler.ast.NameResolver.getBaseConstant</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the <ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref> that the <ref refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver" kindref="compound">NameResolver</ref> has resolved the first part of the name to; this value can only be depended on after stage value is RESOLVE_FIRST_NAME </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" line="587" column="21" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" bodystart="587" bodyend="589"/>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a27e8bcb202158a071a8d8c15321b4540" compoundref="de/d07/_name_resolver_8java" startline="804">org.xvm.compiler.ast.NameResolver.m_constantFirst</references>
+      </memberdef>
+      <memberdef kind="function" id="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a94a047ae50f253723d2f8c8fa5d92773" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref></type>
+        <definition>Constant org.xvm.compiler.ast.NameResolver.getConstant</definition>
+        <argsstring>()</argsstring>
+        <name>getConstant</name>
+        <qualifiedname>org.xvm.compiler.ast.NameResolver.getConstant</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the <ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref> that the <ref refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver" kindref="compound">NameResolver</ref> has resolved to thus far; this value can only be depended on after the <ref refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver" kindref="compound">NameResolver</ref> result is RESOLVED </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" line="595" column="21" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" bodystart="595" bodyend="597"/>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a90ccdedb45b8ce8d86403ce481ce58af" compoundref="de/d07/_name_resolver_8java" startline="809">org.xvm.compiler.ast.NameResolver.m_constant</references>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a561e2d687f129d9c6b12ac01e66d40ec" compoundref="de/d07/_name_resolver_8java" startline="473" endline="506">org.xvm.compiler.ast.NameResolver.resolveImport</referencedby>
+        <referencedby refid="d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement_1a15f9f3177e4ea8b835568cafc93e4d57" compoundref="d2/d94/_import_statement_8java" startline="167" endline="190">org.xvm.compiler.ast.ImportStatement.resolveNames</referencedby>
+        <referencedby refid="d0/de9/classorg_1_1xvm_1_1compiler_1_1ast_1_1_named_type_expression_1a880d0155b89bdef98e4b08d02842933c" compoundref="d1/d1d/_named_type_expression_8java" startline="409" endline="540">org.xvm.compiler.ast.NamedTypeExpression.resolveNames</referencedby>
+        <referencedby refid="da/dff/classorg_1_1xvm_1_1compiler_1_1ast_1_1_statement_block_1_1_nested_block_context_1a5315b6a851b55653e9d1c480d6cf406c" compoundref="d6/dce/_statement_block_8java" startline="1495" endline="1510">org.xvm.compiler.ast.StatementBlock.NestedBlockContext.resolveRegularName</referencedby>
+        <referencedby refid="dc/dc5/classorg_1_1xvm_1_1compiler_1_1ast_1_1_statement_block_1_1_root_context_1abc321f55bb0da6fc59b39df24b4d8896" compoundref="d6/dce/_statement_block_8java" startline="851" endline="1132">org.xvm.compiler.ast.StatementBlock.RootContext.resolveRegularName</referencedby>
+        <referencedby refid="d0/de9/classorg_1_1xvm_1_1compiler_1_1ast_1_1_named_type_expression_1ad951ed075b392233b36b2905db37d820" compoundref="d1/d1d/_named_type_expression_8java" startline="543" endline="673">org.xvm.compiler.ast.NamedTypeExpression.validate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ae28686f6525e1cf5d28f7286070e0c8f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d4/d98/enumorg_1_1xvm_1_1asm_1_1_component_resolver_1_1_resolution_result" kindref="compound">ResolutionResult</ref></type>
+        <definition>ResolutionResult org.xvm.compiler.ast.NameResolver.resolvedComponent</definition>
+        <argsstring>(Component component)</argsstring>
+        <name>resolvedComponent</name>
+        <qualifiedname>org.xvm.compiler.ast.NameResolver.resolvedComponent</qualifiedname>
+        <reimplements refid="d0/dfb/interfaceorg_1_1xvm_1_1asm_1_1_component_resolver_1_1_resolution_collector_1a04ec6358e420e7764fa1fa8f3e58b230">resolvedComponent</reimplements>
+        <param>
+          <type><ref refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_component" kindref="compound">Component</ref></type>
+          <declname>component</declname>
+        </param>
+        <briefdescription>
+<para>Invoked when a name resolves to a child component. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>component</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the child component (which may be a composite) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" line="610" column="29" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" bodystart="610" bodyend="707"/>
+        <references refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a503f247433f8f38e6473f4a1ec0c3a57" compoundref="d9/d9d/_constant_pool_8java" startline="1928" endline="1930">org.xvm.asm.ConstantPool.ensureFormalTypeChildConstant</references>
+        <references refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1ac5a8183f37a6096526f35f136b18a5bd" compoundref="dc/d95/_constant_8java" startline="598" endline="607">org.xvm.asm.Constant.equals</references>
+        <references refid="d4/d98/enumorg_1_1xvm_1_1asm_1_1_component_resolver_1_1_resolution_result_1a32a6c2921702aaf136b53920ebef44fa" compoundref="d1/d8e/_component_resolver_8java" startline="24">org.xvm.asm.ComponentResolver.ResolutionResult.ERROR</references>
+        <references refid="d5/d23/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_stage_1ae424efb3ab6f415748e4b8238ff2d258" compoundref="de/d07/_name_resolver_8java" startline="760">org.xvm.compiler.ast.NameResolver.Stage.ERROR</references>
+        <references refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity_1a470906cb0c737a6d70b2d9ff265ab9fd" compoundref="d0/ddf/_severity_8java" startline="10">org.xvm.util.Severity.ERROR</references>
+        <references refid="df/d46/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_type_mode_1a9e176f95a26a63b50bc3575db8c9e413" compoundref="de/d07/_name_resolver_8java" startline="765">org.xvm.compiler.ast.NameResolver.TypeMode.FORMAL_TYPE</references>
+        <references refid="d2/d13/classorg_1_1xvm_1_1asm_1_1_module_structure_1a608f28062608e22f13a6bcbdcad63737" compoundref="dc/de8/_module_structure_8java" startline="401" endline="403">org.xvm.asm.ModuleStructure.getFingerprintOrigin</references>
+        <references refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_component_1a13169d15163910a9ab1f6959100f5cbd" compoundref="d0/d23/_component_8java" startline="281" endline="283">org.xvm.asm.Component.getFormat</references>
+        <references refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_component_1a636d54ad5118c958ec247782d0756646" compoundref="d0/d23/_component_8java" startline="249" endline="251">org.xvm.asm.Component.getIdentityConstant</references>
+        <references refid="d2/d13/classorg_1_1xvm_1_1asm_1_1_module_structure_1a5d5fea9011b755529724cbc2af660ee7" compoundref="dc/de8/_module_structure_8java" startline="85" endline="87">org.xvm.asm.ModuleStructure.getIdentityConstant</references>
+        <references refid="d7/dea/classorg_1_1xvm_1_1asm_1_1_package_structure_1a3bee82ad719785161d94ae242c7efc2a" compoundref="d2/d5f/_package_structure_8java" startline="56" endline="61">org.xvm.asm.PackageStructure.getImportedModule</references>
+        <references refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_component_1a7b9ae6365f5bb7593eecbe99910da171" compoundref="d0/d23/_component_8java" startline="426" endline="428">org.xvm.asm.Component.getName</references>
+        <references refid="d2/d13/classorg_1_1xvm_1_1asm_1_1_module_structure_1ad34a20388f6bec0546cef63c48fbc433" compoundref="dc/de8/_module_structure_8java" startline="623" endline="625">org.xvm.asm.ModuleStructure.getName</references>
+        <references refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_component_1a2d94d5ef9273ce4ebf07fb81073971aa" compoundref="d0/d23/_component_8java" startline="184" endline="213">org.xvm.asm.Component.getParent</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a52b040b4e48d2ee12afe5efeaa2751c7" compoundref="de/d07/_name_resolver_8java" startline="602" endline="604">org.xvm.compiler.ast.NameResolver.getPool</references>
+        <references refid="d9/d33/classorg_1_1xvm_1_1asm_1_1_composite_component_1a73ec2ef2b395483deb34f3a39fec7a2b" compoundref="d1/d66/_composite_component_8java" startline="69" endline="79">org.xvm.asm.CompositeComponent.isAmbiguous</references>
+        <references refid="d2/d13/classorg_1_1xvm_1_1asm_1_1_module_structure_1acd1ddf86cddf338dd29731244c4f568a" compoundref="dc/de8/_module_structure_8java" startline="111" endline="116">org.xvm.asm.ModuleStructure.isFingerprint</references>
+        <references refid="d7/dea/classorg_1_1xvm_1_1asm_1_1_package_structure_1a9d0c7c03670b41f38afedb8a406f9b4b" compoundref="d2/d5f/_package_structure_8java" startline="47" endline="49">org.xvm.asm.PackageStructure.isModuleImport</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ac05b469e2fe58fda343d28babef303e5" compoundref="de/d07/_name_resolver_8java" startline="814">org.xvm.compiler.ast.NameResolver.m_component</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a90ccdedb45b8ce8d86403ce481ce58af" compoundref="de/d07/_name_resolver_8java" startline="809">org.xvm.compiler.ast.NameResolver.m_constant</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ab7fb9355ce9a6fbe27260b4061370842" compoundref="de/d07/_name_resolver_8java" startline="834">org.xvm.compiler.ast.NameResolver.m_errs</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1af71f5f6fbe33064ae7596c4354e77b6f" compoundref="de/d07/_name_resolver_8java" startline="823">org.xvm.compiler.ast.NameResolver.m_fTypeGoal</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a33cbbd1f1eafb5336f278cb6877254ec" compoundref="de/d07/_name_resolver_8java" startline="773">org.xvm.compiler.ast.NameResolver.m_node</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ae93a3e44a8ff66b0089c6bf4a88bb883" compoundref="de/d07/_name_resolver_8java" startline="783">org.xvm.compiler.ast.NameResolver.m_sName</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a87a4485c1332dee0e3c53ddd28885a01" compoundref="de/d07/_name_resolver_8java" startline="788">org.xvm.compiler.ast.NameResolver.m_stage</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a190981a8208736f2931ed7bbe3e8e484" compoundref="de/d07/_name_resolver_8java" startline="829">org.xvm.compiler.ast.NameResolver.m_typeMode</references>
+        <references refid="d3/d97/classorg_1_1xvm_1_1compiler_1_1_compiler_1ab3a869d78027f0fdc37f3ec111ad073c" compoundref="d3/d4e/compiler_2_compiler_8java" startline="635">org.xvm.compiler.Compiler.MODULE_MISSING</references>
+        <references refid="d3/d97/classorg_1_1xvm_1_1compiler_1_1_compiler_1a22d922658edc2bcfd39d10440c626026" compoundref="d3/d4e/compiler_2_compiler_8java" startline="687">org.xvm.compiler.Compiler.NAME_AMBIGUOUS</references>
+        <references refid="d3/d97/classorg_1_1xvm_1_1compiler_1_1_compiler_1ac0fcdabbee2206ca44750c3350152081" compoundref="d3/d4e/compiler_2_compiler_8java" startline="683">org.xvm.compiler.Compiler.NAME_MISSING</references>
+        <references refid="d4/d98/enumorg_1_1xvm_1_1asm_1_1_component_resolver_1_1_resolution_result_1ad4364ace89ac3cd153dbd5df608794fe" compoundref="d1/d8e/_component_resolver_8java" startline="24">org.xvm.asm.ComponentResolver.ResolutionResult.RESOLVED</references>
+        <references refid="df/d46/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_type_mode_1ab513bda18285fa19755f423170119921" compoundref="de/d07/_name_resolver_8java" startline="765">org.xvm.compiler.ast.NameResolver.TypeMode.TYPE</references>
+        <references refid="d3/d97/classorg_1_1xvm_1_1compiler_1_1_compiler_1a90c87b67085b0593adc7754a24799bde" compoundref="d3/d4e/compiler_2_compiler_8java" startline="675">org.xvm.compiler.Compiler.TYPEDEF_UNEXPECTED</references>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1aa6e0ecc0376eb78f4f285066cfc909cc" compoundref="de/d07/_name_resolver_8java" startline="116" endline="352">org.xvm.compiler.ast.NameResolver.resolve</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ad4d8c852939f35043ffe2892bcd809c8" compoundref="de/d07/_name_resolver_8java" startline="710" endline="729">org.xvm.compiler.ast.NameResolver.resolvedConstant</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ad4d8c852939f35043ffe2892bcd809c8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d4/d98/enumorg_1_1xvm_1_1asm_1_1_component_resolver_1_1_resolution_result" kindref="compound">ResolutionResult</ref></type>
+        <definition>ResolutionResult org.xvm.compiler.ast.NameResolver.resolvedConstant</definition>
+        <argsstring>(Constant constant)</argsstring>
+        <name>resolvedConstant</name>
+        <qualifiedname>org.xvm.compiler.ast.NameResolver.resolvedConstant</qualifiedname>
+        <reimplements refid="d0/dfb/interfaceorg_1_1xvm_1_1asm_1_1_component_resolver_1_1_resolution_collector_1a92d65653530ef9470e3f723c1aea3d4a">resolvedConstant</reimplements>
+        <param>
+          <type><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref></type>
+          <declname>constant</declname>
+        </param>
+        <briefdescription>
+<para>Invoked when a name resolves to something that is a constant, such as a property constant of a parameterized type or of a method. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>constant</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>either a <ref refid="dd/ded/classorg_1_1xvm_1_1asm_1_1constants_1_1_property_constant" kindref="compound">PropertyConstant</ref> or a <ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant" kindref="compound">TypeParameterConstant</ref> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" line="710" column="29" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" bodystart="710" bodyend="729"/>
+        <references refid="df/d46/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_type_mode_1a9e176f95a26a63b50bc3575db8c9e413" compoundref="de/d07/_name_resolver_8java" startline="765">org.xvm.compiler.ast.NameResolver.TypeMode.FORMAL_TYPE</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ac05b469e2fe58fda343d28babef303e5" compoundref="de/d07/_name_resolver_8java" startline="814">org.xvm.compiler.ast.NameResolver.m_component</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a90ccdedb45b8ce8d86403ce481ce58af" compoundref="de/d07/_name_resolver_8java" startline="809">org.xvm.compiler.ast.NameResolver.m_constant</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1af71f5f6fbe33064ae7596c4354e77b6f" compoundref="de/d07/_name_resolver_8java" startline="823">org.xvm.compiler.ast.NameResolver.m_fTypeGoal</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a190981a8208736f2931ed7bbe3e8e484" compoundref="de/d07/_name_resolver_8java" startline="829">org.xvm.compiler.ast.NameResolver.m_typeMode</references>
+        <references refid="d4/d98/enumorg_1_1xvm_1_1asm_1_1_component_resolver_1_1_resolution_result_1ad4364ace89ac3cd153dbd5df608794fe" compoundref="d1/d8e/_component_resolver_8java" startline="24">org.xvm.asm.ComponentResolver.ResolutionResult.RESOLVED</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ae28686f6525e1cf5d28f7286070e0c8f" compoundref="de/d07/_name_resolver_8java" startline="610" endline="707">org.xvm.compiler.ast.NameResolver.resolvedComponent</references>
+        <references refid="df/d46/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_type_mode_1ab513bda18285fa19755f423170119921" compoundref="de/d07/_name_resolver_8java" startline="765">org.xvm.compiler.ast.NameResolver.TypeMode.TYPE</references>
+        <references refid="d4/d98/enumorg_1_1xvm_1_1asm_1_1_component_resolver_1_1_resolution_result_1a4ec51d9e3639e15eeddf040125449c97" compoundref="d1/d8e/_component_resolver_8java" startline="24">org.xvm.asm.ComponentResolver.ResolutionResult.UNKNOWN</references>
+      </memberdef>
+      <memberdef kind="function" id="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a8a593e7306c42b13aaa3026c6fa21b0a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node" kindref="compound">AstNode</ref></type>
+        <definition>AstNode org.xvm.compiler.ast.NameResolver.getNode</definition>
+        <argsstring>()</argsstring>
+        <name>getNode</name>
+        <qualifiedname>org.xvm.compiler.ast.NameResolver.getNode</qualifiedname>
+        <reimplements refid="d0/dfb/interfaceorg_1_1xvm_1_1asm_1_1_component_resolver_1_1_resolution_collector_1a10a7a11ecedb90c267dc77c16db44267">getNode</reimplements>
+        <briefdescription>
+<para>Provide an <ref refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node" kindref="compound">AstNode</ref> to report resolution issues for. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" line="732" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" bodystart="732" bodyend="734"/>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a33cbbd1f1eafb5336f278cb6877254ec" compoundref="de/d07/_name_resolver_8java" startline="773">org.xvm.compiler.ast.NameResolver.m_node</references>
+        <referencedby refid="d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement_1abcce7d553544ada22e3d94f85a5478a6" compoundref="d2/d94/_import_statement_8java" startline="140" endline="154">org.xvm.compiler.ast.ImportStatement.getNameResolver</referencedby>
+        <referencedby refid="d0/de9/classorg_1_1xvm_1_1compiler_1_1ast_1_1_named_type_expression_1a3ba4f10dbfce635a870289b6d2da575f" compoundref="d1/d1d/_named_type_expression_8java" startline="330" endline="336">org.xvm.compiler.ast.NamedTypeExpression.getNameResolver</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ab562f68915556ec58861110a262f741c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref></type>
+        <definition>ErrorListener org.xvm.compiler.ast.NameResolver.getErrorListener</definition>
+        <argsstring>()</argsstring>
+        <name>getErrorListener</name>
+        <qualifiedname>org.xvm.compiler.ast.NameResolver.getErrorListener</qualifiedname>
+        <reimplements refid="d0/dfb/interfaceorg_1_1xvm_1_1asm_1_1_component_resolver_1_1_resolution_collector_1aa217bf764d527579e8950f4291e197bb">getErrorListener</reimplements>
+        <briefdescription>
+<para>Provide an <ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref> to report resolution issues to. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" line="737" column="26" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" bodystart="737" bodyend="739"/>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ab7fb9355ce9a6fbe27260b4061370842" compoundref="de/d07/_name_resolver_8java" startline="834">org.xvm.compiler.ast.NameResolver.m_errs</references>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a64ae1e431754eaaf7fccee14a076277e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d7/d57/classorg_1_1xvm_1_1asm_1_1_xvm_structure" kindref="compound">XvmStructure</ref></type>
+        <definition>XvmStructure org.xvm.compiler.ast.NameResolver.ensurePartiallyResolvedComponent</definition>
+        <argsstring>()</argsstring>
+        <name>ensurePartiallyResolvedComponent</name>
+        <qualifiedname>org.xvm.compiler.ast.NameResolver.ensurePartiallyResolvedComponent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the component that is responsible for resolving the next name or null if an error has been reported </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" line="358" column="26" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" bodystart="358" bodyend="468"/>
+        <references refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1ae687665cf8d543f091e4f400bdc50258" compoundref="d8/d90/_type_constant_8java" startline="7284" endline="7303">org.xvm.asm.constants.TypeConstant.equals</references>
+        <references refid="d5/d23/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_stage_1ae424efb3ab6f415748e4b8238ff2d258" compoundref="de/d07/_name_resolver_8java" startline="760">org.xvm.compiler.ast.NameResolver.Stage.ERROR</references>
+        <references refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity_1a470906cb0c737a6d70b2d9ff265ab9fd" compoundref="d0/ddf/_severity_8java" startline="10">org.xvm.util.Severity.ERROR</references>
+        <references refid="d5/d9c/classorg_1_1xvm_1_1asm_1_1constants_1_1_identity_constant_1aa29694ab03c70660ac3aec1d3ff48d58" compoundref="d7/db7/_identity_constant_8java" startline="549" endline="556">org.xvm.asm.constants.IdentityConstant.getComponent</references>
+        <references refid="d2/d76/classorg_1_1xvm_1_1asm_1_1constants_1_1_formal_type_child_constant_1a53120599e1c4ff18ac205073ab3eb46e" compoundref="df/da6/_formal_type_child_constant_8java" startline="100" endline="130">org.xvm.asm.constants.FormalTypeChildConstant.getConstraintType</references>
+        <references refid="db/dcb/classorg_1_1xvm_1_1asm_1_1constants_1_1_pseudo_constant_1af9306fa931bcfb8693f9b056af7b1baa" compoundref="d1/d71/_pseudo_constant_8java" startline="49" endline="51">org.xvm.asm.constants.PseudoConstant.getDeclarationLevelClass</references>
+        <references refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a680e317bd1e8f4c317e0096fe1da3870" compoundref="d8/d90/_type_constant_8java" startline="689" endline="691">org.xvm.asm.constants.TypeConstant.getDefiningConstant</references>
+        <references refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_component_1a13169d15163910a9ab1f6959100f5cbd" compoundref="d0/d23/_component_8java" startline="281" endline="283">org.xvm.asm.Component.getFormat</references>
+        <references refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a2921b299d6437b01ad977da79f9ab306" compoundref="d8/d90/_type_constant_8java" startline="7210" endline="7218">org.xvm.asm.constants.TypeConstant.getType</references>
+        <references refid="df/df0/classorg_1_1xvm_1_1asm_1_1_property_structure_1ae42df10c27fc7802a4e7c7f4065111d7" compoundref="de/de8/_property_structure_8java" startline="144" endline="146">org.xvm.asm.PropertyStructure.getType</references>
+        <references refid="dc/d9c/enumorg_1_1xvm_1_1asm_1_1_component_1_1_format_1a86907c78bda10ae52836b8353e9832ed" compoundref="d0/d23/_component_8java" startline="2451" endline="2453">org.xvm.asm.Component.Format.isDeadEnd</references>
+        <references refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a89c0fd91491747b5b883885ff2dc8beb" compoundref="d8/d90/_type_constant_8java" startline="680" endline="682">org.xvm.asm.constants.TypeConstant.isSingleDefiningConstant</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ac05b469e2fe58fda343d28babef303e5" compoundref="de/d07/_name_resolver_8java" startline="814">org.xvm.compiler.ast.NameResolver.m_component</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a90ccdedb45b8ce8d86403ce481ce58af" compoundref="de/d07/_name_resolver_8java" startline="809">org.xvm.compiler.ast.NameResolver.m_constant</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ab7fb9355ce9a6fbe27260b4061370842" compoundref="de/d07/_name_resolver_8java" startline="834">org.xvm.compiler.ast.NameResolver.m_errs</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a33cbbd1f1eafb5336f278cb6877254ec" compoundref="de/d07/_name_resolver_8java" startline="773">org.xvm.compiler.ast.NameResolver.m_node</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ae93a3e44a8ff66b0089c6bf4a88bb883" compoundref="de/d07/_name_resolver_8java" startline="783">org.xvm.compiler.ast.NameResolver.m_sName</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a87a4485c1332dee0e3c53ddd28885a01" compoundref="de/d07/_name_resolver_8java" startline="788">org.xvm.compiler.ast.NameResolver.m_stage</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a190981a8208736f2931ed7bbe3e8e484" compoundref="de/d07/_name_resolver_8java" startline="829">org.xvm.compiler.ast.NameResolver.m_typeMode</references>
+        <references refid="d3/d97/classorg_1_1xvm_1_1compiler_1_1_compiler_1ad8eaa8ded14b54becbf97878baee5ad9" compoundref="d3/d4e/compiler_2_compiler_8java" startline="691">org.xvm.compiler.Compiler.NAME_UNRESOLVABLE</references>
+        <references refid="d3/d97/classorg_1_1xvm_1_1compiler_1_1_compiler_1aa5044d889f5c3faf4f1f11b36294742b" compoundref="d3/d4e/compiler_2_compiler_8java" startline="667">org.xvm.compiler.Compiler.NOT_CLASS_TYPE</references>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1aa6e0ecc0376eb78f4f285066cfc909cc" compoundref="de/d07/_name_resolver_8java" startline="116" endline="352">org.xvm.compiler.ast.NameResolver.resolve</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a07f6096d03a3860fb1a44e8d54ead3e6" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d1/dd0/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_result" kindref="compound">Result</ref></type>
+        <definition>Result org.xvm.compiler.ast.NameResolver.resolveFormalDotName</definition>
+        <argsstring>(TypeConstant typeConstraint, ErrorListener errs)</argsstring>
+        <name>resolveFormalDotName</name>
+        <qualifiedname>org.xvm.compiler.ast.NameResolver.resolveFormalDotName</qualifiedname>
+        <param>
+          <type><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref></type>
+          <declname>typeConstraint</declname>
+        </param>
+        <param>
+          <type><ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref></type>
+          <declname>errs</declname>
+        </param>
+        <briefdescription>
+<para>Resolve the next name for a formal partially resolved component that represents either a generic type (Property) or a formal type parameter (<ref refid="d7/d69/classorg_1_1xvm_1_1compiler_1_1ast_1_1_parameter" kindref="compound">Parameter</ref>). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>typeConstraint</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the constraint type of the formal type </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>errs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the error list to log any errors to</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the resolution result </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" line="517" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" bodystart="517" bodyend="561"/>
+        <references refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a8f18b6af34dce6739fa172fc721ce21d" compoundref="d9/d9d/_constant_pool_8java" startline="2108" endline="2108">org.xvm.asm.ConstantPool.clzType</references>
+        <references refid="d1/dd0/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_result_1a3da5e4ca06cba758eb6577aac83a45d8" compoundref="de/d07/_name_resolver_8java" startline="755">org.xvm.compiler.ast.NameResolver.Result.ERROR</references>
+        <references refid="d5/d23/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_stage_1ae424efb3ab6f415748e4b8238ff2d258" compoundref="de/d07/_name_resolver_8java" startline="760">org.xvm.compiler.ast.NameResolver.Stage.ERROR</references>
+        <references refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity_1a470906cb0c737a6d70b2d9ff265ab9fd" compoundref="d0/ddf/_severity_8java" startline="10">org.xvm.util.Severity.ERROR</references>
+        <references refid="d5/d9c/classorg_1_1xvm_1_1asm_1_1constants_1_1_identity_constant_1aa29694ab03c70660ac3aec1d3ff48d58" compoundref="d7/db7/_identity_constant_8java" startline="549" endline="556">org.xvm.asm.constants.IdentityConstant.getComponent</references>
+        <references refid="db/dcb/classorg_1_1xvm_1_1asm_1_1constants_1_1_pseudo_constant_1af9306fa931bcfb8693f9b056af7b1baa" compoundref="d1/d71/_pseudo_constant_8java" startline="49" endline="51">org.xvm.asm.constants.PseudoConstant.getDeclarationLevelClass</references>
+        <references refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a680e317bd1e8f4c317e0096fe1da3870" compoundref="d8/d90/_type_constant_8java" startline="689" endline="691">org.xvm.asm.constants.TypeConstant.getDefiningConstant</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a52b040b4e48d2ee12afe5efeaa2751c7" compoundref="de/d07/_name_resolver_8java" startline="602" endline="604">org.xvm.compiler.ast.NameResolver.getPool</references>
+        <references refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a89c0fd91491747b5b883885ff2dc8beb" compoundref="d8/d90/_type_constant_8java" startline="680" endline="682">org.xvm.asm.constants.TypeConstant.isSingleDefiningConstant</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a90ccdedb45b8ce8d86403ce481ce58af" compoundref="de/d07/_name_resolver_8java" startline="809">org.xvm.compiler.ast.NameResolver.m_constant</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ae6f5faa7fd46c9a7d203b76c79fc5435" compoundref="de/d07/_name_resolver_8java" startline="778">org.xvm.compiler.ast.NameResolver.m_iter</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a33cbbd1f1eafb5336f278cb6877254ec" compoundref="de/d07/_name_resolver_8java" startline="773">org.xvm.compiler.ast.NameResolver.m_node</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ae93a3e44a8ff66b0089c6bf4a88bb883" compoundref="de/d07/_name_resolver_8java" startline="783">org.xvm.compiler.ast.NameResolver.m_sName</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a87a4485c1332dee0e3c53ddd28885a01" compoundref="de/d07/_name_resolver_8java" startline="788">org.xvm.compiler.ast.NameResolver.m_stage</references>
+        <references refid="d3/d97/classorg_1_1xvm_1_1compiler_1_1_compiler_1ac0fcdabbee2206ca44750c3350152081" compoundref="d3/d4e/compiler_2_compiler_8java" startline="683">org.xvm.compiler.Compiler.NAME_MISSING</references>
+        <references refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access_1a84a72f3810804fc51923e6a8c9f6dbd5" compoundref="d3/d79/asm_2_constants_8java" startline="101">org.xvm.asm.Constants.Access.PRIVATE</references>
+        <references refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access_1a9b9da042570910b72fa8d1d86a224c94" compoundref="d3/d79/asm_2_constants_8java" startline="99">org.xvm.asm.Constants.Access.PUBLIC</references>
+        <references refid="d1/dd0/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_result_1a9d2a7001d714bea4ac72bd2a91a21da8" compoundref="de/d07/_name_resolver_8java" startline="755">org.xvm.compiler.ast.NameResolver.Result.RESOLVED</references>
+        <references refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_component_1a608a74f6aafb74c10136af3ebd60f4e4" compoundref="d0/d23/_component_8java" startline="2062" endline="2064">org.xvm.asm.Component.resolveName</references>
+        <references refid="d4/d98/enumorg_1_1xvm_1_1asm_1_1_component_resolver_1_1_resolution_result_1a4ec51d9e3639e15eeddf040125449c97" compoundref="d1/d8e/_component_resolver_8java" startline="24">org.xvm.asm.ComponentResolver.ResolutionResult.UNKNOWN</references>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1aa6e0ecc0376eb78f4f285066cfc909cc" compoundref="de/d07/_name_resolver_8java" startline="116" endline="352">org.xvm.compiler.ast.NameResolver.resolve</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a52b040b4e48d2ee12afe5efeaa2751c7" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref></type>
+        <definition>ConstantPool org.xvm.compiler.ast.NameResolver.getPool</definition>
+        <argsstring>()</argsstring>
+        <name>getPool</name>
+        <qualifiedname>org.xvm.compiler.ast.NameResolver.getPool</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the <ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" line="602" column="26" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" bodystart="602" bodyend="604"/>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a33cbbd1f1eafb5336f278cb6877254ec" compoundref="de/d07/_name_resolver_8java" startline="773">org.xvm.compiler.ast.NameResolver.m_node</references>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1aa6e0ecc0376eb78f4f285066cfc909cc" compoundref="de/d07/_name_resolver_8java" startline="116" endline="352">org.xvm.compiler.ast.NameResolver.resolve</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ae28686f6525e1cf5d28f7286070e0c8f" compoundref="de/d07/_name_resolver_8java" startline="610" endline="707">org.xvm.compiler.ast.NameResolver.resolvedComponent</referencedby>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a07f6096d03a3860fb1a44e8d54ead3e6" compoundref="de/d07/_name_resolver_8java" startline="517" endline="561">org.xvm.compiler.ast.NameResolver.resolveFormalDotName</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a561e2d687f129d9c6b12ac01e66d40ec" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d1/dd0/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_result" kindref="compound">Result</ref></type>
+        <definition>Result org.xvm.compiler.ast.NameResolver.resolveImport</definition>
+        <argsstring>(ImportStatement stmtImport, ErrorListener errs)</argsstring>
+        <name>resolveImport</name>
+        <qualifiedname>org.xvm.compiler.ast.NameResolver.resolveImport</qualifiedname>
+        <param>
+          <type><ref refid="d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement" kindref="compound">ImportStatement</ref></type>
+          <declname>stmtImport</declname>
+        </param>
+        <param>
+          <type><ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref></type>
+          <declname>errs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the resolution result using the specified import statement </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" line="473" column="22" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" bodystart="473" bodyend="506"/>
+        <references refid="d1/dd0/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_result_1a6c1245feb9f6764eee3524a3f1a900ab" compoundref="de/d07/_name_resolver_8java" startline="755">org.xvm.compiler.ast.NameResolver.Result.DEFERRED</references>
+        <references refid="d1/dd0/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_result_1a3da5e4ca06cba758eb6577aac83a45d8" compoundref="de/d07/_name_resolver_8java" startline="755">org.xvm.compiler.ast.NameResolver.Result.ERROR</references>
+        <references refid="d5/d23/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_stage_1ae424efb3ab6f415748e4b8238ff2d258" compoundref="de/d07/_name_resolver_8java" startline="760">org.xvm.compiler.ast.NameResolver.Stage.ERROR</references>
+        <references refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_component_1abfe0ecfda79a507998aa0555fb1ea282" compoundref="d0/d23/_component_8java" startline="1318" endline="1325">org.xvm.asm.Component.getChild</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a94a047ae50f253723d2f8c8fa5d92773" compoundref="de/d07/_name_resolver_8java" startline="595" endline="597">org.xvm.compiler.ast.NameResolver.getConstant</references>
+        <references refid="d2/d13/classorg_1_1xvm_1_1asm_1_1_module_structure_1a608f28062608e22f13a6bcbdcad63737" compoundref="dc/de8/_module_structure_8java" startline="401" endline="403">org.xvm.asm.ModuleStructure.getFingerprintOrigin</references>
+        <references refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_component_1a636d54ad5118c958ec247782d0756646" compoundref="d0/d23/_component_8java" startline="249" endline="251">org.xvm.asm.Component.getIdentityConstant</references>
+        <references refid="d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement_1abcce7d553544ada22e3d94f85a5478a6" compoundref="d2/d94/_import_statement_8java" startline="140" endline="154">org.xvm.compiler.ast.ImportStatement.getNameResolver</references>
+        <references refid="d2/d13/classorg_1_1xvm_1_1asm_1_1_module_structure_1acd1ddf86cddf338dd29731244c4f568a" compoundref="dc/de8/_module_structure_8java" startline="111" endline="116">org.xvm.asm.ModuleStructure.isFingerprint</references>
+        <references refid="d7/dea/classorg_1_1xvm_1_1asm_1_1_package_structure_1a9d0c7c03670b41f38afedb8a406f9b4b" compoundref="d2/d5f/_package_structure_8java" startline="47" endline="49">org.xvm.asm.PackageStructure.isModuleImport</references>
+        <references refid="d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement_1a469bb96e95486d2bfc1d00158a20363a" compoundref="d2/d94/_import_statement_8java" startline="80" endline="82">org.xvm.compiler.ast.ImportStatement.isWildcard</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ac05b469e2fe58fda343d28babef303e5" compoundref="de/d07/_name_resolver_8java" startline="814">org.xvm.compiler.ast.NameResolver.m_component</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a90ccdedb45b8ce8d86403ce481ce58af" compoundref="de/d07/_name_resolver_8java" startline="809">org.xvm.compiler.ast.NameResolver.m_constant</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ae93a3e44a8ff66b0089c6bf4a88bb883" compoundref="de/d07/_name_resolver_8java" startline="783">org.xvm.compiler.ast.NameResolver.m_sName</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a87a4485c1332dee0e3c53ddd28885a01" compoundref="de/d07/_name_resolver_8java" startline="788">org.xvm.compiler.ast.NameResolver.m_stage</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1af5d7c43ee194a1779be547c94fe98f27" compoundref="de/d07/_name_resolver_8java" startline="52" endline="57">org.xvm.compiler.ast.NameResolver.NameResolver</references>
+        <references refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1aa6e0ecc0376eb78f4f285066cfc909cc" compoundref="de/d07/_name_resolver_8java" startline="116" endline="352">org.xvm.compiler.ast.NameResolver.resolve</references>
+        <references refid="d1/dd0/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_result_1a9d2a7001d714bea4ac72bd2a91a21da8" compoundref="de/d07/_name_resolver_8java" startline="755">org.xvm.compiler.ast.NameResolver.Result.RESOLVED</references>
+        <referencedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1aa6e0ecc0376eb78f4f285066cfc909cc" compoundref="de/d07/_name_resolver_8java" startline="116" endline="352">org.xvm.compiler.ast.NameResolver.resolve</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>This represents the progress toward resolution of a name for a particular <ref refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node" kindref="compound">AstNode</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>org.xvm.compiler.ast.NameResolver</label>
+        <link refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>org.xvm.asm.ComponentResolver.ResolutionCollector</label>
+        <link refid="d0/dfb/interfaceorg_1_1xvm_1_1asm_1_1_component_resolver_1_1_resolution_collector"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>Cloneable</label>
+      </node>
+      <node id="119">
+        <label>Comparable&lt; BreakPoint &gt;</label>
+      </node>
+      <node id="20">
+        <label>Comparable&lt; Constant &gt;</label>
+      </node>
+      <node id="93">
+        <label>Comparable&lt; Fiber &gt;</label>
+      </node>
+      <node id="64">
+        <label>Comparable&lt; PackedInteger &gt;</label>
+      </node>
+      <node id="57">
+        <label>Comparable&lt; Version &gt;</label>
+      </node>
+      <node id="1">
+        <label>org.xvm.compiler.ast.NameResolver</label>
+        <link refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>m_node</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>m_stage</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>m_stmtImport</edgelabel>
+        </childnode>
+        <childnode refid="134" relation="usage">
+          <edgelabel>m_blockImport</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>m_constant</edgelabel>
+          <edgelabel>m_constantFirst</edgelabel>
+        </childnode>
+        <childnode refid="25" relation="usage">
+          <edgelabel>m_component</edgelabel>
+        </childnode>
+        <childnode refid="146" relation="usage">
+          <edgelabel>m_typeMode</edgelabel>
+        </childnode>
+        <childnode refid="138" relation="usage">
+          <edgelabel>m_errs</edgelabel>
+        </childnode>
+      </node>
+      <node id="37">
+        <label>org.xvm.asm.Annotation</label>
+        <link refid="d9/ddb/classorg_1_1xvm_1_1asm_1_1_annotation"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+        <childnode refid="37" relation="usage">
+          <edgelabel>NO_ANNOTATIONS</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>m_aParams</edgelabel>
+          <edgelabel>m_constClass</edgelabel>
+        </childnode>
+      </node>
+      <node id="15">
+        <label>org.xvm.asm.Argument</label>
+        <link refid="dd/da8/interfaceorg_1_1xvm_1_1asm_1_1_argument"/>
+      </node>
+      <node id="24">
+        <label>org.xvm.asm.ClassStructure</label>
+        <link refid="d5/d19/classorg_1_1xvm_1_1asm_1_1_class_structure"/>
+        <childnode refid="25" relation="public-inheritance">
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>m_mapParams</edgelabel>
+        </childnode>
+        <childnode refid="32" relation="usage">
+          <edgelabel>m_constPath</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>m_typeCanonical</edgelabel>
+          <edgelabel>m_typeFormal</edgelabel>
+        </childnode>
+        <childnode refid="36" relation="usage">
+          <edgelabel>m_safety</edgelabel>
+        </childnode>
+        <childnode refid="37" relation="usage">
+          <edgelabel>m_aAnnoClass</edgelabel>
+          <edgelabel>m_aAnnoMixin</edgelabel>
+        </childnode>
+      </node>
+      <node id="25">
+        <label>org.xvm.asm.Component</label>
+        <link refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_component"/>
+        <childnode refid="18" relation="public-inheritance">
+        </childnode>
+        <childnode refid="26" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="27" relation="public-inheritance">
+        </childnode>
+        <childnode refid="25" relation="usage">
+          <edgelabel>m_sibling</edgelabel>
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>m_constId</edgelabel>
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>m_cond</edgelabel>
+        </childnode>
+      </node>
+      <node id="34">
+        <label>org.xvm.asm.Component.Format</label>
+        <link refid="dc/d9c/enumorg_1_1xvm_1_1asm_1_1_component_1_1_format"/>
+        <childnode refid="34" relation="usage">
+          <edgelabel>FORMATS</edgelabel>
+        </childnode>
+      </node>
+      <node id="27">
+        <label>org.xvm.asm.ComponentResolver</label>
+        <link refid="d5/d6c/interfaceorg_1_1xvm_1_1asm_1_1_component_resolver"/>
+      </node>
+      <node id="2">
+        <label>org.xvm.asm.ComponentResolver.ResolutionCollector</label>
+        <link refid="d0/dfb/interfaceorg_1_1xvm_1_1asm_1_1_component_resolver_1_1_resolution_collector"/>
+      </node>
+      <node id="17">
+        <label>org.xvm.asm.Constant</label>
+        <link refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant"/>
+        <childnode refid="18" relation="public-inheritance">
+        </childnode>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>NO_CONSTS</edgelabel>
+        </childnode>
+      </node>
+      <node id="59">
+        <label>org.xvm.asm.ConstantPool</label>
+        <link refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool"/>
+        <childnode refid="18" relation="public-inheritance">
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>NO_TYPES</edgelabel>
+          <edgelabel>m_typeArray</edgelabel>
+          <edgelabel>m_typeAutoFreezable</edgelabel>
+          <edgelabel>m_typeBinary</edgelabel>
+          <edgelabel>m_typeBit</edgelabel>
+          <edgelabel>m_typeBitArray</edgelabel>
+          <edgelabel>m_typeBoolean</edgelabel>
+          <edgelabel>m_typeByteArray</edgelabel>
+          <edgelabel>m_typeChar</edgelabel>
+          <edgelabel>m_typeClass</edgelabel>
+          <edgelabel>  ...</edgelabel>
+        </childnode>
+        <childnode refid="60" relation="usage">
+          <edgelabel>f_tlolistDeferred</edgelabel>
+        </childnode>
+        <childnode refid="54" relation="usage">
+          <edgelabel>m_valEcstasy</edgelabel>
+        </childnode>
+        <childnode refid="61" relation="usage">
+          <edgelabel>m_clzAbstract</edgelabel>
+          <edgelabel>m_clzArray</edgelabel>
+          <edgelabel>m_clzAtomic</edgelabel>
+          <edgelabel>m_clzAuto</edgelabel>
+          <edgelabel>m_clzClass</edgelabel>
+          <edgelabel>m_clzCloseable</edgelabel>
+          <edgelabel>m_clzCollection</edgelabel>
+          <edgelabel>m_clzConcurrent</edgelabel>
+          <edgelabel>m_clzCondTuple</edgelabel>
+          <edgelabel>m_clzConst</edgelabel>
+          <edgelabel>  ...</edgelabel>
+        </childnode>
+        <childnode refid="62" relation="usage">
+          <edgelabel>m_val0</edgelabel>
+        </childnode>
+        <childnode refid="65" relation="usage">
+          <edgelabel>m_valEqual</edgelabel>
+          <edgelabel>m_valFalse</edgelabel>
+          <edgelabel>m_valGreater</edgelabel>
+          <edgelabel>m_valLesser</edgelabel>
+          <edgelabel>m_valNull</edgelabel>
+          <edgelabel>m_valTiesToAway</edgelabel>
+          <edgelabel>m_valTiesToEven</edgelabel>
+          <edgelabel>m_valTowardNegative</edgelabel>
+          <edgelabel>m_valTowardPositive</edgelabel>
+          <edgelabel>m_valTowardZero</edgelabel>
+          <edgelabel>  ...</edgelabel>
+        </childnode>
+        <childnode refid="68" relation="usage">
+          <edgelabel>m_valDefault</edgelabel>
+        </childnode>
+        <childnode refid="43" relation="usage">
+          <edgelabel>m_sigClose</edgelabel>
+          <edgelabel>m_sigCompare</edgelabel>
+          <edgelabel>m_sigEquals</edgelabel>
+          <edgelabel>m_sigHashCode</edgelabel>
+          <edgelabel>m_sigToString</edgelabel>
+          <edgelabel>m_sigValidator</edgelabel>
+        </childnode>
+        <childnode refid="22" relation="usage">
+          <edgelabel>m_infoPlaceholder</edgelabel>
+        </childnode>
+      </node>
+      <node id="19">
+        <label>org.xvm.asm.Constants</label>
+        <link refid="df/df8/interfaceorg_1_1xvm_1_1asm_1_1_constants"/>
+      </node>
+      <node id="103">
+        <label>org.xvm.asm.Constants.Access</label>
+        <link refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access"/>
+        <childnode refid="103" relation="usage">
+          <edgelabel>VALUES</edgelabel>
+        </childnode>
+      </node>
+      <node id="26">
+        <label>org.xvm.asm.Documentable</label>
+        <link refid="d5/d4a/interfaceorg_1_1xvm_1_1asm_1_1_documentable"/>
+      </node>
+      <node id="142">
+        <label>org.xvm.asm.ErrorList</label>
+        <link refid="db/dca/classorg_1_1xvm_1_1asm_1_1_error_list"/>
+        <childnode refid="138" relation="public-inheritance">
+        </childnode>
+        <childnode refid="143" relation="usage">
+          <edgelabel>m_severity</edgelabel>
+        </childnode>
+      </node>
+      <node id="138">
+        <label>org.xvm.asm.ErrorListener</label>
+        <link refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener"/>
+        <childnode refid="138" relation="usage">
+          <edgelabel>BLACKHOLE</edgelabel>
+          <edgelabel>RUNTIME</edgelabel>
+        </childnode>
+      </node>
+      <node id="21">
+        <label>org.xvm.asm.GenericTypeResolver</label>
+        <link refid="d0/d78/interfaceorg_1_1xvm_1_1asm_1_1_generic_type_resolver"/>
+      </node>
+      <node id="51">
+        <label>org.xvm.asm.LinkerContext</label>
+        <link refid="dc/dd3/interfaceorg_1_1xvm_1_1asm_1_1_linker_context"/>
+      </node>
+      <node id="74">
+        <label>org.xvm.asm.MethodStructure</label>
+        <link refid="d4/d90/classorg_1_1xvm_1_1asm_1_1_method_structure"/>
+        <childnode refid="25" relation="public-inheritance">
+        </childnode>
+        <childnode refid="37" relation="usage">
+          <edgelabel>m_aAnnotations</edgelabel>
+        </childnode>
+        <childnode refid="40" relation="usage">
+          <edgelabel>m_idFinally</edgelabel>
+          <edgelabel>m_idSuper</edgelabel>
+        </childnode>
+        <childnode refid="75" relation="usage">
+          <edgelabel>m_aParams</edgelabel>
+          <edgelabel>m_aReturns</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>m_aconstLocal</edgelabel>
+          <edgelabel>m_aconstSuper</edgelabel>
+        </childnode>
+        <childnode refid="76" relation="usage">
+          <edgelabel>m_registry</edgelabel>
+        </childnode>
+        <childnode refid="82" relation="usage">
+          <edgelabel>m_code</edgelabel>
+        </childnode>
+        <childnode refid="80" relation="usage">
+          <edgelabel>m_ast</edgelabel>
+        </childnode>
+        <childnode refid="78" relation="usage">
+          <edgelabel>m_aAstParams</edgelabel>
+        </childnode>
+        <childnode refid="36" relation="usage">
+          <edgelabel>m_safety</edgelabel>
+        </childnode>
+        <childnode refid="74" relation="usage">
+          <edgelabel>m_structFinally</edgelabel>
+        </childnode>
+        <childnode refid="83" relation="usage">
+          <edgelabel>m_source</edgelabel>
+        </childnode>
+      </node>
+      <node id="82">
+        <label>org.xvm.asm.MethodStructure.Code</label>
+        <link refid="da/d56/classorg_1_1xvm_1_1asm_1_1_method_structure_1_1_code"/>
+        <childnode refid="74" relation="usage">
+          <edgelabel>f_method</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>m_aop</edgelabel>
+        </childnode>
+        <childnode refid="82" relation="usage">
+          <edgelabel>m_hole</edgelabel>
+        </childnode>
+      </node>
+      <node id="36">
+        <label>org.xvm.asm.MethodStructure.ConcurrencySafety</label>
+        <link refid="d1/d0f/enumorg_1_1xvm_1_1asm_1_1_method_structure_1_1_concurrency_safety"/>
+      </node>
+      <node id="83">
+        <label>org.xvm.asm.MethodStructure.Source</label>
+        <link refid="dd/d70/classorg_1_1xvm_1_1asm_1_1_method_structure_1_1_source"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="35" relation="usage">
+          <edgelabel>m_aconstSrc</edgelabel>
+        </childnode>
+      </node>
+      <node id="11">
+        <label>org.xvm.asm.Op</label>
+        <link refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op"/>
+        <childnode refid="11" relation="usage">
+          <edgelabel>NO_OPS</edgelabel>
+        </childnode>
+      </node>
+      <node id="76">
+        <label>org.xvm.asm.Op.ConstantRegistry</label>
+        <link refid="dd/d3d/classorg_1_1xvm_1_1asm_1_1_op_1_1_constant_registry"/>
+        <childnode refid="77" relation="public-inheritance">
+        </childnode>
+        <childnode refid="74" relation="usage">
+          <edgelabel>f_method</edgelabel>
+        </childnode>
+        <childnode refid="59" relation="usage">
+          <edgelabel>f_pool</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>m_aconst</edgelabel>
+        </childnode>
+        <childnode refid="78" relation="usage">
+          <edgelabel>m_aregParams</edgelabel>
+          <edgelabel>m_aregSpecial</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>org.xvm.asm.Op.Prefix</label>
+        <link refid="db/d53/classorg_1_1xvm_1_1asm_1_1_op_1_1_prefix"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>m_op</edgelabel>
+        </childnode>
+      </node>
+      <node id="75">
+        <label>org.xvm.asm.Parameter</label>
+        <link refid="d0/d0f/classorg_1_1xvm_1_1asm_1_1_parameter"/>
+        <childnode refid="18" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="75" relation="usage">
+          <edgelabel>NO_PARAMS</edgelabel>
+        </childnode>
+        <childnode refid="37" relation="usage">
+          <edgelabel>m_aAnnotations</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>m_constType</edgelabel>
+        </childnode>
+        <childnode refid="35" relation="usage">
+          <edgelabel>m_constName</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>m_constDefault</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>m_regDeref</edgelabel>
+        </childnode>
+      </node>
+      <node id="102">
+        <label>org.xvm.asm.PropertyStructure</label>
+        <link refid="df/df0/classorg_1_1xvm_1_1asm_1_1_property_structure"/>
+        <childnode refid="25" relation="public-inheritance">
+        </childnode>
+        <childnode refid="103" relation="usage">
+          <edgelabel>m_accessVar</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>m_type</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>m_constVal</edgelabel>
+        </childnode>
+        <childnode refid="37" relation="usage">
+          <edgelabel>m_aPropAnno</edgelabel>
+          <edgelabel>m_aRefAnno</edgelabel>
+        </childnode>
+      </node>
+      <node id="14">
+        <label>org.xvm.asm.Register</label>
+        <link refid="dc/db3/classorg_1_1xvm_1_1asm_1_1_register"/>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>ASYNC</edgelabel>
+          <edgelabel>DEFAULT</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>m_type</edgelabel>
+          <edgelabel>m_typeReg</edgelabel>
+        </childnode>
+        <childnode refid="81" relation="usage">
+          <edgelabel>m_astAlloc</edgelabel>
+        </childnode>
+        <childnode refid="78" relation="usage">
+          <edgelabel>m_astSpecial</edgelabel>
+        </childnode>
+      </node>
+      <node id="56">
+        <label>org.xvm.asm.Version</label>
+        <link refid="d4/de1/classorg_1_1xvm_1_1asm_1_1_version"/>
+        <childnode refid="57" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>org.xvm.asm.XvmStructure</label>
+        <link refid="d7/d57/classorg_1_1xvm_1_1asm_1_1_xvm_structure"/>
+        <childnode refid="19" relation="public-inheritance">
+        </childnode>
+        <childnode refid="18" relation="usage">
+          <edgelabel>m_xsParent</edgelabel>
+        </childnode>
+      </node>
+      <node id="80">
+        <label>org.xvm.asm.ast.BinaryAST</label>
+        <link refid="d7/d69/classorg_1_1xvm_1_1asm_1_1ast_1_1_binary_a_s_t"/>
+        <childnode refid="80" relation="usage">
+          <edgelabel>NO_ASTS</edgelabel>
+        </childnode>
+        <childnode refid="79" relation="usage">
+          <edgelabel>NO_EXPRS</edgelabel>
+          <edgelabel>POISON</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>NO_CONSTS</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>NO_TYPES</edgelabel>
+        </childnode>
+        <childnode refid="78" relation="usage">
+          <edgelabel>NO_REGS</edgelabel>
+        </childnode>
+        <childnode refid="81" relation="usage">
+          <edgelabel>NO_ALLOCS</edgelabel>
+        </childnode>
+      </node>
+      <node id="77">
+        <label>org.xvm.asm.ast.BinaryAST.ConstantResolver</label>
+        <link refid="d7/d33/interfaceorg_1_1xvm_1_1asm_1_1ast_1_1_binary_a_s_t_1_1_constant_resolver"/>
+      </node>
+      <node id="79">
+        <label>org.xvm.asm.ast.ExprAST</label>
+        <link refid="d4/de4/classorg_1_1xvm_1_1asm_1_1ast_1_1_expr_a_s_t"/>
+        <childnode refid="80" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="81">
+        <label>org.xvm.asm.ast.RegAllocAST</label>
+        <link refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t"/>
+        <childnode refid="79" relation="public-inheritance">
+        </childnode>
+        <childnode refid="78" relation="usage">
+          <edgelabel>reg</edgelabel>
+        </childnode>
+      </node>
+      <node id="78">
+        <label>org.xvm.asm.ast.RegisterAST</label>
+        <link refid="d9/dbf/classorg_1_1xvm_1_1asm_1_1ast_1_1_register_a_s_t"/>
+        <childnode refid="79" relation="public-inheritance">
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>refType</edgelabel>
+          <edgelabel>type</edgelabel>
+        </childnode>
+        <childnode refid="35" relation="usage">
+          <edgelabel>name</edgelabel>
+        </childnode>
+      </node>
+      <node id="129">
+        <label>org.xvm.asm.constants.ArrayConstant</label>
+        <link refid="dc/d90/classorg_1_1xvm_1_1asm_1_1constants_1_1_array_constant"/>
+        <childnode refid="33" relation="public-inheritance">
+        </childnode>
+        <childnode refid="34" relation="usage">
+          <edgelabel>f_fmt</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>m_constType</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>m_aconstVal</edgelabel>
+        </childnode>
+      </node>
+      <node id="61">
+        <label>org.xvm.asm.constants.ClassConstant</label>
+        <link refid="df/de8/classorg_1_1xvm_1_1asm_1_1constants_1_1_class_constant"/>
+        <childnode refid="42" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>org.xvm.asm.constants.ConditionalConstant</label>
+        <link refid="da/df0/classorg_1_1xvm_1_1asm_1_1constants_1_1_conditional_constant"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="99">
+        <label>org.xvm.asm.constants.FormalConstant</label>
+        <link refid="d2/dca/classorg_1_1xvm_1_1asm_1_1constants_1_1_formal_constant"/>
+        <childnode refid="42" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="69">
+        <label>org.xvm.asm.constants.FrameDependentConstant</label>
+        <link refid="da/d56/classorg_1_1xvm_1_1asm_1_1constants_1_1_frame_dependent_constant"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>org.xvm.asm.constants.IdentityConstant</label>
+        <link refid="d5/d9c/classorg_1_1xvm_1_1asm_1_1constants_1_1_identity_constant"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+        <childnode refid="25" relation="usage">
+          <edgelabel>m_component</edgelabel>
+        </childnode>
+        <childnode refid="29" relation="usage">
+          <edgelabel>m_canonicalNid</edgelabel>
+        </childnode>
+      </node>
+      <node id="29">
+        <label>org.xvm.asm.constants.IdentityConstant.NestedIdentity</label>
+        <link refid="dc/d87/classorg_1_1xvm_1_1asm_1_1constants_1_1_identity_constant_1_1_nested_identity"/>
+        <childnode refid="21" relation="usage">
+          <edgelabel>m_resolver</edgelabel>
+        </childnode>
+      </node>
+      <node id="62">
+        <label>org.xvm.asm.constants.IntConstant</label>
+        <link refid="d6/d7c/classorg_1_1xvm_1_1asm_1_1constants_1_1_int_constant"/>
+        <childnode refid="33" relation="public-inheritance">
+        </childnode>
+        <childnode refid="34" relation="usage">
+          <edgelabel>m_fmt</edgelabel>
+        </childnode>
+        <childnode refid="63" relation="usage">
+          <edgelabel>m_pint</edgelabel>
+        </childnode>
+      </node>
+      <node id="32">
+        <label>org.xvm.asm.constants.LiteralConstant</label>
+        <link refid="d4/d41/classorg_1_1xvm_1_1asm_1_1constants_1_1_literal_constant"/>
+        <childnode refid="33" relation="public-inheritance">
+        </childnode>
+        <childnode refid="34" relation="usage">
+          <edgelabel>m_fmt</edgelabel>
+        </childnode>
+        <childnode refid="35" relation="usage">
+          <edgelabel>m_constStr</edgelabel>
+        </childnode>
+      </node>
+      <node id="85">
+        <label>org.xvm.asm.constants.MethodBody</label>
+        <link refid="d3/dd6/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_body"/>
+        <childnode refid="85" relation="usage">
+          <edgelabel>NO_BODIES</edgelabel>
+        </childnode>
+        <childnode refid="40" relation="usage">
+          <edgelabel>m_id</edgelabel>
+        </childnode>
+        <childnode refid="43" relation="usage">
+          <edgelabel>m_sig</edgelabel>
+        </childnode>
+        <childnode refid="86" relation="usage">
+          <edgelabel>m_impl</edgelabel>
+        </childnode>
+        <childnode refid="74" relation="usage">
+          <edgelabel>m_structMethod</edgelabel>
+        </childnode>
+        <childnode refid="87" relation="usage">
+          <edgelabel>m_jmd</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>m_typeJmdContainer</edgelabel>
+        </childnode>
+      </node>
+      <node id="86">
+        <label>org.xvm.asm.constants.MethodBody.Implementation</label>
+        <link refid="da/d42/enumorg_1_1xvm_1_1asm_1_1constants_1_1_method_body_1_1_implementation"/>
+      </node>
+      <node id="40">
+        <label>org.xvm.asm.constants.MethodConstant</label>
+        <link refid="d6/d7b/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_constant"/>
+        <childnode refid="28" relation="public-inheritance">
+        </childnode>
+        <childnode refid="21" relation="public-inheritance">
+        </childnode>
+        <childnode refid="41" relation="usage">
+          <edgelabel>m_constParent</edgelabel>
+        </childnode>
+        <childnode refid="43" relation="usage">
+          <edgelabel>m_constSig</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>m_type</edgelabel>
+        </childnode>
+      </node>
+      <node id="54">
+        <label>org.xvm.asm.constants.ModuleConstant</label>
+        <link refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant"/>
+        <childnode refid="28" relation="public-inheritance">
+        </childnode>
+        <childnode refid="35" relation="usage">
+          <edgelabel>m_constName</edgelabel>
+        </childnode>
+        <childnode refid="55" relation="usage">
+          <edgelabel>m_constVersion</edgelabel>
+        </childnode>
+      </node>
+      <node id="41">
+        <label>org.xvm.asm.constants.MultiMethodConstant</label>
+        <link refid="df/d2a/classorg_1_1xvm_1_1asm_1_1constants_1_1_multi_method_constant"/>
+        <childnode refid="42" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>org.xvm.asm.constants.NamedConstant</label>
+        <link refid="d8/d85/classorg_1_1xvm_1_1asm_1_1constants_1_1_named_constant"/>
+        <childnode refid="28" relation="public-inheritance">
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>m_constParent</edgelabel>
+        </childnode>
+        <childnode refid="35" relation="usage">
+          <edgelabel>m_constName</edgelabel>
+        </childnode>
+      </node>
+      <node id="104">
+        <label>org.xvm.asm.constants.ParamInfo</label>
+        <link refid="d5/da1/classorg_1_1xvm_1_1asm_1_1constants_1_1_param_info"/>
+        <childnode refid="16" relation="usage">
+          <edgelabel>f_typeActual</edgelabel>
+          <edgelabel>f_typeConstraint</edgelabel>
+        </childnode>
+      </node>
+      <node id="101">
+        <label>org.xvm.asm.constants.PropertyBody</label>
+        <link refid="db/d39/classorg_1_1xvm_1_1asm_1_1constants_1_1_property_body"/>
+        <childnode refid="19" relation="public-inheritance">
+        </childnode>
+        <childnode refid="102" relation="usage">
+          <edgelabel>m_structProp</edgelabel>
+        </childnode>
+        <childnode refid="86" relation="usage">
+          <edgelabel>m_impl</edgelabel>
+        </childnode>
+        <childnode refid="98" relation="usage">
+          <edgelabel>m_constDelegate</edgelabel>
+        </childnode>
+        <childnode refid="104" relation="usage">
+          <edgelabel>m_infoFormal</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>m_type</edgelabel>
+        </childnode>
+        <childnode refid="105" relation="usage">
+          <edgelabel>m_effectGet</edgelabel>
+          <edgelabel>m_effectSet</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>m_constInitVal</edgelabel>
+        </childnode>
+        <childnode refid="40" relation="usage">
+          <edgelabel>m_constInitFunc</edgelabel>
+        </childnode>
+      </node>
+      <node id="105">
+        <label>org.xvm.asm.constants.PropertyBody.Effect</label>
+        <link refid="da/df0/enumorg_1_1xvm_1_1asm_1_1constants_1_1_property_body_1_1_effect"/>
+      </node>
+      <node id="98">
+        <label>org.xvm.asm.constants.PropertyConstant</label>
+        <link refid="dd/ded/classorg_1_1xvm_1_1asm_1_1constants_1_1_property_constant"/>
+        <childnode refid="99" relation="public-inheritance">
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>m_type</edgelabel>
+          <edgelabel>m_typeConstraint</edgelabel>
+        </childnode>
+        <childnode refid="43" relation="usage">
+          <edgelabel>m_constSig</edgelabel>
+        </childnode>
+        <childnode refid="100" relation="usage">
+          <edgelabel>m_info</edgelabel>
+        </childnode>
+      </node>
+      <node id="100">
+        <label>org.xvm.asm.constants.PropertyInfo</label>
+        <link refid="dd/d20/classorg_1_1xvm_1_1asm_1_1constants_1_1_property_info"/>
+        <childnode refid="19" relation="public-inheritance">
+        </childnode>
+        <childnode refid="101" relation="usage">
+          <edgelabel>m_aBody</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>m_type</edgelabel>
+          <edgelabel>m_typeBaseRef</edgelabel>
+        </childnode>
+        <childnode refid="85" relation="usage">
+          <edgelabel>m_chainGet</edgelabel>
+          <edgelabel>m_chainSet</edgelabel>
+        </childnode>
+        <childnode refid="37" relation="usage">
+          <edgelabel>m_annotations</edgelabel>
+        </childnode>
+        <childnode refid="40" relation="usage">
+          <edgelabel>m_idGetter</edgelabel>
+          <edgelabel>m_idSetter</edgelabel>
+        </childnode>
+        <childnode refid="87" relation="usage">
+          <edgelabel>m_jmdGetter</edgelabel>
+          <edgelabel>m_jmdSetter</edgelabel>
+        </childnode>
+      </node>
+      <node id="44">
+        <label>org.xvm.asm.constants.PseudoConstant</label>
+        <link refid="db/dcb/classorg_1_1xvm_1_1asm_1_1constants_1_1_pseudo_constant"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="68">
+        <label>org.xvm.asm.constants.RegisterConstant</label>
+        <link refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant"/>
+        <childnode refid="69" relation="public-inheritance">
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>m_reg</edgelabel>
+        </childnode>
+      </node>
+      <node id="43">
+        <label>org.xvm.asm.constants.SignatureConstant</label>
+        <link refid="de/d50/classorg_1_1xvm_1_1asm_1_1constants_1_1_signature_constant"/>
+        <childnode refid="44" relation="public-inheritance">
+        </childnode>
+        <childnode refid="35" relation="usage">
+          <edgelabel>m_constName</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>m_aconstParams</edgelabel>
+          <edgelabel>m_aconstReturns</edgelabel>
+        </childnode>
+        <childnode refid="43" relation="usage">
+          <edgelabel>m_sigPrev</edgelabel>
+        </childnode>
+      </node>
+      <node id="65">
+        <label>org.xvm.asm.constants.SingletonConstant</label>
+        <link refid="dd/d83/classorg_1_1xvm_1_1asm_1_1constants_1_1_singleton_constant"/>
+        <childnode refid="33" relation="public-inheritance">
+        </childnode>
+        <childnode refid="34" relation="usage">
+          <edgelabel>f_fmt</edgelabel>
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>m_constClass</edgelabel>
+        </childnode>
+        <childnode refid="66" relation="usage">
+          <edgelabel>m_handle</edgelabel>
+        </childnode>
+      </node>
+      <node id="35">
+        <label>org.xvm.asm.constants.StringConstant</label>
+        <link refid="d0/db5/classorg_1_1xvm_1_1asm_1_1constants_1_1_string_constant"/>
+        <childnode refid="33" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>org.xvm.asm.constants.TypeConstant</label>
+        <link refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+        <childnode refid="21" relation="public-inheritance">
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>NO_TYPES</edgelabel>
+          <edgelabel>m_typeNormalized</edgelabel>
+        </childnode>
+        <childnode refid="22" relation="usage">
+          <edgelabel>m_typeinfo</edgelabel>
+        </childnode>
+        <childnode refid="45" relation="usage">
+          <edgelabel>m_tloInProgress</edgelabel>
+        </childnode>
+        <childnode refid="46" relation="usage">
+          <edgelabel>m_handle</edgelabel>
+        </childnode>
+      </node>
+      <node id="22">
+        <label>org.xvm.asm.constants.TypeInfo</label>
+        <link refid="dc/db2/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_info"/>
+        <childnode refid="23" relation="usage">
+          <edgelabel>f_progress</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>f_type</edgelabel>
+          <edgelabel>f_typeExtends</edgelabel>
+          <edgelabel>f_typeInto</edgelabel>
+          <edgelabel>f_typeRebases</edgelabel>
+          <edgelabel>m_typeAuto</edgelabel>
+        </childnode>
+        <childnode refid="24" relation="usage">
+          <edgelabel>f_struct</edgelabel>
+        </childnode>
+        <childnode refid="37" relation="usage">
+          <edgelabel>f_aannoClass</edgelabel>
+          <edgelabel>f_aannoMixin</edgelabel>
+        </childnode>
+        <childnode refid="38" relation="usage">
+          <edgelabel>f_listmapClassChain</edgelabel>
+          <edgelabel>f_listmapDefaultChain</edgelabel>
+        </childnode>
+        <childnode refid="39" relation="usage">
+          <edgelabel>f_mapChildren</edgelabel>
+        </childnode>
+        <childnode refid="22" relation="usage">
+          <edgelabel>m_delegates</edgelabel>
+          <edgelabel>m_into</edgelabel>
+        </childnode>
+        <childnode refid="40" relation="usage">
+          <edgelabel>m_methodAuto</edgelabel>
+        </childnode>
+      </node>
+      <node id="23">
+        <label>org.xvm.asm.constants.TypeInfo.Progress</label>
+        <link refid="d5/ded/enumorg_1_1xvm_1_1asm_1_1constants_1_1_type_info_1_1_progress"/>
+      </node>
+      <node id="33">
+        <label>org.xvm.asm.constants.ValueConstant</label>
+        <link refid="db/d57/classorg_1_1xvm_1_1asm_1_1constants_1_1_value_constant"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="55">
+        <label>org.xvm.asm.constants.VersionConstant</label>
+        <link refid="d0/db9/classorg_1_1xvm_1_1asm_1_1constants_1_1_version_constant"/>
+        <childnode refid="32" relation="public-inheritance">
+        </childnode>
+        <childnode refid="56" relation="usage">
+          <edgelabel>m_ver</edgelabel>
+        </childnode>
+      </node>
+      <node id="9">
+        <label>org.xvm.asm.op.Label</label>
+        <link refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>m_label</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>m_action</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>org.xvm.compiler.Compiler.Stage</label>
+        <link refid="d2/de1/enumorg_1_1xvm_1_1compiler_1_1_compiler_1_1_stage"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>STAGES</edgelabel>
+        </childnode>
+      </node>
+      <node id="135">
+        <label>org.xvm.compiler.Source</label>
+        <link refid="d5/d95/classorg_1_1xvm_1_1compiler_1_1_source"/>
+        <childnode refid="19" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="136" relation="usage">
+          <edgelabel>m_node</edgelabel>
+        </childnode>
+      </node>
+      <node id="131">
+        <label>org.xvm.compiler.Token</label>
+        <link refid="db/db5/classorg_1_1xvm_1_1compiler_1_1_token"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="132" relation="usage">
+          <edgelabel>m_id</edgelabel>
+        </childnode>
+      </node>
+      <node id="132">
+        <label>org.xvm.compiler.Token.Id</label>
+        <link refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id"/>
+        <childnode refid="132" relation="usage">
+          <edgelabel>IDs</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>org.xvm.compiler.ast.AstNode</label>
+        <link refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>m_stage</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>m_parent</edgelabel>
+        </childnode>
+      </node>
+      <node id="145">
+        <label>org.xvm.compiler.ast.ComponentStatement</label>
+        <link refid="df/d5a/classorg_1_1xvm_1_1compiler_1_1ast_1_1_component_statement"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+        <childnode refid="25" relation="usage">
+          <edgelabel>component</edgelabel>
+        </childnode>
+      </node>
+      <node id="13">
+        <label>org.xvm.compiler.ast.Context</label>
+        <link refid="d1/dc8/classorg_1_1xvm_1_1compiler_1_1ast_1_1_context"/>
+        <childnode refid="13" relation="usage">
+          <edgelabel>m_ctxOuter</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>m_regThis</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>org.xvm.compiler.ast.ImportStatement</label>
+        <link refid="d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+        <childnode refid="130" relation="public-inheritance">
+        </childnode>
+        <childnode refid="131" relation="usage">
+          <edgelabel>alias</edgelabel>
+          <edgelabel>keyword</edgelabel>
+          <edgelabel>star</edgelabel>
+        </childnode>
+        <childnode refid="133" relation="usage">
+          <edgelabel>m_resolver</edgelabel>
+        </childnode>
+      </node>
+      <node id="133">
+        <label>org.xvm.compiler.ast.NameResolver</label>
+        <link refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>m_node</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>m_stage</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>m_stmtImport</edgelabel>
+        </childnode>
+        <childnode refid="134" relation="usage">
+          <edgelabel>m_blockImport</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>m_constant</edgelabel>
+          <edgelabel>m_constantFirst</edgelabel>
+        </childnode>
+        <childnode refid="25" relation="usage">
+          <edgelabel>m_component</edgelabel>
+        </childnode>
+        <childnode refid="146" relation="usage">
+          <edgelabel>m_typeMode</edgelabel>
+        </childnode>
+        <childnode refid="138" relation="usage">
+          <edgelabel>m_errs</edgelabel>
+        </childnode>
+      </node>
+      <node id="130">
+        <label>org.xvm.compiler.ast.NameResolver.NameResolving</label>
+        <link refid="d3/dc0/interfaceorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_name_resolving"/>
+      </node>
+      <node id="6">
+        <label>org.xvm.compiler.ast.NameResolver.Stage</label>
+        <link refid="d5/d23/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_stage"/>
+      </node>
+      <node id="146">
+        <label>org.xvm.compiler.ast.NameResolver.TypeMode</label>
+        <link refid="df/d46/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1_1_type_mode"/>
+      </node>
+      <node id="8">
+        <label>org.xvm.compiler.ast.Statement</label>
+        <link refid="d9/d11/classorg_1_1xvm_1_1compiler_1_1ast_1_1_statement"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>m_labelEnd</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>m_ctx</edgelabel>
+        </childnode>
+      </node>
+      <node id="134">
+        <label>org.xvm.compiler.ast.StatementBlock</label>
+        <link refid="d8/dc7/classorg_1_1xvm_1_1compiler_1_1ast_1_1_statement_block"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+        <childnode refid="135" relation="usage">
+          <edgelabel>source</edgelabel>
+        </childnode>
+      </node>
+      <node id="144">
+        <label>org.xvm.compiler.ast.TypeCompositionStatement</label>
+        <link refid="db/d21/classorg_1_1xvm_1_1compiler_1_1ast_1_1_type_composition_statement"/>
+        <childnode refid="145" relation="public-inheritance">
+        </childnode>
+        <childnode refid="135" relation="usage">
+          <edgelabel>source</edgelabel>
+        </childnode>
+        <childnode refid="131" relation="usage">
+          <edgelabel>category</edgelabel>
+          <edgelabel>doc</edgelabel>
+          <edgelabel>name</edgelabel>
+        </childnode>
+        <childnode refid="134" relation="usage">
+          <edgelabel>body</edgelabel>
+          <edgelabel>enclosed</edgelabel>
+        </childnode>
+      </node>
+      <node id="12">
+        <label>org.xvm.javajit.BuildContext.OpAction</label>
+        <link refid="d6/d0c/interfaceorg_1_1xvm_1_1javajit_1_1_build_context_1_1_op_action"/>
+      </node>
+      <node id="90">
+        <label>org.xvm.javajit.JitFlavor</label>
+        <link refid="d4/d87/enumorg_1_1xvm_1_1javajit_1_1_jit_flavor"/>
+        <childnode refid="90" relation="usage">
+          <edgelabel>baseFlavor</edgelabel>
+        </childnode>
+      </node>
+      <node id="87">
+        <label>org.xvm.javajit.JitMethodDesc</label>
+        <link refid="d0/d2b/classorg_1_1xvm_1_1javajit_1_1_jit_method_desc"/>
+        <childnode refid="88" relation="usage">
+          <edgelabel>optimizedParams</edgelabel>
+          <edgelabel>optimizedReturns</edgelabel>
+          <edgelabel>standardParams</edgelabel>
+          <edgelabel>standardReturns</edgelabel>
+        </childnode>
+      </node>
+      <node id="88">
+        <label>org.xvm.javajit.JitParamDesc</label>
+        <link refid="d7/d14/classorg_1_1xvm_1_1javajit_1_1_jit_param_desc"/>
+        <childnode refid="89" relation="public-inheritance">
+        </childnode>
+        <childnode refid="88" relation="usage">
+          <edgelabel>NONE</edgelabel>
+        </childnode>
+      </node>
+      <node id="89">
+        <label>org.xvm.javajit.JitTypeDesc</label>
+        <link refid="d5/d1d/classorg_1_1xvm_1_1javajit_1_1_jit_type_desc"/>
+        <childnode refid="16" relation="usage">
+          <edgelabel>type</edgelabel>
+        </childnode>
+        <childnode refid="90" relation="usage">
+          <edgelabel>flavor</edgelabel>
+        </childnode>
+      </node>
+      <node id="84">
+        <label>org.xvm.runtime.CallChain</label>
+        <link refid="df/db4/classorg_1_1xvm_1_1runtime_1_1_call_chain"/>
+        <childnode refid="85" relation="usage">
+          <edgelabel>f_aMethods</edgelabel>
+        </childnode>
+      </node>
+      <node id="124">
+        <label>org.xvm.runtime.ClassComposition</label>
+        <link refid="da/df7/classorg_1_1xvm_1_1runtime_1_1_class_composition"/>
+        <childnode refid="67" relation="public-inheritance">
+        </childnode>
+        <childnode refid="50" relation="usage">
+          <edgelabel>f_container</edgelabel>
+        </childnode>
+        <childnode refid="48" relation="usage">
+          <edgelabel>f_template</edgelabel>
+        </childnode>
+        <childnode refid="124" relation="usage">
+          <edgelabel>f_clzInception</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>f_typeInception</edgelabel>
+          <edgelabel>f_typeRevealed</edgelabel>
+          <edgelabel>f_typeStructure</edgelabel>
+        </childnode>
+        <childnode refid="125" relation="usage">
+          <edgelabel>m_ashFieldNames</edgelabel>
+        </childnode>
+        <childnode refid="74" relation="usage">
+          <edgelabel>m_methodInit</edgelabel>
+        </childnode>
+        <childnode refid="84" relation="usage">
+          <edgelabel>NIL_CHAIN</edgelabel>
+        </childnode>
+      </node>
+      <node id="127">
+        <label>org.xvm.runtime.ClassComposition.FieldInfo</label>
+        <link refid="d1/d50/classorg_1_1xvm_1_1runtime_1_1_class_composition_1_1_field_info"/>
+        <childnode refid="16" relation="usage">
+          <edgelabel>f_type</edgelabel>
+        </childnode>
+        <childnode refid="67" relation="usage">
+          <edgelabel>f_clzRef</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>constInit</edgelabel>
+        </childnode>
+      </node>
+      <node id="48">
+        <label>org.xvm.runtime.ClassTemplate</label>
+        <link refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template"/>
+        <childnode refid="49" relation="public-inheritance">
+        </childnode>
+        <childnode refid="50" relation="usage">
+          <edgelabel>f_container</edgelabel>
+        </childnode>
+        <childnode refid="24" relation="usage">
+          <edgelabel>f_struct</edgelabel>
+          <edgelabel>f_structSuper</edgelabel>
+        </childnode>
+        <childnode refid="48" relation="usage">
+          <edgelabel>m_templateSuper</edgelabel>
+        </childnode>
+        <childnode refid="124" relation="usage">
+          <edgelabel>m_clazzCanonical</edgelabel>
+        </childnode>
+      </node>
+      <node id="53">
+        <label>org.xvm.runtime.ConstHeap</label>
+        <link refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap"/>
+        <childnode refid="50" relation="usage">
+          <edgelabel>f_container</edgelabel>
+        </childnode>
+      </node>
+      <node id="50">
+        <label>org.xvm.runtime.Container</label>
+        <link refid="d1/df8/classorg_1_1xvm_1_1runtime_1_1_container"/>
+        <childnode refid="51" relation="public-inheritance">
+        </childnode>
+        <childnode refid="52" relation="usage">
+          <edgelabel>f_runtime</edgelabel>
+        </childnode>
+        <childnode refid="53" relation="usage">
+          <edgelabel>f_heap</edgelabel>
+        </childnode>
+        <childnode refid="50" relation="usage">
+          <edgelabel>f_parent</edgelabel>
+        </childnode>
+        <childnode refid="54" relation="usage">
+          <edgelabel>f_idModule</edgelabel>
+        </childnode>
+        <childnode refid="58" relation="usage">
+          <edgelabel>m_contextMain</edgelabel>
+        </childnode>
+        <childnode refid="66" relation="usage">
+          <edgelabel>m_hTypeSystem</edgelabel>
+        </childnode>
+      </node>
+      <node id="112">
+        <label>org.xvm.runtime.DebugConsole</label>
+        <link refid="d1/d39/classorg_1_1xvm_1_1runtime_1_1_debug_console"/>
+        <childnode refid="113" relation="public-inheritance">
+        </childnode>
+        <childnode refid="112" relation="usage">
+          <edgelabel>INSTANCE</edgelabel>
+        </childnode>
+        <childnode refid="114" relation="usage">
+          <edgelabel>m_viewMode</edgelabel>
+        </childnode>
+        <childnode refid="91" relation="usage">
+          <edgelabel>m_aFrames</edgelabel>
+          <edgelabel>m_frame</edgelabel>
+          <edgelabel>m_frameFocus</edgelabel>
+        </childnode>
+        <childnode refid="107" relation="usage">
+          <edgelabel>m_hException</edgelabel>
+        </childnode>
+        <childnode refid="115" relation="usage">
+          <edgelabel>m_debugStash</edgelabel>
+        </childnode>
+        <childnode refid="116" relation="usage">
+          <edgelabel>m_aVars</edgelabel>
+        </childnode>
+        <childnode refid="118" relation="usage">
+          <edgelabel>m_aBreaks</edgelabel>
+        </childnode>
+        <childnode refid="120" relation="usage">
+          <edgelabel>m_stepMode</edgelabel>
+        </childnode>
+      </node>
+      <node id="118">
+        <label>org.xvm.runtime.DebugConsole.BreakPoint</label>
+        <link refid="de/d49/classorg_1_1xvm_1_1runtime_1_1_debug_console_1_1_break_point"/>
+        <childnode refid="119" relation="public-inheritance">
+        </childnode>
+        <childnode refid="74" relation="usage">
+          <edgelabel>lambda</edgelabel>
+        </childnode>
+      </node>
+      <node id="115">
+        <label>org.xvm.runtime.DebugConsole.DebugStash</label>
+        <link refid="dc/d22/classorg_1_1xvm_1_1runtime_1_1_debug_console_1_1_debug_stash"/>
+      </node>
+      <node id="120">
+        <label>org.xvm.runtime.DebugConsole.StepMode</label>
+        <link refid="d2/dea/enumorg_1_1xvm_1_1runtime_1_1_debug_console_1_1_step_mode"/>
+      </node>
+      <node id="116">
+        <label>org.xvm.runtime.DebugConsole.VarDisplay</label>
+        <link refid="df/d13/classorg_1_1xvm_1_1runtime_1_1_debug_console_1_1_var_display"/>
+        <childnode refid="66" relation="usage">
+          <edgelabel>hVar</edgelabel>
+        </childnode>
+        <childnode refid="117" relation="usage">
+          <edgelabel>watch</edgelabel>
+        </childnode>
+      </node>
+      <node id="114">
+        <label>org.xvm.runtime.DebugConsole.ViewMode</label>
+        <link refid="d1/d65/enumorg_1_1xvm_1_1runtime_1_1_debug_console_1_1_view_mode"/>
+      </node>
+      <node id="117">
+        <label>org.xvm.runtime.DebugConsole.Watch</label>
+        <link refid="d7/dcb/classorg_1_1xvm_1_1runtime_1_1_debug_console_1_1_watch"/>
+        <childnode refid="66" relation="usage">
+          <edgelabel>hVar</edgelabel>
+        </childnode>
+      </node>
+      <node id="113">
+        <label>org.xvm.runtime.Debugger</label>
+        <link refid="d3/dc6/interfaceorg_1_1xvm_1_1runtime_1_1_debugger"/>
+      </node>
+      <node id="92">
+        <label>org.xvm.runtime.Fiber</label>
+        <link refid="d4/d87/classorg_1_1xvm_1_1runtime_1_1_fiber"/>
+        <childnode refid="93" relation="public-inheritance">
+        </childnode>
+        <childnode refid="58" relation="usage">
+          <edgelabel>f_context</edgelabel>
+        </childnode>
+        <childnode refid="74" relation="usage">
+          <edgelabel>f_fnCaller</edgelabel>
+        </childnode>
+        <childnode refid="94" relation="usage">
+          <edgelabel>m_status</edgelabel>
+        </childnode>
+        <childnode refid="91" relation="usage">
+          <edgelabel>m_frame</edgelabel>
+          <edgelabel>m_frameBlocker</edgelabel>
+          <edgelabel>m_resume</edgelabel>
+        </childnode>
+        <childnode refid="66" relation="usage">
+          <edgelabel>m_hAsyncSection</edgelabel>
+          <edgelabel>m_hTimeout</edgelabel>
+        </childnode>
+      </node>
+      <node id="94">
+        <label>org.xvm.runtime.Fiber.FiberStatus</label>
+        <link refid="d3/d81/enumorg_1_1xvm_1_1runtime_1_1_fiber_1_1_fiber_status"/>
+      </node>
+      <node id="121">
+        <label>org.xvm.runtime.FiberQueue</label>
+        <link refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue"/>
+        <childnode refid="58" relation="usage">
+          <edgelabel>f_context</edgelabel>
+        </childnode>
+        <childnode refid="91" relation="usage">
+          <edgelabel>m_aFrame</edgelabel>
+        </childnode>
+      </node>
+      <node id="91">
+        <label>org.xvm.runtime.Frame</label>
+        <link refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame"/>
+        <childnode refid="21" relation="public-inheritance">
+        </childnode>
+        <childnode refid="92" relation="usage">
+          <edgelabel>f_fiber</edgelabel>
+        </childnode>
+        <childnode refid="58" relation="usage">
+          <edgelabel>f_context</edgelabel>
+        </childnode>
+        <childnode refid="74" relation="usage">
+          <edgelabel>f_function</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>WAIT_FOR_FUTURE</edgelabel>
+          <edgelabel>WAIT_FOR_IO</edgelabel>
+          <edgelabel>f_aOp</edgelabel>
+        </childnode>
+        <childnode refid="66" relation="usage">
+          <edgelabel>f_ahVar</edgelabel>
+          <edgelabel>f_hTarget</edgelabel>
+          <edgelabel>f_hThis</edgelabel>
+          <edgelabel>m_hStackTop</edgelabel>
+        </childnode>
+        <childnode refid="95" relation="usage">
+          <edgelabel>f_aInfo</edgelabel>
+        </childnode>
+        <childnode refid="91" relation="usage">
+          <edgelabel>f_framePrev</edgelabel>
+          <edgelabel>m_frameNext</edgelabel>
+        </childnode>
+        <childnode refid="106" relation="usage">
+          <edgelabel>m_aGuard</edgelabel>
+        </childnode>
+        <childnode refid="107" relation="usage">
+          <edgelabel>m_hException</edgelabel>
+        </childnode>
+        <childnode refid="108" relation="usage">
+          <edgelabel>m_deferred</edgelabel>
+        </childnode>
+        <childnode refid="109" relation="usage">
+          <edgelabel>m_hfnFinally</edgelabel>
+        </childnode>
+        <childnode refid="111" relation="usage">
+          <edgelabel>m_continuation</edgelabel>
+        </childnode>
+        <childnode refid="84" relation="usage">
+          <edgelabel>m_chain</edgelabel>
+        </childnode>
+        <childnode refid="112" relation="usage">
+          <edgelabel>m_debug</edgelabel>
+        </childnode>
+        <childnode refid="96" relation="usage">
+          <edgelabel>ARRAY_ELEMENT_RESOLVER</edgelabel>
+          <edgelabel>METHOD_RESOLVER</edgelabel>
+          <edgelabel>PROPERTY_RESOLVER</edgelabel>
+          <edgelabel>REF_RESOLVER</edgelabel>
+        </childnode>
+      </node>
+      <node id="111">
+        <label>org.xvm.runtime.Frame.Continuation</label>
+        <link refid="d5/dfd/interfaceorg_1_1xvm_1_1runtime_1_1_frame_1_1_continuation"/>
+      </node>
+      <node id="108">
+        <label>org.xvm.runtime.Frame.DeferredGuardAction</label>
+        <link refid="d7/d9f/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_deferred_guard_action"/>
+      </node>
+      <node id="106">
+        <label>org.xvm.runtime.Frame.Guard</label>
+        <link refid="d0/d8b/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_guard"/>
+      </node>
+      <node id="95">
+        <label>org.xvm.runtime.Frame.VarInfo</label>
+        <link refid="df/d8b/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_var_info"/>
+        <childnode refid="16" relation="usage">
+          <edgelabel>m_type</edgelabel>
+        </childnode>
+        <childnode refid="96" relation="usage">
+          <edgelabel>m_resolver</edgelabel>
+        </childnode>
+        <childnode refid="97" relation="usage">
+          <edgelabel>m_ref</edgelabel>
+        </childnode>
+      </node>
+      <node id="96">
+        <label>org.xvm.runtime.Frame.VarTypeResolver</label>
+        <link refid="db/dde/interfaceorg_1_1xvm_1_1runtime_1_1_frame_1_1_var_type_resolver"/>
+      </node>
+      <node id="66">
+        <label>org.xvm.runtime.ObjectHandle</label>
+        <link refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="67" relation="usage">
+          <edgelabel>m_clazz</edgelabel>
+        </childnode>
+        <childnode refid="66" relation="usage">
+          <edgelabel>DEFAULT</edgelabel>
+        </childnode>
+      </node>
+      <node id="107">
+        <label>org.xvm.runtime.ObjectHandle.ExceptionHandle</label>
+        <link refid="da/d17/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_exception_handle"/>
+        <childnode refid="71" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="71">
+        <label>org.xvm.runtime.ObjectHandle.GenericHandle</label>
+        <link refid="d3/d56/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_generic_handle"/>
+        <childnode refid="66" relation="public-inheritance">
+        </childnode>
+        <childnode refid="66" relation="usage">
+          <edgelabel>m_aFields</edgelabel>
+        </childnode>
+        <childnode refid="50" relation="usage">
+          <edgelabel>m_owner</edgelabel>
+        </childnode>
+      </node>
+      <node id="126">
+        <label>org.xvm.runtime.ObjectHandle.JavaLong</label>
+        <link refid="d5/d22/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_java_long"/>
+        <childnode refid="66" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>org.xvm.runtime.OpSupport</label>
+        <link refid="d5/d35/interfaceorg_1_1xvm_1_1runtime_1_1_op_support"/>
+      </node>
+      <node id="52">
+        <label>org.xvm.runtime.Runtime</label>
+        <link refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime"/>
+      </node>
+      <node id="58">
+        <label>org.xvm.runtime.ServiceContext</label>
+        <link refid="d8/d69/classorg_1_1xvm_1_1runtime_1_1_service_context"/>
+        <childnode refid="50" relation="usage">
+          <edgelabel>f_container</edgelabel>
+        </childnode>
+        <childnode refid="59" relation="usage">
+          <edgelabel>f_pool</edgelabel>
+        </childnode>
+        <childnode refid="70" relation="usage">
+          <edgelabel>m_hService</edgelabel>
+        </childnode>
+        <childnode refid="72" relation="usage">
+          <edgelabel>m_hExceptionHandler</edgelabel>
+        </childnode>
+        <childnode refid="66" relation="usage">
+          <edgelabel>m_hSynchronizedSection</edgelabel>
+        </childnode>
+        <childnode refid="91" relation="usage">
+          <edgelabel>m_frameCurrent</edgelabel>
+        </childnode>
+        <childnode refid="121" relation="usage">
+          <edgelabel>f_queueSuspended</edgelabel>
+        </childnode>
+        <childnode refid="122" relation="usage">
+          <edgelabel>m_synchronicity</edgelabel>
+        </childnode>
+        <childnode refid="92" relation="usage">
+          <edgelabel>m_fiberSyncOwner</edgelabel>
+        </childnode>
+        <childnode refid="123" relation="usage">
+          <edgelabel>f_wakeUpScheduler</edgelabel>
+        </childnode>
+      </node>
+      <node id="122">
+        <label>org.xvm.runtime.ServiceContext.Synchronicity</label>
+        <link refid="dc/d52/enumorg_1_1xvm_1_1runtime_1_1_service_context_1_1_synchronicity"/>
+      </node>
+      <node id="123">
+        <label>org.xvm.runtime.ServiceContext.WakeUpScheduler</label>
+        <link refid="d4/dea/classorg_1_1xvm_1_1runtime_1_1_service_context_1_1_wake_up_scheduler"/>
+      </node>
+      <node id="67">
+        <label>org.xvm.runtime.TypeComposition</label>
+        <link refid="db/db9/interfaceorg_1_1xvm_1_1runtime_1_1_type_composition"/>
+      </node>
+      <node id="128">
+        <label>org.xvm.runtime.template.IndexSupport</label>
+        <link refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support"/>
+      </node>
+      <node id="110">
+        <label>org.xvm.runtime.template._native.reflect.xRTFunction.DelegatingHandle</label>
+        <link refid="d5/d24/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_function_1_1_delegating_handle"/>
+        <childnode refid="72" relation="public-inheritance">
+        </childnode>
+        <childnode refid="72" relation="usage">
+          <edgelabel>m_hDelegate</edgelabel>
+        </childnode>
+      </node>
+      <node id="109">
+        <label>org.xvm.runtime.template._native.reflect.xRTFunction.FullyBoundHandle</label>
+        <link refid="d3/d86/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_function_1_1_fully_bound_handle"/>
+        <childnode refid="110" relation="public-inheritance">
+        </childnode>
+        <childnode refid="66" relation="usage">
+          <edgelabel>f_ahArg</edgelabel>
+        </childnode>
+        <childnode refid="109" relation="usage">
+          <edgelabel>NO_OP</edgelabel>
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+      </node>
+      <node id="72">
+        <label>org.xvm.runtime.template._native.reflect.xRTFunction.FunctionHandle</label>
+        <link refid="da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_function_1_1_function_handle"/>
+        <childnode refid="73" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="73">
+        <label>org.xvm.runtime.template._native.reflect.xRTSignature.SignatureHandle</label>
+        <link refid="d1/d6b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_signature_1_1_signature_handle"/>
+        <childnode refid="71" relation="public-inheritance">
+        </childnode>
+        <childnode refid="40" relation="usage">
+          <edgelabel>f_idMethod</edgelabel>
+        </childnode>
+        <childnode refid="74" relation="usage">
+          <edgelabel>f_method</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>f_type</edgelabel>
+        </childnode>
+        <childnode refid="84" relation="usage">
+          <edgelabel>f_chain</edgelabel>
+        </childnode>
+      </node>
+      <node id="46">
+        <label>org.xvm.runtime.template._native.reflect.xRTType</label>
+        <link refid="d5/daa/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_type"/>
+        <childnode refid="47" relation="public-inheritance">
+        </childnode>
+        <childnode refid="128" relation="public-inheritance">
+        </childnode>
+        <childnode refid="46" relation="usage">
+          <edgelabel>INSTANCE</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>LISTMAP_TYPE</edgelabel>
+          <edgelabel>TYPE_ARRAY_TYPE</edgelabel>
+        </childnode>
+        <childnode refid="129" relation="usage">
+          <edgelabel>EMPTY_TYPE_ARRAY</edgelabel>
+        </childnode>
+        <childnode refid="67" relation="usage">
+          <edgelabel>REGISTER_CLZCOMP</edgelabel>
+        </childnode>
+        <childnode refid="74" relation="usage">
+          <edgelabel>REGISTER_CONSTRUCT</edgelabel>
+        </childnode>
+        <childnode refid="98" relation="usage">
+          <edgelabel>PROP_CALCULATE</edgelabel>
+          <edgelabel>PROP_HASHER</edgelabel>
+        </childnode>
+      </node>
+      <node id="97">
+        <label>org.xvm.runtime.template.reflect.xRef.RefHandle</label>
+        <link refid="de/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1_1_ref_handle"/>
+        <childnode refid="71" relation="public-inheritance">
+        </childnode>
+        <childnode refid="66" relation="usage">
+          <edgelabel>m_hReferent</edgelabel>
+        </childnode>
+        <childnode refid="98" relation="usage">
+          <edgelabel>m_idProp</edgelabel>
+        </childnode>
+        <childnode refid="91" relation="usage">
+          <edgelabel>m_frame</edgelabel>
+        </childnode>
+      </node>
+      <node id="125">
+        <label>org.xvm.runtime.template.text.xString.StringHandle</label>
+        <link refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle"/>
+        <childnode refid="66" relation="public-inheritance">
+        </childnode>
+        <childnode refid="126" relation="usage">
+          <edgelabel>m_hash</edgelabel>
+        </childnode>
+      </node>
+      <node id="47">
+        <label>org.xvm.runtime.template.xConst</label>
+        <link refid="d4/d96/classorg_1_1xvm_1_1runtime_1_1template_1_1x_const"/>
+        <childnode refid="48" relation="public-inheritance">
+        </childnode>
+        <childnode refid="47" relation="usage">
+          <edgelabel>INSTANCE</edgelabel>
+        </childnode>
+        <childnode refid="127" relation="usage">
+          <edgelabel>NO_FIELDS</edgelabel>
+        </childnode>
+        <childnode refid="74" relation="usage">
+          <edgelabel>DATE_CONSTRUCT</edgelabel>
+          <edgelabel>DURATION_CONSTRUCT</edgelabel>
+          <edgelabel>FN_APPEND_TO</edgelabel>
+          <edgelabel>FN_ESTIMATE_LENGTH</edgelabel>
+          <edgelabel>FN_FREEZE</edgelabel>
+          <edgelabel>NIBBLE_CONSTRUCT</edgelabel>
+          <edgelabel>PATH_CONSTRUCT</edgelabel>
+          <edgelabel>RANGE_CONSTRUCT</edgelabel>
+          <edgelabel>TIMEOFDAY_CONSTRUCT</edgelabel>
+          <edgelabel>TIME_CONSTRUCT</edgelabel>
+          <edgelabel>  ...</edgelabel>
+        </childnode>
+        <childnode refid="43" relation="usage">
+          <edgelabel>HASH_SIG</edgelabel>
+        </childnode>
+      </node>
+      <node id="70">
+        <label>org.xvm.runtime.template.xService.ServiceHandle</label>
+        <link refid="d9/dd1/classorg_1_1xvm_1_1runtime_1_1template_1_1x_service_1_1_service_handle"/>
+        <childnode refid="71" relation="public-inheritance">
+        </childnode>
+        <childnode refid="58" relation="usage">
+          <edgelabel>f_context</edgelabel>
+        </childnode>
+      </node>
+      <node id="139">
+        <label>org.xvm.tool.ModuleInfo.DirNode</label>
+        <link refid="d5/dc6/classorg_1_1xvm_1_1tool_1_1_module_info_1_1_dir_node"/>
+        <childnode refid="137" relation="public-inheritance">
+        </childnode>
+        <childnode refid="136" relation="usage">
+          <edgelabel>m_nodeSrc</edgelabel>
+        </childnode>
+        <childnode refid="140" relation="usage">
+          <edgelabel>m_mapClzNodes</edgelabel>
+        </childnode>
+      </node>
+      <node id="136">
+        <label>org.xvm.tool.ModuleInfo.FileNode</label>
+        <link refid="db/d1c/classorg_1_1xvm_1_1tool_1_1_module_info_1_1_file_node"/>
+        <childnode refid="137" relation="public-inheritance">
+        </childnode>
+        <childnode refid="135" relation="usage">
+          <edgelabel>m_source</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>m_stmtAST</edgelabel>
+        </childnode>
+        <childnode refid="144" relation="usage">
+          <edgelabel>m_stmtType</edgelabel>
+        </childnode>
+      </node>
+      <node id="137">
+        <label>org.xvm.tool.ModuleInfo.Node</label>
+        <link refid="d8/d87/classorg_1_1xvm_1_1tool_1_1_module_info_1_1_node"/>
+        <childnode refid="138" relation="public-inheritance">
+        </childnode>
+        <childnode refid="139" relation="usage">
+          <edgelabel>m_parent</edgelabel>
+        </childnode>
+        <childnode refid="141" relation="usage">
+          <edgelabel>m_resdir</edgelabel>
+        </childnode>
+        <childnode refid="142" relation="usage">
+          <edgelabel>m_errs</edgelabel>
+        </childnode>
+      </node>
+      <node id="141">
+        <label>org.xvm.tool.ResourceDir</label>
+        <link refid="dd/d8f/classorg_1_1xvm_1_1tool_1_1_resource_dir"/>
+        <childnode refid="141" relation="usage">
+          <edgelabel>NoResources</edgelabel>
+          <edgelabel>parent</edgelabel>
+        </childnode>
+      </node>
+      <node id="140">
+        <label>org.xvm.util.ListMap&lt; File, org.xvm.tool.ModuleInfo.FileNode &gt;</label>
+        <link refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map"/>
+      </node>
+      <node id="39">
+        <label>org.xvm.util.ListMap&lt; String, org.xvm.asm.constants.ChildInfo &gt;</label>
+        <link refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map"/>
+      </node>
+      <node id="38">
+        <label>org.xvm.util.ListMap&lt; org.xvm.asm.constants.IdentityConstant, org.xvm.asm.constants.TypeConstant.Origin &gt;</label>
+        <link refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map"/>
+      </node>
+      <node id="31">
+        <label>org.xvm.util.ListMap&lt; org.xvm.asm.constants.StringConstant, org.xvm.asm.constants.TypeConstant &gt;</label>
+        <link refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map"/>
+      </node>
+      <node id="63">
+        <label>org.xvm.util.PackedInteger</label>
+        <link refid="dc/ddc/classorg_1_1xvm_1_1util_1_1_packed_integer"/>
+        <childnode refid="64" relation="public-inheritance">
+        </childnode>
+        <childnode refid="63" relation="usage">
+          <edgelabel>CACHE</edgelabel>
+          <edgelabel>EB</edgelabel>
+          <edgelabel>EI</edgelabel>
+          <edgelabel>GB</edgelabel>
+          <edgelabel>GI</edgelabel>
+          <edgelabel>KB</edgelabel>
+          <edgelabel>KI</edgelabel>
+          <edgelabel>MB</edgelabel>
+          <edgelabel>MI</edgelabel>
+          <edgelabel>NEG_ONE</edgelabel>
+          <edgelabel>  ...</edgelabel>
+        </childnode>
+      </node>
+      <node id="143">
+        <label>org.xvm.util.Severity</label>
+        <link refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity"/>
+      </node>
+      <node id="60">
+        <label>org.xvm.util.TransientThreadLocal&lt; List&lt; org.xvm.asm.constants.TypeConstant &gt; &gt;</label>
+        <link refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local"/>
+      </node>
+      <node id="45">
+        <label>org.xvm.util.TransientThreadLocal&lt; Set&lt; org.xvm.asm.constants.TypeConstant &gt; &gt;</label>
+        <link refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" line="42" column="7" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/NameResolver.java" bodystart="43" bodyend="835"/>
+    <listofallmembers>
+      <member refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a64ae1e431754eaaf7fccee14a076277e" prot="private" virt="non-virtual"><scope>org::xvm::compiler::ast::NameResolver</scope><name>ensurePartiallyResolvedComponent</name></member>
+      <member refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1af3eead138686300529507d2ba8bd51c6" prot="public" virt="non-virtual"><scope>org::xvm::compiler::ast::NameResolver</scope><name>forceResolve</name></member>
+      <member refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a5d3bfae5134fb4637f10bd63a3afdc8d" prot="public" virt="non-virtual"><scope>org::xvm::compiler::ast::NameResolver</scope><name>getBaseConstant</name></member>
+      <member refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a94a047ae50f253723d2f8c8fa5d92773" prot="public" virt="non-virtual"><scope>org::xvm::compiler::ast::NameResolver</scope><name>getConstant</name></member>
+      <member refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ab562f68915556ec58861110a262f741c" prot="public" virt="non-virtual"><scope>org::xvm::compiler::ast::NameResolver</scope><name>getErrorListener</name></member>
+      <member refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a8a593e7306c42b13aaa3026c6fa21b0a" prot="public" virt="non-virtual"><scope>org::xvm::compiler::ast::NameResolver</scope><name>getNode</name></member>
+      <member refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a52b040b4e48d2ee12afe5efeaa2751c7" prot="private" virt="non-virtual"><scope>org::xvm::compiler::ast::NameResolver</scope><name>getPool</name></member>
+      <member refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1afa1de9c894f175b66fe1162277356385" prot="public" virt="non-virtual"><scope>org::xvm::compiler::ast::NameResolver</scope><name>getResult</name></member>
+      <member refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1add04e154399e5137c98f4445afad062a" prot="public" virt="non-virtual"><scope>org::xvm::compiler::ast::NameResolver</scope><name>isFirstTime</name></member>
+      <member refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ad38a5e7ec7009e89cba09d3cf3189479" prot="private" virt="non-virtual"><scope>org::xvm::compiler::ast::NameResolver</scope><name>m_blockImport</name></member>
+      <member refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ac05b469e2fe58fda343d28babef303e5" prot="private" virt="non-virtual"><scope>org::xvm::compiler::ast::NameResolver</scope><name>m_component</name></member>
+      <member refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a90ccdedb45b8ce8d86403ce481ce58af" prot="private" virt="non-virtual"><scope>org::xvm::compiler::ast::NameResolver</scope><name>m_constant</name></member>
+      <member refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a27e8bcb202158a071a8d8c15321b4540" prot="private" virt="non-virtual"><scope>org::xvm::compiler::ast::NameResolver</scope><name>m_constantFirst</name></member>
+      <member refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ab7fb9355ce9a6fbe27260b4061370842" prot="private" virt="non-virtual"><scope>org::xvm::compiler::ast::NameResolver</scope><name>m_errs</name></member>
+      <member refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1af71f5f6fbe33064ae7596c4354e77b6f" prot="private" virt="non-virtual"><scope>org::xvm::compiler::ast::NameResolver</scope><name>m_fTypeGoal</name></member>
+      <member refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ae6f5faa7fd46c9a7d203b76c79fc5435" prot="private" virt="non-virtual"><scope>org::xvm::compiler::ast::NameResolver</scope><name>m_iter</name></member>
+      <member refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a33cbbd1f1eafb5336f278cb6877254ec" prot="private" virt="non-virtual"><scope>org::xvm::compiler::ast::NameResolver</scope><name>m_node</name></member>
+      <member refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ae93a3e44a8ff66b0089c6bf4a88bb883" prot="private" virt="non-virtual"><scope>org::xvm::compiler::ast::NameResolver</scope><name>m_sName</name></member>
+      <member refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a87a4485c1332dee0e3c53ddd28885a01" prot="private" virt="non-virtual"><scope>org::xvm::compiler::ast::NameResolver</scope><name>m_stage</name></member>
+      <member refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a5763ae3b7441ae04776e25fa6cb204cb" prot="private" virt="non-virtual"><scope>org::xvm::compiler::ast::NameResolver</scope><name>m_stmtImport</name></member>
+      <member refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a190981a8208736f2931ed7bbe3e8e484" prot="private" virt="non-virtual"><scope>org::xvm::compiler::ast::NameResolver</scope><name>m_typeMode</name></member>
+      <member refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1af5d7c43ee194a1779be547c94fe98f27" prot="public" virt="non-virtual"><scope>org::xvm::compiler::ast::NameResolver</scope><name>NameResolver</name></member>
+      <member refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a6173b35dfa703b99da646eea575d61c1" prot="public" virt="non-virtual"><scope>org::xvm::compiler::ast::NameResolver</scope><name>NameResolver</name></member>
+      <member refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1aa6e0ecc0376eb78f4f285066cfc909cc" prot="public" virt="non-virtual"><scope>org::xvm::compiler::ast::NameResolver</scope><name>resolve</name></member>
+      <member refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ae28686f6525e1cf5d28f7286070e0c8f" prot="public" virt="non-virtual"><scope>org::xvm::compiler::ast::NameResolver</scope><name>resolvedComponent</name></member>
+      <member refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ad4d8c852939f35043ffe2892bcd809c8" prot="public" virt="non-virtual"><scope>org::xvm::compiler::ast::NameResolver</scope><name>resolvedConstant</name></member>
+      <member refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a07f6096d03a3860fb1a44e8d54ead3e6" prot="private" virt="non-virtual"><scope>org::xvm::compiler::ast::NameResolver</scope><name>resolveFormalDotName</name></member>
+      <member refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a561e2d687f129d9c6b12ac01e66d40ec" prot="protected" virt="non-virtual"><scope>org::xvm::compiler::ast::NameResolver</scope><name>resolveImport</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

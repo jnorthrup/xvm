@@ -1,0 +1,470 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils" kind="class" language="Java" prot="public">
+    <compoundname>org::xtclang::plugin::XtcPluginUtils::FileUtils</compoundname>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1a170e432e5efab13877e9ce568e6d37b0" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.xtclang.plugin.XtcPluginUtils.FileUtils.FileUtils</definition>
+        <argsstring>()</argsstring>
+        <name>FileUtils</name>
+        <qualifiedname>org.xtclang.plugin.XtcPluginUtils.FileUtils.FileUtils</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcPluginUtils.java" line="140" column="17" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcPluginUtils.java" bodystart="140" bodyend="141"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1ae5f9f96105101145f2868b41eebe77d6" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>static boolean org.xtclang.plugin.XtcPluginUtils.FileUtils.isValidJavaToolsArtifact</definition>
+        <argsstring>(final File file, final String artifactVersion)</argsstring>
+        <name>isValidJavaToolsArtifact</name>
+        <qualifiedname>org.xtclang.plugin.XtcPluginUtils.FileUtils.isValidJavaToolsArtifact</qualifiedname>
+        <param>
+          <type>final File</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>final String</type>
+          <declname>artifactVersion</declname>
+        </param>
+        <briefdescription>
+<para>Check that a file is a valid JavaTools artifact. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This means that the file should exist as a regular file, be readable, have a name with the format javatools[version-and-extension].jar, and that its manifest is a valid XTC/XDK manifest, including semantic version information for the XDK to which it belongs.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>file to check </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the file is a valid JavaTools jar file, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcPluginUtils.java" line="152" column="31" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcPluginUtils.java" bodystart="152" bodyend="159"/>
+        <references refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1ac59d6a1a3be93bbf340df46a5341f4e6" compoundref="d0/df3/_xtc_plugin_utils_8java" startline="245" endline="247">org.xtclang.plugin.XtcPluginUtils.FileUtils.hasJarExtension</references>
+        <references refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1ae7928424263094b8da2f255b16f0d442" compoundref="d0/df3/_xtc_plugin_utils_8java" startline="227" endline="243">org.xtclang.plugin.XtcPluginUtils.FileUtils.readXdkVersionFromJar</references>
+      </memberdef>
+      <memberdef kind="function" id="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1abea78c63afdc5a3b7f0b114066481326" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>static boolean org.xtclang.plugin.XtcPluginUtils.FileUtils.isValidXtcModule</definition>
+        <argsstring>(final File file)</argsstring>
+        <name>isValidXtcModule</name>
+        <qualifiedname>org.xtclang.plugin.XtcPluginUtils.FileUtils.isValidXtcModule</qualifiedname>
+        <param>
+          <type>final File</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+<para>Check that a file is a valid XTC Module. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This means that it should exist, be readable, and contain the correct magic at the first bytes. We don&apos;t currently check if it&apos;s an XDK version, or if it&apos;s version has a particular format.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>file to check </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the file seems to be a valid XTC module, false otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcPluginUtils.java" line="169" column="31" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcPluginUtils.java" bodystart="169" bodyend="171"/>
+        <references refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1abea78c63afdc5a3b7f0b114066481326" compoundref="d0/df3/_xtc_plugin_utils_8java" startline="169" endline="171">org.xtclang.plugin.XtcPluginUtils.FileUtils.isValidXtcModule</references>
+        <referencedby refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1a292afad518a1362f01e6afbacf6c69ec" compoundref="d0/df3/_xtc_plugin_utils_8java" startline="214" endline="219">org.xtclang.plugin.XtcPluginUtils.FileUtils.checkXtcModule</referencedby>
+        <referencedby refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1abea78c63afdc5a3b7f0b114066481326" compoundref="d0/df3/_xtc_plugin_utils_8java" startline="169" endline="171">org.xtclang.plugin.XtcPluginUtils.FileUtils.isValidXtcModule</referencedby>
+        <referencedby refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1a946d555aa416736a31e96babeaaaa3a1" compoundref="d0/df3/_xtc_plugin_utils_8java" startline="192" endline="206">org.xtclang.plugin.XtcPluginUtils.FileUtils.isValidXtcModule</referencedby>
+        <referencedby refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1ab8c8b9c79f333af26d355abc3ac838e1" compoundref="d0/df3/_xtc_plugin_utils_8java" startline="181" endline="189">org.xtclang.plugin.XtcPluginUtils.FileUtils.isValidXtcModuleSafe</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1ab8c8b9c79f333af26d355abc3ac838e1" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>static boolean org.xtclang.plugin.XtcPluginUtils.FileUtils.isValidXtcModuleSafe</definition>
+        <argsstring>(final File file, final org.gradle.api.logging.Logger logger)</argsstring>
+        <name>isValidXtcModuleSafe</name>
+        <qualifiedname>org.xtclang.plugin.XtcPluginUtils.FileUtils.isValidXtcModuleSafe</qualifiedname>
+        <param>
+          <type>final File</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>final org.gradle.api.logging.Logger</type>
+          <declname>logger</declname>
+        </param>
+        <briefdescription>
+<para>Safe version of isValidXtcModule for use in filters and streams. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Logs I/O exceptions and returns false instead of throwing.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>file to check </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>logger</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Gradle logger for error reporting </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the file seems to be a valid XTC module, false otherwise (including I/O errors) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcPluginUtils.java" line="181" column="31" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcPluginUtils.java" bodystart="181" bodyend="189"/>
+        <references refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1abea78c63afdc5a3b7f0b114066481326" compoundref="d0/df3/_xtc_plugin_utils_8java" startline="169" endline="171">org.xtclang.plugin.XtcPluginUtils.FileUtils.isValidXtcModule</references>
+      </memberdef>
+      <memberdef kind="function" id="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1af04fb8d16f17b58e29de0b74855d2e35" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>File</type>
+        <definition>static File org.xtclang.plugin.XtcPluginUtils.FileUtils.checkXtcModule</definition>
+        <argsstring>(final File file)</argsstring>
+        <name>checkXtcModule</name>
+        <qualifiedname>org.xtclang.plugin.XtcPluginUtils.FileUtils.checkXtcModule</qualifiedname>
+        <param>
+          <type>final File</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcPluginUtils.java" line="209" column="28" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcPluginUtils.java" bodystart="209" bodyend="211"/>
+        <references refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1af04fb8d16f17b58e29de0b74855d2e35" compoundref="d0/df3/_xtc_plugin_utils_8java" startline="209" endline="211">org.xtclang.plugin.XtcPluginUtils.FileUtils.checkXtcModule</references>
+        <referencedby refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1af04fb8d16f17b58e29de0b74855d2e35" compoundref="d0/df3/_xtc_plugin_utils_8java" startline="209" endline="211">org.xtclang.plugin.XtcPluginUtils.FileUtils.checkXtcModule</referencedby>
+        <referencedby refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1a292afad518a1362f01e6afbacf6c69ec" compoundref="d0/df3/_xtc_plugin_utils_8java" startline="214" endline="219">org.xtclang.plugin.XtcPluginUtils.FileUtils.checkXtcModule</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1ae7928424263094b8da2f255b16f0d442" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>static String org.xtclang.plugin.XtcPluginUtils.FileUtils.readXdkVersionFromJar</definition>
+        <argsstring>(final File file)</argsstring>
+        <name>readXdkVersionFromJar</name>
+        <qualifiedname>org.xtclang.plugin.XtcPluginUtils.FileUtils.readXdkVersionFromJar</qualifiedname>
+        <param>
+          <type>final File</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+<para>Reads the XDK version from a jar manifest. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Jar file from which to read </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the XDK version string, as stored in the jar, or null if file not found, or entry could not be parsed. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcPluginUtils.java" line="227" column="30" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcPluginUtils.java" bodystart="227" bodyend="243"/>
+        <references refid="d7/d0c/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1a98f0687638e57c53f3730040f4ca71ab" compoundref="d0/df3/_xtc_plugin_utils_8java" startline="72" endline="74">org.xtclang.plugin.XtcPluginUtils.failure</references>
+        <referencedby refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1ae5f9f96105101145f2868b41eebe77d6" compoundref="d0/df3/_xtc_plugin_utils_8java" startline="152" endline="159">org.xtclang.plugin.XtcPluginUtils.FileUtils.isValidJavaToolsArtifact</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1a5ed1b31ef10ddd5530b834b702ca0a8f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>static boolean org.xtclang.plugin.XtcPluginUtils.FileUtils.hasFileExtension</definition>
+        <argsstring>(final File file, final String extension)</argsstring>
+        <name>hasFileExtension</name>
+        <qualifiedname>org.xtclang.plugin.XtcPluginUtils.FileUtils.hasFileExtension</qualifiedname>
+        <param>
+          <type>final File</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>final String</type>
+          <declname>extension</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcPluginUtils.java" line="249" column="31" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcPluginUtils.java" bodystart="249" bodyend="251"/>
+        <references refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1a9c7210e12ded1f9b6bea85e7e066da2f" compoundref="d0/df3/_xtc_plugin_utils_8java" startline="253" endline="257">org.xtclang.plugin.XtcPluginUtils.FileUtils.getFileExtension</references>
+        <referencedby refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1ac59d6a1a3be93bbf340df46a5341f4e6" compoundref="d0/df3/_xtc_plugin_utils_8java" startline="245" endline="247">org.xtclang.plugin.XtcPluginUtils.FileUtils.hasJarExtension</referencedby>
+        <referencedby refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1a946d555aa416736a31e96babeaaaa3a1" compoundref="d0/df3/_xtc_plugin_utils_8java" startline="192" endline="206">org.xtclang.plugin.XtcPluginUtils.FileUtils.isValidXtcModule</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1a9c7210e12ded1f9b6bea85e7e066da2f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>static String org.xtclang.plugin.XtcPluginUtils.FileUtils.getFileExtension</definition>
+        <argsstring>(final File file)</argsstring>
+        <name>getFileExtension</name>
+        <qualifiedname>org.xtclang.plugin.XtcPluginUtils.FileUtils.getFileExtension</qualifiedname>
+        <param>
+          <type>final File</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcPluginUtils.java" line="253" column="30" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcPluginUtils.java" bodystart="253" bodyend="257"/>
+        <referencedby refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1a5ed1b31ef10ddd5530b834b702ca0a8f" compoundref="d0/df3/_xtc_plugin_utils_8java" startline="249" endline="251">org.xtclang.plugin.XtcPluginUtils.FileUtils.hasFileExtension</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1a73fbb490f9d45fef55f44f980e257573" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>static boolean org.xtclang.plugin.XtcPluginUtils.FileUtils.areIdenticalFiles</definition>
+        <argsstring>(final File f1, final File f2)</argsstring>
+        <name>areIdenticalFiles</name>
+        <qualifiedname>org.xtclang.plugin.XtcPluginUtils.FileUtils.areIdenticalFiles</qualifiedname>
+        <param>
+          <type>final File</type>
+          <declname>f1</declname>
+        </param>
+        <param>
+          <type>final File</type>
+          <declname>f2</declname>
+        </param>
+        <exceptions> throws IOException </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcPluginUtils.java" line="259" column="31" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcPluginUtils.java" bodystart="259" bodyend="261"/>
+        <referencedby refid="d7/da0/classorg_1_1xtclang_1_1plugin_1_1_xtc_java_tools_runtime_1ad3be5ecb4b7e18a3d020164b5543f3f3" compoundref="d5/d01/_xtc_java_tools_runtime_8java" startline="170" endline="176">org.xtclang.plugin.XtcJavaToolsRuntime.areIdenticalFiles</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1a4cbbe77e0795441666ad920f69af836c" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>static String org.xtclang.plugin.XtcPluginUtils.FileUtils.computeSha256</definition>
+        <argsstring>(final File file)</argsstring>
+        <name>computeSha256</name>
+        <qualifiedname>org.xtclang.plugin.XtcPluginUtils.FileUtils.computeSha256</qualifiedname>
+        <param>
+          <type>final File</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+<para>Computes the SHA-256 hash of a file for cache, fingerprint, and diagnostic purposes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The file to compute SHA-256 hash for </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The SHA-256 hash as a hexadecimal string, or &quot;ERROR&quot; if computation fails </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcPluginUtils.java" line="269" column="30" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcPluginUtils.java" bodystart="269" bodyend="271"/>
+        <references refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1a5f366495a5aebda1da5154e8b6fb0d70" compoundref="d0/df3/_xtc_plugin_utils_8java" startline="273" endline="285">org.xtclang.plugin.XtcPluginUtils.FileUtils.computeHash</references>
+        <referencedby refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1a6c60bc2589f97d4945a469d3f9c2d6c8" compoundref="d0/df3/_xtc_plugin_utils_8java" startline="302" endline="309">org.xtclang.plugin.XtcPluginUtils.FileUtils.formatJarMetadata</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1a6c60bc2589f97d4945a469d3f9c2d6c8" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>static String org.xtclang.plugin.XtcPluginUtils.FileUtils.formatJarMetadata</definition>
+        <argsstring>(final File file)</argsstring>
+        <name>formatJarMetadata</name>
+        <qualifiedname>org.xtclang.plugin.XtcPluginUtils.FileUtils.formatJarMetadata</qualifiedname>
+        <param>
+          <type>final File</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+<para>Creates a one-line log string with jar file metadata: path, last modified timestamp, size, and SHA-256 hash. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Uses modern Java time types (java.time.Instant) instead of deprecated java.util.Date.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The jar file to log metadata for </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A formatted string containing: path, ISO-8601 timestamp, size in bytes, and SHA-256 hash </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcPluginUtils.java" line="302" column="30" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcPluginUtils.java" bodystart="302" bodyend="309"/>
+        <references refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1a4cbbe77e0795441666ad920f69af836c" compoundref="d0/df3/_xtc_plugin_utils_8java" startline="269" endline="271">org.xtclang.plugin.XtcPluginUtils.FileUtils.computeSha256</references>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1a946d555aa416736a31e96babeaaaa3a1" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>static boolean org.xtclang.plugin.XtcPluginUtils.FileUtils.isValidXtcModule</definition>
+        <argsstring>(final File file, final boolean checkMagic)</argsstring>
+        <name>isValidXtcModule</name>
+        <qualifiedname>org.xtclang.plugin.XtcPluginUtils.FileUtils.isValidXtcModule</qualifiedname>
+        <param>
+          <type>final File</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>final boolean</type>
+          <declname>checkMagic</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcPluginUtils.java" line="192" column="32" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcPluginUtils.java" bodystart="192" bodyend="206"/>
+        <references refid="d7/d0c/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1a98f0687638e57c53f3730040f4ca71ab" compoundref="d0/df3/_xtc_plugin_utils_8java" startline="72" endline="74">org.xtclang.plugin.XtcPluginUtils.failure</references>
+        <references refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1a5ed1b31ef10ddd5530b834b702ca0a8f" compoundref="d0/df3/_xtc_plugin_utils_8java" startline="249" endline="251">org.xtclang.plugin.XtcPluginUtils.FileUtils.hasFileExtension</references>
+        <references refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1abea78c63afdc5a3b7f0b114066481326" compoundref="d0/df3/_xtc_plugin_utils_8java" startline="169" endline="171">org.xtclang.plugin.XtcPluginUtils.FileUtils.isValidXtcModule</references>
+      </memberdef>
+      <memberdef kind="function" id="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1a292afad518a1362f01e6afbacf6c69ec" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>File</type>
+        <definition>static File org.xtclang.plugin.XtcPluginUtils.FileUtils.checkXtcModule</definition>
+        <argsstring>(final File file, final boolean checkMagic)</argsstring>
+        <name>checkXtcModule</name>
+        <qualifiedname>org.xtclang.plugin.XtcPluginUtils.FileUtils.checkXtcModule</qualifiedname>
+        <param>
+          <type>final File</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>final boolean</type>
+          <declname>checkMagic</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcPluginUtils.java" line="214" column="29" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcPluginUtils.java" bodystart="214" bodyend="219"/>
+        <references refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1af04fb8d16f17b58e29de0b74855d2e35" compoundref="d0/df3/_xtc_plugin_utils_8java" startline="209" endline="211">org.xtclang.plugin.XtcPluginUtils.FileUtils.checkXtcModule</references>
+        <references refid="d7/d0c/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1a98f0687638e57c53f3730040f4ca71ab" compoundref="d0/df3/_xtc_plugin_utils_8java" startline="72" endline="74">org.xtclang.plugin.XtcPluginUtils.failure</references>
+        <references refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1abea78c63afdc5a3b7f0b114066481326" compoundref="d0/df3/_xtc_plugin_utils_8java" startline="169" endline="171">org.xtclang.plugin.XtcPluginUtils.FileUtils.isValidXtcModule</references>
+      </memberdef>
+      <memberdef kind="function" id="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1ac59d6a1a3be93bbf340df46a5341f4e6" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>static boolean org.xtclang.plugin.XtcPluginUtils.FileUtils.hasJarExtension</definition>
+        <argsstring>(final File file)</argsstring>
+        <name>hasJarExtension</name>
+        <qualifiedname>org.xtclang.plugin.XtcPluginUtils.FileUtils.hasJarExtension</qualifiedname>
+        <param>
+          <type>final File</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcPluginUtils.java" line="245" column="32" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcPluginUtils.java" bodystart="245" bodyend="247"/>
+        <references refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1a5ed1b31ef10ddd5530b834b702ca0a8f" compoundref="d0/df3/_xtc_plugin_utils_8java" startline="249" endline="251">org.xtclang.plugin.XtcPluginUtils.FileUtils.hasFileExtension</references>
+        <referencedby refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1ae5f9f96105101145f2868b41eebe77d6" compoundref="d0/df3/_xtc_plugin_utils_8java" startline="152" endline="159">org.xtclang.plugin.XtcPluginUtils.FileUtils.isValidJavaToolsArtifact</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1a5f366495a5aebda1da5154e8b6fb0d70" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>static String org.xtclang.plugin.XtcPluginUtils.FileUtils.computeHash</definition>
+        <argsstring>(final File file, final String algorithm)</argsstring>
+        <name>computeHash</name>
+        <qualifiedname>org.xtclang.plugin.XtcPluginUtils.FileUtils.computeHash</qualifiedname>
+        <param>
+          <type>final File</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>final String</type>
+          <declname>algorithm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcPluginUtils.java" line="273" column="31" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcPluginUtils.java" bodystart="273" bodyend="285"/>
+        <references refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1a64dac891b03ba5715f262aec9139b5ba" compoundref="d0/df3/_xtc_plugin_utils_8java" startline="287" endline="293">org.xtclang.plugin.XtcPluginUtils.FileUtils.toHex</references>
+        <referencedby refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1a4cbbe77e0795441666ad920f69af836c" compoundref="d0/df3/_xtc_plugin_utils_8java" startline="269" endline="271">org.xtclang.plugin.XtcPluginUtils.FileUtils.computeSha256</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1a64dac891b03ba5715f262aec9139b5ba" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>static String org.xtclang.plugin.XtcPluginUtils.FileUtils.toHex</definition>
+        <argsstring>(final byte[] digest)</argsstring>
+        <name>toHex</name>
+        <qualifiedname>org.xtclang.plugin.XtcPluginUtils.FileUtils.toHex</qualifiedname>
+        <param>
+          <type>final byte[]</type>
+          <declname>digest</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcPluginUtils.java" line="287" column="31" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcPluginUtils.java" bodystart="287" bodyend="293"/>
+        <referencedby refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1a5f366495a5aebda1da5154e8b6fb0d70" compoundref="d0/df3/_xtc_plugin_utils_8java" startline="273" endline="285">org.xtclang.plugin.XtcPluginUtils.FileUtils.computeHash</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcPluginUtils.java" line="139" column="24" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcPluginUtils.java" bodystart="139" bodyend="310"/>
+    <listofallmembers>
+      <member refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1a73fbb490f9d45fef55f44f980e257573" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcPluginUtils::FileUtils</scope><name>areIdenticalFiles</name></member>
+      <member refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1af04fb8d16f17b58e29de0b74855d2e35" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcPluginUtils::FileUtils</scope><name>checkXtcModule</name></member>
+      <member refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1a292afad518a1362f01e6afbacf6c69ec" prot="private" virt="non-virtual"><scope>org::xtclang::plugin::XtcPluginUtils::FileUtils</scope><name>checkXtcModule</name></member>
+      <member refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1a5f366495a5aebda1da5154e8b6fb0d70" prot="private" virt="non-virtual"><scope>org::xtclang::plugin::XtcPluginUtils::FileUtils</scope><name>computeHash</name></member>
+      <member refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1a4cbbe77e0795441666ad920f69af836c" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcPluginUtils::FileUtils</scope><name>computeSha256</name></member>
+      <member refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1a170e432e5efab13877e9ce568e6d37b0" prot="private" virt="non-virtual"><scope>org::xtclang::plugin::XtcPluginUtils::FileUtils</scope><name>FileUtils</name></member>
+      <member refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1a6c60bc2589f97d4945a469d3f9c2d6c8" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcPluginUtils::FileUtils</scope><name>formatJarMetadata</name></member>
+      <member refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1a9c7210e12ded1f9b6bea85e7e066da2f" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcPluginUtils::FileUtils</scope><name>getFileExtension</name></member>
+      <member refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1a5ed1b31ef10ddd5530b834b702ca0a8f" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcPluginUtils::FileUtils</scope><name>hasFileExtension</name></member>
+      <member refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1ac59d6a1a3be93bbf340df46a5341f4e6" prot="private" virt="non-virtual"><scope>org::xtclang::plugin::XtcPluginUtils::FileUtils</scope><name>hasJarExtension</name></member>
+      <member refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1ae5f9f96105101145f2868b41eebe77d6" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcPluginUtils::FileUtils</scope><name>isValidJavaToolsArtifact</name></member>
+      <member refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1abea78c63afdc5a3b7f0b114066481326" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcPluginUtils::FileUtils</scope><name>isValidXtcModule</name></member>
+      <member refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1a946d555aa416736a31e96babeaaaa3a1" prot="private" virt="non-virtual"><scope>org::xtclang::plugin::XtcPluginUtils::FileUtils</scope><name>isValidXtcModule</name></member>
+      <member refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1ab8c8b9c79f333af26d355abc3ac838e1" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcPluginUtils::FileUtils</scope><name>isValidXtcModuleSafe</name></member>
+      <member refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1ae7928424263094b8da2f255b16f0d442" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcPluginUtils::FileUtils</scope><name>readXdkVersionFromJar</name></member>
+      <member refid="d8/d80/classorg_1_1xtclang_1_1plugin_1_1_xtc_plugin_utils_1_1_file_utils_1a64dac891b03ba5715f262aec9139b5ba" prot="private" virt="non-virtual"><scope>org::xtclang::plugin::XtcPluginUtils::FileUtils</scope><name>toHex</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

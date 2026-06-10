@@ -1,0 +1,1036 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler" kind="class" language="Java" prot="public">
+    <compoundname>org::xvm::tool::Compiler</compoundname>
+    <basecompoundref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher" prot="public" virt="non-virtual">org.xvm.tool.Launcher&lt; CompilerOptions &gt;</basecompoundref>
+    <derivedcompoundref refid="d4/d45/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1lang_1_1src_1_1x_r_t_compiler_1_1_compiler_adapter" prot="public" virt="non-virtual">org.xvm.runtime.template._native.lang.src.xRTCompiler.CompilerAdapter</derivedcompoundref>
+    <derivedcompoundref refid="df/d82/classorg_1_1xvm_1_1tool_1_1_launcher_error_handling_test_1_1_test_compiler" prot="public" virt="non-virtual">org.xvm.tool.LauncherErrorHandlingTest.TestCompiler</derivedcompoundref>
+    <innerclass refid="d9/dc2/interfaceorg_1_1xvm_1_1tool_1_1_compiler_1_1_compiler_phase" prot="public">org::xvm::tool::Compiler::CompilerPhase</innerclass>
+    <innerclass refid="d9/dd1/enumorg_1_1xvm_1_1tool_1_1_compiler_1_1_strictness" prot="public">org::xvm::tool::Compiler::Strictness</innerclass>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1aacd98ed2269b5f3e898c02728ec92a29" prot="protected" static="no" mutable="no">
+        <type><ref refid="d9/dd1/enumorg_1_1xvm_1_1tool_1_1_compiler_1_1_strictness" kindref="compound">Strictness</ref></type>
+        <definition>Strictness org.xvm.tool.Compiler.strictLevel</definition>
+        <argsstring></argsstring>
+        <name>strictLevel</name>
+        <qualifiedname>org.xvm.tool.Compiler.strictLevel</qualifiedname>
+        <initializer>= <ref refid="d9/dd1/enumorg_1_1xvm_1_1tool_1_1_compiler_1_1_strictness_1a2a75a0aa0e7d75d0d4e9abc84a8b1a62" kindref="member">Strictness.Normal</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" line="725" column="26" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" bodystart="725" bodyend="-1"/>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1aeb76c7af708f4baaaf56c785096b8d7b" compoundref="d8/d9b/tool_2_compiler_8java" startline="610" endline="612">org.xvm.tool.Compiler.isBadEnoughToAbort</referencedby>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1ae7ca0d16b1957304908eaa3626a10b33" compoundref="d8/d9b/tool_2_compiler_8java" startline="599" endline="607">org.xvm.tool.Compiler.isBadEnoughToPrint</referencedby>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a4fffc7853a8ab6e5039004d44a6c8be1" compoundref="d8/d9b/tool_2_compiler_8java" startline="641" endline="670">org.xvm.tool.Compiler.validateOptions</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1ac16b4effafc20d352e63e8b47845c726" prot="protected" static="no" mutable="no">
+        <type><ref refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository" kindref="compound">ModuleRepository</ref></type>
+        <definition>ModuleRepository org.xvm.tool.Compiler.repoLib</definition>
+        <argsstring></argsstring>
+        <name>repoLib</name>
+        <qualifiedname>org.xvm.tool.Compiler.repoLib</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" line="727" column="32" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" bodystart="727" bodyend="-1"/>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a2bdf0847cea7f9b63fd6debb148bcd6b" compoundref="d8/d9b/tool_2_compiler_8java" startline="376" endline="382">org.xvm.tool.Compiler.ensureLibraryRepo</referencedby>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a5fec81d5b93faa3b949653a665926d54" compoundref="d8/d9b/tool_2_compiler_8java" startline="311" endline="325">org.xvm.tool.Compiler.injectNativeTurtle</referencedby>
+        <referencedby refid="d4/d45/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1lang_1_1src_1_1x_r_t_compiler_1_1_compiler_adapter_1a3d9b74db54095def40ce65c4e83849e7" compoundref="da/d2b/x_r_t_compiler_8java" startline="372" endline="458">org.xvm.runtime.template._native.lang.src.xRTCompiler.CompilerAdapter.partialCompile</referencedby>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a7ee19f96fb520bd9ae44028cc6c6db46" compoundref="d8/d9b/tool_2_compiler_8java" startline="147" endline="303">org.xvm.tool.Compiler.process</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1aaa56b6e52b4aa727523806c7caaacc89" prot="protected" static="no" mutable="no">
+        <type>List&lt; <ref refid="da/d7c/classorg_1_1xvm_1_1tool_1_1_module_info" kindref="compound">ModuleInfo</ref> &gt;</type>
+        <definition>List&lt;ModuleInfo&gt; org.xvm.tool.Compiler.prevModules</definition>
+        <argsstring></argsstring>
+        <name>prevModules</name>
+        <qualifiedname>org.xvm.tool.Compiler.prevModules</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" line="728" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" bodystart="728" bodyend="-1"/>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1ac30cadb7c2f7fab3cdae24c0e9e352b7" compoundref="d8/d9b/tool_2_compiler_8java" startline="625" endline="627">org.xvm.tool.Compiler.getModuleInfos</referencedby>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a7ee19f96fb520bd9ae44028cc6c6db46" compoundref="d8/d9b/tool_2_compiler_8java" startline="147" endline="303">org.xvm.tool.Compiler.process</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1af6ce85982102cd251b1b80dac641ec93" prot="protected" static="no" mutable="no">
+        <type><ref refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository" kindref="compound">ModuleRepository</ref></type>
+        <definition>ModuleRepository org.xvm.tool.Compiler.prevLibs</definition>
+        <argsstring></argsstring>
+        <name>prevLibs</name>
+        <qualifiedname>org.xvm.tool.Compiler.prevLibs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" line="729" column="32" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" bodystart="729" bodyend="-1"/>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a73634a22d01b9d7781fc7fbae861631c" compoundref="d8/d9b/tool_2_compiler_8java" startline="629" endline="631">org.xvm.tool.Compiler.getLibraryRepo</referencedby>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a7ee19f96fb520bd9ae44028cc6c6db46" compoundref="d8/d9b/tool_2_compiler_8java" startline="147" endline="303">org.xvm.tool.Compiler.process</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a415c21cfd86e638219948c1750ce879e" prot="protected" static="no" mutable="no">
+        <type><ref refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository" kindref="compound">ModuleRepository</ref></type>
+        <definition>ModuleRepository org.xvm.tool.Compiler.prevOutput</definition>
+        <argsstring></argsstring>
+        <name>prevOutput</name>
+        <qualifiedname>org.xvm.tool.Compiler.prevOutput</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" line="730" column="32" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" bodystart="730" bodyend="-1"/>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a64c528865dbb34a1b141a8b0b6847979" compoundref="d8/d9b/tool_2_compiler_8java" startline="634" endline="636">org.xvm.tool.Compiler.getOutputRepo</referencedby>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a7ee19f96fb520bd9ae44028cc6c6db46" compoundref="d8/d9b/tool_2_compiler_8java" startline="147" endline="303">org.xvm.tool.Compiler.process</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a48133cd0f3aa22494c671613a76c6248" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.xvm.tool.Compiler.Compiler</definition>
+        <argsstring>(CompilerOptions options)</argsstring>
+        <name>Compiler</name>
+        <qualifiedname>org.xvm.tool.Compiler.Compiler</qualifiedname>
+        <param>
+          <type><ref refid="dd/d51/classorg_1_1xvm_1_1tool_1_1_launcher_options_1_1_compiler_options" kindref="compound">CompilerOptions</ref></type>
+          <declname>options</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" line="109" column="12" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" bodystart="109" bodyend="111"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a86ccf19d3e54386b912e7b57a8884ca7" compoundref="d1/d7c/_launcher_8java" startline="151" endline="156">org.xvm.tool.Launcher&lt; CompilerOptions &gt;::Launcher</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4246d1c2d0eba48001e5869b6847093e" compoundref="d1/d7c/_launcher_8java" startline="666" endline="668">org.xvm.tool.Launcher&lt; CompilerOptions &gt;::options</references>
+      </memberdef>
+      <memberdef kind="function" id="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a13584f6f6285df6da670ac7109f54e83" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.xvm.tool.Compiler.Compiler</definition>
+        <argsstring>(CompilerOptions options, Console console, ErrorListener errListener)</argsstring>
+        <name>Compiler</name>
+        <qualifiedname>org.xvm.tool.Compiler.Compiler</qualifiedname>
+        <param>
+          <type><ref refid="dd/d51/classorg_1_1xvm_1_1tool_1_1_launcher_options_1_1_compiler_options" kindref="compound">CompilerOptions</ref></type>
+          <declname>options</declname>
+        </param>
+        <param>
+          <type><ref refid="dd/dbc/interfaceorg_1_1xvm_1_1tool_1_1_console" kindref="compound">Console</ref></type>
+          <declname>console</declname>
+        </param>
+        <param>
+          <type><ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref></type>
+          <declname>errListener</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler" kindref="compound">Compiler</ref> constructor for programmatic use. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>options</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pre-configured compiler options </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>console</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>representation of the terminal within which this command is run, or null </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>errListener</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>optional <ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref> to receive errors, or null for no delegation </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" line="120" column="12" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" bodystart="120" bodyend="122"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a692712e6d64096ec796059f6d5c3c8f9" compoundref="d1/d7c/_launcher_8java" startline="670" endline="672">org.xvm.tool.Launcher&lt; CompilerOptions &gt;::console</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4246d1c2d0eba48001e5869b6847093e" compoundref="d1/d7c/_launcher_8java" startline="666" endline="668">org.xvm.tool.Launcher&lt; CompilerOptions &gt;::options</references>
+      </memberdef>
+      <memberdef kind="function" id="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a3067d77e6b96f3169be5283aac6deb7e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String org.xvm.tool.Compiler.desc</definition>
+        <argsstring>()</argsstring>
+        <name>desc</name>
+        <qualifiedname>org.xvm.tool.Compiler.desc</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" line="590" column="19" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" bodystart="590" bodyend="595"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a7c5ba1a4c28644f06955cf413414ce8b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.tool.Compiler.isAbortDesired</definition>
+        <argsstring>()</argsstring>
+        <name>isAbortDesired</name>
+        <qualifiedname>org.xvm.tool.Compiler.isAbortDesired</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" line="615" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" bodystart="615" bodyend="620"/>
+        <references refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener_1ac7ff60e616d9e82aa72cf11ba767d749" compoundref="d9/d86/_error_listener_8java" startline="433">org.xvm.asm.ErrorListener.BLACKHOLE</references>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1aeb76c7af708f4baaaf56c785096b8d7b" compoundref="d8/d9b/tool_2_compiler_8java" startline="610" endline="612">org.xvm.tool.Compiler.isBadEnoughToAbort</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1af0236b951cf910b679da12e2e6d53823" compoundref="d1/d7c/_launcher_8java" startline="130">org.xvm.tool.Launcher&lt; CompilerOptions &gt;::m_errors</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a7c3501fa6edd2e9b9706c99d1bca35a7" compoundref="d1/d7c/_launcher_8java" startline="136">org.xvm.tool.Launcher&lt; CompilerOptions &gt;::m_sevWorst</references>
+      </memberdef>
+      <memberdef kind="function" id="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1ac30cadb7c2f7fab3cdae24c0e9e352b7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; <ref refid="da/d7c/classorg_1_1xvm_1_1tool_1_1_module_info" kindref="compound">ModuleInfo</ref> &gt;</type>
+        <definition>List&lt; ModuleInfo &gt; org.xvm.tool.Compiler.getModuleInfos</definition>
+        <argsstring>()</argsstring>
+        <name>getModuleInfos</name>
+        <qualifiedname>org.xvm.tool.Compiler.getModuleInfos</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" line="625" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" bodystart="625" bodyend="627"/>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1ac30cadb7c2f7fab3cdae24c0e9e352b7" compoundref="d8/d9b/tool_2_compiler_8java" startline="625" endline="627">org.xvm.tool.Compiler.getModuleInfos</references>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1aaa56b6e52b4aa727523806c7caaacc89" compoundref="d8/d9b/tool_2_compiler_8java" startline="728">org.xvm.tool.Compiler.prevModules</references>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1ac30cadb7c2f7fab3cdae24c0e9e352b7" compoundref="d8/d9b/tool_2_compiler_8java" startline="625" endline="627">org.xvm.tool.Compiler.getModuleInfos</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a73634a22d01b9d7781fc7fbae861631c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository" kindref="compound">ModuleRepository</ref></type>
+        <definition>ModuleRepository org.xvm.tool.Compiler.getLibraryRepo</definition>
+        <argsstring>()</argsstring>
+        <name>getLibraryRepo</name>
+        <qualifiedname>org.xvm.tool.Compiler.getLibraryRepo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" line="629" column="29" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" bodystart="629" bodyend="631"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a7923b63ac491f720ae0a7a48c9bd3bce" compoundref="d1/d7c/_launcher_8java" startline="686" endline="700">org.xvm.tool.Launcher&lt; CompilerOptions &gt;::configureLibraryRepo</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4246d1c2d0eba48001e5869b6847093e" compoundref="d1/d7c/_launcher_8java" startline="666" endline="668">org.xvm.tool.Launcher&lt; CompilerOptions &gt;::options</references>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1af6ce85982102cd251b1b80dac641ec93" compoundref="d8/d9b/tool_2_compiler_8java" startline="729">org.xvm.tool.Compiler.prevLibs</references>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a64c528865dbb34a1b141a8b0b6847979" compoundref="d8/d9b/tool_2_compiler_8java" startline="634" endline="636">org.xvm.tool.Compiler.getOutputRepo</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a64c528865dbb34a1b141a8b0b6847979" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository" kindref="compound">ModuleRepository</ref></type>
+        <definition>ModuleRepository org.xvm.tool.Compiler.getOutputRepo</definition>
+        <argsstring>()</argsstring>
+        <name>getOutputRepo</name>
+        <qualifiedname>org.xvm.tool.Compiler.getOutputRepo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" line="634" column="29" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" bodystart="634" bodyend="636"/>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a73634a22d01b9d7781fc7fbae861631c" compoundref="d8/d9b/tool_2_compiler_8java" startline="629" endline="631">org.xvm.tool.Compiler.getLibraryRepo</references>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a64c528865dbb34a1b141a8b0b6847979" compoundref="d8/d9b/tool_2_compiler_8java" startline="634" endline="636">org.xvm.tool.Compiler.getOutputRepo</references>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a415c21cfd86e638219948c1750ce879e" compoundref="d8/d9b/tool_2_compiler_8java" startline="730">org.xvm.tool.Compiler.prevOutput</references>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a64c528865dbb34a1b141a8b0b6847979" compoundref="d8/d9b/tool_2_compiler_8java" startline="634" endline="636">org.xvm.tool.Compiler.getOutputRepo</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="package-static-func">
+      <memberdef kind="function" id="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1aad09b9a940e5c7949ef4c083ff1b76a8" prot="package" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void org.xvm.tool.Compiler.main</definition>
+        <argsstring>(String[] args)</argsstring>
+        <name>main</name>
+        <qualifiedname>org.xvm.tool.Compiler.main</qualifiedname>
+        <param>
+          <type>String[]</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Entry point from the OS. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Delegates to <ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher" kindref="compound">Launcher</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>command line arguments </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" line="130" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" bodystart="130" bodyend="132"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a15a2a6d9535af135c84ba824b294f6f5" compoundref="d1/d7c/_launcher_8java" startline="86">org.xvm.tool.Launcher&lt; CompilerOptions &gt;::CMD_BUILD</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a66f4a3ce92d5c42309a08c2474770ac2" compoundref="d1/d7c/_launcher_8java" startline="335" endline="337">org.xvm.tool.Launcher&lt; CompilerOptions &gt;::insertCommand</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a86ccf19d3e54386b912e7b57a8884ca7" compoundref="d1/d7c/_launcher_8java" startline="151" endline="156">org.xvm.tool.Launcher&lt; CompilerOptions &gt;::Launcher</references>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1af273c8e001f1400ce165d0a44eb9773a" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; File &gt;</type>
+        <definition>List&lt; File &gt; org.xvm.tool.Compiler.getInputLocations</definition>
+        <argsstring>()</argsstring>
+        <name>getInputLocations</name>
+        <qualifiedname>org.xvm.tool.Compiler.getInputLocations</qualifiedname>
+        <reimplementedby refid="d4/d45/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1lang_1_1src_1_1x_r_t_compiler_1_1_compiler_adapter_1a8a72f20dc9b456023f9d2c84157e8cc8">getInputLocations</reimplementedby>
+        <briefdescription>
+<para>Get the input locations (source files) to compile. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Subclasses can override to provide dynamic sources.</para>
+<para><simplesect kind="return"><para>list of input source files </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" line="140" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" bodystart="140" bodyend="142"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4246d1c2d0eba48001e5869b6847093e" compoundref="d1/d7c/_launcher_8java" startline="666" endline="668">org.xvm.tool.Launcher&lt; CompilerOptions &gt;::options</references>
+      </memberdef>
+      <memberdef kind="function" id="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a7ee19f96fb520bd9ae44028cc6c6db46" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.tool.Compiler.process</definition>
+        <argsstring>()</argsstring>
+        <name>process</name>
+        <qualifiedname>org.xvm.tool.Compiler.process</qualifiedname>
+        <reimplementedby refid="df/d82/classorg_1_1xvm_1_1tool_1_1_launcher_error_handling_test_1_1_test_compiler_1ad0aa23294007ce07279b5db684e1a2ea">process</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" line="147" column="19" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" bodystart="147" bodyend="303"/>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a0a102a2b61ce97fd46287b3e7de4de52" compoundref="d8/d9b/tool_2_compiler_8java" startline="489" endline="500">org.xvm.tool.Compiler.addVersion</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a18fe47639618f2e83c7379bc82288b94" compoundref="d1/d7c/_launcher_8java" startline="534" endline="542">org.xvm.tool.Launcher&lt; CompilerOptions &gt;::checkErrors</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a87be608c1cd45c0ad74456eabb01dc32" compoundref="d1/d7c/_launcher_8java" startline="558" endline="571">org.xvm.tool.Launcher&lt; CompilerOptions &gt;::displayHelp</references>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a0e1ac61f9e542ef1b7058c38b16e4cba" compoundref="d8/d9b/tool_2_compiler_8java" startline="508" endline="560">org.xvm.tool.Compiler.emitModules</references>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a2bdf0847cea7f9b63fd6debb148bcd6b" compoundref="d8/d9b/tool_2_compiler_8java" startline="376" endline="382">org.xvm.tool.Compiler.ensureLibraryRepo</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1abe05bfa8103e6f776b685b54adfdf01e" compoundref="d1/d7c/_launcher_8java" startline="943" endline="949">org.xvm.tool.Launcher&lt; CompilerOptions &gt;::flushAndCheckErrors</references>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1ab637514801cd62fbb8ffa40563530aec" compoundref="d8/d9b/tool_2_compiler_8java" startline="461" endline="486">org.xvm.tool.Compiler.generateCode</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a57b16e38ba02d62a32661844ce180e10" compoundref="d1/d7c/_launcher_8java" startline="613" endline="615">org.xvm.tool.Launcher&lt; CompilerOptions &gt;::hasSeriousErrors</references>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a5fec81d5b93faa3b949653a665926d54" compoundref="d8/d9b/tool_2_compiler_8java" startline="311" endline="325">org.xvm.tool.Compiler.injectNativeTurtle</references>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a66db2842a6c0493372ca9f26c390bf07" compoundref="d8/d9b/tool_2_compiler_8java" startline="389" endline="398">org.xvm.tool.Compiler.linkModules</references>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1ac2df49f600307411b899fe0097b389b0" compoundref="d8/d9b/tool_2_compiler_8java" startline="566" endline="587">org.xvm.tool.Compiler.log</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4246d1c2d0eba48001e5869b6847093e" compoundref="d1/d7c/_launcher_8java" startline="666" endline="668">org.xvm.tool.Launcher&lt; CompilerOptions &gt;::options</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a6bf63e81cf4ecd8576c6c7f318bd8cab" compoundref="d1/d7c/_launcher_8java" startline="753" endline="773">org.xvm.tool.Launcher&lt; CompilerOptions &gt;::prelinkSystemLibraries</references>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1af6ce85982102cd251b1b80dac641ec93" compoundref="d8/d9b/tool_2_compiler_8java" startline="729">org.xvm.tool.Compiler.prevLibs</references>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1aaa56b6e52b4aa727523806c7caaacc89" compoundref="d8/d9b/tool_2_compiler_8java" startline="728">org.xvm.tool.Compiler.prevModules</references>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a415c21cfd86e638219948c1750ce879e" compoundref="d8/d9b/tool_2_compiler_8java" startline="730">org.xvm.tool.Compiler.prevOutput</references>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1ac16b4effafc20d352e63e8b47845c726" compoundref="d8/d9b/tool_2_compiler_8java" startline="727">org.xvm.tool.Compiler.repoLib</references>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1af36d6576959f604f7f57464af3b19d06" compoundref="d8/d9b/tool_2_compiler_8java" startline="336" endline="369">org.xvm.tool.Compiler.resolveCompilers</references>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a3b5825a1fb580921cd770b66f0327807" compoundref="d8/d9b/tool_2_compiler_8java" startline="406" endline="408">org.xvm.tool.Compiler.resolveNames</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a19ffb27e1f08b05bd0c61b1500e6beb9" compoundref="d1/d7c/_launcher_8java" startline="904" endline="931">org.xvm.tool.Launcher&lt; CompilerOptions &gt;::selectTargets</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a79f6f3c856d7a70d81e15324e1c8fca8" compoundref="d1/d7c/_launcher_8java" startline="780" endline="812">org.xvm.tool.Launcher&lt; CompilerOptions &gt;::showSystemVersion</references>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a1b08ac49fb29ed0b4c696d202f32c474" compoundref="d8/d9b/tool_2_compiler_8java" startline="415" endline="417">org.xvm.tool.Compiler.validateExpressions</references>
+      </memberdef>
+      <memberdef kind="function" id="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a5fec81d5b93faa3b949653a665926d54" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.tool.Compiler.injectNativeTurtle</definition>
+        <argsstring>(ModuleRepository repoLib)</argsstring>
+        <name>injectNativeTurtle</name>
+        <qualifiedname>org.xvm.tool.Compiler.injectNativeTurtle</qualifiedname>
+        <param>
+          <type><ref refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository" kindref="compound">ModuleRepository</ref></type>
+          <declname>repoLib</declname>
+        </param>
+        <briefdescription>
+<para>The compiler depends on the NakedRef type from the prototype module being available to each <ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref> in the modules being compiled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method injects that turtle.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>repoLib</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the library repository being used for compilation </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" line="311" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" bodystart="311" bodyend="325"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a04f7ad71ca64fd4c118c0c55b5541e8e" compoundref="d1/d7c/_launcher_8java" startline="718" endline="724">org.xvm.tool.Launcher&lt; CompilerOptions &gt;::extractBuildRepo</references>
+        <references refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_component_1abfe0ecfda79a507998aa0555fb1ea282" compoundref="d0/d23/_component_8java" startline="1318" endline="1325">org.xvm.asm.Component.getChild</references>
+        <references refid="d7/d57/classorg_1_1xvm_1_1asm_1_1_xvm_structure_1acbdfa66204a5c352b0153ba99abec74e" compoundref="d4/d04/_xvm_structure_8java" startline="139" endline="141">org.xvm.asm.XvmStructure.getConstantPool</references>
+        <references refid="d5/d19/classorg_1_1xvm_1_1asm_1_1_class_structure_1a7018a1afb368c5052f83bd3bd5991d8b" compoundref="d0/d07/_class_structure_8java" startline="658" endline="700">org.xvm.asm.ClassStructure.getFormalType</references>
+        <references refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository_1a307ae03d3c321714a32f04470d227f84" compoundref="db/d78/_module_repository_8java" startline="39" endline="47">org.xvm.asm.ModuleRepository.getModuleNames</references>
+        <references refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository_1aeb782f48317a807e8aa1a985b3466f36">org.xvm.asm.ModuleRepository.loadModule</references>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1ac16b4effafc20d352e63e8b47845c726" compoundref="d8/d9b/tool_2_compiler_8java" startline="727">org.xvm.tool.Compiler.repoLib</references>
+        <references refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a090d8883099c9a40811ee0da267a5d6a" compoundref="d9/d9d/_constant_pool_8java" startline="3537" endline="3539">org.xvm.asm.ConstantPool.setNakedRefType</references>
+        <references refid="df/df8/interfaceorg_1_1xvm_1_1asm_1_1_constants_1a25394c2b8f60c1f8835ec0d7008af15e" compoundref="d3/d79/asm_2_constants_8java" startline="76">org.xvm.asm.Constants.TURTLE_MODULE</references>
+        <references refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1aecb1570b2597db8d0a21ea8ef53966a0" compoundref="d9/d9d/_constant_pool_8java" startline="3627" endline="3632">org.xvm.asm.ConstantPool.withPool</references>
+        <referencedby refid="d4/d45/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1lang_1_1src_1_1x_r_t_compiler_1_1_compiler_adapter_1a3d9b74db54095def40ce65c4e83849e7" compoundref="da/d2b/x_r_t_compiler_8java" startline="372" endline="458">org.xvm.runtime.template._native.lang.src.xRTCompiler.CompilerAdapter.partialCompile</referencedby>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a7ee19f96fb520bd9ae44028cc6c6db46" compoundref="d8/d9b/tool_2_compiler_8java" startline="147" endline="303">org.xvm.tool.Compiler.process</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1af36d6576959f604f7f57464af3b19d06" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Map&lt; String, <ref refid="d3/d97/classorg_1_1xvm_1_1compiler_1_1_compiler" kindref="compound">org.xvm.compiler.Compiler</ref> &gt;</type>
+        <definition>Map&lt; String, org.xvm.compiler.Compiler &gt; org.xvm.tool.Compiler.resolveCompilers</definition>
+        <argsstring>(List&lt; Node &gt; allNodes, ModuleRepository repo)</argsstring>
+        <name>resolveCompilers</name>
+        <qualifiedname>org.xvm.tool.Compiler.resolveCompilers</qualifiedname>
+        <param>
+          <type>List&lt; <ref refid="d8/d87/classorg_1_1xvm_1_1tool_1_1_module_info_1_1_node" kindref="compound">Node</ref> &gt;</type>
+          <declname>allNodes</declname>
+        </param>
+        <param>
+          <type><ref refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository" kindref="compound">ModuleRepository</ref></type>
+          <declname>repo</declname>
+        </param>
+        <briefdescription>
+<para>Link all the AST objects for each module into a single parse tree, and create the outline of the finished <ref refid="db/d63/classorg_1_1xvm_1_1asm_1_1_file_structure" kindref="compound">FileStructure</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>allNodes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the list of module sources being compiled </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>repo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the library repository (with the build repository at the front)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a map from module name to compiler, one for each module being compiled </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" line="336" column="19" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" bodystart="336" bodyend="369"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a04f7ad71ca64fd4c118c0c55b5541e8e" compoundref="d1/d7c/_launcher_8java" startline="718" endline="724">org.xvm.tool.Launcher&lt; CompilerOptions &gt;::extractBuildRepo</references>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1ac2df49f600307411b899fe0097b389b0" compoundref="d8/d9b/tool_2_compiler_8java" startline="566" endline="587">org.xvm.tool.Compiler.log</references>
+        <references refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1ab6d9d288e536661e1bbc607101f56da3" compoundref="dd/df5/_token_8java" startline="558">org.xvm.compiler.Token.Id.MODULE</references>
+        <referencedby refid="d4/d45/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1lang_1_1src_1_1x_r_t_compiler_1_1_compiler_adapter_1a3d9b74db54095def40ce65c4e83849e7" compoundref="da/d2b/x_r_t_compiler_8java" startline="372" endline="458">org.xvm.runtime.template._native.lang.src.xRTCompiler.CompilerAdapter.partialCompile</referencedby>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a7ee19f96fb520bd9ae44028cc6c6db46" compoundref="d8/d9b/tool_2_compiler_8java" startline="147" endline="303">org.xvm.tool.Compiler.process</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a2bdf0847cea7f9b63fd6debb148bcd6b" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository" kindref="compound">ModuleRepository</ref></type>
+        <definition>ModuleRepository org.xvm.tool.Compiler.ensureLibraryRepo</definition>
+        <argsstring>()</argsstring>
+        <name>ensureLibraryRepo</name>
+        <qualifiedname>org.xvm.tool.Compiler.ensureLibraryRepo</qualifiedname>
+        <briefdescription>
+<para>Lazily configure the library repository. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the library repository </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" line="376" column="32" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" bodystart="376" bodyend="382"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a7923b63ac491f720ae0a7a48c9bd3bce" compoundref="d1/d7c/_launcher_8java" startline="686" endline="700">org.xvm.tool.Launcher&lt; CompilerOptions &gt;::configureLibraryRepo</references>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1ac2df49f600307411b899fe0097b389b0" compoundref="d8/d9b/tool_2_compiler_8java" startline="566" endline="587">org.xvm.tool.Compiler.log</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4246d1c2d0eba48001e5869b6847093e" compoundref="d1/d7c/_launcher_8java" startline="666" endline="668">org.xvm.tool.Launcher&lt; CompilerOptions &gt;::options</references>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1ac16b4effafc20d352e63e8b47845c726" compoundref="d8/d9b/tool_2_compiler_8java" startline="727">org.xvm.tool.Compiler.repoLib</references>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a7ee19f96fb520bd9ae44028cc6c6db46" compoundref="d8/d9b/tool_2_compiler_8java" startline="147" endline="303">org.xvm.tool.Compiler.process</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a66db2842a6c0493372ca9f26c390bf07" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.tool.Compiler.linkModules</definition>
+        <argsstring>(List&lt; org.xvm.compiler.Compiler &gt; compilers, ModuleRepository repo)</argsstring>
+        <name>linkModules</name>
+        <qualifiedname>org.xvm.tool.Compiler.linkModules</qualifiedname>
+        <reimplementedby refid="d4/d45/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1lang_1_1src_1_1x_r_t_compiler_1_1_compiler_adapter_1ac5a7a3f7316413ff5830f4ac4ef82109">linkModules</reimplementedby>
+        <param>
+          <type>List&lt; <ref refid="d3/d97/classorg_1_1xvm_1_1compiler_1_1_compiler" kindref="compound">org.xvm.compiler.Compiler</ref> &gt;</type>
+          <declname>compilers</declname>
+        </param>
+        <param>
+          <type><ref refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository" kindref="compound">ModuleRepository</ref></type>
+          <declname>repo</declname>
+        </param>
+        <briefdescription>
+<para>Link the modules together based on their declared dependencies. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>compilers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a module compiler for each module </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" line="389" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" bodystart="389" bodyend="398"/>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a7ee19f96fb520bd9ae44028cc6c6db46" compoundref="d8/d9b/tool_2_compiler_8java" startline="147" endline="303">org.xvm.tool.Compiler.process</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1ab637514801cd62fbb8ffa40563530aec" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.tool.Compiler.generateCode</definition>
+        <argsstring>(List&lt; org.xvm.compiler.Compiler &gt; compilers)</argsstring>
+        <name>generateCode</name>
+        <qualifiedname>org.xvm.tool.Compiler.generateCode</qualifiedname>
+        <param>
+          <type>List&lt; <ref refid="d3/d97/classorg_1_1xvm_1_1compiler_1_1_compiler" kindref="compound">org.xvm.compiler.Compiler</ref> &gt;</type>
+          <declname>compilers</declname>
+        </param>
+        <briefdescription>
+<para>After names/dependencies are resolved, generate the actual code. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>compilers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a module compiler for each module </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" line="461" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" bodystart="461" bodyend="486"/>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1ac2df49f600307411b899fe0097b389b0" compoundref="d8/d9b/tool_2_compiler_8java" startline="566" endline="587">org.xvm.tool.Compiler.log</references>
+        <referencedby refid="d4/d45/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1lang_1_1src_1_1x_r_t_compiler_1_1_compiler_adapter_1a3d9b74db54095def40ce65c4e83849e7" compoundref="da/d2b/x_r_t_compiler_8java" startline="372" endline="458">org.xvm.runtime.template._native.lang.src.xRTCompiler.CompilerAdapter.partialCompile</referencedby>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a7ee19f96fb520bd9ae44028cc6c6db46" compoundref="d8/d9b/tool_2_compiler_8java" startline="147" endline="303">org.xvm.tool.Compiler.process</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a0e1ac61f9e542ef1b7058c38b16e4cba" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.tool.Compiler.emitModules</definition>
+        <argsstring>(List&lt; Node &gt; allNodes, ModuleRepository repoOutput)</argsstring>
+        <name>emitModules</name>
+        <qualifiedname>org.xvm.tool.Compiler.emitModules</qualifiedname>
+        <param>
+          <type>List&lt; <ref refid="d8/d87/classorg_1_1xvm_1_1tool_1_1_module_info_1_1_node" kindref="compound">Node</ref> &gt;</type>
+          <declname>allNodes</declname>
+        </param>
+        <param>
+          <type><ref refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository" kindref="compound">ModuleRepository</ref></type>
+          <declname>repoOutput</declname>
+        </param>
+        <briefdescription>
+<para>Emit the results of compilation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>0 for success, non-zero exit code for failure </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" line="508" column="19" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" bodystart="508" bodyend="560"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a18fe47639618f2e83c7379bc82288b94" compoundref="d1/d7c/_launcher_8java" startline="534" endline="542">org.xvm.tool.Launcher&lt; CompilerOptions &gt;::checkErrors</references>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a0e1ac61f9e542ef1b7058c38b16e4cba" compoundref="d8/d9b/tool_2_compiler_8java" startline="508" endline="560">org.xvm.tool.Compiler.emitModules</references>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1ac2df49f600307411b899fe0097b389b0" compoundref="d8/d9b/tool_2_compiler_8java" startline="566" endline="587">org.xvm.tool.Compiler.log</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4246d1c2d0eba48001e5869b6847093e" compoundref="d1/d7c/_launcher_8java" startline="666" endline="668">org.xvm.tool.Launcher&lt; CompilerOptions &gt;::options</references>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a0e1ac61f9e542ef1b7058c38b16e4cba" compoundref="d8/d9b/tool_2_compiler_8java" startline="508" endline="560">org.xvm.tool.Compiler.emitModules</referencedby>
+        <referencedby refid="d4/d45/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1lang_1_1src_1_1x_r_t_compiler_1_1_compiler_adapter_1a3d9b74db54095def40ce65c4e83849e7" compoundref="da/d2b/x_r_t_compiler_8java" startline="372" endline="458">org.xvm.runtime.template._native.lang.src.xRTCompiler.CompilerAdapter.partialCompile</referencedby>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a7ee19f96fb520bd9ae44028cc6c6db46" compoundref="d8/d9b/tool_2_compiler_8java" startline="147" endline="303">org.xvm.tool.Compiler.process</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1ac2df49f600307411b899fe0097b389b0" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.tool.Compiler.log</definition>
+        <argsstring>(ErrorList errs)</argsstring>
+        <name>log</name>
+        <qualifiedname>org.xvm.tool.Compiler.log</qualifiedname>
+        <param>
+          <type><ref refid="db/dca/classorg_1_1xvm_1_1asm_1_1_error_list" kindref="compound">ErrorList</ref></type>
+          <declname>errs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" line="566" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" bodystart="566" bodyend="587"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a5ccce4ff913cccee3b753fcdfcb2594b" compoundref="d1/d7c/_launcher_8java" startline="483" endline="485">org.xvm.tool.Launcher&lt; CompilerOptions &gt;::err</references>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1ac2df49f600307411b899fe0097b389b0" compoundref="d8/d9b/tool_2_compiler_8java" startline="566" endline="587">org.xvm.tool.Compiler.log</references>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a0a102a2b61ce97fd46287b3e7de4de52" compoundref="d8/d9b/tool_2_compiler_8java" startline="489" endline="500">org.xvm.tool.Compiler.addVersion</referencedby>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a0e1ac61f9e542ef1b7058c38b16e4cba" compoundref="d8/d9b/tool_2_compiler_8java" startline="508" endline="560">org.xvm.tool.Compiler.emitModules</referencedby>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a2bdf0847cea7f9b63fd6debb148bcd6b" compoundref="d8/d9b/tool_2_compiler_8java" startline="376" endline="382">org.xvm.tool.Compiler.ensureLibraryRepo</referencedby>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1ab637514801cd62fbb8ffa40563530aec" compoundref="d8/d9b/tool_2_compiler_8java" startline="461" endline="486">org.xvm.tool.Compiler.generateCode</referencedby>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1ac2df49f600307411b899fe0097b389b0" compoundref="d8/d9b/tool_2_compiler_8java" startline="566" endline="587">org.xvm.tool.Compiler.log</referencedby>
+        <referencedby refid="d4/d45/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1lang_1_1src_1_1x_r_t_compiler_1_1_compiler_adapter_1a3d9b74db54095def40ce65c4e83849e7" compoundref="da/d2b/x_r_t_compiler_8java" startline="372" endline="458">org.xvm.runtime.template._native.lang.src.xRTCompiler.CompilerAdapter.partialCompile</referencedby>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a7ee19f96fb520bd9ae44028cc6c6db46" compoundref="d8/d9b/tool_2_compiler_8java" startline="147" endline="303">org.xvm.tool.Compiler.process</referencedby>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1af36d6576959f604f7f57464af3b19d06" compoundref="d8/d9b/tool_2_compiler_8java" startline="336" endline="369">org.xvm.tool.Compiler.resolveCompilers</referencedby>
+        <referencedby refid="df/d82/classorg_1_1xvm_1_1tool_1_1_launcher_error_handling_test_1_1_test_compiler_1a68b709acda70c6d893c81d5985959930" compoundref="d6/def/_launcher_error_handling_test_8java" startline="122" endline="124">org.xvm.tool.LauncherErrorHandlingTest.TestCompiler.testLog</referencedby>
+        <referencedby refid="df/d82/classorg_1_1xvm_1_1tool_1_1_launcher_error_handling_test_1_1_test_compiler_1a4248139074a4e30ee018a7c62546ca4a" compoundref="d6/def/_launcher_error_handling_test_8java" startline="126" endline="128">org.xvm.tool.LauncherErrorHandlingTest.TestCompiler.testLogWithThrowable</referencedby>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a78cb416a8c92f28ec40f543e5e41fd8f" compoundref="d8/d9b/tool_2_compiler_8java" startline="678" endline="716">org.xvm.tool.Compiler.validateModuleOutput</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1ae7ca0d16b1957304908eaa3626a10b33" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.tool.Compiler.isBadEnoughToPrint</definition>
+        <argsstring>(Severity sev)</argsstring>
+        <name>isBadEnoughToPrint</name>
+        <qualifiedname>org.xvm.tool.Compiler.isBadEnoughToPrint</qualifiedname>
+        <param>
+          <type><ref refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity" kindref="compound">Severity</ref></type>
+          <declname>sev</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" line="599" column="23" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" bodystart="599" bodyend="607"/>
+        <references refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity_1ae9a69ede091e1ae4009b6bf8861b7fed" compoundref="d0/ddf/_severity_8java" startline="24" endline="26">org.xvm.util.Severity.isAtLeast</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4246d1c2d0eba48001e5869b6847093e" compoundref="d1/d7c/_launcher_8java" startline="666" endline="668">org.xvm.tool.Launcher&lt; CompilerOptions &gt;::options</references>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1aacd98ed2269b5f3e898c02728ec92a29" compoundref="d8/d9b/tool_2_compiler_8java" startline="725">org.xvm.tool.Compiler.strictLevel</references>
+      </memberdef>
+      <memberdef kind="function" id="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1aeb76c7af708f4baaaf56c785096b8d7b" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.tool.Compiler.isBadEnoughToAbort</definition>
+        <argsstring>(Severity sev)</argsstring>
+        <name>isBadEnoughToAbort</name>
+        <qualifiedname>org.xvm.tool.Compiler.isBadEnoughToAbort</qualifiedname>
+        <param>
+          <type><ref refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity" kindref="compound">Severity</ref></type>
+          <declname>sev</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" line="610" column="23" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" bodystart="610" bodyend="612"/>
+        <references refid="d9/dd1/enumorg_1_1xvm_1_1tool_1_1_compiler_1_1_strictness_1ac767b8a2cc6a4555415dd3a05d264e1e" compoundref="d8/d9b/tool_2_compiler_8java" startline="722">org.xvm.tool.Compiler.Strictness.Stickler</references>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1aacd98ed2269b5f3e898c02728ec92a29" compoundref="d8/d9b/tool_2_compiler_8java" startline="725">org.xvm.tool.Compiler.strictLevel</references>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a7c5ba1a4c28644f06955cf413414ce8b" compoundref="d8/d9b/tool_2_compiler_8java" startline="615" endline="620">org.xvm.tool.Compiler.isAbortDesired</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a4fffc7853a8ab6e5039004d44a6c8be1" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.tool.Compiler.validateOptions</definition>
+        <argsstring>()</argsstring>
+        <name>validateOptions</name>
+        <qualifiedname>org.xvm.tool.Compiler.validateOptions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" line="641" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" bodystart="641" bodyend="670"/>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4246d1c2d0eba48001e5869b6847093e" compoundref="d1/d7c/_launcher_8java" startline="666" endline="668">org.xvm.tool.Launcher&lt; CompilerOptions &gt;::options</references>
+        <references refid="d9/dd1/enumorg_1_1xvm_1_1tool_1_1_compiler_1_1_strictness_1ac767b8a2cc6a4555415dd3a05d264e1e" compoundref="d8/d9b/tool_2_compiler_8java" startline="722">org.xvm.tool.Compiler.Strictness.Stickler</references>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1aacd98ed2269b5f3e898c02728ec92a29" compoundref="d8/d9b/tool_2_compiler_8java" startline="725">org.xvm.tool.Compiler.strictLevel</references>
+        <references refid="d9/dd1/enumorg_1_1xvm_1_1tool_1_1_compiler_1_1_strictness_1a626fccc125681440ace0d8835f898456" compoundref="d8/d9b/tool_2_compiler_8java" startline="720">org.xvm.tool.Compiler.Strictness.Suppressed</references>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a78cb416a8c92f28ec40f543e5e41fd8f" compoundref="d8/d9b/tool_2_compiler_8java" startline="678" endline="716">org.xvm.tool.Compiler.validateModuleOutput</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab479a062d01e16853ae4b9a84bf14205" compoundref="d1/d7c/_launcher_8java" startline="843" endline="853">org.xvm.tool.Launcher&lt; CompilerOptions &gt;::validateModulePath</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1aae980319e628b80746f098284da87b55" compoundref="d1/d7c/_launcher_8java" startline="862" endline="878">org.xvm.tool.Launcher&lt; CompilerOptions &gt;::validateSourceInput</references>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-static-func">
+      <memberdef kind="function" id="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a3b5825a1fb580921cd770b66f0327807" prot="protected" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void org.xvm.tool.Compiler.resolveNames</definition>
+        <argsstring>(List&lt; org.xvm.compiler.Compiler &gt; compilers)</argsstring>
+        <name>resolveNames</name>
+        <qualifiedname>org.xvm.tool.Compiler.resolveNames</qualifiedname>
+        <param>
+          <type>List&lt; <ref refid="d3/d97/classorg_1_1xvm_1_1compiler_1_1_compiler" kindref="compound">org.xvm.compiler.Compiler</ref> &gt;</type>
+          <declname>compilers</declname>
+        </param>
+        <briefdescription>
+<para>Resolve dependencies, including among multiple modules that are being compiled at the same time. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>compilers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a module compiler for each module </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" line="406" column="27" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" bodystart="406" bodyend="408"/>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1ab1d63c6277232aa2680f41d6de042e4b" compoundref="d8/d9b/tool_2_compiler_8java" startline="434" endline="454">org.xvm.tool.Compiler.runCompilerPhase</references>
+        <referencedby refid="d4/d45/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1lang_1_1src_1_1x_r_t_compiler_1_1_compiler_adapter_1a3d9b74db54095def40ce65c4e83849e7" compoundref="da/d2b/x_r_t_compiler_8java" startline="372" endline="458">org.xvm.runtime.template._native.lang.src.xRTCompiler.CompilerAdapter.partialCompile</referencedby>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a7ee19f96fb520bd9ae44028cc6c6db46" compoundref="d8/d9b/tool_2_compiler_8java" startline="147" endline="303">org.xvm.tool.Compiler.process</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a1b08ac49fb29ed0b4c696d202f32c474" prot="protected" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void org.xvm.tool.Compiler.validateExpressions</definition>
+        <argsstring>(List&lt; org.xvm.compiler.Compiler &gt; compilers)</argsstring>
+        <name>validateExpressions</name>
+        <qualifiedname>org.xvm.tool.Compiler.validateExpressions</qualifiedname>
+        <param>
+          <type>List&lt; <ref refid="d3/d97/classorg_1_1xvm_1_1compiler_1_1_compiler" kindref="compound">org.xvm.compiler.Compiler</ref> &gt;</type>
+          <declname>compilers</declname>
+        </param>
+        <briefdescription>
+<para>Validation phase, before code generation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>compilers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a module compiler for each module </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" line="415" column="27" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" bodystart="415" bodyend="417"/>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1ab1d63c6277232aa2680f41d6de042e4b" compoundref="d8/d9b/tool_2_compiler_8java" startline="434" endline="454">org.xvm.tool.Compiler.runCompilerPhase</references>
+        <referencedby refid="d4/d45/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1lang_1_1src_1_1x_r_t_compiler_1_1_compiler_adapter_1a3d9b74db54095def40ce65c4e83849e7" compoundref="da/d2b/x_r_t_compiler_8java" startline="372" endline="458">org.xvm.runtime.template._native.lang.src.xRTCompiler.CompilerAdapter.partialCompile</referencedby>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a7ee19f96fb520bd9ae44028cc6c6db46" compoundref="d8/d9b/tool_2_compiler_8java" startline="147" endline="303">org.xvm.tool.Compiler.process</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1ab1d63c6277232aa2680f41d6de042e4b" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void org.xvm.tool.Compiler.runCompilerPhase</definition>
+        <argsstring>(List&lt; org.xvm.compiler.Compiler &gt; compilers, CompilerPhase phase)</argsstring>
+        <name>runCompilerPhase</name>
+        <qualifiedname>org.xvm.tool.Compiler.runCompilerPhase</qualifiedname>
+        <param>
+          <type>List&lt; <ref refid="d3/d97/classorg_1_1xvm_1_1compiler_1_1_compiler" kindref="compound">org.xvm.compiler.Compiler</ref> &gt;</type>
+          <declname>compilers</declname>
+        </param>
+        <param>
+          <type><ref refid="d9/dc2/interfaceorg_1_1xvm_1_1tool_1_1_compiler_1_1_compiler_phase" kindref="compound">CompilerPhase</ref></type>
+          <declname>phase</declname>
+        </param>
+        <briefdescription>
+<para>Run a compiler phase that may require multiple iterations to complete. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>compilers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the list of compilers to process </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>phase</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the phase function to run on each compiler (takes compiler and isLastAttempt, returns isDone) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" line="434" column="25" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" bodystart="434" bodyend="454"/>
+        <references refid="d9/dc2/interfaceorg_1_1xvm_1_1tool_1_1_compiler_1_1_compiler_phase_1a60821130a6fb2201133987ee8fa829c3">org.xvm.tool.Compiler.CompilerPhase.run</references>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a3b5825a1fb580921cd770b66f0327807" compoundref="d8/d9b/tool_2_compiler_8java" startline="406" endline="408">org.xvm.tool.Compiler.resolveNames</referencedby>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a1b08ac49fb29ed0b4c696d202f32c474" compoundref="d8/d9b/tool_2_compiler_8java" startline="415" endline="417">org.xvm.tool.Compiler.validateExpressions</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a0a102a2b61ce97fd46287b3e7de4de52" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.tool.Compiler.addVersion</definition>
+        <argsstring>(ModuleInfo info, Version ver)</argsstring>
+        <name>addVersion</name>
+        <qualifiedname>org.xvm.tool.Compiler.addVersion</qualifiedname>
+        <param>
+          <type><ref refid="da/d7c/classorg_1_1xvm_1_1tool_1_1_module_info" kindref="compound">ModuleInfo</ref></type>
+          <declname>info</declname>
+        </param>
+        <param>
+          <type><ref refid="d4/de1/classorg_1_1xvm_1_1asm_1_1_version" kindref="compound">Version</ref></type>
+          <declname>ver</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" line="489" column="21" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" bodystart="489" bodyend="500"/>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a0a102a2b61ce97fd46287b3e7de4de52" compoundref="d8/d9b/tool_2_compiler_8java" startline="489" endline="500">org.xvm.tool.Compiler.addVersion</references>
+        <references refid="db/d63/classorg_1_1xvm_1_1asm_1_1_file_structure_1a951b930ebf0e1da4b5eacd32965be1c3" compoundref="da/d8f/_file_structure_8java" startline="272" endline="274">org.xvm.asm.FileStructure.getModule</references>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1ac2df49f600307411b899fe0097b389b0" compoundref="d8/d9b/tool_2_compiler_8java" startline="566" endline="587">org.xvm.tool.Compiler.log</references>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a0a102a2b61ce97fd46287b3e7de4de52" compoundref="d8/d9b/tool_2_compiler_8java" startline="489" endline="500">org.xvm.tool.Compiler.addVersion</referencedby>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a7ee19f96fb520bd9ae44028cc6c6db46" compoundref="d8/d9b/tool_2_compiler_8java" startline="147" endline="303">org.xvm.tool.Compiler.process</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a78cb416a8c92f28ec40f543e5e41fd8f" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.tool.Compiler.validateModuleOutput</definition>
+        <argsstring>(final int numModules)</argsstring>
+        <name>validateModuleOutput</name>
+        <qualifiedname>org.xvm.tool.Compiler.validateModuleOutput</qualifiedname>
+        <param>
+          <type>final int</type>
+          <declname>numModules</declname>
+        </param>
+        <briefdescription>
+<para>Validate that the output location can be used as a destination for .xtc file(s). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Uses the output location from options and the number of input modules to determine validity.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>numModules</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of modules that will be written </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" line="678" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" bodystart="678" bodyend="716"/>
+        <references refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1ac2df49f600307411b899fe0097b389b0" compoundref="d8/d9b/tool_2_compiler_8java" startline="566" endline="587">org.xvm.tool.Compiler.log</references>
+        <references refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4246d1c2d0eba48001e5869b6847093e" compoundref="d1/d7c/_launcher_8java" startline="666" endline="668">org.xvm.tool.Launcher&lt; CompilerOptions &gt;::options</references>
+        <referencedby refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a4fffc7853a8ab6e5039004d44a6c8be1" compoundref="d8/d9b/tool_2_compiler_8java" startline="641" endline="670">org.xvm.tool.Compiler.validateOptions</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>This is the command-line Ecstasy compiler. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Find the root of the module containing the code in the current directory, and compile it, placing the result in the default location: </para>
+<para><javadoccode>xcc</javadoccode></para>
+<para>Compile the specified module, placing the result in the default location: </para>
+<para><javadoccode>xcc ./path/to/module_name.x</javadoccode></para>
+<para>Compile the module that the specified file belongs to: </para>
+<para><javadoccode>xcc MyClass.x</javadoccode></para>
+<para>Alternatively, either of the following would work: </para>
+<para><javadoccode>xcc MyClass.xtc</javadoccode> </para>
+<para><javadoccode>xcc MyClass</javadoccode></para>
+<para>The location for the resulting <javadoccode>.xtc</javadoccode> file follows the following rules: <itemizedlist>
+<listitem>
+<para>If the &quot;-o&quot; option is specified, then the corresponding location is used for the output; </para>
+</listitem>
+<listitem>
+<para>If the module source file is named &quot;MyModule.x&quot;, then the output is in the same-named file with the &quot;.xtc&quot; extension, such as &quot;MyModule.xtc&quot;. </para>
+</listitem>
+<listitem>
+<para>If the module is in a project directory format, then the resulting &quot;.xtc&quot; file is placed in the build or target directory of the project. For example, if the module file is located at &quot;app/src/main/x/app.x&quot;, and there is a directory &quot;app/build&quot;, then the resulting &quot;.xtc&quot; file is written to &quot;app/build/app.xtc&quot;. </para>
+</listitem>
+</itemizedlist>
+</para>
+<para>The location of additional resource files and/or directories can be specified by using the <javadoccode>-r</javadoccode> option; for example: </para>
+<para><javadoccode>xcc -r ~/dev/prj/otherApp/build/</javadoccode></para>
+<para>The location of the resulting <javadoccode>.xtc</javadoccode> file can be specified by using the <javadoccode>-o</javadoccode> option; for example: </para>
+<para><javadoccode>xcc -o ~/modules/</javadoccode></para>
+<para>The version of the resulting module can be specified by using the <javadoccode>-version</javadoccode> option; for example: </para>
+<para><javadoccode>xcc --set-version 0.4-alpha</javadoccode></para>
+<para>In addition to built-in Ecstasy modules and modules located in the Ecstasy runtime library, it is possible to provide a search path for modules that will be used by the compiler. The search path can contain directories and/or &quot;.xtc&quot; files: </para>
+<para><javadoccode>xcc -L ~/modules/:../build/:Utils.xtc</javadoccode></para>
+<para>Other command line options: <itemizedlist>
+<listitem>
+<para><javadoccode>--rebuild</javadoccode> - force rebuild, even if the build appears to be up-to-date </para>
+</listitem>
+<listitem>
+<para><javadoccode>--qualify</javadoccode> - use fully qualified module names as the basis for output file names </para>
+</listitem>
+<listitem>
+<para><javadoccode>--nosrc</javadoccode> - (not implemented) do not include source code in the compiled module </para>
+</listitem>
+<listitem>
+<para><javadoccode>--nodbg</javadoccode> - (not implemented) do not include debugging information in the compiled module </para>
+</listitem>
+<listitem>
+<para><javadoccode>--nodoc</javadoccode> - (not implemented) do not include documentation in the compiled module </para>
+</listitem>
+<listitem>
+<para><javadoccode>--strict</javadoccode> - convert warnings to errors </para>
+</listitem>
+<listitem>
+<para><javadoccode>--nowarn</javadoccode> - suppress warnings </para>
+</listitem>
+<listitem>
+<para><javadoccode>-v</javadoccode> / <javadoccode>--verbose</javadoccode> - provide information about the work being done by the compilation process </para>
+</listitem>
+</itemizedlist>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>org.xvm.tool.Compiler</label>
+        <link refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>org.xvm.runtime.template._native.lang.src.xRTCompiler.CompilerAdapter</label>
+        <link refid="d4/d45/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1lang_1_1src_1_1x_r_t_compiler_1_1_compiler_adapter"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>org.xvm.tool.Launcher&lt; CompilerOptions &gt;</label>
+        <link refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher"/>
+      </node>
+      <node id="4">
+        <label>org.xvm.tool.LauncherErrorHandlingTest.TestCompiler</label>
+        <link refid="df/d82/classorg_1_1xvm_1_1tool_1_1_launcher_error_handling_test_1_1_test_compiler"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>org.xvm.tool.Compiler</label>
+        <link refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>strictLevel</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>prevLibs</edgelabel>
+          <edgelabel>prevOutput</edgelabel>
+          <edgelabel>repoLib</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>org.xvm.asm.ModuleRepository</label>
+        <link refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>NO_REPOS</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>org.xvm.tool.Compiler.Strictness</label>
+        <link refid="d9/dd1/enumorg_1_1xvm_1_1tool_1_1_compiler_1_1_strictness"/>
+      </node>
+      <node id="2">
+        <label>org.xvm.tool.Launcher&lt; CompilerOptions &gt;</label>
+        <link refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" line="107" column="7" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Compiler.java" bodystart="107" bodyend="731"/>
+    <listofallmembers>
+      <member refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a0a102a2b61ce97fd46287b3e7de4de52" prot="private" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>addVersion</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a18fe47639618f2e83c7379bc82288b94" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>checkErrors</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a15a2a6d9535af135c84ba824b294f6f5" prot="public" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>CMD_BUILD</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1aa3cfb07dfca3c0706b5896440932a045" prot="public" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>CMD_DISASS</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a3f25ec4a526d6bf2fa03fb2843b2fd60" prot="public" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>CMD_INIT</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a24de6aff5f778b771f93721270a4d6a7" prot="public" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>CMD_RUN</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4dbb050c16547fdc37e7913ac5e08c2a" prot="public" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>CMD_TEST</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a0d32a04b2da1ebc1ee05231488775c9f" prot="private" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>commandNames</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ac708f8740f025087f423f5d1c74a3295" prot="private" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>COMMANDS</name></member>
+      <member refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a48133cd0f3aa22494c671613a76c6248" prot="public" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>Compiler</name></member>
+      <member refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a13584f6f6285df6da670ac7109f54e83" prot="public" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>Compiler</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a7923b63ac491f720ae0a7a48c9bd3bce" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>configureLibraryRepo</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a7d07df8c9f059c8ec8b17fb27a523da3" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>configureResultRepo</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a692712e6d64096ec796059f6d5c3c8f9" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>console</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1afb81520a62b7de0a97526d73d9761501" prot="private" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>DEBUG_PREFIXES</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a17eb214113c6f28156715703467764ee" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>DEFAULT_CONSOLE</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a28df398a631ea72e8bfe6aff0b63ac71" prot="private" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>DEFAULT_LOCALE</name></member>
+      <member refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a3067d77e6b96f3169be5283aac6deb7e" prot="public" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>desc</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a87be608c1cd45c0ad74456eabb01dc32" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>displayHelp</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a15dd228897736030c35f085b495e8fa1" prot="public" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>DUP_NAME</name></member>
+      <member refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a0e1ac61f9e542ef1b7058c38b16e4cba" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>emitModules</name></member>
+      <member refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a2bdf0847cea7f9b63fd6debb148bcd6b" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>ensureLibraryRepo</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1af55cd6c2f6aa95af8edd05150797c3b2" prot="public" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>ensureModuleInfo</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a5ccce4ff913cccee3b753fcdfcb2594b" prot="public" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>err</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a70818a7c827b7d643e79d4f8bd1d82fc" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>errorsSuspended</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a04f7ad71ca64fd4c118c0c55b5541e8e" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>extractBuildRepo</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ae3bd787819380e78aa9b2730b13f5beb" prot="public" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>FATAL_ERROR</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1abe05bfa8103e6f776b685b54adfdf01e" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>flushAndCheckErrors</name></member>
+      <member refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1ab637514801cd62fbb8ffa40563530aec" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>generateCode</name></member>
+      <member refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1af273c8e001f1400ce165d0a44eb9773a" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>getInputLocations</name></member>
+      <member refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a73634a22d01b9d7781fc7fbae861631c" prot="public" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>getLibraryRepo</name></member>
+      <member refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1ac30cadb7c2f7fab3cdae24c0e9e352b7" prot="public" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>getModuleInfos</name></member>
+      <member refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a64c528865dbb34a1b141a8b0b6847979" prot="public" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>getOutputRepo</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a57b16e38ba02d62a32661844ce180e10" prot="public" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>hasSeriousErrors</name></member>
+      <member refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a5fec81d5b93faa3b949653a665926d54" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>injectNativeTurtle</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a66f4a3ce92d5c42309a08c2474770ac2" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>insertCommand</name></member>
+      <member refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a7c5ba1a4c28644f06955cf413414ce8b" prot="public" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>isAbortDesired</name></member>
+      <member refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1aeb76c7af708f4baaaf56c785096b8d7b" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>isBadEnoughToAbort</name></member>
+      <member refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1ae7ca0d16b1957304908eaa3626a10b33" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>isBadEnoughToPrint</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a13144904c0ce128cfccbd1ace73f2d56" prot="public" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>isSilent</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1adaac93117385461df64403914d2d98b9" prot="public" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>launch</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a86ccf19d3e54386b912e7b57a8884ca7" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>Launcher</name></member>
+      <member refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a66db2842a6c0493372ca9f26c390bf07" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>linkModules</name></member>
+      <member refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1ac2df49f600307411b899fe0097b389b0" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>log</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab4ca08939471989b8e0d164da0b9ace1" prot="protected" virt="non-virtual" ambiguityscope="org::xvm::tool::Launcher&lt; CompilerOptions &gt;."><scope>org::xvm::tool::Compiler</scope><name>log</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a32506679dbf436fda288d92f32bcc128" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>m_console</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a6e71c7c10257ad01ca4417458efa6625" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>m_cSuspended</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1af0236b951cf910b679da12e2e6d53823" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>m_errors</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a11430beabef9c5f6a543fa8b7a29799b" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>m_options</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a7c3501fa6edd2e9b9706c99d1bca35a7" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>m_sevWorst</name></member>
+      <member refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1aad09b9a940e5c7949ef4c083ff1b76a8" prot="package" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>main</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a0224a24efac80a3623fd5233d22f6236" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>makeBuildRepo</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a7a930292110fabf3bdf7340072da7e4f" prot="public" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>MISSING_PKG_NODE</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a42970263da80f10179a6239031b96dbd" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>moduleCache</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4246d1c2d0eba48001e5869b6847093e" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>options</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1af145ed2c8cd786014821133055d40b9a" prot="public" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>out</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a6bf63e81cf4ecd8576c6c7f318bd8cab" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>prelinkSystemLibraries</name></member>
+      <member refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1af6ce85982102cd251b1b80dac641ec93" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>prevLibs</name></member>
+      <member refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1aaa56b6e52b4aa727523806c7caaacc89" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>prevModules</name></member>
+      <member refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a415c21cfd86e638219948c1750ce879e" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>prevOutput</name></member>
+      <member refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a7ee19f96fb520bd9ae44028cc6c6db46" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>process</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1aff14a6b06171e39fe6baa67c2d8d1bf6" prot="public" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>READ_FAILURE</name></member>
+      <member refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1ac16b4effafc20d352e63e8b47845c726" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>repoLib</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1aacdff56248e7cf1378f8e98f8e6bf969" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>reset</name></member>
+      <member refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1af36d6576959f604f7f57464af3b19d06" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>resolveCompilers</name></member>
+      <member refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a3b5825a1fb580921cd770b66f0327807" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>resolveNames</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a65a0c217f47d59bbcf08945256fc57ac" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>resumeErrors</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a82885a928db87cc0bca2140179c4c217" prot="public" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>run</name></member>
+      <member refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1ab1d63c6277232aa2680f41d6de042e4b" prot="private" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>runCompilerPhase</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a19ffb27e1f08b05bd0c61b1500e6beb9" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>selectTargets</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a92109cdb6e27bcd0ddeb09efac5f057d" prot="private" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>showHelp</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a79f6f3c856d7a70d81e15324e1c8fca8" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>showSystemVersion</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a8fe6628d6601ff980cbe139bf861d885" prot="private" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>showVersion</name></member>
+      <member refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1aacd98ed2269b5f3e898c02728ec92a29" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>strictLevel</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4f0c298b715a26cf125fdf71a5e2c564" prot="private" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>stripDebugPrefix</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a01fe6312b647ec51b235da5f27cde93f" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>suspendErrors</name></member>
+      <member refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a1b08ac49fb29ed0b4c696d202f32c474" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>validateExpressions</name></member>
+      <member refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a78cb416a8c92f28ec40f543e5e41fd8f" prot="private" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>validateModuleOutput</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab479a062d01e16853ae4b9a84bf14205" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>validateModulePath</name></member>
+      <member refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler_1a4fffc7853a8ab6e5039004d44a6c8be1" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>validateOptions</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a38af578a526830621111953170c6530d" prot="protected" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>validateReadableFile</name></member>
+      <member refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1aae980319e628b80746f098284da87b55" prot="public" virt="non-virtual"><scope>org::xvm::tool::Compiler</scope><name>validateSourceInput</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

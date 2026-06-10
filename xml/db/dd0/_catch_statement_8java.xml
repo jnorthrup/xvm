@@ -1,0 +1,242 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="db/dd0/_catch_statement_8java" kind="file" language="Java">
+    <compoundname>CatchStatement.java</compoundname>
+    <includes local="no">java.lang.reflect.Field</includes>
+    <includes local="no">org.xvm.asm.Assignment</includes>
+    <includes local="no">org.xvm.asm.ErrorListener</includes>
+    <includes local="no">org.xvm.asm.MethodStructure.Code</includes>
+    <includes local="no">org.xvm.asm.Register</includes>
+    <includes local="no">org.xvm.asm.constants.TypeConstant</includes>
+    <includes local="no">org.xvm.asm.op.CatchEnd</includes>
+    <includes local="no">org.xvm.asm.op.CatchStart</includes>
+    <includes local="no">org.xvm.asm.op.Label</includes>
+    <includes local="no">org.xvm.compiler.Compiler</includes>
+    <includes local="no">org.xvm.util.Severity</includes>
+    <includes local="no">org.xvm.util.Handy.indentLines</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/CatchStatement.java</label>
+        <link refid="db/dd0/_catch_statement_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.lang.reflect.Field</label>
+      </node>
+      <node id="3">
+        <label>org.xvm.asm.Assignment</label>
+      </node>
+      <node id="4">
+        <label>org.xvm.asm.ErrorListener</label>
+      </node>
+      <node id="5">
+        <label>org.xvm.asm.MethodStructure.Code</label>
+      </node>
+      <node id="6">
+        <label>org.xvm.asm.Register</label>
+      </node>
+      <node id="7">
+        <label>org.xvm.asm.constants.TypeConstant</label>
+      </node>
+      <node id="8">
+        <label>org.xvm.asm.op.CatchEnd</label>
+      </node>
+      <node id="9">
+        <label>org.xvm.asm.op.CatchStart</label>
+      </node>
+      <node id="10">
+        <label>org.xvm.asm.op.Label</label>
+      </node>
+      <node id="11">
+        <label>org.xvm.compiler.Compiler</label>
+      </node>
+      <node id="13">
+        <label>org.xvm.util.Handy.indentLines</label>
+      </node>
+      <node id="12">
+        <label>org.xvm.util.Severity</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement" prot="public">org::xvm::compiler::ast::CatchStatement</innerclass>
+    <innernamespace refid="d2/df8/namespaceorg_1_1xvm_1_1compiler_1_1ast">org::xvm::compiler::ast</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.compiler.ast;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.reflect.Field;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Assignment;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ErrorListener;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.MethodStructure.Code;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Register;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.constants.TypeConstant;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.op.CatchEnd;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.op.CatchStart;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.op.Label;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.compiler.Compiler;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.util.Severity;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.util.Handy.indentLines;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1a35e364cf6228a0953bfb9821b202c8a0" kindref="member">CatchStatement</ref></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="d9/d11/classorg_1_1xvm_1_1compiler_1_1ast_1_1_statement" kindref="compound">Statement</ref><sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>constructors<sp/>--------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1a35e364cf6228a0953bfb9821b202c8a0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1a35e364cf6228a0953bfb9821b202c8a0" kindref="member">CatchStatement</ref>(<ref refid="d3/d27/classorg_1_1xvm_1_1compiler_1_1ast_1_1_variable_declaration_statement" kindref="compound">VariableDeclarationStatement</ref><sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1ab6651c9f96093c924c1ef3c18bc3430f" kindref="member">target</ref>,<sp/><ref refid="d8/dc7/classorg_1_1xvm_1_1compiler_1_1ast_1_1_statement_block" kindref="compound">StatementBlock</ref><sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1ab55e7bba0369579278f0d013d97a7f45" kindref="member">block</ref>,<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1adb8c423cfaf582ce1d5b2443b5b6fa00" kindref="member">lStartPos</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.target<sp/><sp/><sp/><sp/>=<sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1ab6651c9f96093c924c1ef3c18bc3430f" kindref="member">target</ref>;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.block<sp/><sp/><sp/><sp/><sp/>=<sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1ab55e7bba0369579278f0d013d97a7f45" kindref="member">block</ref>;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.lStartPos<sp/>=<sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1adb8c423cfaf582ce1d5b2443b5b6fa00" kindref="member">lStartPos</ref>;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>accessors<sp/>-----------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1a0436c6ddb526ba2e9374e9bf0b2e8bf4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1a0436c6ddb526ba2e9374e9bf0b2e8bf4" kindref="member">getCatchType</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1ab6651c9f96093c924c1ef3c18bc3430f" kindref="member">target</ref>.getType();</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1a3646c8aa033818d49968ef52299953ef" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="dc/db3/classorg_1_1xvm_1_1asm_1_1_register" kindref="compound">Register</ref><sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1a3646c8aa033818d49968ef52299953ef" kindref="member">getCatchRegister</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1ab6651c9f96093c924c1ef3c18bc3430f" kindref="member">target</ref>.getRegister();</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1a63a3064e59f2e096d9964c2f4a9f84e8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1a63a3064e59f2e096d9964c2f4a9f84e8" kindref="member">getCatchVariableName</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1ab6651c9f96093c924c1ef3c18bc3430f" kindref="member">target</ref>.getName();</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1a9556121c3554fe7e6e62c047421cb8a4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d8/dcd/classorg_1_1xvm_1_1asm_1_1op_1_1_catch_start" kindref="compound">CatchStart</ref><sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1a9556121c3554fe7e6e62c047421cb8a4" kindref="member">ensureCatchStart</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/dcd/classorg_1_1xvm_1_1asm_1_1op_1_1_catch_start" kindref="compound">CatchStart</ref><sp/>op<sp/>=<sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1a4dc5aee42a25b1f77db633e559856944" kindref="member">m_opCatch</ref>;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(op<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1a4dc5aee42a25b1f77db633e559856944" kindref="member">m_opCatch</ref><sp/>=<sp/>op<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d8/dcd/classorg_1_1xvm_1_1asm_1_1op_1_1_catch_start" kindref="compound">CatchStart</ref>(<ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1a3646c8aa033818d49968ef52299953ef" kindref="member">getCatchRegister</ref>(),</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1a7295b8a09202da425e2458f897401786" kindref="member">pool</ref>().ensureStringConstant(<ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1a63a3064e59f2e096d9964c2f4a9f84e8" kindref="member">getCatchVariableName</ref>()));</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>op;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70" refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1a8dbed2918422c1f5031ab8467eef7f8a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1a8dbed2918422c1f5031ab8467eef7f8a" kindref="member">setCatchLabel</ref>(<ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label" kindref="compound">Label</ref><sp/>label)<sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1acb16a0532e9970fb7cd60fe3c81a7ce1" kindref="member">m_labelEndCatch</ref><sp/>=<sp/>label;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="75" refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1ac045269d45e159a0fef62dc1340de0e2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1ac045269d45e159a0fef62dc1340de0e2" kindref="member">getStartPosition</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1adb8c423cfaf582ce1d5b2443b5b6fa00" kindref="member">lStartPos</ref>;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="80" refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1a30066b15ddd76db0c1335ff9c3a90d11" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1a30066b15ddd76db0c1335ff9c3a90d11" kindref="member">getEndPosition</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1ab55e7bba0369579278f0d013d97a7f45" kindref="member">block</ref>.getEndPosition();</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="85" refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1a98c7b2482a0782d0da6143589df7f2cf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>Field[]<sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1a98c7b2482a0782d0da6143589df7f2cf" kindref="member">getChildFields</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1a293c0754bd1d9dab1d5455db1591e189" kindref="member">CHILD_FIELDS</ref>;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>compilation<sp/>---------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="93" refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1ae8c07a3e51b07f704c618bbb3114de3f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/><ref refid="d9/d11/classorg_1_1xvm_1_1compiler_1_1ast_1_1_statement" kindref="compound">Statement</ref><sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1ae8c07a3e51b07f704c618bbb3114de3f" kindref="member">validateImpl</ref>(<ref refid="d1/dc8/classorg_1_1xvm_1_1compiler_1_1ast_1_1_context" kindref="compound">Context</ref><sp/>ctx,<sp/><ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref><sp/>errs)<sp/>{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>fValid<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ctx<sp/>=<sp/>ctx.<ref refid="d1/dc8/classorg_1_1xvm_1_1compiler_1_1ast_1_1_context_1a32f2b7a046fe078f18154019c2ac2d5c" kindref="member">enter</ref>();</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>validate<sp/>the<sp/>catch<sp/>clause</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d27/classorg_1_1xvm_1_1compiler_1_1ast_1_1_variable_declaration_statement" kindref="compound">VariableDeclarationStatement</ref><sp/>targetNew<sp/>=<sp/>(<ref refid="d3/d27/classorg_1_1xvm_1_1compiler_1_1ast_1_1_variable_declaration_statement" kindref="compound">VariableDeclarationStatement</ref>)<sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1ab6651c9f96093c924c1ef3c18bc3430f" kindref="member">target</ref>.validate(ctx,<sp/>errs);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(targetNew<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fValid<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1ab6651c9f96093c924c1ef3c18bc3430f" kindref="member">target</ref><sp/>=<sp/>targetNew;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>exception<sp/>variable<sp/>has<sp/>a<sp/>value<sp/>at<sp/>this<sp/>point</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ctx.<ref refid="d1/dc8/classorg_1_1xvm_1_1compiler_1_1ast_1_1_context_1a885e072b22251363aaff05ec852b56c5" kindref="member">ensureDefiniteAssignments</ref>().put(<ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1ab6651c9f96093c924c1ef3c18bc3430f" kindref="member">target</ref>.getName(),<sp/><ref refid="d2/d85/enumorg_1_1xvm_1_1asm_1_1_assignment" kindref="compound">Assignment</ref>.<ref refid="d2/d85/enumorg_1_1xvm_1_1asm_1_1_assignment_1aa8486f581cd09aede99fcd65475f3c5c" kindref="member">AssignedOnce</ref>);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>make<sp/>sure<sp/>that<sp/>the<sp/>exception<sp/>variable<sp/>is<sp/>of<sp/>an<sp/>exception<sp/>type</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/>typeE<sp/>=<sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1ab6651c9f96093c924c1ef3c18bc3430f" kindref="member">target</ref>.getType();</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!typeE.<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a035b845286f8916eecff045edccdca71" kindref="member">isA</ref>(<ref refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1a7295b8a09202da425e2458f897401786" kindref="member">pool</ref>().typeException()))<sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fValid<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1ab6651c9f96093c924c1ef3c18bc3430f" kindref="member">target</ref>.log(errs,<sp/><ref refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity" kindref="compound">Severity</ref>.<ref refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity_1a470906cb0c737a6d70b2d9ff265ab9fd" kindref="member">ERROR</ref>,<sp/><ref refid="d3/d97/classorg_1_1xvm_1_1compiler_1_1_compiler" kindref="compound">Compiler</ref>.<ref refid="d3/d97/classorg_1_1xvm_1_1compiler_1_1_compiler_1a31d32ee2e694a6159c9f4ff60819bc8e" kindref="member">WRONG_TYPE</ref>,</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1a7295b8a09202da425e2458f897401786" kindref="member">pool</ref>().typeException().getValueString(),<sp/>typeE.<ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1a6c31fef7d5d3cfcc485b7b73819f4b94" kindref="member">getValueString</ref>());</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>validate<sp/>the<sp/>block</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1ab55e7bba0369579278f0d013d97a7f45" kindref="member">block</ref>.suppressScope();</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/dc7/classorg_1_1xvm_1_1compiler_1_1ast_1_1_statement_block" kindref="compound">StatementBlock</ref><sp/>blockNew<sp/>=<sp/>(<ref refid="d8/dc7/classorg_1_1xvm_1_1compiler_1_1ast_1_1_statement_block" kindref="compound">StatementBlock</ref>)<sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1ab55e7bba0369579278f0d013d97a7f45" kindref="member">block</ref>.validate(ctx,<sp/>errs);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(blockNew<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1ab55e7bba0369579278f0d013d97a7f45" kindref="member">block</ref><sp/>=<sp/>blockNew;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ctx.<ref refid="d1/dc8/classorg_1_1xvm_1_1compiler_1_1ast_1_1_context_1a5ee4f0f1d21b5e5f2e871a3454072be1" kindref="member">exit</ref>();</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>fValid<sp/>?<sp/>this<sp/>:<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="130" refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1a03aa412f1747d6e259b77db1d4164b06" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1a03aa412f1747d6e259b77db1d4164b06" kindref="member">emit</ref>(<ref refid="d1/dc8/classorg_1_1xvm_1_1compiler_1_1ast_1_1_context" kindref="compound">Context</ref><sp/>ctx,<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>fReachable,<sp/><ref refid="da/d56/classorg_1_1xvm_1_1asm_1_1_method_structure_1_1_code" kindref="compound">Code</ref><sp/>code,<sp/><ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref><sp/>errs)<sp/>{</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1a4dc5aee42a25b1f77db633e559856944" kindref="member">m_opCatch</ref><sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1acb16a0532e9970fb7cd60fe3c81a7ce1" kindref="member">m_labelEndCatch</ref><sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.<ref refid="da/d56/classorg_1_1xvm_1_1asm_1_1_method_structure_1_1_code_1a332a938e1ddcfd9d4e32b1ac2bdc9bc7" kindref="member">add</ref>(<ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1a4dc5aee42a25b1f77db633e559856944" kindref="member">m_opCatch</ref>);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1ab55e7bba0369579278f0d013d97a7f45" kindref="member">block</ref>.suppressScope();</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>fCompletes<sp/>=<sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1ab55e7bba0369579278f0d013d97a7f45" kindref="member">block</ref>.completes(ctx,<sp/>fReachable,<sp/>code,<sp/>errs);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.<ref refid="da/d56/classorg_1_1xvm_1_1asm_1_1_method_structure_1_1_code_1a332a938e1ddcfd9d4e32b1ac2bdc9bc7" kindref="member">add</ref>(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d7/d86/classorg_1_1xvm_1_1asm_1_1op_1_1_catch_end" kindref="compound">CatchEnd</ref>(<ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1acb16a0532e9970fb7cd60fe3c81a7ce1" kindref="member">m_labelEndCatch</ref>));</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ctx.<ref refid="d1/dc8/classorg_1_1xvm_1_1compiler_1_1ast_1_1_context_1a5f8a95b2e85b9f16014a340103ea32ef" kindref="member">getHolder</ref>().<ref refid="dd/de0/classorg_1_1xvm_1_1compiler_1_1ast_1_1_statement_1_1_ast_holder_1a9b2e3c869d1a81fa78369eb8f8a6562e" kindref="member">setAst</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>ctx.<ref refid="d1/dc8/classorg_1_1xvm_1_1compiler_1_1ast_1_1_context_1a5f8a95b2e85b9f16014a340103ea32ef" kindref="member">getHolder</ref>().<ref refid="dd/de0/classorg_1_1xvm_1_1compiler_1_1ast_1_1_statement_1_1_ast_holder_1ac6fbdcc0eb26bbc7aa704a2799140209" kindref="member">getAst</ref>(<ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1ab55e7bba0369579278f0d013d97a7f45" kindref="member">block</ref>));</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>fCompletes;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>debugging<sp/>assistance<sp/>------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="146" refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1a22e908eb1b1989960de1ffc750b71796" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1a22e908eb1b1989960de1ffc750b71796" kindref="member">toString</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;catch<sp/>(&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1ab6651c9f96093c924c1ef3c18bc3430f" kindref="member">target</ref><sp/>+<sp/></highlight><highlight class="stringliteral">&quot;)\n&quot;</highlight><highlight class="normal"><sp/>+<sp/>indentLines(<ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1ab55e7bba0369579278f0d013d97a7f45" kindref="member">block</ref>.toString(),<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/><sp/><sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>fields<sp/>--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153" refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1ab6651c9f96093c924c1ef3c18bc3430f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/><ref refid="d3/d27/classorg_1_1xvm_1_1compiler_1_1ast_1_1_variable_declaration_statement" kindref="compound">VariableDeclarationStatement</ref><sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1ab6651c9f96093c924c1ef3c18bc3430f" kindref="member">target</ref>;</highlight></codeline>
+<codeline lineno="154" refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1ab55e7bba0369579278f0d013d97a7f45" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/><ref refid="d8/dc7/classorg_1_1xvm_1_1compiler_1_1ast_1_1_statement_block" kindref="compound">StatementBlock</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1ab55e7bba0369579278f0d013d97a7f45" kindref="member">block</ref>;</highlight></codeline>
+<codeline lineno="155" refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1adb8c423cfaf582ce1d5b2443b5b6fa00" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1adb8c423cfaf582ce1d5b2443b5b6fa00" kindref="member">lStartPos</ref>;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157" refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1a4dc5aee42a25b1f77db633e559856944" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">transient</highlight><highlight class="normal"><sp/><ref refid="d8/dcd/classorg_1_1xvm_1_1asm_1_1op_1_1_catch_start" kindref="compound">CatchStart</ref><sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1a4dc5aee42a25b1f77db633e559856944" kindref="member">m_opCatch</ref>;</highlight></codeline>
+<codeline lineno="158" refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1acb16a0532e9970fb7cd60fe3c81a7ce1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">transient</highlight><highlight class="normal"><sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label" kindref="compound">Label</ref><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1acb16a0532e9970fb7cd60fe3c81a7ce1" kindref="member">m_labelEndCatch</ref>;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160" refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1a293c0754bd1d9dab1d5455db1591e189" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Field[]<sp/><ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1a293c0754bd1d9dab1d5455db1591e189" kindref="member">CHILD_FIELDS</ref><sp/>=<sp/><ref refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1a29ef30aa438679da7d9ca753ffdd2228" kindref="member">fieldsForNames</ref>(<ref refid="d8/d7d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_catch_statement_1a35e364cf6228a0953bfb9821b202c8a0" kindref="member">CatchStatement</ref>.class,<sp/></highlight><highlight class="stringliteral">&quot;target&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;block&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/CatchStatement.java"/>
+  </compounddef>
+</doxygen>

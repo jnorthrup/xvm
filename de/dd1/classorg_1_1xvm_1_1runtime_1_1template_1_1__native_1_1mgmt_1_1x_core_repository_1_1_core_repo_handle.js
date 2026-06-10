@@ -1,0 +1,4 @@
+var classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1mgmt_1_1x_core_repository_1_1_core_repo_handle =
+[
+    [ "CoreRepoHandle", "de/dd1/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1mgmt_1_1x_core_repository_1_1_core_repo_handle.html#a6d0e03096686fcaf0db1d81aaac1fe43", null ]
+];

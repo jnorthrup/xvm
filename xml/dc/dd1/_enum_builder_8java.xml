@@ -1,0 +1,272 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="dc/dd1/_enum_builder_8java" kind="file" language="Java">
+    <compoundname>EnumBuilder.java</compoundname>
+    <includes local="no">java.lang.classfile.ClassBuilder</includes>
+    <includes local="no">java.lang.classfile.ClassFile</includes>
+    <includes local="no">java.lang.classfile.CodeBuilder</includes>
+    <includes local="no">java.lang.classfile.Label</includes>
+    <includes local="no">java.lang.constant.ClassDesc</includes>
+    <includes local="no">java.lang.constant.MethodTypeDesc</includes>
+    <includes local="no">org.xvm.asm.ConstantPool</includes>
+    <includes local="no">org.xvm.asm.constants.MethodInfo</includes>
+    <includes local="no">org.xvm.asm.constants.PropertyInfo</includes>
+    <includes local="no">org.xvm.asm.constants.SignatureConstant</includes>
+    <includes local="no">org.xvm.asm.constants.TypeConstant</includes>
+    <includes local="no">org.xvm.asm.constants.TypeInfo</includes>
+    <includes local="no">org.xvm.javajit.Builder</includes>
+    <includes local="no">org.xvm.javajit.JitMethodDesc</includes>
+    <includes local="no">org.xvm.javajit.TypeSystem</includes>
+    <includes local="no">java.lang.constant.ConstantDescs.CD_boolean</includes>
+    <includes local="no">java.lang.constant.ConstantDescs.CD_long</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/builders/EnumBuilder.java</label>
+        <link refid="dc/dd1/_enum_builder_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.lang.classfile.ClassBuilder</label>
+      </node>
+      <node id="3">
+        <label>java.lang.classfile.ClassFile</label>
+      </node>
+      <node id="4">
+        <label>java.lang.classfile.CodeBuilder</label>
+      </node>
+      <node id="5">
+        <label>java.lang.classfile.Label</label>
+      </node>
+      <node id="6">
+        <label>java.lang.constant.ClassDesc</label>
+      </node>
+      <node id="17">
+        <label>java.lang.constant.ConstantDescs.CD_boolean</label>
+      </node>
+      <node id="18">
+        <label>java.lang.constant.ConstantDescs.CD_long</label>
+      </node>
+      <node id="7">
+        <label>java.lang.constant.MethodTypeDesc</label>
+      </node>
+      <node id="8">
+        <label>org.xvm.asm.ConstantPool</label>
+      </node>
+      <node id="9">
+        <label>org.xvm.asm.constants.MethodInfo</label>
+      </node>
+      <node id="10">
+        <label>org.xvm.asm.constants.PropertyInfo</label>
+      </node>
+      <node id="11">
+        <label>org.xvm.asm.constants.SignatureConstant</label>
+      </node>
+      <node id="12">
+        <label>org.xvm.asm.constants.TypeConstant</label>
+      </node>
+      <node id="13">
+        <label>org.xvm.asm.constants.TypeInfo</label>
+      </node>
+      <node id="14">
+        <label>org.xvm.javajit.Builder</label>
+      </node>
+      <node id="15">
+        <label>org.xvm.javajit.JitMethodDesc</label>
+      </node>
+      <node id="16">
+        <label>org.xvm.javajit.TypeSystem</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="d3/d2a/classorg_1_1xvm_1_1javajit_1_1builders_1_1_enum_builder" prot="public">org::xvm::javajit::builders::EnumBuilder</innerclass>
+    <innernamespace refid="dc/dfd/namespaceorg_1_1xvm_1_1javajit_1_1builders">org::xvm::javajit::builders</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.javajit.builders;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.classfile.ClassBuilder;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.classfile.ClassFile;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.classfile.CodeBuilder;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.classfile.Label;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.constant.ClassDesc;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.constant.MethodTypeDesc;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ConstantPool;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.constants.MethodInfo;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.constants.PropertyInfo;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.constants.SignatureConstant;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.constants.TypeConstant;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.constants.TypeInfo;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.javajit.Builder;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.javajit.JitMethodDesc;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.javajit.TypeSystem;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>java.lang.constant.ConstantDescs.CD_boolean;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>java.lang.constant.ConstantDescs.CD_long;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="d3/d2a/classorg_1_1xvm_1_1javajit_1_1builders_1_1_enum_builder" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d3/d2a/classorg_1_1xvm_1_1javajit_1_1builders_1_1_enum_builder_1ae6c0d0af5e159b74b16cc013e7c24123" kindref="member">EnumBuilder</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="dd/dbd/classorg_1_1xvm_1_1javajit_1_1builders_1_1_common_builder_1aca54a7ddc23afcd18b358f61745cee24" kindref="member">CommonBuilder</ref><sp/>{</highlight></codeline>
+<codeline lineno="35" refid="d3/d2a/classorg_1_1xvm_1_1javajit_1_1builders_1_1_enum_builder_1ae6c0d0af5e159b74b16cc013e7c24123" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d3/d2a/classorg_1_1xvm_1_1javajit_1_1builders_1_1_enum_builder_1ae6c0d0af5e159b74b16cc013e7c24123" kindref="member">EnumBuilder</ref>(<ref refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" kindref="compound">TypeSystem</ref><sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a876c5cede4aa68e422421b854b5303d5" kindref="member">typeSystem</ref>,<sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/><ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(<ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a876c5cede4aa68e422421b854b5303d5" kindref="member">typeSystem</ref>,<sp/><ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref>);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="40" refid="d3/d2a/classorg_1_1xvm_1_1javajit_1_1builders_1_1_enum_builder_1a4e00ee25417256a252f45014c33186dc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d3/d2a/classorg_1_1xvm_1_1javajit_1_1builders_1_1_enum_builder_1a4e00ee25417256a252f45014c33186dc" kindref="member">assembleImplClass</ref>(String<sp/>className,<sp/>ClassBuilder<sp/>classBuilder)<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>classBuilder.withSuperclass(<ref refid="d3/d2a/classorg_1_1xvm_1_1javajit_1_1builders_1_1_enum_builder_1a6e5399d813f77f6058b2705cd23da294" kindref="member">getSuperCD</ref>())</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.withFlags(ClassFile.ACC_PUBLIC<sp/>|<sp/>ClassFile.ACC_ABSTRACT);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="47" refid="d3/d2a/classorg_1_1xvm_1_1javajit_1_1builders_1_1_enum_builder_1a6e5399d813f77f6058b2705cd23da294" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>ClassDesc<sp/><ref refid="d3/d2a/classorg_1_1xvm_1_1javajit_1_1builders_1_1_enum_builder_1a6e5399d813f77f6058b2705cd23da294" kindref="member">getSuperCD</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a6d303001281f90515ef76a9eba7272b6" kindref="member">CD_nEnum</ref>;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="52" refid="d3/d2a/classorg_1_1xvm_1_1javajit_1_1builders_1_1_enum_builder_1aa14055c80682797015ea1b4cc1841bc1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d3/d2a/classorg_1_1xvm_1_1javajit_1_1builders_1_1_enum_builder_1aa14055c80682797015ea1b4cc1841bc1" kindref="member">assembleImplProperties</ref>(String<sp/>className,<sp/>ClassBuilder<sp/>classBuilder)<sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d2a/classorg_1_1xvm_1_1javajit_1_1builders_1_1_enum_builder_1ae10728ccedcbac1d0a6988ff398df799" kindref="member">assembleEnumerationProp</ref>(classBuilder);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super.assembleImplProperties(className,<sp/>classBuilder);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58" refid="d3/d2a/classorg_1_1xvm_1_1javajit_1_1builders_1_1_enum_builder_1ae10728ccedcbac1d0a6988ff398df799" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d3/d2a/classorg_1_1xvm_1_1javajit_1_1builders_1_1_enum_builder_1ae10728ccedcbac1d0a6988ff398df799" kindref="member">assembleEnumerationProp</ref>(ClassBuilder<sp/>classBuilder)<sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/d20/classorg_1_1xvm_1_1asm_1_1constants_1_1_property_info" kindref="compound">PropertyInfo</ref><sp/><sp/>prop<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><ref refid="dd/dbd/classorg_1_1xvm_1_1javajit_1_1builders_1_1_common_builder_1a260df1e7da184e0b23e796581f044b40" kindref="member">typeInfo</ref>.findProperty(</highlight><highlight class="stringliteral">&quot;enumeration&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>getterName<sp/>=<sp/>prop.<ref refid="dd/d20/classorg_1_1xvm_1_1asm_1_1constants_1_1_property_info_1a55dc3bf4081307fff41ef1272c5e609b" kindref="member">ensureGetterJitMethodName</ref>(<ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a876c5cede4aa68e422421b854b5303d5" kindref="member">typeSystem</ref>);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d0/d2b/classorg_1_1xvm_1_1javajit_1_1_jit_method_desc" kindref="compound">JitMethodDesc</ref><sp/>jmDesc<sp/><sp/><sp/><sp/><sp/>=<sp/>prop.<ref refid="dd/d20/classorg_1_1xvm_1_1asm_1_1constants_1_1_property_info_1a9cd908c59163654f99c8f5cc404b5ab8" kindref="member">getGetterJitDesc</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/><sp/>enumType<sp/><sp/><sp/>=<sp/><ref refid="dd/dbd/classorg_1_1xvm_1_1javajit_1_1builders_1_1_common_builder_1aad9cd2d783c46718fe9e145b53e9f0c5" kindref="member">thisId</ref>.getValueType(<ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a2ab1a400e5e015ab107e18b99b6218f9" kindref="member">pool</ref>(),<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ClassDesc<sp/><sp/><sp/><sp/><sp/>cdEnum<sp/><sp/><sp/><sp/><sp/>=<sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1abd168c260b5a414fff432010a8b57bd3" kindref="member">ensureClassDesc</ref>(enumType);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>classBuilder.withMethodBody(getterName,<sp/>jmDesc.<ref refid="d0/d2b/classorg_1_1xvm_1_1javajit_1_1_jit_method_desc_1ade9b024af1347bc94756ebf3d9bafb75" kindref="member">standardMD</ref>,<sp/>ClassFile.ACC_PUBLIC,<sp/>code<sp/>-&gt;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.getstatic(cdEnum,<sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1aa88b2619ad807a17ef07aa3911d6f955" kindref="member">Instance</ref>,<sp/>cdEnum)</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.areturn());</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="71" refid="d3/d2a/classorg_1_1xvm_1_1javajit_1_1builders_1_1_enum_builder_1a6691070ee5b2cc593c6d52cc8cf69fc1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d3/d2a/classorg_1_1xvm_1_1javajit_1_1builders_1_1_enum_builder_1a6691070ee5b2cc593c6d52cc8cf69fc1" kindref="member">assembleImplMethods</ref>(String<sp/>className,<sp/>ClassBuilder<sp/>classBuilder)<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>generate<sp/>&quot;equals&quot;<sp/>and<sp/>&quot;compare&quot;<sp/>functions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d2a/classorg_1_1xvm_1_1javajit_1_1builders_1_1_enum_builder_1a5d62fe28e480d1dc4f6243858d2bc8d7" kindref="member">generateOrderable</ref>(classBuilder,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super.assembleImplMethods(className,<sp/>classBuilder);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78" refid="d3/d2a/classorg_1_1xvm_1_1javajit_1_1builders_1_1_enum_builder_1a5d62fe28e480d1dc4f6243858d2bc8d7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d3/d2a/classorg_1_1xvm_1_1javajit_1_1builders_1_1_enum_builder_1a5d62fe28e480d1dc4f6243858d2bc8d7" kindref="member">generateOrderable</ref>(ClassBuilder<sp/>classBuilder,<sp/><ref refid="dd/dbd/classorg_1_1xvm_1_1javajit_1_1builders_1_1_common_builder_1aca54a7ddc23afcd18b358f61745cee24" kindref="member">CommonBuilder</ref><sp/>builder)<sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/db2/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_info" kindref="compound">TypeInfo</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/dbd/classorg_1_1xvm_1_1javajit_1_1builders_1_1_common_builder_1a260df1e7da184e0b23e796581f044b40" kindref="member">typeInfo</ref><sp/>=<sp/>builder.<ref refid="dd/dbd/classorg_1_1xvm_1_1javajit_1_1builders_1_1_common_builder_1a260df1e7da184e0b23e796581f044b40" kindref="member">typeInfo</ref>;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/d50/classorg_1_1xvm_1_1asm_1_1constants_1_1_signature_constant" kindref="compound">SignatureConstant</ref><sp/>eqSig<sp/><sp/><sp/><sp/>=<sp/>builder.<ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a2ab1a400e5e015ab107e18b99b6218f9" kindref="member">pool</ref>().<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a5a84943eb8b6ec673219e1120fad9e75" kindref="member">sigEquals</ref>();</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d83/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_info" kindref="compound">MethodInfo</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eqMethod<sp/>=<sp/><ref refid="dd/dbd/classorg_1_1xvm_1_1javajit_1_1builders_1_1_common_builder_1a260df1e7da184e0b23e796581f044b40" kindref="member">typeInfo</ref>.getMethodBySignature(eqSig);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d0/d2b/classorg_1_1xvm_1_1javajit_1_1_jit_method_desc" kindref="compound">JitMethodDesc</ref><sp/><sp/><sp/><sp/><sp/>eqJmd<sp/><sp/><sp/><sp/>=<sp/>eqMethod.<ref refid="d3/d83/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_info_1a6af85bde1a38036d6e1803e31088548d" kindref="member">getJitDesc</ref>(builder);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/>eqMethod<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>classBuilder.withMethodBody(eqSig.<ref refid="de/d50/classorg_1_1xvm_1_1asm_1_1constants_1_1_signature_constant_1ad8ce87a79cdcf2a6686c5b6b10da4ee2" kindref="member">getName</ref>()+<ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a2e07d971834351bfa01a030b6a7d6c4b" kindref="member">OPT</ref>,<sp/>eqJmd.<ref refid="d0/d2b/classorg_1_1xvm_1_1javajit_1_1_jit_method_desc_1ab2a1564606304ac5de9de08d0f2fd0d2" kindref="member">optimizedMD</ref>,</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ClassFile.ACC_PUBLIC<sp/>|<sp/>ClassFile.ACC_STATIC,<sp/><ref refid="d3/d2a/classorg_1_1xvm_1_1javajit_1_1builders_1_1_enum_builder_1a5400f40aa896d6694489561de6be6d83" kindref="member">EnumBuilder::assembleEquals</ref>);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/d50/classorg_1_1xvm_1_1asm_1_1constants_1_1_signature_constant" kindref="compound">SignatureConstant</ref><sp/>cmpSig<sp/><sp/><sp/><sp/>=<sp/>builder.<ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a2ab1a400e5e015ab107e18b99b6218f9" kindref="member">pool</ref>().<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a5079db83b4c59923dbc2839140624115" kindref="member">sigCompare</ref>();</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d83/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_info" kindref="compound">MethodInfo</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cmpMethod<sp/>=<sp/><ref refid="dd/dbd/classorg_1_1xvm_1_1javajit_1_1builders_1_1_common_builder_1a260df1e7da184e0b23e796581f044b40" kindref="member">typeInfo</ref>.getMethodBySignature(cmpSig);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d0/d2b/classorg_1_1xvm_1_1javajit_1_1_jit_method_desc" kindref="compound">JitMethodDesc</ref><sp/><sp/><sp/><sp/><sp/>cmpJmd<sp/><sp/><sp/><sp/>=<sp/>cmpMethod.<ref refid="d3/d83/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_info_1a6af85bde1a38036d6e1803e31088548d" kindref="member">getJitDesc</ref>(builder);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/>cmpMethod<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>classBuilder.withMethodBody(cmpSig.<ref refid="de/d50/classorg_1_1xvm_1_1asm_1_1constants_1_1_signature_constant_1ad8ce87a79cdcf2a6686c5b6b10da4ee2" kindref="member">getName</ref>(),<sp/>cmpJmd.<ref refid="d0/d2b/classorg_1_1xvm_1_1javajit_1_1_jit_method_desc_1ade9b024af1347bc94756ebf3d9bafb75" kindref="member">standardMD</ref>,</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ClassFile.ACC_PUBLIC<sp/>|<sp/>ClassFile.ACC_STATIC,<sp/>code<sp/>-&gt;<sp/><ref refid="d3/d2a/classorg_1_1xvm_1_1javajit_1_1builders_1_1_enum_builder_1a17f1a03d2efdd7a334639ec583aff593" kindref="member">assembleCompare</ref>(builder,<sp/>code));</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103" refid="d3/d2a/classorg_1_1xvm_1_1javajit_1_1builders_1_1_enum_builder_1a5400f40aa896d6694489561de6be6d83" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d3/d2a/classorg_1_1xvm_1_1javajit_1_1builders_1_1_enum_builder_1a5400f40aa896d6694489561de6be6d83" kindref="member">assembleEquals</ref>(CodeBuilder<sp/>code)<sp/>{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>all<sp/>we<sp/>need<sp/>is<sp/>to<sp/>call<sp/>the<sp/>equivalent<sp/>function<sp/>on<sp/>xEnum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.aload(0)</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.aload(1)</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.aload(2)</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.aload(3)</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.invokestatic(<ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a6d303001281f90515ef76a9eba7272b6" kindref="member">CD_nEnum</ref>,<sp/></highlight><highlight class="stringliteral">&quot;equals$p&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MethodTypeDesc.of(CD_boolean,<sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a78db5a75c1b1b0c1bc5606d380d5e1c6" kindref="member">CD_Ctx</ref>,<sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a2db2536c47f590b6247a2d3dc60d7515" kindref="member">CD_nType</ref>,<sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a6d303001281f90515ef76a9eba7272b6" kindref="member">CD_nEnum</ref>,<sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a6d303001281f90515ef76a9eba7272b6" kindref="member">CD_nEnum</ref>))</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.ireturn();</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118" refid="d3/d2a/classorg_1_1xvm_1_1javajit_1_1builders_1_1_enum_builder_1a17f1a03d2efdd7a334639ec583aff593" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d3/d2a/classorg_1_1xvm_1_1javajit_1_1builders_1_1_enum_builder_1a17f1a03d2efdd7a334639ec583aff593" kindref="member">assembleCompare</ref>(<ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder" kindref="compound">Builder</ref><sp/>builder,<sp/>CodeBuilder<sp/>code)<sp/>{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>there<sp/>is<sp/>a<sp/>custom<sp/>primitivized<sp/>function<sp/>on<sp/>nEnum:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>long<sp/>compare$p(Ctx<sp/>ctx,<sp/>nType<sp/>CompileType,<sp/>nEnum<sp/>o1,<sp/>nEnum<sp/>o2)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>which<sp/>returns<sp/>a<sp/>negative,<sp/>zero<sp/>or<sp/>positive<sp/>value<sp/>that<sp/>needs<sp/>to<sp/>be<sp/>translated<sp/>into</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>corresponding<sp/>Ordered<sp/>value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref><sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a2ab1a400e5e015ab107e18b99b6218f9" kindref="member">pool</ref><sp/>=<sp/>builder.<ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a2ab1a400e5e015ab107e18b99b6218f9" kindref="member">pool</ref>();</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>long<sp/>c<sp/>=<sp/>nEnum.compare$p(ctx,<sp/>CompileType,<sp/>o1,<sp/>o2);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.aload(0)</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.aload(1)</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.aload(2)</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.aload(3)</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.invokestatic(<ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a6d303001281f90515ef76a9eba7272b6" kindref="member">CD_nEnum</ref>,<sp/></highlight><highlight class="stringliteral">&quot;compare$p&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MethodTypeDesc.of(CD_long,<sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a78db5a75c1b1b0c1bc5606d380d5e1c6" kindref="member">CD_Ctx</ref>,<sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a2db2536c47f590b6247a2d3dc60d7515" kindref="member">CD_nType</ref>,<sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a6d303001281f90515ef76a9eba7272b6" kindref="member">CD_nEnum</ref>,<sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a6d303001281f90515ef76a9eba7272b6" kindref="member">CD_nEnum</ref>))</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.lstore(4);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Label<sp/>labelGe<sp/>=<sp/>code.newLabel();</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Label<sp/>labelEq<sp/>=<sp/>code.newLabel();</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>if<sp/>(l<sp/>&lt;<sp/>0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.lload(4);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.lconst_0();</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.lcmp();</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.ifge(labelGe);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>return<sp/>Lesser;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>builder.<ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1acb1db22df8198828da20c807db4efcdc" kindref="member">loadConstant</ref>(code,<sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a2ab1a400e5e015ab107e18b99b6218f9" kindref="member">pool</ref>.valLesser());</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.areturn();</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>else<sp/>if<sp/>(l<sp/>&gt;<sp/>0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.labelBinding(labelGe);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.lload(4);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.lconst_0();</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.lcmp();</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.ifeq(labelEq);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>if<sp/>&lt;=<sp/>0,<sp/>jump<sp/>to<sp/>else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>return<sp/>Greater;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>builder.<ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1acb1db22df8198828da20c807db4efcdc" kindref="member">loadConstant</ref>(code,<sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a2ab1a400e5e015ab107e18b99b6218f9" kindref="member">pool</ref>.valGreater());</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.areturn();</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>else<sp/>return<sp/>Equal;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.labelBinding(labelEq);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>builder.<ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1acb1db22df8198828da20c807db4efcdc" kindref="member">loadConstant</ref>(code,<sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a2ab1a400e5e015ab107e18b99b6218f9" kindref="member">pool</ref>.valEqual());</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.areturn();</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="164"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/builders/EnumBuilder.java"/>
+  </compounddef>
+</doxygen>

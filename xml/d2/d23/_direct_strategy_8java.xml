@@ -1,0 +1,206 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d2/d23/_direct_strategy_8java" kind="file" language="Java">
+    <compoundname>DirectStrategy.java</compoundname>
+    <includes local="no">java.util.List</includes>
+    <includes local="no">org.gradle.api.logging.Logger</includes>
+    <includes local="no">org.gradle.api.provider.Provider</includes>
+    <includes local="no">org.xtclang.plugin.XtcRunModule</includes>
+    <includes local="no">org.xtclang.plugin.runtime.DirectCompileRequest</includes>
+    <includes local="no">org.xtclang.plugin.runtime.DirectRuntimeBuildService</includes>
+    <includes local="no">org.xtclang.plugin.runtime.DirectRunRequest</includes>
+    <includes local="no">org.xtclang.plugin.runtime.DirectTestRequest</includes>
+    <includes local="no">org.xtclang.plugin.tasks.XtcCompileTask</includes>
+    <includes local="no">org.xtclang.plugin.tasks.XtcRunTask</includes>
+    <includes local="no">org.xtclang.plugin.tasks.XtcTestTask</includes>
+    <includes local="no">org.xtclang.plugin.tasks.XtcLauncherTask.EXIT_CODE_ERROR</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/launchers/DirectStrategy.java</label>
+        <link refid="d2/d23/_direct_strategy_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.util.List</label>
+      </node>
+      <node id="3">
+        <label>org.gradle.api.logging.Logger</label>
+      </node>
+      <node id="4">
+        <label>org.gradle.api.provider.Provider</label>
+      </node>
+      <node id="5">
+        <label>org.xtclang.plugin.XtcRunModule</label>
+      </node>
+      <node id="6">
+        <label>org.xtclang.plugin.runtime.DirectCompileRequest</label>
+      </node>
+      <node id="8">
+        <label>org.xtclang.plugin.runtime.DirectRunRequest</label>
+      </node>
+      <node id="7">
+        <label>org.xtclang.plugin.runtime.DirectRuntimeBuildService</label>
+      </node>
+      <node id="9">
+        <label>org.xtclang.plugin.runtime.DirectTestRequest</label>
+      </node>
+      <node id="10">
+        <label>org.xtclang.plugin.tasks.XtcCompileTask</label>
+      </node>
+      <node id="13">
+        <label>org.xtclang.plugin.tasks.XtcLauncherTask.EXIT_CODE_ERROR</label>
+      </node>
+      <node id="11">
+        <label>org.xtclang.plugin.tasks.XtcRunTask</label>
+      </node>
+      <node id="12">
+        <label>org.xtclang.plugin.tasks.XtcTestTask</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy" prot="public">org::xtclang::plugin::launchers::DirectStrategy</innerclass>
+    <innernamespace refid="d6/dfa/namespaceorg_1_1xtclang_1_1plugin_1_1launchers">org::xtclang::plugin::launchers</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xtclang.plugin.launchers;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.gradle.api.logging.Logger;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.gradle.api.provider.Provider;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xtclang.plugin.XtcRunModule;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xtclang.plugin.runtime.DirectCompileRequest;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xtclang.plugin.runtime.DirectRuntimeBuildService;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xtclang.plugin.runtime.DirectRunRequest;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xtclang.plugin.runtime.DirectTestRequest;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xtclang.plugin.tasks.XtcCompileTask;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xtclang.plugin.tasks.XtcRunTask;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xtclang.plugin.tasks.XtcTestTask;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xtclang.plugin.tasks.XtcLauncherTask.EXIT_CODE_ERROR;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1ac54cfb159085d87b653b2bcf8647f7ea" kindref="member">DirectStrategy</ref><sp/></highlight><highlight class="keyword">implements</highlight><highlight class="normal"><sp/><ref refid="de/dd4/interfaceorg_1_1xtclang_1_1plugin_1_1launchers_1_1_execution_strategy" kindref="compound">ExecutionStrategy</ref><sp/>{</highlight></codeline>
+<codeline lineno="25" refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1a7f5d17b895b3a3ed5112744deea0e5ee" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>String<sp/><ref refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1a7f5d17b895b3a3ed5112744deea0e5ee" kindref="member">DEFAULT_METHOD_NAME</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;run&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1a80014d34aace6344fe27137ca4013510" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Logger<sp/><ref refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1a80014d34aace6344fe27137ca4013510" kindref="member">logger</ref>;</highlight></codeline>
+<codeline lineno="28" refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1a4e2a335812b28075e9871e778d4fd125" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Provider&lt;DirectRuntimeBuildService&gt;<sp/><ref refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1a4e2a335812b28075e9871e778d4fd125" kindref="member">directRuntimeService</ref>;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1ac54cfb159085d87b653b2bcf8647f7ea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1ac54cfb159085d87b653b2bcf8647f7ea" kindref="member">DirectStrategy</ref>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Logger<sp/><ref refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1a80014d34aace6344fe27137ca4013510" kindref="member">logger</ref>,<sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Provider&lt;DirectRuntimeBuildService&gt;<sp/><ref refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1a4e2a335812b28075e9871e778d4fd125" kindref="member">directRuntimeService</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.logger<sp/>=<sp/><ref refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1a80014d34aace6344fe27137ca4013510" kindref="member">logger</ref>;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.directRuntimeService<sp/>=<sp/><ref refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1a4e2a335812b28075e9871e778d4fd125" kindref="member">directRuntimeService</ref>;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="36" refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1a2cab166c5dfccfd11177af4d2bfb06fb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="de/d68/enumorg_1_1xtclang_1_1plugin_1_1launchers_1_1_execution_mode" kindref="compound">ExecutionMode</ref><sp/><ref refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1a2cab166c5dfccfd11177af4d2bfb06fb" kindref="member">getMode</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="de/d68/enumorg_1_1xtclang_1_1plugin_1_1launchers_1_1_execution_mode" kindref="compound">ExecutionMode</ref>.<ref refid="de/d68/enumorg_1_1xtclang_1_1plugin_1_1launchers_1_1_execution_mode_1abd5c43f5d1d5034341bd7518cab528ee" kindref="member">DIRECT</ref>;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="41" refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1a9f6ef3fa79b55de3583ba745d5a4eda0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1a9f6ef3fa79b55de3583ba745d5a4eda0" kindref="member">execute</ref>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task" kindref="compound">XtcCompileTask</ref><sp/>task)<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1a80014d34aace6344fe27137ca4013510" kindref="member">logger</ref>.info(</highlight><highlight class="stringliteral">&quot;[plugin]<sp/>Invoking<sp/>compiler<sp/>directly<sp/>in<sp/>current<sp/>thread<sp/>(no<sp/>fork)&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1a4e2a335812b28075e9871e778d4fd125" kindref="member">directRuntimeService</ref>.get().executeCompile(task.<ref refid="d6/d70/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_launcher_task_1a702fe152716aa808b366312b3e2001dd" kindref="member">resolveLauncherRuntime</ref>(),<sp/><ref refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1aa4b5420fd6b5bcac4145277fb4c19c3d" kindref="member">createCompileRequest</ref>(task),<sp/><ref refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1a80014d34aace6344fe27137ca4013510" kindref="member">logger</ref>);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Exception<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1a80014d34aace6344fe27137ca4013510" kindref="member">logger</ref>.error(</highlight><highlight class="stringliteral">&quot;[plugin]<sp/>Direct<sp/>compiler<sp/>execution<sp/>failed&quot;</highlight><highlight class="normal">,<sp/>e);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>EXIT_CODE_ERROR;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="52" refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1ad0a1e4f178f1f269d02eeaddf16c2b85" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1ad0a1e4f178f1f269d02eeaddf16c2b85" kindref="member">execute</ref>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="d9/d8d/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_run_task" kindref="compound">XtcRunTask</ref><sp/>task,<sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="d3/d4f/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_run_module" kindref="compound">XtcRunModule</ref><sp/>runConfig)<sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1a80014d34aace6344fe27137ca4013510" kindref="member">logger</ref>.info(</highlight><highlight class="stringliteral">&quot;[plugin]<sp/>Invoking<sp/>runner<sp/>directly<sp/>in<sp/>current<sp/>thread<sp/>(no<sp/>fork)&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1a4e2a335812b28075e9871e778d4fd125" kindref="member">directRuntimeService</ref>.get().executeRun(task.<ref refid="d6/d70/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_launcher_task_1a702fe152716aa808b366312b3e2001dd" kindref="member">resolveLauncherRuntime</ref>(),<sp/><ref refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1aec92018ea0eeca82ef990680c11091ce" kindref="member">createRunRequest</ref>(task,<sp/>runConfig),<sp/><ref refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1a80014d34aace6344fe27137ca4013510" kindref="member">logger</ref>);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Exception<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1a80014d34aace6344fe27137ca4013510" kindref="member">logger</ref>.error(</highlight><highlight class="stringliteral">&quot;[plugin]<sp/>Direct<sp/>runner<sp/>execution<sp/>failed&quot;</highlight><highlight class="normal">,<sp/>e);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>EXIT_CODE_ERROR;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="63" refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1a0765ed51b533be06476cbbbeabd38758" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1a0765ed51b533be06476cbbbeabd38758" kindref="member">execute</ref>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="d1/d8a/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_test_task" kindref="compound">XtcTestTask</ref><sp/>task,<sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="d3/d4f/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_run_module" kindref="compound">XtcRunModule</ref><sp/>runConfig)<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1a80014d34aace6344fe27137ca4013510" kindref="member">logger</ref>.info(</highlight><highlight class="stringliteral">&quot;[plugin]<sp/>Invoking<sp/>test<sp/>runner<sp/>directly<sp/>in<sp/>current<sp/>thread<sp/>(no<sp/>fork)&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1a4e2a335812b28075e9871e778d4fd125" kindref="member">directRuntimeService</ref>.get().executeTest(task.<ref refid="d6/d70/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_launcher_task_1a702fe152716aa808b366312b3e2001dd" kindref="member">resolveLauncherRuntime</ref>(),<sp/><ref refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1a91f30b6a81b3ee0e0ecf8c75852f0aad" kindref="member">createTestRequest</ref>(task,<sp/>runConfig),<sp/><ref refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1a80014d34aace6344fe27137ca4013510" kindref="member">logger</ref>);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Exception<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1a80014d34aace6344fe27137ca4013510" kindref="member">logger</ref>.error(</highlight><highlight class="stringliteral">&quot;[plugin]<sp/>Direct<sp/>test<sp/>runner<sp/>execution<sp/>failed&quot;</highlight><highlight class="normal">,<sp/>e);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>EXIT_CODE_ERROR;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73" refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1aa4b5420fd6b5bcac4145277fb4c19c3d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>DirectCompileRequest<sp/><ref refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1aa4b5420fd6b5bcac4145277fb4c19c3d" kindref="member">createCompileRequest</ref>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task" kindref="compound">XtcCompileTask</ref><sp/>task)<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>var<sp/>rawVersion<sp/>=<sp/>task.<ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1ad5eeb85fa936a3321527b231e0205f36" kindref="member">getXtcVersion</ref>().getOrNull();</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>String<sp/>semanticVersion<sp/>=<sp/>rawVersion<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>||<sp/>rawVersion.isBlank()</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>null</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task" kindref="compound">XtcCompileTask</ref>.<ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a8c7e70868cd2301554e0264abb9d72b5" kindref="member">semanticVersion</ref>(rawVersion);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>DirectCompileRequest(</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task.<ref refid="d6/d70/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_launcher_task_1af30f7cd88627b438797eb6c5fbdae26f" kindref="member">getProjectDirectory</ref>().get().getAsFile(),</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task.<ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1ab190b74156087310744c79a8385a9265" kindref="member">getOutputDirectoryInternal</ref>().getAsFile(),</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task.<ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1ac6b41840cf40accd13a1eb779c5b5787" kindref="member">getResourceDirectoryInternal</ref>().getAsFile(),</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task.<ref refid="d6/d70/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_launcher_task_1a3312e0ef71f0ed1253b56ea61cae135a" kindref="member">resolveFullModulePath</ref>(),</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List.copyOf(task.<ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1af2337724d2cbe392a2fc64eb5151ce26" kindref="member">resolveXtcSourceFiles</ref>()),</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task.<ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1ac1bca642aca7ebbd5f7a498445b22beb" kindref="member">getRebuild</ref>().get(),</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task.<ref refid="d6/d70/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_launcher_task_1a45f6e39af1159d091fd9d9375f57d37e" kindref="member">getShowVersion</ref>().get(),</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task.<ref refid="d6/d70/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_launcher_task_1a9c1b5a624b5bd05965616b04e513302b" kindref="member">getVerbose</ref>().get(),</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task.<ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1af550a301a327bec3eb8f5c6d2e753597" kindref="member">getDisableWarnings</ref>().get(),</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task.<ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a31e8845be38ded63586ca916e7f83b52" kindref="member">getStrict</ref>().get(),</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task.<ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a8e22e2b204a028cdcd7f64112dcb615d" kindref="member">getQualifiedOutputName</ref>().get(),</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>semanticVersion</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94" refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1aec92018ea0eeca82ef990680c11091ce" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>DirectRunRequest<sp/><ref refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1aec92018ea0eeca82ef990680c11091ce" kindref="member">createRunRequest</ref>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="d9/d8d/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_run_task" kindref="compound">XtcRunTask</ref><sp/>task,<sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="d3/d4f/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_run_module" kindref="compound">XtcRunModule</ref><sp/>runConfig)<sp/>{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>DirectRunRequest(</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task.<ref refid="d6/d70/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_launcher_task_1af30f7cd88627b438797eb6c5fbdae26f" kindref="member">getProjectDirectory</ref>().get().getAsFile(),</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task.<ref refid="d6/d70/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_launcher_task_1a3312e0ef71f0ed1253b56ea61cae135a" kindref="member">resolveFullModulePath</ref>(),</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task.<ref refid="d6/d70/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_launcher_task_1a45f6e39af1159d091fd9d9375f57d37e" kindref="member">getShowVersion</ref>().get(),</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task.<ref refid="d6/d70/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_launcher_task_1a9c1b5a624b5bd05965616b04e513302b" kindref="member">getVerbose</ref>().get(),</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>runConfig.<ref refid="d3/d4f/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_run_module_1acb879b297d206a9c08c878c3c9f9e005" kindref="member">getModuleName</ref>().get(),</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task.<ref refid="d9/d8d/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_run_task_1a794c4d80e1047705d447005c15df3fc8" kindref="member">getMethodName</ref>().getOrElse(<ref refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1a7f5d17b895b3a3ed5112744deea0e5ee" kindref="member">DEFAULT_METHOD_NAME</ref>),</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>runConfig.<ref refid="d3/d4f/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_run_module_1a07a4d3ed756b699d1d730d05612d96f4" kindref="member">getModuleArgs</ref>().get()</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106" refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1a91f30b6a81b3ee0e0ecf8c75852f0aad" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>DirectTestRequest<sp/><ref refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1a91f30b6a81b3ee0e0ecf8c75852f0aad" kindref="member">createTestRequest</ref>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="d1/d8a/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_test_task" kindref="compound">XtcTestTask</ref><sp/>task,<sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="d3/d4f/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_run_module" kindref="compound">XtcRunModule</ref><sp/>runConfig)<sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>DirectTestRequest(</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task.<ref refid="d6/d70/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_launcher_task_1af30f7cd88627b438797eb6c5fbdae26f" kindref="member">getProjectDirectory</ref>().get().getAsFile(),</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task.<ref refid="d1/d8a/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_test_task_1a8335329103de55d3640e1a5343452cac" kindref="member">getOutputDirectory</ref>().get().getAsFile(),</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task.<ref refid="d6/d70/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_launcher_task_1a3312e0ef71f0ed1253b56ea61cae135a" kindref="member">resolveFullModulePath</ref>(),</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task.<ref refid="d6/d70/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_launcher_task_1a45f6e39af1159d091fd9d9375f57d37e" kindref="member">getShowVersion</ref>().get(),</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task.<ref refid="d6/d70/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_launcher_task_1a9c1b5a624b5bd05965616b04e513302b" kindref="member">getVerbose</ref>().get(),</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>runConfig.<ref refid="d3/d4f/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_run_module_1acb879b297d206a9c08c878c3c9f9e005" kindref="member">getModuleName</ref>().get(),</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task.<ref refid="d9/d8d/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_run_task_1a794c4d80e1047705d447005c15df3fc8" kindref="member">getMethodName</ref>().getOrElse(<ref refid="d9/d25/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_direct_strategy_1a7f5d17b895b3a3ed5112744deea0e5ee" kindref="member">DEFAULT_METHOD_NAME</ref>),</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>runConfig.<ref refid="d3/d4f/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_run_module_1a07a4d3ed756b699d1d730d05612d96f4" kindref="member">getModuleArgs</ref>().get()</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/launchers/DirectStrategy.java"/>
+  </compounddef>
+</doxygen>

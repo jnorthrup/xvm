@@ -1,0 +1,2664 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker" kind="class" language="Java" prot="public">
+    <compoundname>org::xvm::javajit::Linker</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1afa5433667dc1c3108bc1f2c89217a333" prot="private" static="no" mutable="no">
+        <type>final <ref refid="d0/d5f/classorg_1_1xvm_1_1javajit_1_1_xvm" kindref="compound">Xvm</ref></type>
+        <definition>final Xvm org.xvm.javajit.Linker.xvm</definition>
+        <argsstring></argsstring>
+        <name>xvm</name>
+        <qualifiedname>org.xvm.javajit.Linker.xvm</qualifiedname>
+        <briefdescription>
+<para>The <ref refid="d0/d5f/classorg_1_1xvm_1_1javajit_1_1_xvm" kindref="compound">Xvm</ref> that this <ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker" kindref="compound">Linker</ref> is building a <ref refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" kindref="compound">TypeSystem</ref> for. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="42" column="23" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="42" bodyend="-1"/>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a4996625b7953c9fa59464a9dff8ffffa" compoundref="d8/df9/_linker_8java" startline="367" endline="391">org.xvm.javajit.Linker.link</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a7bfde94f3671b6b117c816caab20b45b" compoundref="d8/df9/_linker_8java" startline="34" endline="37">org.xvm.javajit.Linker.Linker</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a9a71082bff7eb1b3551f98da67d7c8ed" prot="private" static="no" mutable="no">
+        <type>final ArrayList&lt; <ref refid="d3/de5/classorg_1_1xvm_1_1javajit_1_1_module_loader" kindref="compound">ModuleLoader</ref> &gt;</type>
+        <definition>final ArrayList&lt;ModuleLoader&gt; org.xvm.javajit.Linker.sharedLoaders</definition>
+        <argsstring></argsstring>
+        <name>sharedLoaders</name>
+        <qualifiedname>org.xvm.javajit.Linker.sharedLoaders</qualifiedname>
+        <initializer>= new ArrayList&lt;&gt;()</initializer>
+        <briefdescription>
+<para>The ModuleLoaders for the modules that are being shared into the new <ref refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" kindref="compound">TypeSystem</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="47" column="29" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="47" bodyend="-1"/>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ac218c7b3a9a09de970c3ab49592a0e8b" compoundref="d8/df9/_linker_8java" startline="121" endline="129">org.xvm.javajit.Linker.addSharedModule</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a4996625b7953c9fa59464a9dff8ffffa" compoundref="d8/df9/_linker_8java" startline="367" endline="391">org.xvm.javajit.Linker.link</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a16ebdfc5c7fdd9b38164db319f1db35c" prot="private" static="no" mutable="no">
+        <type>final Map&lt; String, Boolean &gt;</type>
+        <definition>final Map&lt;String, Boolean&gt; org.xvm.javajit.Linker.defines</definition>
+        <argsstring></argsstring>
+        <name>defines</name>
+        <qualifiedname>org.xvm.javajit.Linker.defines</qualifiedname>
+        <initializer>= new HashMap&lt;&gt;()</initializer>
+        <briefdescription>
+<para>Defined names for the modules that are being loaded/resolved in the new <ref refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" kindref="compound">TypeSystem</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="52" column="23" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="52" bodyend="-1"/>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a3cd8fe176f60643990748fb1b2f89340" compoundref="d8/df9/_linker_8java" startline="143" endline="150">org.xvm.javajit.Linker.define</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a6fa918dd23db470d5ab30449396e88bd" compoundref="d8/df9/_linker_8java" startline="192" endline="195">org.xvm.javajit.Linker.defined</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a27c18e9d60a5d2dda5e8062743e94949" compoundref="d8/df9/_linker_8java" startline="215" endline="217">org.xvm.javajit.Linker.defines</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1acc1d136042623f2372034580edea8c78" compoundref="d8/df9/_linker_8java" startline="180" endline="183">org.xvm.javajit.Linker.specified</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a730b4d6809f604937539b940c2351c79" compoundref="d8/df9/_linker_8java" startline="204" endline="207">org.xvm.javajit.Linker.undefined</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1aca6946b38d1fa82727c1729f404de1f0" prot="private" static="no" mutable="no">
+        <type><ref refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository" kindref="compound">ModuleRepository</ref></type>
+        <definition>ModuleRepository org.xvm.javajit.Linker.repo</definition>
+        <argsstring></argsstring>
+        <name>repo</name>
+        <qualifiedname>org.xvm.javajit.Linker.repo</qualifiedname>
+        <briefdescription>
+<para>The <ref refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository" kindref="compound">ModuleRepository</ref> to load modules from, if necessary. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="57" column="30" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="57" bodyend="-1"/>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a4b40cdb8347b86864e7760668f9a9d9f" compoundref="d8/df9/_linker_8java" startline="421" endline="433">org.xvm.javajit.Linker.loadModule</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a0c8fa4b6a3c13e6c25151a664a1deb0a" compoundref="d8/df9/_linker_8java" startline="238" endline="240">org.xvm.javajit.Linker.repo</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a7017df4f6f303192a430f5216dfa8f4d" compoundref="d8/df9/_linker_8java" startline="228" endline="232">org.xvm.javajit.Linker.withRepo</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a9ffcb71283a170c77177e4e33a0810a6" prot="private" static="no" mutable="no">
+        <type><ref refid="d9/d62/classorg_1_1xvm_1_1javajit_1_1_refiner" kindref="compound">Refiner</ref></type>
+        <definition>Refiner org.xvm.javajit.Linker.refiner</definition>
+        <argsstring></argsstring>
+        <name>refiner</name>
+        <qualifiedname>org.xvm.javajit.Linker.refiner</qualifiedname>
+        <initializer>= DefaultRefiner</initializer>
+        <briefdescription>
+<para>The <ref refid="d9/d62/classorg_1_1xvm_1_1javajit_1_1_refiner" kindref="compound">Refiner</ref> for this <ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker" kindref="compound">Linker</ref> to use when Module-related decisions are required. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="62" column="21" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="62" bodyend="-1"/>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1af0ac09543dd1584393ca0a3937b775b3" compoundref="d8/df9/_linker_8java" startline="261" endline="263">org.xvm.javajit.Linker.refiner</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a85756fc388f8e4e5ad4cf1e3ee63f5f4" compoundref="d8/df9/_linker_8java" startline="251" endline="255">org.xvm.javajit.Linker.withRefiner</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a2a866d69c805783c4f0fa8dde1e943ee" prot="private" static="no" mutable="no">
+        <type>final ArrayList&lt; <ref refid="d2/d13/classorg_1_1xvm_1_1asm_1_1_module_structure" kindref="compound">ModuleStructure</ref> &gt;</type>
+        <definition>final ArrayList&lt;ModuleStructure&gt; org.xvm.javajit.Linker.modules</definition>
+        <argsstring></argsstring>
+        <name>modules</name>
+        <qualifiedname>org.xvm.javajit.Linker.modules</qualifiedname>
+        <initializer>= new ArrayList&lt;&gt;()</initializer>
+        <briefdescription>
+<para>These are the modules that have been added to the <ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker" kindref="compound">Linker</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>They are potentially unrefined, which means that the linking step would need to ensure that each of these is refined down to a single version with all dependencies resolved (particularly making decisions on optional dependencies) and with all conditionals resolved (version-related, dependency-related, and named conditions). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="71" column="29" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="71" bodyend="-1"/>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a2c9e5b2ea83b4ec3832d830e6f6323f3" compoundref="d8/df9/_linker_8java" startline="331" endline="339">org.xvm.javajit.Linker.addModule</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a3cd8fe176f60643990748fb1b2f89340" compoundref="d8/df9/_linker_8java" startline="143" endline="150">org.xvm.javajit.Linker.define</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a4996625b7953c9fa59464a9dff8ffffa" compoundref="d8/df9/_linker_8java" startline="367" endline="391">org.xvm.javajit.Linker.link</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ae60ff73e555dc451b660c0fcf357bbd6" compoundref="d8/df9/_linker_8java" startline="294" endline="304">org.xvm.javajit.Linker.withMain</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a5aeb9f33e141fef755c9a26444052ff1" compoundref="d8/df9/_linker_8java" startline="272" endline="285">org.xvm.javajit.Linker.withMain</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a5cf7efc1366f3ec64757dcc1ce232355" prot="private" static="no" mutable="no">
+        <type>final <ref refid="db/dca/classorg_1_1xvm_1_1asm_1_1_error_list" kindref="compound">ErrorList</ref></type>
+        <definition>final ErrorList org.xvm.javajit.Linker.errors</definition>
+        <argsstring></argsstring>
+        <name>errors</name>
+        <qualifiedname>org.xvm.javajit.Linker.errors</qualifiedname>
+        <initializer>= new <ref refid="db/dca/classorg_1_1xvm_1_1asm_1_1_error_list" kindref="compound">ErrorList</ref>(24)</initializer>
+        <briefdescription>
+<para>A structure for collecting information, warnings, and errors from the linking process. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="76" column="29" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="76" bodyend="-1"/>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a50db5321cba7771e1d4569f3f66f0ee1" compoundref="d8/df9/_linker_8java" startline="346" endline="351">org.xvm.javajit.Linker.errorList</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1aaeaf4d206f17fa855bd92ede78261570" compoundref="d8/df9/_linker_8java" startline="442" endline="444">org.xvm.javajit.Linker.log</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a19a039eac14f74158211d05d80cb7dba" prot="private" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean org.xvm.javajit.Linker.bad</definition>
+        <argsstring></argsstring>
+        <name>bad</name>
+        <qualifiedname>org.xvm.javajit.Linker.bad</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>Internal cache: Set to <computeroutput>true</computeroutput> once a serious Error has been spotted. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="81" column="21" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="81" bodyend="-1"/>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a50db5321cba7771e1d4569f3f66f0ee1" compoundref="d8/df9/_linker_8java" startline="346" endline="351">org.xvm.javajit.Linker.errorList</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ac214c604a13094d38e8478276fdb60d1" compoundref="d8/df9/_linker_8java" startline="357" endline="359">org.xvm.javajit.Linker.isBad</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ae2271cca3e9fc0556c03ad3fd4618a63" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String org.xvm.javajit.Linker.LNK_NOREPO</definition>
+        <argsstring></argsstring>
+        <name>LNK_NOREPO</name>
+        <qualifiedname>org.xvm.javajit.Linker.LNK_NOREPO</qualifiedname>
+        <initializer>= &quot;LNK_NOREPO&quot;</initializer>
+        <briefdescription>
+<para>Unable to load module &quot;{0}&quot; because no Repository has been specified. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="398" column="32" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="398" bodyend="-1"/>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a4b40cdb8347b86864e7760668f9a9d9f" compoundref="d8/df9/_linker_8java" startline="421" endline="433">org.xvm.javajit.Linker.loadModule</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a29349c8117c7a11d0450deb265c7367c" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String org.xvm.javajit.Linker.LNK_MODULE_LOAD</definition>
+        <argsstring></argsstring>
+        <name>LNK_MODULE_LOAD</name>
+        <qualifiedname>org.xvm.javajit.Linker.LNK_MODULE_LOAD</qualifiedname>
+        <initializer>= &quot;LNK_MODULE_LOAD&quot;</initializer>
+        <briefdescription>
+<para>Unable to load module &quot;{0}&quot;. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="402" column="32" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="402" bodyend="-1"/>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a4b40cdb8347b86864e7760668f9a9d9f" compoundref="d8/df9/_linker_8java" startline="421" endline="433">org.xvm.javajit.Linker.loadModule</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a6ff4bae2cccebf84b3cb67ec47c47d80" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String org.xvm.javajit.Linker.LNK_REDEF</definition>
+        <argsstring></argsstring>
+        <name>LNK_REDEF</name>
+        <qualifiedname>org.xvm.javajit.Linker.LNK_REDEF</qualifiedname>
+        <initializer>= &quot;LNK_REDEF&quot;</initializer>
+        <briefdescription>
+<para>The define decision for the name &quot;{0}&quot; has already been specified. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="406" column="32" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="406" bodyend="-1"/>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a3cd8fe176f60643990748fb1b2f89340" compoundref="d8/df9/_linker_8java" startline="143" endline="150">org.xvm.javajit.Linker.define</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ae6d8807076f3eb21b1bbd192c11a252e" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String org.xvm.javajit.Linker.LNK_MAIN_EXISTS</definition>
+        <argsstring></argsstring>
+        <name>LNK_MAIN_EXISTS</name>
+        <qualifiedname>org.xvm.javajit.Linker.LNK_MAIN_EXISTS</qualifiedname>
+        <initializer>= &quot;LNK_MAIN_EXISTS&quot;</initializer>
+        <briefdescription>
+<para>Unable to specify the main module as &quot;{0}&quot;; the main module &quot;{1}&quot; was previously specified. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="410" column="32" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="410" bodyend="-1"/>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ae60ff73e555dc451b660c0fcf357bbd6" compoundref="d8/df9/_linker_8java" startline="294" endline="304">org.xvm.javajit.Linker.withMain</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a5aeb9f33e141fef755c9a26444052ff1" compoundref="d8/df9/_linker_8java" startline="272" endline="285">org.xvm.javajit.Linker.withMain</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a7bfde94f3671b6b117c816caab20b45b" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.xvm.javajit.Linker.Linker</definition>
+        <argsstring>(Xvm xvm)</argsstring>
+        <name>Linker</name>
+        <qualifiedname>org.xvm.javajit.Linker.Linker</qualifiedname>
+        <param>
+          <type><ref refid="d0/d5f/classorg_1_1xvm_1_1javajit_1_1_xvm" kindref="compound">Xvm</ref></type>
+          <declname>xvm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xvm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the <ref refid="d0/d5f/classorg_1_1xvm_1_1javajit_1_1_xvm" kindref="compound">Xvm</ref> that this <ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker" kindref="compound">Linker</ref> will link and create a <ref refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" kindref="compound">TypeSystem</ref> for </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="34" column="15" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="34" bodyend="37"/>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1afa5433667dc1c3108bc1f2c89217a333" compoundref="d8/df9/_linker_8java" startline="42">org.xvm.javajit.Linker.xvm</references>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a2c9e5b2ea83b4ec3832d830e6f6323f3" compoundref="d8/df9/_linker_8java" startline="331" endline="339">org.xvm.javajit.Linker.addModule</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a974905d99d3e59be62917c7f80ce5ef2" compoundref="d8/df9/_linker_8java" startline="313" endline="322">org.xvm.javajit.Linker.addModule</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ac218c7b3a9a09de970c3ab49592a0e8b" compoundref="d8/df9/_linker_8java" startline="121" endline="129">org.xvm.javajit.Linker.addSharedModule</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ad3ead413b3fd09483657f499c20438f1" compoundref="d8/df9/_linker_8java" startline="90" endline="93">org.xvm.javajit.Linker.addSharedModules</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a10e7810e6af7c8ca67e72e26fad337af" compoundref="d8/df9/_linker_8java" startline="102" endline="112">org.xvm.javajit.Linker.addSharedModules</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a518aa672998c4aa42e9aa5b337a95dac" compoundref="d8/df9/_linker_8java" startline="164" endline="171">org.xvm.javajit.Linker.define</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a3cd8fe176f60643990748fb1b2f89340" compoundref="d8/df9/_linker_8java" startline="143" endline="150">org.xvm.javajit.Linker.define</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ae60ff73e555dc451b660c0fcf357bbd6" compoundref="d8/df9/_linker_8java" startline="294" endline="304">org.xvm.javajit.Linker.withMain</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a5aeb9f33e141fef755c9a26444052ff1" compoundref="d8/df9/_linker_8java" startline="272" endline="285">org.xvm.javajit.Linker.withMain</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a85756fc388f8e4e5ad4cf1e3ee63f5f4" compoundref="d8/df9/_linker_8java" startline="251" endline="255">org.xvm.javajit.Linker.withRefiner</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a7017df4f6f303192a430f5216dfa8f4d" compoundref="d8/df9/_linker_8java" startline="228" endline="232">org.xvm.javajit.Linker.withRepo</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a4b40cdb8347b86864e7760668f9a9d9f" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d2/d13/classorg_1_1xvm_1_1asm_1_1_module_structure" kindref="compound">ModuleStructure</ref></type>
+        <definition>ModuleStructure org.xvm.javajit.Linker.loadModule</definition>
+        <argsstring>(String moduleName)</argsstring>
+        <name>loadModule</name>
+        <qualifiedname>org.xvm.javajit.Linker.loadModule</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>moduleName</declname>
+        </param>
+        <briefdescription>
+<para>Obtain the module of the specified name. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>moduleName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the module name to load or find</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the specified module, or null </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="421" column="31" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="421" bodyend="433"/>
+        <references refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity_1a470906cb0c737a6d70b2d9ff265ab9fd" compoundref="d0/ddf/_severity_8java" startline="10">org.xvm.util.Severity.ERROR</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a29349c8117c7a11d0450deb265c7367c" compoundref="d8/df9/_linker_8java" startline="402">org.xvm.javajit.Linker.LNK_MODULE_LOAD</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ae2271cca3e9fc0556c03ad3fd4618a63" compoundref="d8/df9/_linker_8java" startline="398">org.xvm.javajit.Linker.LNK_NOREPO</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1aaeaf4d206f17fa855bd92ede78261570" compoundref="d8/df9/_linker_8java" startline="442" endline="444">org.xvm.javajit.Linker.log</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1aca6946b38d1fa82727c1729f404de1f0" compoundref="d8/df9/_linker_8java" startline="57">org.xvm.javajit.Linker.repo</references>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a974905d99d3e59be62917c7f80ce5ef2" compoundref="d8/df9/_linker_8java" startline="313" endline="322">org.xvm.javajit.Linker.addModule</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a5aeb9f33e141fef755c9a26444052ff1" compoundref="d8/df9/_linker_8java" startline="272" endline="285">org.xvm.javajit.Linker.withMain</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1aaeaf4d206f17fa855bd92ede78261570" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.javajit.Linker.log</definition>
+        <argsstring>(Severity severity, String code, Object... params)</argsstring>
+        <name>log</name>
+        <qualifiedname>org.xvm.javajit.Linker.log</qualifiedname>
+        <param>
+          <type><ref refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity" kindref="compound">Severity</ref></type>
+          <declname>severity</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>Object...</type>
+          <declname>params</declname>
+        </param>
+        <briefdescription>
+<para>Log an error. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>severity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the error severity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the error code </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>params</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the parameters for the error message </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="442" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="442" bodyend="444"/>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a5cf7efc1366f3ec64757dcc1ce232355" compoundref="d8/df9/_linker_8java" startline="76">org.xvm.javajit.Linker.errors</references>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a3cd8fe176f60643990748fb1b2f89340" compoundref="d8/df9/_linker_8java" startline="143" endline="150">org.xvm.javajit.Linker.define</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a4b40cdb8347b86864e7760668f9a9d9f" compoundref="d8/df9/_linker_8java" startline="421" endline="433">org.xvm.javajit.Linker.loadModule</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ae60ff73e555dc451b660c0fcf357bbd6" compoundref="d8/df9/_linker_8java" startline="294" endline="304">org.xvm.javajit.Linker.withMain</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a5aeb9f33e141fef755c9a26444052ff1" compoundref="d8/df9/_linker_8java" startline="272" endline="285">org.xvm.javajit.Linker.withMain</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ad3ead413b3fd09483657f499c20438f1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a7bfde94f3671b6b117c816caab20b45b" kindref="member">Linker</ref></type>
+        <definition>Linker org.xvm.javajit.Linker.addSharedModules</definition>
+        <argsstring>(TypeSystem typeSystem)</argsstring>
+        <name>addSharedModules</name>
+        <qualifiedname>org.xvm.javajit.Linker.addSharedModules</qualifiedname>
+        <param>
+          <type><ref refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" kindref="compound">TypeSystem</ref></type>
+          <declname>typeSystem</declname>
+        </param>
+        <briefdescription>
+<para>Share all modules from the specified <ref refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" kindref="compound">TypeSystem</ref> into the <ref refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" kindref="compound">TypeSystem</ref> being created. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>typeSystem</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a <ref refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" kindref="compound">TypeSystem</ref> to share all modules from</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the <ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker" kindref="compound">Linker</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="90" column="19" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="90" bodyend="93"/>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ad3ead413b3fd09483657f499c20438f1" compoundref="d8/df9/_linker_8java" startline="90" endline="93">org.xvm.javajit.Linker.addSharedModules</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a7bfde94f3671b6b117c816caab20b45b" compoundref="d8/df9/_linker_8java" startline="34" endline="37">org.xvm.javajit.Linker.Linker</references>
+        <references refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system_1a8ac30a05c620c295e4cf24957ffb545e" compoundref="d5/dcc/_type_system_8java" startline="138">org.xvm.javajit.TypeSystem.loader</references>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ad3ead413b3fd09483657f499c20438f1" compoundref="d8/df9/_linker_8java" startline="90" endline="93">org.xvm.javajit.Linker.addSharedModules</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a10e7810e6af7c8ca67e72e26fad337af" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a7bfde94f3671b6b117c816caab20b45b" kindref="member">Linker</ref></type>
+        <definition>Linker org.xvm.javajit.Linker.addSharedModules</definition>
+        <argsstring>(TypeSystemLoader loader)</argsstring>
+        <name>addSharedModules</name>
+        <qualifiedname>org.xvm.javajit.Linker.addSharedModules</qualifiedname>
+        <param>
+          <type><ref refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader" kindref="compound">TypeSystemLoader</ref></type>
+          <declname>loader</declname>
+        </param>
+        <briefdescription>
+<para>Share all modules from the provided <ref refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader" kindref="compound">TypeSystemLoader</ref> into the <ref refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" kindref="compound">TypeSystem</ref> being created. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>loader</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a <ref refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader" kindref="compound">TypeSystemLoader</ref></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the <ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker" kindref="compound">Linker</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="102" column="19" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="102" bodyend="112"/>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ac218c7b3a9a09de970c3ab49592a0e8b" compoundref="d8/df9/_linker_8java" startline="121" endline="129">org.xvm.javajit.Linker.addSharedModule</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a7bfde94f3671b6b117c816caab20b45b" compoundref="d8/df9/_linker_8java" startline="34" endline="37">org.xvm.javajit.Linker.Linker</references>
+        <references refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader_1a0766b8a99f2edbb3ad017c13655155c2" compoundref="db/dc1/_type_system_loader_8java" startline="63">org.xvm.javajit.TypeSystemLoader.owned</references>
+        <references refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader_1abbb3c0ff5e838b5e6883e4d33acd43cc" compoundref="db/dc1/_type_system_loader_8java" startline="58">org.xvm.javajit.TypeSystemLoader.shared</references>
+      </memberdef>
+      <memberdef kind="function" id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ac218c7b3a9a09de970c3ab49592a0e8b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a7bfde94f3671b6b117c816caab20b45b" kindref="member">Linker</ref></type>
+        <definition>Linker org.xvm.javajit.Linker.addSharedModule</definition>
+        <argsstring>(ModuleLoader loader)</argsstring>
+        <name>addSharedModule</name>
+        <qualifiedname>org.xvm.javajit.Linker.addSharedModule</qualifiedname>
+        <param>
+          <type><ref refid="d3/de5/classorg_1_1xvm_1_1javajit_1_1_module_loader" kindref="compound">ModuleLoader</ref></type>
+          <declname>loader</declname>
+        </param>
+        <briefdescription>
+<para>Add a single shared module to the <ref refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" kindref="compound">TypeSystem</ref> being built. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>loader</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the <ref refid="d3/de5/classorg_1_1xvm_1_1javajit_1_1_module_loader" kindref="compound">ModuleLoader</ref> for the existing module to share into the new <ref refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" kindref="compound">TypeSystem</ref></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the <ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker" kindref="compound">Linker</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="121" column="19" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="121" bodyend="129"/>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ac214c604a13094d38e8478276fdb60d1" compoundref="d8/df9/_linker_8java" startline="357" endline="359">org.xvm.javajit.Linker.isBad</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a7bfde94f3671b6b117c816caab20b45b" compoundref="d8/df9/_linker_8java" startline="34" endline="37">org.xvm.javajit.Linker.Linker</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a9a71082bff7eb1b3551f98da67d7c8ed" compoundref="d8/df9/_linker_8java" startline="47">org.xvm.javajit.Linker.sharedLoaders</references>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a10e7810e6af7c8ca67e72e26fad337af" compoundref="d8/df9/_linker_8java" startline="102" endline="112">org.xvm.javajit.Linker.addSharedModules</referencedby>
+        <referencedby refid="d0/d5f/classorg_1_1xvm_1_1javajit_1_1_xvm_1ad75319b2c1328697d76c1bbef2237b30" compoundref="db/d45/_xvm_8java" startline="191" endline="193">org.xvm.javajit.Xvm.createLinker</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a3cd8fe176f60643990748fb1b2f89340" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a7bfde94f3671b6b117c816caab20b45b" kindref="member">Linker</ref></type>
+        <definition>Linker org.xvm.javajit.Linker.define</definition>
+        <argsstring>(String name, boolean defined)</argsstring>
+        <name>define</name>
+        <qualifiedname>org.xvm.javajit.Linker.define</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>defined</declname>
+        </param>
+        <briefdescription>
+<para>Specify a &quot;condition name&quot; for the modules that will be loaded and resolved. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This must be called BEFORE specifying the main module or any additional modules of the <ref refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" kindref="compound">TypeSystem</ref>, otherwise the <ref refid="d9/d62/classorg_1_1xvm_1_1javajit_1_1_refiner" kindref="compound">Refiner</ref> will be used to determine the definition of any unspecified names.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the name to define (or mark as undefined) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>defined</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>true</computeroutput> to define the name; <computeroutput>false</computeroutput> to mark the names as undefined</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the <ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker" kindref="compound">Linker</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="143" column="19" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="143" bodyend="150"/>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a6fa918dd23db470d5ab30449396e88bd" compoundref="d8/df9/_linker_8java" startline="192" endline="195">org.xvm.javajit.Linker.defined</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a16ebdfc5c7fdd9b38164db319f1db35c" compoundref="d8/df9/_linker_8java" startline="52">org.xvm.javajit.Linker.defines</references>
+        <references refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity_1a470906cb0c737a6d70b2d9ff265ab9fd" compoundref="d0/ddf/_severity_8java" startline="10">org.xvm.util.Severity.ERROR</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a7bfde94f3671b6b117c816caab20b45b" compoundref="d8/df9/_linker_8java" startline="34" endline="37">org.xvm.javajit.Linker.Linker</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a6ff4bae2cccebf84b3cb67ec47c47d80" compoundref="d8/df9/_linker_8java" startline="406">org.xvm.javajit.Linker.LNK_REDEF</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1aaeaf4d206f17fa855bd92ede78261570" compoundref="d8/df9/_linker_8java" startline="442" endline="444">org.xvm.javajit.Linker.log</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a2a866d69c805783c4f0fa8dde1e943ee" compoundref="d8/df9/_linker_8java" startline="71">org.xvm.javajit.Linker.modules</references>
+        <references refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity_1a626cd4de0b9671627c3f7306d1ec85f7" compoundref="d0/ddf/_severity_8java" startline="10">org.xvm.util.Severity.WARNING</references>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a518aa672998c4aa42e9aa5b337a95dac" compoundref="d8/df9/_linker_8java" startline="164" endline="171">org.xvm.javajit.Linker.define</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a518aa672998c4aa42e9aa5b337a95dac" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a7bfde94f3671b6b117c816caab20b45b" kindref="member">Linker</ref></type>
+        <definition>Linker org.xvm.javajit.Linker.define</definition>
+        <argsstring>(Collection&lt; String &gt; names, boolean defined)</argsstring>
+        <name>define</name>
+        <qualifiedname>org.xvm.javajit.Linker.define</qualifiedname>
+        <param>
+          <type>Collection&lt; String &gt;</type>
+          <declname>names</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>defined</declname>
+        </param>
+        <briefdescription>
+<para>Specify the &quot;condition names&quot; for the modules that will be loaded and resolved. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This must be called BEFORE specifying the main module or any additional modules of the <ref refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" kindref="compound">TypeSystem</ref> that depend on these names, otherwise the <ref refid="d9/d62/classorg_1_1xvm_1_1javajit_1_1_refiner" kindref="compound">Refiner</ref> will be used to determine the definition of any unspecified names.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>names</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the names to define (or mark as undefined) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>defined</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>true</computeroutput> to define the name; <computeroutput>false</computeroutput> to mark the names as undefined</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the <ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker" kindref="compound">Linker</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="164" column="19" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="164" bodyend="171"/>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a3cd8fe176f60643990748fb1b2f89340" compoundref="d8/df9/_linker_8java" startline="143" endline="150">org.xvm.javajit.Linker.define</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a6fa918dd23db470d5ab30449396e88bd" compoundref="d8/df9/_linker_8java" startline="192" endline="195">org.xvm.javajit.Linker.defined</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a7bfde94f3671b6b117c816caab20b45b" compoundref="d8/df9/_linker_8java" startline="34" endline="37">org.xvm.javajit.Linker.Linker</references>
+      </memberdef>
+      <memberdef kind="function" id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1acc1d136042623f2372034580edea8c78" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.javajit.Linker.specified</definition>
+        <argsstring>(String name)</argsstring>
+        <name>specified</name>
+        <qualifiedname>org.xvm.javajit.Linker.specified</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Determine if a name is defined within this <ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker" kindref="compound">Linker</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the name to test for</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true iff the specified name is defined within this <ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker" kindref="compound">Linker</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="180" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="180" bodyend="183"/>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a16ebdfc5c7fdd9b38164db319f1db35c" compoundref="d8/df9/_linker_8java" startline="52">org.xvm.javajit.Linker.defines</references>
+      </memberdef>
+      <memberdef kind="function" id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a6fa918dd23db470d5ab30449396e88bd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.javajit.Linker.defined</definition>
+        <argsstring>(String name)</argsstring>
+        <name>defined</name>
+        <qualifiedname>org.xvm.javajit.Linker.defined</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Determine if a name is defined within this <ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker" kindref="compound">Linker</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the name to test for</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true iff the specified name is defined within this <ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker" kindref="compound">Linker</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="192" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="192" bodyend="195"/>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a16ebdfc5c7fdd9b38164db319f1db35c" compoundref="d8/df9/_linker_8java" startline="52">org.xvm.javajit.Linker.defines</references>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a518aa672998c4aa42e9aa5b337a95dac" compoundref="d8/df9/_linker_8java" startline="164" endline="171">org.xvm.javajit.Linker.define</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a3cd8fe176f60643990748fb1b2f89340" compoundref="d8/df9/_linker_8java" startline="143" endline="150">org.xvm.javajit.Linker.define</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a730b4d6809f604937539b940c2351c79" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.javajit.Linker.undefined</definition>
+        <argsstring>(String name)</argsstring>
+        <name>undefined</name>
+        <qualifiedname>org.xvm.javajit.Linker.undefined</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Determine if a name is defined within this <ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker" kindref="compound">Linker</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the name to test for</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true iff the specified name is defined within this <ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker" kindref="compound">Linker</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="204" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="204" bodyend="207"/>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a16ebdfc5c7fdd9b38164db319f1db35c" compoundref="d8/df9/_linker_8java" startline="52">org.xvm.javajit.Linker.defines</references>
+      </memberdef>
+      <memberdef kind="function" id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a27c18e9d60a5d2dda5e8062743e94949" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Map&lt; String, Boolean &gt;</type>
+        <definition>Map&lt; String, Boolean &gt; org.xvm.javajit.Linker.defines</definition>
+        <argsstring>()</argsstring>
+        <name>defines</name>
+        <qualifiedname>org.xvm.javajit.Linker.defines</qualifiedname>
+        <briefdescription>
+<para>Obtain a read-only Map of all defined (or marked-as-undefined) names within this <ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker" kindref="compound">Linker</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>a Map from name to its defined/undefined setting, for each name defined (or marked as undefined) within this <ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker" kindref="compound">Linker</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="215" column="16" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="215" bodyend="217"/>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a16ebdfc5c7fdd9b38164db319f1db35c" compoundref="d8/df9/_linker_8java" startline="52">org.xvm.javajit.Linker.defines</references>
+      </memberdef>
+      <memberdef kind="function" id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a7017df4f6f303192a430f5216dfa8f4d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a7bfde94f3671b6b117c816caab20b45b" kindref="member">Linker</ref></type>
+        <definition>Linker org.xvm.javajit.Linker.withRepo</definition>
+        <argsstring>(ModuleRepository repo)</argsstring>
+        <name>withRepo</name>
+        <qualifiedname>org.xvm.javajit.Linker.withRepo</qualifiedname>
+        <param>
+          <type><ref refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository" kindref="compound">ModuleRepository</ref></type>
+          <declname>repo</declname>
+        </param>
+        <briefdescription>
+<para>From this point forward, the <ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker" kindref="compound">Linker</ref> will attempt to load modules from the provided <ref refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository" kindref="compound">ModuleRepository</ref> if it is necessary to load any modules. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This <ref refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository" kindref="compound">ModuleRepository</ref> will replace any previously specified <ref refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository" kindref="compound">ModuleRepository</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>repo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the <ref refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository" kindref="compound">ModuleRepository</ref> to use to load necessary modules (not null)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the <ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker" kindref="compound">Linker</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="228" column="19" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="228" bodyend="232"/>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a7bfde94f3671b6b117c816caab20b45b" compoundref="d8/df9/_linker_8java" startline="34" endline="37">org.xvm.javajit.Linker.Linker</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1aca6946b38d1fa82727c1729f404de1f0" compoundref="d8/df9/_linker_8java" startline="57">org.xvm.javajit.Linker.repo</references>
+        <referencedby refid="d0/d5f/classorg_1_1xvm_1_1javajit_1_1_xvm_1a1b9d6a5f1e726d5e9ecdbeb61b562a32" compoundref="db/d45/_xvm_8java" startline="229" endline="243">org.xvm.javajit.Xvm.createTypeSystem</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a0c8fa4b6a3c13e6c25151a664a1deb0a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository" kindref="compound">ModuleRepository</ref></type>
+        <definition>ModuleRepository org.xvm.javajit.Linker.repo</definition>
+        <argsstring>()</argsstring>
+        <name>repo</name>
+        <qualifiedname>org.xvm.javajit.Linker.repo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the <ref refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository" kindref="compound">ModuleRepository</ref> that the <ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker" kindref="compound">Linker</ref> will use to load a Module if necessary, or null </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="238" column="29" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="238" bodyend="240"/>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1aca6946b38d1fa82727c1729f404de1f0" compoundref="d8/df9/_linker_8java" startline="57">org.xvm.javajit.Linker.repo</references>
+      </memberdef>
+      <memberdef kind="function" id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a85756fc388f8e4e5ad4cf1e3ee63f5f4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a7bfde94f3671b6b117c816caab20b45b" kindref="member">Linker</ref></type>
+        <definition>Linker org.xvm.javajit.Linker.withRefiner</definition>
+        <argsstring>(Refiner refiner)</argsstring>
+        <name>withRefiner</name>
+        <qualifiedname>org.xvm.javajit.Linker.withRefiner</qualifiedname>
+        <param>
+          <type><ref refid="d9/d62/classorg_1_1xvm_1_1javajit_1_1_refiner" kindref="compound">Refiner</ref></type>
+          <declname>refiner</declname>
+        </param>
+        <briefdescription>
+<para>From this point forward, the <ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker" kindref="compound">Linker</ref> will use the specified <ref refid="d9/d62/classorg_1_1xvm_1_1javajit_1_1_refiner" kindref="compound">Refiner</ref> to make necessary decisions in the process of refining module choices regarding versions, dependencies, and conditional definitions. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>refiner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the <ref refid="d9/d62/classorg_1_1xvm_1_1javajit_1_1_refiner" kindref="compound">Refiner</ref> to use (not null)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the <ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker" kindref="compound">Linker</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="251" column="19" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="251" bodyend="255"/>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a7bfde94f3671b6b117c816caab20b45b" compoundref="d8/df9/_linker_8java" startline="34" endline="37">org.xvm.javajit.Linker.Linker</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a9ffcb71283a170c77177e4e33a0810a6" compoundref="d8/df9/_linker_8java" startline="62">org.xvm.javajit.Linker.refiner</references>
+        <referencedby refid="d0/d5f/classorg_1_1xvm_1_1javajit_1_1_xvm_1a1b9d6a5f1e726d5e9ecdbeb61b562a32" compoundref="db/d45/_xvm_8java" startline="229" endline="243">org.xvm.javajit.Xvm.createTypeSystem</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1af0ac09543dd1584393ca0a3937b775b3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d9/d62/classorg_1_1xvm_1_1javajit_1_1_refiner" kindref="compound">Refiner</ref></type>
+        <definition>Refiner org.xvm.javajit.Linker.refiner</definition>
+        <argsstring>()</argsstring>
+        <name>refiner</name>
+        <qualifiedname>org.xvm.javajit.Linker.refiner</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the <ref refid="d9/d62/classorg_1_1xvm_1_1javajit_1_1_refiner" kindref="compound">Refiner</ref> that the <ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker" kindref="compound">Linker</ref> will use to refine a Module if necessary, or null </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="261" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="261" bodyend="263"/>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a9ffcb71283a170c77177e4e33a0810a6" compoundref="d8/df9/_linker_8java" startline="62">org.xvm.javajit.Linker.refiner</references>
+      </memberdef>
+      <memberdef kind="function" id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a5aeb9f33e141fef755c9a26444052ff1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a7bfde94f3671b6b117c816caab20b45b" kindref="member">Linker</ref></type>
+        <definition>Linker org.xvm.javajit.Linker.withMain</definition>
+        <argsstring>(String moduleName)</argsstring>
+        <name>withMain</name>
+        <qualifiedname>org.xvm.javajit.Linker.withMain</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>moduleName</declname>
+        </param>
+        <briefdescription>
+<para>Specify a main module for the <ref refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" kindref="compound">TypeSystem</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>moduleName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the fully qualified name of the main module</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the <ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker" kindref="compound">Linker</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="272" column="19" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="272" bodyend="285"/>
+        <references refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity_1a470906cb0c737a6d70b2d9ff265ab9fd" compoundref="d0/ddf/_severity_8java" startline="10">org.xvm.util.Severity.ERROR</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ac214c604a13094d38e8478276fdb60d1" compoundref="d8/df9/_linker_8java" startline="357" endline="359">org.xvm.javajit.Linker.isBad</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a7bfde94f3671b6b117c816caab20b45b" compoundref="d8/df9/_linker_8java" startline="34" endline="37">org.xvm.javajit.Linker.Linker</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ae6d8807076f3eb21b1bbd192c11a252e" compoundref="d8/df9/_linker_8java" startline="410">org.xvm.javajit.Linker.LNK_MAIN_EXISTS</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a4b40cdb8347b86864e7760668f9a9d9f" compoundref="d8/df9/_linker_8java" startline="421" endline="433">org.xvm.javajit.Linker.loadModule</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1aaeaf4d206f17fa855bd92ede78261570" compoundref="d8/df9/_linker_8java" startline="442" endline="444">org.xvm.javajit.Linker.log</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a2a866d69c805783c4f0fa8dde1e943ee" compoundref="d8/df9/_linker_8java" startline="71">org.xvm.javajit.Linker.modules</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a5aeb9f33e141fef755c9a26444052ff1" compoundref="d8/df9/_linker_8java" startline="272" endline="285">org.xvm.javajit.Linker.withMain</references>
+        <referencedby refid="d0/d5f/classorg_1_1xvm_1_1javajit_1_1_xvm_1a1b9d6a5f1e726d5e9ecdbeb61b562a32" compoundref="db/d45/_xvm_8java" startline="229" endline="243">org.xvm.javajit.Xvm.createTypeSystem</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a5aeb9f33e141fef755c9a26444052ff1" compoundref="d8/df9/_linker_8java" startline="272" endline="285">org.xvm.javajit.Linker.withMain</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ae60ff73e555dc451b660c0fcf357bbd6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a7bfde94f3671b6b117c816caab20b45b" kindref="member">Linker</ref></type>
+        <definition>Linker org.xvm.javajit.Linker.withMain</definition>
+        <argsstring>(ModuleStructure module)</argsstring>
+        <name>withMain</name>
+        <qualifiedname>org.xvm.javajit.Linker.withMain</qualifiedname>
+        <param>
+          <type><ref refid="d2/d13/classorg_1_1xvm_1_1asm_1_1_module_structure" kindref="compound">ModuleStructure</ref></type>
+          <declname>module</declname>
+        </param>
+        <briefdescription>
+<para>Specify a main module for the <ref refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" kindref="compound">TypeSystem</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>module</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the main module</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the <ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker" kindref="compound">Linker</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="294" column="19" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="294" bodyend="304"/>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a974905d99d3e59be62917c7f80ce5ef2" compoundref="d8/df9/_linker_8java" startline="313" endline="322">org.xvm.javajit.Linker.addModule</references>
+        <references refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity_1a470906cb0c737a6d70b2d9ff265ab9fd" compoundref="d0/ddf/_severity_8java" startline="10">org.xvm.util.Severity.ERROR</references>
+        <references refid="d2/d13/classorg_1_1xvm_1_1asm_1_1_module_structure_1ad34a20388f6bec0546cef63c48fbc433" compoundref="dc/de8/_module_structure_8java" startline="623" endline="625">org.xvm.asm.ModuleStructure.getName</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ac214c604a13094d38e8478276fdb60d1" compoundref="d8/df9/_linker_8java" startline="357" endline="359">org.xvm.javajit.Linker.isBad</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a7bfde94f3671b6b117c816caab20b45b" compoundref="d8/df9/_linker_8java" startline="34" endline="37">org.xvm.javajit.Linker.Linker</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ae6d8807076f3eb21b1bbd192c11a252e" compoundref="d8/df9/_linker_8java" startline="410">org.xvm.javajit.Linker.LNK_MAIN_EXISTS</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1aaeaf4d206f17fa855bd92ede78261570" compoundref="d8/df9/_linker_8java" startline="442" endline="444">org.xvm.javajit.Linker.log</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a2a866d69c805783c4f0fa8dde1e943ee" compoundref="d8/df9/_linker_8java" startline="71">org.xvm.javajit.Linker.modules</references>
+      </memberdef>
+      <memberdef kind="function" id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a974905d99d3e59be62917c7f80ce5ef2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a7bfde94f3671b6b117c816caab20b45b" kindref="member">Linker</ref></type>
+        <definition>Linker org.xvm.javajit.Linker.addModule</definition>
+        <argsstring>(String moduleName)</argsstring>
+        <name>addModule</name>
+        <qualifiedname>org.xvm.javajit.Linker.addModule</qualifiedname>
+        <param>
+          <type>String</type>
+          <declname>moduleName</declname>
+        </param>
+        <briefdescription>
+<para>Specify an additional module for the <ref refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" kindref="compound">TypeSystem</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>moduleName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the fully qualified name of the module</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the <ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker" kindref="compound">Linker</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="313" column="19" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="313" bodyend="322"/>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a974905d99d3e59be62917c7f80ce5ef2" compoundref="d8/df9/_linker_8java" startline="313" endline="322">org.xvm.javajit.Linker.addModule</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ac214c604a13094d38e8478276fdb60d1" compoundref="d8/df9/_linker_8java" startline="357" endline="359">org.xvm.javajit.Linker.isBad</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a7bfde94f3671b6b117c816caab20b45b" compoundref="d8/df9/_linker_8java" startline="34" endline="37">org.xvm.javajit.Linker.Linker</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a4b40cdb8347b86864e7760668f9a9d9f" compoundref="d8/df9/_linker_8java" startline="421" endline="433">org.xvm.javajit.Linker.loadModule</references>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a974905d99d3e59be62917c7f80ce5ef2" compoundref="d8/df9/_linker_8java" startline="313" endline="322">org.xvm.javajit.Linker.addModule</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ae60ff73e555dc451b660c0fcf357bbd6" compoundref="d8/df9/_linker_8java" startline="294" endline="304">org.xvm.javajit.Linker.withMain</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a2c9e5b2ea83b4ec3832d830e6f6323f3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a7bfde94f3671b6b117c816caab20b45b" kindref="member">Linker</ref></type>
+        <definition>Linker org.xvm.javajit.Linker.addModule</definition>
+        <argsstring>(ModuleStructure module)</argsstring>
+        <name>addModule</name>
+        <qualifiedname>org.xvm.javajit.Linker.addModule</qualifiedname>
+        <param>
+          <type><ref refid="d2/d13/classorg_1_1xvm_1_1asm_1_1_module_structure" kindref="compound">ModuleStructure</ref></type>
+          <declname>module</declname>
+        </param>
+        <briefdescription>
+<para>Specify an additional module for the <ref refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" kindref="compound">TypeSystem</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>module</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the module to add</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the <ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker" kindref="compound">Linker</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="331" column="19" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="331" bodyend="339"/>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ac214c604a13094d38e8478276fdb60d1" compoundref="d8/df9/_linker_8java" startline="357" endline="359">org.xvm.javajit.Linker.isBad</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a7bfde94f3671b6b117c816caab20b45b" compoundref="d8/df9/_linker_8java" startline="34" endline="37">org.xvm.javajit.Linker.Linker</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a2a866d69c805783c4f0fa8dde1e943ee" compoundref="d8/df9/_linker_8java" startline="71">org.xvm.javajit.Linker.modules</references>
+        <references refid="d5/d19/classorg_1_1xvm_1_1asm_1_1_class_structure_1a05a2531f86e495e1c121241f37f31ea2" compoundref="d0/d07/_class_structure_8java" startline="3320" endline="3326">org.xvm.asm.ClassStructure.synthesizeChildren</references>
+      </memberdef>
+      <memberdef kind="function" id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a50db5321cba7771e1d4569f3f66f0ee1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="db/dca/classorg_1_1xvm_1_1asm_1_1_error_list" kindref="compound">ErrorList</ref></type>
+        <definition>ErrorList org.xvm.javajit.Linker.errorList</definition>
+        <argsstring>()</argsstring>
+        <name>errorList</name>
+        <qualifiedname>org.xvm.javajit.Linker.errorList</qualifiedname>
+        <briefdescription>
+<para>Obtain all information, warnings, and errors logged thus far by the linker. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>a non-null <ref refid="db/dca/classorg_1_1xvm_1_1asm_1_1_error_list" kindref="compound">ErrorList</ref>, which may be empty </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="346" column="22" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="346" bodyend="351"/>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a19a039eac14f74158211d05d80cb7dba" compoundref="d8/df9/_linker_8java" startline="81">org.xvm.javajit.Linker.bad</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a5cf7efc1366f3ec64757dcc1ce232355" compoundref="d8/df9/_linker_8java" startline="76">org.xvm.javajit.Linker.errors</references>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ac214c604a13094d38e8478276fdb60d1" compoundref="d8/df9/_linker_8java" startline="357" endline="359">org.xvm.javajit.Linker.isBad</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ac214c604a13094d38e8478276fdb60d1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.javajit.Linker.isBad</definition>
+        <argsstring>()</argsstring>
+        <name>isBad</name>
+        <qualifiedname>org.xvm.javajit.Linker.isBad</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> iff the <ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker" kindref="compound">Linker</ref> has encountered an issue of <computeroutput><ref refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity" kindref="compound">org.xvm.util.Severity</ref></computeroutput> of <computeroutput>ERROR</computeroutput> or worse, which means that a new <ref refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" kindref="compound">TypeSystem</ref> cannot be produced </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="357" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="357" bodyend="359"/>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a19a039eac14f74158211d05d80cb7dba" compoundref="d8/df9/_linker_8java" startline="81">org.xvm.javajit.Linker.bad</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a50db5321cba7771e1d4569f3f66f0ee1" compoundref="d8/df9/_linker_8java" startline="346" endline="351">org.xvm.javajit.Linker.errorList</references>
+        <references refid="db/dca/classorg_1_1xvm_1_1asm_1_1_error_list_1ade7aa204fc2be7a0021e9a79b7439702" compoundref="da/de3/_error_list_8java" startline="101" endline="103">org.xvm.asm.ErrorList.hasErrors</references>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a2c9e5b2ea83b4ec3832d830e6f6323f3" compoundref="d8/df9/_linker_8java" startline="331" endline="339">org.xvm.javajit.Linker.addModule</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a974905d99d3e59be62917c7f80ce5ef2" compoundref="d8/df9/_linker_8java" startline="313" endline="322">org.xvm.javajit.Linker.addModule</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ac218c7b3a9a09de970c3ab49592a0e8b" compoundref="d8/df9/_linker_8java" startline="121" endline="129">org.xvm.javajit.Linker.addSharedModule</referencedby>
+        <referencedby refid="d0/d5f/classorg_1_1xvm_1_1javajit_1_1_xvm_1a1b9d6a5f1e726d5e9ecdbeb61b562a32" compoundref="db/d45/_xvm_8java" startline="229" endline="243">org.xvm.javajit.Xvm.createTypeSystem</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a4996625b7953c9fa59464a9dff8ffffa" compoundref="d8/df9/_linker_8java" startline="367" endline="391">org.xvm.javajit.Linker.link</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ae60ff73e555dc451b660c0fcf357bbd6" compoundref="d8/df9/_linker_8java" startline="294" endline="304">org.xvm.javajit.Linker.withMain</referencedby>
+        <referencedby refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a5aeb9f33e141fef755c9a26444052ff1" compoundref="d8/df9/_linker_8java" startline="272" endline="285">org.xvm.javajit.Linker.withMain</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a4996625b7953c9fa59464a9dff8ffffa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" kindref="compound">TypeSystem</ref></type>
+        <definition>TypeSystem org.xvm.javajit.Linker.link</definition>
+        <argsstring>()</argsstring>
+        <name>link</name>
+        <qualifiedname>org.xvm.javajit.Linker.link</qualifiedname>
+        <briefdescription>
+<para>Link the provided modules into a new <ref refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" kindref="compound">TypeSystem</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the new <ref refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" kindref="compound">TypeSystem</ref>, or null if the link failed (which indicates that information should be available in the <ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker" kindref="compound">Linker</ref>&apos;s <computeroutput><ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a50db5321cba7771e1d4569f3f66f0ee1" kindref="member">errorList()</ref></computeroutput>) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="367" column="23" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="367" bodyend="391"/>
+        <references refid="db/d63/classorg_1_1xvm_1_1asm_1_1_file_structure_1ae7d6a7bf52a44922070055b4b1353d45" compoundref="da/d8f/_file_structure_8java" startline="765" endline="783">org.xvm.asm.FileStructure.addChild</references>
+        <references refid="db/d63/classorg_1_1xvm_1_1asm_1_1_file_structure_1af608d3fb45910d92f643ec9e72e2432c" compoundref="da/d8f/_file_structure_8java" startline="810" endline="812">org.xvm.asm.FileStructure.getChild</references>
+        <references refid="db/d63/classorg_1_1xvm_1_1asm_1_1_file_structure_1ac70a3ff3486091b0e7b19ce32870e617" compoundref="da/d8f/_file_structure_8java" startline="845" endline="847">org.xvm.asm.FileStructure.getConstantPool</references>
+        <references refid="d7/d57/classorg_1_1xvm_1_1asm_1_1_xvm_structure_1acbdfa66204a5c352b0153ba99abec74e" compoundref="d4/d04/_xvm_structure_8java" startline="139" endline="141">org.xvm.asm.XvmStructure.getConstantPool</references>
+        <references refid="d7/d57/classorg_1_1xvm_1_1asm_1_1_xvm_structure_1ad67f43adaecd58f5cf705112c9fefe63" compoundref="d4/d04/_xvm_structure_8java" startline="129" endline="131">org.xvm.asm.XvmStructure.getFileStructure</references>
+        <references refid="d2/d13/classorg_1_1xvm_1_1asm_1_1_module_structure_1a5d5fea9011b755529724cbc2af660ee7" compoundref="dc/de8/_module_structure_8java" startline="85" endline="87">org.xvm.asm.ModuleStructure.getIdentityConstant</references>
+        <references refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1aa03023d428da21a698f953c2d51d9fba" compoundref="d9/d9d/_constant_pool_8java" startline="3533" endline="3535">org.xvm.asm.ConstantPool.getNakedRefType</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ac214c604a13094d38e8478276fdb60d1" compoundref="d8/df9/_linker_8java" startline="357" endline="359">org.xvm.javajit.Linker.isBad</references>
+        <references refid="d3/de5/classorg_1_1xvm_1_1javajit_1_1_module_loader_1a4a78d28901e23da14b090fa5a1b8dbbc" compoundref="d2/d4d/_module_loader_8java" startline="57">org.xvm.javajit.ModuleLoader.module</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a2a866d69c805783c4f0fa8dde1e943ee" compoundref="d8/df9/_linker_8java" startline="71">org.xvm.javajit.Linker.modules</references>
+        <references refid="db/d63/classorg_1_1xvm_1_1asm_1_1_file_structure_1a13712256f38b4e117916b82b2a6b3aed" compoundref="da/d8f/_file_structure_8java" startline="786" endline="796">org.xvm.asm.FileStructure.removeChild</references>
+        <references refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a090d8883099c9a40811ee0da267a5d6a" compoundref="d9/d9d/_constant_pool_8java" startline="3537" endline="3539">org.xvm.asm.ConstantPool.setNakedRefType</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a9a71082bff7eb1b3551f98da67d7c8ed" compoundref="d8/df9/_linker_8java" startline="47">org.xvm.javajit.Linker.sharedLoaders</references>
+        <references refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1afa5433667dc1c3108bc1f2c89217a333" compoundref="d8/df9/_linker_8java" startline="42">org.xvm.javajit.Linker.xvm</references>
+        <referencedby refid="d0/d5f/classorg_1_1xvm_1_1javajit_1_1_xvm_1a1b9d6a5f1e726d5e9ecdbeb61b562a32" compoundref="db/d45/_xvm_8java" startline="229" endline="243">org.xvm.javajit.Xvm.createTypeSystem</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A <ref refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" kindref="compound">TypeSystem</ref> <ref refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker" kindref="compound">Linker</ref> is the &quot;builder&quot; for new TypeSystems. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>TODO differentiate between &quot;shared&quot; in the Java sense (applies to any module that can be broken out) and &quot;shared&quot; in the Ecstasy sense (able to pass things back and forth using those types) TODO show example of how shared modules can be associated with Ecstasy module imports, especially in the db v1 vs db v2 example?) </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="8">
+        <label>ClassLoader</label>
+      </node>
+      <node id="16">
+        <label>Cloneable</label>
+      </node>
+      <node id="118">
+        <label>Comparable&lt; BreakPoint &gt;</label>
+      </node>
+      <node id="20">
+        <label>Comparable&lt; Constant &gt;</label>
+      </node>
+      <node id="92">
+        <label>Comparable&lt; Fiber &gt;</label>
+      </node>
+      <node id="60">
+        <label>Comparable&lt; PackedInteger &gt;</label>
+      </node>
+      <node id="53">
+        <label>Comparable&lt; Version &gt;</label>
+      </node>
+      <node id="1">
+        <label>org.xvm.javajit.Linker</label>
+        <link refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>xvm</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>repo</edgelabel>
+        </childnode>
+        <childnode refid="133" relation="usage">
+          <edgelabel>refiner</edgelabel>
+        </childnode>
+        <childnode refid="134" relation="usage">
+          <edgelabel>errors</edgelabel>
+        </childnode>
+      </node>
+      <node id="33">
+        <label>org.xvm.asm.Annotation</label>
+        <link refid="d9/ddb/classorg_1_1xvm_1_1asm_1_1_annotation"/>
+        <childnode refid="19" relation="public-inheritance">
+        </childnode>
+        <childnode refid="33" relation="usage">
+          <edgelabel>NO_ANNOTATIONS</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>m_aParams</edgelabel>
+          <edgelabel>m_constClass</edgelabel>
+        </childnode>
+      </node>
+      <node id="21">
+        <label>org.xvm.asm.Argument</label>
+        <link refid="dd/da8/interfaceorg_1_1xvm_1_1asm_1_1_argument"/>
+      </node>
+      <node id="11">
+        <label>org.xvm.asm.ClassStructure</label>
+        <link refid="d5/d19/classorg_1_1xvm_1_1asm_1_1_class_structure"/>
+        <childnode refid="12" relation="public-inheritance">
+        </childnode>
+        <childnode refid="25" relation="usage">
+          <edgelabel>m_mapParams</edgelabel>
+        </childnode>
+        <childnode refid="26" relation="usage">
+          <edgelabel>m_constPath</edgelabel>
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>m_typeCanonical</edgelabel>
+          <edgelabel>m_typeFormal</edgelabel>
+        </childnode>
+        <childnode refid="81" relation="usage">
+          <edgelabel>m_safety</edgelabel>
+        </childnode>
+        <childnode refid="33" relation="usage">
+          <edgelabel>m_aAnnoClass</edgelabel>
+          <edgelabel>m_aAnnoMixin</edgelabel>
+        </childnode>
+      </node>
+      <node id="12">
+        <label>org.xvm.asm.Component</label>
+        <link refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_component"/>
+        <childnode refid="13" relation="public-inheritance">
+        </childnode>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+        <childnode refid="16" relation="public-inheritance">
+        </childnode>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>m_sibling</edgelabel>
+        </childnode>
+        <childnode refid="18" relation="usage">
+          <edgelabel>m_constId</edgelabel>
+        </childnode>
+        <childnode refid="24" relation="usage">
+          <edgelabel>m_cond</edgelabel>
+        </childnode>
+      </node>
+      <node id="28">
+        <label>org.xvm.asm.Component.Format</label>
+        <link refid="dc/d9c/enumorg_1_1xvm_1_1asm_1_1_component_1_1_format"/>
+        <childnode refid="28" relation="usage">
+          <edgelabel>FORMATS</edgelabel>
+        </childnode>
+      </node>
+      <node id="17">
+        <label>org.xvm.asm.ComponentResolver</label>
+        <link refid="d5/d6c/interfaceorg_1_1xvm_1_1asm_1_1_component_resolver"/>
+      </node>
+      <node id="19">
+        <label>org.xvm.asm.Constant</label>
+        <link refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant"/>
+        <childnode refid="13" relation="public-inheritance">
+        </childnode>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+        <childnode refid="16" relation="public-inheritance">
+        </childnode>
+        <childnode refid="21" relation="public-inheritance">
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>NO_CONSTS</edgelabel>
+        </childnode>
+      </node>
+      <node id="55">
+        <label>org.xvm.asm.ConstantPool</label>
+        <link refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool"/>
+        <childnode refid="13" relation="public-inheritance">
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>NO_TYPES</edgelabel>
+          <edgelabel>m_typeArray</edgelabel>
+          <edgelabel>m_typeAutoFreezable</edgelabel>
+          <edgelabel>m_typeBinary</edgelabel>
+          <edgelabel>m_typeBit</edgelabel>
+          <edgelabel>m_typeBitArray</edgelabel>
+          <edgelabel>m_typeBoolean</edgelabel>
+          <edgelabel>m_typeByteArray</edgelabel>
+          <edgelabel>m_typeChar</edgelabel>
+          <edgelabel>m_typeClass</edgelabel>
+          <edgelabel>  ...</edgelabel>
+        </childnode>
+        <childnode refid="56" relation="usage">
+          <edgelabel>f_tlolistDeferred</edgelabel>
+        </childnode>
+        <childnode refid="50" relation="usage">
+          <edgelabel>m_valEcstasy</edgelabel>
+        </childnode>
+        <childnode refid="57" relation="usage">
+          <edgelabel>m_clzAbstract</edgelabel>
+          <edgelabel>m_clzArray</edgelabel>
+          <edgelabel>m_clzAtomic</edgelabel>
+          <edgelabel>m_clzAuto</edgelabel>
+          <edgelabel>m_clzClass</edgelabel>
+          <edgelabel>m_clzCloseable</edgelabel>
+          <edgelabel>m_clzCollection</edgelabel>
+          <edgelabel>m_clzConcurrent</edgelabel>
+          <edgelabel>m_clzCondTuple</edgelabel>
+          <edgelabel>m_clzConst</edgelabel>
+          <edgelabel>  ...</edgelabel>
+        </childnode>
+        <childnode refid="58" relation="usage">
+          <edgelabel>m_val0</edgelabel>
+        </childnode>
+        <childnode refid="61" relation="usage">
+          <edgelabel>m_valEqual</edgelabel>
+          <edgelabel>m_valFalse</edgelabel>
+          <edgelabel>m_valGreater</edgelabel>
+          <edgelabel>m_valLesser</edgelabel>
+          <edgelabel>m_valNull</edgelabel>
+          <edgelabel>m_valTiesToAway</edgelabel>
+          <edgelabel>m_valTiesToEven</edgelabel>
+          <edgelabel>m_valTowardNegative</edgelabel>
+          <edgelabel>m_valTowardPositive</edgelabel>
+          <edgelabel>m_valTowardZero</edgelabel>
+          <edgelabel>  ...</edgelabel>
+        </childnode>
+        <childnode refid="64" relation="usage">
+          <edgelabel>m_valDefault</edgelabel>
+        </childnode>
+        <childnode refid="39" relation="usage">
+          <edgelabel>m_sigClose</edgelabel>
+          <edgelabel>m_sigCompare</edgelabel>
+          <edgelabel>m_sigEquals</edgelabel>
+          <edgelabel>m_sigHashCode</edgelabel>
+          <edgelabel>m_sigToString</edgelabel>
+          <edgelabel>m_sigValidator</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>m_infoPlaceholder</edgelabel>
+        </childnode>
+      </node>
+      <node id="14">
+        <label>org.xvm.asm.Constants</label>
+        <link refid="df/df8/interfaceorg_1_1xvm_1_1asm_1_1_constants"/>
+      </node>
+      <node id="102">
+        <label>org.xvm.asm.Constants.Access</label>
+        <link refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access"/>
+        <childnode refid="102" relation="usage">
+          <edgelabel>VALUES</edgelabel>
+        </childnode>
+      </node>
+      <node id="15">
+        <label>org.xvm.asm.Documentable</label>
+        <link refid="d5/d4a/interfaceorg_1_1xvm_1_1asm_1_1_documentable"/>
+      </node>
+      <node id="134">
+        <label>org.xvm.asm.ErrorList</label>
+        <link refid="db/dca/classorg_1_1xvm_1_1asm_1_1_error_list"/>
+        <childnode refid="135" relation="public-inheritance">
+        </childnode>
+        <childnode refid="136" relation="usage">
+          <edgelabel>m_severity</edgelabel>
+        </childnode>
+      </node>
+      <node id="135">
+        <label>org.xvm.asm.ErrorListener</label>
+        <link refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener"/>
+        <childnode refid="135" relation="usage">
+          <edgelabel>BLACKHOLE</edgelabel>
+          <edgelabel>RUNTIME</edgelabel>
+        </childnode>
+      </node>
+      <node id="23">
+        <label>org.xvm.asm.GenericTypeResolver</label>
+        <link refid="d0/d78/interfaceorg_1_1xvm_1_1asm_1_1_generic_type_resolver"/>
+      </node>
+      <node id="47">
+        <label>org.xvm.asm.LinkerContext</label>
+        <link refid="dc/dd3/interfaceorg_1_1xvm_1_1asm_1_1_linker_context"/>
+      </node>
+      <node id="75">
+        <label>org.xvm.asm.MethodStructure</label>
+        <link refid="d4/d90/classorg_1_1xvm_1_1asm_1_1_method_structure"/>
+        <childnode refid="12" relation="public-inheritance">
+        </childnode>
+        <childnode refid="33" relation="usage">
+          <edgelabel>m_aAnnotations</edgelabel>
+        </childnode>
+        <childnode refid="36" relation="usage">
+          <edgelabel>m_idFinally</edgelabel>
+          <edgelabel>m_idSuper</edgelabel>
+        </childnode>
+        <childnode refid="76" relation="usage">
+          <edgelabel>m_aParams</edgelabel>
+          <edgelabel>m_aReturns</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>m_aconstLocal</edgelabel>
+          <edgelabel>m_aconstSuper</edgelabel>
+        </childnode>
+        <childnode refid="77" relation="usage">
+          <edgelabel>m_registry</edgelabel>
+        </childnode>
+        <childnode refid="79" relation="usage">
+          <edgelabel>m_code</edgelabel>
+        </childnode>
+        <childnode refid="69" relation="usage">
+          <edgelabel>m_ast</edgelabel>
+        </childnode>
+        <childnode refid="70" relation="usage">
+          <edgelabel>m_aAstParams</edgelabel>
+        </childnode>
+        <childnode refid="81" relation="usage">
+          <edgelabel>m_safety</edgelabel>
+        </childnode>
+        <childnode refid="75" relation="usage">
+          <edgelabel>m_structFinally</edgelabel>
+        </childnode>
+        <childnode refid="82" relation="usage">
+          <edgelabel>m_source</edgelabel>
+        </childnode>
+      </node>
+      <node id="79">
+        <label>org.xvm.asm.MethodStructure.Code</label>
+        <link refid="da/d56/classorg_1_1xvm_1_1asm_1_1_method_structure_1_1_code"/>
+        <childnode refid="75" relation="usage">
+          <edgelabel>f_method</edgelabel>
+        </childnode>
+        <childnode refid="80" relation="usage">
+          <edgelabel>m_aop</edgelabel>
+        </childnode>
+        <childnode refid="79" relation="usage">
+          <edgelabel>m_hole</edgelabel>
+        </childnode>
+      </node>
+      <node id="81">
+        <label>org.xvm.asm.MethodStructure.ConcurrencySafety</label>
+        <link refid="d1/d0f/enumorg_1_1xvm_1_1asm_1_1_method_structure_1_1_concurrency_safety"/>
+      </node>
+      <node id="82">
+        <label>org.xvm.asm.MethodStructure.Source</label>
+        <link refid="dd/d70/classorg_1_1xvm_1_1asm_1_1_method_structure_1_1_source"/>
+        <childnode refid="16" relation="public-inheritance">
+        </childnode>
+        <childnode refid="29" relation="usage">
+          <edgelabel>m_aconstSrc</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>org.xvm.asm.ModuleRepository</label>
+        <link refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>NO_REPOS</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>org.xvm.asm.ModuleStructure</label>
+        <link refid="d2/d13/classorg_1_1xvm_1_1asm_1_1_module_structure"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+        <childnode refid="26" relation="usage">
+          <edgelabel>m_constDir</edgelabel>
+          <edgelabel>m_constTimestamp</edgelabel>
+        </childnode>
+        <childnode refid="129" relation="usage">
+          <edgelabel>m_moduletype</edgelabel>
+        </childnode>
+        <childnode refid="51" relation="usage">
+          <edgelabel>m_constVersion</edgelabel>
+        </childnode>
+        <childnode refid="130" relation="usage">
+          <edgelabel>m_vtree</edgelabel>
+          <edgelabel>m_vtreeImportAllowVers</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>m_moduleActual</edgelabel>
+        </childnode>
+        <childnode refid="131" relation="usage">
+          <edgelabel>m_pkgImport</edgelabel>
+        </childnode>
+      </node>
+      <node id="129">
+        <label>org.xvm.asm.ModuleStructure.ModuleType</label>
+        <link refid="d9/d73/enumorg_1_1xvm_1_1asm_1_1_module_structure_1_1_module_type"/>
+        <childnode refid="129" relation="usage">
+          <edgelabel>MODULE_TYPES</edgelabel>
+        </childnode>
+      </node>
+      <node id="80">
+        <label>org.xvm.asm.Op</label>
+        <link refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op"/>
+        <childnode refid="80" relation="usage">
+          <edgelabel>NO_OPS</edgelabel>
+        </childnode>
+      </node>
+      <node id="77">
+        <label>org.xvm.asm.Op.ConstantRegistry</label>
+        <link refid="dd/d3d/classorg_1_1xvm_1_1asm_1_1_op_1_1_constant_registry"/>
+        <childnode refid="78" relation="public-inheritance">
+        </childnode>
+        <childnode refid="75" relation="usage">
+          <edgelabel>f_method</edgelabel>
+        </childnode>
+        <childnode refid="55" relation="usage">
+          <edgelabel>f_pool</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>m_aconst</edgelabel>
+        </childnode>
+        <childnode refid="70" relation="usage">
+          <edgelabel>m_aregParams</edgelabel>
+          <edgelabel>m_aregSpecial</edgelabel>
+        </childnode>
+      </node>
+      <node id="131">
+        <label>org.xvm.asm.PackageStructure</label>
+        <link refid="d7/dea/classorg_1_1xvm_1_1asm_1_1_package_structure"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="76">
+        <label>org.xvm.asm.Parameter</label>
+        <link refid="d0/d0f/classorg_1_1xvm_1_1asm_1_1_parameter"/>
+        <childnode refid="13" relation="public-inheritance">
+        </childnode>
+        <childnode refid="16" relation="public-inheritance">
+        </childnode>
+        <childnode refid="76" relation="usage">
+          <edgelabel>NO_PARAMS</edgelabel>
+        </childnode>
+        <childnode refid="33" relation="usage">
+          <edgelabel>m_aAnnotations</edgelabel>
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>m_constType</edgelabel>
+        </childnode>
+        <childnode refid="29" relation="usage">
+          <edgelabel>m_constName</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>m_constDefault</edgelabel>
+        </childnode>
+        <childnode refid="66" relation="usage">
+          <edgelabel>m_regDeref</edgelabel>
+        </childnode>
+      </node>
+      <node id="101">
+        <label>org.xvm.asm.PropertyStructure</label>
+        <link refid="df/df0/classorg_1_1xvm_1_1asm_1_1_property_structure"/>
+        <childnode refid="12" relation="public-inheritance">
+        </childnode>
+        <childnode refid="102" relation="usage">
+          <edgelabel>m_accessVar</edgelabel>
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>m_type</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>m_constVal</edgelabel>
+        </childnode>
+        <childnode refid="33" relation="usage">
+          <edgelabel>m_aPropAnno</edgelabel>
+          <edgelabel>m_aRefAnno</edgelabel>
+        </childnode>
+      </node>
+      <node id="66">
+        <label>org.xvm.asm.Register</label>
+        <link refid="dc/db3/classorg_1_1xvm_1_1asm_1_1_register"/>
+        <childnode refid="21" relation="public-inheritance">
+        </childnode>
+        <childnode refid="66" relation="usage">
+          <edgelabel>ASYNC</edgelabel>
+          <edgelabel>DEFAULT</edgelabel>
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>m_type</edgelabel>
+          <edgelabel>m_typeReg</edgelabel>
+        </childnode>
+        <childnode refid="67" relation="usage">
+          <edgelabel>m_astAlloc</edgelabel>
+        </childnode>
+        <childnode refid="70" relation="usage">
+          <edgelabel>m_astSpecial</edgelabel>
+        </childnode>
+      </node>
+      <node id="52">
+        <label>org.xvm.asm.Version</label>
+        <link refid="d4/de1/classorg_1_1xvm_1_1asm_1_1_version"/>
+        <childnode refid="53" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="130">
+        <label>org.xvm.asm.VersionTree&lt; Boolean &gt;</label>
+        <link refid="df/df1/classorg_1_1xvm_1_1asm_1_1_version_tree"/>
+      </node>
+      <node id="13">
+        <label>org.xvm.asm.XvmStructure</label>
+        <link refid="d7/d57/classorg_1_1xvm_1_1asm_1_1_xvm_structure"/>
+        <childnode refid="14" relation="public-inheritance">
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>m_xsParent</edgelabel>
+        </childnode>
+      </node>
+      <node id="69">
+        <label>org.xvm.asm.ast.BinaryAST</label>
+        <link refid="d7/d69/classorg_1_1xvm_1_1asm_1_1ast_1_1_binary_a_s_t"/>
+        <childnode refid="69" relation="usage">
+          <edgelabel>NO_ASTS</edgelabel>
+        </childnode>
+        <childnode refid="68" relation="usage">
+          <edgelabel>NO_EXPRS</edgelabel>
+          <edgelabel>POISON</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>NO_CONSTS</edgelabel>
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>NO_TYPES</edgelabel>
+        </childnode>
+        <childnode refid="70" relation="usage">
+          <edgelabel>NO_REGS</edgelabel>
+        </childnode>
+        <childnode refid="67" relation="usage">
+          <edgelabel>NO_ALLOCS</edgelabel>
+        </childnode>
+      </node>
+      <node id="78">
+        <label>org.xvm.asm.ast.BinaryAST.ConstantResolver</label>
+        <link refid="d7/d33/interfaceorg_1_1xvm_1_1asm_1_1ast_1_1_binary_a_s_t_1_1_constant_resolver"/>
+      </node>
+      <node id="68">
+        <label>org.xvm.asm.ast.ExprAST</label>
+        <link refid="d4/de4/classorg_1_1xvm_1_1asm_1_1ast_1_1_expr_a_s_t"/>
+        <childnode refid="69" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="67">
+        <label>org.xvm.asm.ast.RegAllocAST</label>
+        <link refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t"/>
+        <childnode refid="68" relation="public-inheritance">
+        </childnode>
+        <childnode refid="70" relation="usage">
+          <edgelabel>reg</edgelabel>
+        </childnode>
+      </node>
+      <node id="70">
+        <label>org.xvm.asm.ast.RegisterAST</label>
+        <link refid="d9/dbf/classorg_1_1xvm_1_1asm_1_1ast_1_1_register_a_s_t"/>
+        <childnode refid="68" relation="public-inheritance">
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>refType</edgelabel>
+          <edgelabel>type</edgelabel>
+        </childnode>
+        <childnode refid="29" relation="usage">
+          <edgelabel>name</edgelabel>
+        </childnode>
+      </node>
+      <node id="128">
+        <label>org.xvm.asm.constants.ArrayConstant</label>
+        <link refid="dc/d90/classorg_1_1xvm_1_1asm_1_1constants_1_1_array_constant"/>
+        <childnode refid="27" relation="public-inheritance">
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>f_fmt</edgelabel>
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>m_constType</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>m_aconstVal</edgelabel>
+        </childnode>
+      </node>
+      <node id="57">
+        <label>org.xvm.asm.constants.ClassConstant</label>
+        <link refid="df/de8/classorg_1_1xvm_1_1asm_1_1constants_1_1_class_constant"/>
+        <childnode refid="38" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>org.xvm.asm.constants.ConditionalConstant</label>
+        <link refid="da/df0/classorg_1_1xvm_1_1asm_1_1constants_1_1_conditional_constant"/>
+        <childnode refid="19" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="98">
+        <label>org.xvm.asm.constants.FormalConstant</label>
+        <link refid="d2/dca/classorg_1_1xvm_1_1asm_1_1constants_1_1_formal_constant"/>
+        <childnode refid="38" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="65">
+        <label>org.xvm.asm.constants.FrameDependentConstant</label>
+        <link refid="da/d56/classorg_1_1xvm_1_1asm_1_1constants_1_1_frame_dependent_constant"/>
+        <childnode refid="19" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>org.xvm.asm.constants.IdentityConstant</label>
+        <link refid="d5/d9c/classorg_1_1xvm_1_1asm_1_1constants_1_1_identity_constant"/>
+        <childnode refid="19" relation="public-inheritance">
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>m_component</edgelabel>
+        </childnode>
+        <childnode refid="22" relation="usage">
+          <edgelabel>m_canonicalNid</edgelabel>
+        </childnode>
+      </node>
+      <node id="22">
+        <label>org.xvm.asm.constants.IdentityConstant.NestedIdentity</label>
+        <link refid="dc/d87/classorg_1_1xvm_1_1asm_1_1constants_1_1_identity_constant_1_1_nested_identity"/>
+        <childnode refid="23" relation="usage">
+          <edgelabel>m_resolver</edgelabel>
+        </childnode>
+      </node>
+      <node id="58">
+        <label>org.xvm.asm.constants.IntConstant</label>
+        <link refid="d6/d7c/classorg_1_1xvm_1_1asm_1_1constants_1_1_int_constant"/>
+        <childnode refid="27" relation="public-inheritance">
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>m_fmt</edgelabel>
+        </childnode>
+        <childnode refid="59" relation="usage">
+          <edgelabel>m_pint</edgelabel>
+        </childnode>
+      </node>
+      <node id="26">
+        <label>org.xvm.asm.constants.LiteralConstant</label>
+        <link refid="d4/d41/classorg_1_1xvm_1_1asm_1_1constants_1_1_literal_constant"/>
+        <childnode refid="27" relation="public-inheritance">
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>m_fmt</edgelabel>
+        </childnode>
+        <childnode refid="29" relation="usage">
+          <edgelabel>m_constStr</edgelabel>
+        </childnode>
+      </node>
+      <node id="84">
+        <label>org.xvm.asm.constants.MethodBody</label>
+        <link refid="d3/dd6/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_body"/>
+        <childnode refid="84" relation="usage">
+          <edgelabel>NO_BODIES</edgelabel>
+        </childnode>
+        <childnode refid="36" relation="usage">
+          <edgelabel>m_id</edgelabel>
+        </childnode>
+        <childnode refid="39" relation="usage">
+          <edgelabel>m_sig</edgelabel>
+        </childnode>
+        <childnode refid="85" relation="usage">
+          <edgelabel>m_impl</edgelabel>
+        </childnode>
+        <childnode refid="75" relation="usage">
+          <edgelabel>m_structMethod</edgelabel>
+        </childnode>
+        <childnode refid="86" relation="usage">
+          <edgelabel>m_jmd</edgelabel>
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>m_typeJmdContainer</edgelabel>
+        </childnode>
+      </node>
+      <node id="85">
+        <label>org.xvm.asm.constants.MethodBody.Implementation</label>
+        <link refid="da/d42/enumorg_1_1xvm_1_1asm_1_1constants_1_1_method_body_1_1_implementation"/>
+      </node>
+      <node id="36">
+        <label>org.xvm.asm.constants.MethodConstant</label>
+        <link refid="d6/d7b/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_constant"/>
+        <childnode refid="18" relation="public-inheritance">
+        </childnode>
+        <childnode refid="23" relation="public-inheritance">
+        </childnode>
+        <childnode refid="37" relation="usage">
+          <edgelabel>m_constParent</edgelabel>
+        </childnode>
+        <childnode refid="39" relation="usage">
+          <edgelabel>m_constSig</edgelabel>
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>m_type</edgelabel>
+        </childnode>
+      </node>
+      <node id="50">
+        <label>org.xvm.asm.constants.ModuleConstant</label>
+        <link refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant"/>
+        <childnode refid="18" relation="public-inheritance">
+        </childnode>
+        <childnode refid="29" relation="usage">
+          <edgelabel>m_constName</edgelabel>
+        </childnode>
+        <childnode refid="51" relation="usage">
+          <edgelabel>m_constVersion</edgelabel>
+        </childnode>
+      </node>
+      <node id="37">
+        <label>org.xvm.asm.constants.MultiMethodConstant</label>
+        <link refid="df/d2a/classorg_1_1xvm_1_1asm_1_1constants_1_1_multi_method_constant"/>
+        <childnode refid="38" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>org.xvm.asm.constants.NamedConstant</label>
+        <link refid="d8/d85/classorg_1_1xvm_1_1asm_1_1constants_1_1_named_constant"/>
+        <childnode refid="18" relation="public-inheritance">
+        </childnode>
+        <childnode refid="18" relation="usage">
+          <edgelabel>m_constParent</edgelabel>
+        </childnode>
+        <childnode refid="29" relation="usage">
+          <edgelabel>m_constName</edgelabel>
+        </childnode>
+      </node>
+      <node id="103">
+        <label>org.xvm.asm.constants.ParamInfo</label>
+        <link refid="d5/da1/classorg_1_1xvm_1_1asm_1_1constants_1_1_param_info"/>
+        <childnode refid="30" relation="usage">
+          <edgelabel>f_typeActual</edgelabel>
+          <edgelabel>f_typeConstraint</edgelabel>
+        </childnode>
+      </node>
+      <node id="100">
+        <label>org.xvm.asm.constants.PropertyBody</label>
+        <link refid="db/d39/classorg_1_1xvm_1_1asm_1_1constants_1_1_property_body"/>
+        <childnode refid="14" relation="public-inheritance">
+        </childnode>
+        <childnode refid="101" relation="usage">
+          <edgelabel>m_structProp</edgelabel>
+        </childnode>
+        <childnode refid="85" relation="usage">
+          <edgelabel>m_impl</edgelabel>
+        </childnode>
+        <childnode refid="97" relation="usage">
+          <edgelabel>m_constDelegate</edgelabel>
+        </childnode>
+        <childnode refid="103" relation="usage">
+          <edgelabel>m_infoFormal</edgelabel>
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>m_type</edgelabel>
+        </childnode>
+        <childnode refid="104" relation="usage">
+          <edgelabel>m_effectGet</edgelabel>
+          <edgelabel>m_effectSet</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>m_constInitVal</edgelabel>
+        </childnode>
+        <childnode refid="36" relation="usage">
+          <edgelabel>m_constInitFunc</edgelabel>
+        </childnode>
+      </node>
+      <node id="104">
+        <label>org.xvm.asm.constants.PropertyBody.Effect</label>
+        <link refid="da/df0/enumorg_1_1xvm_1_1asm_1_1constants_1_1_property_body_1_1_effect"/>
+      </node>
+      <node id="97">
+        <label>org.xvm.asm.constants.PropertyConstant</label>
+        <link refid="dd/ded/classorg_1_1xvm_1_1asm_1_1constants_1_1_property_constant"/>
+        <childnode refid="98" relation="public-inheritance">
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>m_type</edgelabel>
+          <edgelabel>m_typeConstraint</edgelabel>
+        </childnode>
+        <childnode refid="39" relation="usage">
+          <edgelabel>m_constSig</edgelabel>
+        </childnode>
+        <childnode refid="99" relation="usage">
+          <edgelabel>m_info</edgelabel>
+        </childnode>
+      </node>
+      <node id="99">
+        <label>org.xvm.asm.constants.PropertyInfo</label>
+        <link refid="dd/d20/classorg_1_1xvm_1_1asm_1_1constants_1_1_property_info"/>
+        <childnode refid="14" relation="public-inheritance">
+        </childnode>
+        <childnode refid="100" relation="usage">
+          <edgelabel>m_aBody</edgelabel>
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>m_type</edgelabel>
+          <edgelabel>m_typeBaseRef</edgelabel>
+        </childnode>
+        <childnode refid="84" relation="usage">
+          <edgelabel>m_chainGet</edgelabel>
+          <edgelabel>m_chainSet</edgelabel>
+        </childnode>
+        <childnode refid="33" relation="usage">
+          <edgelabel>m_annotations</edgelabel>
+        </childnode>
+        <childnode refid="36" relation="usage">
+          <edgelabel>m_idGetter</edgelabel>
+          <edgelabel>m_idSetter</edgelabel>
+        </childnode>
+        <childnode refid="86" relation="usage">
+          <edgelabel>m_jmdGetter</edgelabel>
+          <edgelabel>m_jmdSetter</edgelabel>
+        </childnode>
+      </node>
+      <node id="40">
+        <label>org.xvm.asm.constants.PseudoConstant</label>
+        <link refid="db/dcb/classorg_1_1xvm_1_1asm_1_1constants_1_1_pseudo_constant"/>
+        <childnode refid="19" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="64">
+        <label>org.xvm.asm.constants.RegisterConstant</label>
+        <link refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant"/>
+        <childnode refid="65" relation="public-inheritance">
+        </childnode>
+        <childnode refid="66" relation="usage">
+          <edgelabel>m_reg</edgelabel>
+        </childnode>
+      </node>
+      <node id="39">
+        <label>org.xvm.asm.constants.SignatureConstant</label>
+        <link refid="de/d50/classorg_1_1xvm_1_1asm_1_1constants_1_1_signature_constant"/>
+        <childnode refid="40" relation="public-inheritance">
+        </childnode>
+        <childnode refid="29" relation="usage">
+          <edgelabel>m_constName</edgelabel>
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>m_aconstParams</edgelabel>
+          <edgelabel>m_aconstReturns</edgelabel>
+        </childnode>
+        <childnode refid="39" relation="usage">
+          <edgelabel>m_sigPrev</edgelabel>
+        </childnode>
+      </node>
+      <node id="61">
+        <label>org.xvm.asm.constants.SingletonConstant</label>
+        <link refid="dd/d83/classorg_1_1xvm_1_1asm_1_1constants_1_1_singleton_constant"/>
+        <childnode refid="27" relation="public-inheritance">
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>f_fmt</edgelabel>
+        </childnode>
+        <childnode refid="18" relation="usage">
+          <edgelabel>m_constClass</edgelabel>
+        </childnode>
+        <childnode refid="62" relation="usage">
+          <edgelabel>m_handle</edgelabel>
+        </childnode>
+      </node>
+      <node id="29">
+        <label>org.xvm.asm.constants.StringConstant</label>
+        <link refid="d0/db5/classorg_1_1xvm_1_1asm_1_1constants_1_1_string_constant"/>
+        <childnode refid="27" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>org.xvm.asm.constants.TypeConstant</label>
+        <link refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant"/>
+        <childnode refid="19" relation="public-inheritance">
+        </childnode>
+        <childnode refid="23" relation="public-inheritance">
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>NO_TYPES</edgelabel>
+          <edgelabel>m_typeNormalized</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>m_typeinfo</edgelabel>
+        </childnode>
+        <childnode refid="41" relation="usage">
+          <edgelabel>m_tloInProgress</edgelabel>
+        </childnode>
+        <childnode refid="42" relation="usage">
+          <edgelabel>m_handle</edgelabel>
+        </childnode>
+      </node>
+      <node id="31">
+        <label>org.xvm.asm.constants.TypeInfo</label>
+        <link refid="dc/db2/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_info"/>
+        <childnode refid="32" relation="usage">
+          <edgelabel>f_progress</edgelabel>
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>f_type</edgelabel>
+          <edgelabel>f_typeExtends</edgelabel>
+          <edgelabel>f_typeInto</edgelabel>
+          <edgelabel>f_typeRebases</edgelabel>
+          <edgelabel>m_typeAuto</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>f_struct</edgelabel>
+        </childnode>
+        <childnode refid="33" relation="usage">
+          <edgelabel>f_aannoClass</edgelabel>
+          <edgelabel>f_aannoMixin</edgelabel>
+        </childnode>
+        <childnode refid="34" relation="usage">
+          <edgelabel>f_listmapClassChain</edgelabel>
+          <edgelabel>f_listmapDefaultChain</edgelabel>
+        </childnode>
+        <childnode refid="35" relation="usage">
+          <edgelabel>f_mapChildren</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>m_delegates</edgelabel>
+          <edgelabel>m_into</edgelabel>
+        </childnode>
+        <childnode refid="36" relation="usage">
+          <edgelabel>m_methodAuto</edgelabel>
+        </childnode>
+      </node>
+      <node id="32">
+        <label>org.xvm.asm.constants.TypeInfo.Progress</label>
+        <link refid="d5/ded/enumorg_1_1xvm_1_1asm_1_1constants_1_1_type_info_1_1_progress"/>
+      </node>
+      <node id="27">
+        <label>org.xvm.asm.constants.ValueConstant</label>
+        <link refid="db/d57/classorg_1_1xvm_1_1asm_1_1constants_1_1_value_constant"/>
+        <childnode refid="19" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>org.xvm.asm.constants.VersionConstant</label>
+        <link refid="d0/db9/classorg_1_1xvm_1_1asm_1_1constants_1_1_version_constant"/>
+        <childnode refid="26" relation="public-inheritance">
+        </childnode>
+        <childnode refid="52" relation="usage">
+          <edgelabel>m_ver</edgelabel>
+        </childnode>
+      </node>
+      <node id="132">
+        <label>org.xvm.javajit.Container</label>
+        <link refid="d7/d78/classorg_1_1xvm_1_1javajit_1_1_container"/>
+        <childnode refid="47" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>xvm</edgelabel>
+        </childnode>
+        <childnode refid="132" relation="usage">
+          <edgelabel>parent</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>typeSystem</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>injector</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>org.xvm.javajit.Injector</label>
+        <link refid="d9/dbf/classorg_1_1xvm_1_1javajit_1_1_injector"/>
+      </node>
+      <node id="89">
+        <label>org.xvm.javajit.JitFlavor</label>
+        <link refid="d4/d87/enumorg_1_1xvm_1_1javajit_1_1_jit_flavor"/>
+        <childnode refid="89" relation="usage">
+          <edgelabel>baseFlavor</edgelabel>
+        </childnode>
+      </node>
+      <node id="86">
+        <label>org.xvm.javajit.JitMethodDesc</label>
+        <link refid="d0/d2b/classorg_1_1xvm_1_1javajit_1_1_jit_method_desc"/>
+        <childnode refid="87" relation="usage">
+          <edgelabel>optimizedParams</edgelabel>
+          <edgelabel>optimizedReturns</edgelabel>
+          <edgelabel>standardParams</edgelabel>
+          <edgelabel>standardReturns</edgelabel>
+        </childnode>
+      </node>
+      <node id="87">
+        <label>org.xvm.javajit.JitParamDesc</label>
+        <link refid="d7/d14/classorg_1_1xvm_1_1javajit_1_1_jit_param_desc"/>
+        <childnode refid="88" relation="public-inheritance">
+        </childnode>
+        <childnode refid="87" relation="usage">
+          <edgelabel>NONE</edgelabel>
+        </childnode>
+      </node>
+      <node id="88">
+        <label>org.xvm.javajit.JitTypeDesc</label>
+        <link refid="d5/d1d/classorg_1_1xvm_1_1javajit_1_1_jit_type_desc"/>
+        <childnode refid="30" relation="usage">
+          <edgelabel>type</edgelabel>
+        </childnode>
+        <childnode refid="89" relation="usage">
+          <edgelabel>flavor</edgelabel>
+        </childnode>
+      </node>
+      <node id="9">
+        <label>org.xvm.javajit.ModuleLoader</label>
+        <link refid="d3/de5/classorg_1_1xvm_1_1javajit_1_1_module_loader"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>module</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>typeSystem</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>org.xvm.javajit.NativeTypeSystem</label>
+        <link refid="d5/df3/classorg_1_1xvm_1_1javajit_1_1_native_type_system"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="133">
+        <label>org.xvm.javajit.Refiner</label>
+        <link refid="d9/d62/classorg_1_1xvm_1_1javajit_1_1_refiner"/>
+        <childnode refid="133" relation="usage">
+          <edgelabel>DefaultRefiner</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>org.xvm.javajit.TypeSystem</label>
+        <link refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>xvm</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>loader</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>owned</edgelabel>
+          <edgelabel>shared</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>org.xvm.javajit.TypeSystemLoader</label>
+        <link refid="d5/de8/classorg_1_1xvm_1_1javajit_1_1_type_system_loader"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>typeSystem</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>owned</edgelabel>
+          <edgelabel>shared</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>org.xvm.javajit.Xvm</label>
+        <link refid="d0/d5f/classorg_1_1xvm_1_1javajit_1_1_xvm"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>FailEverythingInjector</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>systemRepo</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>nativeTypeSystem</edgelabel>
+        </childnode>
+        <childnode refid="132" relation="usage">
+          <edgelabel>nativeContainer</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>bridgeLoader</edgelabel>
+          <edgelabel>ecstasyLoader</edgelabel>
+        </childnode>
+        <childnode refid="55" relation="usage">
+          <edgelabel>ecstasyPool</edgelabel>
+        </childnode>
+      </node>
+      <node id="83">
+        <label>org.xvm.runtime.CallChain</label>
+        <link refid="df/db4/classorg_1_1xvm_1_1runtime_1_1_call_chain"/>
+        <childnode refid="84" relation="usage">
+          <edgelabel>f_aMethods</edgelabel>
+        </childnode>
+      </node>
+      <node id="123">
+        <label>org.xvm.runtime.ClassComposition</label>
+        <link refid="da/df7/classorg_1_1xvm_1_1runtime_1_1_class_composition"/>
+        <childnode refid="63" relation="public-inheritance">
+        </childnode>
+        <childnode refid="46" relation="usage">
+          <edgelabel>f_container</edgelabel>
+        </childnode>
+        <childnode refid="44" relation="usage">
+          <edgelabel>f_template</edgelabel>
+        </childnode>
+        <childnode refid="123" relation="usage">
+          <edgelabel>f_clzInception</edgelabel>
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>f_typeInception</edgelabel>
+          <edgelabel>f_typeRevealed</edgelabel>
+          <edgelabel>f_typeStructure</edgelabel>
+        </childnode>
+        <childnode refid="124" relation="usage">
+          <edgelabel>m_ashFieldNames</edgelabel>
+        </childnode>
+        <childnode refid="75" relation="usage">
+          <edgelabel>m_methodInit</edgelabel>
+        </childnode>
+        <childnode refid="83" relation="usage">
+          <edgelabel>NIL_CHAIN</edgelabel>
+        </childnode>
+      </node>
+      <node id="126">
+        <label>org.xvm.runtime.ClassComposition.FieldInfo</label>
+        <link refid="d1/d50/classorg_1_1xvm_1_1runtime_1_1_class_composition_1_1_field_info"/>
+        <childnode refid="30" relation="usage">
+          <edgelabel>f_type</edgelabel>
+        </childnode>
+        <childnode refid="63" relation="usage">
+          <edgelabel>f_clzRef</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>constInit</edgelabel>
+        </childnode>
+      </node>
+      <node id="44">
+        <label>org.xvm.runtime.ClassTemplate</label>
+        <link refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template"/>
+        <childnode refid="45" relation="public-inheritance">
+        </childnode>
+        <childnode refid="46" relation="usage">
+          <edgelabel>f_container</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>f_struct</edgelabel>
+          <edgelabel>f_structSuper</edgelabel>
+        </childnode>
+        <childnode refid="44" relation="usage">
+          <edgelabel>m_templateSuper</edgelabel>
+        </childnode>
+        <childnode refid="123" relation="usage">
+          <edgelabel>m_clazzCanonical</edgelabel>
+        </childnode>
+      </node>
+      <node id="49">
+        <label>org.xvm.runtime.ConstHeap</label>
+        <link refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap"/>
+        <childnode refid="46" relation="usage">
+          <edgelabel>f_container</edgelabel>
+        </childnode>
+      </node>
+      <node id="46">
+        <label>org.xvm.runtime.Container</label>
+        <link refid="d1/df8/classorg_1_1xvm_1_1runtime_1_1_container"/>
+        <childnode refid="47" relation="public-inheritance">
+        </childnode>
+        <childnode refid="48" relation="usage">
+          <edgelabel>f_runtime</edgelabel>
+        </childnode>
+        <childnode refid="49" relation="usage">
+          <edgelabel>f_heap</edgelabel>
+        </childnode>
+        <childnode refid="46" relation="usage">
+          <edgelabel>f_parent</edgelabel>
+        </childnode>
+        <childnode refid="50" relation="usage">
+          <edgelabel>f_idModule</edgelabel>
+        </childnode>
+        <childnode refid="54" relation="usage">
+          <edgelabel>m_contextMain</edgelabel>
+        </childnode>
+        <childnode refid="62" relation="usage">
+          <edgelabel>m_hTypeSystem</edgelabel>
+        </childnode>
+      </node>
+      <node id="111">
+        <label>org.xvm.runtime.DebugConsole</label>
+        <link refid="d1/d39/classorg_1_1xvm_1_1runtime_1_1_debug_console"/>
+        <childnode refid="112" relation="public-inheritance">
+        </childnode>
+        <childnode refid="111" relation="usage">
+          <edgelabel>INSTANCE</edgelabel>
+        </childnode>
+        <childnode refid="113" relation="usage">
+          <edgelabel>m_viewMode</edgelabel>
+        </childnode>
+        <childnode refid="90" relation="usage">
+          <edgelabel>m_aFrames</edgelabel>
+          <edgelabel>m_frame</edgelabel>
+          <edgelabel>m_frameFocus</edgelabel>
+        </childnode>
+        <childnode refid="106" relation="usage">
+          <edgelabel>m_hException</edgelabel>
+        </childnode>
+        <childnode refid="114" relation="usage">
+          <edgelabel>m_debugStash</edgelabel>
+        </childnode>
+        <childnode refid="115" relation="usage">
+          <edgelabel>m_aVars</edgelabel>
+        </childnode>
+        <childnode refid="117" relation="usage">
+          <edgelabel>m_aBreaks</edgelabel>
+        </childnode>
+        <childnode refid="119" relation="usage">
+          <edgelabel>m_stepMode</edgelabel>
+        </childnode>
+      </node>
+      <node id="117">
+        <label>org.xvm.runtime.DebugConsole.BreakPoint</label>
+        <link refid="de/d49/classorg_1_1xvm_1_1runtime_1_1_debug_console_1_1_break_point"/>
+        <childnode refid="118" relation="public-inheritance">
+        </childnode>
+        <childnode refid="75" relation="usage">
+          <edgelabel>lambda</edgelabel>
+        </childnode>
+      </node>
+      <node id="114">
+        <label>org.xvm.runtime.DebugConsole.DebugStash</label>
+        <link refid="dc/d22/classorg_1_1xvm_1_1runtime_1_1_debug_console_1_1_debug_stash"/>
+      </node>
+      <node id="119">
+        <label>org.xvm.runtime.DebugConsole.StepMode</label>
+        <link refid="d2/dea/enumorg_1_1xvm_1_1runtime_1_1_debug_console_1_1_step_mode"/>
+      </node>
+      <node id="115">
+        <label>org.xvm.runtime.DebugConsole.VarDisplay</label>
+        <link refid="df/d13/classorg_1_1xvm_1_1runtime_1_1_debug_console_1_1_var_display"/>
+        <childnode refid="62" relation="usage">
+          <edgelabel>hVar</edgelabel>
+        </childnode>
+        <childnode refid="116" relation="usage">
+          <edgelabel>watch</edgelabel>
+        </childnode>
+      </node>
+      <node id="113">
+        <label>org.xvm.runtime.DebugConsole.ViewMode</label>
+        <link refid="d1/d65/enumorg_1_1xvm_1_1runtime_1_1_debug_console_1_1_view_mode"/>
+      </node>
+      <node id="116">
+        <label>org.xvm.runtime.DebugConsole.Watch</label>
+        <link refid="d7/dcb/classorg_1_1xvm_1_1runtime_1_1_debug_console_1_1_watch"/>
+        <childnode refid="62" relation="usage">
+          <edgelabel>hVar</edgelabel>
+        </childnode>
+      </node>
+      <node id="112">
+        <label>org.xvm.runtime.Debugger</label>
+        <link refid="d3/dc6/interfaceorg_1_1xvm_1_1runtime_1_1_debugger"/>
+      </node>
+      <node id="91">
+        <label>org.xvm.runtime.Fiber</label>
+        <link refid="d4/d87/classorg_1_1xvm_1_1runtime_1_1_fiber"/>
+        <childnode refid="92" relation="public-inheritance">
+        </childnode>
+        <childnode refid="54" relation="usage">
+          <edgelabel>f_context</edgelabel>
+        </childnode>
+        <childnode refid="75" relation="usage">
+          <edgelabel>f_fnCaller</edgelabel>
+        </childnode>
+        <childnode refid="93" relation="usage">
+          <edgelabel>m_status</edgelabel>
+        </childnode>
+        <childnode refid="90" relation="usage">
+          <edgelabel>m_frame</edgelabel>
+          <edgelabel>m_frameBlocker</edgelabel>
+          <edgelabel>m_resume</edgelabel>
+        </childnode>
+        <childnode refid="62" relation="usage">
+          <edgelabel>m_hAsyncSection</edgelabel>
+          <edgelabel>m_hTimeout</edgelabel>
+        </childnode>
+      </node>
+      <node id="93">
+        <label>org.xvm.runtime.Fiber.FiberStatus</label>
+        <link refid="d3/d81/enumorg_1_1xvm_1_1runtime_1_1_fiber_1_1_fiber_status"/>
+      </node>
+      <node id="120">
+        <label>org.xvm.runtime.FiberQueue</label>
+        <link refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue"/>
+        <childnode refid="54" relation="usage">
+          <edgelabel>f_context</edgelabel>
+        </childnode>
+        <childnode refid="90" relation="usage">
+          <edgelabel>m_aFrame</edgelabel>
+        </childnode>
+      </node>
+      <node id="90">
+        <label>org.xvm.runtime.Frame</label>
+        <link refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame"/>
+        <childnode refid="23" relation="public-inheritance">
+        </childnode>
+        <childnode refid="91" relation="usage">
+          <edgelabel>f_fiber</edgelabel>
+        </childnode>
+        <childnode refid="54" relation="usage">
+          <edgelabel>f_context</edgelabel>
+        </childnode>
+        <childnode refid="75" relation="usage">
+          <edgelabel>f_function</edgelabel>
+        </childnode>
+        <childnode refid="80" relation="usage">
+          <edgelabel>WAIT_FOR_FUTURE</edgelabel>
+          <edgelabel>WAIT_FOR_IO</edgelabel>
+          <edgelabel>f_aOp</edgelabel>
+        </childnode>
+        <childnode refid="62" relation="usage">
+          <edgelabel>f_ahVar</edgelabel>
+          <edgelabel>f_hTarget</edgelabel>
+          <edgelabel>f_hThis</edgelabel>
+          <edgelabel>m_hStackTop</edgelabel>
+        </childnode>
+        <childnode refid="94" relation="usage">
+          <edgelabel>f_aInfo</edgelabel>
+        </childnode>
+        <childnode refid="90" relation="usage">
+          <edgelabel>f_framePrev</edgelabel>
+          <edgelabel>m_frameNext</edgelabel>
+        </childnode>
+        <childnode refid="105" relation="usage">
+          <edgelabel>m_aGuard</edgelabel>
+        </childnode>
+        <childnode refid="106" relation="usage">
+          <edgelabel>m_hException</edgelabel>
+        </childnode>
+        <childnode refid="107" relation="usage">
+          <edgelabel>m_deferred</edgelabel>
+        </childnode>
+        <childnode refid="108" relation="usage">
+          <edgelabel>m_hfnFinally</edgelabel>
+        </childnode>
+        <childnode refid="110" relation="usage">
+          <edgelabel>m_continuation</edgelabel>
+        </childnode>
+        <childnode refid="83" relation="usage">
+          <edgelabel>m_chain</edgelabel>
+        </childnode>
+        <childnode refid="111" relation="usage">
+          <edgelabel>m_debug</edgelabel>
+        </childnode>
+        <childnode refid="95" relation="usage">
+          <edgelabel>ARRAY_ELEMENT_RESOLVER</edgelabel>
+          <edgelabel>METHOD_RESOLVER</edgelabel>
+          <edgelabel>PROPERTY_RESOLVER</edgelabel>
+          <edgelabel>REF_RESOLVER</edgelabel>
+        </childnode>
+      </node>
+      <node id="110">
+        <label>org.xvm.runtime.Frame.Continuation</label>
+        <link refid="d5/dfd/interfaceorg_1_1xvm_1_1runtime_1_1_frame_1_1_continuation"/>
+      </node>
+      <node id="107">
+        <label>org.xvm.runtime.Frame.DeferredGuardAction</label>
+        <link refid="d7/d9f/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_deferred_guard_action"/>
+      </node>
+      <node id="105">
+        <label>org.xvm.runtime.Frame.Guard</label>
+        <link refid="d0/d8b/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_guard"/>
+      </node>
+      <node id="94">
+        <label>org.xvm.runtime.Frame.VarInfo</label>
+        <link refid="df/d8b/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_var_info"/>
+        <childnode refid="30" relation="usage">
+          <edgelabel>m_type</edgelabel>
+        </childnode>
+        <childnode refid="95" relation="usage">
+          <edgelabel>m_resolver</edgelabel>
+        </childnode>
+        <childnode refid="96" relation="usage">
+          <edgelabel>m_ref</edgelabel>
+        </childnode>
+      </node>
+      <node id="95">
+        <label>org.xvm.runtime.Frame.VarTypeResolver</label>
+        <link refid="db/dde/interfaceorg_1_1xvm_1_1runtime_1_1_frame_1_1_var_type_resolver"/>
+      </node>
+      <node id="62">
+        <label>org.xvm.runtime.ObjectHandle</label>
+        <link refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle"/>
+        <childnode refid="16" relation="public-inheritance">
+        </childnode>
+        <childnode refid="63" relation="usage">
+          <edgelabel>m_clazz</edgelabel>
+        </childnode>
+        <childnode refid="62" relation="usage">
+          <edgelabel>DEFAULT</edgelabel>
+        </childnode>
+      </node>
+      <node id="106">
+        <label>org.xvm.runtime.ObjectHandle.ExceptionHandle</label>
+        <link refid="da/d17/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_exception_handle"/>
+        <childnode refid="72" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="72">
+        <label>org.xvm.runtime.ObjectHandle.GenericHandle</label>
+        <link refid="d3/d56/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_generic_handle"/>
+        <childnode refid="62" relation="public-inheritance">
+        </childnode>
+        <childnode refid="62" relation="usage">
+          <edgelabel>m_aFields</edgelabel>
+        </childnode>
+        <childnode refid="46" relation="usage">
+          <edgelabel>m_owner</edgelabel>
+        </childnode>
+      </node>
+      <node id="125">
+        <label>org.xvm.runtime.ObjectHandle.JavaLong</label>
+        <link refid="d5/d22/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_java_long"/>
+        <childnode refid="62" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="45">
+        <label>org.xvm.runtime.OpSupport</label>
+        <link refid="d5/d35/interfaceorg_1_1xvm_1_1runtime_1_1_op_support"/>
+      </node>
+      <node id="48">
+        <label>org.xvm.runtime.Runtime</label>
+        <link refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime"/>
+      </node>
+      <node id="54">
+        <label>org.xvm.runtime.ServiceContext</label>
+        <link refid="d8/d69/classorg_1_1xvm_1_1runtime_1_1_service_context"/>
+        <childnode refid="46" relation="usage">
+          <edgelabel>f_container</edgelabel>
+        </childnode>
+        <childnode refid="55" relation="usage">
+          <edgelabel>f_pool</edgelabel>
+        </childnode>
+        <childnode refid="71" relation="usage">
+          <edgelabel>m_hService</edgelabel>
+        </childnode>
+        <childnode refid="73" relation="usage">
+          <edgelabel>m_hExceptionHandler</edgelabel>
+        </childnode>
+        <childnode refid="62" relation="usage">
+          <edgelabel>m_hSynchronizedSection</edgelabel>
+        </childnode>
+        <childnode refid="90" relation="usage">
+          <edgelabel>m_frameCurrent</edgelabel>
+        </childnode>
+        <childnode refid="120" relation="usage">
+          <edgelabel>f_queueSuspended</edgelabel>
+        </childnode>
+        <childnode refid="121" relation="usage">
+          <edgelabel>m_synchronicity</edgelabel>
+        </childnode>
+        <childnode refid="91" relation="usage">
+          <edgelabel>m_fiberSyncOwner</edgelabel>
+        </childnode>
+        <childnode refid="122" relation="usage">
+          <edgelabel>f_wakeUpScheduler</edgelabel>
+        </childnode>
+      </node>
+      <node id="121">
+        <label>org.xvm.runtime.ServiceContext.Synchronicity</label>
+        <link refid="dc/d52/enumorg_1_1xvm_1_1runtime_1_1_service_context_1_1_synchronicity"/>
+      </node>
+      <node id="122">
+        <label>org.xvm.runtime.ServiceContext.WakeUpScheduler</label>
+        <link refid="d4/dea/classorg_1_1xvm_1_1runtime_1_1_service_context_1_1_wake_up_scheduler"/>
+      </node>
+      <node id="63">
+        <label>org.xvm.runtime.TypeComposition</label>
+        <link refid="db/db9/interfaceorg_1_1xvm_1_1runtime_1_1_type_composition"/>
+      </node>
+      <node id="127">
+        <label>org.xvm.runtime.template.IndexSupport</label>
+        <link refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support"/>
+      </node>
+      <node id="109">
+        <label>org.xvm.runtime.template._native.reflect.xRTFunction.DelegatingHandle</label>
+        <link refid="d5/d24/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_function_1_1_delegating_handle"/>
+        <childnode refid="73" relation="public-inheritance">
+        </childnode>
+        <childnode refid="73" relation="usage">
+          <edgelabel>m_hDelegate</edgelabel>
+        </childnode>
+      </node>
+      <node id="108">
+        <label>org.xvm.runtime.template._native.reflect.xRTFunction.FullyBoundHandle</label>
+        <link refid="d3/d86/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_function_1_1_fully_bound_handle"/>
+        <childnode refid="109" relation="public-inheritance">
+        </childnode>
+        <childnode refid="62" relation="usage">
+          <edgelabel>f_ahArg</edgelabel>
+        </childnode>
+        <childnode refid="108" relation="usage">
+          <edgelabel>NO_OP</edgelabel>
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+      </node>
+      <node id="73">
+        <label>org.xvm.runtime.template._native.reflect.xRTFunction.FunctionHandle</label>
+        <link refid="da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_function_1_1_function_handle"/>
+        <childnode refid="74" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="74">
+        <label>org.xvm.runtime.template._native.reflect.xRTSignature.SignatureHandle</label>
+        <link refid="d1/d6b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_signature_1_1_signature_handle"/>
+        <childnode refid="72" relation="public-inheritance">
+        </childnode>
+        <childnode refid="36" relation="usage">
+          <edgelabel>f_idMethod</edgelabel>
+        </childnode>
+        <childnode refid="75" relation="usage">
+          <edgelabel>f_method</edgelabel>
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>f_type</edgelabel>
+        </childnode>
+        <childnode refid="83" relation="usage">
+          <edgelabel>f_chain</edgelabel>
+        </childnode>
+      </node>
+      <node id="42">
+        <label>org.xvm.runtime.template._native.reflect.xRTType</label>
+        <link refid="d5/daa/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_type"/>
+        <childnode refid="43" relation="public-inheritance">
+        </childnode>
+        <childnode refid="127" relation="public-inheritance">
+        </childnode>
+        <childnode refid="42" relation="usage">
+          <edgelabel>INSTANCE</edgelabel>
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>LISTMAP_TYPE</edgelabel>
+          <edgelabel>TYPE_ARRAY_TYPE</edgelabel>
+        </childnode>
+        <childnode refid="128" relation="usage">
+          <edgelabel>EMPTY_TYPE_ARRAY</edgelabel>
+        </childnode>
+        <childnode refid="63" relation="usage">
+          <edgelabel>REGISTER_CLZCOMP</edgelabel>
+        </childnode>
+        <childnode refid="75" relation="usage">
+          <edgelabel>REGISTER_CONSTRUCT</edgelabel>
+        </childnode>
+        <childnode refid="97" relation="usage">
+          <edgelabel>PROP_CALCULATE</edgelabel>
+          <edgelabel>PROP_HASHER</edgelabel>
+        </childnode>
+      </node>
+      <node id="96">
+        <label>org.xvm.runtime.template.reflect.xRef.RefHandle</label>
+        <link refid="de/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1_1_ref_handle"/>
+        <childnode refid="72" relation="public-inheritance">
+        </childnode>
+        <childnode refid="62" relation="usage">
+          <edgelabel>m_hReferent</edgelabel>
+        </childnode>
+        <childnode refid="97" relation="usage">
+          <edgelabel>m_idProp</edgelabel>
+        </childnode>
+        <childnode refid="90" relation="usage">
+          <edgelabel>m_frame</edgelabel>
+        </childnode>
+      </node>
+      <node id="124">
+        <label>org.xvm.runtime.template.text.xString.StringHandle</label>
+        <link refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle"/>
+        <childnode refid="62" relation="public-inheritance">
+        </childnode>
+        <childnode refid="125" relation="usage">
+          <edgelabel>m_hash</edgelabel>
+        </childnode>
+      </node>
+      <node id="43">
+        <label>org.xvm.runtime.template.xConst</label>
+        <link refid="d4/d96/classorg_1_1xvm_1_1runtime_1_1template_1_1x_const"/>
+        <childnode refid="44" relation="public-inheritance">
+        </childnode>
+        <childnode refid="43" relation="usage">
+          <edgelabel>INSTANCE</edgelabel>
+        </childnode>
+        <childnode refid="126" relation="usage">
+          <edgelabel>NO_FIELDS</edgelabel>
+        </childnode>
+        <childnode refid="75" relation="usage">
+          <edgelabel>DATE_CONSTRUCT</edgelabel>
+          <edgelabel>DURATION_CONSTRUCT</edgelabel>
+          <edgelabel>FN_APPEND_TO</edgelabel>
+          <edgelabel>FN_ESTIMATE_LENGTH</edgelabel>
+          <edgelabel>FN_FREEZE</edgelabel>
+          <edgelabel>NIBBLE_CONSTRUCT</edgelabel>
+          <edgelabel>PATH_CONSTRUCT</edgelabel>
+          <edgelabel>RANGE_CONSTRUCT</edgelabel>
+          <edgelabel>TIMEOFDAY_CONSTRUCT</edgelabel>
+          <edgelabel>TIME_CONSTRUCT</edgelabel>
+          <edgelabel>  ...</edgelabel>
+        </childnode>
+        <childnode refid="39" relation="usage">
+          <edgelabel>HASH_SIG</edgelabel>
+        </childnode>
+      </node>
+      <node id="71">
+        <label>org.xvm.runtime.template.xService.ServiceHandle</label>
+        <link refid="d9/dd1/classorg_1_1xvm_1_1runtime_1_1template_1_1x_service_1_1_service_handle"/>
+        <childnode refid="72" relation="public-inheritance">
+        </childnode>
+        <childnode refid="54" relation="usage">
+          <edgelabel>f_context</edgelabel>
+        </childnode>
+      </node>
+      <node id="35">
+        <label>org.xvm.util.ListMap&lt; String, org.xvm.asm.constants.ChildInfo &gt;</label>
+        <link refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map"/>
+      </node>
+      <node id="34">
+        <label>org.xvm.util.ListMap&lt; org.xvm.asm.constants.IdentityConstant, org.xvm.asm.constants.TypeConstant.Origin &gt;</label>
+        <link refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map"/>
+      </node>
+      <node id="25">
+        <label>org.xvm.util.ListMap&lt; org.xvm.asm.constants.StringConstant, org.xvm.asm.constants.TypeConstant &gt;</label>
+        <link refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map"/>
+      </node>
+      <node id="59">
+        <label>org.xvm.util.PackedInteger</label>
+        <link refid="dc/ddc/classorg_1_1xvm_1_1util_1_1_packed_integer"/>
+        <childnode refid="60" relation="public-inheritance">
+        </childnode>
+        <childnode refid="59" relation="usage">
+          <edgelabel>CACHE</edgelabel>
+          <edgelabel>EB</edgelabel>
+          <edgelabel>EI</edgelabel>
+          <edgelabel>GB</edgelabel>
+          <edgelabel>GI</edgelabel>
+          <edgelabel>KB</edgelabel>
+          <edgelabel>KI</edgelabel>
+          <edgelabel>MB</edgelabel>
+          <edgelabel>MI</edgelabel>
+          <edgelabel>NEG_ONE</edgelabel>
+          <edgelabel>  ...</edgelabel>
+        </childnode>
+      </node>
+      <node id="136">
+        <label>org.xvm.util.Severity</label>
+        <link refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity"/>
+      </node>
+      <node id="56">
+        <label>org.xvm.util.TransientThreadLocal&lt; List&lt; org.xvm.asm.constants.TypeConstant &gt; &gt;</label>
+        <link refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local"/>
+      </node>
+      <node id="41">
+        <label>org.xvm.util.TransientThreadLocal&lt; Set&lt; org.xvm.asm.constants.TypeConstant &gt; &gt;</label>
+        <link refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" line="30" column="7" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Linker.java" bodystart="30" bodyend="445"/>
+    <listofallmembers>
+      <member refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a974905d99d3e59be62917c7f80ce5ef2" prot="public" virt="non-virtual"><scope>org::xvm::javajit::Linker</scope><name>addModule</name></member>
+      <member refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a2c9e5b2ea83b4ec3832d830e6f6323f3" prot="public" virt="non-virtual"><scope>org::xvm::javajit::Linker</scope><name>addModule</name></member>
+      <member refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ac218c7b3a9a09de970c3ab49592a0e8b" prot="public" virt="non-virtual"><scope>org::xvm::javajit::Linker</scope><name>addSharedModule</name></member>
+      <member refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ad3ead413b3fd09483657f499c20438f1" prot="public" virt="non-virtual"><scope>org::xvm::javajit::Linker</scope><name>addSharedModules</name></member>
+      <member refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a10e7810e6af7c8ca67e72e26fad337af" prot="public" virt="non-virtual"><scope>org::xvm::javajit::Linker</scope><name>addSharedModules</name></member>
+      <member refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a19a039eac14f74158211d05d80cb7dba" prot="private" virt="non-virtual"><scope>org::xvm::javajit::Linker</scope><name>bad</name></member>
+      <member refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a3cd8fe176f60643990748fb1b2f89340" prot="public" virt="non-virtual"><scope>org::xvm::javajit::Linker</scope><name>define</name></member>
+      <member refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a518aa672998c4aa42e9aa5b337a95dac" prot="public" virt="non-virtual"><scope>org::xvm::javajit::Linker</scope><name>define</name></member>
+      <member refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a6fa918dd23db470d5ab30449396e88bd" prot="public" virt="non-virtual"><scope>org::xvm::javajit::Linker</scope><name>defined</name></member>
+      <member refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a16ebdfc5c7fdd9b38164db319f1db35c" prot="private" virt="non-virtual"><scope>org::xvm::javajit::Linker</scope><name>defines</name></member>
+      <member refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a27c18e9d60a5d2dda5e8062743e94949" prot="public" virt="non-virtual"><scope>org::xvm::javajit::Linker</scope><name>defines</name></member>
+      <member refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a50db5321cba7771e1d4569f3f66f0ee1" prot="public" virt="non-virtual"><scope>org::xvm::javajit::Linker</scope><name>errorList</name></member>
+      <member refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a5cf7efc1366f3ec64757dcc1ce232355" prot="private" virt="non-virtual"><scope>org::xvm::javajit::Linker</scope><name>errors</name></member>
+      <member refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ac214c604a13094d38e8478276fdb60d1" prot="public" virt="non-virtual"><scope>org::xvm::javajit::Linker</scope><name>isBad</name></member>
+      <member refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a4996625b7953c9fa59464a9dff8ffffa" prot="public" virt="non-virtual"><scope>org::xvm::javajit::Linker</scope><name>link</name></member>
+      <member refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a7bfde94f3671b6b117c816caab20b45b" prot="protected" virt="non-virtual"><scope>org::xvm::javajit::Linker</scope><name>Linker</name></member>
+      <member refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ae6d8807076f3eb21b1bbd192c11a252e" prot="public" virt="non-virtual"><scope>org::xvm::javajit::Linker</scope><name>LNK_MAIN_EXISTS</name></member>
+      <member refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a29349c8117c7a11d0450deb265c7367c" prot="public" virt="non-virtual"><scope>org::xvm::javajit::Linker</scope><name>LNK_MODULE_LOAD</name></member>
+      <member refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ae2271cca3e9fc0556c03ad3fd4618a63" prot="public" virt="non-virtual"><scope>org::xvm::javajit::Linker</scope><name>LNK_NOREPO</name></member>
+      <member refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a6ff4bae2cccebf84b3cb67ec47c47d80" prot="public" virt="non-virtual"><scope>org::xvm::javajit::Linker</scope><name>LNK_REDEF</name></member>
+      <member refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a4b40cdb8347b86864e7760668f9a9d9f" prot="protected" virt="non-virtual"><scope>org::xvm::javajit::Linker</scope><name>loadModule</name></member>
+      <member refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1aaeaf4d206f17fa855bd92ede78261570" prot="protected" virt="non-virtual"><scope>org::xvm::javajit::Linker</scope><name>log</name></member>
+      <member refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a2a866d69c805783c4f0fa8dde1e943ee" prot="private" virt="non-virtual"><scope>org::xvm::javajit::Linker</scope><name>modules</name></member>
+      <member refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a9ffcb71283a170c77177e4e33a0810a6" prot="private" virt="non-virtual"><scope>org::xvm::javajit::Linker</scope><name>refiner</name></member>
+      <member refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1af0ac09543dd1584393ca0a3937b775b3" prot="public" virt="non-virtual"><scope>org::xvm::javajit::Linker</scope><name>refiner</name></member>
+      <member refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1aca6946b38d1fa82727c1729f404de1f0" prot="private" virt="non-virtual"><scope>org::xvm::javajit::Linker</scope><name>repo</name></member>
+      <member refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a0c8fa4b6a3c13e6c25151a664a1deb0a" prot="public" virt="non-virtual"><scope>org::xvm::javajit::Linker</scope><name>repo</name></member>
+      <member refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a9a71082bff7eb1b3551f98da67d7c8ed" prot="private" virt="non-virtual"><scope>org::xvm::javajit::Linker</scope><name>sharedLoaders</name></member>
+      <member refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1acc1d136042623f2372034580edea8c78" prot="public" virt="non-virtual"><scope>org::xvm::javajit::Linker</scope><name>specified</name></member>
+      <member refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a730b4d6809f604937539b940c2351c79" prot="public" virt="non-virtual"><scope>org::xvm::javajit::Linker</scope><name>undefined</name></member>
+      <member refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a5aeb9f33e141fef755c9a26444052ff1" prot="public" virt="non-virtual"><scope>org::xvm::javajit::Linker</scope><name>withMain</name></member>
+      <member refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1ae60ff73e555dc451b660c0fcf357bbd6" prot="public" virt="non-virtual"><scope>org::xvm::javajit::Linker</scope><name>withMain</name></member>
+      <member refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a85756fc388f8e4e5ad4cf1e3ee63f5f4" prot="public" virt="non-virtual"><scope>org::xvm::javajit::Linker</scope><name>withRefiner</name></member>
+      <member refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1a7017df4f6f303192a430f5216dfa8f4d" prot="public" virt="non-virtual"><scope>org::xvm::javajit::Linker</scope><name>withRepo</name></member>
+      <member refid="df/dab/classorg_1_1xvm_1_1javajit_1_1_linker_1afa5433667dc1c3108bc1f2c89217a333" prot="private" virt="non-virtual"><scope>org::xvm::javajit::Linker</scope><name>xvm</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

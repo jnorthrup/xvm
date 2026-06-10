@@ -1,0 +1,28 @@
+var classorg_1_1xvm_1_1compiler_1_1ast_1_1_annotation_expression =
+[
+    [ "ValidatingContext", "db/def/classorg_1_1xvm_1_1compiler_1_1ast_1_1_annotation_expression_1_1_validating_context.html", "db/def/classorg_1_1xvm_1_1compiler_1_1ast_1_1_annotation_expression_1_1_validating_context" ],
+    [ "AnnotationExpression", "dd/d14/classorg_1_1xvm_1_1compiler_1_1ast_1_1_annotation_expression.html#a4e878b0856db27a1a352f53e4e896c9e", null ],
+    [ "AnnotationExpression", "dd/d14/classorg_1_1xvm_1_1compiler_1_1ast_1_1_annotation_expression.html#a48e146b1fa8cb90f3897a5e21378d9cf", null ],
+    [ "canResolveNames", "dd/d14/classorg_1_1xvm_1_1compiler_1_1ast_1_1_annotation_expression.html#ac8dc8ec2fe9d5390d10592734d4aa437", null ],
+    [ "ensureAnnotation", "dd/d14/classorg_1_1xvm_1_1compiler_1_1ast_1_1_annotation_expression.html#abdb45340b73b83cf124858bf641a86d5", null ],
+    [ "getAnnotatedProperty", "dd/d14/classorg_1_1xvm_1_1compiler_1_1ast_1_1_annotation_expression.html#acf3be4cf7496d2d561734aa7976aa51e", null ],
+    [ "getChildFields", "dd/d14/classorg_1_1xvm_1_1compiler_1_1ast_1_1_annotation_expression.html#a1e9db0310803981839cd8320028f97a0", null ],
+    [ "getDumpDesc", "dd/d14/classorg_1_1xvm_1_1compiler_1_1ast_1_1_annotation_expression.html#a9145446273cae317c2c80ea322e8a0f4", null ],
+    [ "getEndPosition", "dd/d14/classorg_1_1xvm_1_1compiler_1_1ast_1_1_annotation_expression.html#ad0b2e95095497b81f99cf7a180803e0f", null ],
+    [ "getStartPosition", "dd/d14/classorg_1_1xvm_1_1compiler_1_1ast_1_1_annotation_expression.html#ac22b6b9d2b1ae6693680da85b9836d8a", null ],
+    [ "hasThis", "dd/d14/classorg_1_1xvm_1_1compiler_1_1ast_1_1_annotation_expression.html#aacb2417313dda118c465e733031b6b99", null ],
+    [ "isAutoNarrowingAllowed", "dd/d14/classorg_1_1xvm_1_1compiler_1_1ast_1_1_annotation_expression.html#a6ae5c3e4ac20c2ce25fe9b71e25002f2", null ],
+    [ "isConstant", "dd/d14/classorg_1_1xvm_1_1compiler_1_1ast_1_1_annotation_expression.html#aee67bea225a2e6597f2a45b7f223a19d", null ],
+    [ "toString", "dd/d14/classorg_1_1xvm_1_1compiler_1_1ast_1_1_annotation_expression.html#aba6c18395af1123d8ab9043e5bf18af1", null ],
+    [ "toTypeExpression", "dd/d14/classorg_1_1xvm_1_1compiler_1_1ast_1_1_annotation_expression.html#af263f7a899a0887f4eba13554b3a15bb", null ],
+    [ "validate", "dd/d14/classorg_1_1xvm_1_1compiler_1_1ast_1_1_annotation_expression.html#a1ba6ee04f6417301a240230f5c59930e", null ],
+    [ "validateContent", "dd/d14/classorg_1_1xvm_1_1compiler_1_1ast_1_1_annotation_expression.html#a89fccaf29c7d6262fb70772ed36d5ba0", null ],
+    [ "args", "dd/d14/classorg_1_1xvm_1_1compiler_1_1ast_1_1_annotation_expression.html#aec199c14aef25a7252785cc57e087ba0", null ],
+    [ "CHILD_FIELDS", "dd/d14/classorg_1_1xvm_1_1compiler_1_1ast_1_1_annotation_expression.html#ad70d95abb5325efe48bb83c5fde72053", null ],
+    [ "lEndPos", "dd/d14/classorg_1_1xvm_1_1compiler_1_1ast_1_1_annotation_expression.html#a98c9486120acf7208b70112ff7bfbedd", null ],
+    [ "lStartPos", "dd/d14/classorg_1_1xvm_1_1compiler_1_1ast_1_1_annotation_expression.html#acd73f91594b305190befecd99f350555", null ],
+    [ "m_anno", "dd/d14/classorg_1_1xvm_1_1compiler_1_1ast_1_1_annotation_expression.html#a3f98f9c19a8856e63a206a6f9464c85d", null ],
+    [ "m_fConst", "dd/d14/classorg_1_1xvm_1_1compiler_1_1ast_1_1_annotation_expression.html#a577a15a388d6f968b30d941245cc82b7", null ],
+    [ "m_node", "dd/d14/classorg_1_1xvm_1_1compiler_1_1ast_1_1_annotation_expression.html#a60514beeaf1bbfc6aeec39005e727411", null ],
+    [ "type", "dd/d14/classorg_1_1xvm_1_1compiler_1_1ast_1_1_annotation_expression.html#aa65436e0ac19cfeea29d7c07c4b274ab", null ]
+];

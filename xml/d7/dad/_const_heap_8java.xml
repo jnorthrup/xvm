@@ -1,0 +1,265 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d7/dad/_const_heap_8java" kind="file" language="Java">
+    <compoundname>ConstHeap.java</compoundname>
+    <includes local="no">java.util.Map</includes>
+    <includes local="no">java.util.concurrent.ConcurrentHashMap</includes>
+    <includes local="no">org.xvm.asm.Constant</includes>
+    <includes local="no">org.xvm.asm.ConstantPool</includes>
+    <includes local="no">org.xvm.asm.Op</includes>
+    <includes local="no">org.xvm.asm.constants.FrameDependentConstant</includes>
+    <includes local="no">org.xvm.asm.constants.PropertyConstant</includes>
+    <includes local="no">org.xvm.asm.constants.SingletonConstant</includes>
+    <includes local="no">org.xvm.runtime.ObjectHandle.DeferredCallHandle</includes>
+    <includes local="no">org.xvm.runtime.ObjectHandle.DeferredPropertyHandle</includes>
+    <includes local="no">org.xvm.runtime.ObjectHandle.DeferredSingletonHandle</includes>
+    <includes local="no">org.xvm.runtime.ObjectHandle.InitializingHandle</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/ConstHeap.java</label>
+        <link refid="d7/dad/_const_heap_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.util.Map</label>
+      </node>
+      <node id="3">
+        <label>java.util.concurrent.ConcurrentHashMap</label>
+      </node>
+      <node id="4">
+        <label>org.xvm.asm.Constant</label>
+      </node>
+      <node id="5">
+        <label>org.xvm.asm.ConstantPool</label>
+      </node>
+      <node id="6">
+        <label>org.xvm.asm.Op</label>
+      </node>
+      <node id="7">
+        <label>org.xvm.asm.constants.FrameDependentConstant</label>
+      </node>
+      <node id="8">
+        <label>org.xvm.asm.constants.PropertyConstant</label>
+      </node>
+      <node id="9">
+        <label>org.xvm.asm.constants.SingletonConstant</label>
+      </node>
+      <node id="10">
+        <label>org.xvm.runtime.ObjectHandle.DeferredCallHandle</label>
+      </node>
+      <node id="11">
+        <label>org.xvm.runtime.ObjectHandle.DeferredPropertyHandle</label>
+      </node>
+      <node id="12">
+        <label>org.xvm.runtime.ObjectHandle.DeferredSingletonHandle</label>
+      </node>
+      <node id="13">
+        <label>org.xvm.runtime.ObjectHandle.InitializingHandle</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap" prot="public">org::xvm::runtime::ConstHeap</innerclass>
+    <innernamespace refid="d5/da0/namespaceorg_1_1xvm_1_1runtime">org::xvm::runtime</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.runtime;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Map;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.concurrent.ConcurrentHashMap;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Constant;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ConstantPool;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Op;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.constants.FrameDependentConstant;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.constants.PropertyConstant;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.constants.SingletonConstant;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.ObjectHandle.DeferredCallHandle;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.ObjectHandle.DeferredPropertyHandle;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.ObjectHandle.DeferredSingletonHandle;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.ObjectHandle.InitializingHandle;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1a8bae9af0b6d89f5b27c97040a494cf90" kindref="member">ConstHeap</ref><sp/>{</highlight></codeline>
+<codeline lineno="29" refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1a8bae9af0b6d89f5b27c97040a494cf90" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1a8bae9af0b6d89f5b27c97040a494cf90" kindref="member">ConstHeap</ref>(<ref refid="d1/df8/classorg_1_1xvm_1_1runtime_1_1_container" kindref="compound">Container</ref><sp/>container)<sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1ad1f3f711b06a5cc0b628c2a64b9d9313" kindref="member">f_container</ref><sp/>=<sp/>container;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1a6328622987f36fde033152aed66aeace" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/><ref refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1a6328622987f36fde033152aed66aeace" kindref="member">ensureConstHandle</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frame,<sp/><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref><sp/>constValue)<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(constValue<sp/>instanceof<sp/><ref refid="da/d56/classorg_1_1xvm_1_1asm_1_1constants_1_1_frame_dependent_constant" kindref="compound">FrameDependentConstant</ref><sp/>constFrame)<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>constFrame.getHandle(frame);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>NOTE:<sp/>we<sp/>cannot<sp/>use<sp/>computeIfAbsent,<sp/>since<sp/>createConstHandle<sp/>can<sp/>be<sp/>recursive,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>and<sp/>ConcurrentHashMap<sp/>is<sp/>not<sp/>recursion<sp/>friendly</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hValue<sp/>=<sp/><ref refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1a50d09a09a4acfb9f4b54f4b897fcf18c" kindref="member">getConstHandle</ref>(constValue);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(hValue<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>hValue;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(constValue<sp/>instanceof<sp/><ref refid="dd/d83/classorg_1_1xvm_1_1asm_1_1constants_1_1_singleton_constant" kindref="compound">SingletonConstant</ref><sp/>constSingle)<sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hValue<sp/>=<sp/>constSingle.getHandle();</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(hValue<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1a6040585206258b50ddf4dba3737b814d" kindref="member">saveConstHandle</ref>(constValue,<sp/>hValue);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>make<sp/>sure<sp/>we<sp/>don&apos;t<sp/>leak<sp/>a<sp/>singleton<sp/>handle<sp/>into<sp/>the<sp/>parent&apos;s<sp/>container<sp/>pool</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref><sp/>pooThis<sp/>=<sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1ae3030b18f186a2d66c8a9ee63768686b" kindref="member">poolContext</ref>();</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(constSingle.getConstantPool()<sp/>!=<sp/>pooThis)<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d1/df8/classorg_1_1xvm_1_1runtime_1_1_container" kindref="compound">Container</ref><sp/>containerThis<sp/>=<sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a7419371b163ade87e8962e502c38236e" kindref="member">f_context</ref>.<ref refid="d8/d69/classorg_1_1xvm_1_1runtime_1_1_service_context_1aa4ce9f5c6ea680ef7e3aef858bacae23" kindref="member">f_container</ref>;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d1/df8/classorg_1_1xvm_1_1runtime_1_1_container" kindref="compound">Container</ref><sp/>containerOrig<sp/>=<sp/>containerThis.<ref refid="d1/df8/classorg_1_1xvm_1_1runtime_1_1_container_1a5c7ba59c420a36c221442e05b9cd40cc" kindref="member">getOriginContainer</ref>(constSingle);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>constSingle<sp/>=<sp/>containerOrig.<ref refid="d1/df8/classorg_1_1xvm_1_1runtime_1_1_container_1a71dab00313f344bb5afac67ae21cb674" kindref="member">getConstantPool</ref>().<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a96af322337d3cfdb2a927e0221651113" kindref="member">register</ref>(constSingle);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hValue<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>constSingle.getHandle();</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(hValue<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1a6040585206258b50ddf4dba3737b814d" kindref="member">saveConstHandle</ref>(constSingle,<sp/>hValue);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d9/d12/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_deferred_singleton_handle" kindref="compound">DeferredSingletonHandle</ref>(constSingle);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>support<sp/>for<sp/>the<sp/>&quot;local<sp/>property&quot;<sp/>mode</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(constValue<sp/>instanceof<sp/><ref refid="dd/ded/classorg_1_1xvm_1_1asm_1_1constants_1_1_property_constant" kindref="compound">PropertyConstant</ref><sp/>idProp)<sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/>!idProp.isConstant();</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref><sp/>pooThis<sp/>=<sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1ae3030b18f186a2d66c8a9ee63768686b" kindref="member">poolContext</ref>();</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(idProp.getConstantPool()<sp/>!=<sp/>pooThis)<sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>idProp<sp/>=<sp/>pooThis.<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a96af322337d3cfdb2a927e0221651113" kindref="member">register</ref>(idProp);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1a6040585206258b50ddf4dba3737b814d" kindref="member">saveConstHandle</ref>(constValue,<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="df/d5d/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_deferred_property_handle" kindref="compound">DeferredPropertyHandle</ref>(idProp));</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(<ref refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1ad1f3f711b06a5cc0b628c2a64b9d9313" kindref="member">f_container</ref>.getTemplate(constValue).createConstHandle(frame,<sp/>constValue))<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op" kindref="compound">Op</ref>.<ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" kindref="member">R_NEXT</ref>:<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hValue<sp/>=<sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a9082b419ab2fed651263ce32ccdc731d" kindref="member">popStack</ref>();</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>constValue.<ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1a9bb4036fa5c50d14287e5a11ef9f06bb" kindref="member">isValueCacheable</ref>()</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/><ref refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1a6040585206258b50ddf4dba3737b814d" kindref="member">saveConstHandle</ref>(constValue,<sp/>hValue)</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>hValue;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op" kindref="compound">Op</ref>.<ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a00e0f1e4447b75bfad17b2a6e21fe44e" kindref="member">R_CALL</ref>:</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frameNext<sp/>=<sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1acb637e3dd34085589469cc0b550e129d" kindref="member">m_frameNext</ref>;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(constValue.<ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1a9bb4036fa5c50d14287e5a11ef9f06bb" kindref="member">isValueCacheable</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>frameNext.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a3a3f5f339815d6a094131a3b9d362924" kindref="member">addContinuation</ref>(frameCaller<sp/>-&gt;<sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1a6040585206258b50ddf4dba3737b814d" kindref="member">saveConstHandle</ref>(constValue,<sp/>frameCaller.peekStack());</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op" kindref="compound">Op</ref>.<ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" kindref="member">R_NEXT</ref>;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="dc/d23/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_deferred_call_handle" kindref="compound">DeferredCallHandle</ref>(frameNext);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op" kindref="compound">Op</ref>.<ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a549a5479622c9633613d0c47a886c542" kindref="member">R_EXCEPTION</ref>:</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="dc/d23/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_deferred_call_handle" kindref="compound">DeferredCallHandle</ref>(frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a05a2a29e751e80e836e9dade4e54fdb5" kindref="member">clearException</ref>());</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>IllegalStateException();</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115" refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1a50d09a09a4acfb9f4b54f4b897fcf18c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/><ref refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1a50d09a09a4acfb9f4b54f4b897fcf18c" kindref="member">getConstHandle</ref>(<ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref><sp/>constValue)<sp/>{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hValue<sp/>=<sp/><ref refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1a3c2a1c1304ca70a1312805aefe98889a" kindref="member">f_mapConstants</ref>.get(constValue);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(hValue<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d1/df8/classorg_1_1xvm_1_1runtime_1_1_container" kindref="compound">Container</ref><sp/>containerParent<sp/>=<sp/><ref refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1ad1f3f711b06a5cc0b628c2a64b9d9313" kindref="member">f_container</ref>.f_parent;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(containerParent<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hValue<sp/>=<sp/>containerParent.<ref refid="d1/df8/classorg_1_1xvm_1_1runtime_1_1_container_1af86f356fc199d4fdb6a3e6d73755a78a" kindref="member">f_heap</ref>.<ref refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1a50d09a09a4acfb9f4b54f4b897fcf18c" kindref="member">getConstHandle</ref>(constValue);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>there<sp/>is<sp/>a<sp/>chance<sp/>that<sp/>both<sp/>our<sp/>child<sp/>and<sp/>our<sp/>parent<sp/>do<sp/>&quot;know&quot;<sp/>that<sp/>value&apos;s<sp/>type,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>but<sp/>it&apos;s<sp/>not<sp/>a<sp/>part<sp/>of<sp/>our<sp/>type<sp/>system</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(hValue<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>hValue.<ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle_1a53dd9caebf1cc0a52793f09bf7eb185b" kindref="member">isShared</ref>(<ref refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1ad1f3f711b06a5cc0b628c2a64b9d9313" kindref="member">f_container</ref>,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1a6040585206258b50ddf4dba3737b814d" kindref="member">saveConstHandle</ref>(constValue,<sp/>hValue);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>hValue;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140" refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1a6040585206258b50ddf4dba3737b814d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/><ref refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1a6040585206258b50ddf4dba3737b814d" kindref="member">saveConstHandle</ref>(<ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref><sp/>constValue,<sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hValue)<sp/>{</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(hValue<sp/>instanceof<sp/><ref refid="d9/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_initializing_handle" kindref="compound">InitializingHandle</ref><sp/>hInit)<sp/>{</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hConst<sp/>=<sp/>hInit.getInitialized();</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(hConst<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>hValue;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hValue<sp/>=<sp/>hConst;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref><sp/>pool<sp/>=<sp/><ref refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1ad1f3f711b06a5cc0b628c2a64b9d9313" kindref="member">f_container</ref>.getConstantPool();</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(constValue.<ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1abb94bf2f63ad2caba56a57f1557d1a09" kindref="member">getConstantPool</ref>()<sp/>!=<sp/>pool)<sp/>{</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>constValue<sp/>=<sp/>pool.<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a96af322337d3cfdb2a927e0221651113" kindref="member">register</ref>(constValue);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hValue0<sp/>=<sp/><ref refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1a3c2a1c1304ca70a1312805aefe98889a" kindref="member">f_mapConstants</ref>.putIfAbsent(constValue,<sp/>hValue);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>hValue0<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>?<sp/>hValue<sp/>:<sp/>hValue0;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167" refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1ae413fb410caa117bb269e73f9c868d9e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/><ref refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1ae413fb410caa117bb269e73f9c868d9e" kindref="member">relocateConst</ref>(<ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hConst,<sp/><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref><sp/>constant)<sp/>{</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d1/df8/classorg_1_1xvm_1_1runtime_1_1_container" kindref="compound">Container</ref><sp/>parent<sp/>=<sp/><ref refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1ad1f3f711b06a5cc0b628c2a64b9d9313" kindref="member">f_container</ref>.f_parent;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(parent<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>hConst.<ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle_1a53dd9caebf1cc0a52793f09bf7eb185b" kindref="member">isShared</ref>(parent,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hNew<sp/>=<sp/>parent.<ref refid="d1/df8/classorg_1_1xvm_1_1runtime_1_1_container_1af86f356fc199d4fdb6a3e6d73755a78a" kindref="member">f_heap</ref>.<ref refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1ae413fb410caa117bb269e73f9c868d9e" kindref="member">relocateConst</ref>(hConst,<sp/>constant);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>we<sp/>could<sp/>also<sp/>re-insert<sp/>it<sp/>right<sp/>away<sp/>(after<sp/>re-registering<sp/>the<sp/>constant)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1a3c2a1c1304ca70a1312805aefe98889a" kindref="member">f_mapConstants</ref>.remove(constant);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>hNew;</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hPrev<sp/>=<sp/><ref refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1a50d09a09a4acfb9f4b54f4b897fcf18c" kindref="member">getConstHandle</ref>(constant);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(hPrev<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>we<sp/>have<sp/>it;<sp/>no<sp/>need<sp/>to<sp/>do<sp/>anything</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>hPrev;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref><sp/>pool<sp/>=<sp/><ref refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1ad1f3f711b06a5cc0b628c2a64b9d9313" kindref="member">f_container</ref>.getConstantPool();</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(constant.<ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1abb94bf2f63ad2caba56a57f1557d1a09" kindref="member">getConstantPool</ref>()<sp/>!=<sp/>pool)<sp/>{</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>constant<sp/>=<sp/>pool.<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a96af322337d3cfdb2a927e0221651113" kindref="member">register</ref>(constant);</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1a3c2a1c1304ca70a1312805aefe98889a" kindref="member">f_mapConstants</ref>.computeIfAbsent(constant,<sp/>c<sp/>-&gt;<sp/>{</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hNew<sp/>=<sp/>hConst.<ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle_1afe68509335e295a25b2682cafa46621a" kindref="member">getComposition</ref>().<ref refid="db/db9/interfaceorg_1_1xvm_1_1runtime_1_1_type_composition_1a04bd5da9c4622fbd65842fe8b79f5faf" kindref="member">getContainer</ref>()<sp/>==<sp/><ref refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1ad1f3f711b06a5cc0b628c2a64b9d9313" kindref="member">f_container</ref></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>hConst</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>hConst.<ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle_1a34bfe2e7c3b6605081165a57e2574fe9" kindref="member">cloneAs</ref>(</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hConst.<ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle_1ab7ea40c8bc3a51fd1703afad97206655" kindref="member">getTemplate</ref>().<ref refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1aa0af17b2b5208a62733696fe646b0765" kindref="member">ensureClass</ref>(<ref refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1ad1f3f711b06a5cc0b628c2a64b9d9313" kindref="member">f_container</ref>,<sp/>hConst.<ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle_1a33ed6f50f133ce4a71b4a6cc5a59db02" kindref="member">getType</ref>()));</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(c<sp/>instanceof<sp/><ref refid="dd/d83/classorg_1_1xvm_1_1asm_1_1constants_1_1_singleton_constant" kindref="compound">SingletonConstant</ref><sp/>constSingleton)<sp/>{</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>constSingleton.setHandle(hNew);</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>hNew;</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>data<sp/>fields<sp/>---------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207" refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1ad1f3f711b06a5cc0b628c2a64b9d9313" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="d1/df8/classorg_1_1xvm_1_1runtime_1_1_container" kindref="compound">Container</ref><sp/><ref refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1ad1f3f711b06a5cc0b628c2a64b9d9313" kindref="member">f_container</ref>;</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212" refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1a3c2a1c1304ca70a1312805aefe98889a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Map&lt;Constant,<sp/>ObjectHandle&gt;<sp/><ref refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap_1a3c2a1c1304ca70a1312805aefe98889a" kindref="member">f_mapConstants</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ConcurrentHashMap&lt;&gt;();</highlight></codeline>
+<codeline lineno="213"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/ConstHeap.java"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d0/dfb/interfaceorg_1_1xvm_1_1asm_1_1_component_resolver_1_1_resolution_collector" kind="interface" language="Java" prot="public">
+    <compoundname>org::xvm::asm::ComponentResolver::ResolutionCollector</compoundname>
+    <derivedcompoundref refid="d8/d44/classorg_1_1xvm_1_1asm_1_1_component_1_1_simple_collector" prot="public" virt="non-virtual">org.xvm.asm.Component.SimpleCollector</derivedcompoundref>
+    <derivedcompoundref refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver" prot="public" virt="non-virtual">org.xvm.compiler.ast.NameResolver</derivedcompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d0/dfb/interfaceorg_1_1xvm_1_1asm_1_1_component_resolver_1_1_resolution_collector_1a04ec6358e420e7764fa1fa8f3e58b230" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="d4/d98/enumorg_1_1xvm_1_1asm_1_1_component_resolver_1_1_resolution_result" kindref="compound">ResolutionResult</ref></type>
+        <definition>ResolutionResult org.xvm.asm.ComponentResolver.ResolutionCollector.resolvedComponent</definition>
+        <argsstring>(Component component)</argsstring>
+        <name>resolvedComponent</name>
+        <qualifiedname>org.xvm.asm.ComponentResolver.ResolutionCollector.resolvedComponent</qualifiedname>
+        <reimplementedby refid="d8/d44/classorg_1_1xvm_1_1asm_1_1_component_1_1_simple_collector_1a5724bf7f4693e6406fdc77e45b636ae6">resolvedComponent</reimplementedby>
+        <reimplementedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ae28686f6525e1cf5d28f7286070e0c8f">resolvedComponent</reimplementedby>
+        <param>
+          <type><ref refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_component" kindref="compound">Component</ref></type>
+          <declname>component</declname>
+        </param>
+        <briefdescription>
+<para>Invoked when a name resolves to a child component. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>component</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the child component (which may be a composite) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/ComponentResolver.java" line="49" column="26"/>
+        <referencedby refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_component_1ab5d92aaebbe622f0d35b7228ed618ea4" compoundref="d0/d23/_component_8java" startline="1861" endline="1963">org.xvm.asm.Component.resolveContributedName</referencedby>
+        <referencedby refid="d2/d13/classorg_1_1xvm_1_1asm_1_1_module_structure_1af94308dd31ffa93e4ab678f0f92ee9cf" compoundref="dc/de8/_module_structure_8java" startline="644" endline="653">org.xvm.asm.ModuleStructure.resolveName</referencedby>
+        <referencedby refid="de/d68/classorg_1_1xvm_1_1compiler_1_1_eval_compiler_1_1_eval_statement_1a1ee9ee4a9d611199670ea33eacd14431" compoundref="dc/dc7/_eval_compiler_8java" startline="401" endline="407">org.xvm.compiler.EvalCompiler.EvalStatement.resolveName</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/dfb/interfaceorg_1_1xvm_1_1asm_1_1_component_resolver_1_1_resolution_collector_1a92d65653530ef9470e3f723c1aea3d4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="d4/d98/enumorg_1_1xvm_1_1asm_1_1_component_resolver_1_1_resolution_result" kindref="compound">ResolutionResult</ref></type>
+        <definition>ResolutionResult org.xvm.asm.ComponentResolver.ResolutionCollector.resolvedConstant</definition>
+        <argsstring>(Constant constant)</argsstring>
+        <name>resolvedConstant</name>
+        <qualifiedname>org.xvm.asm.ComponentResolver.ResolutionCollector.resolvedConstant</qualifiedname>
+        <reimplementedby refid="d8/d44/classorg_1_1xvm_1_1asm_1_1_component_1_1_simple_collector_1a9590b34d087c2c13a7161d63160a5e79">resolvedConstant</reimplementedby>
+        <reimplementedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ad4d8c852939f35043ffe2892bcd809c8">resolvedConstant</reimplementedby>
+        <param>
+          <type><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref></type>
+          <declname>constant</declname>
+        </param>
+        <briefdescription>
+<para>Invoked when a name resolves to something that is a constant, such as a property constant of a parameterized type or of a method. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>constant</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>either a <ref refid="dd/ded/classorg_1_1xvm_1_1asm_1_1constants_1_1_property_constant" kindref="compound">PropertyConstant</ref> or a <ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant" kindref="compound">TypeParameterConstant</ref> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/ComponentResolver.java" line="57" column="26"/>
+        <referencedby refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_component_1ab5d92aaebbe622f0d35b7228ed618ea4" compoundref="d0/d23/_component_8java" startline="1861" endline="1963">org.xvm.asm.Component.resolveContributedName</referencedby>
+        <referencedby refid="d6/d26/classorg_1_1xvm_1_1asm_1_1constants_1_1_difference_type_constant_1abf6031b8920a6cbb635db4945c7fe970" compoundref="d8/d70/_difference_type_constant_8java" startline="214" endline="233">org.xvm.asm.constants.DifferenceTypeConstant.resolveContributedName</referencedby>
+        <referencedby refid="d0/d9a/classorg_1_1xvm_1_1asm_1_1constants_1_1_union_type_constant_1afb92b873ae0eb98d9944639a617d0973" compoundref="df/dce/_union_type_constant_8java" startline="397" endline="428">org.xvm.asm.constants.UnionTypeConstant.resolveContributedName</referencedby>
+        <referencedby refid="d5/d19/classorg_1_1xvm_1_1asm_1_1_class_structure_1a8d09d141cc2b102ff0163854c2f9fa79" compoundref="d0/d07/_class_structure_8java" startline="986" endline="1003">org.xvm.asm.ClassStructure.resolveName</referencedby>
+        <referencedby refid="d4/d90/classorg_1_1xvm_1_1asm_1_1_method_structure_1aeb83c9749088b776dcc4f98e6b74d600" compoundref="db/d6f/_method_structure_8java" startline="1679" endline="1704">org.xvm.asm.MethodStructure.resolveName</referencedby>
+        <referencedby refid="df/df0/classorg_1_1xvm_1_1asm_1_1_property_structure_1a7965416b0d52e957cb43694fc3e05879" compoundref="de/de8/_property_structure_8java" startline="590" endline="630">org.xvm.asm.PropertyStructure.resolveName</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/dfb/interfaceorg_1_1xvm_1_1asm_1_1_component_resolver_1_1_resolution_collector_1a10a7a11ecedb90c267dc77c16db44267" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default <ref refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node" kindref="compound">AstNode</ref></type>
+        <definition>default AstNode org.xvm.asm.ComponentResolver.ResolutionCollector.getNode</definition>
+        <argsstring>()</argsstring>
+        <name>getNode</name>
+        <qualifiedname>org.xvm.asm.ComponentResolver.ResolutionCollector.getNode</qualifiedname>
+        <reimplementedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1a8a593e7306c42b13aaa3026c6fa21b0a">getNode</reimplementedby>
+        <briefdescription>
+<para>Provide an <ref refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node" kindref="compound">AstNode</ref> to report resolution issues for. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/ComponentResolver.java" line="62" column="25" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/ComponentResolver.java" bodystart="62" bodyend="64"/>
+        <referencedby refid="d4/d90/classorg_1_1xvm_1_1asm_1_1_method_structure_1aeb83c9749088b776dcc4f98e6b74d600" compoundref="db/d6f/_method_structure_8java" startline="1679" endline="1704">org.xvm.asm.MethodStructure.resolveName</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/dfb/interfaceorg_1_1xvm_1_1asm_1_1_component_resolver_1_1_resolution_collector_1aa217bf764d527579e8950f4291e197bb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default <ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref></type>
+        <definition>default ErrorListener org.xvm.asm.ComponentResolver.ResolutionCollector.getErrorListener</definition>
+        <argsstring>()</argsstring>
+        <name>getErrorListener</name>
+        <qualifiedname>org.xvm.asm.ComponentResolver.ResolutionCollector.getErrorListener</qualifiedname>
+        <reimplementedby refid="d8/d44/classorg_1_1xvm_1_1asm_1_1_component_1_1_simple_collector_1a8a91d651245ce498dbbec9e2d3e6aa42">getErrorListener</reimplementedby>
+        <reimplementedby refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver_1ab562f68915556ec58861110a262f741c">getErrorListener</reimplementedby>
+        <briefdescription>
+<para>Provide an <ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref> to report resolution issues to. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/ComponentResolver.java" line="69" column="31" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/ComponentResolver.java" bodystart="69" bodyend="71"/>
+        <references refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener_1ac7ff60e616d9e82aa72cf11ba767d749" compoundref="d9/d86/_error_listener_8java" startline="433">org.xvm.asm.ErrorListener.BLACKHOLE</references>
+        <referencedby refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_component_1ab5d92aaebbe622f0d35b7228ed618ea4" compoundref="d0/d23/_component_8java" startline="1861" endline="1963">org.xvm.asm.Component.resolveContributedName</referencedby>
+        <referencedby refid="d6/d26/classorg_1_1xvm_1_1asm_1_1constants_1_1_difference_type_constant_1abf6031b8920a6cbb635db4945c7fe970" compoundref="d8/d70/_difference_type_constant_8java" startline="214" endline="233">org.xvm.asm.constants.DifferenceTypeConstant.resolveContributedName</referencedby>
+        <referencedby refid="d0/d9a/classorg_1_1xvm_1_1asm_1_1constants_1_1_union_type_constant_1afb92b873ae0eb98d9944639a617d0973" compoundref="df/dce/_union_type_constant_8java" startline="397" endline="428">org.xvm.asm.constants.UnionTypeConstant.resolveContributedName</referencedby>
+        <referencedby refid="d4/d90/classorg_1_1xvm_1_1asm_1_1_method_structure_1aeb83c9749088b776dcc4f98e6b74d600" compoundref="db/d6f/_method_structure_8java" startline="1679" endline="1704">org.xvm.asm.MethodStructure.resolveName</referencedby>
+        <referencedby refid="df/df0/classorg_1_1xvm_1_1asm_1_1_property_structure_1a7965416b0d52e957cb43694fc3e05879" compoundref="de/de8/_property_structure_8java" startline="590" endline="630">org.xvm.asm.PropertyStructure.resolveName</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A callback interface used by the name resolution functionality of the <ref refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_component" kindref="compound">Component</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>org.xvm.asm.ComponentResolver.ResolutionCollector</label>
+        <link refid="d0/dfb/interfaceorg_1_1xvm_1_1asm_1_1_component_resolver_1_1_resolution_collector"/>
+      </node>
+      <node id="2">
+        <label>org.xvm.asm.Component.SimpleCollector</label>
+        <link refid="d8/d44/classorg_1_1xvm_1_1asm_1_1_component_1_1_simple_collector"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>org.xvm.compiler.ast.NameResolver</label>
+        <link refid="d2/d73/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_resolver"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/ComponentResolver.java" line="43" column="15" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/ComponentResolver.java" bodystart="43" bodyend="72"/>
+    <listofallmembers>
+      <member refid="d0/dfb/interfaceorg_1_1xvm_1_1asm_1_1_component_resolver_1_1_resolution_collector_1aa217bf764d527579e8950f4291e197bb" prot="public" virt="non-virtual"><scope>org::xvm::asm::ComponentResolver::ResolutionCollector</scope><name>getErrorListener</name></member>
+      <member refid="d0/dfb/interfaceorg_1_1xvm_1_1asm_1_1_component_resolver_1_1_resolution_collector_1a10a7a11ecedb90c267dc77c16db44267" prot="public" virt="non-virtual"><scope>org::xvm::asm::ComponentResolver::ResolutionCollector</scope><name>getNode</name></member>
+      <member refid="d0/dfb/interfaceorg_1_1xvm_1_1asm_1_1_component_resolver_1_1_resolution_collector_1a04ec6358e420e7764fa1fa8f3e58b230" prot="public" virt="non-virtual"><scope>org::xvm::asm::ComponentResolver::ResolutionCollector</scope><name>resolvedComponent</name></member>
+      <member refid="d0/dfb/interfaceorg_1_1xvm_1_1asm_1_1_component_resolver_1_1_resolution_collector_1a92d65653530ef9470e3f723c1aea3d4a" prot="public" virt="non-virtual"><scope>org::xvm::asm::ComponentResolver::ResolutionCollector</scope><name>resolvedConstant</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d4/d8e/_cooperatively_cleanable_reference_8java" kind="file" language="Java">
+    <compoundname>CooperativelyCleanableReference.java</compoundname>
+    <includes local="no">java.io.InterruptedIOException</includes>
+    <includes local="no">java.util.Objects</includes>
+    <includes local="no">java.util.Set</includes>
+    <includes local="no">java.lang.ref.ReferenceQueue</includes>
+    <includes local="no">java.lang.ref.WeakReference</includes>
+    <includes local="no">java.util.concurrent.ConcurrentHashMap</includes>
+    <includes local="no">java.util.concurrent.ThreadLocalRandom</includes>
+    <includes local="no">java.util.logging.Level</includes>
+    <includes local="no">java.util.logging.Logger</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/CooperativelyCleanableReference.java</label>
+        <link refid="d4/d8e/_cooperatively_cleanable_reference_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.io.InterruptedIOException</label>
+      </node>
+      <node id="5">
+        <label>java.lang.ref.ReferenceQueue</label>
+      </node>
+      <node id="6">
+        <label>java.lang.ref.WeakReference</label>
+      </node>
+      <node id="3">
+        <label>java.util.Objects</label>
+      </node>
+      <node id="4">
+        <label>java.util.Set</label>
+      </node>
+      <node id="7">
+        <label>java.util.concurrent.ConcurrentHashMap</label>
+      </node>
+      <node id="8">
+        <label>java.util.concurrent.ThreadLocalRandom</label>
+      </node>
+      <node id="9">
+        <label>java.util.logging.Level</label>
+      </node>
+      <node id="10">
+        <label>java.util.logging.Logger</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference" prot="public">org::xvm::util::CooperativelyCleanableReference</innerclass>
+    <innernamespace refid="df/d46/namespaceorg_1_1xvm_1_1util">org::xvm::util</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.util;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.InterruptedIOException;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Objects;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Set;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.ref.ReferenceQueue;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.ref.WeakReference;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.concurrent.ConcurrentHashMap;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.concurrent.ThreadLocalRandom;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.logging.Level;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.logging.Logger;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a7096c64a903c5138a537f5b40e2a762f" kindref="member">CooperativelyCleanableReference</ref>&lt;V&gt;<sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/>WeakReference&lt;V&gt;<sp/>{</highlight></codeline>
+<codeline lineno="46" refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a64e0f59ae1714e10a783d363e8ba7ff8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Logger<sp/><ref refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a64e0f59ae1714e10a783d363e8ba7ff8" kindref="member">LOGGER</ref><sp/>=<sp/>Logger.getLogger(<ref refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a7096c64a903c5138a537f5b40e2a762f" kindref="member">CooperativelyCleanableReference</ref>.class.getName());</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>@SuppressWarnings(</highlight><highlight class="stringliteral">&quot;unchecked&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="52" refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a06cfe19e88a058911a76e1b8c180b355" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>private<sp/>static<sp/>final<sp/>ReferenceQueue&lt;Object&gt;[]<sp/><ref refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a3879e5c86aa2db8d78b1bca69d49245e" kindref="member">QUEUE</ref><sp/>=<sp/>new<sp/>ReferenceQueue[</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Integer.highestOneBit(Runtime.getRuntime().availableProcessors()<sp/>&lt;&lt;<sp/>1)];</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>static<sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a3879e5c86aa2db8d78b1bca69d49245e" kindref="member">QUEUE</ref>.length;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a3879e5c86aa2db8d78b1bca69d49245e" kindref="member">QUEUE</ref>[i]<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ReferenceQueue&lt;&gt;();</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64" refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1adc390c3d86cc536a1b7d359b20c16c5e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Set&lt;CooperativelyCleanableReference&lt;?&gt;&gt;<sp/><ref refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1adc390c3d86cc536a1b7d359b20c16c5e" kindref="member">KEEP_ALIVE</ref><sp/>=<sp/>ConcurrentHashMap.newKeySet();</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69" refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a7eff3fc7e3fed2bfdc4709c51c7f42f2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>AutoCloseable<sp/><ref refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a7eff3fc7e3fed2bfdc4709c51c7f42f2" kindref="member">cleaner</ref>;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77" refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a7096c64a903c5138a537f5b40e2a762f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a7096c64a903c5138a537f5b40e2a762f" kindref="member">CooperativelyCleanableReference</ref>(V<sp/>referent,<sp/>AutoCloseable<sp/><ref refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a7eff3fc7e3fed2bfdc4709c51c7f42f2" kindref="member">cleaner</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(referent,<sp/><ref refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a1b589932bc9eeda8200fd9c98d95d0de" kindref="member">clean</ref>(<ref refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a3879e5c86aa2db8d78b1bca69d49245e" kindref="member">QUEUE</ref>[ThreadLocalRandom.current().nextInt(<ref refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a3879e5c86aa2db8d78b1bca69d49245e" kindref="member">QUEUE</ref>.length)]));</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.cleaner<sp/>=<sp/>Objects.requireNonNull(<ref refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a7eff3fc7e3fed2bfdc4709c51c7f42f2" kindref="member">cleaner</ref>,<sp/></highlight><highlight class="stringliteral">&quot;null<sp/>cleaner&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1adc390c3d86cc536a1b7d359b20c16c5e" kindref="member">KEEP_ALIVE</ref>.add(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88" refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a1b589932bc9eeda8200fd9c98d95d0de" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>ReferenceQueue&lt;Object&gt;<sp/><ref refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a1b589932bc9eeda8200fd9c98d95d0de" kindref="member">clean</ref>(ReferenceQueue&lt;Object&gt;<sp/>queue)<sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>startMillis<sp/>=<sp/>System.currentTimeMillis();</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>restoreInterrupt<sp/>=<sp/>Thread.interrupted();</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a7096c64a903c5138a537f5b40e2a762f" kindref="member">CooperativelyCleanableReference&lt;?&gt;</ref><sp/>ref;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>c<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">do</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++c;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ref<sp/>=<sp/>(<ref refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a7096c64a903c5138a537f5b40e2a762f" kindref="member">CooperativelyCleanableReference&lt;?&gt;</ref>)<sp/>queue.poll();</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1adc390c3d86cc536a1b7d359b20c16c5e" kindref="member">KEEP_ALIVE</ref>.remove(ref))<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ref.<ref refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a7eff3fc7e3fed2bfdc4709c51c7f42f2" kindref="member">cleaner</ref>.close();</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(Exception<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a64e0f59ae1714e10a783d363e8ba7ff8" kindref="member">LOGGER</ref>.log(Level.INFO,<sp/></highlight><highlight class="stringliteral">&quot;ignoring<sp/>exception<sp/>during<sp/>cooperative<sp/>cleanup&quot;</highlight><highlight class="normal">,<sp/>e);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Throwable<sp/>t<sp/>=<sp/>e;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(!restoreInterrupt<sp/>&amp;&amp;<sp/>t<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(t<sp/>instanceof<sp/>InterruptedException<sp/>||<sp/>t<sp/>instanceof<sp/>InterruptedIOException)<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>restoreInterrupt<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>t<sp/>=<sp/>t.getCause();</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(ref<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>(c<sp/>&lt;<sp/>2<sp/>||<sp/>System.currentTimeMillis()<sp/>&lt;=<sp/>startMillis<sp/>+<sp/>1));</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">finally</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(restoreInterrupt)<sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Thread.currentThread().interrupt();</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>queue;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/CooperativelyCleanableReference.java"/>
+  </compounddef>
+</doxygen>

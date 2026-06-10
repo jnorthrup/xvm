@@ -1,0 +1,243 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d6/dd9/_register_constant_8java" kind="file" language="Java">
+    <compoundname>RegisterConstant.java</compoundname>
+    <includes local="no">java.io.DataInput</includes>
+    <includes local="no">java.io.DataOutput</includes>
+    <includes local="no">java.io.IOException</includes>
+    <includes local="no">org.xvm.asm.Constant</includes>
+    <includes local="no">org.xvm.asm.ConstantPool</includes>
+    <includes local="no">org.xvm.asm.Op</includes>
+    <includes local="no">org.xvm.asm.Register</includes>
+    <includes local="no">org.xvm.runtime.Frame</includes>
+    <includes local="no">org.xvm.runtime.ObjectHandle</includes>
+    <includes local="no">org.xvm.runtime.ObjectHandle.ExceptionHandle</includes>
+    <includes local="no">org.xvm.runtime.ObjectHandle.DeferredCallHandle</includes>
+    <includes local="no">org.xvm.util.Hash</includes>
+    <includes local="no">org.xvm.util.Handy.readPackedInt</includes>
+    <includes local="no">org.xvm.util.Handy.writePackedLong</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/constants/RegisterConstant.java</label>
+        <link refid="d6/dd9/_register_constant_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.io.DataInput</label>
+      </node>
+      <node id="3">
+        <label>java.io.DataOutput</label>
+      </node>
+      <node id="4">
+        <label>java.io.IOException</label>
+      </node>
+      <node id="5">
+        <label>org.xvm.asm.Constant</label>
+      </node>
+      <node id="6">
+        <label>org.xvm.asm.ConstantPool</label>
+      </node>
+      <node id="7">
+        <label>org.xvm.asm.Op</label>
+      </node>
+      <node id="8">
+        <label>org.xvm.asm.Register</label>
+      </node>
+      <node id="9">
+        <label>org.xvm.runtime.Frame</label>
+      </node>
+      <node id="10">
+        <label>org.xvm.runtime.ObjectHandle</label>
+      </node>
+      <node id="12">
+        <label>org.xvm.runtime.ObjectHandle.DeferredCallHandle</label>
+      </node>
+      <node id="11">
+        <label>org.xvm.runtime.ObjectHandle.ExceptionHandle</label>
+      </node>
+      <node id="14">
+        <label>org.xvm.util.Handy.readPackedInt</label>
+      </node>
+      <node id="15">
+        <label>org.xvm.util.Handy.writePackedLong</label>
+      </node>
+      <node id="13">
+        <label>org.xvm.util.Hash</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant" prot="public">org::xvm::asm::constants::RegisterConstant</innerclass>
+    <innernamespace refid="d3/dcd/namespaceorg_1_1xvm_1_1asm_1_1constants">org::xvm::asm::constants</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.asm.constants;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.DataInput;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.DataOutput;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.IOException;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Constant;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ConstantPool;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Op;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Register;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.Frame;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.ObjectHandle;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.ObjectHandle.ExceptionHandle;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.ObjectHandle.DeferredCallHandle;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.util.Hash;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.util.Handy.readPackedInt;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.util.Handy.writePackedLong;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a06b73dd56e1e073b727370f386fc2e7d" kindref="member">RegisterConstant</ref></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="da/d56/classorg_1_1xvm_1_1asm_1_1constants_1_1_frame_dependent_constant_1afbecd979f0e09c888bc34fb5cc4c6512" kindref="member">FrameDependentConstant</ref><sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>constructors<sp/>--------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a06b73dd56e1e073b727370f386fc2e7d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a06b73dd56e1e073b727370f386fc2e7d" kindref="member">RegisterConstant</ref>(<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref><sp/>pool,<sp/><ref refid="dc/db3/classorg_1_1xvm_1_1asm_1_1_register" kindref="compound">Register</ref><sp/>reg)<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(pool);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a394d83b5b4d926282424284db02f17f5" kindref="member">m_reg</ref><sp/><sp/>=<sp/>reg;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a0923a2e56a10a831f6dea68af48adc03" kindref="member">f_nReg</ref><sp/>=<sp/>reg.<ref refid="dc/db3/classorg_1_1xvm_1_1asm_1_1_register_1a34463531895ad4a8d220a5200887202a" kindref="member">getIndex</ref>();</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a7400e78905a3862bda02fa6712a434c2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a7400e78905a3862bda02fa6712a434c2" kindref="member">RegisterConstant</ref>(<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref><sp/>pool,<sp/>DataInput<sp/>in)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(pool);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a0923a2e56a10a831f6dea68af48adc03" kindref="member">f_nReg</ref><sp/>=<sp/>readPackedInt(in);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>type-specific<sp/>functionality<sp/>-----------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a670d40690a1f509d6aa2671717d5efbc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="dc/db3/classorg_1_1xvm_1_1asm_1_1_register" kindref="compound">Register</ref><sp/><ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a670d40690a1f509d6aa2671717d5efbc" kindref="member">getRegister</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a394d83b5b4d926282424284db02f17f5" kindref="member">m_reg</ref>;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72" refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a0f1d9f91c8780ab417b532f3f14fd9fe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a0f1d9f91c8780ab417b532f3f14fd9fe" kindref="member">getRegisterIndex</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a394d83b5b4d926282424284db02f17f5" kindref="member">m_reg</ref><sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/><ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a0923a2e56a10a831f6dea68af48adc03" kindref="member">f_nReg</ref></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a394d83b5b4d926282424284db02f17f5" kindref="member">m_reg</ref>.getIndex();</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>FrameDependentConstant<sp/>methods<sp/>--------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="82" refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1aa213579f6b7c29018ce9afb50bda5c8f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/><ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1aa213579f6b7c29018ce9afb50bda5c8f" kindref="member">getHandle</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frame)<sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nReg<sp/>=<sp/><ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a0f1d9f91c8780ab417b532f3f14fd9fe" kindref="member">getRegisterIndex</ref>();</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nReg<sp/>==<sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1aff18dd42ca552973cd01a8a891db1cd6" kindref="member">Op.A_DEFAULT</ref><sp/>?<sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle_1a9da5ccb19bd11cfc4d90c4e564aa3c80" kindref="member">ObjectHandle.DEFAULT</ref><sp/>:<sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a7d0b2d5bcb8b1cde338b2eec63bd4e3d" kindref="member">getArgument</ref>(nReg);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(<ref refid="da/d17/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_exception_handle" kindref="compound">ExceptionHandle</ref>.<ref refid="da/de5/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_exception_handle_1_1_wrapper_exception" kindref="compound">WrapperException</ref><sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="dc/d23/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_deferred_call_handle" kindref="compound">DeferredCallHandle</ref>(e.getExceptionHandle());</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>Constant<sp/>methods<sp/>----------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="95" refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1af807d64fa1a9a71677c6772de6e5b637" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d7/d71/enumorg_1_1xvm_1_1asm_1_1_constant_1_1_format" kindref="compound">Format</ref><sp/><ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1af807d64fa1a9a71677c6772de6e5b637" kindref="member">getFormat</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d7/d71/enumorg_1_1xvm_1_1asm_1_1_constant_1_1_format" kindref="compound">Format</ref>.<ref refid="d7/d71/enumorg_1_1xvm_1_1asm_1_1_constant_1_1_format_1a3787c98638b4f100905d49dfef343b12" kindref="member">Register</ref>;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="100" refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a3405cad525003ba59802801f373599a2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a3405cad525003ba59802801f373599a2" kindref="member">containsUnresolved</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a0f1d9f91c8780ab417b532f3f14fd9fe" kindref="member">getRegisterIndex</ref>()<sp/>&gt;=<sp/><ref refid="dc/db3/classorg_1_1xvm_1_1asm_1_1_register" kindref="compound">Register</ref>.<ref refid="dc/db3/classorg_1_1xvm_1_1asm_1_1_register_1aa8c7d504fa6b27fb5bde90f09866d69e" kindref="member">UNKNOWN</ref>;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="105" refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1abbd5f0e5b9c3465566c8aaa1d9621d0f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1abbd5f0e5b9c3465566c8aaa1d9621d0f" kindref="member">compareDetails</ref>(<ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref><sp/>constant)<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/><ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a0f1d9f91c8780ab417b532f3f14fd9fe" kindref="member">getRegisterIndex</ref>()<sp/>&lt;<sp/><ref refid="dc/db3/classorg_1_1xvm_1_1asm_1_1_register" kindref="compound">Register</ref>.<ref refid="dc/db3/classorg_1_1xvm_1_1asm_1_1_register_1aa8c7d504fa6b27fb5bde90f09866d69e" kindref="member">UNKNOWN</ref>;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>constant<sp/>instanceof<sp/><ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a06b73dd56e1e073b727370f386fc2e7d" kindref="member">RegisterConstant</ref><sp/>that</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>this.<ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a0f1d9f91c8780ab417b532f3f14fd9fe" kindref="member">getRegisterIndex</ref>()<sp/>-<sp/>that.getRegisterIndex()</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>-1;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="113" refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a9712c4fffe2632ed6355d13ab2bee87c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/><ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a9712c4fffe2632ed6355d13ab2bee87c" kindref="member">getType</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/><ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref><sp/>=<sp/><ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a394d83b5b4d926282424284db02f17f5" kindref="member">m_reg</ref><sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>?<sp/>null<sp/>:<sp/><ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a394d83b5b4d926282424284db02f17f5" kindref="member">m_reg</ref>.getType();</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref><sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>?<sp/><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1abb94bf2f63ad2caba56a57f1557d1a09" kindref="member">getConstantPool</ref>().<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a461716f3c48fcdeda708036e7c935d54" kindref="member">typeObject</ref>()<sp/>:<sp/><ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref>;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="119" refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1ad77eaba6f02b937824c1da54acd01cb0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1ad77eaba6f02b937824c1da54acd01cb0" kindref="member">getValueString</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nReg<sp/>=<sp/><ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a0f1d9f91c8780ab417b532f3f14fd9fe" kindref="member">getRegisterIndex</ref>();</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;Register<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>(nReg<sp/>&gt;=<sp/><ref refid="dc/db3/classorg_1_1xvm_1_1asm_1_1_register_1aa8c7d504fa6b27fb5bde90f09866d69e" kindref="member">Register.UNKNOWN</ref><sp/>?<sp/></highlight><highlight class="stringliteral">&quot;?&quot;</highlight><highlight class="normal"><sp/>:<sp/>String.valueOf(nReg));</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>XvmStructure<sp/>methods<sp/>------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="129" refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a5baac97da0eb40d4f0724719ce28d12b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a5baac97da0eb40d4f0724719ce28d12b" kindref="member">assemble</ref>(DataOutput<sp/>out)</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super.assemble(out);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a394d83b5b4d926282424284db02f17f5" kindref="member">m_reg</ref><sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>writePackedLong(out,<sp/><ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a0923a2e56a10a831f6dea68af48adc03" kindref="member">f_nReg</ref>);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/>!<ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a394d83b5b4d926282424284db02f17f5" kindref="member">m_reg</ref>.isUnknown();</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>writePackedLong(out,<sp/><ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a394d83b5b4d926282424284db02f17f5" kindref="member">m_reg</ref>.getIndex());</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="143" refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a69ef83826974cefec855dc49a3188cd0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a69ef83826974cefec855dc49a3188cd0" kindref="member">getDescription</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1ad77eaba6f02b937824c1da54acd01cb0" kindref="member">getValueString</ref>();</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>Object<sp/>methods<sp/>------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="151" refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a6d41f2d9f69f0d677820bf66c7864cd3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a6d41f2d9f69f0d677820bf66c7864cd3" kindref="member">computeHashCode</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d1/d1e/classorg_1_1xvm_1_1util_1_1_hash" kindref="compound">Hash</ref>.<ref refid="d1/d1e/classorg_1_1xvm_1_1util_1_1_hash_1a14035f395b9874e8dfa54dd6c142fd6b" kindref="member">of</ref>(<ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a0f1d9f91c8780ab417b532f3f14fd9fe" kindref="member">getRegisterIndex</ref>());</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>fields<sp/>--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161" refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a0923a2e56a10a831f6dea68af48adc03" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a0923a2e56a10a831f6dea68af48adc03" kindref="member">f_nReg</ref>;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166" refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a394d83b5b4d926282424284db02f17f5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">transient</highlight><highlight class="normal"><sp/><ref refid="dc/db3/classorg_1_1xvm_1_1asm_1_1_register" kindref="compound">Register</ref><sp/><ref refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant_1a394d83b5b4d926282424284db02f17f5" kindref="member">m_reg</ref>;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/constants/RegisterConstant.java"/>
+  </compounddef>
+</doxygen>

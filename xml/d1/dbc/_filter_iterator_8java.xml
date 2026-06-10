@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d1/dbc/_filter_iterator_8java" kind="file" language="Java">
+    <compoundname>FilterIterator.java</compoundname>
+    <includes local="no">java.util.Iterator</includes>
+    <includes local="no">java.util.NoSuchElementException</includes>
+    <includes local="no">java.util.function.Predicate</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/FilterIterator.java</label>
+        <link refid="d1/dbc/_filter_iterator_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.util.Iterator</label>
+      </node>
+      <node id="3">
+        <label>java.util.NoSuchElementException</label>
+      </node>
+      <node id="4">
+        <label>java.util.function.Predicate</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator" prot="public">org::xvm::util::FilterIterator</innerclass>
+    <innernamespace refid="df/d46/namespaceorg_1_1xvm_1_1util">org::xvm::util</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.util;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Iterator;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.NoSuchElementException;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.function.Predicate;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator_1a5c36717f40dfe07f16f159e0970ec38b" kindref="member">FilterIterator</ref>&lt;T&gt;<sp/></highlight><highlight class="keyword">implements</highlight><highlight class="normal"><sp/>Iterator&lt;T&gt;<sp/>{</highlight></codeline>
+<codeline lineno="14" refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator_1ab7f6787b78329487ff82d37539ad7ae7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Iterator&lt;T&gt;<sp/><ref refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator_1ab7f6787b78329487ff82d37539ad7ae7" kindref="member">delegate</ref>;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator_1aeeb08b62235d9ae4e2fac67ff2221bc9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Predicate&lt;?<sp/>super<sp/>T&gt;<sp/><ref refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator_1aeeb08b62235d9ae4e2fac67ff2221bc9" kindref="member">filter</ref>;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator_1a1f5ac6e78b85f6a46bfab6b4d6b2d3b4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>T<sp/><ref refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator_1a1f5ac6e78b85f6a46bfab6b4d6b2d3b4" kindref="member">next</ref>;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator_1a9ae29da2028f51deeb7bc1150119cc65" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator_1a9ae29da2028f51deeb7bc1150119cc65" kindref="member">removeReady</ref>;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator_1a5c36717f40dfe07f16f159e0970ec38b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator_1a5c36717f40dfe07f16f159e0970ec38b" kindref="member">FilterIterator</ref>(Iterator&lt;T&gt;<sp/><ref refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator_1ab7f6787b78329487ff82d37539ad7ae7" kindref="member">delegate</ref>,<sp/>Predicate&lt;?<sp/>super<sp/>T&gt;<sp/><ref refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator_1aeeb08b62235d9ae4e2fac67ff2221bc9" kindref="member">filter</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.delegate<sp/>=<sp/><ref refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator_1ab7f6787b78329487ff82d37539ad7ae7" kindref="member">delegate</ref>;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.filter<sp/>=<sp/><ref refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator_1aeeb08b62235d9ae4e2fac67ff2221bc9" kindref="member">filter</ref>;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="37" refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator_1ab7df13d5b932605b7aa7ba1e71b9f902" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator_1ab7df13d5b932605b7aa7ba1e71b9f902" kindref="member">hasNext</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator_1a9ae29da2028f51deeb7bc1150119cc65" kindref="member">removeReady</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(<ref refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator_1a1f5ac6e78b85f6a46bfab6b4d6b2d3b4" kindref="member">next</ref><sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/><ref refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator_1ab7f6787b78329487ff82d37539ad7ae7" kindref="member">delegate</ref>.hasNext())<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>T<sp/>item<sp/>=<sp/><ref refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator_1ab7f6787b78329487ff82d37539ad7ae7" kindref="member">delegate</ref>.next();</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator_1aeeb08b62235d9ae4e2fac67ff2221bc9" kindref="member">filter</ref>.test(item))<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator_1a1f5ac6e78b85f6a46bfab6b4d6b2d3b4" kindref="member">next</ref><sp/>=<sp/>item;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator_1a1f5ac6e78b85f6a46bfab6b4d6b2d3b4" kindref="member">next</ref><sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="50" refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator_1aa83d8b5b6b222d7a39395ddb16aaaebc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>T<sp/><ref refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator_1aa83d8b5b6b222d7a39395ddb16aaaebc" kindref="member">next</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator_1ab7df13d5b932605b7aa7ba1e71b9f902" kindref="member">hasNext</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>T<sp/>result<sp/>=<sp/><ref refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator_1a1f5ac6e78b85f6a46bfab6b4d6b2d3b4" kindref="member">next</ref>;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator_1a1f5ac6e78b85f6a46bfab6b4d6b2d3b4" kindref="member">next</ref><sp/>=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator_1a9ae29da2028f51deeb7bc1150119cc65" kindref="member">removeReady</ref><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>NoSuchElementException();</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="61" refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator_1a50fc596bac6e4de55f22efb9235d8445" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">remove</highlight><highlight class="normal">()<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator_1a9ae29da2028f51deeb7bc1150119cc65" kindref="member">removeReady</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator_1a9ae29da2028f51deeb7bc1150119cc65" kindref="member">removeReady</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/dce/classorg_1_1xvm_1_1util_1_1_filter_iterator_1ab7f6787b78329487ff82d37539ad7ae7" kindref="member">delegate</ref>.remove();</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>IllegalStateException();</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/FilterIterator.java"/>
+  </compounddef>
+</doxygen>

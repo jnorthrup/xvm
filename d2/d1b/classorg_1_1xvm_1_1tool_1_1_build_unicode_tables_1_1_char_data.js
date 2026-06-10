@@ -1,0 +1,26 @@
+var classorg_1_1xvm_1_1tool_1_1_build_unicode_tables_1_1_char_data =
+[
+    [ "block", "d2/d1b/classorg_1_1xvm_1_1tool_1_1_build_unicode_tables_1_1_char_data.html#ac345d5038d243d0cb2159a479dca5be7", null ],
+    [ "cat", "d2/d1b/classorg_1_1xvm_1_1tool_1_1_build_unicode_tables_1_1_char_data.html#a056a17b3a863810c58ed879ad8ecaf2c", null ],
+    [ "combo", "d2/d1b/classorg_1_1xvm_1_1tool_1_1_build_unicode_tables_1_1_char_data.html#a118f6410bcb622cfc8157cbed9226858", null ],
+    [ "dec", "d2/d1b/classorg_1_1xvm_1_1tool_1_1_build_unicode_tables_1_1_char_data.html#a72ea02bcd52b12d21dccbea3f0df5c19", null ],
+    [ "firstIndex", "d2/d1b/classorg_1_1xvm_1_1tool_1_1_build_unicode_tables_1_1_char_data.html#a0b8d0471c83890e717b5b70704c23347", null ],
+    [ "lastIndex", "d2/d1b/classorg_1_1xvm_1_1tool_1_1_build_unicode_tables_1_1_char_data.html#aa997fca97f7309793cabea4d904db74a", null ],
+    [ "lower", "d2/d1b/classorg_1_1xvm_1_1tool_1_1_build_unicode_tables_1_1_char_data.html#adee547b4df0866ba5ee0665ef96fcf46", null ],
+    [ "num", "d2/d1b/classorg_1_1xvm_1_1tool_1_1_build_unicode_tables_1_1_char_data.html#aa6922961671e368eeb02afa2c5202ce3", null ],
+    [ "title", "d2/d1b/classorg_1_1xvm_1_1tool_1_1_build_unicode_tables_1_1_char_data.html#a76aa1ad8db9e722c6258315bc5c1ba4c", null ],
+    [ "toString", "d2/d1b/classorg_1_1xvm_1_1tool_1_1_build_unicode_tables_1_1_char_data.html#a91212e8785bfd86bba9ddfa6fe8c3b7f", null ],
+    [ "upper", "d2/d1b/classorg_1_1xvm_1_1tool_1_1_build_unicode_tables_1_1_char_data.html#a4d4a8125ca46b98c59530dcdec1a1b9a", null ],
+    [ "blk", "d2/d1b/classorg_1_1xvm_1_1tool_1_1_build_unicode_tables_1_1_char_data.html#afa736e87962f96934dfb1cc23217f735", null ],
+    [ "ccc", "d2/d1b/classorg_1_1xvm_1_1tool_1_1_build_unicode_tables_1_1_char_data.html#a232fa493279b652e86bcc9aa555f1d84", null ],
+    [ "codepoint", "d2/d1b/classorg_1_1xvm_1_1tool_1_1_build_unicode_tables_1_1_char_data.html#a3dc11686f0eeeef09931a8be0defa4e0", null ],
+    [ "codepointEnd", "d2/d1b/classorg_1_1xvm_1_1tool_1_1_build_unicode_tables_1_1_char_data.html#aec50d4e835f67197b310495c769dc951", null ],
+    [ "codepointStart", "d2/d1b/classorg_1_1xvm_1_1tool_1_1_build_unicode_tables_1_1_char_data.html#a7c6f914d99b9429b22b1fffc00165ea5", null ],
+    [ "gc", "d2/d1b/classorg_1_1xvm_1_1tool_1_1_build_unicode_tables_1_1_char_data.html#a8d94fdae1b8837976c62945e1a280c03", null ],
+    [ "name", "d2/d1b/classorg_1_1xvm_1_1tool_1_1_build_unicode_tables_1_1_char_data.html#a2671e44a57d44e34d6cb1b781e50b0d7", null ],
+    [ "nt", "d2/d1b/classorg_1_1xvm_1_1tool_1_1_build_unicode_tables_1_1_char_data.html#ab51b35fd6296ed41e267b57fa17f0386", null ],
+    [ "nv", "d2/d1b/classorg_1_1xvm_1_1tool_1_1_build_unicode_tables_1_1_char_data.html#aada1c62e8bac598346fa28c0f0003b6e", null ],
+    [ "slc", "d2/d1b/classorg_1_1xvm_1_1tool_1_1_build_unicode_tables_1_1_char_data.html#a4f3842372f1d5997312c1c58e773859f", null ],
+    [ "stc", "d2/d1b/classorg_1_1xvm_1_1tool_1_1_build_unicode_tables_1_1_char_data.html#a60f490349e181d1a2afe7485c7023a28", null ],
+    [ "suc", "d2/d1b/classorg_1_1xvm_1_1tool_1_1_build_unicode_tables_1_1_char_data.html#a225022a4a8c4ede63dd350a042592563", null ]
+];

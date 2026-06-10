@@ -1,0 +1,773 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kind="interface" language="Java" prot="public">
+    <compoundname>org::xvm::javajit::RegisterInfo</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a67bb2e2fe9ef518e3decfe247080cdc8" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int org.xvm.javajit.RegisterInfo.JAVA_STACK</definition>
+        <argsstring></argsstring>
+        <name>JAVA_STACK</name>
+        <qualifiedname>org.xvm.javajit.RegisterInfo.JAVA_STACK</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+<para>Used for the value of the <computeroutput><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a074767ef12dcb4f15b5e7a7319bea45b" kindref="member">slot()</ref></computeroutput> to indicates that the value is on the Java stack. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/RegisterInfo.java" line="167" column="9" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/RegisterInfo.java" bodystart="167" bodyend="-1"/>
+        <referencedby refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a24eb5ab9cae9d5f10a2e940a57cd7e3e" compoundref="df/d7a/_register_info_8java" startline="88" endline="90">org.xvm.javajit.RegisterInfo.isJavaStack</referencedby>
+        <referencedby refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1aaf98cd618bdc2ccd3936447def5b9e8d" compoundref="d5/dcc/_number_support_int128_8java" startline="191" endline="197">org.xvm.javajit.NumberSupportInt128.loadSlotOrConstant</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a38ba0ccec34bdefac2b0003dde15a82e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.javajit.RegisterInfo.regId</definition>
+        <argsstring>()</argsstring>
+        <name>regId</name>
+        <qualifiedname>org.xvm.javajit.RegisterInfo.regId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the corresponding register id, which could be a negative value - one of the Op.A_ constants (e.g. <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a1906cced85248bddb78d5b09d341a75a" kindref="member">Op#A_THIS</ref></computeroutput>) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/RegisterInfo.java" line="20" column="9"/>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a61cae66a721a4d6a6b47451b40c55f44" compoundref="d2/d9a/_build_context_8java" startline="1071" endline="1122">org.xvm.javajit.BuildContext.adjustRegister</referencedby>
+        <referencedby refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a86784bf4618ffd38b572aeb9c2387d70" compoundref="df/d7a/_register_info_8java" startline="102" endline="104">org.xvm.javajit.RegisterInfo.isIgnore</referencedby>
+        <referencedby refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a24eb5ab9cae9d5f10a2e940a57cd7e3e" compoundref="df/d7a/_register_info_8java" startline="88" endline="90">org.xvm.javajit.RegisterInfo.isJavaStack</referencedby>
+        <referencedby refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a6216afceceadceb474efc3007f3584f8" compoundref="df/d7a/_register_info_8java" startline="95" endline="97">org.xvm.javajit.RegisterInfo.isProperty</referencedby>
+        <referencedby refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4ec51e156bff25a58f9d6d2caa4dd7f5" compoundref="df/d7a/_register_info_8java" startline="109" endline="111">org.xvm.javajit.RegisterInfo.isThis</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a811691bb5f0c1ef0c66652ebf62c3ea8" compoundref="d2/d9a/_build_context_8java" startline="2054" endline="2199">org.xvm.javajit.BuildContext.narrowRegister</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a1781308731fe27c11d483912057316f7" compoundref="d2/d9a/_build_context_8java" startline="2235" endline="2245">org.xvm.javajit.BuildContext.resetRegister</referencedby>
+        <referencedby refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a7f35dd9fcc18db2b628c5f121edf0bfb" compoundref="df/d7a/_register_info_8java" startline="126" endline="142">org.xvm.javajit.RegisterInfo.store</referencedby>
+        <referencedby refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a7f519c76ea08eb28e455c79ea80d3261" compoundref="df/d7a/_register_info_8java" startline="151" endline="156">org.xvm.javajit.RegisterInfo.storeTempValue</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a7a08aa6e4410507d6f4b1e515941a98b" compoundref="d2/d9a/_build_context_8java" startline="1394" endline="1403">org.xvm.javajit.BuildContext.storeValue</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a074767ef12dcb4f15b5e7a7319bea45b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.javajit.RegisterInfo.slot</definition>
+        <argsstring>()</argsstring>
+        <name>slot</name>
+        <qualifiedname>org.xvm.javajit.RegisterInfo.slot</qualifiedname>
+        <briefdescription>
+<para>Returns the Java slot for this register or -1 if the register is stored on the stack. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If this register is made up of multiple slots, this method will return the first slot.</para>
+<para><simplesect kind="return"><para>the corresponding Java slot index or -1 if the corresponding value has been placed on the Java stack </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/RegisterInfo.java" line="30" column="9"/>
+        <referencedby refid="db/d50/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_1add3ae0bba1852b70e784dfb9c22d39f7" compoundref="d2/d67/_assert_8java" startline="186" endline="218">org.xvm.asm.op.Assert.build</referencedby>
+        <referencedby refid="d7/d15/classorg_1_1xvm_1_1asm_1_1op_1_1_move_ref_1adda4c894f66c652d3ec794c64da04d83" compoundref="dc/db4/_move_ref_8java" startline="112" endline="130">org.xvm.asm.op.MoveRef.build</referencedby>
+        <referencedby refid="d9/da8/classorg_1_1xvm_1_1asm_1_1op_1_1_move_var_1a7feaa7d01314b93f262130f27dc06edd" compoundref="da/d4b/_move_var_8java" startline="130" endline="140">org.xvm.asm.op.MoveVar.build</referencedby>
+        <referencedby refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1a4f38fd2f581d142735131275e2c47067" compoundref="d5/dcc/_number_support_int128_8java" startline="95" endline="104">org.xvm.javajit.NumberSupportInt128.buildLongLongAdd</referencedby>
+        <referencedby refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1a068eea6309233f5e4e87c5209156157f" compoundref="d5/dcc/_number_support_int128_8java" startline="211" endline="228">org.xvm.javajit.NumberSupportInt128.buildLongLongAnd</referencedby>
+        <referencedby refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1ab5f4c6b08e388412f3e900dcdaa0be67" compoundref="d5/dcc/_number_support_int128_8java" startline="260" endline="279">org.xvm.javajit.NumberSupportInt128.buildLongLongDiv</referencedby>
+        <referencedby refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1a5809d5c5dd197c14392720642fa7603b" compoundref="d5/dcc/_number_support_int128_8java" startline="293" endline="312">org.xvm.javajit.NumberSupportInt128.buildLongLongMod</referencedby>
+        <referencedby refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1a60a20d5162fbb7c1acd54e95013fe006" compoundref="d5/dcc/_number_support_int128_8java" startline="326" endline="352">org.xvm.javajit.NumberSupportInt128.buildLongLongMul</referencedby>
+        <referencedby refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1aa441d17304be08097ffcc3351f69c903" compoundref="d5/dcc/_number_support_int128_8java" startline="407" endline="424">org.xvm.javajit.NumberSupportInt128.buildLongLongOr</referencedby>
+        <referencedby refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1a193894129ea6380f54c4893e009e962a" compoundref="d5/dcc/_number_support_int128_8java" startline="443" endline="498">org.xvm.javajit.NumberSupportInt128.buildLongLongShl</referencedby>
+        <referencedby refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1a4fa5215d3c885284d9493576d15819eb" compoundref="d5/dcc/_number_support_int128_8java" startline="518" endline="591">org.xvm.javajit.NumberSupportInt128.buildLongLongShr</referencedby>
+        <referencedby refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1ab3cb9cfd85b0af741c86aee8fa063fde" compoundref="d5/dcc/_number_support_int128_8java" startline="628" endline="637">org.xvm.javajit.NumberSupportInt128.buildLongLongSub</referencedby>
+        <referencedby refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1ad3cbb3d9e3f5ca2a2c4ff4d337c86973" compoundref="d5/dcc/_number_support_int128_8java" startline="755" endline="772">org.xvm.javajit.NumberSupportInt128.buildLongLongXor</referencedby>
+        <referencedby refid="db/d8a/classorg_1_1xvm_1_1asm_1_1op_1_1_jump_val_1adc0316ed69a77fb83457977cecb24dd3" compoundref="db/d46/_jump_val_8java" startline="496" endline="604">org.xvm.asm.op.JumpVal.buildLongSwitch</referencedby>
+        <referencedby refid="d5/de8/interfaceorg_1_1xvm_1_1javajit_1_1_in_place_support_1a4dbc1945759a6bda53a3b8d08d7a07c7" compoundref="d8/d17/_in_place_support_8java" startline="42" endline="237">org.xvm.javajit.InPlaceSupport.buildPrimitiveLocal</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a7af55df7db695cc7e6e8d8827bb72399" compoundref="d2/d9a/_build_context_8java" startline="869" endline="899">org.xvm.javajit.BuildContext.exitScope</referencedby>
+        <referencedby refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a67f90e66e3b9f960786dc5e2d93ac7ca" compoundref="df/d7a/_register_info_8java" startline="116" endline="119">org.xvm.javajit.RegisterInfo.load</referencedby>
+        <referencedby refid="d3/d55/namespaceorg_1_1xvm_1_1javajit_1_1registers_1aab0be1d167f26e3257aceb9722499505" compoundref="d0/ddb/_narrowed_8java" startline="34" endline="170">org.xvm.javajit.registers.Narrowed</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a811691bb5f0c1ef0c66652ebf62c3ea8" compoundref="d2/d9a/_build_context_8java" startline="2054" endline="2199">org.xvm.javajit.BuildContext.narrowRegister</referencedby>
+        <referencedby refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4751bf343415c8ec4616dd473024a13a" compoundref="df/d7a/_register_info_8java" startline="35" endline="37">org.xvm.javajit.RegisterInfo.slots</referencedby>
+        <referencedby refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a7f35dd9fcc18db2b628c5f121edf0bfb" compoundref="df/d7a/_register_info_8java" startline="126" endline="142">org.xvm.javajit.RegisterInfo.store</referencedby>
+        <referencedby refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a7f519c76ea08eb28e455c79ea80d3261" compoundref="df/d7a/_register_info_8java" startline="151" endline="156">org.xvm.javajit.RegisterInfo.storeTempValue</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4751bf343415c8ec4616dd473024a13a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default int[]</type>
+        <definition>default int[] org.xvm.javajit.RegisterInfo.slots</definition>
+        <argsstring>()</argsstring>
+        <name>slots</name>
+        <qualifiedname>org.xvm.javajit.RegisterInfo.slots</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>all the corresponding Java slot indexes for this register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/RegisterInfo.java" line="35" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/RegisterInfo.java" bodystart="35" bodyend="37"/>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a074767ef12dcb4f15b5e7a7319bea45b">org.xvm.javajit.RegisterInfo.slot</references>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a61cae66a721a4d6a6b47451b40c55f44" compoundref="d2/d9a/_build_context_8java" startline="1071" endline="1122">org.xvm.javajit.BuildContext.adjustRegister</referencedby>
+        <referencedby refid="d7/d03/classorg_1_1xvm_1_1asm_1_1op_1_1_f_bind_1a84717dadf8a2ae80bd635a6f28e9e025" compoundref="df/d22/_f_bind_8java" startline="245" endline="387">org.xvm.asm.op.FBind.build</referencedby>
+        <referencedby refid="d5/de8/interfaceorg_1_1xvm_1_1javajit_1_1_in_place_support_1a7fba84a6e3227f854020e13b07e09c24" compoundref="d8/d17/_in_place_support_8java" startline="249" endline="310">org.xvm.javajit.InPlaceSupport.buildXvmPrimitiveLocal</referencedby>
+        <referencedby refid="d3/d55/namespaceorg_1_1xvm_1_1javajit_1_1registers_1aab0be1d167f26e3257aceb9722499505" compoundref="d0/ddb/_narrowed_8java" startline="34" endline="170">org.xvm.javajit.registers.Narrowed</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a811691bb5f0c1ef0c66652ebf62c3ea8" compoundref="d2/d9a/_build_context_8java" startline="2054" endline="2199">org.xvm.javajit.BuildContext.narrowRegister</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4deb7ba2ac6982c77aba0ffe4faff6a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref></type>
+        <definition>TypeConstant org.xvm.javajit.RegisterInfo.type</definition>
+        <argsstring>()</argsstring>
+        <name>type</name>
+        <qualifiedname>org.xvm.javajit.RegisterInfo.type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the XTC register type </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/RegisterInfo.java" line="42" column="18"/>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a61cae66a721a4d6a6b47451b40c55f44" compoundref="d2/d9a/_build_context_8java" startline="1071" endline="1122">org.xvm.javajit.BuildContext.adjustRegister</referencedby>
+        <referencedby refid="dd/dbd/classorg_1_1xvm_1_1javajit_1_1builders_1_1_common_builder_1abcb415811e70776ebef0dfb64d382460" compoundref="d3/d9a/_common_builder_8java" startline="546" endline="686">org.xvm.javajit.builders.CommonBuilder.assembleInitializer</referencedby>
+        <referencedby refid="dc/d7a/classorg_1_1xvm_1_1asm_1_1_op_cond_jump_1a44fcbd0cb592891625cdbf382ef468d2" compoundref="da/d46/_op_cond_jump_8java" startline="435" endline="467">org.xvm.asm.OpCondJump.assembleNullCheck</referencedby>
+        <referencedby refid="df/d3f/classorg_1_1xvm_1_1asm_1_1_op_test_1a8a6c3d1cae749a2056c6f2fd31a2b798" compoundref="d5/d23/_op_test_8java" startline="318" endline="378">org.xvm.asm.OpTest.assembleNullCheck</referencedby>
+        <referencedby refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1ad853aa29f80a12a84f05b71419aaca13" compoundref="df/d74/_builder_8java" startline="1061" endline="1063">org.xvm.javajit.Builder.box</referencedby>
+        <referencedby refid="d8/dcd/classorg_1_1xvm_1_1asm_1_1op_1_1_catch_start_1a1b38de97909ffaddecec174955030889" compoundref="d4/d33/_catch_start_8java" startline="158" endline="175">org.xvm.asm.op.CatchStart.build</referencedby>
+        <referencedby refid="d7/d03/classorg_1_1xvm_1_1asm_1_1op_1_1_f_bind_1a84717dadf8a2ae80bd635a6f28e9e025" compoundref="df/d22/_f_bind_8java" startline="245" endline="387">org.xvm.asm.op.FBind.build</referencedby>
+        <referencedby refid="da/d9d/classorg_1_1xvm_1_1asm_1_1op_1_1_jump_is_a_1afbbb8330c2a34282b32569ae162936a2" compoundref="d4/d86/_jump_is_a_8java" startline="82" endline="131">org.xvm.asm.op.JumpIsA.build</referencedby>
+        <referencedby refid="db/d8a/classorg_1_1xvm_1_1asm_1_1op_1_1_jump_val_1a61ef3a17b575a43784f003b57507db35" compoundref="db/d46/_jump_val_8java" startline="387" endline="448">org.xvm.asm.op.JumpVal.build</referencedby>
+        <referencedby refid="d1/d96/classorg_1_1xvm_1_1asm_1_1op_1_1_m_bind_1a9630b7d3d6cd1bc7dd6394ad88843fd5" compoundref="d7/d0f/_m_bind_8java" startline="123" endline="176">org.xvm.asm.op.MBind.build</referencedby>
+        <referencedby refid="d8/d82/classorg_1_1xvm_1_1asm_1_1op_1_1_move_cast_1a10713161ab7ffdd9396722c890269354" compoundref="d3/d2e/_move_cast_8java" startline="130" endline="139">org.xvm.asm.op.MoveCast.build</referencedby>
+        <referencedby refid="de/d83/classorg_1_1xvm_1_1asm_1_1op_1_1_move_type_1aff32e5bb5dccd6c8e1291fecb04500bd" compoundref="d3/d0b/_move_type_8java" startline="96" endline="107">org.xvm.asm.op.MoveType.build</referencedby>
+        <referencedby refid="d6/db4/classorg_1_1xvm_1_1asm_1_1op_1_1_op_range_1aeeb77c1d66ba8eea3450fd6361396b87" compoundref="d9/df3/_op_range_8java" startline="54" endline="113">org.xvm.asm.op.OpRange.build</referencedby>
+        <referencedby refid="d5/d5e/classorg_1_1xvm_1_1asm_1_1op_1_1_throw_1a25363a9573756d83ebd299435074f9bb" compoundref="db/d54/_throw_8java" startline="104" endline="110">org.xvm.asm.op.Throw.build</referencedby>
+        <referencedby refid="d8/d08/classorg_1_1xvm_1_1asm_1_1_op_general_1aa05d01651412a9fb3fe00f331d96e022" compoundref="dd/d86/_op_general_8java" startline="218" endline="283">org.xvm.asm.OpGeneral.build</referencedby>
+        <referencedby refid="d6/da9/classorg_1_1xvm_1_1asm_1_1_op_index_1ad7573f899ed0413e15dac2698b9f6e7e" compoundref="d8/d05/_op_index_8java" startline="225" endline="349">org.xvm.asm.OpIndex.build</referencedby>
+        <referencedby refid="da/d71/classorg_1_1xvm_1_1asm_1_1_op_in_place_1a7b8300f503f27ce64318cdf6b99d97b8" compoundref="db/d00/_op_in_place_8java" startline="226" endline="272">org.xvm.asm.OpInPlace.build</referencedby>
+        <referencedby refid="d2/df6/classorg_1_1xvm_1_1asm_1_1_op_in_place_assign_1a6f49dcdb39e6f3bb61e078b2ced025ba" compoundref="d3/da5/_op_in_place_assign_8java" startline="121" endline="137">org.xvm.asm.OpInPlaceAssign.build</referencedby>
+        <referencedby refid="de/d70/interfaceorg_1_1xvm_1_1javajit_1_1_text_support_1ad6081a030ef8c24fb63644eac5880142" compoundref="df/d87/_text_support_8java" startline="60" endline="67">org.xvm.javajit.TextSupport.buildAddIntToChar</referencedby>
+        <referencedby refid="dc/d7a/classorg_1_1xvm_1_1asm_1_1_op_cond_jump_1a363828ef39c6ea3ab945bd06e759dffc" compoundref="da/d46/_op_cond_jump_8java" startline="386" endline="426">org.xvm.asm.OpCondJump.buildBinary</referencedby>
+        <referencedby refid="df/d3f/classorg_1_1xvm_1_1asm_1_1_op_test_1a7cf8dcde7fff5236cfdc452ef63ed8fc" compoundref="d5/d23/_op_test_8java" startline="275" endline="308">org.xvm.asm.OpTest.buildBinary</referencedby>
+        <referencedby refid="d8/d2d/classorg_1_1xvm_1_1asm_1_1_op_callable_1a63d40ee6d05339917b60499f20b91bd6" compoundref="d1/d80/_op_callable_8java" startline="642" endline="745">org.xvm.asm.OpCallable.buildCall</referencedby>
+        <referencedby refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1aa104f9075ede2d0b394954f3f30c635e" compoundref="d8/d90/_type_constant_8java" startline="6691" endline="6694">org.xvm.asm.constants.TypeConstant.buildCompare</referencedby>
+        <referencedby refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a0d2024b0671da6bcff089642cacaf442" compoundref="d8/d90/_type_constant_8java" startline="6732" endline="7007">org.xvm.asm.constants.TypeConstant.buildCompare</referencedby>
+        <referencedby refid="d0/d9a/classorg_1_1xvm_1_1asm_1_1constants_1_1_union_type_constant_1aebeafcb18eb05aab9a961a820e7e29d3" compoundref="df/dce/_union_type_constant_8java" startline="889" endline="994">org.xvm.asm.constants.UnionTypeConstant.buildCompare</referencedby>
+        <referencedby refid="db/d8a/classorg_1_1xvm_1_1asm_1_1op_1_1_jump_val_1afef15e6a89ab2b098cd3f89c58933690" compoundref="db/d46/_jump_val_8java" startline="687" endline="728">org.xvm.asm.op.JumpVal.buildEnumSwitch</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a7ad5a9fbff0269b1022c88f5de3e8dff" compoundref="d2/d9a/_build_context_8java" startline="2271" endline="2284">org.xvm.javajit.BuildContext.buildGetProperty</referencedby>
+        <referencedby refid="d3/da4/classorg_1_1xvm_1_1asm_1_1_op_invocable_1a93e30bed6c0595c6fea063250b05d877" compoundref="d7/d3e/_op_invocable_8java" startline="354" endline="408">org.xvm.asm.OpInvocable.buildInvoke</referencedby>
+        <referencedby refid="d8/d2d/classorg_1_1xvm_1_1asm_1_1_op_callable_1a85e014df1fb7953cc1a792b71041e236" compoundref="d1/d80/_op_callable_8java" startline="762" endline="778">org.xvm.asm.OpCallable.buildNewG</referencedby>
+        <referencedby refid="df/d3f/classorg_1_1xvm_1_1asm_1_1_op_test_1a7835c03004647f252d1851552ca72503" compoundref="d5/d23/_op_test_8java" startline="389" endline="429">org.xvm.asm.OpTest.buildNullCheck</referencedby>
+        <referencedby refid="da/d71/classorg_1_1xvm_1_1asm_1_1_op_in_place_1adcd0a6045664ba8dded6534ea013f80e" compoundref="db/d00/_op_in_place_8java" startline="280" endline="304">org.xvm.asm.OpInPlace.buildOpCallLocal</referencedby>
+        <referencedby refid="d2/df6/classorg_1_1xvm_1_1asm_1_1_op_in_place_assign_1a8c07ddb78c093557cf88ef417b9bebaf" compoundref="d3/da5/_op_in_place_assign_8java" startline="146" endline="166">org.xvm.asm.OpInPlaceAssign.buildOpInvoke</referencedby>
+        <referencedby refid="df/de2/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___add_1ae2d05a64085cca18d2a246c57bcfdb2f" compoundref="d6/de5/_g_p___add_8java" startline="63" endline="72">org.xvm.asm.op.GP_Add.buildOptimizedBinary</referencedby>
+        <referencedby refid="d3/d89/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___sub_1aad0c5c1662a716f76ca5f370f200b014" compoundref="de/db8/_g_p___sub_8java" startline="64" endline="72">org.xvm.asm.op.GP_Sub.buildOptimizedBinary</referencedby>
+        <referencedby refid="d5/d24/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___add_1a538f29bb56b1dbf93bbeb33b48663b83" compoundref="d6/dcb/_i_i_p___add_8java" startline="98" endline="103">org.xvm.asm.op.IIP_Add.buildOptimizedBinary</referencedby>
+        <referencedby refid="da/d51/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___sub_1a34c0ea57aee16b922223ba027181aed9" compoundref="d4/d2f/_i_i_p___sub_8java" startline="97" endline="103">org.xvm.asm.op.IIP_Sub.buildOptimizedBinary</referencedby>
+        <referencedby refid="d1/d37/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___add_1a024de054a4afb194bed9c04d1169a543" compoundref="db/d85/_i_p___add_8java" startline="77" endline="85">org.xvm.asm.op.IP_Add.buildOptimizedBinary</referencedby>
+        <referencedby refid="df/d3e/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___sub_1a197c1e2ad2fb40388bdd558e37a462c4" compoundref="d7/ddd/_i_p___sub_8java" startline="76" endline="84">org.xvm.asm.op.IP_Sub.buildOptimizedBinary</referencedby>
+        <referencedby refid="da/dae/classorg_1_1xvm_1_1asm_1_1_op_optimized_1a835c3a7593de68c55658100bf8d1e66d" compoundref="d5/dbb/_op_optimized_8java" startline="34" endline="49">org.xvm.asm.OpOptimized.buildOptimizedBinary</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a2db32d345245f4f6aedd846b8c9a34d4" compoundref="d4/d9d/_number_support_8java" startline="37" endline="48">org.xvm.javajit.NumberSupport.buildPrimitiveAdd</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a41279bbc117095d9a9e2211d18dfccf3" compoundref="d4/d9d/_number_support_8java" startline="89" endline="99">org.xvm.javajit.NumberSupport.buildPrimitiveAnd</referencedby>
+        <referencedby refid="d6/da9/classorg_1_1xvm_1_1asm_1_1_op_index_1ae415f8f95d5caa190f4052b6d25871f9" compoundref="d8/d05/_op_index_8java" startline="382" endline="403">org.xvm.asm.OpIndex.buildPrimitiveArrayOp</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a38694ecd543f3bdc5cf4a9d7f56f7338" compoundref="d4/d9d/_number_support_8java" startline="134" endline="144">org.xvm.javajit.NumberSupport.buildPrimitiveCompl</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1aa2e32176e26321c244e912fd0950528f" compoundref="d4/d9d/_number_support_8java" startline="174" endline="200">org.xvm.javajit.NumberSupport.buildPrimitiveDiv</referencedby>
+        <referencedby refid="d5/de8/interfaceorg_1_1xvm_1_1javajit_1_1_in_place_support_1a4dbc1945759a6bda53a3b8d08d7a07c7" compoundref="d8/d17/_in_place_support_8java" startline="42" endline="237">org.xvm.javajit.InPlaceSupport.buildPrimitiveLocal</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a7964d945776f1d497e4ecc80a6b0b9a0" compoundref="d4/d9d/_number_support_8java" startline="242" endline="265">org.xvm.javajit.NumberSupport.buildPrimitiveMod</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a164a22b8ee321cc5b211515812b1cde3" compoundref="d4/d9d/_number_support_8java" startline="358" endline="369">org.xvm.javajit.NumberSupport.buildPrimitiveMul</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a28feee5c66e2ccf7d0333042e72f9569" compoundref="d4/d9d/_number_support_8java" startline="306" endline="325">org.xvm.javajit.NumberSupport.buildPrimitiveNeg</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a58fcc524a289c3071be4354c8b0d9c36" compoundref="d4/d9d/_number_support_8java" startline="409" endline="419">org.xvm.javajit.NumberSupport.buildPrimitiveOr</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a37874c72849ebc1410b3c0aca38ca839" compoundref="d4/d9d/_number_support_8java" startline="459" endline="481">org.xvm.javajit.NumberSupport.buildPrimitiveShl</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a7922ada26ea17d49d2bed4bd74630669" compoundref="d4/d9d/_number_support_8java" startline="565" endline="574">org.xvm.javajit.NumberSupport.buildPrimitiveShr</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a6ac4cbe5ac033b65320fbd1dd0f718ed" compoundref="d4/d9d/_number_support_8java" startline="615" endline="650">org.xvm.javajit.NumberSupport.buildPrimitiveShr</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1ad7abac396dc81880ceaf4c33b8182aa8" compoundref="d4/d9d/_number_support_8java" startline="660" endline="671">org.xvm.javajit.NumberSupport.buildPrimitiveSub</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a73a4cdef8418f3bea65fad86a6f998cd" compoundref="d4/d9d/_number_support_8java" startline="587" endline="601">org.xvm.javajit.NumberSupport.buildPrimitiveUnsignedShr</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a1606fa92d6a1a8f5015e47ff7e8f73e7" compoundref="d4/d9d/_number_support_8java" startline="712" endline="722">org.xvm.javajit.NumberSupport.buildPrimitiveXor</referencedby>
+        <referencedby refid="de/dcb/classorg_1_1xvm_1_1asm_1_1op_1_1_op_switch_1a66cf3f6825ce5dfd59a888c8f72d57a2" compoundref="d2/d48/_op_switch_8java" startline="398" endline="410">org.xvm.asm.op.OpSwitch.buildRangeCase</referencedby>
+        <referencedby refid="dd/dd6/classorg_1_1xvm_1_1asm_1_1_op_return_1ae3204ca5663677a00d0cc95a37b6a91b" compoundref="dd/d73/_op_return_8java" startline="81" endline="340">org.xvm.asm.OpReturn.buildReturn</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a96c7e0cd3a71cb4bbd231a419b3ea84f" compoundref="d2/d9a/_build_context_8java" startline="2310" endline="2316">org.xvm.javajit.BuildContext.buildSetProperty</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a9375046450780b27e1441d0d7cef16c8" compoundref="d2/d9a/_build_context_8java" startline="2368" endline="2558">org.xvm.javajit.BuildContext.buildSetProperty</referencedby>
+        <referencedby refid="de/d70/interfaceorg_1_1xvm_1_1javajit_1_1_text_support_1aa3b94debeba2efbb2cc955aad00cc97d" compoundref="df/d87/_text_support_8java" startline="157" endline="164">org.xvm.javajit.TextSupport.buildSubIntFromChar</referencedby>
+        <referencedby refid="de/dcb/classorg_1_1xvm_1_1asm_1_1op_1_1_op_switch_1ac3e84a79f4bcbee23134d70dd85cc333" compoundref="d2/d48/_op_switch_8java" startline="349" endline="387">org.xvm.asm.op.OpSwitch.buildSwitchCase</referencedby>
+        <referencedby refid="de/dcb/classorg_1_1xvm_1_1asm_1_1op_1_1_op_switch_1a89d3824329544a624188e95ac2e315be" compoundref="d2/d48/_op_switch_8java" startline="421" endline="444">org.xvm.asm.op.OpSwitch.buildTypeCase</referencedby>
+        <referencedby refid="d0/d9a/classorg_1_1xvm_1_1asm_1_1constants_1_1_union_type_constant_1a84b9fa0e438563adf3ca25a3ef723051" compoundref="df/dce/_union_type_constant_8java" startline="1001" endline="1012">org.xvm.asm.constants.UnionTypeConstant.buildTypeCheck</referencedby>
+        <referencedby refid="df/d3f/classorg_1_1xvm_1_1asm_1_1_op_test_1ac99a13bde0e1605869bb4f9c7a0687ab" compoundref="d5/d23/_op_test_8java" startline="431" endline="466">org.xvm.asm.OpTest.buildTypeCheck</referencedby>
+        <referencedby refid="dc/d7a/classorg_1_1xvm_1_1asm_1_1_op_cond_jump_1acb2e08cac2aa7302be13759ff5630177" compoundref="da/d46/_op_cond_jump_8java" startline="587" endline="694">org.xvm.asm.OpCondJump.buildTypeJump</referencedby>
+        <referencedby refid="dc/d7a/classorg_1_1xvm_1_1asm_1_1_op_cond_jump_1ac4ef8aa44fe242652a2f7190da7ae26d" compoundref="da/d46/_op_cond_jump_8java" startline="469" endline="554">org.xvm.asm.OpCondJump.buildUnary</referencedby>
+        <referencedby refid="df/de2/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___add_1a1d32196a0920d44bebb6ed7967596bdd" compoundref="d6/de5/_g_p___add_8java" startline="81" endline="85">org.xvm.asm.op.GP_Add.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d7/d66/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___and_1a9010159327f6122efebc1fd4b4c6d162" compoundref="d0/d7e/_g_p___and_8java" startline="69" endline="73">org.xvm.asm.op.GP_And.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d6/d8d/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___div_1a1b080b250b014d57f2e9de2f852d7cf3" compoundref="d4/d1a/_g_p___div_8java" startline="68" endline="72">org.xvm.asm.op.GP_Div.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d7/d45/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___mod_1aa3144171531d5db1279d66848d28e478" compoundref="d7/db1/_g_p___mod_8java" startline="68" endline="72">org.xvm.asm.op.GP_Mod.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="df/d56/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___mul_1ae57bf5a5d3618d09ae64744ec35a21a6" compoundref="d0/d67/_g_p___mul_8java" startline="68" endline="72">org.xvm.asm.op.GP_Mul.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="da/d4a/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___or_1ac168e2983bd8d4acd097cb2838438841" compoundref="db/dba/_g_p___or_8java" startline="68" endline="72">org.xvm.asm.op.GP_Or.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d5/d5d/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___shl_1a56a4b161642f75acacee7cf5246b9be0" compoundref="d2/dcc/_g_p___shl_8java" startline="71" endline="75">org.xvm.asm.op.GP_Shl.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d0/dec/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___shr_1a473b8664f692c468ae4d5392b0c06c6d" compoundref="d1/d3f/_g_p___shr_8java" startline="71" endline="75">org.xvm.asm.op.GP_Shr.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d2/d31/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___shr_all_1aa7d7e9dc8ba8df51b8b7c5decf82991b" compoundref="d2/de2/_g_p___shr_all_8java" startline="71" endline="75">org.xvm.asm.op.GP_ShrAll.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d3/d89/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___sub_1a29e1b9c2df67f7bfcd529fce4a3d44a2" compoundref="de/db8/_g_p___sub_8java" startline="81" endline="85">org.xvm.asm.op.GP_Sub.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d1/d53/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___xor_1acb3750c04948d596453845c4a2d9187b" compoundref="d9/da6/_g_p___xor_8java" startline="70" endline="74">org.xvm.asm.op.GP_Xor.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d5/d24/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___add_1a15e816c6f296007a79d5872ff22121ea" compoundref="d6/dcb/_i_i_p___add_8java" startline="112" endline="116">org.xvm.asm.op.IIP_Add.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="df/db5/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___and_1a25c48a60aa0f57a64ac792a619c4fa9f" compoundref="d7/deb/_i_i_p___and_8java" startline="101" endline="105">org.xvm.asm.op.IIP_And.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="db/d63/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___div_1a0039994aa209902346f14f533a28f0b4" compoundref="df/dbf/_i_i_p___div_8java" startline="101" endline="105">org.xvm.asm.op.IIP_Div.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d2/d57/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___mod_1a5576c4fe4c9b9c0304b246f314927065" compoundref="df/ddc/_i_i_p___mod_8java" startline="101" endline="105">org.xvm.asm.op.IIP_Mod.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="dc/d48/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___mul_1a063bf266bcd85391fa64d6f330268ec1" compoundref="d2/d33/_i_i_p___mul_8java" startline="102" endline="106">org.xvm.asm.op.IIP_Mul.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d7/ddf/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___or_1a6844c9931c2fbe060785124d0ccc0bdd" compoundref="d0/d46/_i_i_p___or_8java" startline="101" endline="105">org.xvm.asm.op.IIP_Or.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d9/d0a/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___shl_1a02a40d685c3122c50fe68ff203d97ae7" compoundref="db/d11/_i_i_p___shl_8java" startline="102" endline="106">org.xvm.asm.op.IIP_Shl.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d3/db3/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___shr_1a617c6a40ecb7c29887a107ad95947649" compoundref="d7/dee/_i_i_p___shr_8java" startline="102" endline="106">org.xvm.asm.op.IIP_Shr.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d9/dba/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___shr_all_1a3ba353dc32ff5796585b653c35a9bb86" compoundref="dc/da8/_i_i_p___shr_all_8java" startline="102" endline="106">org.xvm.asm.op.IIP_ShrAll.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="da/d51/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___sub_1a43c0d5be1a1a96738d6ac3749e459ec8" compoundref="d4/d2f/_i_i_p___sub_8java" startline="112" endline="116">org.xvm.asm.op.IIP_Sub.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d7/d50/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___xor_1a7653accc10140968267691ca3f2c264a" compoundref="d0/d0f/_i_i_p___xor_8java" startline="101" endline="105">org.xvm.asm.op.IIP_Xor.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d1/d37/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___add_1ae249c27ad4a14e37cfcf2cb2145fbb33" compoundref="db/d85/_i_p___add_8java" startline="94" endline="98">org.xvm.asm.op.IP_Add.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="df/d9b/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___and_1acfb3390d128f52b67eede2aa6ced8d13" compoundref="d2/d62/_i_p___and_8java" startline="82" endline="86">org.xvm.asm.op.IP_And.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d2/ded/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___div_1a9d2cf40f65b4c623208b0f4398bc36a5" compoundref="d8/da1/_i_p___div_8java" startline="82" endline="86">org.xvm.asm.op.IP_Div.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d3/d1c/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___mod_1ac5bc7f0ddf407e55e2c2a5da7859c9bd" compoundref="d2/d2c/_i_p___mod_8java" startline="82" endline="86">org.xvm.asm.op.IP_Mod.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d7/db6/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___mul_1a6a7e7870cf2539c51d851b16f92d893e" compoundref="d9/d69/_i_p___mul_8java" startline="82" endline="86">org.xvm.asm.op.IP_Mul.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d6/d1c/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___or_1a1cfbe0f2b92e958abd25662492fc5758" compoundref="d3/d55/_i_p___or_8java" startline="82" endline="86">org.xvm.asm.op.IP_Or.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d6/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___shl_1a69476fc617e6b1f590fa443e0a48a8e1" compoundref="d5/dbc/_i_p___shl_8java" startline="85" endline="89">org.xvm.asm.op.IP_Shl.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d2/db0/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___shr_1ac738fc0842dbc0054e8133b4c009de7e" compoundref="d0/d1e/_i_p___shr_8java" startline="84" endline="88">org.xvm.asm.op.IP_Shr.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d8/dcc/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___shr_all_1ae1b2bd551cb8626ebc4ae4f46ef66573" compoundref="d6/d9f/_i_p___shr_all_8java" startline="83" endline="87">org.xvm.asm.op.IP_ShrAll.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="df/d3e/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___sub_1a63ab9332c13597d20486aaf1bbcbd51b" compoundref="d7/ddd/_i_p___sub_8java" startline="93" endline="97">org.xvm.asm.op.IP_Sub.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="db/db6/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___xor_1a017e9758502b415348f4784934cc564f" compoundref="d0/d6f/_i_p___xor_8java" startline="82" endline="86">org.xvm.asm.op.IP_Xor.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d6/db4/classorg_1_1xvm_1_1asm_1_1op_1_1_op_range_1aa76f46aabb149dae944510c68e148349" compoundref="d9/df3/_op_range_8java" startline="126" endline="148">org.xvm.asm.op.OpRange.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="da/dae/classorg_1_1xvm_1_1asm_1_1_op_optimized_1a56fc44312928825e219ecef3ffb24e00" compoundref="d5/dbb/_op_optimized_8java" startline="92" endline="102">org.xvm.asm.OpOptimized.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a7c0711d819eb02e3e14e388ec1dfc51b" compoundref="d4/d9d/_number_support_8java" startline="63" endline="79">org.xvm.javajit.NumberSupport.buildXvmPrimitiveAdd</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a7d99275a5ee03e7c5b7eb5d09d993f97" compoundref="d4/d9d/_number_support_8java" startline="114" endline="124">org.xvm.javajit.NumberSupport.buildXvmPrimitiveAnd</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a65ac0b4508b4fe60fd07e4c6f546684d" compoundref="d4/d9d/_number_support_8java" startline="155" endline="164">org.xvm.javajit.NumberSupport.buildXvmPrimitiveCompl</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a9c9b278d2ed8850d5755e9dbbea50276" compoundref="d4/d9d/_number_support_8java" startline="215" endline="232">org.xvm.javajit.NumberSupport.buildXvmPrimitiveDiv</referencedby>
+        <referencedby refid="d5/de8/interfaceorg_1_1xvm_1_1javajit_1_1_in_place_support_1a7fba84a6e3227f854020e13b07e09c24" compoundref="d8/d17/_in_place_support_8java" startline="249" endline="310">org.xvm.javajit.InPlaceSupport.buildXvmPrimitiveLocal</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a506e24ebed1752ae27e166e9cd85706a" compoundref="d4/d9d/_number_support_8java" startline="280" endline="297">org.xvm.javajit.NumberSupport.buildXvmPrimitiveMod</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1acbdce6fe3abea4d27f1d550db08bb2e1" compoundref="d4/d9d/_number_support_8java" startline="383" endline="399">org.xvm.javajit.NumberSupport.buildXvmPrimitiveMul</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a5c00e30b73fd8d2168a19bda90ade991" compoundref="d4/d9d/_number_support_8java" startline="335" endline="348">org.xvm.javajit.NumberSupport.buildXvmPrimitiveNeg</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1af9e8c3354c816c107b3c076129d813c7" compoundref="d4/d9d/_number_support_8java" startline="434" endline="444">org.xvm.javajit.NumberSupport.buildXvmPrimitiveOr</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1aa405bea0199b1f31c7e859019dfae046" compoundref="d4/d9d/_number_support_8java" startline="494" endline="504">org.xvm.javajit.NumberSupport.buildXvmPrimitiveShl</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a4f79842a7f2274909749cfcb40d7a41a" compoundref="d4/d9d/_number_support_8java" startline="517" endline="529">org.xvm.javajit.NumberSupport.buildXvmPrimitiveShr</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1aa27fe55a59215b9c9fe180cb47f09f63" compoundref="d4/d9d/_number_support_8java" startline="686" endline="702">org.xvm.javajit.NumberSupport.buildXvmPrimitiveSub</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a91f9798633136b2ec556c9007397a9c6" compoundref="d4/d9d/_number_support_8java" startline="542" endline="552">org.xvm.javajit.NumberSupport.buildXvmPrimitiveUnsignedShr</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1af2716501c6f7b01bae5d3b610d153d18" compoundref="d4/d9d/_number_support_8java" startline="737" endline="747">org.xvm.javajit.NumberSupport.buildXvmPrimitiveXor</referencedby>
+        <referencedby refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1ab5a54f250b801e942e217dc256250ba7" compoundref="df/d74/_builder_8java" startline="835" endline="853">org.xvm.javajit.Builder.checkNull</referencedby>
+        <referencedby refid="d7/d03/classorg_1_1xvm_1_1asm_1_1op_1_1_f_bind_1a7ff807a5f411e9e33e10f6d491a32cba" compoundref="df/d22/_f_bind_8java" startline="413" endline="424">org.xvm.asm.op.FBind.computeImmutable</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1ad868cd1cde2df0efc33b17536fbf31ee" compoundref="d2/d9a/_build_context_8java" startline="653" endline="845">org.xvm.javajit.BuildContext.enterMethod</referencedby>
+        <referencedby refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a7a4bb1fffde35db4628e985073f9edad" compoundref="df/d7a/_register_info_8java" startline="52" endline="54">org.xvm.javajit.RegisterInfo.jitType</referencedby>
+        <referencedby refid="d6/da9/classorg_1_1xvm_1_1asm_1_1_op_index_1acb333d087fef2de16908572d5889db8d" compoundref="d8/d05/_op_index_8java" startline="445" endline="498">org.xvm.asm.OpIndex.loadArrayElement</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1aff495dc1e0dd98e6d6f2c3995b543084" compoundref="d2/d9a/_build_context_8java" startline="1806" endline="2007">org.xvm.javajit.BuildContext.loadCallArguments</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a14c58fc5ab8d97f4b0ad45f92dad06f5" compoundref="d2/d9a/_build_context_8java" startline="1543" endline="1548">org.xvm.javajit.BuildContext.moveRegister</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a376896ac31f6eb0016bbcdd520dd29a1" compoundref="d2/d9a/_build_context_8java" startline="1560" endline="1726">org.xvm.javajit.BuildContext.moveRegister</referencedby>
+        <referencedby refid="d3/d55/namespaceorg_1_1xvm_1_1javajit_1_1registers_1aab0be1d167f26e3257aceb9722499505" compoundref="d0/ddb/_narrowed_8java" startline="34" endline="170">org.xvm.javajit.registers.Narrowed</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a811691bb5f0c1ef0c66652ebf62c3ea8" compoundref="d2/d9a/_build_context_8java" startline="2054" endline="2199">org.xvm.javajit.BuildContext.narrowRegister</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1ae2f148fb812b64cebdca790a45086c51" compoundref="d2/d9a/_build_context_8java" startline="2013" endline="2023">org.xvm.javajit.BuildContext.realizeRef</referencedby>
+        <referencedby refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a7f35dd9fcc18db2b628c5f121edf0bfb" compoundref="df/d7a/_register_info_8java" startline="126" endline="142">org.xvm.javajit.RegisterInfo.store</referencedby>
+        <referencedby refid="d6/da9/classorg_1_1xvm_1_1asm_1_1_op_index_1ab1967f7fe0b9df7faee9d6980c7a8a6b" compoundref="d8/d05/_op_index_8java" startline="509" endline="519">org.xvm.asm.OpIndex.storeArrayElement</referencedby>
+        <referencedby refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a7f519c76ea08eb28e455c79ea80d3261" compoundref="df/d7a/_register_info_8java" startline="151" endline="156">org.xvm.javajit.RegisterInfo.storeTempValue</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a7a08aa6e4410507d6f4b1e515941a98b" compoundref="d2/d9a/_build_context_8java" startline="1394" endline="1403">org.xvm.javajit.BuildContext.storeValue</referencedby>
+        <referencedby refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a20a3356c4fabd9a6ccde9d4ad93c1441" compoundref="df/d74/_builder_8java" startline="981" endline="983">org.xvm.javajit.Builder.unbox</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a3eb1a8a94f28139c1f03e9deb6a4733f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="d4/d87/enumorg_1_1xvm_1_1javajit_1_1_jit_flavor" kindref="compound">JitFlavor</ref></type>
+        <definition>JitFlavor org.xvm.javajit.RegisterInfo.flavor</definition>
+        <argsstring>()</argsstring>
+        <name>flavor</name>
+        <qualifiedname>org.xvm.javajit.RegisterInfo.flavor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the <ref refid="d4/d87/enumorg_1_1xvm_1_1javajit_1_1_jit_flavor" kindref="compound">JitFlavor</ref> for the register </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/RegisterInfo.java" line="47" column="15"/>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a61cae66a721a4d6a6b47451b40c55f44" compoundref="d2/d9a/_build_context_8java" startline="1071" endline="1122">org.xvm.javajit.BuildContext.adjustRegister</referencedby>
+        <referencedby refid="dd/dbd/classorg_1_1xvm_1_1javajit_1_1builders_1_1_common_builder_1abcb415811e70776ebef0dfb64d382460" compoundref="d3/d9a/_common_builder_8java" startline="546" endline="686">org.xvm.javajit.builders.CommonBuilder.assembleInitializer</referencedby>
+        <referencedby refid="d7/d03/classorg_1_1xvm_1_1asm_1_1op_1_1_f_bind_1a84717dadf8a2ae80bd635a6f28e9e025" compoundref="df/d22/_f_bind_8java" startline="245" endline="387">org.xvm.asm.op.FBind.build</referencedby>
+        <referencedby refid="d8/d82/classorg_1_1xvm_1_1asm_1_1op_1_1_move_cast_1a10713161ab7ffdd9396722c890269354" compoundref="d3/d2e/_move_cast_8java" startline="130" endline="139">org.xvm.asm.op.MoveCast.build</referencedby>
+        <referencedby refid="d6/db4/classorg_1_1xvm_1_1asm_1_1op_1_1_op_range_1aeeb77c1d66ba8eea3450fd6361396b87" compoundref="d9/df3/_op_range_8java" startline="54" endline="113">org.xvm.asm.op.OpRange.build</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a7ad5a9fbff0269b1022c88f5de3e8dff" compoundref="d2/d9a/_build_context_8java" startline="2271" endline="2284">org.xvm.javajit.BuildContext.buildGetProperty</referencedby>
+        <referencedby refid="d3/da4/classorg_1_1xvm_1_1asm_1_1_op_invocable_1a93e30bed6c0595c6fea063250b05d877" compoundref="d7/d3e/_op_invocable_8java" startline="354" endline="408">org.xvm.asm.OpInvocable.buildInvoke</referencedby>
+        <referencedby refid="dd/dd6/classorg_1_1xvm_1_1asm_1_1_op_return_1ae3204ca5663677a00d0cc95a37b6a91b" compoundref="dd/d73/_op_return_8java" startline="81" endline="340">org.xvm.asm.OpReturn.buildReturn</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a96c7e0cd3a71cb4bbd231a419b3ea84f" compoundref="d2/d9a/_build_context_8java" startline="2310" endline="2316">org.xvm.javajit.BuildContext.buildSetProperty</referencedby>
+        <referencedby refid="dc/d7a/classorg_1_1xvm_1_1asm_1_1_op_cond_jump_1ac4ef8aa44fe242652a2f7190da7ae26d" compoundref="da/d46/_op_cond_jump_8java" startline="469" endline="554">org.xvm.asm.OpCondJump.buildUnary</referencedby>
+        <referencedby refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1aa718f5c3b9ac54f7ee0d67fb209523cc" compoundref="df/d74/_builder_8java" startline="860" endline="878">org.xvm.javajit.Builder.checkNotNull</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1ad868cd1cde2df0efc33b17536fbf31ee" compoundref="d2/d9a/_build_context_8java" startline="653" endline="845">org.xvm.javajit.BuildContext.enterMethod</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1aff495dc1e0dd98e6d6f2c3995b543084" compoundref="d2/d9a/_build_context_8java" startline="1806" endline="2007">org.xvm.javajit.BuildContext.loadCallArguments</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a376896ac31f6eb0016bbcdd520dd29a1" compoundref="d2/d9a/_build_context_8java" startline="1560" endline="1726">org.xvm.javajit.BuildContext.moveRegister</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a811691bb5f0c1ef0c66652ebf62c3ea8" compoundref="d2/d9a/_build_context_8java" startline="2054" endline="2199">org.xvm.javajit.BuildContext.narrowRegister</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a5e7f739b051474e2dd6fa2f63232384e" compoundref="d2/d9a/_build_context_8java" startline="364" endline="535">org.xvm.javajit.BuildContext.preprocess</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1ae2f148fb812b64cebdca790a45086c51" compoundref="d2/d9a/_build_context_8java" startline="2013" endline="2023">org.xvm.javajit.BuildContext.realizeRef</referencedby>
+        <referencedby refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a7f519c76ea08eb28e455c79ea80d3261" compoundref="df/d7a/_register_info_8java" startline="151" endline="156">org.xvm.javajit.RegisterInfo.storeTempValue</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a7a08aa6e4410507d6f4b1e515941a98b" compoundref="d2/d9a/_build_context_8java" startline="1394" endline="1403">org.xvm.javajit.BuildContext.storeValue</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a7a4bb1fffde35db4628e985073f9edad" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default <ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref></type>
+        <definition>default TypeConstant org.xvm.javajit.RegisterInfo.jitType</definition>
+        <argsstring>()</argsstring>
+        <name>jitType</name>
+        <qualifiedname>org.xvm.javajit.RegisterInfo.jitType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the jit type for XTC register </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/RegisterInfo.java" line="52" column="26" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/RegisterInfo.java" bodystart="52" bodyend="54"/>
+        <references refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1afc66e3ce2f4def607648fb82ab9d375e" compoundref="d8/d90/_type_constant_8java" startline="6674" endline="6681">org.xvm.asm.constants.TypeConstant.getCanonicalJitType</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4deb7ba2ac6982c77aba0ffe4faff6a5">org.xvm.javajit.RegisterInfo.type</references>
+      </memberdef>
+      <memberdef kind="function" id="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1ab3957ce4e2c49b01eab88b289964c715" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ClassDesc</type>
+        <definition>ClassDesc org.xvm.javajit.RegisterInfo.cd</definition>
+        <argsstring>()</argsstring>
+        <name>cd</name>
+        <qualifiedname>org.xvm.javajit.RegisterInfo.cd</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the ClassDesc for the <computeroutput><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a074767ef12dcb4f15b5e7a7319bea45b" kindref="member">slot()</ref></computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/RegisterInfo.java" line="59" column="15"/>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a61cae66a721a4d6a6b47451b40c55f44" compoundref="d2/d9a/_build_context_8java" startline="1071" endline="1122">org.xvm.javajit.BuildContext.adjustRegister</referencedby>
+        <referencedby refid="dd/dbd/classorg_1_1xvm_1_1javajit_1_1builders_1_1_common_builder_1abcb415811e70776ebef0dfb64d382460" compoundref="d3/d9a/_common_builder_8java" startline="546" endline="686">org.xvm.javajit.builders.CommonBuilder.assembleInitializer</referencedby>
+        <referencedby refid="dd/dbd/classorg_1_1xvm_1_1javajit_1_1builders_1_1_common_builder_1afd11ead9c819caff23bf26fd700060b3" compoundref="d3/d9a/_common_builder_8java" startline="415" endline="535">org.xvm.javajit.builders.CommonBuilder.assembleStaticInitializer</referencedby>
+        <referencedby refid="d7/d03/classorg_1_1xvm_1_1asm_1_1op_1_1_f_bind_1ad862c196dcf4567d0396c7e93241a76e" compoundref="df/d22/_f_bind_8java" startline="389" endline="411">org.xvm.asm.op.FBind.bindArgument</referencedby>
+        <referencedby refid="d7/d03/classorg_1_1xvm_1_1asm_1_1op_1_1_f_bind_1a84717dadf8a2ae80bd635a6f28e9e025" compoundref="df/d22/_f_bind_8java" startline="245" endline="387">org.xvm.asm.op.FBind.build</referencedby>
+        <referencedby refid="d0/db7/classorg_1_1xvm_1_1asm_1_1op_1_1_jump_int_1a7cc1942a4c623002a01e2fb5f3c2f9ed" compoundref="d5/dde/_jump_int_8java" startline="216" endline="242">org.xvm.asm.op.JumpInt.build</referencedby>
+        <referencedby refid="d1/d96/classorg_1_1xvm_1_1asm_1_1op_1_1_m_bind_1a9630b7d3d6cd1bc7dd6394ad88843fd5" compoundref="d7/d0f/_m_bind_8java" startline="123" endline="176">org.xvm.asm.op.MBind.build</referencedby>
+        <referencedby refid="d6/db4/classorg_1_1xvm_1_1asm_1_1op_1_1_op_range_1aeeb77c1d66ba8eea3450fd6361396b87" compoundref="d9/df3/_op_range_8java" startline="54" endline="113">org.xvm.asm.op.OpRange.build</referencedby>
+        <referencedby refid="d8/d08/classorg_1_1xvm_1_1asm_1_1_op_general_1aa05d01651412a9fb3fe00f331d96e022" compoundref="dd/d86/_op_general_8java" startline="218" endline="283">org.xvm.asm.OpGeneral.build</referencedby>
+        <referencedby refid="d6/da9/classorg_1_1xvm_1_1asm_1_1_op_index_1ad7573f899ed0413e15dac2698b9f6e7e" compoundref="d8/d05/_op_index_8java" startline="225" endline="349">org.xvm.asm.OpIndex.build</referencedby>
+        <referencedby refid="da/d71/classorg_1_1xvm_1_1asm_1_1_op_in_place_1a7b8300f503f27ce64318cdf6b99d97b8" compoundref="db/d00/_op_in_place_8java" startline="226" endline="272">org.xvm.asm.OpInPlace.build</referencedby>
+        <referencedby refid="d2/df6/classorg_1_1xvm_1_1asm_1_1_op_in_place_assign_1a6f49dcdb39e6f3bb61e078b2ced025ba" compoundref="d3/da5/_op_in_place_assign_8java" startline="121" endline="137">org.xvm.asm.OpInPlaceAssign.build</referencedby>
+        <referencedby refid="db/d8a/classorg_1_1xvm_1_1asm_1_1op_1_1_jump_val_1a4a5551648c10a98c639325e4de04fe64" compoundref="db/d46/_jump_val_8java" startline="450" endline="490">org.xvm.asm.op.JumpVal.buildByteSwitch</referencedby>
+        <referencedby refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1aa104f9075ede2d0b394954f3f30c635e" compoundref="d8/d90/_type_constant_8java" startline="6691" endline="6694">org.xvm.asm.constants.TypeConstant.buildCompare</referencedby>
+        <referencedby refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a0d2024b0671da6bcff089642cacaf442" compoundref="d8/d90/_type_constant_8java" startline="6732" endline="7007">org.xvm.asm.constants.TypeConstant.buildCompare</referencedby>
+        <referencedby refid="db/d8a/classorg_1_1xvm_1_1asm_1_1op_1_1_jump_val_1afef15e6a89ab2b098cd3f89c58933690" compoundref="db/d46/_jump_val_8java" startline="687" endline="728">org.xvm.asm.op.JumpVal.buildEnumSwitch</referencedby>
+        <referencedby refid="db/d8a/classorg_1_1xvm_1_1asm_1_1op_1_1_jump_val_1a23510b040173f492c094411f69714ee5" compoundref="db/d46/_jump_val_8java" startline="606" endline="680">org.xvm.asm.op.JumpVal.buildIntSwitch</referencedby>
+        <referencedby refid="d3/da4/classorg_1_1xvm_1_1asm_1_1_op_invocable_1a93e30bed6c0595c6fea063250b05d877" compoundref="d7/d3e/_op_invocable_8java" startline="354" endline="408">org.xvm.asm.OpInvocable.buildInvoke</referencedby>
+        <referencedby refid="db/d8a/classorg_1_1xvm_1_1asm_1_1op_1_1_jump_val_1adc0316ed69a77fb83457977cecb24dd3" compoundref="db/d46/_jump_val_8java" startline="496" endline="604">org.xvm.asm.op.JumpVal.buildLongSwitch</referencedby>
+        <referencedby refid="da/d71/classorg_1_1xvm_1_1asm_1_1_op_in_place_1adcd0a6045664ba8dded6534ea013f80e" compoundref="db/d00/_op_in_place_8java" startline="280" endline="304">org.xvm.asm.OpInPlace.buildOpCallLocal</referencedby>
+        <referencedby refid="d2/df6/classorg_1_1xvm_1_1asm_1_1_op_in_place_assign_1a8c07ddb78c093557cf88ef417b9bebaf" compoundref="d3/da5/_op_in_place_assign_8java" startline="146" endline="166">org.xvm.asm.OpInPlaceAssign.buildOpInvoke</referencedby>
+        <referencedby refid="da/dae/classorg_1_1xvm_1_1asm_1_1_op_optimized_1a835c3a7593de68c55658100bf8d1e66d" compoundref="d5/dbb/_op_optimized_8java" startline="34" endline="49">org.xvm.asm.OpOptimized.buildOptimizedBinary</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a2db32d345245f4f6aedd846b8c9a34d4" compoundref="d4/d9d/_number_support_8java" startline="37" endline="48">org.xvm.javajit.NumberSupport.buildPrimitiveAdd</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a41279bbc117095d9a9e2211d18dfccf3" compoundref="d4/d9d/_number_support_8java" startline="89" endline="99">org.xvm.javajit.NumberSupport.buildPrimitiveAnd</referencedby>
+        <referencedby refid="d2/da7/classorg_1_1xvm_1_1asm_1_1op_1_1_i___set_1a462aca7fff668aebdb4cef7d2f674977" compoundref="d8/dd1/_i___set_8java" startline="160" endline="182">org.xvm.asm.op.I_Set.buildPrimitiveArrayOp</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a38694ecd543f3bdc5cf4a9d7f56f7338" compoundref="d4/d9d/_number_support_8java" startline="134" endline="144">org.xvm.javajit.NumberSupport.buildPrimitiveCompl</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1aa2e32176e26321c244e912fd0950528f" compoundref="d4/d9d/_number_support_8java" startline="174" endline="200">org.xvm.javajit.NumberSupport.buildPrimitiveDiv</referencedby>
+        <referencedby refid="d5/de8/interfaceorg_1_1xvm_1_1javajit_1_1_in_place_support_1a4dbc1945759a6bda53a3b8d08d7a07c7" compoundref="d8/d17/_in_place_support_8java" startline="42" endline="237">org.xvm.javajit.InPlaceSupport.buildPrimitiveLocal</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a7964d945776f1d497e4ecc80a6b0b9a0" compoundref="d4/d9d/_number_support_8java" startline="242" endline="265">org.xvm.javajit.NumberSupport.buildPrimitiveMod</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a164a22b8ee321cc5b211515812b1cde3" compoundref="d4/d9d/_number_support_8java" startline="358" endline="369">org.xvm.javajit.NumberSupport.buildPrimitiveMul</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a28feee5c66e2ccf7d0333042e72f9569" compoundref="d4/d9d/_number_support_8java" startline="306" endline="325">org.xvm.javajit.NumberSupport.buildPrimitiveNeg</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a58fcc524a289c3071be4354c8b0d9c36" compoundref="d4/d9d/_number_support_8java" startline="409" endline="419">org.xvm.javajit.NumberSupport.buildPrimitiveOr</referencedby>
+        <referencedby refid="da/d71/classorg_1_1xvm_1_1asm_1_1_op_in_place_1af4707c2408e9e86b28ddcdabe506c2bb" compoundref="db/d00/_op_in_place_8java" startline="312" endline="422">org.xvm.asm.OpInPlace.buildPrimitiveProperty</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a37874c72849ebc1410b3c0aca38ca839" compoundref="d4/d9d/_number_support_8java" startline="459" endline="481">org.xvm.javajit.NumberSupport.buildPrimitiveShl</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a6ac4cbe5ac033b65320fbd1dd0f718ed" compoundref="d4/d9d/_number_support_8java" startline="615" endline="650">org.xvm.javajit.NumberSupport.buildPrimitiveShr</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1ad7abac396dc81880ceaf4c33b8182aa8" compoundref="d4/d9d/_number_support_8java" startline="660" endline="671">org.xvm.javajit.NumberSupport.buildPrimitiveSub</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a1606fa92d6a1a8f5015e47ff7e8f73e7" compoundref="d4/d9d/_number_support_8java" startline="712" endline="722">org.xvm.javajit.NumberSupport.buildPrimitiveXor</referencedby>
+        <referencedby refid="dd/dd6/classorg_1_1xvm_1_1asm_1_1_op_return_1ae3204ca5663677a00d0cc95a37b6a91b" compoundref="dd/d73/_op_return_8java" startline="81" endline="340">org.xvm.asm.OpReturn.buildReturn</referencedby>
+        <referencedby refid="da/d71/classorg_1_1xvm_1_1asm_1_1_op_in_place_1aaf0abf44d02e31a507587a9b40a5ddb1" compoundref="db/d00/_op_in_place_8java" startline="427" endline="436">org.xvm.asm.OpInPlace.buildSetProperty</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a9375046450780b27e1441d0d7cef16c8" compoundref="d2/d9a/_build_context_8java" startline="2368" endline="2558">org.xvm.javajit.BuildContext.buildSetProperty</referencedby>
+        <referencedby refid="de/dcb/classorg_1_1xvm_1_1asm_1_1op_1_1_op_switch_1ac3e84a79f4bcbee23134d70dd85cc333" compoundref="d2/d48/_op_switch_8java" startline="349" endline="387">org.xvm.asm.op.OpSwitch.buildSwitchCase</referencedby>
+        <referencedby refid="de/dbb/classorg_1_1xvm_1_1asm_1_1op_1_1_is_zero_1ab4dad1ba47d6938b4c9760e3db382c22" compoundref="df/dcb/_is_zero_8java" startline="64" endline="85">org.xvm.asm.op.IsZero.buildUnary</referencedby>
+        <referencedby refid="dc/d7a/classorg_1_1xvm_1_1asm_1_1_op_cond_jump_1ac4ef8aa44fe242652a2f7190da7ae26d" compoundref="da/d46/_op_cond_jump_8java" startline="469" endline="554">org.xvm.asm.OpCondJump.buildUnary</referencedby>
+        <referencedby refid="da/dae/classorg_1_1xvm_1_1asm_1_1_op_optimized_1a56fc44312928825e219ecef3ffb24e00" compoundref="d5/dbb/_op_optimized_8java" startline="92" endline="102">org.xvm.asm.OpOptimized.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1aa718f5c3b9ac54f7ee0d67fb209523cc" compoundref="df/d74/_builder_8java" startline="860" endline="878">org.xvm.javajit.Builder.checkNotNull</referencedby>
+        <referencedby refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1ab5a54f250b801e942e217dc256250ba7" compoundref="df/d74/_builder_8java" startline="835" endline="853">org.xvm.javajit.Builder.checkNull</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1ad868cd1cde2df0efc33b17536fbf31ee" compoundref="d2/d9a/_build_context_8java" startline="653" endline="845">org.xvm.javajit.BuildContext.enterMethod</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1ac8de084155a113678efa9172c27ea7c5" compoundref="d2/d9a/_build_context_8java" startline="1741" endline="1792">org.xvm.javajit.BuildContext.introduceRef</referencedby>
+        <referencedby refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a67f90e66e3b9f960786dc5e2d93ac7ca" compoundref="df/d7a/_register_info_8java" startline="116" endline="119">org.xvm.javajit.RegisterInfo.load</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1aff495dc1e0dd98e6d6f2c3995b543084" compoundref="d2/d9a/_build_context_8java" startline="1806" endline="2007">org.xvm.javajit.BuildContext.loadCallArguments</referencedby>
+        <referencedby refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1aa3605ea61ca1bab25e1a9fdd1e0573ff" compoundref="d5/dcc/_number_support_int128_8java" startline="602" endline="611">org.xvm.javajit.NumberSupportInt128.loadInt128ShiftArg</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a376896ac31f6eb0016bbcdd520dd29a1" compoundref="d2/d9a/_build_context_8java" startline="1560" endline="1726">org.xvm.javajit.BuildContext.moveRegister</referencedby>
+        <referencedby refid="d3/d55/namespaceorg_1_1xvm_1_1javajit_1_1registers_1aab0be1d167f26e3257aceb9722499505" compoundref="d0/ddb/_narrowed_8java" startline="34" endline="170">org.xvm.javajit.registers.Narrowed</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a811691bb5f0c1ef0c66652ebf62c3ea8" compoundref="d2/d9a/_build_context_8java" startline="2054" endline="2199">org.xvm.javajit.BuildContext.narrowRegister</referencedby>
+        <referencedby refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a6d3615944ff7e46b873f8418bd8c8a7b" compoundref="df/d7a/_register_info_8java" startline="64" endline="66">org.xvm.javajit.RegisterInfo.slotCds</referencedby>
+        <referencedby refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a7f35dd9fcc18db2b628c5f121edf0bfb" compoundref="df/d7a/_register_info_8java" startline="126" endline="142">org.xvm.javajit.RegisterInfo.store</referencedby>
+        <referencedby refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a7f519c76ea08eb28e455c79ea80d3261" compoundref="df/d7a/_register_info_8java" startline="151" endline="156">org.xvm.javajit.RegisterInfo.storeTempValue</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a6d3615944ff7e46b873f8418bd8c8a7b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default ClassDesc[]</type>
+        <definition>default ClassDesc[] org.xvm.javajit.RegisterInfo.slotCds</definition>
+        <argsstring>()</argsstring>
+        <name>slotCds</name>
+        <qualifiedname>org.xvm.javajit.RegisterInfo.slotCds</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the ClassDesc for each of the slots in this register </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/RegisterInfo.java" line="64" column="23" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/RegisterInfo.java" bodystart="64" bodyend="66"/>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1ab3957ce4e2c49b01eab88b289964c715">org.xvm.javajit.RegisterInfo.cd</references>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a61cae66a721a4d6a6b47451b40c55f44" compoundref="d2/d9a/_build_context_8java" startline="1071" endline="1122">org.xvm.javajit.BuildContext.adjustRegister</referencedby>
+        <referencedby refid="dd/dbd/classorg_1_1xvm_1_1javajit_1_1builders_1_1_common_builder_1abcb415811e70776ebef0dfb64d382460" compoundref="d3/d9a/_common_builder_8java" startline="546" endline="686">org.xvm.javajit.builders.CommonBuilder.assembleInitializer</referencedby>
+        <referencedby refid="d7/d03/classorg_1_1xvm_1_1asm_1_1op_1_1_f_bind_1a84717dadf8a2ae80bd635a6f28e9e025" compoundref="df/d22/_f_bind_8java" startline="245" endline="387">org.xvm.asm.op.FBind.build</referencedby>
+        <referencedby refid="dc/d7a/classorg_1_1xvm_1_1asm_1_1_op_cond_jump_1ac4ef8aa44fe242652a2f7190da7ae26d" compoundref="da/d46/_op_cond_jump_8java" startline="469" endline="554">org.xvm.asm.OpCondJump.buildUnary</referencedby>
+        <referencedby refid="d3/d55/namespaceorg_1_1xvm_1_1javajit_1_1registers_1aab0be1d167f26e3257aceb9722499505" compoundref="d0/ddb/_narrowed_8java" startline="34" endline="170">org.xvm.javajit.registers.Narrowed</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a811691bb5f0c1ef0c66652ebf62c3ea8" compoundref="d2/d9a/_build_context_8java" startline="2054" endline="2199">org.xvm.javajit.BuildContext.narrowRegister</referencedby>
+        <referencedby refid="d6/da9/classorg_1_1xvm_1_1asm_1_1_op_index_1ab1967f7fe0b9df7faee9d6980c7a8a6b" compoundref="d8/d05/_op_index_8java" startline="509" endline="519">org.xvm.asm.OpIndex.storeArrayElement</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1ac0ea5c63be1d0f619230909e4f3f9a1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>String</type>
+        <definition>String org.xvm.javajit.RegisterInfo.name</definition>
+        <argsstring>()</argsstring>
+        <name>name</name>
+        <qualifiedname>org.xvm.javajit.RegisterInfo.name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the XTC register name (optional) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/RegisterInfo.java" line="71" column="12"/>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a61cae66a721a4d6a6b47451b40c55f44" compoundref="d2/d9a/_build_context_8java" startline="1071" endline="1122">org.xvm.javajit.BuildContext.adjustRegister</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a811691bb5f0c1ef0c66652ebf62c3ea8" compoundref="d2/d9a/_build_context_8java" startline="2054" endline="2199">org.xvm.javajit.BuildContext.narrowRegister</referencedby>
+        <referencedby refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a7f519c76ea08eb28e455c79ea80d3261" compoundref="df/d7a/_register_info_8java" startline="151" endline="156">org.xvm.javajit.RegisterInfo.storeTempValue</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1acc1e20d0571d5f68d3e554a45904bb44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.javajit.RegisterInfo.isSingle</definition>
+        <argsstring>()</argsstring>
+        <name>isSingle</name>
+        <qualifiedname>org.xvm.javajit.RegisterInfo.isSingle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true iff the XTC register is represented by a single Java slot </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/RegisterInfo.java" line="76" column="13"/>
+        <referencedby refid="dd/dbd/classorg_1_1xvm_1_1javajit_1_1builders_1_1_common_builder_1afd11ead9c819caff23bf26fd700060b3" compoundref="d3/d9a/_common_builder_8java" startline="415" endline="535">org.xvm.javajit.builders.CommonBuilder.assembleStaticInitializer</referencedby>
+        <referencedby refid="d8/d08/classorg_1_1xvm_1_1asm_1_1_op_general_1abe2999d4357c412e1156ebf9fd678abd" compoundref="dd/d86/_op_general_8java" startline="315" endline="320">org.xvm.asm.OpGeneral.assertNotMultislot</referencedby>
+        <referencedby refid="d7/d03/classorg_1_1xvm_1_1asm_1_1op_1_1_f_bind_1a84717dadf8a2ae80bd635a6f28e9e025" compoundref="df/d22/_f_bind_8java" startline="245" endline="387">org.xvm.asm.op.FBind.build</referencedby>
+        <referencedby refid="d6/db4/classorg_1_1xvm_1_1asm_1_1op_1_1_op_range_1aeeb77c1d66ba8eea3450fd6361396b87" compoundref="d9/df3/_op_range_8java" startline="54" endline="113">org.xvm.asm.op.OpRange.build</referencedby>
+        <referencedby refid="da/d71/classorg_1_1xvm_1_1asm_1_1_op_in_place_1a7b8300f503f27ce64318cdf6b99d97b8" compoundref="db/d00/_op_in_place_8java" startline="226" endline="272">org.xvm.asm.OpInPlace.build</referencedby>
+        <referencedby refid="d2/df6/classorg_1_1xvm_1_1asm_1_1_op_in_place_assign_1a6f49dcdb39e6f3bb61e078b2ced025ba" compoundref="d3/da5/_op_in_place_assign_8java" startline="121" endline="137">org.xvm.asm.OpInPlaceAssign.build</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a7ad5a9fbff0269b1022c88f5de3e8dff" compoundref="d2/d9a/_build_context_8java" startline="2271" endline="2284">org.xvm.javajit.BuildContext.buildGetProperty</referencedby>
+        <referencedby refid="d6/da9/classorg_1_1xvm_1_1asm_1_1_op_index_1ae415f8f95d5caa190f4052b6d25871f9" compoundref="d8/d05/_op_index_8java" startline="382" endline="403">org.xvm.asm.OpIndex.buildPrimitiveArrayOp</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a9375046450780b27e1441d0d7cef16c8" compoundref="d2/d9a/_build_context_8java" startline="2368" endline="2558">org.xvm.javajit.BuildContext.buildSetProperty</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a65d782dbef4bc7a5eaba5254f91ed31f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default <ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref></type>
+        <definition>default RegisterInfo org.xvm.javajit.RegisterInfo.original</definition>
+        <argsstring>()</argsstring>
+        <name>original</name>
+        <qualifiedname>org.xvm.javajit.RegisterInfo.original</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the original register, which could be different from &quot;this&quot; for narrowed registers </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/RegisterInfo.java" line="81" column="26" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/RegisterInfo.java" bodystart="81" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a24eb5ab9cae9d5f10a2e940a57cd7e3e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default boolean</type>
+        <definition>default boolean org.xvm.javajit.RegisterInfo.isJavaStack</definition>
+        <argsstring>()</argsstring>
+        <name>isJavaStack</name>
+        <qualifiedname>org.xvm.javajit.RegisterInfo.isJavaStack</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true iff the XTC register represents a value on Java stack </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/RegisterInfo.java" line="88" column="21" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/RegisterInfo.java" bodystart="88" bodyend="90"/>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a67bb2e2fe9ef518e3decfe247080cdc8" compoundref="df/d7a/_register_info_8java" startline="167">org.xvm.javajit.RegisterInfo.JAVA_STACK</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a38ba0ccec34bdefac2b0003dde15a82e">org.xvm.javajit.RegisterInfo.regId</references>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a61cae66a721a4d6a6b47451b40c55f44" compoundref="d2/d9a/_build_context_8java" startline="1071" endline="1122">org.xvm.javajit.BuildContext.adjustRegister</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a811691bb5f0c1ef0c66652ebf62c3ea8" compoundref="d2/d9a/_build_context_8java" startline="2054" endline="2199">org.xvm.javajit.BuildContext.narrowRegister</referencedby>
+        <referencedby refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a7f519c76ea08eb28e455c79ea80d3261" compoundref="df/d7a/_register_info_8java" startline="151" endline="156">org.xvm.javajit.RegisterInfo.storeTempValue</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a6216afceceadceb474efc3007f3584f8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default boolean</type>
+        <definition>default boolean org.xvm.javajit.RegisterInfo.isProperty</definition>
+        <argsstring>()</argsstring>
+        <name>isProperty</name>
+        <qualifiedname>org.xvm.javajit.RegisterInfo.isProperty</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true iff the XTC register represents a value on Java stack </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/RegisterInfo.java" line="95" column="21" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/RegisterInfo.java" bodystart="95" bodyend="97"/>
+        <references refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1ae343588b4b97732ef918b1b91d0b9eab" compoundref="d1/dc0/_op_8java" startline="2188">org.xvm.asm.Op.CONSTANT_OFFSET</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a38ba0ccec34bdefac2b0003dde15a82e">org.xvm.javajit.RegisterInfo.regId</references>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a811691bb5f0c1ef0c66652ebf62c3ea8" compoundref="d2/d9a/_build_context_8java" startline="2054" endline="2199">org.xvm.javajit.BuildContext.narrowRegister</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a86784bf4618ffd38b572aeb9c2387d70" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default boolean</type>
+        <definition>default boolean org.xvm.javajit.RegisterInfo.isIgnore</definition>
+        <argsstring>()</argsstring>
+        <name>isIgnore</name>
+        <qualifiedname>org.xvm.javajit.RegisterInfo.isIgnore</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true iff the XTC register represents a value to be ignored </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/RegisterInfo.java" line="102" column="21" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/RegisterInfo.java" bodystart="102" bodyend="104"/>
+        <references refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a782578c6a93322d505539741032506f4" compoundref="d1/dc0/_op_8java" startline="2108">org.xvm.asm.Op.A_IGNORE</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a38ba0ccec34bdefac2b0003dde15a82e">org.xvm.javajit.RegisterInfo.regId</references>
+        <referencedby refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a7f35dd9fcc18db2b628c5f121edf0bfb" compoundref="df/d7a/_register_info_8java" startline="126" endline="142">org.xvm.javajit.RegisterInfo.store</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4ec51e156bff25a58f9d6d2caa4dd7f5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default boolean</type>
+        <definition>default boolean org.xvm.javajit.RegisterInfo.isThis</definition>
+        <argsstring>()</argsstring>
+        <name>isThis</name>
+        <qualifiedname>org.xvm.javajit.RegisterInfo.isThis</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true iff the XTC register represents a pre-defined &quot;this&quot; value </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/RegisterInfo.java" line="109" column="21" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/RegisterInfo.java" bodystart="109" bodyend="111"/>
+        <references refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a1906cced85248bddb78d5b09d341a75a" compoundref="d1/dc0/_op_8java" startline="2123">org.xvm.asm.Op.A_THIS</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a38ba0ccec34bdefac2b0003dde15a82e">org.xvm.javajit.RegisterInfo.regId</references>
+      </memberdef>
+      <memberdef kind="function" id="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a67f90e66e3b9f960786dc5e2d93ac7ca" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default <ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref></type>
+        <definition>default RegisterInfo org.xvm.javajit.RegisterInfo.load</definition>
+        <argsstring>(CodeBuilder code)</argsstring>
+        <name>load</name>
+        <qualifiedname>org.xvm.javajit.RegisterInfo.load</qualifiedname>
+        <param>
+          <type>CodeBuilder</type>
+          <declname>code</declname>
+        </param>
+        <briefdescription>
+<para>Load the value for this register on the Java stack. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/RegisterInfo.java" line="116" column="26" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/RegisterInfo.java" bodystart="116" bodyend="119"/>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1ab3957ce4e2c49b01eab88b289964c715">org.xvm.javajit.RegisterInfo.cd</references>
+        <references refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1ad3df12dabdde4ba6106efffd5d2616af" compoundref="df/d74/_builder_8java" startline="726" endline="747">org.xvm.javajit.Builder.load</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a074767ef12dcb4f15b5e7a7319bea45b">org.xvm.javajit.RegisterInfo.slot</references>
+        <referencedby refid="d7/d03/classorg_1_1xvm_1_1asm_1_1op_1_1_f_bind_1ad862c196dcf4567d0396c7e93241a76e" compoundref="df/d22/_f_bind_8java" startline="389" endline="411">org.xvm.asm.op.FBind.bindArgument</referencedby>
+        <referencedby refid="d7/d03/classorg_1_1xvm_1_1asm_1_1op_1_1_f_bind_1a84717dadf8a2ae80bd635a6f28e9e025" compoundref="df/d22/_f_bind_8java" startline="245" endline="387">org.xvm.asm.op.FBind.build</referencedby>
+        <referencedby refid="d1/d96/classorg_1_1xvm_1_1asm_1_1op_1_1_m_bind_1a9630b7d3d6cd1bc7dd6394ad88843fd5" compoundref="d7/d0f/_m_bind_8java" startline="123" endline="176">org.xvm.asm.op.MBind.build</referencedby>
+        <referencedby refid="d6/db4/classorg_1_1xvm_1_1asm_1_1op_1_1_op_range_1aeeb77c1d66ba8eea3450fd6361396b87" compoundref="d9/df3/_op_range_8java" startline="54" endline="113">org.xvm.asm.op.OpRange.build</referencedby>
+        <referencedby refid="d8/d08/classorg_1_1xvm_1_1asm_1_1_op_general_1aa05d01651412a9fb3fe00f331d96e022" compoundref="dd/d86/_op_general_8java" startline="218" endline="283">org.xvm.asm.OpGeneral.build</referencedby>
+        <referencedby refid="de/d70/interfaceorg_1_1xvm_1_1javajit_1_1_text_support_1a7ce8116fff328e11f9f285dd84c5a508" compoundref="df/d87/_text_support_8java" startline="81" endline="92">org.xvm.javajit.TextSupport.buildAddCharToChar</referencedby>
+        <referencedby refid="de/d70/interfaceorg_1_1xvm_1_1javajit_1_1_text_support_1ad6081a030ef8c24fb63644eac5880142" compoundref="df/d87/_text_support_8java" startline="60" endline="67">org.xvm.javajit.TextSupport.buildAddIntToChar</referencedby>
+        <referencedby refid="de/d70/interfaceorg_1_1xvm_1_1javajit_1_1_text_support_1a5b3d26edfa6822d6714519783a48646a" compoundref="df/d87/_text_support_8java" startline="106" endline="116">org.xvm.javajit.TextSupport.buildAddStringToChar</referencedby>
+        <referencedby refid="db/d8a/classorg_1_1xvm_1_1asm_1_1op_1_1_jump_val_1a4a5551648c10a98c639325e4de04fe64" compoundref="db/d46/_jump_val_8java" startline="450" endline="490">org.xvm.asm.op.JumpVal.buildByteSwitch</referencedby>
+        <referencedby refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1aa104f9075ede2d0b394954f3f30c635e" compoundref="d8/d90/_type_constant_8java" startline="6691" endline="6694">org.xvm.asm.constants.TypeConstant.buildCompare</referencedby>
+        <referencedby refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a0d2024b0671da6bcff089642cacaf442" compoundref="d8/d90/_type_constant_8java" startline="6732" endline="7007">org.xvm.asm.constants.TypeConstant.buildCompare</referencedby>
+        <referencedby refid="db/d8a/classorg_1_1xvm_1_1asm_1_1op_1_1_jump_val_1afef15e6a89ab2b098cd3f89c58933690" compoundref="db/d46/_jump_val_8java" startline="687" endline="728">org.xvm.asm.op.JumpVal.buildEnumSwitch</referencedby>
+        <referencedby refid="db/d8a/classorg_1_1xvm_1_1asm_1_1op_1_1_jump_val_1a23510b040173f492c094411f69714ee5" compoundref="db/d46/_jump_val_8java" startline="606" endline="680">org.xvm.asm.op.JumpVal.buildIntSwitch</referencedby>
+        <referencedby refid="db/d8a/classorg_1_1xvm_1_1asm_1_1op_1_1_jump_val_1adc0316ed69a77fb83457977cecb24dd3" compoundref="db/d46/_jump_val_8java" startline="496" endline="604">org.xvm.asm.op.JumpVal.buildLongSwitch</referencedby>
+        <referencedby refid="da/d71/classorg_1_1xvm_1_1asm_1_1_op_in_place_1adcd0a6045664ba8dded6534ea013f80e" compoundref="db/d00/_op_in_place_8java" startline="280" endline="304">org.xvm.asm.OpInPlace.buildOpCallLocal</referencedby>
+        <referencedby refid="d2/df6/classorg_1_1xvm_1_1asm_1_1_op_in_place_assign_1a8c07ddb78c093557cf88ef417b9bebaf" compoundref="d3/da5/_op_in_place_assign_8java" startline="146" endline="166">org.xvm.asm.OpInPlaceAssign.buildOpInvoke</referencedby>
+        <referencedby refid="da/dae/classorg_1_1xvm_1_1asm_1_1_op_optimized_1a835c3a7593de68c55658100bf8d1e66d" compoundref="d5/dbb/_op_optimized_8java" startline="34" endline="49">org.xvm.asm.OpOptimized.buildOptimizedBinary</referencedby>
+        <referencedby refid="d6/da9/classorg_1_1xvm_1_1asm_1_1_op_index_1ae415f8f95d5caa190f4052b6d25871f9" compoundref="d8/d05/_op_index_8java" startline="382" endline="403">org.xvm.asm.OpIndex.buildPrimitiveArrayOp</referencedby>
+        <referencedby refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1a021e0cf4c9e9cffc898b494333cb9783" compoundref="da/de6/_op_index_in_place_8java" startline="110" endline="125">org.xvm.asm.OpIndexInPlace.buildPrimitiveArrayOp</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a37874c72849ebc1410b3c0aca38ca839" compoundref="d4/d9d/_number_support_8java" startline="459" endline="481">org.xvm.javajit.NumberSupport.buildPrimitiveShl</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a7922ada26ea17d49d2bed4bd74630669" compoundref="d4/d9d/_number_support_8java" startline="565" endline="574">org.xvm.javajit.NumberSupport.buildPrimitiveShr</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a73a4cdef8418f3bea65fad86a6f998cd" compoundref="d4/d9d/_number_support_8java" startline="587" endline="601">org.xvm.javajit.NumberSupport.buildPrimitiveUnsignedShr</referencedby>
+        <referencedby refid="de/d70/interfaceorg_1_1xvm_1_1javajit_1_1_text_support_1a3beffdf2ad1cc2ca02af3db6e84e9aa9" compoundref="df/d87/_text_support_8java" startline="181" endline="187">org.xvm.javajit.TextSupport.buildSubCharFromChar</referencedby>
+        <referencedby refid="de/d70/interfaceorg_1_1xvm_1_1javajit_1_1_text_support_1aa3b94debeba2efbb2cc955aad00cc97d" compoundref="df/d87/_text_support_8java" startline="157" endline="164">org.xvm.javajit.TextSupport.buildSubIntFromChar</referencedby>
+        <referencedby refid="de/dcb/classorg_1_1xvm_1_1asm_1_1op_1_1_op_switch_1ac3e84a79f4bcbee23134d70dd85cc333" compoundref="d2/d48/_op_switch_8java" startline="349" endline="387">org.xvm.asm.op.OpSwitch.buildSwitchCase</referencedby>
+        <referencedby refid="de/dcb/classorg_1_1xvm_1_1asm_1_1op_1_1_op_switch_1a89d3824329544a624188e95ac2e315be" compoundref="d2/d48/_op_switch_8java" startline="421" endline="444">org.xvm.asm.op.OpSwitch.buildTypeCase</referencedby>
+        <referencedby refid="d0/d9a/classorg_1_1xvm_1_1asm_1_1constants_1_1_union_type_constant_1a84b9fa0e438563adf3ca25a3ef723051" compoundref="df/dce/_union_type_constant_8java" startline="1001" endline="1012">org.xvm.asm.constants.UnionTypeConstant.buildTypeCheck</referencedby>
+        <referencedby refid="dc/d7a/classorg_1_1xvm_1_1asm_1_1_op_cond_jump_1acb2e08cac2aa7302be13759ff5630177" compoundref="da/d46/_op_cond_jump_8java" startline="587" endline="694">org.xvm.asm.OpCondJump.buildTypeJump</referencedby>
+        <referencedby refid="dc/d7a/classorg_1_1xvm_1_1asm_1_1_op_cond_jump_1ac4ef8aa44fe242652a2f7190da7ae26d" compoundref="da/d46/_op_cond_jump_8java" startline="469" endline="554">org.xvm.asm.OpCondJump.buildUnary</referencedby>
+        <referencedby refid="d6/db4/classorg_1_1xvm_1_1asm_1_1op_1_1_op_range_1aa76f46aabb149dae944510c68e148349" compoundref="d9/df3/_op_range_8java" startline="126" endline="148">org.xvm.asm.op.OpRange.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="da/dae/classorg_1_1xvm_1_1asm_1_1_op_optimized_1a56fc44312928825e219ecef3ffb24e00" compoundref="d5/dbb/_op_optimized_8java" startline="92" endline="102">org.xvm.asm.OpOptimized.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1aa718f5c3b9ac54f7ee0d67fb209523cc" compoundref="df/d74/_builder_8java" startline="860" endline="878">org.xvm.javajit.Builder.checkNotNull</referencedby>
+        <referencedby refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1ab5a54f250b801e942e217dc256250ba7" compoundref="df/d74/_builder_8java" startline="835" endline="853">org.xvm.javajit.Builder.checkNull</referencedby>
+        <referencedby refid="d7/d03/classorg_1_1xvm_1_1asm_1_1op_1_1_f_bind_1a7ff807a5f411e9e33e10f6d491a32cba" compoundref="df/d22/_f_bind_8java" startline="413" endline="424">org.xvm.asm.op.FBind.computeImmutable</referencedby>
+        <referencedby refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1aa3605ea61ca1bab25e1a9fdd1e0573ff" compoundref="d5/dcc/_number_support_int128_8java" startline="602" endline="611">org.xvm.javajit.NumberSupportInt128.loadInt128ShiftArg</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1aa92617451e6bf97c2c0279aea8aaf5bc" compoundref="d2/d9a/_build_context_8java" startline="1292" endline="1315">org.xvm.javajit.BuildContext.loadPredefineArgument</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1ada8cd28338c111073751a42cd918710b" compoundref="d2/d9a/_build_context_8java" startline="961" endline="966">org.xvm.javajit.BuildContext.loadThis</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a811691bb5f0c1ef0c66652ebf62c3ea8" compoundref="d2/d9a/_build_context_8java" startline="2054" endline="2199">org.xvm.javajit.BuildContext.narrowRegister</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a5e7f739b051474e2dd6fa2f63232384e" compoundref="d2/d9a/_build_context_8java" startline="364" endline="535">org.xvm.javajit.BuildContext.preprocess</referencedby>
+        <referencedby refid="d3/d55/namespaceorg_1_1xvm_1_1javajit_1_1registers_1a336f2f78b16f611df81cac708b47bb1e" compoundref="dc/d55/src_2main_2java_2org_2xvm_2javajit_2registers_2_ref_8java" startline="36" endline="159">org.xvm.javajit.registers.Ref</referencedby>
+        <referencedby refid="d6/da9/classorg_1_1xvm_1_1asm_1_1_op_index_1ab1967f7fe0b9df7faee9d6980c7a8a6b" compoundref="d8/d05/_op_index_8java" startline="509" endline="519">org.xvm.asm.OpIndex.storeArrayElement</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a7f35dd9fcc18db2b628c5f121edf0bfb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default <ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref></type>
+        <definition>default RegisterInfo org.xvm.javajit.RegisterInfo.store</definition>
+        <argsstring>(BuildContext bctx, CodeBuilder code, TypeConstant type)</argsstring>
+        <name>store</name>
+        <qualifiedname>org.xvm.javajit.RegisterInfo.store</qualifiedname>
+        <param>
+          <type><ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref></type>
+          <declname>bctx</declname>
+        </param>
+        <param>
+          <type>CodeBuilder</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref></type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>Store the value on the Java stack into the slot for this register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(optional) the type of the value; could be wider than a narrowed register type </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/RegisterInfo.java" line="126" column="26" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/RegisterInfo.java" bodystart="126" bodyend="142"/>
+        <references refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1ad853aa29f80a12a84f05b71419aaca13" compoundref="df/d74/_builder_8java" startline="1061" endline="1063">org.xvm.javajit.Builder.box</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1ab3957ce4e2c49b01eab88b289964c715">org.xvm.javajit.RegisterInfo.cd</references>
+        <references refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1ae343588b4b97732ef918b1b91d0b9eab" compoundref="d1/dc0/_op_8java" startline="2188">org.xvm.asm.Op.CONSTANT_OFFSET</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a86784bf4618ffd38b572aeb9c2387d70" compoundref="df/d7a/_register_info_8java" startline="102" endline="104">org.xvm.javajit.RegisterInfo.isIgnore</references>
+        <references refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1ae1d5d191e88c076361a47bc3575ab153" compoundref="df/d74/_builder_8java" startline="944" endline="953">org.xvm.javajit.Builder.pop</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a38ba0ccec34bdefac2b0003dde15a82e">org.xvm.javajit.RegisterInfo.regId</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a074767ef12dcb4f15b5e7a7319bea45b">org.xvm.javajit.RegisterInfo.slot</references>
+        <references refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a2bb0e54b15f977f5be539a3a0962264f" compoundref="df/d74/_builder_8java" startline="752" endline="773">org.xvm.javajit.Builder.store</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4deb7ba2ac6982c77aba0ffe4faff6a5">org.xvm.javajit.RegisterInfo.type</references>
+        <referencedby refid="df/d84/classorg_1_1xvm_1_1asm_1_1_op_var_1af29d93b9a9f1df9eb409abf1dd7f4e17" compoundref="d8/d16/_op_var_8java" startline="247" endline="267">org.xvm.asm.OpVar.buildArray</referencedby>
+        <referencedby refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place_1a021e0cf4c9e9cffc898b494333cb9783" compoundref="da/de6/_op_index_in_place_8java" startline="110" endline="125">org.xvm.asm.OpIndexInPlace.buildPrimitiveArrayOp</referencedby>
+        <referencedby refid="d3/d55/namespaceorg_1_1xvm_1_1javajit_1_1registers_1a38ce932a1b0e52aad25a10d4b517cbf3" compoundref="dd/d6e/_extended_slot_8java" startline="32" endline="58">org.xvm.javajit.registers.ExtendedSlot</referencedby>
+        <referencedby refid="d3/d55/namespaceorg_1_1xvm_1_1javajit_1_1registers_1aab0be1d167f26e3257aceb9722499505" compoundref="d0/ddb/_narrowed_8java" startline="34" endline="170">org.xvm.javajit.registers.Narrowed</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a16318307dbebf6dec3495661ea1a2d51" compoundref="d2/d9a/_build_context_8java" startline="1415" endline="1426">org.xvm.javajit.BuildContext.storeValue</referencedby>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a7a08aa6e4410507d6f4b1e515941a98b" compoundref="d2/d9a/_build_context_8java" startline="1394" endline="1403">org.xvm.javajit.BuildContext.storeValue</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a7f519c76ea08eb28e455c79ea80d3261" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default <ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref></type>
+        <definition>default RegisterInfo org.xvm.javajit.RegisterInfo.storeTempValue</definition>
+        <argsstring>(BuildContext bctx, CodeBuilder code, int regId)</argsstring>
+        <name>storeTempValue</name>
+        <qualifiedname>org.xvm.javajit.RegisterInfo.storeTempValue</qualifiedname>
+        <param>
+          <type><ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref></type>
+          <declname>bctx</declname>
+        </param>
+        <param>
+          <type>CodeBuilder</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>regId</declname>
+        </param>
+        <briefdescription>
+<para>Store the value represented by this register currently on the stack into a temporary slot. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>regId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value to use for the new register identifier</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the new register info </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/RegisterInfo.java" line="151" column="26" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/RegisterInfo.java" bodystart="151" bodyend="156"/>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1ab3957ce4e2c49b01eab88b289964c715">org.xvm.javajit.RegisterInfo.cd</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a3eb1a8a94f28139c1f03e9deb6a4733f">org.xvm.javajit.RegisterInfo.flavor</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a24eb5ab9cae9d5f10a2e940a57cd7e3e" compoundref="df/d7a/_register_info_8java" startline="88" endline="90">org.xvm.javajit.RegisterInfo.isJavaStack</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1ac0ea5c63be1d0f619230909e4f3f9a1a">org.xvm.javajit.RegisterInfo.name</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a38ba0ccec34bdefac2b0003dde15a82e">org.xvm.javajit.RegisterInfo.regId</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a074767ef12dcb4f15b5e7a7319bea45b">org.xvm.javajit.RegisterInfo.slot</references>
+        <references refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a0990d9e47f1861da1d58389f1e9932d6" compoundref="d2/d9a/_build_context_8java" startline="2940" endline="2947">org.xvm.javajit.BuildContext.storeTempValue</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4deb7ba2ac6982c77aba0ffe4faff6a5">org.xvm.javajit.RegisterInfo.type</references>
+        <referencedby refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a60a28ef057d5f9453ae97f6960f3dd7b" compoundref="d2/d9a/_build_context_8java" startline="1131" endline="1147">org.xvm.javajit.BuildContext.ensureRegister</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a444d60c0b2602fb69932ca5f906136e3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default void</type>
+        <definition>default void org.xvm.javajit.RegisterInfo.markChanged</definition>
+        <argsstring>()</argsstring>
+        <name>markChanged</name>
+        <qualifiedname>org.xvm.javajit.RegisterInfo.markChanged</qualifiedname>
+        <briefdescription>
+<para>Mark this register as &quot;changed&quot;. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This may be used by implementations to ensure correct data transfer. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/RegisterInfo.java" line="162" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/RegisterInfo.java" bodystart="162" bodyend="162"/>
+        <referencedby refid="da/d71/classorg_1_1xvm_1_1asm_1_1_op_in_place_1a7b8300f503f27ce64318cdf6b99d97b8" compoundref="db/d00/_op_in_place_8java" startline="226" endline="272">org.xvm.asm.OpInPlace.build</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Represents an information about XTC register. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/RegisterInfo.java" line="15" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/RegisterInfo.java" bodystart="15" bodyend="168"/>
+    <listofallmembers>
+      <member refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1ab3957ce4e2c49b01eab88b289964c715" prot="public" virt="non-virtual"><scope>org::xvm::javajit::RegisterInfo</scope><name>cd</name></member>
+      <member refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a3eb1a8a94f28139c1f03e9deb6a4733f" prot="public" virt="non-virtual"><scope>org::xvm::javajit::RegisterInfo</scope><name>flavor</name></member>
+      <member refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a86784bf4618ffd38b572aeb9c2387d70" prot="public" virt="non-virtual"><scope>org::xvm::javajit::RegisterInfo</scope><name>isIgnore</name></member>
+      <member refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a24eb5ab9cae9d5f10a2e940a57cd7e3e" prot="public" virt="non-virtual"><scope>org::xvm::javajit::RegisterInfo</scope><name>isJavaStack</name></member>
+      <member refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a6216afceceadceb474efc3007f3584f8" prot="public" virt="non-virtual"><scope>org::xvm::javajit::RegisterInfo</scope><name>isProperty</name></member>
+      <member refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1acc1e20d0571d5f68d3e554a45904bb44" prot="public" virt="non-virtual"><scope>org::xvm::javajit::RegisterInfo</scope><name>isSingle</name></member>
+      <member refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4ec51e156bff25a58f9d6d2caa4dd7f5" prot="public" virt="non-virtual"><scope>org::xvm::javajit::RegisterInfo</scope><name>isThis</name></member>
+      <member refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a67bb2e2fe9ef518e3decfe247080cdc8" prot="public" virt="non-virtual"><scope>org::xvm::javajit::RegisterInfo</scope><name>JAVA_STACK</name></member>
+      <member refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a7a4bb1fffde35db4628e985073f9edad" prot="public" virt="non-virtual"><scope>org::xvm::javajit::RegisterInfo</scope><name>jitType</name></member>
+      <member refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a67f90e66e3b9f960786dc5e2d93ac7ca" prot="public" virt="non-virtual"><scope>org::xvm::javajit::RegisterInfo</scope><name>load</name></member>
+      <member refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a444d60c0b2602fb69932ca5f906136e3" prot="public" virt="non-virtual"><scope>org::xvm::javajit::RegisterInfo</scope><name>markChanged</name></member>
+      <member refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1ac0ea5c63be1d0f619230909e4f3f9a1a" prot="public" virt="non-virtual"><scope>org::xvm::javajit::RegisterInfo</scope><name>name</name></member>
+      <member refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a65d782dbef4bc7a5eaba5254f91ed31f" prot="public" virt="non-virtual"><scope>org::xvm::javajit::RegisterInfo</scope><name>original</name></member>
+      <member refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a38ba0ccec34bdefac2b0003dde15a82e" prot="public" virt="non-virtual"><scope>org::xvm::javajit::RegisterInfo</scope><name>regId</name></member>
+      <member refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a074767ef12dcb4f15b5e7a7319bea45b" prot="public" virt="non-virtual"><scope>org::xvm::javajit::RegisterInfo</scope><name>slot</name></member>
+      <member refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a6d3615944ff7e46b873f8418bd8c8a7b" prot="public" virt="non-virtual"><scope>org::xvm::javajit::RegisterInfo</scope><name>slotCds</name></member>
+      <member refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4751bf343415c8ec4616dd473024a13a" prot="public" virt="non-virtual"><scope>org::xvm::javajit::RegisterInfo</scope><name>slots</name></member>
+      <member refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a7f35dd9fcc18db2b628c5f121edf0bfb" prot="public" virt="non-virtual"><scope>org::xvm::javajit::RegisterInfo</scope><name>store</name></member>
+      <member refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a7f519c76ea08eb28e455c79ea80d3261" prot="public" virt="non-virtual"><scope>org::xvm::javajit::RegisterInfo</scope><name>storeTempValue</name></member>
+      <member refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4deb7ba2ac6982c77aba0ffe4faff6a5" prot="public" virt="non-virtual"><scope>org::xvm::javajit::RegisterInfo</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

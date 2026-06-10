@@ -1,0 +1,342 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d4/db0/_finally_end_8java" kind="file" language="Java">
+    <compoundname>FinallyEnd.java</compoundname>
+    <includes local="no">java.lang.classfile.CodeBuilder</includes>
+    <includes local="no">java.lang.classfile.Label</includes>
+    <includes local="no">java.lang.constant.ClassDesc</includes>
+    <includes local="no">org.xvm.asm.Op</includes>
+    <includes local="no">org.xvm.asm.Scope</includes>
+    <includes local="no">org.xvm.javajit.BuildContext</includes>
+    <includes local="no">org.xvm.javajit.Builder</includes>
+    <includes local="no">org.xvm.javajit.JitMethodDesc</includes>
+    <includes local="no">org.xvm.javajit.JitParamDesc</includes>
+    <includes local="no">org.xvm.runtime.Frame</includes>
+    <includes local="no">org.xvm.runtime.Frame.DeferredGuardAction</includes>
+    <includes local="no">org.xvm.runtime.ObjectHandle</includes>
+    <includes local="no">org.xvm.runtime.ObjectHandle.ExceptionHandle</includes>
+    <includes local="no">org.xvm.runtime.template.xNullable</includes>
+    <includes local="no">java.lang.constant.ConstantDescs.CD_boolean</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/op/FinallyEnd.java</label>
+        <link refid="d4/db0/_finally_end_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.lang.classfile.CodeBuilder</label>
+      </node>
+      <node id="3">
+        <label>java.lang.classfile.Label</label>
+      </node>
+      <node id="4">
+        <label>java.lang.constant.ClassDesc</label>
+      </node>
+      <node id="16">
+        <label>java.lang.constant.ConstantDescs.CD_boolean</label>
+      </node>
+      <node id="5">
+        <label>org.xvm.asm.Op</label>
+      </node>
+      <node id="6">
+        <label>org.xvm.asm.Scope</label>
+      </node>
+      <node id="7">
+        <label>org.xvm.javajit.BuildContext</label>
+      </node>
+      <node id="8">
+        <label>org.xvm.javajit.Builder</label>
+      </node>
+      <node id="9">
+        <label>org.xvm.javajit.JitMethodDesc</label>
+      </node>
+      <node id="10">
+        <label>org.xvm.javajit.JitParamDesc</label>
+      </node>
+      <node id="11">
+        <label>org.xvm.runtime.Frame</label>
+      </node>
+      <node id="12">
+        <label>org.xvm.runtime.Frame.DeferredGuardAction</label>
+      </node>
+      <node id="13">
+        <label>org.xvm.runtime.ObjectHandle</label>
+      </node>
+      <node id="14">
+        <label>org.xvm.runtime.ObjectHandle.ExceptionHandle</label>
+      </node>
+      <node id="15">
+        <label>org.xvm.runtime.template.xNullable</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="dd/d1b/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_end" prot="public">org::xvm::asm::op::FinallyEnd</innerclass>
+    <innernamespace refid="d5/d78/namespaceorg_1_1xvm_1_1asm_1_1op">org::xvm::asm::op</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.asm.op;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.classfile.CodeBuilder;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.classfile.Label;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.constant.ClassDesc;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Op;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Scope;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.javajit.BuildContext;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.javajit.Builder;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.javajit.JitMethodDesc;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.javajit.JitParamDesc;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.Frame;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.Frame.DeferredGuardAction;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.ObjectHandle;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.ObjectHandle.ExceptionHandle;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.template.xNullable;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>java.lang.constant.ConstantDescs.CD_boolean;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="dd/d1b/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_end" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="dd/d1b/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_end_1a0abaab95ed19b52effbb6528b596bfe7" kindref="member">FinallyEnd</ref></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op" kindref="compound">Op</ref><sp/>{</highlight></codeline>
+<codeline lineno="41" refid="dd/d1b/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_end_1a0abaab95ed19b52effbb6528b596bfe7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="dd/d1b/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_end_1a0abaab95ed19b52effbb6528b596bfe7" kindref="member">FinallyEnd</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="45" refid="dd/d1b/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_end_1ace99afde9cd908f3c84b520a0f1d2965" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="dd/d1b/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_end_1ace99afde9cd908f3c84b520a0f1d2965" kindref="member">getOpCode</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a250aadfa5ce93954a92bddba61539cc6" kindref="member">OP_FINALLY_END</ref>;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="50" refid="dd/d1b/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_end_1aa027ee694bdfbb007e70293254357236" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="dd/d1b/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_end_1aa027ee694bdfbb007e70293254357236" kindref="member">isExit</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="55" refid="dd/d1b/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_end_1ae70e2fb7edbf90ca3d4931f470e4d4c4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="dd/d1b/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_end_1ae70e2fb7edbf90ca3d4931f470e4d4c4" kindref="member">process</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frame,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iPC)<sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>a<sp/>possible<sp/>exception<sp/>sits<sp/>in<sp/>the<sp/>first<sp/>variable<sp/>of<sp/>this<sp/>scope,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>which<sp/>is<sp/>the<sp/>same<sp/>as<sp/>the<sp/>&quot;next&quot;<sp/>variable<sp/>in<sp/>the<sp/>previous<sp/>scope</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>(see<sp/>Frame.findGuard<sp/>and<sp/>FinallyStart.process)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nException<sp/>=<sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1ac120fa31ba8e26cef994137cd81bc45c" kindref="member">f_anNextVar</ref>[frame.m_iScope<sp/>-<sp/>1];</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hException<sp/>=<sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1aa6b47d22efbcd6bb07873175daa8774f" kindref="member">f_ahVar</ref>[nException];</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(hException<sp/>==<sp/><ref refid="d2/dc0/classorg_1_1xvm_1_1runtime_1_1template_1_1x_nullable" kindref="compound">xNullable</ref>.<ref refid="d2/dc0/classorg_1_1xvm_1_1runtime_1_1template_1_1x_nullable_1ad186af96be452e69949afd5c707641fb" kindref="member">NULL</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d9f/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_deferred_guard_action" kindref="compound">DeferredGuardAction</ref><sp/>deferred<sp/>=<sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1ab9bad27ff0287121f2d52edd35d95cef" kindref="member">m_deferred</ref>;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(deferred<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>&quot;finally&quot;<sp/>scope<sp/>was<sp/>entered<sp/>naturally<sp/>and<sp/>exits<sp/>naturally</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a321f6cfe0ed273dfc26a4b362d3c4322" kindref="member">exitScope</ref>();</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>iPC<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>&quot;finally&quot;<sp/>scope<sp/>was<sp/>jumped<sp/>to<sp/>from<sp/>a<sp/>RETURN_*<sp/>or<sp/>JUMP<sp/>op</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1af2db839d6b8a8bd45c9c9d51c2caf658" kindref="member">processAllGuard</ref>(deferred);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>re-throw</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1af0bf8b407c9c863fe95276b38ed323d6" kindref="member">raiseException</ref>((<ref refid="da/d17/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_exception_handle" kindref="compound">ExceptionHandle</ref>)<sp/>hException);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="79" refid="dd/d1b/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_end_1a5778e6d71e4bcd2dd91b1ec7d3935431" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dd/d1b/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_end_1a5778e6d71e4bcd2dd91b1ec7d3935431" kindref="member">simulate</ref>(<ref refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_scope" kindref="compound">Scope</ref><sp/>scope)<sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>scope.<ref refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_scope_1a9ca3361e66b8ca5624296e6f70f5753c" kindref="member">exit</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="84" refid="dd/d1b/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_end_1a7c0c511c92d9bc6bf6e958665492bde9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="dd/d1b/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_end_1a7c0c511c92d9bc6bf6e958665492bde9" kindref="member">advances</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dd/d1b/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_end_1a379d2b2bdfb956a381834cf97c3329b7" kindref="member">m_fAdvances</ref>;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92" refid="dd/d1b/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_end_1abfd4e8c2ec28b9ddf429984ecaff8852" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dd/d1b/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_end_1abfd4e8c2ec28b9ddf429984ecaff8852" kindref="member">setCompletes</ref>(</highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>fCompletes)<sp/>{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/d1b/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_end_1a379d2b2bdfb956a381834cf97c3329b7" kindref="member">m_fAdvances</ref><sp/>=<sp/>fCompletes;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99" refid="dd/d1b/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_end_1aa09ffc421b07fa0d97f966d0fc06ed6a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dd/d1b/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_end_1aa09ffc421b07fa0d97f966d0fc06ed6a" kindref="member">registerJump</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nFinallyAddr)<sp/>{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/d1b/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_end_1ac60e5012bfb23d2821ccca1c0a3a5302" kindref="member">m_nFinallyAddr</ref><sp/>=<sp/>nFinallyAddr;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>JIT<sp/>support<sp/>---------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="107" refid="dd/d1b/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_end_1aeaf17d5dd56cc047b7ba227eb6a902c0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dd/d1b/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_end_1aeaf17d5dd56cc047b7ba227eb6a902c0" kindref="member">computeTypes</ref>(<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref><sp/>bctx)<sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bctx.<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a7af55df7db695cc7e6e8d8827bb72399" kindref="member">exitScope</ref>(</highlight><highlight class="keyword">null</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bctx.<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a7af55df7db695cc7e6e8d8827bb72399" kindref="member">exitScope</ref>(</highlight><highlight class="keyword">null</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>we<sp/>could<sp/>be<sp/>called<sp/>for<sp/>dead<sp/>code<sp/>to<sp/>correctly<sp/>compute<sp/>the<sp/>scopes,<sp/>but<sp/>should<sp/>not</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>compute<sp/>types<sp/>further</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(bctx.<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a24b60b4ca6e03388a930f812c9dc96fc" kindref="member">typeMatrix</ref>.<ref refid="de/d98/classorg_1_1xvm_1_1javajit_1_1_type_matrix_1a589c4b7aa071ae34335c1d7e3d8daf81" kindref="member">isReached</ref>(<ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a6772aeabb16b5d4ab914566fb58729e6" kindref="member">getAddress</ref>()))<sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super.computeTypes(bctx);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="119" refid="dd/d1b/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_end_1ae662fe375e674097155536f8e3814776" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="dd/d1b/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_end_1ae662fe375e674097155536f8e3814776" kindref="member">build</ref>(<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref><sp/>bctx,<sp/>CodeBuilder<sp/>code)<sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="da/de9/classorg_1_1xvm_1_1javajit_1_1_scope" kindref="compound">org.xvm.javajit.Scope</ref><sp/>scopeFin<sp/><sp/><sp/>=<sp/>bctx.<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a7af55df7db695cc7e6e8d8827bb72399" kindref="member">exitScope</ref>(code);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="da/de9/classorg_1_1xvm_1_1javajit_1_1_scope" kindref="compound">org.xvm.javajit.Scope</ref><sp/>scopeGuard<sp/>=<sp/>scopeFin.<ref refid="da/de9/classorg_1_1xvm_1_1javajit_1_1_scope_1a35564f8f9128c9edc69b9b70249662a9" kindref="member">parent</ref>;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>&quot;$rethrow&quot;<sp/>is<sp/>an<sp/>optional<sp/>exception<sp/>that<sp/>we<sp/>are<sp/>supposed<sp/>to<sp/>re-throw;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>see<sp/>FinallyStart</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>slotRethrow<sp/>=<sp/>scopeGuard.<ref refid="da/de9/classorg_1_1xvm_1_1javajit_1_1_scope_1a62602b2ad6ee56f0538e0e549611a00a" kindref="member">getRethrow</ref>();</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/>slotRethrow<sp/>&gt;=<sp/>0;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label" kindref="compound">Label</ref><sp/>labelNormal<sp/>=<sp/>code.newLabel();</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.aload(slotRethrow)</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.dup()</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.ifnull(labelNormal)</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.athrow()</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.labelBinding(labelNormal)</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.pop();</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>&quot;jumps&quot;<sp/>list<sp/>contains<sp/>optional<sp/>jump<sp/>addresses;<sp/>see<sp/>Jump</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(Integer<sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a1437d153e8261a4d4ac7819e2b27f4d4" kindref="member">jump</ref><sp/>:<sp/>scopeGuard.<ref refid="da/de9/classorg_1_1xvm_1_1javajit_1_1_scope_1aeea4c55359b59e7b9241f36d46751790" kindref="member">jumps</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/>slotJump<sp/><sp/>=<sp/>scopeGuard.<ref refid="da/de9/classorg_1_1xvm_1_1javajit_1_1_scope_1a4a69f478a3fc566cf0ba3ddbc345f6ef" kindref="member">getSynthetic</ref>(</highlight><highlight class="stringliteral">&quot;$jump&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a1437d153e8261a4d4ac7819e2b27f4d4" kindref="member">jump</ref>,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label" kindref="compound">Label</ref><sp/>labelJump<sp/>=<sp/>bctx.<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1ad8bbd23e05bdfb3c338c8d896c637538" kindref="member">ensureLabel</ref>(code,<sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a1437d153e8261a4d4ac7819e2b27f4d4" kindref="member">jump</ref>);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label" kindref="compound">Label</ref><sp/>labelSkip<sp/>=<sp/>code.newLabel();</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.iload(slotJump)<sp/></highlight><highlight class="comment">//<sp/>boolean:<sp/>if<sp/>true,<sp/>jump<sp/>is<sp/>needed</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.ifeq(labelSkip)</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.goto_(labelJump)</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.labelBinding(labelSkip);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>slotRet<sp/>=<sp/>scopeGuard.<ref refid="da/de9/classorg_1_1xvm_1_1javajit_1_1_scope_1a4a69f478a3fc566cf0ba3ddbc345f6ef" kindref="member">getSynthetic</ref>(<ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all" kindref="compound">GuardAll</ref>.<ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a147585594e211fb5db628144b77eed1c" kindref="member">DO_RETURN_SLOT_NAME</ref>,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(slotRet<sp/>&gt;=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>this<sp/>is<sp/>the<sp/>topmost<sp/>FinallyEnd;<sp/>generate<sp/>the<sp/>return<sp/>code</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d0/d2b/classorg_1_1xvm_1_1javajit_1_1_jit_method_desc" kindref="compound">JitMethodDesc</ref><sp/>jmd<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>bctx.<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1ad26a2ec03aea80a5c94f3633ebb074f6" kindref="member">methodDesc</ref>;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fOptimized<sp/>=<sp/>bctx.<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1ac5a6c012509f103fddeb3ee927e7268e" kindref="member">isOptimized</ref>;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cRets<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>jmd.<ref refid="d0/d2b/classorg_1_1xvm_1_1javajit_1_1_jit_method_desc_1a77ef9bc101f2b8b9f33b5d6447cf9eca" kindref="member">standardReturns</ref>.length;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label" kindref="compound">Label</ref><sp/>labelSkip<sp/>=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="dd/d1b/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_end_1a7c0c511c92d9bc6bf6e958665492bde9" kindref="member">advances</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>labelSkip<sp/>=<sp/>code.newLabel();</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.iload(slotRet);<sp/><sp/></highlight><highlight class="comment">//<sp/>boolean:<sp/>if<sp/>true,<sp/>return<sp/>is<sp/>needed</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.ifeq(labelSkip);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>$doReturn<sp/>must<sp/>be<sp/>&quot;true&quot;<sp/>here</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>cRets<sp/>-<sp/>1;<sp/>i<sp/>&gt;=<sp/>0;<sp/>i--)<sp/>{</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">[]<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>optIndexes<sp/>=<sp/>jmd.<ref refid="d0/d2b/classorg_1_1xvm_1_1javajit_1_1_jit_method_desc_1a9c8adacaba232e11b7139600c368db57" kindref="member">getAllOptimizedReturnIndexes</ref>(i);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>iOpt<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>fOptimized<sp/>?<sp/>optIndexes[0]<sp/>:<sp/>-1;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d14/classorg_1_1xvm_1_1javajit_1_1_jit_param_desc" kindref="compound">JitParamDesc</ref><sp/>pdRet<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>fOptimized<sp/>?<sp/>jmd.<ref refid="d0/d2b/classorg_1_1xvm_1_1javajit_1_1_jit_method_desc_1adcb8fcccb52aa0d3544c13391d97233d" kindref="member">optimizedReturns</ref>[iOpt]</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>jmd.<ref refid="d0/d2b/classorg_1_1xvm_1_1javajit_1_1_jit_method_desc_1a77ef9bc101f2b8b9f33b5d6447cf9eca" kindref="member">standardReturns</ref>[i];</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ClassDesc<sp/><sp/><sp/><sp/>cd<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>pdRet.<ref refid="d5/d1d/classorg_1_1xvm_1_1javajit_1_1_jit_type_desc_1ac0cac0c3f3e19cebba78f45398e741a0" kindref="member">cd</ref>;</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>iExt<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>fOptimized<sp/>?<sp/>optIndexes[optIndexes.length<sp/>-<sp/>1]<sp/>:<sp/>-1;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d14/classorg_1_1xvm_1_1javajit_1_1_jit_param_desc" kindref="compound">JitParamDesc</ref><sp/>pdExt<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>fOptimized<sp/>?<sp/>jmd.<ref refid="d0/d2b/classorg_1_1xvm_1_1javajit_1_1_jit_method_desc_1adcb8fcccb52aa0d3544c13391d97233d" kindref="member">optimizedReturns</ref>[iExt]<sp/>:<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>load<sp/>the<sp/>return<sp/>values<sp/>(including<sp/>any<sp/>extension<sp/>slots)<sp/>to<sp/>the<sp/>stack</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>optIndex<sp/>:<sp/>optIndexes)<sp/>{</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d14/classorg_1_1xvm_1_1javajit_1_1_jit_param_desc" kindref="compound">JitParamDesc</ref><sp/>pd<sp/><sp/><sp/>=<sp/>jmd.<ref refid="d0/d2b/classorg_1_1xvm_1_1javajit_1_1_jit_method_desc_1adcb8fcccb52aa0d3544c13391d97233d" kindref="member">optimizedReturns</ref>[optIndex];</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/><sp/><sp/><sp/><sp/><sp/><sp/>name<sp/>=<sp/><ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all" kindref="compound">GuardAll</ref>.<ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a8e87979bdea2f4f19304161f976c95eb" kindref="member">returnSlotName</ref>(pd);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>slot<sp/>=<sp/>scopeGuard.<ref refid="da/de9/classorg_1_1xvm_1_1javajit_1_1_scope_1a4a69f478a3fc566cf0ba3ddbc345f6ef" kindref="member">getSynthetic</ref>(name,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder" kindref="compound">Builder</ref>.<ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1ad3df12dabdde4ba6106efffd5d2616af" kindref="member">load</ref>(code,<sp/>pd.<ref refid="d5/d1d/classorg_1_1xvm_1_1javajit_1_1_jit_type_desc_1ac0cac0c3f3e19cebba78f45398e741a0" kindref="member">cd</ref>,<sp/>slot);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>code<sp/>below<sp/>is<sp/>complementary<sp/>to<sp/>the<sp/>code<sp/>in<sp/>OpReturn</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(pdRet.<ref refid="d5/d1d/classorg_1_1xvm_1_1javajit_1_1_jit_type_desc_1a0932d5c0adbca9fefee87e21bb2fa08e" kindref="member">flavor</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>NullablePrimitive:</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/>fOptimized;</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>extSlot<sp/>boolean<sp/>will<sp/>be<sp/>on<sp/>the<sp/>top<sp/>of<sp/>the<sp/>stack</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder" kindref="compound">Builder</ref>.<ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1aff29790fde281d9504dfa2bff0db5a11" kindref="member">storeToContext</ref>(code,<sp/>CD_boolean,<sp/>0);</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder" kindref="compound">Builder</ref>.<ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1aeda04bb037e088744642ad2af78f4e8e" kindref="member">addReturn</ref>(code,<sp/>cd);</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>XvmPrimitive,<sp/>NullableXvmPrimitive:</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>store<sp/>the<sp/>return<sp/>primitives<sp/>(including<sp/>any<sp/>extensions)<sp/>to<sp/>the<sp/>context,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>leaving<sp/>the<sp/>last<sp/>one<sp/>on<sp/>the<sp/>stack</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>optIndexes.length<sp/>-<sp/>1;<sp/>j<sp/>&gt;=<sp/>1<sp/>;<sp/>j--)<sp/>{</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d14/classorg_1_1xvm_1_1javajit_1_1_jit_param_desc" kindref="compound">JitParamDesc</ref><sp/>retDesc<sp/>=<sp/>jmd.<ref refid="d0/d2b/classorg_1_1xvm_1_1javajit_1_1_jit_method_desc_1adcb8fcccb52aa0d3544c13391d97233d" kindref="member">optimizedReturns</ref>[optIndexes[j]];</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder" kindref="compound">Builder</ref>.<ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1aff29790fde281d9504dfa2bff0db5a11" kindref="member">storeToContext</ref>(code,<sp/>retDesc.<ref refid="d5/d1d/classorg_1_1xvm_1_1javajit_1_1_jit_type_desc_1ac0cac0c3f3e19cebba78f45398e741a0" kindref="member">cd</ref>,<sp/>retDesc.<ref refid="d7/d14/classorg_1_1xvm_1_1javajit_1_1_jit_param_desc_1abb7fb74e3ca4ddeb8b80aa9feb102899" kindref="member">altIndex</ref>);</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>set<sp/>the<sp/>last<sp/>primitive<sp/>on<sp/>the<sp/>stack<sp/>as<sp/>the<sp/>return<sp/>value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder" kindref="compound">Builder</ref>.<ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1aeda04bb037e088744642ad2af78f4e8e" kindref="member">addReturn</ref>(code,<sp/>cd);</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder" kindref="compound">Builder</ref>.<ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1aeda04bb037e088744642ad2af78f4e8e" kindref="member">addReturn</ref>(code,<sp/>cd);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(pdRet.<ref refid="d5/d1d/classorg_1_1xvm_1_1javajit_1_1_jit_type_desc_1a0932d5c0adbca9fefee87e21bb2fa08e" kindref="member">flavor</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>NullablePrimitive:</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/>fOptimized;</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>extSlot<sp/>boolean<sp/>will<sp/>be<sp/>on<sp/>the<sp/>top<sp/>of<sp/>the<sp/>stack</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder" kindref="compound">Builder</ref>.<ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1aff29790fde281d9504dfa2bff0db5a11" kindref="member">storeToContext</ref>(code,<sp/>cd,<sp/>pdRet.<ref refid="d7/d14/classorg_1_1xvm_1_1javajit_1_1_jit_param_desc_1abb7fb74e3ca4ddeb8b80aa9feb102899" kindref="member">altIndex</ref>);</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder" kindref="compound">Builder</ref>.<ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1aff29790fde281d9504dfa2bff0db5a11" kindref="member">storeToContext</ref>(code,<sp/>CD_boolean,<sp/>pdExt.<ref refid="d7/d14/classorg_1_1xvm_1_1javajit_1_1_jit_param_desc_1abb7fb74e3ca4ddeb8b80aa9feb102899" kindref="member">altIndex</ref>);</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>XvmPrimitive,<sp/>NullableXvmPrimitive:</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>store<sp/>the<sp/>return<sp/>primitives<sp/>(including<sp/>any<sp/>extensions)<sp/>to<sp/>the<sp/>context</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>optIndexes.length<sp/>-<sp/>1;<sp/>j<sp/>&gt;=<sp/>0<sp/>;<sp/>j--)<sp/>{</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d14/classorg_1_1xvm_1_1javajit_1_1_jit_param_desc" kindref="compound">JitParamDesc</ref><sp/>retDesc<sp/>=<sp/>jmd.<ref refid="d0/d2b/classorg_1_1xvm_1_1javajit_1_1_jit_method_desc_1adcb8fcccb52aa0d3544c13391d97233d" kindref="member">optimizedReturns</ref>[optIndexes[j]];</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder" kindref="compound">Builder</ref>.<ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1aff29790fde281d9504dfa2bff0db5a11" kindref="member">storeToContext</ref>(code,<sp/>retDesc.<ref refid="d5/d1d/classorg_1_1xvm_1_1javajit_1_1_jit_type_desc_1ac0cac0c3f3e19cebba78f45398e741a0" kindref="member">cd</ref>,<sp/>retDesc.<ref refid="d7/d14/classorg_1_1xvm_1_1javajit_1_1_jit_param_desc_1abb7fb74e3ca4ddeb8b80aa9feb102899" kindref="member">altIndex</ref>);</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder" kindref="compound">Builder</ref>.<ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1aff29790fde281d9504dfa2bff0db5a11" kindref="member">storeToContext</ref>(code,<sp/>cd,<sp/>pdRet.<ref refid="d7/d14/classorg_1_1xvm_1_1javajit_1_1_jit_param_desc_1abb7fb74e3ca4ddeb8b80aa9feb102899" kindref="member">altIndex</ref>);</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(labelSkip<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.labelBinding(labelSkip);</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="dd/d1b/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_end_1ac60e5012bfb23d2821ccca1c0a3a5302" kindref="member">m_nFinallyAddr</ref><sp/>!=<sp/>-1)<sp/>{</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>check<sp/>if<sp/>the<sp/>&quot;return&quot;<sp/>has<sp/>beed<sp/>encountered<sp/>and<sp/>if<sp/>so,<sp/>jump<sp/>to<sp/>the<sp/>next<sp/>&quot;finally&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>slotRet<sp/>=<sp/>scopeGuard.<ref refid="da/de9/classorg_1_1xvm_1_1javajit_1_1_scope_1a4a69f478a3fc566cf0ba3ddbc345f6ef" kindref="member">getSynthetic</ref>(<ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all" kindref="compound">GuardAll</ref>.<ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a147585594e211fb5db628144b77eed1c" kindref="member">DO_RETURN_SLOT_NAME</ref>,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/>slotRet<sp/>&gt;=<sp/>0;</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.iload(slotRet);<sp/><sp/></highlight><highlight class="comment">//<sp/>boolean:<sp/>if<sp/>true,<sp/>a<sp/>return<sp/>has<sp/>been<sp/>encountered<sp/>(see<sp/>OpReturn)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.ifne(bctx.<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1ad8bbd23e05bdfb3c338c8d896c637538" kindref="member">ensureLabel</ref>(code,<sp/><ref refid="dd/d1b/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_end_1ac60e5012bfb23d2821ccca1c0a3a5302" kindref="member">m_nFinallyAddr</ref>));</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bctx.<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a7af55df7db695cc7e6e8d8827bb72399" kindref="member">exitScope</ref>(code);</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"></highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>fields<sp/>--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal"></highlight></codeline>
+<codeline lineno="247" refid="dd/d1b/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_end_1a379d2b2bdfb956a381834cf97c3329b7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">transient</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="dd/d1b/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_end_1a379d2b2bdfb956a381834cf97c3329b7" kindref="member">m_fAdvances</ref><sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="248" refid="dd/d1b/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_end_1ac60e5012bfb23d2821ccca1c0a3a5302" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">transient</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><ref refid="dd/d1b/classorg_1_1xvm_1_1asm_1_1op_1_1_finally_end_1ac60e5012bfb23d2821ccca1c0a3a5302" kindref="member">m_nFinallyAddr</ref><sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="249"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/op/FinallyEnd.java"/>
+  </compounddef>
+</doxygen>

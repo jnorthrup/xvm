@@ -1,0 +1,1334 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set" kind="class" language="Java" prot="public">
+    <compoundname>org::xvm::util::ListSet</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">AbstractSet&lt; E &gt;</basecompoundref>
+    <innerclass refid="d1/d87/classorg_1_1xvm_1_1util_1_1_list_set_1_1_safe_iterator" prot="private">org::xvm::util::ListSet::SafeIterator</innerclass>
+    <innerclass refid="d9/de3/classorg_1_1xvm_1_1util_1_1_list_set_1_1_special" prot="private">org::xvm::util::ListSet::Special</innerclass>
+    <innerclass refid="d1/d3d/classorg_1_1xvm_1_1util_1_1_list_set_1_1_stop" prot="private">org::xvm::util::ListSet::Stop</innerclass>
+    <innerclass refid="d1/dcc/classorg_1_1xvm_1_1util_1_1_list_set_1_1_null" prot="private">org::xvm::util::ListSet::Null</innerclass>
+    <templateparamlist>
+      <param>
+        <type>E</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a146b1ef8a03099e76d1bc7f8e4d76c74" prot="private" static="yes" mutable="no">
+        <type>final Object</type>
+        <definition>final Object org.xvm.util.ListSet&lt; E &gt;.NULL</definition>
+        <argsstring></argsstring>
+        <name>NULL</name>
+        <qualifiedname>org.xvm.util.ListSet.NULL</qualifiedname>
+        <initializer>= new <ref refid="d1/dcc/classorg_1_1xvm_1_1util_1_1_list_set_1_1_null" kindref="compound">Null</ref>()</initializer>
+        <briefdescription>
+<para>The singleton used to represent a &quot;null&quot; value that is stored in the set. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="1113" column="33" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="1113" bodyend="-1"/>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1af1ce163117794cc8ad3aec13ea3fcf6b" compoundref="d9/d86/_list_set_8java" startline="268" endline="271">org.xvm.util.ListSet&lt; E &gt;.toExternal</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a72d25ec00659bf13e0510ce62f8b3774" compoundref="d9/d86/_list_set_8java" startline="257" endline="259">org.xvm.util.ListSet&lt; E &gt;.toInternal</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1af1755a6e57fc9b1ab8cd10f5d9646db4" prot="private" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int org.xvm.util.ListSet&lt; E &gt;.INDEX_MIN</definition>
+        <argsstring></argsstring>
+        <name>INDEX_MIN</name>
+        <qualifiedname>org.xvm.util.ListSet.INDEX_MIN</qualifiedname>
+        <initializer>= 12</initializer>
+        <briefdescription>
+<para>Do not index small sets. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="1118" column="32" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="1118" bodyend="-1"/>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a75bd32ddb25e49f58cf147c54483c94e" compoundref="d9/d86/_list_set_8java" startline="278" endline="308">org.xvm.util.ListSet&lt; E &gt;.addInternal</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a0cf1d21c7aa2612a615c953606c7115c" prot="private" static="yes" mutable="no">
+        <type>final int[]</type>
+        <definition>final int [] org.xvm.util.ListSet&lt; E &gt;.INDEX_SIZE</definition>
+        <argsstring></argsstring>
+        <name>INDEX_SIZE</name>
+        <qualifiedname>org.xvm.util.ListSet.INDEX_SIZE</qualifiedname>
+        <initializer>                                    = new int[] {
+           0,        0,         0,         0,        23,    
+          47,       97,       191,       373,       757,    
+        1543,     2999,      5987,     11987,     23993,    
+       47981,    95989,    189877,    389447,    779353,    
+     1499977,  2999999,   5999993,  11999989,  23999999,    
+    47999969, 95999993, 191999987, 383999983, 767999993,    
+}</initializer>
+        <briefdescription>
+<para>The amount of storage for an index, based on the size of the underlying storage for the <ref refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set" kindref="compound">ListSet</ref>, which is always of a power-of-two size. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="1124" column="30" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="1124" bodyend="1131"/>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a4dbb4cbf8573838d0e1c3910ab954d2a" compoundref="d9/d86/_list_set_8java" startline="569" endline="620">org.xvm.util.ListSet&lt; E &gt;.indexInit</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ac66f60b663e706642e052baa32452037" prot="private" static="no" mutable="no">
+        <type>Object[]</type>
+        <definition>Object [] org.xvm.util.ListSet&lt; E &gt;.m_aElem</definition>
+        <argsstring></argsstring>
+        <name>m_aElem</name>
+        <qualifiedname>org.xvm.util.ListSet.m_aElem</qualifiedname>
+        <briefdescription>
+<para>The contents of the set. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Must be a power of 2. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="1139" column="20" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="1139" bodyend="-1"/>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a75bd32ddb25e49f58cf147c54483c94e" compoundref="d9/d86/_list_set_8java" startline="278" endline="308">org.xvm.util.ListSet&lt; E &gt;.addInternal</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a11dc522f305c1bdb39793fe28854f2ff" compoundref="d9/d86/_list_set_8java" startline="181" endline="196">org.xvm.util.ListSet&lt; E &gt;.clear</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a2c3ca6fc329be006e8805782ec8339fb" compoundref="d9/d86/_list_set_8java" startline="352" endline="415">org.xvm.util.ListSet&lt; E &gt;.compact</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1af93bd05583ae39de8862513701d7db4b" compoundref="d9/d86/_list_set_8java" startline="332" endline="347">org.xvm.util.ListSet&lt; E &gt;.ensureSpace</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ae84699c59468d9636f997e5ccb9d34c1" compoundref="d9/d86/_list_set_8java" startline="315" endline="327">org.xvm.util.ListSet&lt; E &gt;.ensureStop</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a304b11127e3e8ab440701aad99dbf668" compoundref="d9/d86/_list_set_8java" startline="112" endline="139">org.xvm.util.ListSet&lt; E &gt;.get</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aad0e1b17f49040f76c0260d7d971b5d0" compoundref="d9/d86/_list_set_8java" startline="420" endline="447">org.xvm.util.ListSet&lt; E &gt;.grow</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a4dbb4cbf8573838d0e1c3910ab954d2a" compoundref="d9/d86/_list_set_8java" startline="569" endline="620">org.xvm.util.ListSet&lt; E &gt;.indexInit</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a43bcd729aecfdd52766870e5ae4b0006" compoundref="d9/d86/_list_set_8java" startline="215" endline="248">org.xvm.util.ListSet&lt; E &gt;.indexOf</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aa2f4e3327283e0758cbd952dc5a01b89" compoundref="d9/d86/_list_set_8java" startline="725" endline="755">org.xvm.util.ListSet&lt; E &gt;.indexSearch</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a6a69bf7815b121bea0128bb431d183df" compoundref="d9/d86/_list_set_8java" startline="34" endline="37">org.xvm.util.ListSet&lt; E &gt;.ListSet</referencedby>
+        <referencedby refid="d1/d87/classorg_1_1xvm_1_1util_1_1_list_set_1_1_safe_iterator_1a7d4200d84350bdad0c885afe764aac30" compoundref="d9/d86/_list_set_8java" startline="889" endline="907">org.xvm.util.ListSet&lt; E &gt;.SafeIterator.loadNext</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1abb97eed79208c57fb7d1d7b26f31597d" compoundref="d9/d86/_list_set_8java" startline="535" endline="556">org.xvm.util.ListSet&lt; E &gt;.remove</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a902f0d2441a36aa107a28c671bda4e70" compoundref="d9/d86/_list_set_8java" startline="458" endline="481">org.xvm.util.ListSet&lt; E &gt;.verify</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aa07b2fdb95502a17e84970d37b018de8" compoundref="d9/d86/_list_set_8java" startline="492" endline="528">org.xvm.util.ListSet&lt; E &gt;.verifyIterator</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a6979d4cdcb34b42770f75bd1a4724f8d" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int org.xvm.util.ListSet&lt; E &gt;.m_iHead</definition>
+        <argsstring></argsstring>
+        <name>m_iHead</name>
+        <qualifiedname>org.xvm.util.ListSet.m_iHead</qualifiedname>
+        <briefdescription>
+<para>The &quot;head&quot; of the growing list is the index of the next element to add; <javadoccode>head &gt;= tail &gt;= 0</javadoccode>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The value of this index cannot be used as an index into m_aElem unless it is modulo&apos;d by the length of the array. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="1146" column="17" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="1146" bodyend="-1"/>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a75bd32ddb25e49f58cf147c54483c94e" compoundref="d9/d86/_list_set_8java" startline="278" endline="308">org.xvm.util.ListSet&lt; E &gt;.addInternal</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a11dc522f305c1bdb39793fe28854f2ff" compoundref="d9/d86/_list_set_8java" startline="181" endline="196">org.xvm.util.ListSet&lt; E &gt;.clear</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a2c3ca6fc329be006e8805782ec8339fb" compoundref="d9/d86/_list_set_8java" startline="352" endline="415">org.xvm.util.ListSet&lt; E &gt;.compact</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ae84699c59468d9636f997e5ccb9d34c1" compoundref="d9/d86/_list_set_8java" startline="315" endline="327">org.xvm.util.ListSet&lt; E &gt;.ensureStop</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a304b11127e3e8ab440701aad99dbf668" compoundref="d9/d86/_list_set_8java" startline="112" endline="139">org.xvm.util.ListSet&lt; E &gt;.get</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aad0e1b17f49040f76c0260d7d971b5d0" compoundref="d9/d86/_list_set_8java" startline="420" endline="447">org.xvm.util.ListSet&lt; E &gt;.grow</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a4dbb4cbf8573838d0e1c3910ab954d2a" compoundref="d9/d86/_list_set_8java" startline="569" endline="620">org.xvm.util.ListSet&lt; E &gt;.indexInit</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a43bcd729aecfdd52766870e5ae4b0006" compoundref="d9/d86/_list_set_8java" startline="215" endline="248">org.xvm.util.ListSet&lt; E &gt;.indexOf</referencedby>
+        <referencedby refid="d1/d87/classorg_1_1xvm_1_1util_1_1_list_set_1_1_safe_iterator_1a7d4200d84350bdad0c885afe764aac30" compoundref="d9/d86/_list_set_8java" startline="889" endline="907">org.xvm.util.ListSet&lt; E &gt;.SafeIterator.loadNext</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1abb97eed79208c57fb7d1d7b26f31597d" compoundref="d9/d86/_list_set_8java" startline="535" endline="556">org.xvm.util.ListSet&lt; E &gt;.remove</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ad203e8d1ee1a924a1a64d0cd70de2b28" compoundref="d9/d86/_list_set_8java" startline="145" endline="147">org.xvm.util.ListSet&lt; E &gt;.size</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a902f0d2441a36aa107a28c671bda4e70" compoundref="d9/d86/_list_set_8java" startline="458" endline="481">org.xvm.util.ListSet&lt; E &gt;.verify</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aa07b2fdb95502a17e84970d37b018de8" compoundref="d9/d86/_list_set_8java" startline="492" endline="528">org.xvm.util.ListSet&lt; E &gt;.verifyIterator</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aa4a0a5c69fb144e8ae7be28daaaee034" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int org.xvm.util.ListSet&lt; E &gt;.m_iTail</definition>
+        <argsstring></argsstring>
+        <name>m_iTail</name>
+        <qualifiedname>org.xvm.util.ListSet.m_iTail</qualifiedname>
+        <briefdescription>
+<para>The &quot;tail&quot; is the index of the oldest element in the list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The value of this index cannot be used as an index into m_aElem unless it is modulo&apos;d by the length of the array. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="1152" column="17" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="1152" bodyend="-1"/>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a75bd32ddb25e49f58cf147c54483c94e" compoundref="d9/d86/_list_set_8java" startline="278" endline="308">org.xvm.util.ListSet&lt; E &gt;.addInternal</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a11dc522f305c1bdb39793fe28854f2ff" compoundref="d9/d86/_list_set_8java" startline="181" endline="196">org.xvm.util.ListSet&lt; E &gt;.clear</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a2c3ca6fc329be006e8805782ec8339fb" compoundref="d9/d86/_list_set_8java" startline="352" endline="415">org.xvm.util.ListSet&lt; E &gt;.compact</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ae84699c59468d9636f997e5ccb9d34c1" compoundref="d9/d86/_list_set_8java" startline="315" endline="327">org.xvm.util.ListSet&lt; E &gt;.ensureStop</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a304b11127e3e8ab440701aad99dbf668" compoundref="d9/d86/_list_set_8java" startline="112" endline="139">org.xvm.util.ListSet&lt; E &gt;.get</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aad0e1b17f49040f76c0260d7d971b5d0" compoundref="d9/d86/_list_set_8java" startline="420" endline="447">org.xvm.util.ListSet&lt; E &gt;.grow</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a4dbb4cbf8573838d0e1c3910ab954d2a" compoundref="d9/d86/_list_set_8java" startline="569" endline="620">org.xvm.util.ListSet&lt; E &gt;.indexInit</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a43bcd729aecfdd52766870e5ae4b0006" compoundref="d9/d86/_list_set_8java" startline="215" endline="248">org.xvm.util.ListSet&lt; E &gt;.indexOf</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1abb97eed79208c57fb7d1d7b26f31597d" compoundref="d9/d86/_list_set_8java" startline="535" endline="556">org.xvm.util.ListSet&lt; E &gt;.remove</referencedby>
+        <referencedby refid="d1/d87/classorg_1_1xvm_1_1util_1_1_list_set_1_1_safe_iterator_1ae995f7ae9a58b96cfe8c7b417d9a985c" compoundref="d9/d86/_list_set_8java" startline="816" endline="826">org.xvm.util.ListSet&lt; E &gt;.SafeIterator.SafeIterator</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ad203e8d1ee1a924a1a64d0cd70de2b28" compoundref="d9/d86/_list_set_8java" startline="145" endline="147">org.xvm.util.ListSet&lt; E &gt;.size</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a902f0d2441a36aa107a28c671bda4e70" compoundref="d9/d86/_list_set_8java" startline="458" endline="481">org.xvm.util.ListSet&lt; E &gt;.verify</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aa07b2fdb95502a17e84970d37b018de8" compoundref="d9/d86/_list_set_8java" startline="492" endline="528">org.xvm.util.ListSet&lt; E &gt;.verifyIterator</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a2b559e143b382d1244806a4389b605ea" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int org.xvm.util.ListSet&lt; E &gt;.m_cBlank</definition>
+        <argsstring></argsstring>
+        <name>m_cBlank</name>
+        <qualifiedname>org.xvm.util.ListSet.m_cBlank</qualifiedname>
+        <briefdescription>
+<para>The count of blank (nulls i.e. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>removed, and hard-stops) elements in the middle of the list. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="1157" column="17" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="1157" bodyend="-1"/>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a75bd32ddb25e49f58cf147c54483c94e" compoundref="d9/d86/_list_set_8java" startline="278" endline="308">org.xvm.util.ListSet&lt; E &gt;.addInternal</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a11dc522f305c1bdb39793fe28854f2ff" compoundref="d9/d86/_list_set_8java" startline="181" endline="196">org.xvm.util.ListSet&lt; E &gt;.clear</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a2c3ca6fc329be006e8805782ec8339fb" compoundref="d9/d86/_list_set_8java" startline="352" endline="415">org.xvm.util.ListSet&lt; E &gt;.compact</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1af93bd05583ae39de8862513701d7db4b" compoundref="d9/d86/_list_set_8java" startline="332" endline="347">org.xvm.util.ListSet&lt; E &gt;.ensureSpace</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ae84699c59468d9636f997e5ccb9d34c1" compoundref="d9/d86/_list_set_8java" startline="315" endline="327">org.xvm.util.ListSet&lt; E &gt;.ensureStop</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1abb97eed79208c57fb7d1d7b26f31597d" compoundref="d9/d86/_list_set_8java" startline="535" endline="556">org.xvm.util.ListSet&lt; E &gt;.remove</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ad203e8d1ee1a924a1a64d0cd70de2b28" compoundref="d9/d86/_list_set_8java" startline="145" endline="147">org.xvm.util.ListSet&lt; E &gt;.size</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a66a1ca1e5cde340855283a2ccac5ab21" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int org.xvm.util.ListSet&lt; E &gt;.m_cReorgs</definition>
+        <argsstring></argsstring>
+        <name>m_cReorgs</name>
+        <qualifiedname>org.xvm.util.ListSet.m_cReorgs</qualifiedname>
+        <briefdescription>
+<para>The number of times that the list has been cleared, resized, or compacted. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="1162" column="17" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="1162" bodyend="-1"/>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a11dc522f305c1bdb39793fe28854f2ff" compoundref="d9/d86/_list_set_8java" startline="181" endline="196">org.xvm.util.ListSet&lt; E &gt;.clear</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a2c3ca6fc329be006e8805782ec8339fb" compoundref="d9/d86/_list_set_8java" startline="352" endline="415">org.xvm.util.ListSet&lt; E &gt;.compact</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aad0e1b17f49040f76c0260d7d971b5d0" compoundref="d9/d86/_list_set_8java" startline="420" endline="447">org.xvm.util.ListSet&lt; E &gt;.grow</referencedby>
+        <referencedby refid="d1/d87/classorg_1_1xvm_1_1util_1_1_list_set_1_1_safe_iterator_1ae995f7ae9a58b96cfe8c7b417d9a985c" compoundref="d9/d86/_list_set_8java" startline="816" endline="826">org.xvm.util.ListSet&lt; E &gt;.SafeIterator.SafeIterator</referencedby>
+        <referencedby refid="d1/d87/classorg_1_1xvm_1_1util_1_1_list_set_1_1_safe_iterator_1a981ed7b1dd1afcd8dbcc9109e993002b" compoundref="d9/d86/_list_set_8java" startline="916" endline="935">org.xvm.util.ListSet&lt; E &gt;.SafeIterator.synced</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ae5352f98c7078305c9d12af8c43bc262" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int org.xvm.util.ListSet&lt; E &gt;.m_cStops</definition>
+        <argsstring></argsstring>
+        <name>m_cStops</name>
+        <qualifiedname>org.xvm.util.ListSet.m_cStops</qualifiedname>
+        <briefdescription>
+<para>The hard stop counter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Each hard-stop has an integer identity, which comes from this counter. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="1167" column="17" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="1167" bodyend="-1"/>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ae84699c59468d9636f997e5ccb9d34c1" compoundref="d9/d86/_list_set_8java" startline="315" endline="327">org.xvm.util.ListSet&lt; E &gt;.ensureStop</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a3dd51b6fe1be2a1cb9f1ac935933303e" prot="private" static="no" mutable="no">
+        <type>int[]</type>
+        <definition>int [] org.xvm.util.ListSet&lt; E &gt;.m_anHash</definition>
+        <argsstring></argsstring>
+        <name>m_anHash</name>
+        <qualifiedname>org.xvm.util.ListSet.m_anHash</qualifiedname>
+        <briefdescription>
+<para>A hash index, using open addressing with linear probing, composed of pairs of values, the first of which is an index into the underlying <ref refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set" kindref="compound">ListSet</ref> storage (or -1 if the bucket is unused), and the second of which is the hashcode for the element stored at that index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="1174" column="17" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="1174" bodyend="-1"/>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a11dc522f305c1bdb39793fe28854f2ff" compoundref="d9/d86/_list_set_8java" startline="181" endline="196">org.xvm.util.ListSet&lt; E &gt;.clear</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a372bd3427603ca4d16c1b8c64985d4ef" compoundref="d9/d86/_list_set_8java" startline="66" endline="71">org.xvm.util.ListSet&lt; E &gt;.disableHashIndex</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a96ab1dc178a60a741c6acc6572a5c826" compoundref="d9/d86/_list_set_8java" startline="628" endline="648">org.xvm.util.ListSet&lt; E &gt;.indexAdd</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a06a1cdcacfae6faeb36901f8a5651f77" compoundref="d9/d86/_list_set_8java" startline="765" endline="788">org.xvm.util.ListSet&lt; E &gt;.indexAdjust</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1acef8ebfecfc35f986c6c90bcf0ee95fc" compoundref="d9/d86/_list_set_8java" startline="796" endline="804">org.xvm.util.ListSet&lt; E &gt;.indexAdjustAll</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a4d74bf82748586262791719a610e3c95" compoundref="d9/d86/_list_set_8java" startline="561" endline="563">org.xvm.util.ListSet&lt; E &gt;.indexEnabled</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a4dbb4cbf8573838d0e1c3910ab954d2a" compoundref="d9/d86/_list_set_8java" startline="569" endline="620">org.xvm.util.ListSet&lt; E &gt;.indexInit</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a98a9b872eaa972f296a9d6a1bd7cdcb0" compoundref="d9/d86/_list_set_8java" startline="656" endline="716">org.xvm.util.ListSet&lt; E &gt;.indexRemove</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aa2f4e3327283e0758cbd952dc5a01b89" compoundref="d9/d86/_list_set_8java" startline="725" endline="755">org.xvm.util.ListSet&lt; E &gt;.indexSearch</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ad630b6328ca6aa7854e781bd450126c6" prot="private" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean org.xvm.util.ListSet&lt; E &gt;.m_fSuppressEquals</definition>
+        <argsstring></argsstring>
+        <name>m_fSuppressEquals</name>
+        <qualifiedname>org.xvm.util.ListSet.m_fSuppressEquals</qualifiedname>
+        <briefdescription>
+<para>Set to true to indicate that only identity equality is used, and thus equals() should NOT be used to compare elements. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="1180" column="21" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="1180" bodyend="-1"/>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a43bcd729aecfdd52766870e5ae4b0006" compoundref="d9/d86/_list_set_8java" startline="215" endline="248">org.xvm.util.ListSet&lt; E &gt;.indexOf</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aa2f4e3327283e0758cbd952dc5a01b89" compoundref="d9/d86/_list_set_8java" startline="725" endline="755">org.xvm.util.ListSet&lt; E &gt;.indexSearch</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a9938c9afd76a5c5a63e0b31129432b47" compoundref="d9/d86/_list_set_8java" startline="56" endline="60">org.xvm.util.ListSet&lt; E &gt;.useIdentityEquality</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aba4fa7a7d38a98b741336a79d3e0fc2c" prot="private" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean org.xvm.util.ListSet&lt; E &gt;.m_fSuppressHash</definition>
+        <argsstring></argsstring>
+        <name>m_fSuppressHash</name>
+        <qualifiedname>org.xvm.util.ListSet.m_fSuppressHash</qualifiedname>
+        <briefdescription>
+<para>Set to true to indicate that hashed lookups are not allowed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="1185" column="21" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="1185" bodyend="-1"/>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a75bd32ddb25e49f58cf147c54483c94e" compoundref="d9/d86/_list_set_8java" startline="278" endline="308">org.xvm.util.ListSet&lt; E &gt;.addInternal</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a372bd3427603ca4d16c1b8c64985d4ef" compoundref="d9/d86/_list_set_8java" startline="66" endline="71">org.xvm.util.ListSet&lt; E &gt;.disableHashIndex</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a811dc540c98521afdf33cae53ccd379a" prot="private" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean org.xvm.util.ListSet&lt; E &gt;.m_fSuppressNull</definition>
+        <argsstring></argsstring>
+        <name>m_fSuppressNull</name>
+        <qualifiedname>org.xvm.util.ListSet.m_fSuppressNull</qualifiedname>
+        <briefdescription>
+<para>Set to true to indicate that null values are not allowed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="1190" column="21" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="1190" bodyend="-1"/>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a9f13dc32d5ce2217bcdc5f8077e419d4" compoundref="d9/d86/_list_set_8java" startline="155" endline="167">org.xvm.util.ListSet&lt; E &gt;.add</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ae6491e9f07fb7f2856b65858875712fb" compoundref="d9/d86/_list_set_8java" startline="77" endline="81">org.xvm.util.ListSet&lt; E &gt;.disallowNulls</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1abf14c352cdb38dbaebba4cfd3ec7c359" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.xvm.util.ListSet&lt; E &gt;.ListSet</definition>
+        <argsstring>()</argsstring>
+        <name>ListSet</name>
+        <qualifiedname>org.xvm.util.ListSet.ListSet</qualifiedname>
+        <briefdescription>
+<para>Construct a new <ref refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set" kindref="compound">ListSet</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="25" column="12" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="25" bodyend="27"/>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a372bd3427603ca4d16c1b8c64985d4ef" compoundref="d9/d86/_list_set_8java" startline="66" endline="71">org.xvm.util.ListSet&lt; E &gt;.disableHashIndex</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ae6491e9f07fb7f2856b65858875712fb" compoundref="d9/d86/_list_set_8java" startline="77" endline="81">org.xvm.util.ListSet&lt; E &gt;.disallowNulls</referencedby>
+        <referencedby refid="d1/d87/classorg_1_1xvm_1_1util_1_1_list_set_1_1_safe_iterator_1a97496ad9397b8a420b7f1362b6e9f444" compoundref="d9/d86/_list_set_8java" startline="849" endline="861">org.xvm.util.ListSet&lt; E &gt;.SafeIterator.remove</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a9938c9afd76a5c5a63e0b31129432b47" compoundref="d9/d86/_list_set_8java" startline="56" endline="60">org.xvm.util.ListSet&lt; E &gt;.useIdentityEquality</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a6a69bf7815b121bea0128bb431d183df" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.xvm.util.ListSet&lt; E &gt;.ListSet</definition>
+        <argsstring>(int cInitSize)</argsstring>
+        <name>ListSet</name>
+        <qualifiedname>org.xvm.util.ListSet.ListSet</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>cInitSize</declname>
+        </param>
+        <briefdescription>
+<para>Construct a new <ref refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set" kindref="compound">ListSet</ref> of the specified initial capacity. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cInitSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the initial capacity; negative value indicates an immutable empty set </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="34" column="12" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="34" bodyend="37"/>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ac66f60b663e706642e052baa32452037" compoundref="d9/d86/_list_set_8java" startline="1139">org.xvm.util.ListSet&lt; E &gt;.m_aElem</references>
+      </memberdef>
+      <memberdef kind="function" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aa376bc221259b88eb4d13eaf20c8fc05" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.xvm.util.ListSet&lt; E &gt;.ListSet</definition>
+        <argsstring>(Collection&lt;? extends E &gt; that)</argsstring>
+        <name>ListSet</name>
+        <qualifiedname>org.xvm.util.ListSet.ListSet</qualifiedname>
+        <param>
+          <type>Collection&lt;? extends E &gt;</type>
+          <declname>that</declname>
+        </param>
+        <briefdescription>
+<para>Construct a new <ref refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set" kindref="compound">ListSet</ref> that will contain the contents of the passed collection / list / set. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>that</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a collection of compatible elements </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="44" column="12" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="44" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a9938c9afd76a5c5a63e0b31129432b47" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1abf14c352cdb38dbaebba4cfd3ec7c359" kindref="member">ListSet</ref>&lt; E &gt;</type>
+        <definition>ListSet&lt; E &gt; org.xvm.util.ListSet&lt; E &gt;.useIdentityEquality</definition>
+        <argsstring>()</argsstring>
+        <name>useIdentityEquality</name>
+        <qualifiedname>org.xvm.util.ListSet.useIdentityEquality</qualifiedname>
+        <briefdescription>
+<para>Configure the Set to use only identity comparisons to determine element equality. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This disables the use of the <computeroutput><ref refid="" kindref="compound">Object#equals</ref></computeroutput> method on elements. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="56" column="20" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="56" bodyend="60"/>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1abf14c352cdb38dbaebba4cfd3ec7c359" compoundref="d9/d86/_list_set_8java" startline="25" endline="27">org.xvm.util.ListSet&lt; E &gt;.ListSet</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ad630b6328ca6aa7854e781bd450126c6" compoundref="d9/d86/_list_set_8java" startline="1180">org.xvm.util.ListSet&lt; E &gt;.m_fSuppressEquals</references>
+      </memberdef>
+      <memberdef kind="function" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a372bd3427603ca4d16c1b8c64985d4ef" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1abf14c352cdb38dbaebba4cfd3ec7c359" kindref="member">ListSet</ref>&lt; E &gt;</type>
+        <definition>ListSet&lt; E &gt; org.xvm.util.ListSet&lt; E &gt;.disableHashIndex</definition>
+        <argsstring>()</argsstring>
+        <name>disableHashIndex</name>
+        <qualifiedname>org.xvm.util.ListSet.disableHashIndex</qualifiedname>
+        <briefdescription>
+<para>Configure the Set to avoid hashing for rapid only identity comparisons to determine element equality. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This disables the use of the <computeroutput><ref refid="" kindref="compound">Object#equals</ref></computeroutput> method on elements. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="66" column="20" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="66" bodyend="71"/>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1abf14c352cdb38dbaebba4cfd3ec7c359" compoundref="d9/d86/_list_set_8java" startline="25" endline="27">org.xvm.util.ListSet&lt; E &gt;.ListSet</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a3dd51b6fe1be2a1cb9f1ac935933303e" compoundref="d9/d86/_list_set_8java" startline="1174">org.xvm.util.ListSet&lt; E &gt;.m_anHash</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aba4fa7a7d38a98b741336a79d3e0fc2c" compoundref="d9/d86/_list_set_8java" startline="1185">org.xvm.util.ListSet&lt; E &gt;.m_fSuppressHash</references>
+      </memberdef>
+      <memberdef kind="function" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ae6491e9f07fb7f2856b65858875712fb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1abf14c352cdb38dbaebba4cfd3ec7c359" kindref="member">ListSet</ref>&lt; E &gt;</type>
+        <definition>ListSet&lt; E &gt; org.xvm.util.ListSet&lt; E &gt;.disallowNulls</definition>
+        <argsstring>()</argsstring>
+        <name>disallowNulls</name>
+        <qualifiedname>org.xvm.util.ListSet.disallowNulls</qualifiedname>
+        <briefdescription>
+<para>Configure the Set to avoid hashing for rapid only identity comparisons to determine element equality. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This disables the use of the <computeroutput><ref refid="" kindref="compound">Object#equals</ref></computeroutput> method on elements. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="77" column="20" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="77" bodyend="81"/>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1abf14c352cdb38dbaebba4cfd3ec7c359" compoundref="d9/d86/_list_set_8java" startline="25" endline="27">org.xvm.util.ListSet&lt; E &gt;.ListSet</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a811dc540c98521afdf33cae53ccd379a" compoundref="d9/d86/_list_set_8java" startline="1190">org.xvm.util.ListSet&lt; E &gt;.m_fSuppressNull</references>
+      </memberdef>
+      <memberdef kind="function" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aae7a2b872ed697e192799250fee77b22" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>E</type>
+        <definition>E org.xvm.util.ListSet&lt; E &gt;.first</definition>
+        <argsstring>()</argsstring>
+        <name>first</name>
+        <qualifiedname>org.xvm.util.ListSet.first</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the first item </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="89" column="14" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="89" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a256a957d3ad7cebf7f5373b7d18447a4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>E</type>
+        <definition>E org.xvm.util.ListSet&lt; E &gt;.last</definition>
+        <argsstring>()</argsstring>
+        <name>last</name>
+        <qualifiedname>org.xvm.util.ListSet.last</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the last added item </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="100" column="14" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="100" bodyend="106"/>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ad203e8d1ee1a924a1a64d0cd70de2b28" compoundref="d9/d86/_list_set_8java" startline="145" endline="147">org.xvm.util.ListSet&lt; E &gt;.size</references>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ae84699c59468d9636f997e5ccb9d34c1" compoundref="d9/d86/_list_set_8java" startline="315" endline="327">org.xvm.util.ListSet&lt; E &gt;.ensureStop</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a304b11127e3e8ab440701aad99dbf668" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>E</type>
+        <definition>E org.xvm.util.ListSet&lt; E &gt;.get</definition>
+        <argsstring>(int index)</argsstring>
+        <name>get</name>
+        <qualifiedname>org.xvm.util.ListSet.get</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the item at the specified position; this operation could be expensive for indexes that are not close to either 0 or <ref refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ad203e8d1ee1a924a1a64d0cd70de2b28" kindref="member">size()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="112" column="14" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="112" bodyend="139"/>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ac66f60b663e706642e052baa32452037" compoundref="d9/d86/_list_set_8java" startline="1139">org.xvm.util.ListSet&lt; E &gt;.m_aElem</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a6979d4cdcb34b42770f75bd1a4724f8d" compoundref="d9/d86/_list_set_8java" startline="1146">org.xvm.util.ListSet&lt; E &gt;.m_iHead</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aa4a0a5c69fb144e8ae7be28daaaee034" compoundref="d9/d86/_list_set_8java" startline="1152">org.xvm.util.ListSet&lt; E &gt;.m_iTail</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ad203e8d1ee1a924a1a64d0cd70de2b28" compoundref="d9/d86/_list_set_8java" startline="145" endline="147">org.xvm.util.ListSet&lt; E &gt;.size</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1af1ce163117794cc8ad3aec13ea3fcf6b" compoundref="d9/d86/_list_set_8java" startline="268" endline="271">org.xvm.util.ListSet&lt; E &gt;.toExternal</references>
+      </memberdef>
+      <memberdef kind="function" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ad203e8d1ee1a924a1a64d0cd70de2b28" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.util.ListSet&lt; E &gt;.size</definition>
+        <argsstring>()</argsstring>
+        <name>size</name>
+        <qualifiedname>org.xvm.util.ListSet.size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="145" column="16" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="145" bodyend="147"/>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a2b559e143b382d1244806a4389b605ea" compoundref="d9/d86/_list_set_8java" startline="1157">org.xvm.util.ListSet&lt; E &gt;.m_cBlank</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a6979d4cdcb34b42770f75bd1a4724f8d" compoundref="d9/d86/_list_set_8java" startline="1146">org.xvm.util.ListSet&lt; E &gt;.m_iHead</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aa4a0a5c69fb144e8ae7be28daaaee034" compoundref="d9/d86/_list_set_8java" startline="1152">org.xvm.util.ListSet&lt; E &gt;.m_iTail</references>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a75bd32ddb25e49f58cf147c54483c94e" compoundref="d9/d86/_list_set_8java" startline="278" endline="308">org.xvm.util.ListSet&lt; E &gt;.addInternal</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a304b11127e3e8ab440701aad99dbf668" compoundref="d9/d86/_list_set_8java" startline="112" endline="139">org.xvm.util.ListSet&lt; E &gt;.get</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a256a957d3ad7cebf7f5373b7d18447a4" compoundref="d9/d86/_list_set_8java" startline="100" endline="106">org.xvm.util.ListSet&lt; E &gt;.last</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ae42f41137f9d997346db709e1d141ee2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.util.ListSet&lt; E &gt;.contains</definition>
+        <argsstring>(Object o)</argsstring>
+        <name>contains</name>
+        <qualifiedname>org.xvm.util.ListSet.contains</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="150" column="20" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="150" bodyend="152"/>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a43bcd729aecfdd52766870e5ae4b0006" compoundref="d9/d86/_list_set_8java" startline="215" endline="248">org.xvm.util.ListSet&lt; E &gt;.indexOf</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a72d25ec00659bf13e0510ce62f8b3774" compoundref="d9/d86/_list_set_8java" startline="257" endline="259">org.xvm.util.ListSet&lt; E &gt;.toInternal</references>
+      </memberdef>
+      <memberdef kind="function" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a9f13dc32d5ce2217bcdc5f8077e419d4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.util.ListSet&lt; E &gt;.add</definition>
+        <argsstring>(E e)</argsstring>
+        <name>add</name>
+        <qualifiedname>org.xvm.util.ListSet.add</qualifiedname>
+        <param>
+          <type>E</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="155" column="20" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="155" bodyend="167"/>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a75bd32ddb25e49f58cf147c54483c94e" compoundref="d9/d86/_list_set_8java" startline="278" endline="308">org.xvm.util.ListSet&lt; E &gt;.addInternal</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a43bcd729aecfdd52766870e5ae4b0006" compoundref="d9/d86/_list_set_8java" startline="215" endline="248">org.xvm.util.ListSet&lt; E &gt;.indexOf</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a811dc540c98521afdf33cae53ccd379a" compoundref="d9/d86/_list_set_8java" startline="1190">org.xvm.util.ListSet&lt; E &gt;.m_fSuppressNull</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a72d25ec00659bf13e0510ce62f8b3774" compoundref="d9/d86/_list_set_8java" startline="257" endline="259">org.xvm.util.ListSet&lt; E &gt;.toInternal</references>
+        <referencedby refid="d0/d65/classorg_1_1xvm_1_1compiler_1_1ast_1_1_list_expression_1a6b792847820c52ec7e3fa84b1a927fbc" compoundref="d1/dfc/_list_expression_8java" startline="176" endline="283">org.xvm.compiler.ast.ListExpression.validate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a9278f716363d6ccaafc5ebdda932bd2b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.util.ListSet&lt; E &gt;.remove</definition>
+        <argsstring>(Object o)</argsstring>
+        <name>remove</name>
+        <qualifiedname>org.xvm.util.ListSet.remove</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="170" column="20" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="170" bodyend="178"/>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a43bcd729aecfdd52766870e5ae4b0006" compoundref="d9/d86/_list_set_8java" startline="215" endline="248">org.xvm.util.ListSet&lt; E &gt;.indexOf</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a72d25ec00659bf13e0510ce62f8b3774" compoundref="d9/d86/_list_set_8java" startline="257" endline="259">org.xvm.util.ListSet&lt; E &gt;.toInternal</references>
+      </memberdef>
+      <memberdef kind="function" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a11dc522f305c1bdb39793fe28854f2ff" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.util.ListSet&lt; E &gt;.clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>org.xvm.util.ListSet.clear</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="181" column="17" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="181" bodyend="196"/>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ac66f60b663e706642e052baa32452037" compoundref="d9/d86/_list_set_8java" startline="1139">org.xvm.util.ListSet&lt; E &gt;.m_aElem</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a3dd51b6fe1be2a1cb9f1ac935933303e" compoundref="d9/d86/_list_set_8java" startline="1174">org.xvm.util.ListSet&lt; E &gt;.m_anHash</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a2b559e143b382d1244806a4389b605ea" compoundref="d9/d86/_list_set_8java" startline="1157">org.xvm.util.ListSet&lt; E &gt;.m_cBlank</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a66a1ca1e5cde340855283a2ccac5ab21" compoundref="d9/d86/_list_set_8java" startline="1162">org.xvm.util.ListSet&lt; E &gt;.m_cReorgs</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a6979d4cdcb34b42770f75bd1a4724f8d" compoundref="d9/d86/_list_set_8java" startline="1146">org.xvm.util.ListSet&lt; E &gt;.m_iHead</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aa4a0a5c69fb144e8ae7be28daaaee034" compoundref="d9/d86/_list_set_8java" startline="1152">org.xvm.util.ListSet&lt; E &gt;.m_iTail</references>
+      </memberdef>
+      <memberdef kind="function" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aeeae6eac0150f1952292084496fc88c8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Iterator&lt; E &gt;</type>
+        <definition>Iterator&lt; E &gt; org.xvm.util.ListSet&lt; E &gt;.iterator</definition>
+        <argsstring>()</argsstring>
+        <name>iterator</name>
+        <qualifiedname>org.xvm.util.ListSet.iterator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="199" column="21" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="199" bodyend="203"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a43bcd729aecfdd52766870e5ae4b0006" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.util.ListSet&lt; E &gt;.indexOf</definition>
+        <argsstring>(Object o)</argsstring>
+        <name>indexOf</name>
+        <qualifiedname>org.xvm.util.ListSet.indexOf</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Find the specified element. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>o</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the element, in internal format</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the index of the element, tail &lt;= i &lt; head, or -1 if not found </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="215" column="17" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="215" bodyend="248"/>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a4d74bf82748586262791719a610e3c95" compoundref="d9/d86/_list_set_8java" startline="561" endline="563">org.xvm.util.ListSet&lt; E &gt;.indexEnabled</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aa2f4e3327283e0758cbd952dc5a01b89" compoundref="d9/d86/_list_set_8java" startline="725" endline="755">org.xvm.util.ListSet&lt; E &gt;.indexSearch</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ac66f60b663e706642e052baa32452037" compoundref="d9/d86/_list_set_8java" startline="1139">org.xvm.util.ListSet&lt; E &gt;.m_aElem</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ad630b6328ca6aa7854e781bd450126c6" compoundref="d9/d86/_list_set_8java" startline="1180">org.xvm.util.ListSet&lt; E &gt;.m_fSuppressEquals</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a6979d4cdcb34b42770f75bd1a4724f8d" compoundref="d9/d86/_list_set_8java" startline="1146">org.xvm.util.ListSet&lt; E &gt;.m_iHead</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aa4a0a5c69fb144e8ae7be28daaaee034" compoundref="d9/d86/_list_set_8java" startline="1152">org.xvm.util.ListSet&lt; E &gt;.m_iTail</references>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a9f13dc32d5ce2217bcdc5f8077e419d4" compoundref="d9/d86/_list_set_8java" startline="155" endline="167">org.xvm.util.ListSet&lt; E &gt;.add</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ae42f41137f9d997346db709e1d141ee2" compoundref="d9/d86/_list_set_8java" startline="150" endline="152">org.xvm.util.ListSet&lt; E &gt;.contains</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a9278f716363d6ccaafc5ebdda932bd2b" compoundref="d9/d86/_list_set_8java" startline="170" endline="178">org.xvm.util.ListSet&lt; E &gt;.remove</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a75bd32ddb25e49f58cf147c54483c94e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.util.ListSet&lt; E &gt;.addInternal</definition>
+        <argsstring>(Object o)</argsstring>
+        <name>addInternal</name>
+        <qualifiedname>org.xvm.util.ListSet.addInternal</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Add an object to the end of the set. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>o</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the Object to add (which may even be a NULL or a HardStop) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="278" column="18" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="278" bodyend="308"/>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1af93bd05583ae39de8862513701d7db4b" compoundref="d9/d86/_list_set_8java" startline="332" endline="347">org.xvm.util.ListSet&lt; E &gt;.ensureSpace</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1af1755a6e57fc9b1ab8cd10f5d9646db4" compoundref="d9/d86/_list_set_8java" startline="1118">org.xvm.util.ListSet&lt; E &gt;.INDEX_MIN</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a96ab1dc178a60a741c6acc6572a5c826" compoundref="d9/d86/_list_set_8java" startline="628" endline="648">org.xvm.util.ListSet&lt; E &gt;.indexAdd</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a4d74bf82748586262791719a610e3c95" compoundref="d9/d86/_list_set_8java" startline="561" endline="563">org.xvm.util.ListSet&lt; E &gt;.indexEnabled</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a4dbb4cbf8573838d0e1c3910ab954d2a" compoundref="d9/d86/_list_set_8java" startline="569" endline="620">org.xvm.util.ListSet&lt; E &gt;.indexInit</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ac66f60b663e706642e052baa32452037" compoundref="d9/d86/_list_set_8java" startline="1139">org.xvm.util.ListSet&lt; E &gt;.m_aElem</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a2b559e143b382d1244806a4389b605ea" compoundref="d9/d86/_list_set_8java" startline="1157">org.xvm.util.ListSet&lt; E &gt;.m_cBlank</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aba4fa7a7d38a98b741336a79d3e0fc2c" compoundref="d9/d86/_list_set_8java" startline="1185">org.xvm.util.ListSet&lt; E &gt;.m_fSuppressHash</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a6979d4cdcb34b42770f75bd1a4724f8d" compoundref="d9/d86/_list_set_8java" startline="1146">org.xvm.util.ListSet&lt; E &gt;.m_iHead</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aa4a0a5c69fb144e8ae7be28daaaee034" compoundref="d9/d86/_list_set_8java" startline="1152">org.xvm.util.ListSet&lt; E &gt;.m_iTail</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ad203e8d1ee1a924a1a64d0cd70de2b28" compoundref="d9/d86/_list_set_8java" startline="145" endline="147">org.xvm.util.ListSet&lt; E &gt;.size</references>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a9f13dc32d5ce2217bcdc5f8077e419d4" compoundref="d9/d86/_list_set_8java" startline="155" endline="167">org.xvm.util.ListSet&lt; E &gt;.add</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ae84699c59468d9636f997e5ccb9d34c1" compoundref="d9/d86/_list_set_8java" startline="315" endline="327">org.xvm.util.ListSet&lt; E &gt;.ensureStop</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ae84699c59468d9636f997e5ccb9d34c1" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d1/d3d/classorg_1_1xvm_1_1util_1_1_list_set_1_1_stop" kindref="compound">Stop</ref></type>
+        <definition>Stop org.xvm.util.ListSet&lt; E &gt;.ensureStop</definition>
+        <argsstring>()</argsstring>
+        <name>ensureStop</name>
+        <qualifiedname>org.xvm.util.ListSet.ensureStop</qualifiedname>
+        <briefdescription>
+<para>If the last element is a hard stop, then return it, otherwise add a hard stop and return it. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the hard-stop for a new Iterator to use </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="315" column="18" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="315" bodyend="327"/>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a75bd32ddb25e49f58cf147c54483c94e" compoundref="d9/d86/_list_set_8java" startline="278" endline="308">org.xvm.util.ListSet&lt; E &gt;.addInternal</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a256a957d3ad7cebf7f5373b7d18447a4" compoundref="d9/d86/_list_set_8java" startline="100" endline="106">org.xvm.util.ListSet&lt; E &gt;.last</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ac66f60b663e706642e052baa32452037" compoundref="d9/d86/_list_set_8java" startline="1139">org.xvm.util.ListSet&lt; E &gt;.m_aElem</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a2b559e143b382d1244806a4389b605ea" compoundref="d9/d86/_list_set_8java" startline="1157">org.xvm.util.ListSet&lt; E &gt;.m_cBlank</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ae5352f98c7078305c9d12af8c43bc262" compoundref="d9/d86/_list_set_8java" startline="1167">org.xvm.util.ListSet&lt; E &gt;.m_cStops</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a6979d4cdcb34b42770f75bd1a4724f8d" compoundref="d9/d86/_list_set_8java" startline="1146">org.xvm.util.ListSet&lt; E &gt;.m_iHead</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aa4a0a5c69fb144e8ae7be28daaaee034" compoundref="d9/d86/_list_set_8java" startline="1152">org.xvm.util.ListSet&lt; E &gt;.m_iTail</references>
+        <referencedby refid="d1/d87/classorg_1_1xvm_1_1util_1_1_list_set_1_1_safe_iterator_1ae995f7ae9a58b96cfe8c7b417d9a985c" compoundref="d9/d86/_list_set_8java" startline="816" endline="826">org.xvm.util.ListSet&lt; E &gt;.SafeIterator.SafeIterator</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1af93bd05583ae39de8862513701d7db4b" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.util.ListSet&lt; E &gt;.ensureSpace</definition>
+        <argsstring>()</argsstring>
+        <name>ensureSpace</name>
+        <qualifiedname>org.xvm.util.ListSet.ensureSpace</qualifiedname>
+        <briefdescription>
+<para>Make sure that the <ref refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set" kindref="compound">ListSet</ref> has space to append an element. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="332" column="18" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="332" bodyend="347"/>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a2c3ca6fc329be006e8805782ec8339fb" compoundref="d9/d86/_list_set_8java" startline="352" endline="415">org.xvm.util.ListSet&lt; E &gt;.compact</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aad0e1b17f49040f76c0260d7d971b5d0" compoundref="d9/d86/_list_set_8java" startline="420" endline="447">org.xvm.util.ListSet&lt; E &gt;.grow</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ac66f60b663e706642e052baa32452037" compoundref="d9/d86/_list_set_8java" startline="1139">org.xvm.util.ListSet&lt; E &gt;.m_aElem</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a2b559e143b382d1244806a4389b605ea" compoundref="d9/d86/_list_set_8java" startline="1157">org.xvm.util.ListSet&lt; E &gt;.m_cBlank</references>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a75bd32ddb25e49f58cf147c54483c94e" compoundref="d9/d86/_list_set_8java" startline="278" endline="308">org.xvm.util.ListSet&lt; E &gt;.addInternal</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a2c3ca6fc329be006e8805782ec8339fb" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.util.ListSet&lt; E &gt;.compact</definition>
+        <argsstring>()</argsstring>
+        <name>compact</name>
+        <qualifiedname>org.xvm.util.ListSet.compact</qualifiedname>
+        <briefdescription>
+<para>Remove blank spots from the middle of the <ref refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set" kindref="compound">ListSet</ref>&apos;s underlying storage. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="352" column="18" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="352" bodyend="415"/>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a06a1cdcacfae6faeb36901f8a5651f77" compoundref="d9/d86/_list_set_8java" startline="765" endline="788">org.xvm.util.ListSet&lt; E &gt;.indexAdjust</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1acef8ebfecfc35f986c6c90bcf0ee95fc" compoundref="d9/d86/_list_set_8java" startline="796" endline="804">org.xvm.util.ListSet&lt; E &gt;.indexAdjustAll</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a4d74bf82748586262791719a610e3c95" compoundref="d9/d86/_list_set_8java" startline="561" endline="563">org.xvm.util.ListSet&lt; E &gt;.indexEnabled</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ac66f60b663e706642e052baa32452037" compoundref="d9/d86/_list_set_8java" startline="1139">org.xvm.util.ListSet&lt; E &gt;.m_aElem</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a2b559e143b382d1244806a4389b605ea" compoundref="d9/d86/_list_set_8java" startline="1157">org.xvm.util.ListSet&lt; E &gt;.m_cBlank</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a66a1ca1e5cde340855283a2ccac5ab21" compoundref="d9/d86/_list_set_8java" startline="1162">org.xvm.util.ListSet&lt; E &gt;.m_cReorgs</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a6979d4cdcb34b42770f75bd1a4724f8d" compoundref="d9/d86/_list_set_8java" startline="1146">org.xvm.util.ListSet&lt; E &gt;.m_iHead</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aa4a0a5c69fb144e8ae7be28daaaee034" compoundref="d9/d86/_list_set_8java" startline="1152">org.xvm.util.ListSet&lt; E &gt;.m_iTail</references>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1af93bd05583ae39de8862513701d7db4b" compoundref="d9/d86/_list_set_8java" startline="332" endline="347">org.xvm.util.ListSet&lt; E &gt;.ensureSpace</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aad0e1b17f49040f76c0260d7d971b5d0" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.util.ListSet&lt; E &gt;.grow</definition>
+        <argsstring>()</argsstring>
+        <name>grow</name>
+        <qualifiedname>org.xvm.util.ListSet.grow</qualifiedname>
+        <briefdescription>
+<para>Increase the size of the <ref refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set" kindref="compound">ListSet</ref>&apos;s underlying storage. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="420" column="18" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="420" bodyend="447"/>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a4d74bf82748586262791719a610e3c95" compoundref="d9/d86/_list_set_8java" startline="561" endline="563">org.xvm.util.ListSet&lt; E &gt;.indexEnabled</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a4dbb4cbf8573838d0e1c3910ab954d2a" compoundref="d9/d86/_list_set_8java" startline="569" endline="620">org.xvm.util.ListSet&lt; E &gt;.indexInit</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ac66f60b663e706642e052baa32452037" compoundref="d9/d86/_list_set_8java" startline="1139">org.xvm.util.ListSet&lt; E &gt;.m_aElem</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a66a1ca1e5cde340855283a2ccac5ab21" compoundref="d9/d86/_list_set_8java" startline="1162">org.xvm.util.ListSet&lt; E &gt;.m_cReorgs</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a6979d4cdcb34b42770f75bd1a4724f8d" compoundref="d9/d86/_list_set_8java" startline="1146">org.xvm.util.ListSet&lt; E &gt;.m_iHead</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aa4a0a5c69fb144e8ae7be28daaaee034" compoundref="d9/d86/_list_set_8java" startline="1152">org.xvm.util.ListSet&lt; E &gt;.m_iTail</references>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1af93bd05583ae39de8862513701d7db4b" compoundref="d9/d86/_list_set_8java" startline="332" endline="347">org.xvm.util.ListSet&lt; E &gt;.ensureSpace</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a902f0d2441a36aa107a28c671bda4e70" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.util.ListSet&lt; E &gt;.verify</definition>
+        <argsstring>(int i, Object elem)</argsstring>
+        <name>verify</name>
+        <qualifiedname>org.xvm.util.ListSet.verify</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>Object</type>
+          <declname>elem</declname>
+        </param>
+        <briefdescription>
+<para>Verify that the specified index contains the specified element. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If the element moved, then find it and return its new index.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>i</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an index (if known), otherwise pass -1 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>elem</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the element to find by reference (not using equals method)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the index where the element is found, otherwise -1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="458" column="17" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="458" bodyend="481"/>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a4d74bf82748586262791719a610e3c95" compoundref="d9/d86/_list_set_8java" startline="561" endline="563">org.xvm.util.ListSet&lt; E &gt;.indexEnabled</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aa2f4e3327283e0758cbd952dc5a01b89" compoundref="d9/d86/_list_set_8java" startline="725" endline="755">org.xvm.util.ListSet&lt; E &gt;.indexSearch</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ac66f60b663e706642e052baa32452037" compoundref="d9/d86/_list_set_8java" startline="1139">org.xvm.util.ListSet&lt; E &gt;.m_aElem</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a6979d4cdcb34b42770f75bd1a4724f8d" compoundref="d9/d86/_list_set_8java" startline="1146">org.xvm.util.ListSet&lt; E &gt;.m_iHead</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aa4a0a5c69fb144e8ae7be28daaaee034" compoundref="d9/d86/_list_set_8java" startline="1152">org.xvm.util.ListSet&lt; E &gt;.m_iTail</references>
+        <referencedby refid="d1/d87/classorg_1_1xvm_1_1util_1_1_list_set_1_1_safe_iterator_1a97496ad9397b8a420b7f1362b6e9f444" compoundref="d9/d86/_list_set_8java" startline="849" endline="861">org.xvm.util.ListSet&lt; E &gt;.SafeIterator.remove</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aa07b2fdb95502a17e84970d37b018de8" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.util.ListSet&lt; E &gt;.verifyIterator</definition>
+        <argsstring>(Object eNext, int nStop)</argsstring>
+        <name>verifyIterator</name>
+        <qualifiedname>org.xvm.util.ListSet.verifyIterator</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>eNext</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nStop</declname>
+        </param>
+        <briefdescription>
+<para>Find the specified &quot;next element&quot; and the hard-stop corresponding to the specified stop-id. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>eNext</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the element to search for </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nStop</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the stop id to search for</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the element index, or -1 if either the element or the hard-stop could not be found or if the element was not located before the hard stop </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="492" column="17" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="492" bodyend="528"/>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a4d74bf82748586262791719a610e3c95" compoundref="d9/d86/_list_set_8java" startline="561" endline="563">org.xvm.util.ListSet&lt; E &gt;.indexEnabled</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aa2f4e3327283e0758cbd952dc5a01b89" compoundref="d9/d86/_list_set_8java" startline="725" endline="755">org.xvm.util.ListSet&lt; E &gt;.indexSearch</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ac66f60b663e706642e052baa32452037" compoundref="d9/d86/_list_set_8java" startline="1139">org.xvm.util.ListSet&lt; E &gt;.m_aElem</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a6979d4cdcb34b42770f75bd1a4724f8d" compoundref="d9/d86/_list_set_8java" startline="1146">org.xvm.util.ListSet&lt; E &gt;.m_iHead</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aa4a0a5c69fb144e8ae7be28daaaee034" compoundref="d9/d86/_list_set_8java" startline="1152">org.xvm.util.ListSet&lt; E &gt;.m_iTail</references>
+        <referencedby refid="d1/d87/classorg_1_1xvm_1_1util_1_1_list_set_1_1_safe_iterator_1a981ed7b1dd1afcd8dbcc9109e993002b" compoundref="d9/d86/_list_set_8java" startline="916" endline="935">org.xvm.util.ListSet&lt; E &gt;.SafeIterator.synced</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1abb97eed79208c57fb7d1d7b26f31597d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.util.ListSet&lt; E &gt;.remove</definition>
+        <argsstring>(int i)</argsstring>
+        <name>remove</name>
+        <qualifiedname>org.xvm.util.ListSet.remove</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>Remove the element at the specified index. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>i</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an index, <javadoccode>(m_iTail &lt;= i &lt; m_iHead)</javadoccode> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="535" column="18" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="535" bodyend="556"/>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a4d74bf82748586262791719a610e3c95" compoundref="d9/d86/_list_set_8java" startline="561" endline="563">org.xvm.util.ListSet&lt; E &gt;.indexEnabled</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a98a9b872eaa972f296a9d6a1bd7cdcb0" compoundref="d9/d86/_list_set_8java" startline="656" endline="716">org.xvm.util.ListSet&lt; E &gt;.indexRemove</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ac66f60b663e706642e052baa32452037" compoundref="d9/d86/_list_set_8java" startline="1139">org.xvm.util.ListSet&lt; E &gt;.m_aElem</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a2b559e143b382d1244806a4389b605ea" compoundref="d9/d86/_list_set_8java" startline="1157">org.xvm.util.ListSet&lt; E &gt;.m_cBlank</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a6979d4cdcb34b42770f75bd1a4724f8d" compoundref="d9/d86/_list_set_8java" startline="1146">org.xvm.util.ListSet&lt; E &gt;.m_iHead</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aa4a0a5c69fb144e8ae7be28daaaee034" compoundref="d9/d86/_list_set_8java" startline="1152">org.xvm.util.ListSet&lt; E &gt;.m_iTail</references>
+      </memberdef>
+      <memberdef kind="function" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a4d74bf82748586262791719a610e3c95" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.util.ListSet&lt; E &gt;.indexEnabled</definition>
+        <argsstring>()</argsstring>
+        <name>indexEnabled</name>
+        <qualifiedname>org.xvm.util.ListSet.indexEnabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true iff the <ref refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set" kindref="compound">ListSet</ref> is currently using indexes </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="561" column="21" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="561" bodyend="563"/>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a3dd51b6fe1be2a1cb9f1ac935933303e" compoundref="d9/d86/_list_set_8java" startline="1174">org.xvm.util.ListSet&lt; E &gt;.m_anHash</references>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a75bd32ddb25e49f58cf147c54483c94e" compoundref="d9/d86/_list_set_8java" startline="278" endline="308">org.xvm.util.ListSet&lt; E &gt;.addInternal</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a2c3ca6fc329be006e8805782ec8339fb" compoundref="d9/d86/_list_set_8java" startline="352" endline="415">org.xvm.util.ListSet&lt; E &gt;.compact</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aad0e1b17f49040f76c0260d7d971b5d0" compoundref="d9/d86/_list_set_8java" startline="420" endline="447">org.xvm.util.ListSet&lt; E &gt;.grow</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a43bcd729aecfdd52766870e5ae4b0006" compoundref="d9/d86/_list_set_8java" startline="215" endline="248">org.xvm.util.ListSet&lt; E &gt;.indexOf</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1abb97eed79208c57fb7d1d7b26f31597d" compoundref="d9/d86/_list_set_8java" startline="535" endline="556">org.xvm.util.ListSet&lt; E &gt;.remove</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a902f0d2441a36aa107a28c671bda4e70" compoundref="d9/d86/_list_set_8java" startline="458" endline="481">org.xvm.util.ListSet&lt; E &gt;.verify</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aa07b2fdb95502a17e84970d37b018de8" compoundref="d9/d86/_list_set_8java" startline="492" endline="528">org.xvm.util.ListSet&lt; E &gt;.verifyIterator</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a4dbb4cbf8573838d0e1c3910ab954d2a" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.util.ListSet&lt; E &gt;.indexInit</definition>
+        <argsstring>()</argsstring>
+        <name>indexInit</name>
+        <qualifiedname>org.xvm.util.ListSet.indexInit</qualifiedname>
+        <briefdescription>
+<para>Make sure that the index for the <ref refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set" kindref="compound">ListSet</ref> exists, is configured correctly for the size of the <ref refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set" kindref="compound">ListSet</ref>, and its contents match the contents of the <ref refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set" kindref="compound">ListSet</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="569" column="18" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="569" bodyend="620"/>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a0cf1d21c7aa2612a615c953606c7115c" compoundref="d9/d86/_list_set_8java" startline="1124" endline="1131">org.xvm.util.ListSet&lt; E &gt;.INDEX_SIZE</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a96ab1dc178a60a741c6acc6572a5c826" compoundref="d9/d86/_list_set_8java" startline="628" endline="648">org.xvm.util.ListSet&lt; E &gt;.indexAdd</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ac66f60b663e706642e052baa32452037" compoundref="d9/d86/_list_set_8java" startline="1139">org.xvm.util.ListSet&lt; E &gt;.m_aElem</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a3dd51b6fe1be2a1cb9f1ac935933303e" compoundref="d9/d86/_list_set_8java" startline="1174">org.xvm.util.ListSet&lt; E &gt;.m_anHash</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a6979d4cdcb34b42770f75bd1a4724f8d" compoundref="d9/d86/_list_set_8java" startline="1146">org.xvm.util.ListSet&lt; E &gt;.m_iHead</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aa4a0a5c69fb144e8ae7be28daaaee034" compoundref="d9/d86/_list_set_8java" startline="1152">org.xvm.util.ListSet&lt; E &gt;.m_iTail</references>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a75bd32ddb25e49f58cf147c54483c94e" compoundref="d9/d86/_list_set_8java" startline="278" endline="308">org.xvm.util.ListSet&lt; E &gt;.addInternal</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aad0e1b17f49040f76c0260d7d971b5d0" compoundref="d9/d86/_list_set_8java" startline="420" endline="447">org.xvm.util.ListSet&lt; E &gt;.grow</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a96ab1dc178a60a741c6acc6572a5c826" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.util.ListSet&lt; E &gt;.indexAdd</definition>
+        <argsstring>(int nHash, int index)</argsstring>
+        <name>indexAdd</name>
+        <qualifiedname>org.xvm.util.ListSet.indexAdd</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>nHash</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Add the specified hash entry. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nHash</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the hash code of the value </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the index into the underlying <ref refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set" kindref="compound">ListSet</ref> storage for the value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="628" column="18" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="628" bodyend="648"/>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a3dd51b6fe1be2a1cb9f1ac935933303e" compoundref="d9/d86/_list_set_8java" startline="1174">org.xvm.util.ListSet&lt; E &gt;.m_anHash</references>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a75bd32ddb25e49f58cf147c54483c94e" compoundref="d9/d86/_list_set_8java" startline="278" endline="308">org.xvm.util.ListSet&lt; E &gt;.addInternal</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a4dbb4cbf8573838d0e1c3910ab954d2a" compoundref="d9/d86/_list_set_8java" startline="569" endline="620">org.xvm.util.ListSet&lt; E &gt;.indexInit</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a98a9b872eaa972f296a9d6a1bd7cdcb0" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.util.ListSet&lt; E &gt;.indexRemove</definition>
+        <argsstring>(int nHash, int index)</argsstring>
+        <name>indexRemove</name>
+        <qualifiedname>org.xvm.util.ListSet.indexRemove</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>nHash</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Remove the specified hash entry. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nHash</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the hash code of the value </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the index into the underlying <ref refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set" kindref="compound">ListSet</ref> storage for the value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="656" column="18" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="656" bodyend="716"/>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a3dd51b6fe1be2a1cb9f1ac935933303e" compoundref="d9/d86/_list_set_8java" startline="1174">org.xvm.util.ListSet&lt; E &gt;.m_anHash</references>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1abb97eed79208c57fb7d1d7b26f31597d" compoundref="d9/d86/_list_set_8java" startline="535" endline="556">org.xvm.util.ListSet&lt; E &gt;.remove</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aa2f4e3327283e0758cbd952dc5a01b89" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.util.ListSet&lt; E &gt;.indexSearch</definition>
+        <argsstring>(Object o)</argsstring>
+        <name>indexSearch</name>
+        <qualifiedname>org.xvm.util.ListSet.indexSearch</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Use the index to find the specified object in the set. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>o</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the object to search for in the set</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the index of the object, or -1 if the object is not in the set </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="725" column="17" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="725" bodyend="755"/>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ac66f60b663e706642e052baa32452037" compoundref="d9/d86/_list_set_8java" startline="1139">org.xvm.util.ListSet&lt; E &gt;.m_aElem</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a3dd51b6fe1be2a1cb9f1ac935933303e" compoundref="d9/d86/_list_set_8java" startline="1174">org.xvm.util.ListSet&lt; E &gt;.m_anHash</references>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ad630b6328ca6aa7854e781bd450126c6" compoundref="d9/d86/_list_set_8java" startline="1180">org.xvm.util.ListSet&lt; E &gt;.m_fSuppressEquals</references>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a43bcd729aecfdd52766870e5ae4b0006" compoundref="d9/d86/_list_set_8java" startline="215" endline="248">org.xvm.util.ListSet&lt; E &gt;.indexOf</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a902f0d2441a36aa107a28c671bda4e70" compoundref="d9/d86/_list_set_8java" startline="458" endline="481">org.xvm.util.ListSet&lt; E &gt;.verify</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aa07b2fdb95502a17e84970d37b018de8" compoundref="d9/d86/_list_set_8java" startline="492" endline="528">org.xvm.util.ListSet&lt; E &gt;.verifyIterator</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a06a1cdcacfae6faeb36901f8a5651f77" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.util.ListSet&lt; E &gt;.indexAdjust</definition>
+        <argsstring>(int nHash, int indexOld, int indexNew)</argsstring>
+        <name>indexAdjust</name>
+        <qualifiedname>org.xvm.util.ListSet.indexAdjust</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>nHash</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>indexOld</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>indexNew</declname>
+        </param>
+        <briefdescription>
+<para>Adjust the index for the specified hash value from the old specified index to the new specified index. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nHash</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the hash value for the element that is being moved </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>indexOld</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the old index of the value </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>indexNew</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new index of the value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="765" column="18" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="765" bodyend="788"/>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a3dd51b6fe1be2a1cb9f1ac935933303e" compoundref="d9/d86/_list_set_8java" startline="1174">org.xvm.util.ListSet&lt; E &gt;.m_anHash</references>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a2c3ca6fc329be006e8805782ec8339fb" compoundref="d9/d86/_list_set_8java" startline="352" endline="415">org.xvm.util.ListSet&lt; E &gt;.compact</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1acef8ebfecfc35f986c6c90bcf0ee95fc" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.util.ListSet&lt; E &gt;.indexAdjustAll</definition>
+        <argsstring>(int indexDelta)</argsstring>
+        <name>indexAdjustAll</name>
+        <qualifiedname>org.xvm.util.ListSet.indexAdjustAll</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>indexDelta</declname>
+        </param>
+        <briefdescription>
+<para>Adjust the pointers from the index data structure into the underlying <ref refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set" kindref="compound">ListSet</ref> storage when the head &amp; tail pointers are adjusted. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>indexDelta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the magnitude of the adjustment for all indexes </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="796" column="18" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="796" bodyend="804"/>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a3dd51b6fe1be2a1cb9f1ac935933303e" compoundref="d9/d86/_list_set_8java" startline="1174">org.xvm.util.ListSet&lt; E &gt;.m_anHash</references>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a2c3ca6fc329be006e8805782ec8339fb" compoundref="d9/d86/_list_set_8java" startline="352" endline="415">org.xvm.util.ListSet&lt; E &gt;.compact</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a72d25ec00659bf13e0510ce62f8b3774" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Object</type>
+        <definition>static Object org.xvm.util.ListSet&lt; E &gt;.toInternal</definition>
+        <argsstring>(Object o)</argsstring>
+        <name>toInternal</name>
+        <qualifiedname>org.xvm.util.ListSet.toInternal</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Convert an element of type E (including null) to the internal format. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>o</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an element value (which may be null)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>an object in internal format that can be stored in the underlying storage </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="257" column="27" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="257" bodyend="259"/>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a146b1ef8a03099e76d1bc7f8e4d76c74" compoundref="d9/d86/_list_set_8java" startline="1113">org.xvm.util.ListSet&lt; E &gt;.NULL</references>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a9f13dc32d5ce2217bcdc5f8077e419d4" compoundref="d9/d86/_list_set_8java" startline="155" endline="167">org.xvm.util.ListSet&lt; E &gt;.add</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ae42f41137f9d997346db709e1d141ee2" compoundref="d9/d86/_list_set_8java" startline="150" endline="152">org.xvm.util.ListSet&lt; E &gt;.contains</referencedby>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a9278f716363d6ccaafc5ebdda932bd2b" compoundref="d9/d86/_list_set_8java" startline="170" endline="178">org.xvm.util.ListSet&lt; E &gt;.remove</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1af1ce163117794cc8ad3aec13ea3fcf6b" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>static&lt; E &gt; E</type>
+        <definition>static&lt; E &gt; E org.xvm.util.ListSet&lt; E &gt;.toExternal</definition>
+        <argsstring>(Object o)</argsstring>
+        <name>toExternal</name>
+        <qualifiedname>org.xvm.util.ListSet.toExternal</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Convert an object of the internal format to an element of type E (including null). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>o</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>internal format object</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>an element of type E (including null) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="268" column="23" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="268" bodyend="271"/>
+        <references refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a146b1ef8a03099e76d1bc7f8e4d76c74" compoundref="d9/d86/_list_set_8java" startline="1113">org.xvm.util.ListSet&lt; E &gt;.NULL</references>
+        <referencedby refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a304b11127e3e8ab440701aad99dbf668" compoundref="d9/d86/_list_set_8java" startline="112" endline="139">org.xvm.util.ListSet&lt; E &gt;.get</referencedby>
+        <referencedby refid="d1/d87/classorg_1_1xvm_1_1util_1_1_list_set_1_1_safe_iterator_1a2cd95c3143217543761d4fdddd12b89f" compoundref="d9/d86/_list_set_8java" startline="834" endline="846">org.xvm.util.ListSet&lt; E &gt;.SafeIterator.next</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A simple implementation of a Set that maintains its contents in the order added, and allows iterators to continue independently of other mutations on the Set. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The underlying storage is a circular array, and deletion from the middle of the sequence of elements is supported without having to copy the remainder of the array. <ref refid="d1/dcc/classorg_1_1xvm_1_1util_1_1_list_set_1_1_null" kindref="compound">Null</ref> is a supported element value. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>AbstractSet&lt; E &gt;</label>
+      </node>
+      <node id="1">
+        <label>org.xvm.util.ListSet&lt; E &gt;</label>
+        <link refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>AbstractSet&lt; E &gt;</label>
+      </node>
+      <node id="1">
+        <label>org.xvm.util.ListSet&lt; E &gt;</label>
+        <link refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" line="18" column="7" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListSet.java" bodystart="19" bodyend="1191"/>
+    <listofallmembers>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a9f13dc32d5ce2217bcdc5f8077e419d4" prot="public" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>add</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a75bd32ddb25e49f58cf147c54483c94e" prot="private" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>addInternal</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a11dc522f305c1bdb39793fe28854f2ff" prot="public" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>clear</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a2c3ca6fc329be006e8805782ec8339fb" prot="private" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>compact</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ae42f41137f9d997346db709e1d141ee2" prot="public" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>contains</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a372bd3427603ca4d16c1b8c64985d4ef" prot="public" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>disableHashIndex</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ae6491e9f07fb7f2856b65858875712fb" prot="public" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>disallowNulls</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1af93bd05583ae39de8862513701d7db4b" prot="private" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>ensureSpace</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ae84699c59468d9636f997e5ccb9d34c1" prot="private" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>ensureStop</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aae7a2b872ed697e192799250fee77b22" prot="public" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>first</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a304b11127e3e8ab440701aad99dbf668" prot="public" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>get</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aad0e1b17f49040f76c0260d7d971b5d0" prot="private" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>grow</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1af1755a6e57fc9b1ab8cd10f5d9646db4" prot="private" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>INDEX_MIN</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a0cf1d21c7aa2612a615c953606c7115c" prot="private" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>INDEX_SIZE</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a96ab1dc178a60a741c6acc6572a5c826" prot="private" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>indexAdd</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a06a1cdcacfae6faeb36901f8a5651f77" prot="private" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>indexAdjust</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1acef8ebfecfc35f986c6c90bcf0ee95fc" prot="private" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>indexAdjustAll</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a4d74bf82748586262791719a610e3c95" prot="private" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>indexEnabled</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a4dbb4cbf8573838d0e1c3910ab954d2a" prot="private" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>indexInit</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a43bcd729aecfdd52766870e5ae4b0006" prot="private" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>indexOf</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a98a9b872eaa972f296a9d6a1bd7cdcb0" prot="private" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>indexRemove</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aa2f4e3327283e0758cbd952dc5a01b89" prot="private" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>indexSearch</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aeeae6eac0150f1952292084496fc88c8" prot="public" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>iterator</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a256a957d3ad7cebf7f5373b7d18447a4" prot="public" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>last</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1abf14c352cdb38dbaebba4cfd3ec7c359" prot="public" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>ListSet</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a6a69bf7815b121bea0128bb431d183df" prot="public" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>ListSet</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aa376bc221259b88eb4d13eaf20c8fc05" prot="public" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>ListSet</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ac66f60b663e706642e052baa32452037" prot="private" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>m_aElem</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a3dd51b6fe1be2a1cb9f1ac935933303e" prot="private" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>m_anHash</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a2b559e143b382d1244806a4389b605ea" prot="private" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>m_cBlank</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a66a1ca1e5cde340855283a2ccac5ab21" prot="private" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>m_cReorgs</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ae5352f98c7078305c9d12af8c43bc262" prot="private" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>m_cStops</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ad630b6328ca6aa7854e781bd450126c6" prot="private" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>m_fSuppressEquals</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aba4fa7a7d38a98b741336a79d3e0fc2c" prot="private" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>m_fSuppressHash</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a811dc540c98521afdf33cae53ccd379a" prot="private" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>m_fSuppressNull</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a6979d4cdcb34b42770f75bd1a4724f8d" prot="private" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>m_iHead</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aa4a0a5c69fb144e8ae7be28daaaee034" prot="private" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>m_iTail</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a146b1ef8a03099e76d1bc7f8e4d76c74" prot="private" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>NULL</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a9278f716363d6ccaafc5ebdda932bd2b" prot="public" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>remove</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1abb97eed79208c57fb7d1d7b26f31597d" prot="private" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>remove</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1ad203e8d1ee1a924a1a64d0cd70de2b28" prot="public" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>size</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1af1ce163117794cc8ad3aec13ea3fcf6b" prot="private" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>toExternal</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a72d25ec00659bf13e0510ce62f8b3774" prot="private" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>toInternal</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a9938c9afd76a5c5a63e0b31129432b47" prot="public" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>useIdentityEquality</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1a902f0d2441a36aa107a28c671bda4e70" prot="private" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>verify</name></member>
+      <member refid="df/dcf/classorg_1_1xvm_1_1util_1_1_list_set_1aa07b2fdb95502a17e84970d37b018de8" prot="private" virt="non-virtual"><scope>org::xvm::util::ListSet</scope><name>verifyIterator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

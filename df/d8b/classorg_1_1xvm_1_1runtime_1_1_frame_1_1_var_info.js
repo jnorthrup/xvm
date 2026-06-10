@@ -1,0 +1,26 @@
+var classorg_1_1xvm_1_1runtime_1_1_frame_1_1_var_info =
+[
+    [ "VarInfo", "df/d8b/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_var_info.html#a466167c4891ebddcc315acbbbca0395f", null ],
+    [ "VarInfo", "df/d8b/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_var_info.html#a6adc09380f1c2a09a229906d5dca8a11", null ],
+    [ "VarInfo", "df/d8b/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_var_info.html#a685e2d864653e2bc8e4d66534eeb13bc", null ],
+    [ "getName", "df/d8b/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_var_info.html#ac143f3b3ad7d290d30196675c82099d5", null ],
+    [ "getRef", "df/d8b/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_var_info.html#af6447092c64334e34a050db61e825772", null ],
+    [ "getType", "df/d8b/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_var_info.html#a8cdcdba65f54a96f0ee303b19e967368", null ],
+    [ "isDynamicType", "df/d8b/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_var_info.html#a6fcbae339d74b98263aba4466fb647d4", null ],
+    [ "isDynamicVar", "df/d8b/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_var_info.html#af14c1e88665ee0e37e49405110f0fa95", null ],
+    [ "isFixedType", "df/d8b/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_var_info.html#acc52f20a11021e23f79795501617d8bb", null ],
+    [ "isFuture", "df/d8b/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_var_info.html#a499d6272e2c7060669485d31abd7775b", null ],
+    [ "isStandardVar", "df/d8b/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_var_info.html#a9bcac0f3261ce2035354b6b02f337fb4", null ],
+    [ "release", "df/d8b/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_var_info.html#aa6e925cd0d7e04d107e24c7feaba7d3d", null ],
+    [ "setName", "df/d8b/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_var_info.html#a1c73784ac86ab45c7d53968cec5ef393", null ],
+    [ "setRef", "df/d8b/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_var_info.html#ab47aa07972a1290593a7d8accb673096", null ],
+    [ "toString", "df/d8b/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_var_info.html#aa8e765c76f985d89b76dc2075be4093b", null ],
+    [ "f_nNameId", "df/d8b/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_var_info.html#ad7a69fb84a632f69892d3db4cb739933", null ],
+    [ "m_nStyle", "df/d8b/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_var_info.html#af3d3bf808f985ef79e6b6e954cc500d4", null ],
+    [ "m_nTargetId", "df/d8b/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_var_info.html#aec5df6c9406b57ad429f2b23bc98f5f4", null ],
+    [ "m_nTypeId", "df/d8b/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_var_info.html#aa976ccb8bff6f2a89cb00ef1a2b2b9ca", null ],
+    [ "m_ref", "df/d8b/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_var_info.html#a1140de86cef665518156a963a16fd0ba", null ],
+    [ "m_resolver", "df/d8b/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_var_info.html#a8599655ee138ed995d5987be4c3d8e23", null ],
+    [ "m_sVarName", "df/d8b/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_var_info.html#a5f37785be800894c07dec72cf61222fb", null ],
+    [ "m_type", "df/d8b/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_var_info.html#a4227b0555173335c7048f13eee051353", null ]
+];

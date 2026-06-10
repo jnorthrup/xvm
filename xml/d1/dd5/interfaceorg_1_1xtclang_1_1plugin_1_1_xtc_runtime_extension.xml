@@ -1,0 +1,353 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d1/dd5/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_runtime_extension" kind="interface" language="Java" prot="public">
+    <compoundname>org::xtclang::plugin::XtcRuntimeExtension</compoundname>
+    <basecompoundref refid="df/dc8/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_launcher_task_extension" prot="public" virt="non-virtual">org.xtclang.plugin.XtcLauncherTaskExtension</basecompoundref>
+    <derivedcompoundref refid="d7/d16/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_test_extension" prot="public" virt="non-virtual">org.xtclang.plugin.XtcTestExtension</derivedcompoundref>
+    <derivedcompoundref refid="dc/dfc/classorg_1_1xtclang_1_1plugin_1_1internal_1_1_default_xtc_runtime_extension" prot="public" virt="non-virtual">org.xtclang.plugin.internal.DefaultXtcRuntimeExtension</derivedcompoundref>
+    <derivedcompoundref refid="d9/d8d/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_run_task" prot="public" virt="non-virtual">org.xtclang.plugin.tasks.XtcRunTask</derivedcompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d1/dd5/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_runtime_extension_1ac2ff9e7e2870f036374f984fca9a6f8c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="d3/d4f/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_run_module" kindref="compound">XtcRunModule</ref></type>
+        <definition>XtcRunModule org.xtclang.plugin.XtcRuntimeExtension.module</definition>
+        <argsstring>(Action&lt; @NotNull XtcRunModule &gt; action)</argsstring>
+        <name>module</name>
+        <qualifiedname>org.xtclang.plugin.XtcRuntimeExtension.module</qualifiedname>
+        <reimplementedby refid="dc/dfc/classorg_1_1xtclang_1_1plugin_1_1internal_1_1_default_xtc_runtime_extension_1aa226b82394c8daa417e0ca074ed146bf">module</reimplementedby>
+        <reimplementedby refid="d9/d8d/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_run_task_1a3b02f1f30259db9dbe064e8658a1f059">module</reimplementedby>
+        <param>
+          <type>Action&lt; @NotNull <ref refid="d3/d4f/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_run_module" kindref="compound">XtcRunModule</ref> &gt;</type>
+          <declname>action</declname>
+        </param>
+        <briefdescription>
+<para>Return the plugin internal representation of a module execution config. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is a tuple with a module name (mandatory), a method name for the execution to start with (defaults to &quot;run&quot;), and a list of arguments to pass to the launcher that performs the execution. The arguments, as per Gradle convention, should be possible to be configured lazily as a provider, so they can be calculated at the time of execution, and not at the time of configuration. </para>
+<para>TODO: This is not supported everywhere yet, but please feel free to add DSL logic for that, where you find it missing, and unit tests to make sure it works.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>action</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Build DSL run module configuration </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="d3/d4f/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_run_module" kindref="compound">XtcRunModule</ref> instance </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcRuntimeExtension.java" line="43" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="d1/dd5/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_runtime_extension_1a4b9cb76002f3bfb10e45d28c621045ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ListProperty&lt; @NotNull <ref refid="d3/d4f/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_run_module" kindref="compound">XtcRunModule</ref> &gt;</type>
+        <definition>ListProperty&lt; @NotNull XtcRunModule &gt; org.xtclang.plugin.XtcRuntimeExtension.getModules</definition>
+        <argsstring>()</argsstring>
+        <name>getModules</name>
+        <qualifiedname>org.xtclang.plugin.XtcRuntimeExtension.getModules</qualifiedname>
+        <reimplementedby refid="dc/dfc/classorg_1_1xtclang_1_1plugin_1_1internal_1_1_default_xtc_runtime_extension_1aecb72a38e488bcc3589c5eb52893a04d">getModules</reimplementedby>
+        <reimplementedby refid="d9/d8d/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_run_task_1afcac4f876661fccc65d459964827416c">getModules</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcRuntimeExtension.java" line="45" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="d1/dd5/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_runtime_extension_1a2f8c1f1b4886f226e7479ffaeb406016" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xtclang.plugin.XtcRuntimeExtension.moduleName</definition>
+        <argsstring>(String name)</argsstring>
+        <name>moduleName</name>
+        <qualifiedname>org.xtclang.plugin.XtcRuntimeExtension.moduleName</qualifiedname>
+        <reimplementedby refid="dc/dfc/classorg_1_1xtclang_1_1plugin_1_1internal_1_1_default_xtc_runtime_extension_1a4008adaedb0f6fabad5808aa838f049c">moduleName</reimplementedby>
+        <reimplementedby refid="d9/d8d/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_run_task_1a1a19415d65218a2197edac418945ee3c">moduleName</reimplementedby>
+        <param>
+          <type>String</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcRuntimeExtension.java" line="47" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="d1/dd5/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_runtime_extension_1a21e7da0b16d008f2f9daec28297a0ca5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xtclang.plugin.XtcRuntimeExtension.moduleNames</definition>
+        <argsstring>(String... modules)</argsstring>
+        <name>moduleNames</name>
+        <qualifiedname>org.xtclang.plugin.XtcRuntimeExtension.moduleNames</qualifiedname>
+        <reimplementedby refid="dc/dfc/classorg_1_1xtclang_1_1plugin_1_1internal_1_1_default_xtc_runtime_extension_1a854a341cd7329dd3e2a31f321e9a94e1">moduleNames</reimplementedby>
+        <reimplementedby refid="d9/d8d/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_run_task_1a1053f765dcdfa572e71e380a4df73f19">moduleNames</reimplementedby>
+        <param>
+          <type>String...</type>
+          <declname>modules</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcRuntimeExtension.java" line="49" column="10"/>
+        <referencedby refid="d1/dd5/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_runtime_extension_1a8681c014fde6520a2dbcf211a67d57c7">org.xtclang.plugin.XtcRuntimeExtension.setModuleNames</referencedby>
+        <referencedby refid="d1/dd5/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_runtime_extension_1ae81d58df1a4677809ac0dfd3faa1a3b1">org.xtclang.plugin.XtcRuntimeExtension.setModuleNames</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d1/dd5/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_runtime_extension_1a7f7aaff7d71ce6763ad987a1d0431c39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xtclang.plugin.XtcRuntimeExtension.setModules</definition>
+        <argsstring>(List&lt; XtcRunModule &gt; modules)</argsstring>
+        <name>setModules</name>
+        <qualifiedname>org.xtclang.plugin.XtcRuntimeExtension.setModules</qualifiedname>
+        <reimplementedby refid="dc/dfc/classorg_1_1xtclang_1_1plugin_1_1internal_1_1_default_xtc_runtime_extension_1ade81eb3a20ad2361e20e409cdd98cc3b">setModules</reimplementedby>
+        <reimplementedby refid="d9/d8d/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_run_task_1a97894b97c5c763fb1d9aabe58a6a7f91">setModules</reimplementedby>
+        <param>
+          <type>List&lt; <ref refid="d3/d4f/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_run_module" kindref="compound">XtcRunModule</ref> &gt;</type>
+          <declname>modules</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcRuntimeExtension.java" line="51" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="d1/dd5/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_runtime_extension_1a2fc12323d2eb455bde3f96d020b74454" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xtclang.plugin.XtcRuntimeExtension.setModules</definition>
+        <argsstring>(XtcRunModule... modules)</argsstring>
+        <name>setModules</name>
+        <qualifiedname>org.xtclang.plugin.XtcRuntimeExtension.setModules</qualifiedname>
+        <reimplementedby refid="dc/dfc/classorg_1_1xtclang_1_1plugin_1_1internal_1_1_default_xtc_runtime_extension_1aa2e87487e3f64fb6745d51b456e55970">setModules</reimplementedby>
+        <reimplementedby refid="d9/d8d/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_run_task_1aa92f8f7ee02d5f1caa359e066d7ac53f">setModules</reimplementedby>
+        <param>
+          <type>XtcRunModule...</type>
+          <declname>modules</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcRuntimeExtension.java" line="53" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="d1/dd5/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_runtime_extension_1a8681c014fde6520a2dbcf211a67d57c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xtclang.plugin.XtcRuntimeExtension.setModuleNames</definition>
+        <argsstring>(List&lt; String &gt; moduleNames)</argsstring>
+        <name>setModuleNames</name>
+        <qualifiedname>org.xtclang.plugin.XtcRuntimeExtension.setModuleNames</qualifiedname>
+        <reimplementedby refid="dc/dfc/classorg_1_1xtclang_1_1plugin_1_1internal_1_1_default_xtc_runtime_extension_1ad475035d7a8a0de3394f751b47b6dad5">setModuleNames</reimplementedby>
+        <reimplementedby refid="d9/d8d/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_run_task_1a82a0f62de3445245fe20e78503564187">setModuleNames</reimplementedby>
+        <param>
+          <type>List&lt; String &gt;</type>
+          <declname>moduleNames</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcRuntimeExtension.java" line="55" column="10"/>
+        <references refid="d1/dd5/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_runtime_extension_1a21e7da0b16d008f2f9daec28297a0ca5">org.xtclang.plugin.XtcRuntimeExtension.moduleNames</references>
+      </memberdef>
+      <memberdef kind="function" id="d1/dd5/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_runtime_extension_1ae81d58df1a4677809ac0dfd3faa1a3b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xtclang.plugin.XtcRuntimeExtension.setModuleNames</definition>
+        <argsstring>(String... moduleNames)</argsstring>
+        <name>setModuleNames</name>
+        <qualifiedname>org.xtclang.plugin.XtcRuntimeExtension.setModuleNames</qualifiedname>
+        <reimplementedby refid="dc/dfc/classorg_1_1xtclang_1_1plugin_1_1internal_1_1_default_xtc_runtime_extension_1a373a7d3c3d1807681950a223efb334cb">setModuleNames</reimplementedby>
+        <reimplementedby refid="d9/d8d/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_run_task_1a0183df398da7856de541898a6526a1e4">setModuleNames</reimplementedby>
+        <param>
+          <type>String...</type>
+          <declname>moduleNames</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcRuntimeExtension.java" line="57" column="10"/>
+        <references refid="d1/dd5/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_runtime_extension_1a21e7da0b16d008f2f9daec28297a0ca5">org.xtclang.plugin.XtcRuntimeExtension.moduleNames</references>
+      </memberdef>
+      <memberdef kind="function" id="d1/dd5/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_runtime_extension_1a53b72596a14f6dd733c113eb7de78e73" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xtclang.plugin.XtcRuntimeExtension.size</definition>
+        <argsstring>()</argsstring>
+        <name>size</name>
+        <qualifiedname>org.xtclang.plugin.XtcRuntimeExtension.size</qualifiedname>
+        <reimplementedby refid="dc/dfc/classorg_1_1xtclang_1_1plugin_1_1internal_1_1_default_xtc_runtime_extension_1a19b31b3dff9aaa475f3a9c22c6634140">size</reimplementedby>
+        <reimplementedby refid="d9/d8d/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_run_task_1a03c6a3beed8412597b5c56b1f7243182">size</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcRuntimeExtension.java" line="59" column="9"/>
+        <referencedby refid="d1/dd5/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_runtime_extension_1a2c04b7528cead20684fd71740942657c" compoundref="da/dd3/_xtc_runtime_extension_8java" startline="73" endline="75">org.xtclang.plugin.XtcRuntimeExtension.isEmpty</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d1/dd5/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_runtime_extension_1acf075202f6474e0f9ee3e660db12793a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Property&lt; @NotNull Boolean &gt;</type>
+        <definition>Property&lt; @NotNull Boolean &gt; org.xtclang.plugin.XtcRuntimeExtension.getParallel</definition>
+        <argsstring>()</argsstring>
+        <name>getParallel</name>
+        <qualifiedname>org.xtclang.plugin.XtcRuntimeExtension.getParallel</qualifiedname>
+        <reimplementedby refid="dc/dfc/classorg_1_1xtclang_1_1plugin_1_1internal_1_1_default_xtc_runtime_extension_1aa275ebfe3228684b1a7a27a37c6d2685">getParallel</reimplementedby>
+        <reimplementedby refid="d9/d8d/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_run_task_1a06774d6043faf6d22b5687cd77807a96">getParallel</reimplementedby>
+        <briefdescription>
+<para>Whether to run multiple modules in parallel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>When true and multiple modules are configured, they will be executed concurrently in separate processes. Defaults to false (sequential execution).</para>
+<para><simplesect kind="return"><para>property controlling parallel execution </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcRuntimeExtension.java" line="67" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="d1/dd5/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_runtime_extension_1a2c04b7528cead20684fd71740942657c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default boolean</type>
+        <definition>default boolean org.xtclang.plugin.XtcRuntimeExtension.isEmpty</definition>
+        <argsstring>()</argsstring>
+        <name>isEmpty</name>
+        <qualifiedname>org.xtclang.plugin.XtcRuntimeExtension.isEmpty</qualifiedname>
+        <reimplementedby refid="d9/d8d/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_run_task_1ab615e0f7288c7fbcbbc76e1a54de5155">isEmpty</reimplementedby>
+        <briefdescription>
+<para>Does this extension declare any modules to be resolved and executed? </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true if module is empty, with nothing declared, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcRuntimeExtension.java" line="73" column="21" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcRuntimeExtension.java" bodystart="73" bodyend="75"/>
+        <references refid="d1/dd5/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_runtime_extension_1a53b72596a14f6dd733c113eb7de78e73">org.xtclang.plugin.XtcRuntimeExtension.size</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>This is the &quot;xtcRun&quot; extension. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>It can be used to set up common runtime behavior on a per-project level, similar to e.g. the &quot;application&quot; configuration in the Gradle built-in plugins. If you want a project to use the default run task semantics, and run a specific sequence of modules, this is where they are specified. </para>
+<para>As with every other extension, by convention, it should be possible to change, extend or override parts of it on individual run task level, so you should be able to create a specialized run task with, e.g. verbose mode on, even though it&apos;s not on for the entire project. You should also be able to create a specialized run task which alters the sequence of modules to run, runs them in parallel with special logic or e.g. on-the-fly compiles things it may need from other places than the current project environment. Of course, if you create non-standard functionality, and it affects inputs or outputs required for a task, it is your responsibility to declare them. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Named</label>
+      </node>
+      <node id="1">
+        <label>org.xtclang.plugin.XtcRuntimeExtension</label>
+        <link refid="d1/dd5/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_runtime_extension"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>org.xtclang.plugin.XtcLauncherTaskExtension</label>
+        <link refid="df/dc8/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_launcher_task_extension"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>org.xtclang.plugin.XtcTestExtension</label>
+        <link refid="d7/d16/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_test_extension"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>org.xtclang.plugin.internal.DefaultXtcRuntimeExtension</label>
+        <link refid="dc/dfc/classorg_1_1xtclang_1_1plugin_1_1internal_1_1_default_xtc_runtime_extension"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>org.xtclang.plugin.internal.DefaultXtcTestExtension</label>
+        <link refid="d8/dcf/classorg_1_1xtclang_1_1plugin_1_1internal_1_1_default_xtc_test_extension"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>org.xtclang.plugin.tasks.XtcRunTask</label>
+        <link refid="d9/d8d/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_run_task"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>org.xtclang.plugin.tasks.XtcTestTask</label>
+        <link refid="d1/d8a/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_test_task"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Named</label>
+      </node>
+      <node id="1">
+        <label>org.xtclang.plugin.XtcRuntimeExtension</label>
+        <link refid="d1/dd5/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_runtime_extension"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>org.xtclang.plugin.XtcLauncherTaskExtension</label>
+        <link refid="df/dc8/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_launcher_task_extension"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcRuntimeExtension.java" line="27" column="18" bodyfile="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/XtcRuntimeExtension.java" bodystart="27" bodyend="76"/>
+    <listofallmembers>
+      <member refid="df/dc8/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_launcher_task_extension_1aa454b73f4dce7487a398abf0ffcd7078" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcRuntimeExtension</scope><name>getExecutionMode</name></member>
+      <member refid="df/dc8/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_launcher_task_extension_1a8784624bc84516da78f7ecbb8eb26e8b" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcRuntimeExtension</scope><name>getJvmArgs</name></member>
+      <member refid="df/dc8/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_launcher_task_extension_1adb88052e1cb81392d335d4a5a5e7c35d" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcRuntimeExtension</scope><name>getModulePath</name></member>
+      <member refid="d1/dd5/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_runtime_extension_1a4b9cb76002f3bfb10e45d28c621045ca" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcRuntimeExtension</scope><name>getModules</name></member>
+      <member refid="df/dc8/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_launcher_task_extension_1a23b3d0b58dad206d8f5156fc2bb9ab75" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcRuntimeExtension</scope><name>getName</name></member>
+      <member refid="d1/dd5/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_runtime_extension_1acf075202f6474e0f9ee3e660db12793a" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcRuntimeExtension</scope><name>getParallel</name></member>
+      <member refid="df/dc8/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_launcher_task_extension_1a39edccf60725c3f356933b84b145729d" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcRuntimeExtension</scope><name>getShowVersion</name></member>
+      <member refid="df/dc8/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_launcher_task_extension_1a6837423039e0404dd197850526bda427" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcRuntimeExtension</scope><name>getStderrPath</name></member>
+      <member refid="df/dc8/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_launcher_task_extension_1a3ebe1d37386fe33e75c71488f678e87c" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcRuntimeExtension</scope><name>getStdoutPath</name></member>
+      <member refid="df/dc8/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_launcher_task_extension_1ac95505f2303a2c7a167e5dafe6688219" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcRuntimeExtension</scope><name>getVerbose</name></member>
+      <member refid="d1/dd5/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_runtime_extension_1a2c04b7528cead20684fd71740942657c" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcRuntimeExtension</scope><name>isEmpty</name></member>
+      <member refid="df/dc8/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_launcher_task_extension_1a197c575c96875f7ddb7f58cef2a8fd3e" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcRuntimeExtension</scope><name>jvmArg</name></member>
+      <member refid="df/dc8/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_launcher_task_extension_1a0298edf0a92b34c20ae95eee188d9811" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcRuntimeExtension</scope><name>jvmArg</name></member>
+      <member refid="df/dc8/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_launcher_task_extension_1a5b2ca353895fe45911999f68bad360c8" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcRuntimeExtension</scope><name>jvmArgs</name></member>
+      <member refid="df/dc8/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_launcher_task_extension_1a9c28a2733db3acb5c3ad2422d117430b" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcRuntimeExtension</scope><name>jvmArgs</name></member>
+      <member refid="df/dc8/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_launcher_task_extension_1ae91101aa5f0de5f23479ff99d382a071" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcRuntimeExtension</scope><name>jvmArgs</name></member>
+      <member refid="d1/dd5/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_runtime_extension_1ac2ff9e7e2870f036374f984fca9a6f8c" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcRuntimeExtension</scope><name>module</name></member>
+      <member refid="d1/dd5/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_runtime_extension_1a2f8c1f1b4886f226e7479ffaeb406016" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcRuntimeExtension</scope><name>moduleName</name></member>
+      <member refid="d1/dd5/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_runtime_extension_1a21e7da0b16d008f2f9daec28297a0ca5" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcRuntimeExtension</scope><name>moduleNames</name></member>
+      <member refid="df/dc8/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_launcher_task_extension_1ae4b040d503e0ca0b9009c8858e043153" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcRuntimeExtension</scope><name>setJvmArgs</name></member>
+      <member refid="df/dc8/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_launcher_task_extension_1afa3cc8e07dc1b2a6f0dfbd97c53de5e1" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcRuntimeExtension</scope><name>setJvmArgs</name></member>
+      <member refid="d1/dd5/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_runtime_extension_1a8681c014fde6520a2dbcf211a67d57c7" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcRuntimeExtension</scope><name>setModuleNames</name></member>
+      <member refid="d1/dd5/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_runtime_extension_1ae81d58df1a4677809ac0dfd3faa1a3b1" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcRuntimeExtension</scope><name>setModuleNames</name></member>
+      <member refid="d1/dd5/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_runtime_extension_1a7f7aaff7d71ce6763ad987a1d0431c39" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcRuntimeExtension</scope><name>setModules</name></member>
+      <member refid="d1/dd5/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_runtime_extension_1a2fc12323d2eb455bde3f96d020b74454" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcRuntimeExtension</scope><name>setModules</name></member>
+      <member refid="d1/dd5/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_runtime_extension_1a53b72596a14f6dd733c113eb7de78e73" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcRuntimeExtension</scope><name>size</name></member>
+      <member refid="df/dc8/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_launcher_task_extension_1af45e51ab54990e4e714fadcdcab51067" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcRuntimeExtension</scope><name>stderrPath</name></member>
+      <member refid="df/dc8/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_launcher_task_extension_1a8713e6e52d0328786ec4590172154182" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcRuntimeExtension</scope><name>stderrPath</name></member>
+      <member refid="df/dc8/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_launcher_task_extension_1a75de7f437087fee47de256e1a62dc608" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcRuntimeExtension</scope><name>stdoutPath</name></member>
+      <member refid="df/dc8/interfaceorg_1_1xtclang_1_1plugin_1_1_xtc_launcher_task_extension_1a20b588cfd200eb3421dc76d7938cad84" prot="public" virt="non-virtual"><scope>org::xtclang::plugin::XtcRuntimeExtension</scope><name>stdoutPath</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

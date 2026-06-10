@@ -1,0 +1,443 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map" kind="class" language="Java" prot="public">
+    <compoundname>org::xvm::util::WeakHasherMap</compoundname>
+    <basecompoundref refid="dd/d24/classorg_1_1xvm_1_1util_1_1_hasher_map" prot="public" virt="non-virtual">org::xvm::util::HasherMap&lt; K, V &gt;</basecompoundref>
+    <derivedcompoundref refid="d7/dac/classorg_1_1xvm_1_1util_1_1concurrent_1_1_concurrent_weak_hasher_map" prot="public" virt="non-virtual">org.xvm.util.concurrent.ConcurrentWeakHasherMap&lt; K, V &gt;</derivedcompoundref>
+    <innerclass refid="d5/dae/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1_1_key_set" prot="protected">org::xvm::util::WeakHasherMap::KeySet</innerclass>
+    <innerclass refid="d3/d35/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1_1_entry_set" prot="protected">org::xvm::util::WeakHasherMap::EntrySet</innerclass>
+    <templateparamlist>
+      <param>
+        <type>K</type>
+      </param>
+      <param>
+        <type>V</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a4fa09f46bb095ee30a59ebbd8bdfb9f8" prot="private" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int org.xvm.util.WeakHasherMap&lt; K, V &gt;.MIN_GC_INTERVAL</definition>
+        <argsstring></argsstring>
+        <name>MIN_GC_INTERVAL</name>
+        <qualifiedname>org.xvm.util.WeakHasherMap.MIN_GC_INTERVAL</qualifiedname>
+        <initializer>= Integer.highestOneBit(Runtime.getRuntime().availableProcessors())</initializer>
+        <briefdescription>
+<para>The minimum GC interval. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/WeakHasherMap.java" line="22" column="30" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/WeakHasherMap.java" bodystart="22" bodyend="-1"/>
+        <referencedby refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1af70b684f082683de16709ea44700c688" compoundref="da/d40/_weak_hasher_map_8java" startline="81" endline="109">org.xvm.util.WeakHasherMap&lt; K, V &gt;.gc</referencedby>
+        <referencedby refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1ac13bdafc9b484efbf15f5f840b21672c" compoundref="da/d40/_weak_hasher_map_8java" startline="67" endline="71">org.xvm.util.WeakHasherMap&lt; K, V &gt;.write</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="package-attrib">
+      <memberdef kind="variable" id="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1af1005ecae4a4d461206cf17eef342c9b" prot="package" static="no" mutable="no">
+        <type>final ReferenceQueue&lt; K &gt;</type>
+        <definition>final ReferenceQueue&lt;K&gt; org.xvm.util.WeakHasherMap&lt; K, V &gt;.garbage</definition>
+        <argsstring></argsstring>
+        <name>garbage</name>
+        <qualifiedname>org.xvm.util.WeakHasherMap.garbage</qualifiedname>
+        <initializer>= new ReferenceQueue&lt;&gt;()</initializer>
+        <briefdescription>
+<para>Queue of cleared keys. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/WeakHasherMap.java" line="27" column="26" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/WeakHasherMap.java" bodystart="27" bodyend="-1"/>
+        <referencedby refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1af70b684f082683de16709ea44700c688" compoundref="da/d40/_weak_hasher_map_8java" startline="81" endline="109">org.xvm.util.WeakHasherMap&lt; K, V &gt;.gc</referencedby>
+        <referencedby refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a091a7911a9201ebd84fefa851fed3c19" compoundref="da/d40/_weak_hasher_map_8java" startline="54" endline="56">org.xvm.util.WeakHasherMap&lt; K, V &gt;.keyDown</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a9dbfde9dbd3c09a297a6d953c59cb254" prot="package" static="no" mutable="no">
+        <type>int</type>
+        <definition>int org.xvm.util.WeakHasherMap&lt; K, V &gt;.fullGcInterval</definition>
+        <argsstring></argsstring>
+        <name>fullGcInterval</name>
+        <qualifiedname>org.xvm.util.WeakHasherMap.fullGcInterval</qualifiedname>
+        <initializer>= <ref refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a4fa09f46bb095ee30a59ebbd8bdfb9f8" kindref="member">MIN_GC_INTERVAL</ref></initializer>
+        <briefdescription>
+<para>The interval for full gc. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/WeakHasherMap.java" line="32" column="9" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/WeakHasherMap.java" bodystart="32" bodyend="-1"/>
+        <referencedby refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1af70b684f082683de16709ea44700c688" compoundref="da/d40/_weak_hasher_map_8java" startline="81" endline="109">org.xvm.util.WeakHasherMap&lt; K, V &gt;.gc</referencedby>
+        <referencedby refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1add19be97b2f62b551e48526caa064136" compoundref="da/d40/_weak_hasher_map_8java" startline="59" endline="64">org.xvm.util.WeakHasherMap&lt; K, V &gt;.read</referencedby>
+        <referencedby refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1ac13bdafc9b484efbf15f5f840b21672c" compoundref="da/d40/_weak_hasher_map_8java" startline="67" endline="71">org.xvm.util.WeakHasherMap&lt; K, V &gt;.write</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a33fb418290c18c255d7c32b32f659559" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.xvm.util.WeakHasherMap&lt; K, V &gt;.WeakHasherMap</definition>
+        <argsstring>(Hasher&lt; K &gt; hasher)</argsstring>
+        <name>WeakHasherMap</name>
+        <qualifiedname>org.xvm.util.WeakHasherMap.WeakHasherMap</qualifiedname>
+        <param>
+          <type><ref refid="db/db8/interfaceorg_1_1xvm_1_1util_1_1_hasher" kindref="compound">Hasher</ref>&lt; K &gt;</type>
+          <declname>hasher</declname>
+        </param>
+        <briefdescription>
+<para>Construct a <computeroutput><ref refid="dd/d24/classorg_1_1xvm_1_1util_1_1_hasher_map" kindref="compound">HasherMap</ref></computeroutput> with a given <computeroutput><ref refid="db/db8/interfaceorg_1_1xvm_1_1util_1_1_hasher" kindref="compound">Hasher</ref></computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>hasher</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the <computeroutput><ref refid="db/db8/interfaceorg_1_1xvm_1_1util_1_1_hasher" kindref="compound">Hasher</ref></computeroutput> to use in determining key equality </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/WeakHasherMap.java" line="39" column="12" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/WeakHasherMap.java" bodystart="39" bodyend="41"/>
+        <references refid="dd/d24/classorg_1_1xvm_1_1util_1_1_hasher_map_1a0f129fba798cccda4e944eb46d1331de" compoundref="da/db7/_hasher_map_8java" startline="20">org.xvm.util.HasherMap&lt; K, V &gt;.hasher</references>
+      </memberdef>
+      <memberdef kind="function" id="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a87a976a7fb86c7a5e50a8f18b0a6d69d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.xvm.util.WeakHasherMap&lt; K, V &gt;.WeakHasherMap</definition>
+        <argsstring>(Hasher&lt; K &gt; hasher, Supplier&lt;? extends Map&lt; Supplier&lt; K &gt;, V &gt; &gt; storage)</argsstring>
+        <name>WeakHasherMap</name>
+        <qualifiedname>org.xvm.util.WeakHasherMap.WeakHasherMap</qualifiedname>
+        <param>
+          <type><ref refid="db/db8/interfaceorg_1_1xvm_1_1util_1_1_hasher" kindref="compound">Hasher</ref>&lt; K &gt;</type>
+          <declname>hasher</declname>
+        </param>
+        <param>
+          <type>Supplier&lt;? extends Map&lt; Supplier&lt; K &gt;, V &gt; &gt;</type>
+          <declname>storage</declname>
+        </param>
+        <briefdescription>
+<para>Construct a <computeroutput><ref refid="dd/d24/classorg_1_1xvm_1_1util_1_1_hasher_map" kindref="compound">HasherMap</ref></computeroutput> with a given <computeroutput><ref refid="db/db8/interfaceorg_1_1xvm_1_1util_1_1_hasher" kindref="compound">Hasher</ref></computeroutput> and initial capacity. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>hasher</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the <computeroutput><ref refid="db/db8/interfaceorg_1_1xvm_1_1util_1_1_hasher" kindref="compound">Hasher</ref></computeroutput> to use in determining key equality </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>storage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the non-week backing store allocator </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/WeakHasherMap.java" line="49" column="12" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/WeakHasherMap.java" bodystart="49" bodyend="51"/>
+        <references refid="dd/d24/classorg_1_1xvm_1_1util_1_1_hasher_map_1a0f129fba798cccda4e944eb46d1331de" compoundref="da/db7/_hasher_map_8java" startline="20">org.xvm.util.HasherMap&lt; K, V &gt;.hasher</references>
+        <references refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a976815ac87ce3622e07f0947d21ef881" compoundref="d6/d4a/_abstract_converter_map_8java" startline="16">org.xvm.util.converter.AbstractConverterMap&lt; K, V, SK, SV &gt;.storage</references>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a091a7911a9201ebd84fefa851fed3c19" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Supplier&lt; K &gt;</type>
+        <definition>Supplier&lt; K &gt; org.xvm.util.WeakHasherMap&lt; K, V &gt;.keyDown</definition>
+        <argsstring>(K key)</argsstring>
+        <name>keyDown</name>
+        <qualifiedname>org.xvm.util.WeakHasherMap.keyDown</qualifiedname>
+        <reimplements refid="dd/d24/classorg_1_1xvm_1_1util_1_1_hasher_map_1af1f27a4b96e03e782665aa663ca84dbd">keyDown</reimplements>
+        <param>
+          <type>K</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+<para>Convert from public to storage key. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the public facing key </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the storage key. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/WeakHasherMap.java" line="54" column="24" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/WeakHasherMap.java" bodystart="54" bodyend="56"/>
+        <references refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1af1005ecae4a4d461206cf17eef342c9b" compoundref="da/d40/_weak_hasher_map_8java" startline="27">org.xvm.util.WeakHasherMap&lt; K, V &gt;.garbage</references>
+        <references refid="dd/d24/classorg_1_1xvm_1_1util_1_1_hasher_map_1a0f129fba798cccda4e944eb46d1331de" compoundref="da/db7/_hasher_map_8java" startline="20">org.xvm.util.HasherMap&lt; K, V &gt;.hasher</references>
+      </memberdef>
+      <memberdef kind="function" id="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1add19be97b2f62b551e48526caa064136" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Map&lt; Supplier&lt; K &gt;, V &gt;</type>
+        <definition>Map&lt; Supplier&lt; K &gt;, V &gt; org.xvm.util.WeakHasherMap&lt; K, V &gt;.read</definition>
+        <argsstring>()</argsstring>
+        <name>read</name>
+        <qualifiedname>org.xvm.util.WeakHasherMap.read</qualifiedname>
+        <reimplements refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a2545fb613a51ae4b2872288a1eb37613">read</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>return <computeroutput><ref refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a976815ac87ce3622e07f0947d21ef881" kindref="member">storage</ref></computeroutput> for use in read operations. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/WeakHasherMap.java" line="59" column="19" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/WeakHasherMap.java" bodystart="59" bodyend="64"/>
+        <references refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a9dbfde9dbd3c09a297a6d953c59cb254" compoundref="da/d40/_weak_hasher_map_8java" startline="32">org.xvm.util.WeakHasherMap&lt; K, V &gt;.fullGcInterval</references>
+        <references refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1af70b684f082683de16709ea44700c688" compoundref="da/d40/_weak_hasher_map_8java" startline="81" endline="109">org.xvm.util.WeakHasherMap&lt; K, V &gt;.gc</references>
+        <references refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a976815ac87ce3622e07f0947d21ef881" compoundref="d6/d4a/_abstract_converter_map_8java" startline="16">org.xvm.util.converter.AbstractConverterMap&lt; K, V, SK, SV &gt;.storage</references>
+      </memberdef>
+      <memberdef kind="function" id="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1ac13bdafc9b484efbf15f5f840b21672c" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Map&lt; Supplier&lt; K &gt;, V &gt;</type>
+        <definition>Map&lt; Supplier&lt; K &gt;, V &gt; org.xvm.util.WeakHasherMap&lt; K, V &gt;.write</definition>
+        <argsstring>()</argsstring>
+        <name>write</name>
+        <qualifiedname>org.xvm.util.WeakHasherMap.write</qualifiedname>
+        <reimplements refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a28f353375e4aa5600ff35d1445102ee0">write</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>return <computeroutput><ref refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a976815ac87ce3622e07f0947d21ef881" kindref="member">storage</ref></computeroutput> for use in write operations. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/WeakHasherMap.java" line="67" column="19" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/WeakHasherMap.java" bodystart="67" bodyend="71"/>
+        <references refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a9dbfde9dbd3c09a297a6d953c59cb254" compoundref="da/d40/_weak_hasher_map_8java" startline="32">org.xvm.util.WeakHasherMap&lt; K, V &gt;.fullGcInterval</references>
+        <references refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1af70b684f082683de16709ea44700c688" compoundref="da/d40/_weak_hasher_map_8java" startline="81" endline="109">org.xvm.util.WeakHasherMap&lt; K, V &gt;.gc</references>
+        <references refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a4fa09f46bb095ee30a59ebbd8bdfb9f8" compoundref="da/d40/_weak_hasher_map_8java" startline="22">org.xvm.util.WeakHasherMap&lt; K, V &gt;.MIN_GC_INTERVAL</references>
+        <references refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a976815ac87ce3622e07f0947d21ef881" compoundref="d6/d4a/_abstract_converter_map_8java" startline="16">org.xvm.util.converter.AbstractConverterMap&lt; K, V, SK, SV &gt;.storage</references>
+      </memberdef>
+      <memberdef kind="function" id="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1af70b684f082683de16709ea44700c688" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Map&lt; Supplier&lt; K &gt;, V &gt;</type>
+        <definition>Map&lt; Supplier&lt; K &gt;, V &gt; org.xvm.util.WeakHasherMap&lt; K, V &gt;.gc</definition>
+        <argsstring>(Map&lt; Supplier&lt; K &gt;, V &gt; storage, boolean mark, boolean sweep)</argsstring>
+        <name>gc</name>
+        <qualifiedname>org.xvm.util.WeakHasherMap.gc</qualifiedname>
+        <param>
+          <type>Map&lt; Supplier&lt; K &gt;, V &gt;</type>
+          <declname>storage</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>mark</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>sweep</declname>
+        </param>
+        <briefdescription>
+<para>Remove any cleared refs from the map. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>storage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the storage map to clean </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mark</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>to do a more exhaustive search of the keys </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sweep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><javadoccode>true</javadoccode> to allow storage compaction (requires write safety) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>storage </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/WeakHasherMap.java" line="81" column="19" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/WeakHasherMap.java" bodystart="81" bodyend="109"/>
+        <references refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a9dbfde9dbd3c09a297a6d953c59cb254" compoundref="da/d40/_weak_hasher_map_8java" startline="32">org.xvm.util.WeakHasherMap&lt; K, V &gt;.fullGcInterval</references>
+        <references refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1af1005ecae4a4d461206cf17eef342c9b" compoundref="da/d40/_weak_hasher_map_8java" startline="27">org.xvm.util.WeakHasherMap&lt; K, V &gt;.garbage</references>
+        <references refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a4fa09f46bb095ee30a59ebbd8bdfb9f8" compoundref="da/d40/_weak_hasher_map_8java" startline="22">org.xvm.util.WeakHasherMap&lt; K, V &gt;.MIN_GC_INTERVAL</references>
+        <references refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a976815ac87ce3622e07f0947d21ef881" compoundref="d6/d4a/_abstract_converter_map_8java" startline="16">org.xvm.util.converter.AbstractConverterMap&lt; K, V, SK, SV &gt;.storage</references>
+        <referencedby refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1add19be97b2f62b551e48526caa064136" compoundref="da/d40/_weak_hasher_map_8java" startline="59" endline="64">org.xvm.util.WeakHasherMap&lt; K, V &gt;.read</referencedby>
+        <referencedby refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1ac13bdafc9b484efbf15f5f840b21672c" compoundref="da/d40/_weak_hasher_map_8java" startline="67" endline="71">org.xvm.util.WeakHasherMap&lt; K, V &gt;.write</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1ad4bc77dd2721f3390377d001a150d642" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Set&lt; K &gt;</type>
+        <definition>Set&lt; K &gt; org.xvm.util.WeakHasherMap&lt; K, V &gt;.newKeySet</definition>
+        <argsstring>()</argsstring>
+        <name>newKeySet</name>
+        <qualifiedname>org.xvm.util.WeakHasherMap.newKeySet</qualifiedname>
+        <reimplements refid="dd/d24/classorg_1_1xvm_1_1util_1_1_hasher_map_1a2146c0f9dac0a073d4762ccd9c17aa6e">newKeySet</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>a new keyset </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/WeakHasherMap.java" line="112" column="19" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/WeakHasherMap.java" bodystart="112" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a670354eddc272772c74dd9c8bd2c1f49" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Set&lt; Entry&lt; K, V &gt; &gt;</type>
+        <definition>Set&lt; Entry&lt; K, V &gt; &gt; org.xvm.util.WeakHasherMap&lt; K, V &gt;.newEntrySet</definition>
+        <argsstring>()</argsstring>
+        <name>newEntrySet</name>
+        <qualifiedname>org.xvm.util.WeakHasherMap.newEntrySet</qualifiedname>
+        <reimplements refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1ac6530209dbca6d5ac104d3f39fdc9cdd">newEntrySet</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>a new ntrySet </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/WeakHasherMap.java" line="127" column="19" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/WeakHasherMap.java" bodystart="127" bodyend="129"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A <computeroutput><ref refid="db/db8/interfaceorg_1_1xvm_1_1util_1_1_hasher" kindref="compound">Hasher</ref></computeroutput> based <computeroutput><ref refid="" kindref="compound">Map</ref></computeroutput> which only maintains <computeroutput><ref refid="" kindref="compound">WeakReference</ref></computeroutput>s to its keys, allowing those entries to be automatically removed their keys become unreachable. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>Map&lt; K, V &gt;</label>
+      </node>
+      <node id="1">
+        <label>org.xvm.util.WeakHasherMap&lt; K, V &gt;</label>
+        <link refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>org.xvm.util.HasherMap&lt; K, V &gt;</label>
+        <link refid="dd/d24/classorg_1_1xvm_1_1util_1_1_hasher_map"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>org.xvm.util.concurrent.ConcurrentWeakHasherMap&lt; K, V &gt;</label>
+        <link refid="d7/dac/classorg_1_1xvm_1_1util_1_1concurrent_1_1_concurrent_weak_hasher_map"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>org.xvm.util.converter.AbstractConverterMap&lt; K, V, SK, SV &gt;</label>
+        <link refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>Map&lt; K, V &gt;</label>
+      </node>
+      <node id="1">
+        <label>org.xvm.util.WeakHasherMap&lt; K, V &gt;</label>
+        <link refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>org.xvm.util.Hasher&lt; K &gt;</label>
+        <link refid="db/db8/interfaceorg_1_1xvm_1_1util_1_1_hasher"/>
+      </node>
+      <node id="2">
+        <label>org.xvm.util.HasherMap&lt; K, V &gt;</label>
+        <link refid="dd/d24/classorg_1_1xvm_1_1util_1_1_hasher_map"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>hasher</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>org.xvm.util.converter.AbstractConverterMap&lt; K, V, SK, SV &gt;</label>
+        <link refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/WeakHasherMap.java" line="18" column="7" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/WeakHasherMap.java" bodystart="18" bodyend="140"/>
+    <listofallmembers>
+      <member refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a6ea58a8e16b11340837469c552623331" prot="protected" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>AbstractConverterMap</name></member>
+      <member refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a2fb5f36c83acaf8699c77bf433cbd892" prot="public" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>clear</name></member>
+      <member refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a0045aa807c291267dcebc739657e154b" prot="public" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>compute</name></member>
+      <member refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1add5b4f2af4d8e40bda04ada43919a049" prot="public" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>computeIfAbsent</name></member>
+      <member refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1affd3403608393abcb07c44859ca17733" prot="public" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>computeIfPresent</name></member>
+      <member refid="dd/d24/classorg_1_1xvm_1_1util_1_1_hasher_map_1a12035a514e16e7db89c1084f83028df0" prot="public" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>containsKey</name></member>
+      <member refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a193ba69712850c1e34550b6b0307aa27" prot="public" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>containsValue</name></member>
+      <member refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a44c637cef63f6415239b6e9c64f40807" prot="protected" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>entries</name></member>
+      <member refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1aa900d7ac9fce7f901053b4ac378cae9e" prot="public" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>entrySet</name></member>
+      <member refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a9dbfde9dbd3c09a297a6d953c59cb254" prot="package" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>fullGcInterval</name></member>
+      <member refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1af1005ecae4a4d461206cf17eef342c9b" prot="package" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>garbage</name></member>
+      <member refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1af70b684f082683de16709ea44700c688" prot="protected" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>gc</name></member>
+      <member refid="dd/d24/classorg_1_1xvm_1_1util_1_1_hasher_map_1a4c59c9769f4a24a70368a45427ddf828" prot="public" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>get</name></member>
+      <member refid="dd/d24/classorg_1_1xvm_1_1util_1_1_hasher_map_1a0f129fba798cccda4e944eb46d1331de" prot="package" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>hasher</name></member>
+      <member refid="dd/d24/classorg_1_1xvm_1_1util_1_1_hasher_map_1a59daf27d94bdc0c862e4c07d134b3e22" prot="public" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>HasherMap</name></member>
+      <member refid="dd/d24/classorg_1_1xvm_1_1util_1_1_hasher_map_1a7e8c72eb292f8ec0ffb1b117317ab5e1" prot="public" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>HasherMap</name></member>
+      <member refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a6be0ba203ee489f7336b96af6f589bb1" prot="public" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>isEmpty</name></member>
+      <member refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a091a7911a9201ebd84fefa851fed3c19" prot="protected" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>keyDown</name></member>
+      <member refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a423db36361fca0acdf50683a86ea4cc2" prot="protected" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>keys</name></member>
+      <member refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1ae896c4beaa3a664a6446aa4b0e87cf30" prot="public" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>keySet</name></member>
+      <member refid="dd/d24/classorg_1_1xvm_1_1util_1_1_hasher_map_1ab8accbc8d4f2e672c6267cb925630cd2" prot="protected" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>keyUp</name></member>
+      <member refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1ac1933b4e6f4a8031b64949a11cc4ed7d" prot="protected" virt="non-virtual" ambiguityscope="org::xvm::util::converter::AbstractConverterMap."><scope>org::xvm::util::WeakHasherMap</scope><name>keyUp</name></member>
+      <member refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a401dffb64089fc30c5b983f001d90b15" prot="public" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>merge</name></member>
+      <member refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a4fa09f46bb095ee30a59ebbd8bdfb9f8" prot="private" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>MIN_GC_INTERVAL</name></member>
+      <member refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a670354eddc272772c74dd9c8bd2c1f49" prot="protected" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>newEntrySet</name></member>
+      <member refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1ad4bc77dd2721f3390377d001a150d642" prot="protected" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>newKeySet</name></member>
+      <member refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a0e2fe147471f18e0e164904a6e90edad" prot="protected" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>newValues</name></member>
+      <member refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1ad730f48d00b98d11b3befae9a939d632" prot="public" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>put</name></member>
+      <member refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1aa62e0011c1a8f4b6eee6a7995bbc2565" prot="public" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>putAll</name></member>
+      <member refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1aeea07a935d2655a2c051eacff9839997" prot="public" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>putIfAbsent</name></member>
+      <member refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1add19be97b2f62b551e48526caa064136" prot="protected" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>read</name></member>
+      <member refid="dd/d24/classorg_1_1xvm_1_1util_1_1_hasher_map_1ad69b6c427631bd41808e737353638609" prot="public" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>remove</name></member>
+      <member refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1ac09467753e21e36ff6476308987ee005" prot="public" virt="non-virtual" ambiguityscope="org::xvm::util::converter::AbstractConverterMap."><scope>org::xvm::util::WeakHasherMap</scope><name>remove</name></member>
+      <member refid="dd/d24/classorg_1_1xvm_1_1util_1_1_hasher_map_1acd4bd6fc705c975a881443598ea46677" prot="public" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>replace</name></member>
+      <member refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a2cca4ed6fe6eac0474bb849241614571" prot="public" virt="non-virtual" ambiguityscope="org::xvm::util::converter::AbstractConverterMap."><scope>org::xvm::util::WeakHasherMap</scope><name>replace</name></member>
+      <member refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a3a26194207d59609dac3cf64c1f7be4f" prot="public" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>replaceAll</name></member>
+      <member refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a67ee7b38c5d525bf9fb0b3aca82670fb" prot="public" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>size</name></member>
+      <member refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a976815ac87ce3622e07f0947d21ef881" prot="private" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>storage</name></member>
+      <member refid="dd/d24/classorg_1_1xvm_1_1util_1_1_hasher_map_1a9549392ebc5258adfc6a12461b78522b" prot="protected" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>transientKeyDown</name></member>
+      <member refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a43c60b5fdb870def8c8a94cf4963d139" prot="package" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>unchecked</name></member>
+      <member refid="dd/d24/classorg_1_1xvm_1_1util_1_1_hasher_map_1af54743912001a08d3693d243c652be3f" prot="protected" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>valueDown</name></member>
+      <member refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a3a2f2c828e4ab5e13c786187fecccf7b" prot="protected" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>values</name></member>
+      <member refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1a86cded6e9554ec36907c4d9011c537e1" prot="public" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>values</name></member>
+      <member refid="dd/d24/classorg_1_1xvm_1_1util_1_1_hasher_map_1ab96be8807c03bb4400f3fc445e22a814" prot="protected" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>valueUp</name></member>
+      <member refid="d8/d7e/classorg_1_1xvm_1_1util_1_1converter_1_1_abstract_converter_map_1aa8da97a1b1277fa8f9e7fd5abc8a5574" prot="protected" virt="non-virtual" ambiguityscope="org::xvm::util::converter::AbstractConverterMap."><scope>org::xvm::util::WeakHasherMap</scope><name>valueUp</name></member>
+      <member refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a33fb418290c18c255d7c32b32f659559" prot="public" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>WeakHasherMap</name></member>
+      <member refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1a87a976a7fb86c7a5e50a8f18b0a6d69d" prot="public" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>WeakHasherMap</name></member>
+      <member refid="de/dca/classorg_1_1xvm_1_1util_1_1_weak_hasher_map_1ac13bdafc9b484efbf15f5f840b21672c" prot="protected" virt="non-virtual"><scope>org::xvm::util::WeakHasherMap</scope><name>write</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

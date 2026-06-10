@@ -1,0 +1,2305 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support" kind="interface" language="Java" prot="public">
+    <compoundname>org::xvm::javajit::NumberSupport</compoundname>
+    <basecompoundref refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128" prot="public" virt="non-virtual">org.xvm.javajit.NumberSupportInt128</basecompoundref>
+    <basecompoundref refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec" prot="public" virt="non-virtual">org.xvm.javajit.NumberSupportDec</basecompoundref>
+    <derivedcompoundref refid="da/d71/classorg_1_1xvm_1_1asm_1_1_op_in_place" prot="public" virt="non-virtual">org.xvm.asm.OpInPlace</derivedcompoundref>
+    <derivedcompoundref refid="d6/da9/classorg_1_1xvm_1_1asm_1_1_op_index" prot="public" virt="non-virtual">org.xvm.asm.OpIndex</derivedcompoundref>
+    <derivedcompoundref refid="df/de2/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___add" prot="public" virt="non-virtual">org.xvm.asm.op.GP_Add</derivedcompoundref>
+    <derivedcompoundref refid="d7/d66/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___and" prot="public" virt="non-virtual">org.xvm.asm.op.GP_And</derivedcompoundref>
+    <derivedcompoundref refid="d9/dd1/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___compl" prot="public" virt="non-virtual">org.xvm.asm.op.GP_Compl</derivedcompoundref>
+    <derivedcompoundref refid="d6/d8d/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___div" prot="public" virt="non-virtual">org.xvm.asm.op.GP_Div</derivedcompoundref>
+    <derivedcompoundref refid="d7/d45/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___mod" prot="public" virt="non-virtual">org.xvm.asm.op.GP_Mod</derivedcompoundref>
+    <derivedcompoundref refid="df/d56/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___mul" prot="public" virt="non-virtual">org.xvm.asm.op.GP_Mul</derivedcompoundref>
+    <derivedcompoundref refid="d7/d10/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___neg" prot="public" virt="non-virtual">org.xvm.asm.op.GP_Neg</derivedcompoundref>
+    <derivedcompoundref refid="da/d4a/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___or" prot="public" virt="non-virtual">org.xvm.asm.op.GP_Or</derivedcompoundref>
+    <derivedcompoundref refid="d5/d5d/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___shl" prot="public" virt="non-virtual">org.xvm.asm.op.GP_Shl</derivedcompoundref>
+    <derivedcompoundref refid="d0/dec/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___shr" prot="public" virt="non-virtual">org.xvm.asm.op.GP_Shr</derivedcompoundref>
+    <derivedcompoundref refid="d2/d31/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___shr_all" prot="public" virt="non-virtual">org.xvm.asm.op.GP_ShrAll</derivedcompoundref>
+    <derivedcompoundref refid="d3/d89/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___sub" prot="public" virt="non-virtual">org.xvm.asm.op.GP_Sub</derivedcompoundref>
+    <derivedcompoundref refid="d1/d53/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___xor" prot="public" virt="non-virtual">org.xvm.asm.op.GP_Xor</derivedcompoundref>
+    <derivedcompoundref refid="d1/d37/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___add" prot="public" virt="non-virtual">org.xvm.asm.op.IP_Add</derivedcompoundref>
+    <derivedcompoundref refid="df/d9b/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___and" prot="public" virt="non-virtual">org.xvm.asm.op.IP_And</derivedcompoundref>
+    <derivedcompoundref refid="d2/ded/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___div" prot="public" virt="non-virtual">org.xvm.asm.op.IP_Div</derivedcompoundref>
+    <derivedcompoundref refid="d3/d1c/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___mod" prot="public" virt="non-virtual">org.xvm.asm.op.IP_Mod</derivedcompoundref>
+    <derivedcompoundref refid="d7/db6/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___mul" prot="public" virt="non-virtual">org.xvm.asm.op.IP_Mul</derivedcompoundref>
+    <derivedcompoundref refid="d6/d1c/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___or" prot="public" virt="non-virtual">org.xvm.asm.op.IP_Or</derivedcompoundref>
+    <derivedcompoundref refid="d6/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___shl" prot="public" virt="non-virtual">org.xvm.asm.op.IP_Shl</derivedcompoundref>
+    <derivedcompoundref refid="d2/db0/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___shr" prot="public" virt="non-virtual">org.xvm.asm.op.IP_Shr</derivedcompoundref>
+    <derivedcompoundref refid="d8/dcc/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___shr_all" prot="public" virt="non-virtual">org.xvm.asm.op.IP_ShrAll</derivedcompoundref>
+    <derivedcompoundref refid="df/d3e/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___sub" prot="public" virt="non-virtual">org.xvm.asm.op.IP_Sub</derivedcompoundref>
+    <derivedcompoundref refid="db/db6/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___xor" prot="public" virt="non-virtual">org.xvm.asm.op.IP_Xor</derivedcompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a2db32d345245f4f6aedd846b8c9a34d4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default void</type>
+        <definition>default void org.xvm.javajit.NumberSupport.buildPrimitiveAdd</definition>
+        <argsstring>(BuildContext bctx, CodeBuilder code, RegisterInfo regTarget)</argsstring>
+        <name>buildPrimitiveAdd</name>
+        <qualifiedname>org.xvm.javajit.NumberSupport.buildPrimitiveAdd</qualifiedname>
+        <param>
+          <type><ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref></type>
+          <declname>bctx</declname>
+        </param>
+        <param>
+          <type>CodeBuilder</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref></type>
+          <declname>regTarget</declname>
+        </param>
+        <briefdescription>
+<para>Build the optimized binary operation that will add two primitive types from the stack (T + T -&gt; T). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current build context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the code builder to add the op codes to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>regTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register containing the target of the operation </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" line="37" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" bodystart="37" bodyend="48"/>
+        <references refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a78dfb597e34d3038e980c434656869cb" compoundref="d2/d9a/_build_context_8java" startline="2909" endline="2922">org.xvm.javajit.BuildContext.adjustIntValue</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1ab3957ce4e2c49b01eab88b289964c715">org.xvm.javajit.RegisterInfo.cd</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4deb7ba2ac6982c77aba0ffe4faff6a5">org.xvm.javajit.RegisterInfo.type</references>
+        <referencedby refid="df/de2/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___add_1a58f1b963a675db6f9430bc99dd56f33e" compoundref="d6/de5/_g_p___add_8java" startline="75" endline="78">org.xvm.asm.op.GP_Add.buildOptimizedBinary</referencedby>
+        <referencedby refid="d5/d24/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___add_1ae2d1cf9d758b36c113ebed622bdb7441" compoundref="d6/dcb/_i_i_p___add_8java" startline="106" endline="109">org.xvm.asm.op.IIP_Add.buildOptimizedBinary</referencedby>
+        <referencedby refid="d1/d37/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___add_1a8b87d96f5471e94b759a6b17dc78aa24" compoundref="db/d85/_i_p___add_8java" startline="88" endline="91">org.xvm.asm.op.IP_Add.buildOptimizedBinary</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a7c0711d819eb02e3e14e388ec1dfc51b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default void</type>
+        <definition>default void org.xvm.javajit.NumberSupport.buildXvmPrimitiveAdd</definition>
+        <argsstring>(BuildContext bctx, CodeBuilder code, RegisterInfo regTarget, int nArgId)</argsstring>
+        <name>buildXvmPrimitiveAdd</name>
+        <qualifiedname>org.xvm.javajit.NumberSupport.buildXvmPrimitiveAdd</qualifiedname>
+        <param>
+          <type><ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref></type>
+          <declname>bctx</declname>
+        </param>
+        <param>
+          <type>CodeBuilder</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref></type>
+          <declname>regTarget</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nArgId</declname>
+        </param>
+        <briefdescription>
+<para>Build the optimized binary operation that will add two XVM primitive types (T + T -&gt; T). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Each type may be represented by one or more Java primitive types. </para>
+<para>Neither the target nor argument should have been loaded to the stack.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current build context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the code builder to add the op codes to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>regTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register containing the target of the operation </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nArgId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register containing the operation argument </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" line="63" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" bodystart="63" bodyend="79"/>
+        <references refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1acb695c38c30dc55554317462c023f9e6" compoundref="df/dcb/_number_support_dec_8java" startline="128" endline="132">org.xvm.javajit.NumberSupportDec.buildDec128Add</references>
+        <references refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1a3e74f52c9b74a3d937517d1df321bbdc" compoundref="df/dcb/_number_support_dec_8java" startline="92" endline="95">org.xvm.javajit.NumberSupportDec.buildDec32Add</references>
+        <references refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1a2a805660400a42ec6da06c347f13cd57" compoundref="df/dcb/_number_support_dec_8java" startline="110" endline="113">org.xvm.javajit.NumberSupportDec.buildDec64Add</references>
+        <references refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1a7a627aae5616d02311cd75ee56f491f8" compoundref="d5/dcc/_number_support_int128_8java" startline="75" endline="78">org.xvm.javajit.NumberSupportInt128.buildLongLongAdd</references>
+        <references refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1a6c31fef7d5d3cfcc485b7b73819f4b94">org.xvm.asm.Constant.getValueString</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4deb7ba2ac6982c77aba0ffe4faff6a5">org.xvm.javajit.RegisterInfo.type</references>
+        <referencedby refid="df/de2/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___add_1a1d32196a0920d44bebb6ed7967596bdd" compoundref="d6/de5/_g_p___add_8java" startline="81" endline="85">org.xvm.asm.op.GP_Add.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d5/d24/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___add_1a15e816c6f296007a79d5872ff22121ea" compoundref="d6/dcb/_i_i_p___add_8java" startline="112" endline="116">org.xvm.asm.op.IIP_Add.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d1/d37/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___add_1ae249c27ad4a14e37cfcf2cb2145fbb33" compoundref="db/d85/_i_p___add_8java" startline="94" endline="98">org.xvm.asm.op.IP_Add.buildXvmOptimizedBinary</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a41279bbc117095d9a9e2211d18dfccf3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default void</type>
+        <definition>default void org.xvm.javajit.NumberSupport.buildPrimitiveAnd</definition>
+        <argsstring>(BuildContext bctx, CodeBuilder code, RegisterInfo regTarget)</argsstring>
+        <name>buildPrimitiveAnd</name>
+        <qualifiedname>org.xvm.javajit.NumberSupport.buildPrimitiveAnd</qualifiedname>
+        <param>
+          <type><ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref></type>
+          <declname>bctx</declname>
+        </param>
+        <param>
+          <type>CodeBuilder</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref></type>
+          <declname>regTarget</declname>
+        </param>
+        <briefdescription>
+<para>Build the optimized binary operation that will logically AND two primitive types from the stack (T &amp; T -&gt; T). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current build context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the code builder to add the op codes to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>regTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register containing the target of the operation </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" line="89" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" bodystart="89" bodyend="99"/>
+        <references refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a78dfb597e34d3038e980c434656869cb" compoundref="d2/d9a/_build_context_8java" startline="2909" endline="2922">org.xvm.javajit.BuildContext.adjustIntValue</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1ab3957ce4e2c49b01eab88b289964c715">org.xvm.javajit.RegisterInfo.cd</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4deb7ba2ac6982c77aba0ffe4faff6a5">org.xvm.javajit.RegisterInfo.type</references>
+        <referencedby refid="d7/d66/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___and_1a528f2d267aba486b654df38a718790c9" compoundref="d0/d7e/_g_p___and_8java" startline="63" endline="66">org.xvm.asm.op.GP_And.buildOptimizedBinary</referencedby>
+        <referencedby refid="df/db5/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___and_1a531e25ae64c5ec37f928b7b1e662c616" compoundref="d7/deb/_i_i_p___and_8java" startline="95" endline="98">org.xvm.asm.op.IIP_And.buildOptimizedBinary</referencedby>
+        <referencedby refid="df/d9b/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___and_1a792cc9b5798ff3b0de2e0aff91e2c680" compoundref="d2/d62/_i_p___and_8java" startline="76" endline="79">org.xvm.asm.op.IP_And.buildOptimizedBinary</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a7d99275a5ee03e7c5b7eb5d09d993f97" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default void</type>
+        <definition>default void org.xvm.javajit.NumberSupport.buildXvmPrimitiveAnd</definition>
+        <argsstring>(BuildContext bctx, CodeBuilder code, RegisterInfo regTarget, int nArgId)</argsstring>
+        <name>buildXvmPrimitiveAnd</name>
+        <qualifiedname>org.xvm.javajit.NumberSupport.buildXvmPrimitiveAnd</qualifiedname>
+        <param>
+          <type><ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref></type>
+          <declname>bctx</declname>
+        </param>
+        <param>
+          <type>CodeBuilder</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref></type>
+          <declname>regTarget</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nArgId</declname>
+        </param>
+        <briefdescription>
+<para>Build the optimized binary operation that will logically AND two XVM primitive types (T &amp; T -&gt; T). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Each type may be represented by one or more Java primitive types stored on the stack. </para>
+<para>Neither the target nor argument should have been loaded to the stack.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current build context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the code builder to add the op codes to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>regTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register containing the target of the operation </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nArgId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register containing the operation argument </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" line="114" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" bodystart="114" bodyend="124"/>
+        <references refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1a068eea6309233f5e4e87c5209156157f" compoundref="d5/dcc/_number_support_int128_8java" startline="211" endline="228">org.xvm.javajit.NumberSupportInt128.buildLongLongAnd</references>
+        <references refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1a6c31fef7d5d3cfcc485b7b73819f4b94">org.xvm.asm.Constant.getValueString</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4deb7ba2ac6982c77aba0ffe4faff6a5">org.xvm.javajit.RegisterInfo.type</references>
+        <referencedby refid="d7/d66/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___and_1a9010159327f6122efebc1fd4b4c6d162" compoundref="d0/d7e/_g_p___and_8java" startline="69" endline="73">org.xvm.asm.op.GP_And.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="df/db5/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___and_1a25c48a60aa0f57a64ac792a619c4fa9f" compoundref="d7/deb/_i_i_p___and_8java" startline="101" endline="105">org.xvm.asm.op.IIP_And.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="df/d9b/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___and_1acfb3390d128f52b67eede2aa6ced8d13" compoundref="d2/d62/_i_p___and_8java" startline="82" endline="86">org.xvm.asm.op.IP_And.buildXvmOptimizedBinary</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a38694ecd543f3bdc5cf4a9d7f56f7338" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default void</type>
+        <definition>default void org.xvm.javajit.NumberSupport.buildPrimitiveCompl</definition>
+        <argsstring>(BuildContext bctx, CodeBuilder code, RegisterInfo regTarget)</argsstring>
+        <name>buildPrimitiveCompl</name>
+        <qualifiedname>org.xvm.javajit.NumberSupport.buildPrimitiveCompl</qualifiedname>
+        <param>
+          <type><ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref></type>
+          <declname>bctx</declname>
+        </param>
+        <param>
+          <type>CodeBuilder</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref></type>
+          <declname>regTarget</declname>
+        </param>
+        <briefdescription>
+<para>Build the optimized unary operation that will produce the complement of the target value from the top of the stack (~T -&gt; T). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current build context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the code builder to add the op codes to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>regTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register containing the target of the operation </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" line="134" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" bodystart="134" bodyend="144"/>
+        <references refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a78dfb597e34d3038e980c434656869cb" compoundref="d2/d9a/_build_context_8java" startline="2909" endline="2922">org.xvm.javajit.BuildContext.adjustIntValue</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1ab3957ce4e2c49b01eab88b289964c715">org.xvm.javajit.RegisterInfo.cd</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4deb7ba2ac6982c77aba0ffe4faff6a5">org.xvm.javajit.RegisterInfo.type</references>
+        <referencedby refid="d9/dd1/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___compl_1abe7b7e807b898b7d4a8bfab85d6fb6a0" compoundref="de/dd5/_g_p___compl_8java" startline="66" endline="70">org.xvm.asm.op.GP_Compl.buildOptimizedUnary</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a65ac0b4508b4fe60fd07e4c6f546684d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default void</type>
+        <definition>default void org.xvm.javajit.NumberSupport.buildXvmPrimitiveCompl</definition>
+        <argsstring>(CodeBuilder code, RegisterInfo regTarget)</argsstring>
+        <name>buildXvmPrimitiveCompl</name>
+        <qualifiedname>org.xvm.javajit.NumberSupport.buildXvmPrimitiveCompl</qualifiedname>
+        <param>
+          <type>CodeBuilder</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref></type>
+          <declname>regTarget</declname>
+        </param>
+        <briefdescription>
+<para>Build the optimized binary operation that will produce the complement of a XVM primitive (~T -&gt; T). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The target register should not have been loaded to the stack.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the code builder to add the op codes to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>regTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register containing the target of the operation </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" line="155" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" bodystart="155" bodyend="164"/>
+        <references refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1abfb33926b58d87eb11c7bb250e27e71b" compoundref="d5/dcc/_number_support_int128_8java" startline="239" endline="246">org.xvm.javajit.NumberSupportInt128.buildLongLongCompl</references>
+        <references refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1a6c31fef7d5d3cfcc485b7b73819f4b94">org.xvm.asm.Constant.getValueString</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4deb7ba2ac6982c77aba0ffe4faff6a5">org.xvm.javajit.RegisterInfo.type</references>
+        <referencedby refid="d9/dd1/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___compl_1a0b8ab942594ee7f9158820d75a44b43d" compoundref="de/dd5/_g_p___compl_8java" startline="73" endline="77">org.xvm.asm.op.GP_Compl.buildXvmOptimizedUnary</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1aa2e32176e26321c244e912fd0950528f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default void</type>
+        <definition>default void org.xvm.javajit.NumberSupport.buildPrimitiveDiv</definition>
+        <argsstring>(BuildContext bctx, CodeBuilder code, RegisterInfo regTarget)</argsstring>
+        <name>buildPrimitiveDiv</name>
+        <qualifiedname>org.xvm.javajit.NumberSupport.buildPrimitiveDiv</qualifiedname>
+        <param>
+          <type><ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref></type>
+          <declname>bctx</declname>
+        </param>
+        <param>
+          <type>CodeBuilder</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref></type>
+          <declname>regTarget</declname>
+        </param>
+        <briefdescription>
+<para>Build the optimized binary operation that will divide two primitive types from the stack (T / T -&gt; T). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current build context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the code builder to add the op codes to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>regTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register containing the target of the operation </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" line="174" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" bodystart="174" bodyend="200"/>
+        <references refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a78dfb597e34d3038e980c434656869cb" compoundref="d2/d9a/_build_context_8java" startline="2909" endline="2922">org.xvm.javajit.BuildContext.adjustIntValue</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1ab3957ce4e2c49b01eab88b289964c715">org.xvm.javajit.RegisterInfo.cd</references>
+        <references refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1a6c31fef7d5d3cfcc485b7b73819f4b94">org.xvm.asm.Constant.getValueString</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4deb7ba2ac6982c77aba0ffe4faff6a5">org.xvm.javajit.RegisterInfo.type</references>
+        <referencedby refid="d6/d8d/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___div_1aa6fe1fc1c08ecce45cbdc456a8259355" compoundref="d4/d1a/_g_p___div_8java" startline="62" endline="65">org.xvm.asm.op.GP_Div.buildOptimizedBinary</referencedby>
+        <referencedby refid="db/d63/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___div_1ad4c47258a9d017f8cfc28c4ecda1a19f" compoundref="df/dbf/_i_i_p___div_8java" startline="95" endline="98">org.xvm.asm.op.IIP_Div.buildOptimizedBinary</referencedby>
+        <referencedby refid="d2/ded/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___div_1a9a2d1df56c9d79e07db5f985e9035cfe" compoundref="d8/da1/_i_p___div_8java" startline="76" endline="79">org.xvm.asm.op.IP_Div.buildOptimizedBinary</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a9c9b278d2ed8850d5755e9dbbea50276" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default void</type>
+        <definition>default void org.xvm.javajit.NumberSupport.buildXvmPrimitiveDiv</definition>
+        <argsstring>(BuildContext bctx, CodeBuilder code, RegisterInfo regTarget, int nArgId)</argsstring>
+        <name>buildXvmPrimitiveDiv</name>
+        <qualifiedname>org.xvm.javajit.NumberSupport.buildXvmPrimitiveDiv</qualifiedname>
+        <param>
+          <type><ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref></type>
+          <declname>bctx</declname>
+        </param>
+        <param>
+          <type>CodeBuilder</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref></type>
+          <declname>regTarget</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nArgId</declname>
+        </param>
+        <briefdescription>
+<para>Build the optimized binary operation that will divide two XVM primitive types (T / T -&gt; T). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Each type may be represented by one or more Java primitive types stored on the stack. </para>
+<para>Neither the target nor argument should have been loaded to the stack.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current build context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the code builder to add the op codes to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>regTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register containing the target of the operation </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nArgId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the identifier of the register containing the operation argument </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" line="215" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" bodystart="215" bodyend="232"/>
+        <references refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1ae6fd1f9fea1fe811f6a964f56209e0d3" compoundref="df/dcb/_number_support_dec_8java" startline="206" endline="210">org.xvm.javajit.NumberSupportDec.buildDec128Div</references>
+        <references refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1aed7e051a0cce008100a4752f472d6105" compoundref="df/dcb/_number_support_dec_8java" startline="170" endline="173">org.xvm.javajit.NumberSupportDec.buildDec32Div</references>
+        <references refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1a05dae2fc35b9e11e7aa40f12512d61fb" compoundref="df/dcb/_number_support_dec_8java" startline="188" endline="191">org.xvm.javajit.NumberSupportDec.buildDec64Div</references>
+        <references refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1ab5f4c6b08e388412f3e900dcdaa0be67" compoundref="d5/dcc/_number_support_int128_8java" startline="260" endline="279">org.xvm.javajit.NumberSupportInt128.buildLongLongDiv</references>
+        <references refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1a6c31fef7d5d3cfcc485b7b73819f4b94">org.xvm.asm.Constant.getValueString</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4deb7ba2ac6982c77aba0ffe4faff6a5">org.xvm.javajit.RegisterInfo.type</references>
+        <referencedby refid="d6/d8d/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___div_1a1b080b250b014d57f2e9de2f852d7cf3" compoundref="d4/d1a/_g_p___div_8java" startline="68" endline="72">org.xvm.asm.op.GP_Div.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="db/d63/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___div_1a0039994aa209902346f14f533a28f0b4" compoundref="df/dbf/_i_i_p___div_8java" startline="101" endline="105">org.xvm.asm.op.IIP_Div.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d2/ded/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___div_1a9d2cf40f65b4c623208b0f4398bc36a5" compoundref="d8/da1/_i_p___div_8java" startline="82" endline="86">org.xvm.asm.op.IP_Div.buildXvmOptimizedBinary</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a7964d945776f1d497e4ecc80a6b0b9a0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default void</type>
+        <definition>default void org.xvm.javajit.NumberSupport.buildPrimitiveMod</definition>
+        <argsstring>(BuildContext bctx, CodeBuilder code, RegisterInfo regTarget)</argsstring>
+        <name>buildPrimitiveMod</name>
+        <qualifiedname>org.xvm.javajit.NumberSupport.buildPrimitiveMod</qualifiedname>
+        <param>
+          <type><ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref></type>
+          <declname>bctx</declname>
+        </param>
+        <param>
+          <type>CodeBuilder</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref></type>
+          <declname>regTarget</declname>
+        </param>
+        <briefdescription>
+<para>Build the optimized binary operation that will produce the modulo of two primitive types from the stack (T % T -&gt; T). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current build context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the code builder to add the op codes to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>regTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register containing the target of the operation </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" line="242" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" bodystart="242" bodyend="265"/>
+        <references refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a78dfb597e34d3038e980c434656869cb" compoundref="d2/d9a/_build_context_8java" startline="2909" endline="2922">org.xvm.javajit.BuildContext.adjustIntValue</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1ab3957ce4e2c49b01eab88b289964c715">org.xvm.javajit.RegisterInfo.cd</references>
+        <references refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1a6c31fef7d5d3cfcc485b7b73819f4b94">org.xvm.asm.Constant.getValueString</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4deb7ba2ac6982c77aba0ffe4faff6a5">org.xvm.javajit.RegisterInfo.type</references>
+        <referencedby refid="d7/d45/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___mod_1a0d5160496d9db7d0a418f1e8a747835d" compoundref="d7/db1/_g_p___mod_8java" startline="62" endline="65">org.xvm.asm.op.GP_Mod.buildOptimizedBinary</referencedby>
+        <referencedby refid="d2/d57/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___mod_1a47f3f25216f512301639e7b2adbc8174" compoundref="df/ddc/_i_i_p___mod_8java" startline="95" endline="98">org.xvm.asm.op.IIP_Mod.buildOptimizedBinary</referencedby>
+        <referencedby refid="d3/d1c/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___mod_1a0fe0a8d5bf42c3ab32a62c9f5ed010f0" compoundref="d2/d2c/_i_p___mod_8java" startline="76" endline="79">org.xvm.asm.op.IP_Mod.buildOptimizedBinary</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a506e24ebed1752ae27e166e9cd85706a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default void</type>
+        <definition>default void org.xvm.javajit.NumberSupport.buildXvmPrimitiveMod</definition>
+        <argsstring>(BuildContext bctx, CodeBuilder code, RegisterInfo regTarget, int nArgId)</argsstring>
+        <name>buildXvmPrimitiveMod</name>
+        <qualifiedname>org.xvm.javajit.NumberSupport.buildXvmPrimitiveMod</qualifiedname>
+        <param>
+          <type><ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref></type>
+          <declname>bctx</declname>
+        </param>
+        <param>
+          <type>CodeBuilder</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref></type>
+          <declname>regTarget</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nArgId</declname>
+        </param>
+        <briefdescription>
+<para>Build the optimized binary operation that will produce the modulo of two XVM primitive types (T % T -&gt; T). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Each type may be represented by one or more Java primitive types stored on the stack. </para>
+<para>Neither the target nor argument should have been loaded to the stack.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current build context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the code builder to add the op codes to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>regTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register containing the target of the operation </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nArgId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the identifier of the register containing the operation argument </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" line="280" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" bodystart="280" bodyend="297"/>
+        <references refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1a2afe771ac87a5a480ab2e569945aa78e" compoundref="df/dcb/_number_support_dec_8java" startline="283" endline="287">org.xvm.javajit.NumberSupportDec.buildDec128Mod</references>
+        <references refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1ac75f96afc247104239175ac368498606" compoundref="df/dcb/_number_support_dec_8java" startline="247" endline="250">org.xvm.javajit.NumberSupportDec.buildDec32Mod</references>
+        <references refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1ad28ed3b993053021e0ab26d9eac2b456" compoundref="df/dcb/_number_support_dec_8java" startline="265" endline="268">org.xvm.javajit.NumberSupportDec.buildDec64Mod</references>
+        <references refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1a5809d5c5dd197c14392720642fa7603b" compoundref="d5/dcc/_number_support_int128_8java" startline="293" endline="312">org.xvm.javajit.NumberSupportInt128.buildLongLongMod</references>
+        <references refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1a6c31fef7d5d3cfcc485b7b73819f4b94">org.xvm.asm.Constant.getValueString</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4deb7ba2ac6982c77aba0ffe4faff6a5">org.xvm.javajit.RegisterInfo.type</references>
+        <referencedby refid="d7/d45/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___mod_1aa3144171531d5db1279d66848d28e478" compoundref="d7/db1/_g_p___mod_8java" startline="68" endline="72">org.xvm.asm.op.GP_Mod.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d2/d57/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___mod_1a5576c4fe4c9b9c0304b246f314927065" compoundref="df/ddc/_i_i_p___mod_8java" startline="101" endline="105">org.xvm.asm.op.IIP_Mod.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d3/d1c/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___mod_1ac5bc7f0ddf407e55e2c2a5da7859c9bd" compoundref="d2/d2c/_i_p___mod_8java" startline="82" endline="86">org.xvm.asm.op.IP_Mod.buildXvmOptimizedBinary</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a28feee5c66e2ccf7d0333042e72f9569" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default void</type>
+        <definition>default void org.xvm.javajit.NumberSupport.buildPrimitiveNeg</definition>
+        <argsstring>(BuildContext bctx, CodeBuilder code, RegisterInfo regTarget)</argsstring>
+        <name>buildPrimitiveNeg</name>
+        <qualifiedname>org.xvm.javajit.NumberSupport.buildPrimitiveNeg</qualifiedname>
+        <param>
+          <type><ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref></type>
+          <declname>bctx</declname>
+        </param>
+        <param>
+          <type>CodeBuilder</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref></type>
+          <declname>regTarget</declname>
+        </param>
+        <briefdescription>
+<para>Build the optimized unary operation that will produce negative of a primitive type (-T -&gt; T). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current build context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the code builder to add the op codes to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>regTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register containing the target of the operation </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" line="306" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" bodystart="306" bodyend="325"/>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1ab3957ce4e2c49b01eab88b289964c715">org.xvm.javajit.RegisterInfo.cd</references>
+        <references refid="d5/d9c/classorg_1_1xvm_1_1asm_1_1constants_1_1_identity_constant_1a86b2e1ee274fa1da17b63e099d0c592e">org.xvm.asm.constants.IdentityConstant.getName</references>
+        <references refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a353638d6998559fdf26fd8c684058306" compoundref="d8/d90/_type_constant_8java" startline="6198" endline="6202">org.xvm.asm.constants.TypeConstant.getSingleUnderlyingClass</references>
+        <references refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a610e32b28c84d20a12e7b27a21449a3d" compoundref="d2/d9a/_build_context_8java" startline="2853" endline="2859">org.xvm.javajit.BuildContext.throwUnsupported</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4deb7ba2ac6982c77aba0ffe4faff6a5">org.xvm.javajit.RegisterInfo.type</references>
+        <referencedby refid="d7/d10/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___neg_1a145d2ea6385e044b881fb27c5fd0658d" compoundref="d9/da1/_g_p___neg_8java" startline="65" endline="69">org.xvm.asm.op.GP_Neg.buildOptimizedUnary</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a5c00e30b73fd8d2168a19bda90ade991" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default void</type>
+        <definition>default void org.xvm.javajit.NumberSupport.buildXvmPrimitiveNeg</definition>
+        <argsstring>(BuildContext bctx, CodeBuilder code, RegisterInfo regTarget)</argsstring>
+        <name>buildXvmPrimitiveNeg</name>
+        <qualifiedname>org.xvm.javajit.NumberSupport.buildXvmPrimitiveNeg</qualifiedname>
+        <param>
+          <type><ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref></type>
+          <declname>bctx</declname>
+        </param>
+        <param>
+          <type>CodeBuilder</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref></type>
+          <declname>regTarget</declname>
+        </param>
+        <briefdescription>
+<para>Build the optimized unary operation that will produce negative of a XVM primitive type (-T -&gt; T). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current build context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the code builder to add the op codes to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>regTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register containing the target of the operation </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" line="335" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" bodystart="335" bodyend="348"/>
+        <references refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1a7279c325752500bf617b480fbdfb6e44" compoundref="df/dcb/_number_support_dec_8java" startline="427" endline="430">org.xvm.javajit.NumberSupportDec.buildDec128Neg</references>
+        <references refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1a1e87f2e6c88b2dd18cd1a584ae48c609" compoundref="df/dcb/_number_support_dec_8java" startline="399" endline="401">org.xvm.javajit.NumberSupportDec.buildDec32Neg</references>
+        <references refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1a2c6880ca223dc1b117b6b1a246e00b93" compoundref="df/dcb/_number_support_dec_8java" startline="413" endline="415">org.xvm.javajit.NumberSupportDec.buildDec64Neg</references>
+        <references refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1a89f911a9bba3db75ad644847e8e11d6f" compoundref="d5/dcc/_number_support_int128_8java" startline="364" endline="393">org.xvm.javajit.NumberSupportInt128.buildLongLongNeg</references>
+        <references refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1a6c31fef7d5d3cfcc485b7b73819f4b94">org.xvm.asm.Constant.getValueString</references>
+        <references refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1ab901b72cd8aca105824f421cde41e2db" compoundref="d8/d90/_type_constant_8java" startline="352" endline="371">org.xvm.asm.constants.TypeConstant.removeAccess</references>
+        <references refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a610e32b28c84d20a12e7b27a21449a3d" compoundref="d2/d9a/_build_context_8java" startline="2853" endline="2859">org.xvm.javajit.BuildContext.throwUnsupported</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4deb7ba2ac6982c77aba0ffe4faff6a5">org.xvm.javajit.RegisterInfo.type</references>
+        <referencedby refid="d7/d10/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___neg_1ad7e45417684c5da310d63c9893f01849" compoundref="d9/da1/_g_p___neg_8java" startline="72" endline="76">org.xvm.asm.op.GP_Neg.buildXvmOptimizedUnary</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a164a22b8ee321cc5b211515812b1cde3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default void</type>
+        <definition>default void org.xvm.javajit.NumberSupport.buildPrimitiveMul</definition>
+        <argsstring>(BuildContext bctx, CodeBuilder code, RegisterInfo regTarget)</argsstring>
+        <name>buildPrimitiveMul</name>
+        <qualifiedname>org.xvm.javajit.NumberSupport.buildPrimitiveMul</qualifiedname>
+        <param>
+          <type><ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref></type>
+          <declname>bctx</declname>
+        </param>
+        <param>
+          <type>CodeBuilder</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref></type>
+          <declname>regTarget</declname>
+        </param>
+        <briefdescription>
+<para>Build the optimized binary operation that will produce the product of two primitive types from the stack (T * T -&gt; T). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current build context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the code builder to add the op codes to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>regTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register containing the target of the operation </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" line="358" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" bodystart="358" bodyend="369"/>
+        <references refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a78dfb597e34d3038e980c434656869cb" compoundref="d2/d9a/_build_context_8java" startline="2909" endline="2922">org.xvm.javajit.BuildContext.adjustIntValue</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1ab3957ce4e2c49b01eab88b289964c715">org.xvm.javajit.RegisterInfo.cd</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4deb7ba2ac6982c77aba0ffe4faff6a5">org.xvm.javajit.RegisterInfo.type</references>
+        <referencedby refid="df/d56/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___mul_1a57b4d1aa3f85c6227ed856eda9e2a165" compoundref="d0/d67/_g_p___mul_8java" startline="62" endline="65">org.xvm.asm.op.GP_Mul.buildOptimizedBinary</referencedby>
+        <referencedby refid="dc/d48/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___mul_1a6cc07db8872871f4b9bca6ae822b1175" compoundref="d2/d33/_i_i_p___mul_8java" startline="96" endline="99">org.xvm.asm.op.IIP_Mul.buildOptimizedBinary</referencedby>
+        <referencedby refid="d7/db6/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___mul_1a13376edfaa740e56a7bd55954a0094de" compoundref="d9/d69/_i_p___mul_8java" startline="76" endline="79">org.xvm.asm.op.IP_Mul.buildOptimizedBinary</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1acbdce6fe3abea4d27f1d550db08bb2e1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default void</type>
+        <definition>default void org.xvm.javajit.NumberSupport.buildXvmPrimitiveMul</definition>
+        <argsstring>(BuildContext bctx, CodeBuilder code, RegisterInfo regTarget, int nArgId)</argsstring>
+        <name>buildXvmPrimitiveMul</name>
+        <qualifiedname>org.xvm.javajit.NumberSupport.buildXvmPrimitiveMul</qualifiedname>
+        <param>
+          <type><ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref></type>
+          <declname>bctx</declname>
+        </param>
+        <param>
+          <type>CodeBuilder</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref></type>
+          <declname>regTarget</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nArgId</declname>
+        </param>
+        <briefdescription>
+<para>Build the optimized binary operation that will produce the product of two XVM primitive types (T * T -&gt; T). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Neither the target nor argument should have been loaded to the stack.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current build context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the code builder to add the op codes to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>regTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register containing the target of the operation </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nArgId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the identifier of the register containing the operation argument </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" line="383" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" bodystart="383" bodyend="399"/>
+        <references refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1abd7e817d42807d728751ed6f811c4d9a" compoundref="df/dcb/_number_support_dec_8java" startline="361" endline="365">org.xvm.javajit.NumberSupportDec.buildDec128Mul</references>
+        <references refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1ab8f02c3ab4c9b5e0aaa80da6c10424b9" compoundref="df/dcb/_number_support_dec_8java" startline="325" endline="328">org.xvm.javajit.NumberSupportDec.buildDec32Mul</references>
+        <references refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1a0110ede2f47a6fa3434554e00c182d44" compoundref="df/dcb/_number_support_dec_8java" startline="343" endline="346">org.xvm.javajit.NumberSupportDec.buildDec64Mul</references>
+        <references refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1a60a20d5162fbb7c1acd54e95013fe006" compoundref="d5/dcc/_number_support_int128_8java" startline="326" endline="352">org.xvm.javajit.NumberSupportInt128.buildLongLongMul</references>
+        <references refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1a6c31fef7d5d3cfcc485b7b73819f4b94">org.xvm.asm.Constant.getValueString</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4deb7ba2ac6982c77aba0ffe4faff6a5">org.xvm.javajit.RegisterInfo.type</references>
+        <referencedby refid="df/d56/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___mul_1ae57bf5a5d3618d09ae64744ec35a21a6" compoundref="d0/d67/_g_p___mul_8java" startline="68" endline="72">org.xvm.asm.op.GP_Mul.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="dc/d48/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___mul_1a063bf266bcd85391fa64d6f330268ec1" compoundref="d2/d33/_i_i_p___mul_8java" startline="102" endline="106">org.xvm.asm.op.IIP_Mul.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d7/db6/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___mul_1a6a7e7870cf2539c51d851b16f92d893e" compoundref="d9/d69/_i_p___mul_8java" startline="82" endline="86">org.xvm.asm.op.IP_Mul.buildXvmOptimizedBinary</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a58fcc524a289c3071be4354c8b0d9c36" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default void</type>
+        <definition>default void org.xvm.javajit.NumberSupport.buildPrimitiveOr</definition>
+        <argsstring>(BuildContext bctx, CodeBuilder code, RegisterInfo regTarget)</argsstring>
+        <name>buildPrimitiveOr</name>
+        <qualifiedname>org.xvm.javajit.NumberSupport.buildPrimitiveOr</qualifiedname>
+        <param>
+          <type><ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref></type>
+          <declname>bctx</declname>
+        </param>
+        <param>
+          <type>CodeBuilder</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref></type>
+          <declname>regTarget</declname>
+        </param>
+        <briefdescription>
+<para>Build the optimized binary operation that will logically OR two primitive types from the stack (T | T -&gt; T). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current build context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the code builder to add the op codes to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>regTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register containing the target of the operation </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" line="409" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" bodystart="409" bodyend="419"/>
+        <references refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a78dfb597e34d3038e980c434656869cb" compoundref="d2/d9a/_build_context_8java" startline="2909" endline="2922">org.xvm.javajit.BuildContext.adjustIntValue</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1ab3957ce4e2c49b01eab88b289964c715">org.xvm.javajit.RegisterInfo.cd</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4deb7ba2ac6982c77aba0ffe4faff6a5">org.xvm.javajit.RegisterInfo.type</references>
+        <referencedby refid="da/d4a/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___or_1aa032ce518c94c31f3391de311a272e21" compoundref="db/dba/_g_p___or_8java" startline="62" endline="65">org.xvm.asm.op.GP_Or.buildOptimizedBinary</referencedby>
+        <referencedby refid="d7/ddf/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___or_1ab63bb8558a02df5cb248ec77c66cb156" compoundref="d0/d46/_i_i_p___or_8java" startline="95" endline="98">org.xvm.asm.op.IIP_Or.buildOptimizedBinary</referencedby>
+        <referencedby refid="d6/d1c/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___or_1a2c7bd53fdcca8edb2ca5860c283d1d3f" compoundref="d3/d55/_i_p___or_8java" startline="76" endline="79">org.xvm.asm.op.IP_Or.buildOptimizedBinary</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1af9e8c3354c816c107b3c076129d813c7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default void</type>
+        <definition>default void org.xvm.javajit.NumberSupport.buildXvmPrimitiveOr</definition>
+        <argsstring>(BuildContext bctx, CodeBuilder code, RegisterInfo regTarget, int nArgId)</argsstring>
+        <name>buildXvmPrimitiveOr</name>
+        <qualifiedname>org.xvm.javajit.NumberSupport.buildXvmPrimitiveOr</qualifiedname>
+        <param>
+          <type><ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref></type>
+          <declname>bctx</declname>
+        </param>
+        <param>
+          <type>CodeBuilder</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref></type>
+          <declname>regTarget</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nArgId</declname>
+        </param>
+        <briefdescription>
+<para>Build the optimized binary operation that will logically OR two XVM primitive types (T | T -&gt; T). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Each type may be represented by one or more Java primitive types stored on the stack. </para>
+<para>Neither the target nor argument should have been loaded to the stack.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current build context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the code builder to add the op codes to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>regTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register containing the target of the operation </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nArgId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register containing the operation argument </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" line="434" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" bodystart="434" bodyend="444"/>
+        <references refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1aa441d17304be08097ffcc3351f69c903" compoundref="d5/dcc/_number_support_int128_8java" startline="407" endline="424">org.xvm.javajit.NumberSupportInt128.buildLongLongOr</references>
+        <references refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1a6c31fef7d5d3cfcc485b7b73819f4b94">org.xvm.asm.Constant.getValueString</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4deb7ba2ac6982c77aba0ffe4faff6a5">org.xvm.javajit.RegisterInfo.type</references>
+        <referencedby refid="da/d4a/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___or_1ac168e2983bd8d4acd097cb2838438841" compoundref="db/dba/_g_p___or_8java" startline="68" endline="72">org.xvm.asm.op.GP_Or.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d7/ddf/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___or_1a6844c9931c2fbe060785124d0ccc0bdd" compoundref="d0/d46/_i_i_p___or_8java" startline="101" endline="105">org.xvm.asm.op.IIP_Or.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d6/d1c/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___or_1a1cfbe0f2b92e958abd25662492fc5758" compoundref="d3/d55/_i_p___or_8java" startline="82" endline="86">org.xvm.asm.op.IP_Or.buildXvmOptimizedBinary</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a37874c72849ebc1410b3c0aca38ca839" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default <ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref></type>
+        <definition>default TypeConstant org.xvm.javajit.NumberSupport.buildPrimitiveShl</definition>
+        <argsstring>(BuildContext bctx, CodeBuilder code, RegisterInfo regTarget, int nArgId)</argsstring>
+        <name>buildPrimitiveShl</name>
+        <qualifiedname>org.xvm.javajit.NumberSupport.buildPrimitiveShl</qualifiedname>
+        <param>
+          <type><ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref></type>
+          <declname>bctx</declname>
+        </param>
+        <param>
+          <type>CodeBuilder</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref></type>
+          <declname>regTarget</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nArgId</declname>
+        </param>
+        <briefdescription>
+<para>Build the optimized binary operation that will logically shift left a primitive type (T &lt;&lt; T -&gt; T). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Neither the target nor argument should have been loaded to the stack.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current build context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the code builder to add the op codes to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>regTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register containing the target of the operation </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nArgId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the identifier of the register containing the operation argument</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the result type </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" line="459" column="26" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" bodystart="459" bodyend="481"/>
+        <references refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a78dfb597e34d3038e980c434656869cb" compoundref="d2/d9a/_build_context_8java" startline="2909" endline="2922">org.xvm.javajit.BuildContext.adjustIntValue</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1ab3957ce4e2c49b01eab88b289964c715">org.xvm.javajit.RegisterInfo.cd</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a67f90e66e3b9f960786dc5e2d93ac7ca" compoundref="df/d7a/_register_info_8java" startline="116" endline="119">org.xvm.javajit.RegisterInfo.load</references>
+        <references refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1ae1216124a4574d631ce1abbe41f0cd45" compoundref="d2/d9a/_build_context_8java" startline="1057" endline="1063">org.xvm.javajit.BuildContext.loadArgument</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4deb7ba2ac6982c77aba0ffe4faff6a5">org.xvm.javajit.RegisterInfo.type</references>
+        <referencedby refid="d5/d5d/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___shl_1aec56efd7eacd9b82f1e2b22fc2550a90" compoundref="d2/dcc/_g_p___shl_8java" startline="63" endline="68">org.xvm.asm.op.GP_Shl.buildOptimizedBinary</referencedby>
+        <referencedby refid="d9/d0a/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___shl_1a6cb8eaa50b30dc86938a2c7fd0de5473" compoundref="db/d11/_i_i_p___shl_8java" startline="96" endline="99">org.xvm.asm.op.IIP_Shl.buildOptimizedBinary</referencedby>
+        <referencedby refid="d6/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___shl_1a3c4726edfe462a9b8bc698de4277d140" compoundref="d5/dbc/_i_p___shl_8java" startline="77" endline="82">org.xvm.asm.op.IP_Shl.buildOptimizedBinary</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1aa405bea0199b1f31c7e859019dfae046" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default void</type>
+        <definition>default void org.xvm.javajit.NumberSupport.buildXvmPrimitiveShl</definition>
+        <argsstring>(BuildContext bctx, CodeBuilder code, RegisterInfo regTarget, int nArgId)</argsstring>
+        <name>buildXvmPrimitiveShl</name>
+        <qualifiedname>org.xvm.javajit.NumberSupport.buildXvmPrimitiveShl</qualifiedname>
+        <param>
+          <type><ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref></type>
+          <declname>bctx</declname>
+        </param>
+        <param>
+          <type>CodeBuilder</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref></type>
+          <declname>regTarget</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nArgId</declname>
+        </param>
+        <briefdescription>
+<para>Build the optimized binary operation that will logically shift left a XVM primitive type (T &lt;&lt; T -&gt; T). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Neither the target nor argument should have been loaded to the stack.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current build context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the code builder to add the op codes to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>regTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register containing the target of the operation </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nArgId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the identifier of the register containing the operation argument </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" line="494" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" bodystart="494" bodyend="504"/>
+        <references refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1a193894129ea6380f54c4893e009e962a" compoundref="d5/dcc/_number_support_int128_8java" startline="443" endline="498">org.xvm.javajit.NumberSupportInt128.buildLongLongShl</references>
+        <references refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1a6c31fef7d5d3cfcc485b7b73819f4b94">org.xvm.asm.Constant.getValueString</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4deb7ba2ac6982c77aba0ffe4faff6a5">org.xvm.javajit.RegisterInfo.type</references>
+        <referencedby refid="d5/d5d/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___shl_1a56a4b161642f75acacee7cf5246b9be0" compoundref="d2/dcc/_g_p___shl_8java" startline="71" endline="75">org.xvm.asm.op.GP_Shl.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d9/d0a/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___shl_1a02a40d685c3122c50fe68ff203d97ae7" compoundref="db/d11/_i_i_p___shl_8java" startline="102" endline="106">org.xvm.asm.op.IIP_Shl.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d6/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___shl_1a69476fc617e6b1f590fa443e0a48a8e1" compoundref="d5/dbc/_i_p___shl_8java" startline="85" endline="89">org.xvm.asm.op.IP_Shl.buildXvmOptimizedBinary</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a4f79842a7f2274909749cfcb40d7a41a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default void</type>
+        <definition>default void org.xvm.javajit.NumberSupport.buildXvmPrimitiveShr</definition>
+        <argsstring>(BuildContext bctx, CodeBuilder code, RegisterInfo regTarget, int nArgId)</argsstring>
+        <name>buildXvmPrimitiveShr</name>
+        <qualifiedname>org.xvm.javajit.NumberSupport.buildXvmPrimitiveShr</qualifiedname>
+        <param>
+          <type><ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref></type>
+          <declname>bctx</declname>
+        </param>
+        <param>
+          <type>CodeBuilder</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref></type>
+          <declname>regTarget</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nArgId</declname>
+        </param>
+        <briefdescription>
+<para>Build the optimized binary operation that will logically shift right a XVM primitive type (T &gt;&gt; T -&gt; T). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Neither the target nor argument should have been loaded to the stack.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current build context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the code builder to add the op codes to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>regTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register containing the target of the operation </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nArgId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the identifier of the register containing the operation argument </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" line="517" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" bodystart="517" bodyend="529"/>
+        <references refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1a4fa5215d3c885284d9493576d15819eb" compoundref="d5/dcc/_number_support_int128_8java" startline="518" endline="591">org.xvm.javajit.NumberSupportInt128.buildLongLongShr</references>
+        <references refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1a6c31fef7d5d3cfcc485b7b73819f4b94">org.xvm.asm.Constant.getValueString</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4deb7ba2ac6982c77aba0ffe4faff6a5">org.xvm.javajit.RegisterInfo.type</references>
+        <referencedby refid="d0/dec/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___shr_1a473b8664f692c468ae4d5392b0c06c6d" compoundref="d1/d3f/_g_p___shr_8java" startline="71" endline="75">org.xvm.asm.op.GP_Shr.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d3/db3/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___shr_1a617c6a40ecb7c29887a107ad95947649" compoundref="d7/dee/_i_i_p___shr_8java" startline="102" endline="106">org.xvm.asm.op.IIP_Shr.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d2/db0/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___shr_1ac738fc0842dbc0054e8133b4c009de7e" compoundref="d0/d1e/_i_p___shr_8java" startline="84" endline="88">org.xvm.asm.op.IP_Shr.buildXvmOptimizedBinary</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a91f9798633136b2ec556c9007397a9c6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default void</type>
+        <definition>default void org.xvm.javajit.NumberSupport.buildXvmPrimitiveUnsignedShr</definition>
+        <argsstring>(BuildContext bctx, CodeBuilder code, RegisterInfo regTarget, int nArgId)</argsstring>
+        <name>buildXvmPrimitiveUnsignedShr</name>
+        <qualifiedname>org.xvm.javajit.NumberSupport.buildXvmPrimitiveUnsignedShr</qualifiedname>
+        <param>
+          <type><ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref></type>
+          <declname>bctx</declname>
+        </param>
+        <param>
+          <type>CodeBuilder</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref></type>
+          <declname>regTarget</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nArgId</declname>
+        </param>
+        <briefdescription>
+<para>Build the optimized binary operation that will logically unsigned shift right a XVM primitive type (T &gt;&gt;&gt; T -&gt; T). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Neither the target nor argument should have been loaded to the stack.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current build context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the code builder to add the op codes to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>regTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register containing the target of the operation </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nArgId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the identifier of the register containing the operation argument </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" line="542" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" bodystart="542" bodyend="552"/>
+        <references refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1a4fa5215d3c885284d9493576d15819eb" compoundref="d5/dcc/_number_support_int128_8java" startline="518" endline="591">org.xvm.javajit.NumberSupportInt128.buildLongLongShr</references>
+        <references refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1a6c31fef7d5d3cfcc485b7b73819f4b94">org.xvm.asm.Constant.getValueString</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4deb7ba2ac6982c77aba0ffe4faff6a5">org.xvm.javajit.RegisterInfo.type</references>
+        <referencedby refid="d2/d31/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___shr_all_1aa7d7e9dc8ba8df51b8b7c5decf82991b" compoundref="d2/de2/_g_p___shr_all_8java" startline="71" endline="75">org.xvm.asm.op.GP_ShrAll.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d9/dba/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___shr_all_1a3ba353dc32ff5796585b653c35a9bb86" compoundref="dc/da8/_i_i_p___shr_all_8java" startline="102" endline="106">org.xvm.asm.op.IIP_ShrAll.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d8/dcc/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___shr_all_1ae1b2bd551cb8626ebc4ae4f46ef66573" compoundref="d6/d9f/_i_p___shr_all_8java" startline="83" endline="87">org.xvm.asm.op.IP_ShrAll.buildXvmOptimizedBinary</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a7922ada26ea17d49d2bed4bd74630669" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default <ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref></type>
+        <definition>default TypeConstant org.xvm.javajit.NumberSupport.buildPrimitiveShr</definition>
+        <argsstring>(BuildContext bctx, CodeBuilder code, RegisterInfo regTarget, int nArgId)</argsstring>
+        <name>buildPrimitiveShr</name>
+        <qualifiedname>org.xvm.javajit.NumberSupport.buildPrimitiveShr</qualifiedname>
+        <param>
+          <type><ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref></type>
+          <declname>bctx</declname>
+        </param>
+        <param>
+          <type>CodeBuilder</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref></type>
+          <declname>regTarget</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nArgId</declname>
+        </param>
+        <briefdescription>
+<para>Build the optimized binary operation that will logically shift right a primitive type (T &gt;&gt; T -&gt; T). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current build context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the code builder to add the op codes to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>regTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register containing the target of the operation </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nArgId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the identifier of the register containing the operation argument</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the type of the result of the operation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" line="565" column="26" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" bodystart="565" bodyend="574"/>
+        <references refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a7922ada26ea17d49d2bed4bd74630669" compoundref="d4/d9d/_number_support_8java" startline="565" endline="574">org.xvm.javajit.NumberSupport.buildPrimitiveShr</references>
+        <references refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1a6c31fef7d5d3cfcc485b7b73819f4b94">org.xvm.asm.Constant.getValueString</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a67f90e66e3b9f960786dc5e2d93ac7ca" compoundref="df/d7a/_register_info_8java" startline="116" endline="119">org.xvm.javajit.RegisterInfo.load</references>
+        <references refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1ae1216124a4574d631ce1abbe41f0cd45" compoundref="d2/d9a/_build_context_8java" startline="1057" endline="1063">org.xvm.javajit.BuildContext.loadArgument</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4deb7ba2ac6982c77aba0ffe4faff6a5">org.xvm.javajit.RegisterInfo.type</references>
+        <referencedby refid="d0/dec/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___shr_1afe05c4fdc5aecec11187a9aba839502f" compoundref="d1/d3f/_g_p___shr_8java" startline="63" endline="68">org.xvm.asm.op.GP_Shr.buildOptimizedBinary</referencedby>
+        <referencedby refid="d3/db3/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___shr_1a2bc55b932e3775a0fcdfb1a4160e865a" compoundref="d7/dee/_i_i_p___shr_8java" startline="96" endline="99">org.xvm.asm.op.IIP_Shr.buildOptimizedBinary</referencedby>
+        <referencedby refid="d2/db0/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___shr_1a6d1563f768a9f7b56028fbd9dbafa5f8" compoundref="d0/d1e/_i_p___shr_8java" startline="76" endline="81">org.xvm.asm.op.IP_Shr.buildOptimizedBinary</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a7922ada26ea17d49d2bed4bd74630669" compoundref="d4/d9d/_number_support_8java" startline="565" endline="574">org.xvm.javajit.NumberSupport.buildPrimitiveShr</referencedby>
+        <referencedby refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a73a4cdef8418f3bea65fad86a6f998cd" compoundref="d4/d9d/_number_support_8java" startline="587" endline="601">org.xvm.javajit.NumberSupport.buildPrimitiveUnsignedShr</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a73a4cdef8418f3bea65fad86a6f998cd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default <ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref></type>
+        <definition>default TypeConstant org.xvm.javajit.NumberSupport.buildPrimitiveUnsignedShr</definition>
+        <argsstring>(BuildContext bctx, CodeBuilder code, RegisterInfo regTarget, int nArgId)</argsstring>
+        <name>buildPrimitiveUnsignedShr</name>
+        <qualifiedname>org.xvm.javajit.NumberSupport.buildPrimitiveUnsignedShr</qualifiedname>
+        <param>
+          <type><ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref></type>
+          <declname>bctx</declname>
+        </param>
+        <param>
+          <type>CodeBuilder</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref></type>
+          <declname>regTarget</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nArgId</declname>
+        </param>
+        <briefdescription>
+<para>Build the optimized binary operation that will logically perform an unsigned shift right of a primitive type (T &gt;&gt;&gt; T -&gt; T). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current build context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the code builder to add the op codes to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>regTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register containing the target of the operation </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nArgId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the identifier of the register containing the operation argument</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the type of the result of the operation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" line="587" column="26" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" bodystart="587" bodyend="601"/>
+        <references refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a7922ada26ea17d49d2bed4bd74630669" compoundref="d4/d9d/_number_support_8java" startline="565" endline="574">org.xvm.javajit.NumberSupport.buildPrimitiveShr</references>
+        <references refid="d5/d9c/classorg_1_1xvm_1_1asm_1_1constants_1_1_identity_constant_1a86b2e1ee274fa1da17b63e099d0c592e">org.xvm.asm.constants.IdentityConstant.getName</references>
+        <references refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a353638d6998559fdf26fd8c684058306" compoundref="d8/d90/_type_constant_8java" startline="6198" endline="6202">org.xvm.asm.constants.TypeConstant.getSingleUnderlyingClass</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a67f90e66e3b9f960786dc5e2d93ac7ca" compoundref="df/d7a/_register_info_8java" startline="116" endline="119">org.xvm.javajit.RegisterInfo.load</references>
+        <references refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1ae1216124a4574d631ce1abbe41f0cd45" compoundref="d2/d9a/_build_context_8java" startline="1057" endline="1063">org.xvm.javajit.BuildContext.loadArgument</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4deb7ba2ac6982c77aba0ffe4faff6a5">org.xvm.javajit.RegisterInfo.type</references>
+        <referencedby refid="d2/d31/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___shr_all_1aa070e3632fa8ef5bd8212a56121d160e" compoundref="d2/de2/_g_p___shr_all_8java" startline="63" endline="68">org.xvm.asm.op.GP_ShrAll.buildOptimizedBinary</referencedby>
+        <referencedby refid="d9/dba/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___shr_all_1acf4ffef3b929a8172520f773bef22f7b" compoundref="dc/da8/_i_i_p___shr_all_8java" startline="96" endline="99">org.xvm.asm.op.IIP_ShrAll.buildOptimizedBinary</referencedby>
+        <referencedby refid="d8/dcc/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___shr_all_1a2f7032df88701af40b2e544bebc5bac0" compoundref="d6/d9f/_i_p___shr_all_8java" startline="75" endline="80">org.xvm.asm.op.IP_ShrAll.buildOptimizedBinary</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a6ac4cbe5ac033b65320fbd1dd0f718ed" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default <ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref></type>
+        <definition>default TypeConstant org.xvm.javajit.NumberSupport.buildPrimitiveShr</definition>
+        <argsstring>(BuildContext bctx, CodeBuilder code, RegisterInfo regTarget, RegisterInfo regArg, boolean fUnsigned)</argsstring>
+        <name>buildPrimitiveShr</name>
+        <qualifiedname>org.xvm.javajit.NumberSupport.buildPrimitiveShr</qualifiedname>
+        <param>
+          <type><ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref></type>
+          <declname>bctx</declname>
+        </param>
+        <param>
+          <type>CodeBuilder</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref></type>
+          <declname>regTarget</declname>
+        </param>
+        <param>
+          <type><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref></type>
+          <declname>regArg</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>fUnsigned</declname>
+        </param>
+        <briefdescription>
+<para>Build the optimized binary operation that will logically shift right a primitive type either (T &gt;&gt; T -&gt; T) for signed or (T &gt;&gt;&gt; T -&gt; T) for unsigned. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current build context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the code builder to add the op codes to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>regTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register containing the target of the operation </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>regArg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register containing the operation argument </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fUnsigned</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>true if the operation is unsigned, false if signed</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the type of the result of the operation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" line="615" column="26" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" bodystart="615" bodyend="650"/>
+        <references refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a78dfb597e34d3038e980c434656869cb" compoundref="d2/d9a/_build_context_8java" startline="2909" endline="2922">org.xvm.javajit.BuildContext.adjustIntValue</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1ab3957ce4e2c49b01eab88b289964c715">org.xvm.javajit.RegisterInfo.cd</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4deb7ba2ac6982c77aba0ffe4faff6a5">org.xvm.javajit.RegisterInfo.type</references>
+      </memberdef>
+      <memberdef kind="function" id="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1ad7abac396dc81880ceaf4c33b8182aa8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default void</type>
+        <definition>default void org.xvm.javajit.NumberSupport.buildPrimitiveSub</definition>
+        <argsstring>(BuildContext bctx, CodeBuilder code, RegisterInfo regTarget)</argsstring>
+        <name>buildPrimitiveSub</name>
+        <qualifiedname>org.xvm.javajit.NumberSupport.buildPrimitiveSub</qualifiedname>
+        <param>
+          <type><ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref></type>
+          <declname>bctx</declname>
+        </param>
+        <param>
+          <type>CodeBuilder</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref></type>
+          <declname>regTarget</declname>
+        </param>
+        <briefdescription>
+<para>Build the optimized binary operation that will take two primitive types from the stack and subtract one from the other (T - T -&gt; T). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current build context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the code builder to add the op codes to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>regTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register containing the target of the operation </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" line="660" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" bodystart="660" bodyend="671"/>
+        <references refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a78dfb597e34d3038e980c434656869cb" compoundref="d2/d9a/_build_context_8java" startline="2909" endline="2922">org.xvm.javajit.BuildContext.adjustIntValue</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1ab3957ce4e2c49b01eab88b289964c715">org.xvm.javajit.RegisterInfo.cd</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4deb7ba2ac6982c77aba0ffe4faff6a5">org.xvm.javajit.RegisterInfo.type</references>
+        <referencedby refid="d3/d89/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___sub_1a1b0b1686b93369fef00c3fea56585852" compoundref="de/db8/_g_p___sub_8java" startline="75" endline="78">org.xvm.asm.op.GP_Sub.buildOptimizedBinary</referencedby>
+        <referencedby refid="da/d51/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___sub_1aca51402b8cef01265da80e3c222da037" compoundref="d4/d2f/_i_i_p___sub_8java" startline="106" endline="109">org.xvm.asm.op.IIP_Sub.buildOptimizedBinary</referencedby>
+        <referencedby refid="df/d3e/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___sub_1addd6a532e091a72b01811bcd3a7bca90" compoundref="d7/ddd/_i_p___sub_8java" startline="87" endline="90">org.xvm.asm.op.IP_Sub.buildOptimizedBinary</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1aa27fe55a59215b9c9fe180cb47f09f63" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default void</type>
+        <definition>default void org.xvm.javajit.NumberSupport.buildXvmPrimitiveSub</definition>
+        <argsstring>(BuildContext bctx, CodeBuilder code, RegisterInfo regTarget, int nArgId)</argsstring>
+        <name>buildXvmPrimitiveSub</name>
+        <qualifiedname>org.xvm.javajit.NumberSupport.buildXvmPrimitiveSub</qualifiedname>
+        <param>
+          <type><ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref></type>
+          <declname>bctx</declname>
+        </param>
+        <param>
+          <type>CodeBuilder</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref></type>
+          <declname>regTarget</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nArgId</declname>
+        </param>
+        <briefdescription>
+<para>Build the optimized binary operation that will subtract one XVM primitive type from another (T - T -&gt; T). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Each type may be represented by one or more Java primitive types. </para>
+<para>Neither the target nor argument should have been loaded to the stack.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current build context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the code builder to add the op codes to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>regTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register containing the target of the operation </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nArgId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register containing the operation argument </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" line="686" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" bodystart="686" bodyend="702"/>
+        <references refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1a62b0d32b1eff4d0ab0e77e57d97eb35f" compoundref="df/dcb/_number_support_dec_8java" startline="499" endline="503">org.xvm.javajit.NumberSupportDec.buildDec128Sub</references>
+        <references refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1a48b91bbd59bd912d34b01b4c5fe3b864" compoundref="df/dcb/_number_support_dec_8java" startline="463" endline="466">org.xvm.javajit.NumberSupportDec.buildDec32Sub</references>
+        <references refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1a01b3a095d3fb9fa66973ad47f1391b63" compoundref="df/dcb/_number_support_dec_8java" startline="481" endline="484">org.xvm.javajit.NumberSupportDec.buildDec64Sub</references>
+        <references refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1ab3cb9cfd85b0af741c86aee8fa063fde" compoundref="d5/dcc/_number_support_int128_8java" startline="628" endline="637">org.xvm.javajit.NumberSupportInt128.buildLongLongSub</references>
+        <references refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1a6c31fef7d5d3cfcc485b7b73819f4b94">org.xvm.asm.Constant.getValueString</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4deb7ba2ac6982c77aba0ffe4faff6a5">org.xvm.javajit.RegisterInfo.type</references>
+        <referencedby refid="d3/d89/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___sub_1a29e1b9c2df67f7bfcd529fce4a3d44a2" compoundref="de/db8/_g_p___sub_8java" startline="81" endline="85">org.xvm.asm.op.GP_Sub.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="da/d51/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___sub_1a43c0d5be1a1a96738d6ac3749e459ec8" compoundref="d4/d2f/_i_i_p___sub_8java" startline="112" endline="116">org.xvm.asm.op.IIP_Sub.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="df/d3e/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___sub_1a63ab9332c13597d20486aaf1bbcbd51b" compoundref="d7/ddd/_i_p___sub_8java" startline="93" endline="97">org.xvm.asm.op.IP_Sub.buildXvmOptimizedBinary</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a1606fa92d6a1a8f5015e47ff7e8f73e7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default void</type>
+        <definition>default void org.xvm.javajit.NumberSupport.buildPrimitiveXor</definition>
+        <argsstring>(BuildContext bctx, CodeBuilder code, RegisterInfo regTarget)</argsstring>
+        <name>buildPrimitiveXor</name>
+        <qualifiedname>org.xvm.javajit.NumberSupport.buildPrimitiveXor</qualifiedname>
+        <param>
+          <type><ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref></type>
+          <declname>bctx</declname>
+        </param>
+        <param>
+          <type>CodeBuilder</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref></type>
+          <declname>regTarget</declname>
+        </param>
+        <briefdescription>
+<para>Build the optimized binary operation that will take two primitive types from the stack and subtract one from the other (T ^ T -&gt; T). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current build context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the code builder to add the op codes to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>regTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register containing the target of the operation </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" line="712" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" bodystart="712" bodyend="722"/>
+        <references refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a78dfb597e34d3038e980c434656869cb" compoundref="d2/d9a/_build_context_8java" startline="2909" endline="2922">org.xvm.javajit.BuildContext.adjustIntValue</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1ab3957ce4e2c49b01eab88b289964c715">org.xvm.javajit.RegisterInfo.cd</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4deb7ba2ac6982c77aba0ffe4faff6a5">org.xvm.javajit.RegisterInfo.type</references>
+        <referencedby refid="d1/d53/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___xor_1a45ad15e7594521182fc02ef38394ba6c" compoundref="d9/da6/_g_p___xor_8java" startline="62" endline="67">org.xvm.asm.op.GP_Xor.buildOptimizedBinary</referencedby>
+        <referencedby refid="d7/d50/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___xor_1a4e12a914f3ed21a1a933be2bcf738f98" compoundref="d0/d0f/_i_i_p___xor_8java" startline="95" endline="98">org.xvm.asm.op.IIP_Xor.buildOptimizedBinary</referencedby>
+        <referencedby refid="db/db6/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___xor_1aa8f57c234c2217875f21b4bdcbd228f5" compoundref="d0/d6f/_i_p___xor_8java" startline="76" endline="79">org.xvm.asm.op.IP_Xor.buildOptimizedBinary</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1af2716501c6f7b01bae5d3b610d153d18" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default void</type>
+        <definition>default void org.xvm.javajit.NumberSupport.buildXvmPrimitiveXor</definition>
+        <argsstring>(BuildContext bctx, CodeBuilder code, RegisterInfo regTarget, int nArgId)</argsstring>
+        <name>buildXvmPrimitiveXor</name>
+        <qualifiedname>org.xvm.javajit.NumberSupport.buildXvmPrimitiveXor</qualifiedname>
+        <param>
+          <type><ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref></type>
+          <declname>bctx</declname>
+        </param>
+        <param>
+          <type>CodeBuilder</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type><ref refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info" kindref="compound">RegisterInfo</ref></type>
+          <declname>regTarget</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nArgId</declname>
+        </param>
+        <briefdescription>
+<para>Build the optimized binary operation that will logically XOR two XVM primitive types (T ^ T -&gt; T). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Each type may be represented by one or more Java primitive types stored on the stack. </para>
+<para>Neither the target nor argument should have been loaded to the stack.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current build context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the code builder to add the op codes to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>regTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register containing the target of the operation </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nArgId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register containing the operation argument </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" line="737" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" bodystart="737" bodyend="747"/>
+        <references refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1ad3cbb3d9e3f5ca2a2c4ff4d337c86973" compoundref="d5/dcc/_number_support_int128_8java" startline="755" endline="772">org.xvm.javajit.NumberSupportInt128.buildLongLongXor</references>
+        <references refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1a6c31fef7d5d3cfcc485b7b73819f4b94">org.xvm.asm.Constant.getValueString</references>
+        <references refid="d0/d75/interfaceorg_1_1xvm_1_1javajit_1_1_register_info_1a4deb7ba2ac6982c77aba0ffe4faff6a5">org.xvm.javajit.RegisterInfo.type</references>
+        <referencedby refid="d1/d53/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___xor_1acb3750c04948d596453845c4a2d9187b" compoundref="d9/da6/_g_p___xor_8java" startline="70" endline="74">org.xvm.asm.op.GP_Xor.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="d7/d50/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___xor_1a7653accc10140968267691ca3f2c264a" compoundref="d0/d0f/_i_i_p___xor_8java" startline="101" endline="105">org.xvm.asm.op.IIP_Xor.buildXvmOptimizedBinary</referencedby>
+        <referencedby refid="db/db6/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___xor_1a017e9758502b415348f4784934cc564f" compoundref="d0/d6f/_i_p___xor_8java" startline="82" endline="86">org.xvm.asm.op.IP_Xor.buildXvmOptimizedBinary</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A &quot;mixin&quot; interface to generate bytecodes for operations on Ecstasy numeric types. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>org.xvm.javajit.NumberSupport</label>
+        <link refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>org.xvm.asm.OpInPlace</label>
+        <link refid="da/d71/classorg_1_1xvm_1_1asm_1_1_op_in_place"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>org.xvm.asm.OpIndex</label>
+        <link refid="d6/da9/classorg_1_1xvm_1_1asm_1_1_op_index"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>org.xvm.asm.OpIndexInPlace</label>
+        <link refid="d8/dc1/classorg_1_1xvm_1_1asm_1_1_op_index_in_place"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>org.xvm.asm.op.GP_Add</label>
+        <link refid="df/de2/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___add"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>org.xvm.asm.op.GP_And</label>
+        <link refid="d7/d66/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___and"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>org.xvm.asm.op.GP_Compl</label>
+        <link refid="d9/dd1/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___compl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>org.xvm.asm.op.GP_Div</label>
+        <link refid="d6/d8d/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___div"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>org.xvm.asm.op.GP_Mod</label>
+        <link refid="d7/d45/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___mod"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>org.xvm.asm.op.GP_Mul</label>
+        <link refid="df/d56/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___mul"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>org.xvm.asm.op.GP_Neg</label>
+        <link refid="d7/d10/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___neg"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>org.xvm.asm.op.GP_Or</label>
+        <link refid="da/d4a/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___or"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>org.xvm.asm.op.GP_Shl</label>
+        <link refid="d5/d5d/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___shl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>org.xvm.asm.op.GP_Shr</label>
+        <link refid="d0/dec/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___shr"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>org.xvm.asm.op.GP_ShrAll</label>
+        <link refid="d2/d31/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___shr_all"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="43">
+        <label>org.xvm.asm.op.GP_Sub</label>
+        <link refid="d3/d89/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___sub"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="44">
+        <label>org.xvm.asm.op.GP_Xor</label>
+        <link refid="d1/d53/classorg_1_1xvm_1_1asm_1_1op_1_1_g_p___xor"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>org.xvm.asm.op.IIP_Add</label>
+        <link refid="d5/d24/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___add"/>
+        <childnode refid="12" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>org.xvm.asm.op.IIP_And</label>
+        <link refid="df/db5/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___and"/>
+        <childnode refid="12" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>org.xvm.asm.op.IIP_Dec</label>
+        <link refid="d2/d44/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___dec"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>org.xvm.asm.op.IIP_Div</label>
+        <link refid="db/d63/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___div"/>
+        <childnode refid="12" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>org.xvm.asm.op.IIP_Inc</label>
+        <link refid="dd/dd0/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___inc"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>org.xvm.asm.op.IIP_Mod</label>
+        <link refid="d2/d57/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___mod"/>
+        <childnode refid="12" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>org.xvm.asm.op.IIP_Mul</label>
+        <link refid="dc/d48/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___mul"/>
+        <childnode refid="12" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>org.xvm.asm.op.IIP_Or</label>
+        <link refid="d7/ddf/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___or"/>
+        <childnode refid="12" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>org.xvm.asm.op.IIP_PostDec</label>
+        <link refid="d6/d5b/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___post_dec"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>org.xvm.asm.op.IIP_PostInc</label>
+        <link refid="da/d0c/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___post_inc"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>org.xvm.asm.op.IIP_PreDec</label>
+        <link refid="d1/d3d/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___pre_dec"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>org.xvm.asm.op.IIP_PreInc</label>
+        <link refid="d5/d4e/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___pre_inc"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>org.xvm.asm.op.IIP_Shl</label>
+        <link refid="d9/d0a/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___shl"/>
+        <childnode refid="12" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>org.xvm.asm.op.IIP_Shr</label>
+        <link refid="d3/db3/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___shr"/>
+        <childnode refid="12" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>org.xvm.asm.op.IIP_ShrAll</label>
+        <link refid="d9/dba/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___shr_all"/>
+        <childnode refid="12" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>org.xvm.asm.op.IIP_Sub</label>
+        <link refid="da/d51/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___sub"/>
+        <childnode refid="12" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>org.xvm.asm.op.IIP_Xor</label>
+        <link refid="d7/d50/classorg_1_1xvm_1_1asm_1_1op_1_1_i_i_p___xor"/>
+        <childnode refid="12" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="45">
+        <label>org.xvm.asm.op.IP_Add</label>
+        <link refid="d1/d37/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___add"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="46">
+        <label>org.xvm.asm.op.IP_And</label>
+        <link refid="df/d9b/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___and"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>org.xvm.asm.op.IP_Dec</label>
+        <link refid="d7/d33/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___dec"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>org.xvm.asm.op.IP_Div</label>
+        <link refid="d2/ded/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___div"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>org.xvm.asm.op.IP_Inc</label>
+        <link refid="dd/d22/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___inc"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>org.xvm.asm.op.IP_Mod</label>
+        <link refid="d3/d1c/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___mod"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>org.xvm.asm.op.IP_Mul</label>
+        <link refid="d7/db6/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___mul"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>org.xvm.asm.op.IP_Or</label>
+        <link refid="d6/d1c/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___or"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>org.xvm.asm.op.IP_PostDec</label>
+        <link refid="d0/d58/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___post_dec"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>org.xvm.asm.op.IP_PostInc</label>
+        <link refid="d4/da7/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___post_inc"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>org.xvm.asm.op.IP_PreDec</label>
+        <link refid="d8/d2c/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___pre_dec"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>org.xvm.asm.op.IP_PreInc</label>
+        <link refid="d6/d61/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___pre_inc"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>org.xvm.asm.op.IP_Shl</label>
+        <link refid="d6/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___shl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="52">
+        <label>org.xvm.asm.op.IP_Shr</label>
+        <link refid="d2/db0/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___shr"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="53">
+        <label>org.xvm.asm.op.IP_ShrAll</label>
+        <link refid="d8/dcc/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___shr_all"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="54">
+        <label>org.xvm.asm.op.IP_Sub</label>
+        <link refid="df/d3e/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___sub"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="55">
+        <label>org.xvm.asm.op.IP_Xor</label>
+        <link refid="db/db6/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___xor"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>org.xvm.asm.op.I_Get</label>
+        <link refid="d7/d21/classorg_1_1xvm_1_1asm_1_1op_1_1_i___get"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>org.xvm.asm.op.I_Set</label>
+        <link refid="d2/da7/classorg_1_1xvm_1_1asm_1_1op_1_1_i___set"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>org.xvm.javajit.NumberSupportDec</label>
+        <link refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec"/>
+      </node>
+      <node id="2">
+        <label>org.xvm.javajit.NumberSupportInt128</label>
+        <link refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>org.xvm.javajit.NumberSupport</label>
+        <link refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>org.xvm.javajit.NumberSupportDec</label>
+        <link refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec"/>
+      </node>
+      <node id="2">
+        <label>org.xvm.javajit.NumberSupportInt128</label>
+        <link refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" line="26" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/NumberSupport.java" bodystart="27" bodyend="748"/>
+    <listofallmembers>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1acb695c38c30dc55554317462c023f9e6" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildDec128Add</name></member>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1ae6fd1f9fea1fe811f6a964f56209e0d3" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildDec128Div</name></member>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1a2afe771ac87a5a480ab2e569945aa78e" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildDec128Mod</name></member>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1abd7e817d42807d728751ed6f811c4d9a" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildDec128Mul</name></member>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1a7279c325752500bf617b480fbdfb6e44" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildDec128Neg</name></member>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1a62b0d32b1eff4d0ab0e77e57d97eb35f" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildDec128Sub</name></member>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1a3e74f52c9b74a3d937517d1df321bbdc" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildDec32Add</name></member>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1aed7e051a0cce008100a4752f472d6105" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildDec32Div</name></member>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1ac75f96afc247104239175ac368498606" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildDec32Mod</name></member>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1ab8f02c3ab4c9b5e0aaa80da6c10424b9" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildDec32Mul</name></member>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1a1e87f2e6c88b2dd18cd1a584ae48c609" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildDec32Neg</name></member>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1a48b91bbd59bd912d34b01b4c5fe3b864" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildDec32Sub</name></member>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1a2a805660400a42ec6da06c347f13cd57" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildDec64Add</name></member>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1a05dae2fc35b9e11e7aa40f12512d61fb" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildDec64Div</name></member>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1ad28ed3b993053021e0ab26d9eac2b456" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildDec64Mod</name></member>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1a0110ede2f47a6fa3434554e00c182d44" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildDec64Mul</name></member>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1a2c6880ca223dc1b117b6b1a246e00b93" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildDec64Neg</name></member>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1a01b3a095d3fb9fa66973ad47f1391b63" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildDec64Sub</name></member>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1abfe58c9879b91412fe0c7acfcf0759a0" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildDecimalAdd</name></member>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1a8f8f47b037b95db22dd7dd531ca26886" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildDecimalDiv</name></member>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1a7f70739457e76c543db879026f76cbd9" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildDecimalMod</name></member>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1a57fc8d733e4ac986ce8e69784733c76a" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildDecimalMul</name></member>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1a6fdcbdea3f0d50e681ecee9133b58dbd" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildDecimalSub</name></member>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1ad3d63ffec977dd319c0212c8b53ab3da" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildDecNeg</name></member>
+      <member refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1a7a627aae5616d02311cd75ee56f491f8" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildLongLongAdd</name></member>
+      <member refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1a4f38fd2f581d142735131275e2c47067" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildLongLongAdd</name></member>
+      <member refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1a35c861a8ffc25ab0b03d5327f0faf301" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildLongLongAdd</name></member>
+      <member refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1aa3ba64f3e6523bf0106c1f101a961d87" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildLongLongAdd</name></member>
+      <member refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1a068eea6309233f5e4e87c5209156157f" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildLongLongAnd</name></member>
+      <member refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1abfb33926b58d87eb11c7bb250e27e71b" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildLongLongCompl</name></member>
+      <member refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1ab5f4c6b08e388412f3e900dcdaa0be67" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildLongLongDiv</name></member>
+      <member refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1a5809d5c5dd197c14392720642fa7603b" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildLongLongMod</name></member>
+      <member refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1a60a20d5162fbb7c1acd54e95013fe006" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildLongLongMul</name></member>
+      <member refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1a89f911a9bba3db75ad644847e8e11d6f" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildLongLongNeg</name></member>
+      <member refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1aa441d17304be08097ffcc3351f69c903" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildLongLongOr</name></member>
+      <member refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1a193894129ea6380f54c4893e009e962a" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildLongLongShl</name></member>
+      <member refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1a4fa5215d3c885284d9493576d15819eb" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildLongLongShr</name></member>
+      <member refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1ab3cb9cfd85b0af741c86aee8fa063fde" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildLongLongSub</name></member>
+      <member refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1a8246a0e6668de58f52ae373f940469ff" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildLongLongSub</name></member>
+      <member refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1ac52174d71391f82cf185103bf14de898" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildLongLongSub</name></member>
+      <member refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1a266e3c68943793f19462f3e4f409a7fe" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildLongLongSub</name></member>
+      <member refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1ad3cbb3d9e3f5ca2a2c4ff4d337c86973" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildLongLongXor</name></member>
+      <member refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a2db32d345245f4f6aedd846b8c9a34d4" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildPrimitiveAdd</name></member>
+      <member refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a41279bbc117095d9a9e2211d18dfccf3" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildPrimitiveAnd</name></member>
+      <member refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a38694ecd543f3bdc5cf4a9d7f56f7338" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildPrimitiveCompl</name></member>
+      <member refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1aa2e32176e26321c244e912fd0950528f" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildPrimitiveDiv</name></member>
+      <member refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a7964d945776f1d497e4ecc80a6b0b9a0" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildPrimitiveMod</name></member>
+      <member refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a164a22b8ee321cc5b211515812b1cde3" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildPrimitiveMul</name></member>
+      <member refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a28feee5c66e2ccf7d0333042e72f9569" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildPrimitiveNeg</name></member>
+      <member refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a58fcc524a289c3071be4354c8b0d9c36" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildPrimitiveOr</name></member>
+      <member refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a37874c72849ebc1410b3c0aca38ca839" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildPrimitiveShl</name></member>
+      <member refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a7922ada26ea17d49d2bed4bd74630669" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildPrimitiveShr</name></member>
+      <member refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a6ac4cbe5ac033b65320fbd1dd0f718ed" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildPrimitiveShr</name></member>
+      <member refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1ad7abac396dc81880ceaf4c33b8182aa8" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildPrimitiveSub</name></member>
+      <member refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a73a4cdef8418f3bea65fad86a6f998cd" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildPrimitiveUnsignedShr</name></member>
+      <member refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a1606fa92d6a1a8f5015e47ff7e8f73e7" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildPrimitiveXor</name></member>
+      <member refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a7c0711d819eb02e3e14e388ec1dfc51b" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildXvmPrimitiveAdd</name></member>
+      <member refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a7d99275a5ee03e7c5b7eb5d09d993f97" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildXvmPrimitiveAnd</name></member>
+      <member refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a65ac0b4508b4fe60fd07e4c6f546684d" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildXvmPrimitiveCompl</name></member>
+      <member refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a9c9b278d2ed8850d5755e9dbbea50276" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildXvmPrimitiveDiv</name></member>
+      <member refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a506e24ebed1752ae27e166e9cd85706a" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildXvmPrimitiveMod</name></member>
+      <member refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1acbdce6fe3abea4d27f1d550db08bb2e1" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildXvmPrimitiveMul</name></member>
+      <member refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a5c00e30b73fd8d2168a19bda90ade991" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildXvmPrimitiveNeg</name></member>
+      <member refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1af9e8c3354c816c107b3c076129d813c7" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildXvmPrimitiveOr</name></member>
+      <member refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1aa405bea0199b1f31c7e859019dfae046" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildXvmPrimitiveShl</name></member>
+      <member refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a4f79842a7f2274909749cfcb40d7a41a" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildXvmPrimitiveShr</name></member>
+      <member refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1aa27fe55a59215b9c9fe180cb47f09f63" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildXvmPrimitiveSub</name></member>
+      <member refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1a91f9798633136b2ec556c9007397a9c6" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildXvmPrimitiveUnsignedShr</name></member>
+      <member refid="d8/d92/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_1af2716501c6f7b01bae5d3b610d153d18" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>buildXvmPrimitiveXor</name></member>
+      <member refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1abc7b2adbefadee6e980906468234797b" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>CD_Math</name></member>
+      <member refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1aa3605ea61ca1bab25e1a9fdd1e0573ff" prot="private" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>loadInt128ShiftArg</name></member>
+      <member refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1aaf98cd618bdc2ccd3936447def5b9e8d" prot="private" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>loadSlotOrConstant</name></member>
+      <member refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1a67693b912753674daa21d4cb4bf3ebf2" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>Math_MultiplyHigh</name></member>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1a49047bb832481c5dd396b414725ea08d" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>MD_BinaryOp_Dec128</name></member>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1a1c41640865622fe68baf55b653d83d8f" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>MD_BinaryOp_Dec32</name></member>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1a258b4815fef205011c08702a74cc952b" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>MD_BinaryOp_Dec64</name></member>
+      <member refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1ad8d6ec78147989e754c60f138424772f" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>MD_Int128_Mod</name></member>
+      <member refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1a206a9a98de47fb5a57fc640160c184a3" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>MD_LongLong_Divide</name></member>
+      <member refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1ad2093d7757d475bd0b203d145d6d118c" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>MD_MultiplyHigh</name></member>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1a5c40fb1a7a0a5f4485ff268dd74a9960" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>MD_UnaryOp_Dec128</name></member>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1ae4a7717bf031c3b7001c1ab3a1d0f333" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>MD_UnaryOp_Dec32</name></member>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1a40654fc4a473f02c057b1a17c7ba19c0" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>MD_UnaryOp_Dec64</name></member>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1a7e5e23d97cf027c7cbd752173a7d134e" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>METHOD_NAME_DEC_ADD</name></member>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1acbdb16274ff87fb0c5dfa29f70b2ab74" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>METHOD_NAME_DEC_DIV</name></member>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1a1e5fd9551f2a6293ebf7bc9c3435c21b" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>METHOD_NAME_DEC_MOD</name></member>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1a6b6ec641ca08abf35e44a4416dc03349" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>METHOD_NAME_DEC_MUL</name></member>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1af53e9b24c2abbf91a49494526ebd31d1" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>METHOD_NAME_DEC_NEG</name></member>
+      <member refid="d1/dfe/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_dec_1a46dda4f2b86a75ee20b9c5ac40b0148a" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>METHOD_NAME_DEC_SUB</name></member>
+      <member refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1a413b6896aa7041b8b966e29edcbdd4b4" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>METHOD_NAME_DIV</name></member>
+      <member refid="de/d8f/interfaceorg_1_1xvm_1_1javajit_1_1_number_support_int128_1a422edd3f5f79663239098be2caab444b" prot="public" virt="non-virtual"><scope>org::xvm::javajit::NumberSupport</scope><name>METHOD_NAME_MOD</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

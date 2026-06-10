@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d4/d2d/_weak_hasher_reference_8java" kind="file" language="Java">
+    <compoundname>WeakHasherReference.java</compoundname>
+    <includes local="no">java.lang.ref.ReferenceQueue</includes>
+    <includes local="no">java.lang.ref.WeakReference</includes>
+    <includes local="no">java.util.function.Supplier</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/WeakHasherReference.java</label>
+        <link refid="d4/d2d/_weak_hasher_reference_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.lang.ref.ReferenceQueue</label>
+      </node>
+      <node id="3">
+        <label>java.lang.ref.WeakReference</label>
+      </node>
+      <node id="4">
+        <label>java.util.function.Supplier</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="d4/d3d/classorg_1_1xvm_1_1util_1_1_weak_hasher_reference" prot="public">org::xvm::util::WeakHasherReference</innerclass>
+    <innernamespace refid="df/d46/namespaceorg_1_1xvm_1_1util">org::xvm::util</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.util;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.ref.ReferenceQueue;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.ref.WeakReference;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.function.Supplier;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="d4/d3d/classorg_1_1xvm_1_1util_1_1_weak_hasher_reference" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d4/d3d/classorg_1_1xvm_1_1util_1_1_weak_hasher_reference_1a889f602ca285a14da02a99b6534c91fd" kindref="member">WeakHasherReference</ref>&lt;T&gt;<sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/>WeakReference&lt;T&gt;<sp/>implements<sp/>Supplier&lt;T&gt;<sp/>{</highlight></codeline>
+<codeline lineno="14" refid="d4/d3d/classorg_1_1xvm_1_1util_1_1_weak_hasher_reference_1a238d4fd5da3688b09e644f4b4b8d90bf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="db/db8/interfaceorg_1_1xvm_1_1util_1_1_hasher" kindref="compound">Hasher&lt;? super T&gt;</ref><sp/><ref refid="d4/d3d/classorg_1_1xvm_1_1util_1_1_weak_hasher_reference_1a238d4fd5da3688b09e644f4b4b8d90bf" kindref="member">hasher</ref>;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="d4/d3d/classorg_1_1xvm_1_1util_1_1_weak_hasher_reference_1ad2cbb5a398832290a68d9c550dc7da79" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d4/d3d/classorg_1_1xvm_1_1util_1_1_weak_hasher_reference_1ad2cbb5a398832290a68d9c550dc7da79" kindref="member">hash</ref>;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="d4/d3d/classorg_1_1xvm_1_1util_1_1_weak_hasher_reference_1a889f602ca285a14da02a99b6534c91fd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d4/d3d/classorg_1_1xvm_1_1util_1_1_weak_hasher_reference_1a889f602ca285a14da02a99b6534c91fd" kindref="member">WeakHasherReference</ref>(T<sp/>referent,<sp/><ref refid="db/db8/interfaceorg_1_1xvm_1_1util_1_1_hasher" kindref="compound">Hasher&lt;? super T&gt;</ref><sp/><ref refid="d4/d3d/classorg_1_1xvm_1_1util_1_1_weak_hasher_reference_1a238d4fd5da3688b09e644f4b4b8d90bf" kindref="member">hasher</ref>,<sp/>ReferenceQueue&lt;?<sp/>super<sp/>T&gt;<sp/>queue)<sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(referent,<sp/>queue);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.hasher<sp/>=<sp/><ref refid="d4/d3d/classorg_1_1xvm_1_1util_1_1_weak_hasher_reference_1a238d4fd5da3688b09e644f4b4b8d90bf" kindref="member">hasher</ref>;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.hash<sp/>=<sp/><ref refid="d4/d3d/classorg_1_1xvm_1_1util_1_1_weak_hasher_reference_1a238d4fd5da3688b09e644f4b4b8d90bf" kindref="member">hasher</ref>.hash(referent);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="35" refid="d4/d3d/classorg_1_1xvm_1_1util_1_1_weak_hasher_reference_1a0d8e640645148c83bfef5579e48b12f8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d4/d3d/classorg_1_1xvm_1_1util_1_1_weak_hasher_reference_1a0d8e640645148c83bfef5579e48b12f8" kindref="member">hashCode</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d4/d3d/classorg_1_1xvm_1_1util_1_1_weak_hasher_reference_1ad2cbb5a398832290a68d9c550dc7da79" kindref="member">hash</ref>;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>@SuppressWarnings(</highlight><highlight class="stringliteral">&quot;unchecked&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="41" refid="d4/d3d/classorg_1_1xvm_1_1util_1_1_weak_hasher_reference_1a4e0704e330a1b1db4ae26f307437eeeb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>public<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d4/d3d/classorg_1_1xvm_1_1util_1_1_weak_hasher_reference_1a4e0704e330a1b1db4ae26f307437eeeb" kindref="member">equals</ref>(Object<sp/>obj)<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>obj<sp/>==<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal"><sp/>||<sp/>(obj<sp/>instanceof<sp/>Supplier&lt;?&gt;<sp/>that<sp/>&amp;&amp;<sp/><ref refid="d4/d3d/classorg_1_1xvm_1_1util_1_1_weak_hasher_reference_1a238d4fd5da3688b09e644f4b4b8d90bf" kindref="member">hasher</ref>.equals(</highlight><highlight class="keyword">get</highlight><highlight class="normal">(),<sp/>(T)<sp/>that.get()));</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/WeakHasherReference.java"/>
+  </compounddef>
+</doxygen>

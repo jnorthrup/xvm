@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="da/d10/_cmp_chain_expr_a_s_t_8java" kind="file" language="Java">
+    <compoundname>CmpChainExprAST.java</compoundname>
+    <includes local="no">java.io.DataInput</includes>
+    <includes local="no">java.io.DataOutput</includes>
+    <includes local="no">java.io.IOException</includes>
+    <includes local="no">java.util.Arrays</includes>
+    <includes local="no">java.util.Objects</includes>
+    <includes local="no">org.xvm.asm.constants.MethodConstant</includes>
+    <includes local="no">org.xvm.asm.constants.TypeConstant</includes>
+    <includes local="no">org.xvm.asm.ast.BiExprAST.Operator</includes>
+    <includes local="no">org.xvm.util.Handy.readMagnitude</includes>
+    <includes local="no">org.xvm.util.Handy.writePackedLong</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/ast/CmpChainExprAST.java</label>
+        <link refid="da/d10/_cmp_chain_expr_a_s_t_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.io.DataInput</label>
+      </node>
+      <node id="3">
+        <label>java.io.DataOutput</label>
+      </node>
+      <node id="4">
+        <label>java.io.IOException</label>
+      </node>
+      <node id="5">
+        <label>java.util.Arrays</label>
+      </node>
+      <node id="6">
+        <label>java.util.Objects</label>
+      </node>
+      <node id="9">
+        <label>org.xvm.asm.ast.BiExprAST.Operator</label>
+      </node>
+      <node id="7">
+        <label>org.xvm.asm.constants.MethodConstant</label>
+      </node>
+      <node id="8">
+        <label>org.xvm.asm.constants.TypeConstant</label>
+      </node>
+      <node id="10">
+        <label>org.xvm.util.Handy.readMagnitude</label>
+      </node>
+      <node id="11">
+        <label>org.xvm.util.Handy.writePackedLong</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t" prot="public">org::xvm::asm::ast::CmpChainExprAST</innerclass>
+    <innernamespace refid="d1/dde/namespaceorg_1_1xvm_1_1asm_1_1ast">org::xvm::asm::ast</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.asm.ast;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.DataInput;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.DataOutput;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.IOException;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Arrays;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Objects;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.constants.MethodConstant;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.constants.TypeConstant;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ast.BiExprAST.Operator;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.util.Handy.readMagnitude;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.util.Handy.writePackedLong;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1aa2e310ab29586ea2b20b8a95319697a4" kindref="member">CmpChainExprAST</ref></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="d4/de4/classorg_1_1xvm_1_1asm_1_1ast_1_1_expr_a_s_t" kindref="compound">ExprAST</ref><sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1ae8fdfb96fd85c506f802c6488ea28442" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="d4/de4/classorg_1_1xvm_1_1asm_1_1ast_1_1_expr_a_s_t" kindref="compound">ExprAST</ref>[]<sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1ae8fdfb96fd85c506f802c6488ea28442" kindref="member">exprs</ref>;</highlight></codeline>
+<codeline lineno="27" refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1a9150b47678fc9f20e5817529e3879645" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="df/d52/enumorg_1_1xvm_1_1asm_1_1ast_1_1_bi_expr_a_s_t_1_1_operator" kindref="compound">Operator</ref>[]<sp/><sp/><sp/><sp/><sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1a9150b47678fc9f20e5817529e3879645" kindref="member">ops</ref>;</highlight></codeline>
+<codeline lineno="28" refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1ac451ab7dffe04267176dd176170c148a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="d6/d7b/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_constant" kindref="compound">MethodConstant</ref><sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1ac451ab7dffe04267176dd176170c148a" kindref="member">method</ref>;<sp/></highlight><highlight class="comment">//<sp/>the<sp/>comparison<sp/>method<sp/>(same<sp/>for<sp/>all<sp/>pairs)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1ae7b887d387a6cb8152b5feb166e932f1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">transient</highlight><highlight class="normal"><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1ae7b887d387a6cb8152b5feb166e932f1" kindref="member">booleanType</ref>;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1aa2e310ab29586ea2b20b8a95319697a4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1aa2e310ab29586ea2b20b8a95319697a4" kindref="member">CmpChainExprAST</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1a99438198b799791f1b0a2f5afa27fc86" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1a99438198b799791f1b0a2f5afa27fc86" kindref="member">CmpChainExprAST</ref>(<ref refid="d4/de4/classorg_1_1xvm_1_1asm_1_1ast_1_1_expr_a_s_t" kindref="compound">ExprAST</ref>[]<sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1ae8fdfb96fd85c506f802c6488ea28442" kindref="member">exprs</ref>,<sp/><ref refid="df/d52/enumorg_1_1xvm_1_1asm_1_1ast_1_1_bi_expr_a_s_t_1_1_operator" kindref="compound">Operator</ref>[]<sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1a9150b47678fc9f20e5817529e3879645" kindref="member">ops</ref>,<sp/><ref refid="d6/d7b/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_constant" kindref="compound">MethodConstant</ref><sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1ac451ab7dffe04267176dd176170c148a" kindref="member">method</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1ae8fdfb96fd85c506f802c6488ea28442" kindref="member">exprs</ref><sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>Arrays.stream(<ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1ae8fdfb96fd85c506f802c6488ea28442" kindref="member">exprs</ref>).allMatch(Objects::nonNull);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1a9150b47678fc9f20e5817529e3879645" kindref="member">ops</ref><sp/><sp/><sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>Arrays.stream(<ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1a9150b47678fc9f20e5817529e3879645" kindref="member">ops</ref>).allMatch(Objects::nonNull);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/>ops.length<sp/>==<sp/>exprs.length<sp/>-<sp/>1;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1ac451ab7dffe04267176dd176170c148a" kindref="member">method</ref><sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="df/d52/enumorg_1_1xvm_1_1asm_1_1ast_1_1_bi_expr_a_s_t_1_1_operator" kindref="compound">Operator</ref><sp/><ref refid="d5/d78/namespaceorg_1_1xvm_1_1asm_1_1op" kindref="compound">op</ref><sp/>:<sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1a9150b47678fc9f20e5817529e3879645" kindref="member">ops</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(<ref refid="d5/d78/namespaceorg_1_1xvm_1_1asm_1_1op" kindref="compound">op</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>CompEq,<sp/>CompNeq,<sp/>CompLt,<sp/>CompGt,<sp/>CompLtEq,<sp/>CompGtEq<sp/>-&gt;<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal"><sp/>-&gt;<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.exprs<sp/><sp/>=<sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1ae8fdfb96fd85c506f802c6488ea28442" kindref="member">exprs</ref>;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.ops<sp/><sp/><sp/><sp/>=<sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1a9150b47678fc9f20e5817529e3879645" kindref="member">ops</ref>;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.method<sp/>=<sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1ac451ab7dffe04267176dd176170c148a" kindref="member">method</ref>;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1aa0179e884c507b2697a03d28d2b8c02a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="df/d52/enumorg_1_1xvm_1_1asm_1_1ast_1_1_bi_expr_a_s_t_1_1_operator" kindref="compound">Operator</ref>[]<sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1aa0179e884c507b2697a03d28d2b8c02a" kindref="member">getOps</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1a9150b47678fc9f20e5817529e3879645" kindref="member">ops</ref>;<sp/><sp/></highlight><highlight class="comment">//<sp/>note:<sp/>caller<sp/>must<sp/>not<sp/>modify<sp/>returned<sp/>array<sp/>in<sp/>any<sp/>way</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1ae6ad583a0b23ed2fa5a575d0f12f4305" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d4/de4/classorg_1_1xvm_1_1asm_1_1ast_1_1_expr_a_s_t" kindref="compound">ExprAST</ref>[]<sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1ae6ad583a0b23ed2fa5a575d0f12f4305" kindref="member">getExprs</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1ae8fdfb96fd85c506f802c6488ea28442" kindref="member">exprs</ref>;<sp/><sp/></highlight><highlight class="comment">//<sp/>note:<sp/>caller<sp/>must<sp/>not<sp/>modify<sp/>returned<sp/>array<sp/>in<sp/>any<sp/>way</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1a86a747cd806192f9106dc5e2e62fa674" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d6/d7b/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_constant" kindref="compound">MethodConstant</ref><sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1a86a747cd806192f9106dc5e2e62fa674" kindref="member">getMethod</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1ac451ab7dffe04267176dd176170c148a" kindref="member">method</ref>;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="64" refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1a1bc96bfc16b5e6dfcbc2193c7154a509" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="dd/dff/enumorg_1_1xvm_1_1asm_1_1ast_1_1_binary_a_s_t_1_1_node_type" kindref="compound">NodeType</ref><sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1a1bc96bfc16b5e6dfcbc2193c7154a509" kindref="member">nodeType</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dd/dff/enumorg_1_1xvm_1_1asm_1_1ast_1_1_binary_a_s_t_1_1_node_type" kindref="compound">NodeType</ref>.<ref refid="dd/dff/enumorg_1_1xvm_1_1asm_1_1ast_1_1_binary_a_s_t_1_1_node_type_1a4ce0138b78a5271added12fcf9b4a7ef" kindref="member">CmpChainExpr</ref>;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="69" refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1a15aaeb39cd43435dcd63e35049859e9e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1a15aaeb39cd43435dcd63e35049859e9e" kindref="member">getType</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i)<sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/>i<sp/>==<sp/>0;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1ae7b887d387a6cb8152b5feb166e932f1" kindref="member">booleanType</ref>;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="75" refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1aabd029eabc17d8e39c51d43e6e1d3059" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1aabd029eabc17d8e39c51d43e6e1d3059" kindref="member">readBody</ref>(DataInput<sp/>in,<sp/><ref refid="d7/d33/interfaceorg_1_1xvm_1_1asm_1_1ast_1_1_binary_a_s_t_1_1_constant_resolver" kindref="compound">ConstantResolver</ref><sp/>res)</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>count<sp/>=<sp/>readMagnitude(in);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/de4/classorg_1_1xvm_1_1asm_1_1ast_1_1_expr_a_s_t" kindref="compound">ExprAST</ref>[]<sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1ae8fdfb96fd85c506f802c6488ea28442" kindref="member">exprs</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d4/de4/classorg_1_1xvm_1_1asm_1_1ast_1_1_expr_a_s_t" kindref="compound">ExprAST</ref>[count];</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>count;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1ae8fdfb96fd85c506f802c6488ea28442" kindref="member">exprs</ref>[i]<sp/>=<sp/><ref refid="d7/d69/classorg_1_1xvm_1_1asm_1_1ast_1_1_binary_a_s_t_1a5b825aad0364db1ce19a4e8bd5a76a8f" kindref="member">readExprAST</ref>(in,<sp/>res);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="df/d52/enumorg_1_1xvm_1_1asm_1_1ast_1_1_bi_expr_a_s_t_1_1_operator" kindref="compound">Operator</ref>[]<sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1a9150b47678fc9f20e5817529e3879645" kindref="member">ops</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="df/d52/enumorg_1_1xvm_1_1asm_1_1ast_1_1_bi_expr_a_s_t_1_1_operator" kindref="compound">Operator</ref>[count-1];</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>count-1;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1a9150b47678fc9f20e5817529e3879645" kindref="member">ops</ref>[i]<sp/>=<sp/><ref refid="df/d52/enumorg_1_1xvm_1_1asm_1_1ast_1_1_bi_expr_a_s_t_1_1_operator" kindref="compound">Operator</ref>.values()[readMagnitude(in)];</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d6/d7b/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_constant" kindref="compound">MethodConstant</ref><sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1ac451ab7dffe04267176dd176170c148a" kindref="member">method</ref><sp/>=<sp/>res.getConstant(readMagnitude(in),<sp/><ref refid="d6/d7b/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_constant" kindref="compound">MethodConstant</ref>.class);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.exprs<sp/><sp/>=<sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1ae8fdfb96fd85c506f802c6488ea28442" kindref="member">exprs</ref>;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.ops<sp/><sp/><sp/><sp/>=<sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1a9150b47678fc9f20e5817529e3879645" kindref="member">ops</ref>;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.method<sp/>=<sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1ac451ab7dffe04267176dd176170c148a" kindref="member">method</ref>;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1ae7b887d387a6cb8152b5feb166e932f1" kindref="member">booleanType</ref><sp/>=<sp/>res.typeForName(</highlight><highlight class="stringliteral">&quot;Boolean&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="96" refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1a5bdc81e15b74e2f267eb3ed25bd807a2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1a5bdc81e15b74e2f267eb3ed25bd807a2" kindref="member">prepareWrite</ref>(<ref refid="d7/d33/interfaceorg_1_1xvm_1_1asm_1_1ast_1_1_binary_a_s_t_1_1_constant_resolver" kindref="compound">ConstantResolver</ref><sp/>res)<sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d69/classorg_1_1xvm_1_1asm_1_1ast_1_1_binary_a_s_t_1a0111cfc843a88049d62b223b8a907bf1" kindref="member">prepareASTArray</ref>(<ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1ae8fdfb96fd85c506f802c6488ea28442" kindref="member">exprs</ref>,<sp/>res);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>res.<ref refid="d7/d33/interfaceorg_1_1xvm_1_1asm_1_1ast_1_1_binary_a_s_t_1_1_constant_resolver_1a8f277942ab2cd569f0ae16db0e7680f8" kindref="member">register</ref>(<ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1ac451ab7dffe04267176dd176170c148a" kindref="member">method</ref>);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="102" refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1aab2d8ac56855f0f9c6ce162a032f26e4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1aab2d8ac56855f0f9c6ce162a032f26e4" kindref="member">writeBody</ref>(DataOutput<sp/>out,<sp/><ref refid="d7/d33/interfaceorg_1_1xvm_1_1asm_1_1ast_1_1_binary_a_s_t_1_1_constant_resolver" kindref="compound">ConstantResolver</ref><sp/>res)</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>count<sp/>=<sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1ae8fdfb96fd85c506f802c6488ea28442" kindref="member">exprs</ref>.length;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>writePackedLong(out,<sp/>count);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="d4/de4/classorg_1_1xvm_1_1asm_1_1ast_1_1_expr_a_s_t" kindref="compound">ExprAST</ref><sp/>expr<sp/>:<sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1ae8fdfb96fd85c506f802c6488ea28442" kindref="member">exprs</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>expr.writeExpr(out,<sp/>res);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="df/d52/enumorg_1_1xvm_1_1asm_1_1ast_1_1_bi_expr_a_s_t_1_1_operator" kindref="compound">Operator</ref><sp/><ref refid="d5/d78/namespaceorg_1_1xvm_1_1asm_1_1op" kindref="compound">op</ref><sp/>:<sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1a9150b47678fc9f20e5817529e3879645" kindref="member">ops</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>writePackedLong(out,<sp/><ref refid="d5/d78/namespaceorg_1_1xvm_1_1asm_1_1op" kindref="compound">op</ref>.ordinal());</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>writePackedLong(out,<sp/>res.indexOf(<ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1ac451ab7dffe04267176dd176170c148a" kindref="member">method</ref>));</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="116" refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1abf8c8426d9a0fb3137f8422fdd4c013b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1abf8c8426d9a0fb3137f8422fdd4c013b" kindref="member">toString</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>StringBuilder<sp/>buf<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>StringBuilder();</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buf.append(<ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1ae8fdfb96fd85c506f802c6488ea28442" kindref="member">exprs</ref>[0]);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>1,<sp/>c<sp/>=<sp/><ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1ae8fdfb96fd85c506f802c6488ea28442" kindref="member">exprs</ref>.length;<sp/>i<sp/>&lt;<sp/>c;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buf.append(</highlight><highlight class="charliteral">&apos;<sp/>&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.append(<ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1a9150b47678fc9f20e5817529e3879645" kindref="member">ops</ref>[i-1].text)</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.append(</highlight><highlight class="charliteral">&apos;<sp/>&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.append(<ref refid="dc/d3f/classorg_1_1xvm_1_1asm_1_1ast_1_1_cmp_chain_expr_a_s_t_1ae8fdfb96fd85c506f802c6488ea28442" kindref="member">exprs</ref>[i]);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>buf.toString();</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/ast/CmpChainExprAST.java"/>
+  </compounddef>
+</doxygen>

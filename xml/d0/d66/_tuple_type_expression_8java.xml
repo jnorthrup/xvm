@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d0/d66/_tuple_type_expression_8java" kind="file" language="Java">
+    <compoundname>TupleTypeExpression.java</compoundname>
+    <includes local="no">java.lang.reflect.Field</includes>
+    <includes local="no">java.util.List</includes>
+    <includes local="no">java.util.stream.Collectors</includes>
+    <includes local="no">org.xvm.asm.ErrorListener</includes>
+    <includes local="no">org.xvm.asm.constants.TypeConstant</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/TupleTypeExpression.java</label>
+        <link refid="d0/d66/_tuple_type_expression_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.lang.reflect.Field</label>
+      </node>
+      <node id="3">
+        <label>java.util.List</label>
+      </node>
+      <node id="4">
+        <label>java.util.stream.Collectors</label>
+      </node>
+      <node id="5">
+        <label>org.xvm.asm.ErrorListener</label>
+      </node>
+      <node id="6">
+        <label>org.xvm.asm.constants.TypeConstant</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression" prot="public">org::xvm::compiler::ast::TupleTypeExpression</innerclass>
+    <innernamespace refid="d2/df8/namespaceorg_1_1xvm_1_1compiler_1_1ast">org::xvm::compiler::ast</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.compiler.ast;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.reflect.Field;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.stream.Collectors;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ErrorListener;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.constants.TypeConstant;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1a1e57a5ed6598170421043a9aa5fdc56e" kindref="member">TupleTypeExpression</ref></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="d3/dd1/classorg_1_1xvm_1_1compiler_1_1ast_1_1_type_expression" kindref="compound">TypeExpression</ref><sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>constructors<sp/>--------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1a1e57a5ed6598170421043a9aa5fdc56e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1a1e57a5ed6598170421043a9aa5fdc56e" kindref="member">TupleTypeExpression</ref>(List&lt;TypeExpression&gt;<sp/>params,<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1a5bd846d812bd8f6d35931433a65bc40a" kindref="member">lStartPos</ref>,<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1aba84a3af05f523776290894330b32a1e" kindref="member">lEndPos</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.paramTypes<sp/><sp/><sp/>=<sp/>params;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.lStartPos<sp/><sp/><sp/><sp/>=<sp/><ref refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1a5bd846d812bd8f6d35931433a65bc40a" kindref="member">lStartPos</ref>;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.lEndPos<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><ref refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1aba84a3af05f523776290894330b32a1e" kindref="member">lEndPos</ref>;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>accessors<sp/>-----------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1a9cc63ecb49ad6a089a5514b50e41a518" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>List&lt;TypeExpression&gt;<sp/><ref refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1a9cc63ecb49ad6a089a5514b50e41a518" kindref="member">getParamTypes</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1a62f55527c5bbc4a2bd577e870f046b31" kindref="member">paramTypes</ref>;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="34" refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1ae7ce9dc38c72977dbcafc0a43ef790bb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1ae7ce9dc38c72977dbcafc0a43ef790bb" kindref="member">getStartPosition</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1a5bd846d812bd8f6d35931433a65bc40a" kindref="member">lStartPos</ref>;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="39" refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1ad450150e98577f74a714495372da7a0d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1ad450150e98577f74a714495372da7a0d" kindref="member">getEndPosition</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><sp/><ref refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1aba84a3af05f523776290894330b32a1e" kindref="member">lEndPos</ref>;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="44" refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1aa300dcdda011cc771761c04b5d85c538" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>Field[]<sp/><ref refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1aa300dcdda011cc771761c04b5d85c538" kindref="member">getChildFields</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1ac85a291e8095f5cea7cc5ca799c7401e" kindref="member">CHILD_FIELDS</ref>;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>TypeConstant<sp/>methods<sp/>------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="52" refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1ada684462c2508f7ff593d02e8a96f4c0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/><ref refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1ada684462c2508f7ff593d02e8a96f4c0" kindref="member">instantiateTypeConstant</ref>(<ref refid="d1/dc8/classorg_1_1xvm_1_1compiler_1_1ast_1_1_context" kindref="compound">Context</ref><sp/>ctx,<sp/><ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref><sp/>errs)<sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>pool().ensureTupleType(<ref refid="d0/d65/classorg_1_1xvm_1_1compiler_1_1ast_1_1_function_type_expression" kindref="compound">FunctionTypeExpression</ref>.<ref refid="d0/d65/classorg_1_1xvm_1_1compiler_1_1ast_1_1_function_type_expression_1a9f4a378684c0afe8484aa5c5555fbf84" kindref="member">toTypeConstantArray</ref>(<ref refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1a62f55527c5bbc4a2bd577e870f046b31" kindref="member">paramTypes</ref>));</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="57" refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1a81b49ffa50d97b089a4e84c017035694" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>Expression<sp/><ref refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1a81b49ffa50d97b089a4e84c017035694" kindref="member">validate</ref>(<ref refid="d1/dc8/classorg_1_1xvm_1_1compiler_1_1ast_1_1_context" kindref="compound">Context</ref><sp/>ctx,<sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/>typeRequired,<sp/><ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref><sp/>errs)<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;TypeExpression&gt;<sp/>listTypes<sp/>=<sp/><ref refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1a62f55527c5bbc4a2bd577e870f046b31" kindref="member">paramTypes</ref>;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fValid<sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0,<sp/>c<sp/>=<sp/>listTypes.size();<sp/>i<sp/>&lt;<sp/>c;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dd1/classorg_1_1xvm_1_1compiler_1_1ast_1_1_type_expression" kindref="compound">TypeExpression</ref><sp/>exprOld<sp/>=<sp/>listTypes.get(i);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dd1/classorg_1_1xvm_1_1compiler_1_1ast_1_1_type_expression" kindref="compound">TypeExpression</ref><sp/>exprNew<sp/>=<sp/>(<ref refid="d3/dd1/classorg_1_1xvm_1_1compiler_1_1ast_1_1_type_expression" kindref="compound">TypeExpression</ref>)<sp/>exprOld.<ref refid="d3/dd1/classorg_1_1xvm_1_1compiler_1_1ast_1_1_type_expression_1a0de73f2a7fdbe47e15805b46b8b0ccf5" kindref="member">validate</ref>(ctx,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">,<sp/>errs);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(exprNew<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fValid<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(exprNew<sp/>!=<sp/>exprOld)<sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>listTypes.set(i,<sp/>exprNew);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>fValid</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>super.validate(ctx,<sp/>typeRequired,<sp/>errs)</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>debugging<sp/>assistance<sp/>------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="79" refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1a7926b4b096240e72f8b75dae35eae400" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1a7926b4b096240e72f8b75dae35eae400" kindref="member">toString</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1a62f55527c5bbc4a2bd577e870f046b31" kindref="member">paramTypes</ref>.stream()</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.map(Object::toString)</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.collect(Collectors.joining(</highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&lt;&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&gt;&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="86" refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1a9011fd8522388cd5fc1e1dd6c1cdfcad" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1a9011fd8522388cd5fc1e1dd6c1cdfcad" kindref="member">getDumpDesc</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1a7926b4b096240e72f8b75dae35eae400" kindref="member">toString</ref>();</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>fields<sp/>--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93" refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1a62f55527c5bbc4a2bd577e870f046b31" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>List&lt;TypeExpression&gt;<sp/><ref refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1a62f55527c5bbc4a2bd577e870f046b31" kindref="member">paramTypes</ref>;</highlight></codeline>
+<codeline lineno="94" refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1a5bd846d812bd8f6d35931433a65bc40a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1a5bd846d812bd8f6d35931433a65bc40a" kindref="member">lStartPos</ref>;</highlight></codeline>
+<codeline lineno="95" refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1aba84a3af05f523776290894330b32a1e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1aba84a3af05f523776290894330b32a1e" kindref="member">lEndPos</ref>;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97" refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1ac85a291e8095f5cea7cc5ca799c7401e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Field[]<sp/><ref refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1ac85a291e8095f5cea7cc5ca799c7401e" kindref="member">CHILD_FIELDS</ref><sp/>=<sp/>fieldsForNames(<ref refid="d9/dcc/classorg_1_1xvm_1_1compiler_1_1ast_1_1_tuple_type_expression_1a1e57a5ed6598170421043a9aa5fdc56e" kindref="member">TupleTypeExpression</ref>.class,<sp/></highlight><highlight class="stringliteral">&quot;paramTypes&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/TupleTypeExpression.java"/>
+  </compounddef>
+</doxygen>

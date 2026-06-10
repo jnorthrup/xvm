@@ -1,0 +1,432 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map" kind="class" language="Java" prot="public">
+    <compoundname>org::xvm::util::ListMap</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">AbstractMap&lt; K, V &gt;</basecompoundref>
+    <templateparamlist>
+      <param>
+        <type>K</type>
+      </param>
+      <param>
+        <type>V</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1ae257e5ebc2fb77d659c10d8da65fd9bc" prot="private" static="no" mutable="no">
+        <type>final ArrayList&lt; SimpleEntry&lt; K, V &gt; &gt;</type>
+        <definition>final ArrayList&lt;SimpleEntry&lt;K, V&gt; &gt; org.xvm.util.ListMap&lt; K, V &gt;.m_list</definition>
+        <argsstring></argsstring>
+        <name>m_list</name>
+        <qualifiedname>org.xvm.util.ListMap.m_list</qualifiedname>
+        <briefdescription>
+<para>The contents of the map are stored in an ArrayList of SimpleEntry objects. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListMap.java" line="118" column="29" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListMap.java" bodystart="118" bodyend="-1"/>
+        <referencedby refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1a2f568280927eccce0df4598a7f095ac0" compoundref="dc/d2e/_list_map_8java" startline="72" endline="76">org.xvm.util.ListMap&lt; K, V &gt;.asList</referencedby>
+        <referencedby refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1a02cfa9e0ce4d494b4d839ce254902f6c" compoundref="dc/d2e/_list_map_8java" startline="85" endline="87">org.xvm.util.ListMap&lt; K, V &gt;.entryAt</referencedby>
+        <referencedby refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1a7c169ae5c8d81e7afd8937eb53bf4e87" compoundref="dc/d2e/_list_map_8java" startline="96" endline="106">org.xvm.util.ListMap&lt; K, V &gt;.getEntry</referencedby>
+        <referencedby refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1ad2838899e85a268b0f97351ac8343f96" compoundref="dc/d2e/_list_map_8java" startline="23" endline="25">org.xvm.util.ListMap&lt; K, V &gt;.ListMap</referencedby>
+        <referencedby refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1a1527d71b847c21916b44ee2afea33c81" compoundref="dc/d2e/_list_map_8java" startline="32" endline="36">org.xvm.util.ListMap&lt; K, V &gt;.ListMap</referencedby>
+        <referencedby refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1a7853dee54f270ce317f0631e75831747" compoundref="dc/d2e/_list_map_8java" startline="43" endline="45">org.xvm.util.ListMap&lt; K, V &gt;.ListMap</referencedby>
+        <referencedby refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1af1f48943255fff0e780039282a548893" compoundref="dc/d2e/_list_map_8java" startline="48" endline="60">org.xvm.util.ListMap&lt; K, V &gt;.put</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1abb54e441f509f8aff4ef7e924303af0c" prot="private" static="no" mutable="no">
+        <type>final Set&lt; Entry&lt; K, V &gt; &gt;</type>
+        <definition>final Set&lt;Entry&lt;K, V&gt; &gt; org.xvm.util.ListMap&lt; K, V &gt;.m_setEntries</definition>
+        <argsstring></argsstring>
+        <name>m_setEntries</name>
+        <qualifiedname>org.xvm.util.ListMap.m_setEntries</qualifiedname>
+        <initializer>                               = new AbstractSet&lt;&gt;() {
+    @Override
+    public Iterator&lt;Entry&lt;K, V&gt;&gt; iterator() {
+        return (Iterator) m_list.iterator();
+    }
+
+    @Override
+    public int size() {
+        return m_list.size();
+    }
+}</initializer>
+        <briefdescription>
+<para>The AbstractMap implementation needs an underlying &quot;entry set&quot; to be provided; this is that set, but just sitting on top of <computeroutput><ref refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1ae257e5ebc2fb77d659c10d8da65fd9bc" kindref="member">m_list</ref></computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListMap.java" line="124" column="23" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListMap.java" bodystart="124" bodyend="134"/>
+        <referencedby refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1a39308a10ae0ebec1de949ef2bddce29a" compoundref="dc/d2e/_list_map_8java" startline="63" endline="65">org.xvm.util.ListMap&lt; K, V &gt;.entrySet</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1af7b726c683fe664cc8ebaa30cb23069d" prot="private" static="yes" mutable="no">
+        <type>final ArrayList&lt;?&gt;</type>
+        <definition>final ArrayList&lt;?&gt; org.xvm.util.ListMap&lt; K, V &gt;.EMPTY_ARRAY_LIST</definition>
+        <argsstring></argsstring>
+        <name>EMPTY_ARRAY_LIST</name>
+        <qualifiedname>org.xvm.util.ListMap.EMPTY_ARRAY_LIST</qualifiedname>
+        <initializer>= new ArrayList&lt;&gt;(0)</initializer>
+        <briefdescription>
+<para>An empty ArrayList. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListMap.java" line="139" column="36" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListMap.java" bodystart="139" bodyend="-1"/>
+        <referencedby refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1a1527d71b847c21916b44ee2afea33c81" compoundref="dc/d2e/_list_map_8java" startline="32" endline="36">org.xvm.util.ListMap&lt; K, V &gt;.ListMap</referencedby>
+        <referencedby refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1af1f48943255fff0e780039282a548893" compoundref="dc/d2e/_list_map_8java" startline="48" endline="60">org.xvm.util.ListMap&lt; K, V &gt;.put</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1a09e52ca750d186dcecd612cd550f3e00" prot="public" static="yes" mutable="no">
+        <type>final <ref refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1ad2838899e85a268b0f97351ac8343f96" kindref="member">ListMap</ref></type>
+        <definition>final ListMap org.xvm.util.ListMap&lt; K, V &gt;.EMPTY</definition>
+        <argsstring></argsstring>
+        <name>EMPTY</name>
+        <qualifiedname>org.xvm.util.ListMap.EMPTY</qualifiedname>
+        <initializer>= new <ref refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1ad2838899e85a268b0f97351ac8343f96" kindref="member">ListMap</ref>&lt;&gt;(-1)</initializer>
+        <briefdescription>
+<para>An empty <ref refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map" kindref="compound">ListMap</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListMap.java" line="144" column="33" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListMap.java" bodystart="144" bodyend="-1"/>
+        <referencedby refid="d0/dd9/classorg_1_1xvm_1_1asm_1_1constants_1_1_property_class_type_constant_1ac7dc8febff5180f46b5c491ca10f9789" compoundref="d6/d12/_property_class_type_constant_8java" startline="268" endline="392">org.xvm.asm.constants.PropertyClassTypeConstant.buildTypeInfo</referencedby>
+        <referencedby refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1abd66afd674488e77a83b82482b26f509" compoundref="d9/d9d/_constant_pool_8java" startline="3545" endline="3599">org.xvm.asm.ConstantPool.computeNakedRefInfo</referencedby>
+        <referencedby refid="d5/d19/classorg_1_1xvm_1_1asm_1_1_class_structure_1aeafdb586cb4bcbda30870fd92839c19d" compoundref="d0/d07/_class_structure_8java" startline="547" endline="552">org.xvm.asm.ClassStructure.getTypeParams</referencedby>
+        <referencedby refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1ac0d852b9cd984a85c986cf94ea9d2c4e" compoundref="d9/d9d/_constant_pool_8java" startline="2342" endline="2359">org.xvm.asm.ConstantPool.infoPlaceholder</referencedby>
+        <referencedby refid="d6/d26/classorg_1_1xvm_1_1asm_1_1constants_1_1_difference_type_constant_1a20016c7112c611ff543644e9abdb6684" compoundref="d8/d70/_difference_type_constant_8java" startline="369" endline="384">org.xvm.asm.constants.DifferenceTypeConstant.mergeChildren</referencedby>
+        <referencedby refid="d2/dde/classorg_1_1xvm_1_1asm_1_1constants_1_1_intersection_type_constant_1a35c6a17cc1b018d1f2daa12671f6a8a3" compoundref="d4/dac/_intersection_type_constant_8java" startline="572" endline="616">org.xvm.asm.constants.IntersectionTypeConstant.mergeChildren</referencedby>
+        <referencedby refid="d0/d9a/classorg_1_1xvm_1_1asm_1_1constants_1_1_union_type_constant_1a268d5d4cfceea3892d733304e5358efb" compoundref="df/dce/_union_type_constant_8java" startline="761" endline="783">org.xvm.asm.constants.UnionTypeConstant.mergeChildren</referencedby>
+        <referencedby refid="d6/d50/classorg_1_1xvm_1_1asm_1_1constants_1_1_relational_type_constant_1a0b2779425b5b277eec6011082012cebb" compoundref="d7/d58/_relational_type_constant_8java" startline="491" endline="516">org.xvm.asm.constants.RelationalTypeConstant.mergeTypeInfo</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1ad2838899e85a268b0f97351ac8343f96" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.xvm.util.ListMap&lt; K, V &gt;.ListMap</definition>
+        <argsstring>()</argsstring>
+        <name>ListMap</name>
+        <qualifiedname>org.xvm.util.ListMap.ListMap</qualifiedname>
+        <briefdescription>
+<para>Construct a new <ref refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map" kindref="compound">ListMap</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListMap.java" line="23" column="12" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListMap.java" bodystart="23" bodyend="25"/>
+        <references refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1ae257e5ebc2fb77d659c10d8da65fd9bc" compoundref="dc/d2e/_list_map_8java" startline="118">org.xvm.util.ListMap&lt; K, V &gt;.m_list</references>
+        <referencedby refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1a7853dee54f270ce317f0631e75831747" compoundref="dc/d2e/_list_map_8java" startline="43" endline="45">org.xvm.util.ListMap&lt; K, V &gt;.ListMap</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1a1527d71b847c21916b44ee2afea33c81" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.xvm.util.ListMap&lt; K, V &gt;.ListMap</definition>
+        <argsstring>(int cInitSize)</argsstring>
+        <name>ListMap</name>
+        <qualifiedname>org.xvm.util.ListMap.ListMap</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>cInitSize</declname>
+        </param>
+        <briefdescription>
+<para>Construct a new <ref refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map" kindref="compound">ListMap</ref> of the specified initial capacity. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cInitSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the initial capacity; negative value indicates an immutable empty map </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListMap.java" line="32" column="12" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListMap.java" bodystart="32" bodyend="36"/>
+        <references refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1af7b726c683fe664cc8ebaa30cb23069d" compoundref="dc/d2e/_list_map_8java" startline="139">org.xvm.util.ListMap&lt; K, V &gt;.EMPTY_ARRAY_LIST</references>
+        <references refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1ae257e5ebc2fb77d659c10d8da65fd9bc" compoundref="dc/d2e/_list_map_8java" startline="118">org.xvm.util.ListMap&lt; K, V &gt;.m_list</references>
+      </memberdef>
+      <memberdef kind="function" id="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1a7853dee54f270ce317f0631e75831747" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.xvm.util.ListMap&lt; K, V &gt;.ListMap</definition>
+        <argsstring>(ListMap&lt; K, V &gt; map)</argsstring>
+        <name>ListMap</name>
+        <qualifiedname>org.xvm.util.ListMap.ListMap</qualifiedname>
+        <param>
+          <type>ListMap&lt; K, V &gt;</type>
+          <declname>map</declname>
+        </param>
+        <briefdescription>
+<para>Construct a new <ref refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map" kindref="compound">ListMap</ref> of the same content as the specified <ref refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map" kindref="compound">ListMap</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>map</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the map to clone </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListMap.java" line="43" column="12" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListMap.java" bodystart="43" bodyend="45"/>
+        <references refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1ad2838899e85a268b0f97351ac8343f96" compoundref="dc/d2e/_list_map_8java" startline="23" endline="25">org.xvm.util.ListMap&lt; K, V &gt;.ListMap</references>
+        <references refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1ae257e5ebc2fb77d659c10d8da65fd9bc" compoundref="dc/d2e/_list_map_8java" startline="118">org.xvm.util.ListMap&lt; K, V &gt;.m_list</references>
+      </memberdef>
+      <memberdef kind="function" id="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1af1f48943255fff0e780039282a548893" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>V</type>
+        <definition>V org.xvm.util.ListMap&lt; K, V &gt;.put</definition>
+        <argsstring>(K key, V value)</argsstring>
+        <name>put</name>
+        <qualifiedname>org.xvm.util.ListMap.put</qualifiedname>
+        <param>
+          <type>K</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>V</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListMap.java" line="48" column="14" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListMap.java" bodystart="48" bodyend="60"/>
+        <references refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1af7b726c683fe664cc8ebaa30cb23069d" compoundref="dc/d2e/_list_map_8java" startline="139">org.xvm.util.ListMap&lt; K, V &gt;.EMPTY_ARRAY_LIST</references>
+        <references refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1a7c169ae5c8d81e7afd8937eb53bf4e87" compoundref="dc/d2e/_list_map_8java" startline="96" endline="106">org.xvm.util.ListMap&lt; K, V &gt;.getEntry</references>
+        <references refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1ae257e5ebc2fb77d659c10d8da65fd9bc" compoundref="dc/d2e/_list_map_8java" startline="118">org.xvm.util.ListMap&lt; K, V &gt;.m_list</references>
+        <referencedby refid="da/df0/classorg_1_1xvm_1_1asm_1_1constants_1_1_conditional_constant_1a4b43fac55a4bc7a8f1562d7121a29ec2" compoundref="da/dbc/_conditional_constant_8java" startline="208" endline="240">org.xvm.asm.constants.ConditionalConstant.addAnd</referencedby>
+        <referencedby refid="d5/d19/classorg_1_1xvm_1_1asm_1_1_class_structure_1af75e54dc9410cd0087c30ea5eac2520d" compoundref="d0/d07/_class_structure_8java" startline="3610" endline="3690">org.xvm.asm.ClassStructure.addImplicitTypeParameters</referencedby>
+        <referencedby refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_component_1a412965958eb83b0484638d6ebec61f78" compoundref="d0/d23/_component_8java" startline="560" endline="572">org.xvm.asm.Component.addIncorporates</referencedby>
+        <referencedby refid="da/df0/classorg_1_1xvm_1_1asm_1_1constants_1_1_conditional_constant_1a78d356e9616d770cd19049541dfb4bd1" compoundref="da/dbc/_conditional_constant_8java" startline="250" endline="282">org.xvm.asm.constants.ConditionalConstant.addOr</referencedby>
+        <referencedby refid="d5/d19/classorg_1_1xvm_1_1asm_1_1_class_structure_1a9743e62e747d0bb503a99783684f38f1" compoundref="d0/d07/_class_structure_8java" startline="574" endline="604">org.xvm.asm.ClassStructure.addTypeParam</referencedby>
+        <referencedby refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a0575a204328ff60dff0ec39f0f00a3c4" compoundref="d8/d90/_type_constant_8java" startline="4523" endline="4569">org.xvm.asm.constants.TypeConstant.collectChildInfo</referencedby>
+        <referencedby refid="dc/db2/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_info_1a6708d25bffb1e3a2af8384b4425d44fd" compoundref="d9/d71/_type_info_8java" startline="380" endline="413">org.xvm.asm.constants.TypeInfo.contributeChains</referencedby>
+        <referencedby refid="d5/d1e/classorg_1_1xvm_1_1asm_1_1_component_1_1_contribution_1ac484d25d7753d9a07b3c801488552e12" compoundref="d0/d23/_component_8java" startline="2567" endline="2621">org.xvm.asm.Component.Contribution.Contribution</referencedby>
+        <referencedby refid="d5/d19/classorg_1_1xvm_1_1asm_1_1_class_structure_1a0184e36670f23f986861afcf2b7e0ae6" compoundref="d0/d07/_class_structure_8java" startline="3415" endline="3432">org.xvm.asm.ClassStructure.disassembleTypeParams</referencedby>
+        <referencedby refid="d1/d39/classorg_1_1xvm_1_1runtime_1_1_debug_console_1af643708595bd67f133bfae4adcc0d847" compoundref="de/deb/_debug_console_8java" startline="1795" endline="1838">org.xvm.runtime.DebugConsole.getFieldLayout</referencedby>
+        <referencedby refid="dc/db2/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_info_1afea3afec6d65b4c7beaf7f4fa63d5fae" compoundref="d9/d71/_type_info_8java" startline="191" endline="255">org.xvm.asm.constants.TypeInfo.limitAccess</referencedby>
+        <referencedby refid="d2/dde/classorg_1_1xvm_1_1asm_1_1constants_1_1_intersection_type_constant_1a35c6a17cc1b018d1f2daa12671f6a8a3" compoundref="d4/dac/_intersection_type_constant_8java" startline="572" endline="616">org.xvm.asm.constants.IntersectionTypeConstant.mergeChildren</referencedby>
+        <referencedby refid="d0/d9a/classorg_1_1xvm_1_1asm_1_1constants_1_1_union_type_constant_1a268d5d4cfceea3892d733304e5358efb" compoundref="df/dce/_union_type_constant_8java" startline="761" endline="783">org.xvm.asm.constants.UnionTypeConstant.mergeChildren</referencedby>
+        <referencedby refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a8cf0e985383cef0e9c7d7dca4880f5d4" compoundref="d8/d90/_type_constant_8java" startline="5150" endline="5235">org.xvm.asm.constants.TypeConstant.mergeMixinTypeInfo</referencedby>
+        <referencedby refid="d5/d1e/classorg_1_1xvm_1_1asm_1_1_component_1_1_contribution_1a0364bbcf7d83aa24190c5387a536d72a" compoundref="d0/d23/_component_8java" startline="3046" endline="3085">org.xvm.asm.Component.Contribution.registerConstants</referencedby>
+        <referencedby refid="db/d21/classorg_1_1xvm_1_1compiler_1_1ast_1_1_type_composition_statement_1a9b423e462fb9274ab0b581ac48caae03" compoundref="de/d5f/_type_composition_statement_8java" startline="383" endline="1374">org.xvm.compiler.ast.TypeCompositionStatement.registerStructures</referencedby>
+        <referencedby refid="d5/d19/classorg_1_1xvm_1_1asm_1_1_class_structure_1a0860fb72b75a7489863e55d938bdc1b0" compoundref="d0/d07/_class_structure_8java" startline="3441" endline="3476">org.xvm.asm.ClassStructure.registerTypeParams</referencedby>
+        <referencedby refid="d4/d90/classorg_1_1xvm_1_1asm_1_1_method_structure_1a1bc4eb447446da07ceb7d8612d89dcac" compoundref="db/d6f/_method_structure_8java" startline="823" endline="920">org.xvm.asm.MethodStructure.resolveTypeParameters</referencedby>
+        <referencedby refid="d5/d19/classorg_1_1xvm_1_1asm_1_1_class_structure_1a7353d3bc0d4088b9a34c767b8c909a7e" compoundref="d0/d07/_class_structure_8java" startline="623" endline="638">org.xvm.asm.ClassStructure.updateConstraint</referencedby>
+        <referencedby refid="da/d6d/classorg_1_1xvm_1_1compiler_1_1ast_1_1_property_declaration_statement_1a27b5a895cc17bfc15c97aac3c01b36a3" compoundref="db/d3c/_property_declaration_statement_8java" startline="576" endline="648">org.xvm.compiler.ast.PropertyDeclarationStatement.validateAnnotations</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1a39308a10ae0ebec1de949ef2bddce29a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Set&lt; Entry&lt; K, V &gt; &gt;</type>
+        <definition>Set&lt; Entry&lt; K, V &gt; &gt; org.xvm.util.ListMap&lt; K, V &gt;.entrySet</definition>
+        <argsstring>()</argsstring>
+        <name>entrySet</name>
+        <qualifiedname>org.xvm.util.ListMap.entrySet</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListMap.java" line="63" column="16" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListMap.java" bodystart="63" bodyend="65"/>
+        <references refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1abb54e441f509f8aff4ef7e924303af0c" compoundref="dc/d2e/_list_map_8java" startline="124" endline="134">org.xvm.util.ListMap&lt; K, V &gt;.m_setEntries</references>
+        <referencedby refid="d5/d19/classorg_1_1xvm_1_1asm_1_1_class_structure_1af75e54dc9410cd0087c30ea5eac2520d" compoundref="d0/d07/_class_structure_8java" startline="3610" endline="3690">org.xvm.asm.ClassStructure.addImplicitTypeParameters</referencedby>
+        <referencedby refid="d1/d39/classorg_1_1xvm_1_1runtime_1_1_debug_console_1af36b42156f89a411113de9f7b6b1f1b3" compoundref="de/deb/_debug_console_8java" startline="1674" endline="1739">org.xvm.runtime.DebugConsole.addVar</referencedby>
+        <referencedby refid="d5/d1e/classorg_1_1xvm_1_1asm_1_1_component_1_1_contribution_1a9188bd78a739bc7b68d74f1edbf3e4c7" compoundref="d0/d23/_component_8java" startline="3090" endline="3135">org.xvm.asm.Component.Contribution.assemble</referencedby>
+        <referencedby refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a691d1893c44b179d1a077594ce2fa5f1" compoundref="d8/d90/_type_constant_8java" startline="3124" endline="3374">org.xvm.asm.constants.TypeConstant.collectMemberInfo</referencedby>
+        <referencedby refid="d5/d19/classorg_1_1xvm_1_1asm_1_1_class_structure_1aba16fe35ee331daad607a9867728c3e9" compoundref="d0/d07/_class_structure_8java" startline="3364" endline="3399">org.xvm.asm.ClassStructure.getDescription</referencedby>
+        <referencedby refid="d2/dde/classorg_1_1xvm_1_1asm_1_1constants_1_1_intersection_type_constant_1a35c6a17cc1b018d1f2daa12671f6a8a3" compoundref="d4/dac/_intersection_type_constant_8java" startline="572" endline="616">org.xvm.asm.constants.IntersectionTypeConstant.mergeChildren</referencedby>
+        <referencedby refid="d0/d9a/classorg_1_1xvm_1_1asm_1_1constants_1_1_union_type_constant_1a268d5d4cfceea3892d733304e5358efb" compoundref="df/dce/_union_type_constant_8java" startline="761" endline="783">org.xvm.asm.constants.UnionTypeConstant.mergeChildren</referencedby>
+        <referencedby refid="d5/d19/classorg_1_1xvm_1_1asm_1_1_class_structure_1a0860fb72b75a7489863e55d938bdc1b0" compoundref="d0/d07/_class_structure_8java" startline="3441" endline="3476">org.xvm.asm.ClassStructure.registerTypeParams</referencedby>
+        <referencedby refid="d1/d39/classorg_1_1xvm_1_1runtime_1_1_debug_console_1ad5c6af190b1316aa46ef5cf278c07044" compoundref="de/deb/_debug_console_8java" startline="1741" endline="1789">org.xvm.runtime.DebugConsole.renderVar</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1a2f568280927eccce0df4598a7f095ac0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; Entry&lt; K, V &gt; &gt;</type>
+        <definition>List&lt; Entry&lt; K, V &gt; &gt; org.xvm.util.ListMap&lt; K, V &gt;.asList</definition>
+        <argsstring>()</argsstring>
+        <name>asList</name>
+        <qualifiedname>org.xvm.util.ListMap.asList</qualifiedname>
+        <briefdescription>
+<para>Obtain a read-only list of entries. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the entries of the map in a List </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListMap.java" line="72" column="17" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListMap.java" bodystart="72" bodyend="76"/>
+        <references refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1ae257e5ebc2fb77d659c10d8da65fd9bc" compoundref="dc/d2e/_list_map_8java" startline="118">org.xvm.util.ListMap&lt; K, V &gt;.m_list</references>
+        <referencedby refid="d5/d19/classorg_1_1xvm_1_1asm_1_1_class_structure_1a7e864fcb4fc94a70dcc9f52f731eac68" compoundref="d0/d07/_class_structure_8java" startline="559" endline="564">org.xvm.asm.ClassStructure.getTypeParamsAsList</referencedby>
+        <referencedby refid="d5/d1e/classorg_1_1xvm_1_1asm_1_1_component_1_1_contribution_1a0364bbcf7d83aa24190c5387a536d72a" compoundref="d0/d23/_component_8java" startline="3046" endline="3085">org.xvm.asm.Component.Contribution.registerConstants</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1a02cfa9e0ce4d494b4d839ce254902f6c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Entry&lt; K, V &gt;</type>
+        <definition>Entry&lt; K, V &gt; org.xvm.util.ListMap&lt; K, V &gt;.entryAt</definition>
+        <argsstring>(int index)</argsstring>
+        <name>entryAt</name>
+        <qualifiedname>org.xvm.util.ListMap.entryAt</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Obtain an entry at the specified index. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the entry index</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>an entry </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListMap.java" line="85" column="18" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListMap.java" bodystart="85" bodyend="87"/>
+        <references refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1ae257e5ebc2fb77d659c10d8da65fd9bc" compoundref="dc/d2e/_list_map_8java" startline="118">org.xvm.util.ListMap&lt; K, V &gt;.m_list</references>
+      </memberdef>
+      <memberdef kind="function" id="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1a786c51dfc63eedf9572734de63dcfd6e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>V</type>
+        <definition>V org.xvm.util.ListMap&lt; K, V &gt;.get</definition>
+        <argsstring>(Object key)</argsstring>
+        <name>get</name>
+        <qualifiedname>org.xvm.util.ListMap.get</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListMap.java" line="109" column="14" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListMap.java" bodystart="109" bodyend="112"/>
+        <references refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1a7c169ae5c8d81e7afd8937eb53bf4e87" compoundref="dc/d2e/_list_map_8java" startline="96" endline="106">org.xvm.util.ListMap&lt; K, V &gt;.getEntry</references>
+        <referencedby refid="d5/d19/classorg_1_1xvm_1_1asm_1_1_class_structure_1af75e54dc9410cd0087c30ea5eac2520d" compoundref="d0/d07/_class_structure_8java" startline="3610" endline="3690">org.xvm.asm.ClassStructure.addImplicitTypeParameters</referencedby>
+        <referencedby refid="dc/db2/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_info_1a6708d25bffb1e3a2af8384b4425d44fd" compoundref="d9/d71/_type_info_8java" startline="380" endline="413">org.xvm.asm.constants.TypeInfo.contributeChains</referencedby>
+        <referencedby refid="d2/dde/classorg_1_1xvm_1_1asm_1_1constants_1_1_intersection_type_constant_1a35c6a17cc1b018d1f2daa12671f6a8a3" compoundref="d4/dac/_intersection_type_constant_8java" startline="572" endline="616">org.xvm.asm.constants.IntersectionTypeConstant.mergeChildren</referencedby>
+        <referencedby refid="d0/d9a/classorg_1_1xvm_1_1asm_1_1constants_1_1_union_type_constant_1a268d5d4cfceea3892d733304e5358efb" compoundref="df/dce/_union_type_constant_8java" startline="761" endline="783">org.xvm.asm.constants.UnionTypeConstant.mergeChildren</referencedby>
+        <referencedby refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a8cf0e985383cef0e9c7d7dca4880f5d4" compoundref="d8/d90/_type_constant_8java" startline="5150" endline="5235">org.xvm.asm.constants.TypeConstant.mergeMixinTypeInfo</referencedby>
+        <referencedby refid="d4/d90/classorg_1_1xvm_1_1asm_1_1_method_structure_1a1bc4eb447446da07ceb7d8612d89dcac" compoundref="db/d6f/_method_structure_8java" startline="823" endline="920">org.xvm.asm.MethodStructure.resolveTypeParameters</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1a7c169ae5c8d81e7afd8937eb53bf4e87" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>SimpleEntry&lt; K, V &gt;</type>
+        <definition>SimpleEntry&lt; K, V &gt; org.xvm.util.ListMap&lt; K, V &gt;.getEntry</definition>
+        <argsstring>(Object key)</argsstring>
+        <name>getEntry</name>
+        <qualifiedname>org.xvm.util.ListMap.getEntry</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+<para>Internal: Obtain the entry that corresponds to the specified key. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the key</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the entry if it exists; otherwise null </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListMap.java" line="96" column="27" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListMap.java" bodystart="96" bodyend="106"/>
+        <references refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1ae257e5ebc2fb77d659c10d8da65fd9bc" compoundref="dc/d2e/_list_map_8java" startline="118">org.xvm.util.ListMap&lt; K, V &gt;.m_list</references>
+        <referencedby refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1a786c51dfc63eedf9572734de63dcfd6e" compoundref="dc/d2e/_list_map_8java" startline="109" endline="112">org.xvm.util.ListMap&lt; K, V &gt;.get</referencedby>
+        <referencedby refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1af1f48943255fff0e780039282a548893" compoundref="dc/d2e/_list_map_8java" startline="48" endline="60">org.xvm.util.ListMap&lt; K, V &gt;.put</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A simple implementation of a Map on top of an ArrayList to maintain order of insertion. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This map should work well for small numbers of entries, but will degrade in performance as it grows in size. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>AbstractMap&lt; K, V &gt;</label>
+      </node>
+      <node id="1">
+        <label>org.xvm.util.ListMap&lt; K, V &gt;</label>
+        <link refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>AbstractMap&lt; K, V &gt;</label>
+      </node>
+      <node id="1">
+        <label>org.xvm.util.ListMap&lt; K, V &gt;</label>
+        <link refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>EMPTY</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>org.xvm.util.ListMap&lt; K, V &gt;</label>
+        <link refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>EMPTY</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListMap.java" line="18" column="7" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/ListMap.java" bodystart="19" bodyend="145"/>
+    <listofallmembers>
+      <member refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1a2f568280927eccce0df4598a7f095ac0" prot="public" virt="non-virtual"><scope>org::xvm::util::ListMap</scope><name>asList</name></member>
+      <member refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1a09e52ca750d186dcecd612cd550f3e00" prot="public" virt="non-virtual"><scope>org::xvm::util::ListMap</scope><name>EMPTY</name></member>
+      <member refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1af7b726c683fe664cc8ebaa30cb23069d" prot="private" virt="non-virtual"><scope>org::xvm::util::ListMap</scope><name>EMPTY_ARRAY_LIST</name></member>
+      <member refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1a02cfa9e0ce4d494b4d839ce254902f6c" prot="public" virt="non-virtual"><scope>org::xvm::util::ListMap</scope><name>entryAt</name></member>
+      <member refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1a39308a10ae0ebec1de949ef2bddce29a" prot="public" virt="non-virtual"><scope>org::xvm::util::ListMap</scope><name>entrySet</name></member>
+      <member refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1a786c51dfc63eedf9572734de63dcfd6e" prot="public" virt="non-virtual"><scope>org::xvm::util::ListMap</scope><name>get</name></member>
+      <member refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1a7c169ae5c8d81e7afd8937eb53bf4e87" prot="protected" virt="non-virtual"><scope>org::xvm::util::ListMap</scope><name>getEntry</name></member>
+      <member refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1ad2838899e85a268b0f97351ac8343f96" prot="public" virt="non-virtual"><scope>org::xvm::util::ListMap</scope><name>ListMap</name></member>
+      <member refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1a1527d71b847c21916b44ee2afea33c81" prot="public" virt="non-virtual"><scope>org::xvm::util::ListMap</scope><name>ListMap</name></member>
+      <member refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1a7853dee54f270ce317f0631e75831747" prot="public" virt="non-virtual"><scope>org::xvm::util::ListMap</scope><name>ListMap</name></member>
+      <member refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1ae257e5ebc2fb77d659c10d8da65fd9bc" prot="private" virt="non-virtual"><scope>org::xvm::util::ListMap</scope><name>m_list</name></member>
+      <member refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1abb54e441f509f8aff4ef7e924303af0c" prot="private" virt="non-virtual"><scope>org::xvm::util::ListMap</scope><name>m_setEntries</name></member>
+      <member refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map_1af1f48943255fff0e780039282a548893" prot="public" virt="non-virtual"><scope>org::xvm::util::ListMap</scope><name>put</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

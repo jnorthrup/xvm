@@ -1,0 +1,300 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d9/da7/_guard_all_8java" kind="file" language="Java">
+    <compoundname>GuardAll.java</compoundname>
+    <includes local="no">java.io.DataInput</includes>
+    <includes local="no">java.io.IOException</includes>
+    <includes local="no">java.lang.classfile.CodeBuilder</includes>
+    <includes local="no">java.lang.classfile.TypeKind</includes>
+    <includes local="no">java.lang.constant.ClassDesc</includes>
+    <includes local="no">java.util.List</includes>
+    <includes local="no">org.xvm.asm.Constant</includes>
+    <includes local="no">org.xvm.asm.Op</includes>
+    <includes local="no">org.xvm.asm.OpJump</includes>
+    <includes local="no">org.xvm.asm.Scope</includes>
+    <includes local="no">org.xvm.javajit.BuildContext</includes>
+    <includes local="no">org.xvm.javajit.Builder</includes>
+    <includes local="no">org.xvm.javajit.JitMethodDesc</includes>
+    <includes local="no">org.xvm.javajit.JitParamDesc</includes>
+    <includes local="no">org.xvm.javajit.TypeMatrix</includes>
+    <includes local="no">org.xvm.runtime.Frame</includes>
+    <includes local="no">org.xvm.runtime.Frame.AllGuard</includes>
+    <includes local="no">org.xvm.javajit.Builder.EXT</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/op/GuardAll.java</label>
+        <link refid="d9/da7/_guard_all_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.io.DataInput</label>
+      </node>
+      <node id="3">
+        <label>java.io.IOException</label>
+      </node>
+      <node id="4">
+        <label>java.lang.classfile.CodeBuilder</label>
+      </node>
+      <node id="5">
+        <label>java.lang.classfile.TypeKind</label>
+      </node>
+      <node id="6">
+        <label>java.lang.constant.ClassDesc</label>
+      </node>
+      <node id="7">
+        <label>java.util.List</label>
+      </node>
+      <node id="8">
+        <label>org.xvm.asm.Constant</label>
+      </node>
+      <node id="9">
+        <label>org.xvm.asm.Op</label>
+      </node>
+      <node id="10">
+        <label>org.xvm.asm.OpJump</label>
+      </node>
+      <node id="11">
+        <label>org.xvm.asm.Scope</label>
+      </node>
+      <node id="12">
+        <label>org.xvm.javajit.BuildContext</label>
+      </node>
+      <node id="13">
+        <label>org.xvm.javajit.Builder</label>
+      </node>
+      <node id="19">
+        <label>org.xvm.javajit.Builder.EXT</label>
+      </node>
+      <node id="14">
+        <label>org.xvm.javajit.JitMethodDesc</label>
+      </node>
+      <node id="15">
+        <label>org.xvm.javajit.JitParamDesc</label>
+      </node>
+      <node id="16">
+        <label>org.xvm.javajit.TypeMatrix</label>
+      </node>
+      <node id="17">
+        <label>org.xvm.runtime.Frame</label>
+      </node>
+      <node id="18">
+        <label>org.xvm.runtime.Frame.AllGuard</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all" prot="public">org::xvm::asm::op::GuardAll</innerclass>
+    <innernamespace refid="d5/d78/namespaceorg_1_1xvm_1_1asm_1_1op">org::xvm::asm::op</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.asm.op;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.DataInput;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.IOException;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.classfile.CodeBuilder;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.classfile.TypeKind;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.constant.ClassDesc;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Constant;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Op;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.OpJump;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Scope;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.javajit.BuildContext;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.javajit.Builder;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.javajit.JitMethodDesc;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.javajit.JitParamDesc;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.javajit.TypeMatrix;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.Frame;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.Frame.AllGuard;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.javajit.Builder.EXT;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1ac120a69e8ee031abfb84549fc33299be" kindref="member">GuardAll</ref></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="dd/df0/classorg_1_1xvm_1_1asm_1_1_op_jump_1a21cf45acc83e82cd33873cda07c6f88f" kindref="member">OpJump</ref><sp/>{</highlight></codeline>
+<codeline lineno="41" refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1ac120a69e8ee031abfb84549fc33299be" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1ac120a69e8ee031abfb84549fc33299be" kindref="member">GuardAll</ref>(<ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op" kindref="compound">Op</ref><sp/><ref refid="d5/d78/namespaceorg_1_1xvm_1_1asm_1_1op" kindref="compound">op</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(<ref refid="d5/d78/namespaceorg_1_1xvm_1_1asm_1_1op" kindref="compound">op</ref>);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a6bb53d6f1062fa7f366303e6424b22a6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a6bb53d6f1062fa7f366303e6424b22a6" kindref="member">GuardAll</ref>(DataInput<sp/>in,<sp/><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref>[]<sp/>aconst)</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(in,<sp/>aconst);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="57" refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a8c4fd43cb6ecb539cd0f5432e65be47e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a8c4fd43cb6ecb539cd0f5432e65be47e" kindref="member">getOpCode</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a2db810e0c49520519001eafcae54ad59" kindref="member">OP_GUARD_ALL</ref>;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="62" refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a0d2f99da8122f81d7c386d3c28562351" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a0d2f99da8122f81d7c386d3c28562351" kindref="member">isEnter</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="67" refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1ae1ceea255cd7123a599283c0bcc8bff5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1ae1ceea255cd7123a599283c0bcc8bff5" kindref="member">process</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frame,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iPC)<sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iScope<sp/>=<sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a60f4f7cd8b2c638237d87024dce1e322" kindref="member">enterScope</ref>(<ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a6ddf4c74b24e8d0f4612c3fd8dac0dd3" kindref="member">m_nNextVar</ref>);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="db/db4/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_all_guard" kindref="compound">AllGuard</ref><sp/>guard<sp/>=<sp/><ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a48e1b3cae91be267d41c7b79b7a9d922" kindref="member">m_guard</ref>;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(guard<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a48e1b3cae91be267d41c7b79b7a9d922" kindref="member">m_guard</ref><sp/>=<sp/>guard<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="db/db4/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_all_guard" kindref="compound">AllGuard</ref>(iPC,<sp/>iScope,<sp/><ref refid="dd/df0/classorg_1_1xvm_1_1asm_1_1_op_jump_1aecab5b0cdf2385f08ae6718b476637a3" kindref="member">m_ofJmp</ref>);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1aa4da7a234e638ec016e37f0ffa7b3785" kindref="member">pushGuard</ref>(guard);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>iPC<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="80" refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a054bf88f6b4f49d408712fddbd8f4879" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a054bf88f6b4f49d408712fddbd8f4879" kindref="member">simulate</ref>(<ref refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_scope" kindref="compound">Scope</ref><sp/>scope)<sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>scope.<ref refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_scope_1aff27180435ccef15498c53c6eece207d" kindref="member">enterGuardAll</ref>();</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>scope.<ref refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_scope_1affd560e8ab0e21f15a9f1394b5522a5c" kindref="member">enter</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a6ddf4c74b24e8d0f4612c3fd8dac0dd3" kindref="member">m_nNextVar</ref><sp/>=<sp/>scope.<ref refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_scope_1a00d6fa24fd068112015be52472f4b0ea" kindref="member">getCurVars</ref>();</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="88" refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a4249a05761fb637c35e99075c9f8076f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a4249a05761fb637c35e99075c9f8076f" kindref="member">advances</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>JIT<sp/>support<sp/>---------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97" refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a2c6d8a880b70a88738934151b751812b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a2c6d8a880b70a88738934151b751812b" kindref="member">registerJumps</ref>(List&lt;Integer&gt;<sp/>jumps,<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>fDoReturn)<sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a644581856838a02d0e614323a295e55d" kindref="member">m_jumps</ref><sp/><sp/><sp/><sp/><sp/>=<sp/>jumps;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1abeb25d855691a5840c6a16547dae026c" kindref="member">m_fDoReturn</ref><sp/>=<sp/>fDoReturn;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="103" refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1aa759a2e96ed6b157177a0f3b897b8736" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1aa759a2e96ed6b157177a0f3b897b8736" kindref="member">computeTypes</ref>(<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref><sp/>bctx)<sp/>{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/d98/classorg_1_1xvm_1_1javajit_1_1_type_matrix" kindref="compound">TypeMatrix</ref><sp/>tmx<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>bctx.<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1a24b60b4ca6e03388a930f812c9dc96fc" kindref="member">typeMatrix</ref>;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nAddrThis<sp/>=<sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a6772aeabb16b5d4ab914566fb58729e6" kindref="member">getAddress</ref>();</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nAddrJump<sp/>=<sp/>nAddrThis<sp/>+<sp/><ref refid="dd/df0/classorg_1_1xvm_1_1asm_1_1_op_jump_1aecab5b0cdf2385f08ae6718b476637a3" kindref="member">m_ofJmp</ref>;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bctx.<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1aecafc1b8ac9f3e5b3c4edd43e5fd12d9" kindref="member">enterScope</ref>(</highlight><highlight class="keyword">null</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bctx.<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1aecafc1b8ac9f3e5b3c4edd43e5fd12d9" kindref="member">enterScope</ref>(</highlight><highlight class="keyword">null</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>we<sp/>could<sp/>be<sp/>called<sp/>for<sp/>dead<sp/>code<sp/>to<sp/>correctly<sp/>compute<sp/>the<sp/>scopes,<sp/>but<sp/>should<sp/>not</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>compute<sp/>types<sp/>further</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(tmx.<ref refid="de/d98/classorg_1_1xvm_1_1javajit_1_1_type_matrix_1a589c4b7aa071ae34335c1d7e3d8daf81" kindref="member">isReached</ref>(nAddrThis))<sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tmx.<ref refid="de/d98/classorg_1_1xvm_1_1javajit_1_1_type_matrix_1a36c00d91c03478bd37d29e99828a0c04" kindref="member">follow</ref>(nAddrThis);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tmx.<ref refid="de/d98/classorg_1_1xvm_1_1javajit_1_1_type_matrix_1a36c00d91c03478bd37d29e99828a0c04" kindref="member">follow</ref>(nAddrThis,<sp/>nAddrJump,<sp/>-1);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="120" refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1ae857d96c1a6fd62ff0d631996a946607" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1ae857d96c1a6fd62ff0d631996a946607" kindref="member">build</ref>(<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref><sp/>bctx,<sp/>CodeBuilder<sp/>code)<sp/>{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>GuardAll<sp/>introduces<sp/>two<sp/>scopes:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/>-<sp/>outer<sp/>with<sp/>synthetic<sp/>vars:<sp/>$rethrow,<sp/>$contLoop,<sp/>$breakLoop</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/>-<sp/>inner<sp/>loop<sp/>that<sp/>is<sp/>guarded<sp/>by<sp/>&quot;FinallyStart&quot;<sp/>op</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="da/de9/classorg_1_1xvm_1_1javajit_1_1_scope" kindref="compound">org.xvm.javajit.Scope</ref><sp/>scopeOuter<sp/>=<sp/>bctx.<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1aecafc1b8ac9f3e5b3c4edd43e5fd12d9" kindref="member">enterScope</ref>(code);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>$rethrow<sp/>=<sp/>null;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>scopeOuter.<ref refid="da/de9/classorg_1_1xvm_1_1javajit_1_1_scope_1a46ff08e7b5cc8f560b02d49059469f79" kindref="member">allocateRethrow</ref>(code);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>$jump1<sp/>=<sp/>false;<sp/>$jump2<sp/>=<sp/>false;<sp/>...</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>scopeOuter.<ref refid="da/de9/classorg_1_1xvm_1_1javajit_1_1_scope_1ad27f505b094571ad8d2f254fd4f9d218" kindref="member">allocateJumps</ref>(code,<sp/><ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a644581856838a02d0e614323a295e55d" kindref="member">m_jumps</ref>);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1abeb25d855691a5840c6a16547dae026c" kindref="member">m_fDoReturn</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d0/d2b/classorg_1_1xvm_1_1javajit_1_1_jit_method_desc" kindref="compound">JitMethodDesc</ref><sp/>jmd<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>bctx.<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1ad26a2ec03aea80a5c94f3633ebb074f6" kindref="member">methodDesc</ref>;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fOptimized<sp/>=<sp/>bctx.<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1ac5a6c012509f103fddeb3ee927e7268e" kindref="member">isOptimized</ref>;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cRets<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>jmd.<ref refid="d0/d2b/classorg_1_1xvm_1_1javajit_1_1_jit_method_desc_1a77ef9bc101f2b8b9f33b5d6447cf9eca" kindref="member">standardReturns</ref>.length;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>$retN<sp/>=<sp/>false;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>slotRet<sp/>=<sp/>scopeOuter.<ref refid="da/de9/classorg_1_1xvm_1_1javajit_1_1_scope_1ab97d243a7b55a3aaf991d7bf3aa51933" kindref="member">allocateSynthetic</ref>(<ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a147585594e211fb5db628144b77eed1c" kindref="member">DO_RETURN_SLOT_NAME</ref>,<sp/>TypeKind.BOOLEAN);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/>slotRet<sp/>!=<sp/>-1;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.iconst_0()</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.istore(slotRet);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>cRets;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(fOptimized)<sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">[]<sp/>optIndexes<sp/>=<sp/>jmd.<ref refid="d0/d2b/classorg_1_1xvm_1_1javajit_1_1_jit_method_desc_1a9c8adacaba232e11b7139600c368db57" kindref="member">getAllOptimizedReturnIndexes</ref>(i);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iOpt<sp/>:<sp/>optIndexes)<sp/>{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d14/classorg_1_1xvm_1_1javajit_1_1_jit_param_desc" kindref="compound">JitParamDesc</ref><sp/>pdRet<sp/><sp/><sp/><sp/>=<sp/>jmd.<ref refid="d0/d2b/classorg_1_1xvm_1_1javajit_1_1_jit_method_desc_1adcb8fcccb52aa0d3544c13391d97233d" kindref="member">optimizedReturns</ref>[iOpt];</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ClassDesc<sp/><sp/><sp/><sp/>cd<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>pdRet.<ref refid="d5/d1d/classorg_1_1xvm_1_1javajit_1_1_jit_type_desc_1ac0cac0c3f3e19cebba78f45398e741a0" kindref="member">cd</ref>;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TypeKind<sp/><sp/><sp/><sp/><sp/>typeKind<sp/>=<sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder" kindref="compound">Builder</ref>.<ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a552f3f79251a8a3b1c60b60129850739" kindref="member">toTypeKind</ref>(cd);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/><sp/><sp/><sp/><sp/><sp/><sp/>name<sp/><sp/><sp/><sp/><sp/>=<sp/><ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a8e87979bdea2f4f19304161f976c95eb" kindref="member">returnSlotName</ref>(pdRet);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>slotR<sp/><sp/><sp/><sp/>=<sp/>scopeOuter.<ref refid="da/de9/classorg_1_1xvm_1_1javajit_1_1_scope_1ab97d243a7b55a3aaf991d7bf3aa51933" kindref="member">allocateSynthetic</ref>(name,<sp/>typeKind);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder" kindref="compound">Builder</ref>.<ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1adc40bdb4c39f972694b06b53bd444b91" kindref="member">defaultLoad</ref>(code,<sp/>cd);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder" kindref="compound">Builder</ref>.<ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a2bb0e54b15f977f5be539a3a0962264f" kindref="member">store</ref>(code,<sp/>cd,<sp/>slotR);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d14/classorg_1_1xvm_1_1javajit_1_1_jit_param_desc" kindref="compound">JitParamDesc</ref><sp/>pdRet<sp/><sp/><sp/><sp/>=<sp/>jmd.<ref refid="d0/d2b/classorg_1_1xvm_1_1javajit_1_1_jit_method_desc_1a77ef9bc101f2b8b9f33b5d6447cf9eca" kindref="member">standardReturns</ref>[i];</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ClassDesc<sp/><sp/><sp/><sp/>cd<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>pdRet.<ref refid="d5/d1d/classorg_1_1xvm_1_1javajit_1_1_jit_type_desc_1ac0cac0c3f3e19cebba78f45398e741a0" kindref="member">cd</ref>;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TypeKind<sp/><sp/><sp/><sp/><sp/>typeKind<sp/>=<sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder" kindref="compound">Builder</ref>.<ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a552f3f79251a8a3b1c60b60129850739" kindref="member">toTypeKind</ref>(cd);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/><sp/><sp/><sp/><sp/><sp/><sp/>name<sp/><sp/><sp/><sp/><sp/>=<sp/><ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a8e87979bdea2f4f19304161f976c95eb" kindref="member">returnSlotName</ref>(pdRet);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>slotR<sp/><sp/><sp/><sp/>=<sp/>scopeOuter.<ref refid="da/de9/classorg_1_1xvm_1_1javajit_1_1_scope_1ab97d243a7b55a3aaf991d7bf3aa51933" kindref="member">allocateSynthetic</ref>(name,<sp/>typeKind);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder" kindref="compound">Builder</ref>.<ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1adc40bdb4c39f972694b06b53bd444b91" kindref="member">defaultLoad</ref>(code,<sp/>cd);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder" kindref="compound">Builder</ref>.<ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1a2bb0e54b15f977f5be539a3a0962264f" kindref="member">store</ref>(code,<sp/>cd,<sp/>slotR);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bctx.<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context_1aecafc1b8ac9f3e5b3c4edd43e5fd12d9" kindref="member">enterScope</ref>(code);<sp/></highlight><highlight class="comment">//<sp/>guarded<sp/>by<sp/>FinallyStart</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177" refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a8e87979bdea2f4f19304161f976c95eb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>String<sp/><ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a8e87979bdea2f4f19304161f976c95eb" kindref="member">returnSlotName</ref>(<ref refid="d7/d14/classorg_1_1xvm_1_1javajit_1_1_jit_param_desc" kindref="compound">JitParamDesc</ref><sp/>pd)<sp/>{</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>pd.extension</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/><ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a3c8577c3f7b3fa767bab1f97e10e6eaa" kindref="member">RETURN_SLOT_PREFIX</ref><sp/>+<sp/>pd.index<sp/>+<sp/>EXT</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a3c8577c3f7b3fa767bab1f97e10e6eaa" kindref="member">RETURN_SLOT_PREFIX</ref><sp/>+<sp/>pd.index<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;$&quot;</highlight><highlight class="normal"><sp/>+<sp/>pd.<ref refid="d7/d14/classorg_1_1xvm_1_1javajit_1_1_jit_param_desc_1abb7fb74e3ca4ddeb8b80aa9feb102899" kindref="member">altIndex</ref>;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>fields<sp/>--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185" refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a147585594e211fb5db628144b77eed1c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>String<sp/><ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a147585594e211fb5db628144b77eed1c" kindref="member">DO_RETURN_SLOT_NAME</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;$doReturn&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187" refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a3c8577c3f7b3fa767bab1f97e10e6eaa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>String<sp/><ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a3c8577c3f7b3fa767bab1f97e10e6eaa" kindref="member">RETURN_SLOT_PREFIX</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;$ret&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189" refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a6ddf4c74b24e8d0f4612c3fd8dac0dd3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a6ddf4c74b24e8d0f4612c3fd8dac0dd3" kindref="member">m_nNextVar</ref>;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191" refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a48e1b3cae91be267d41c7b79b7a9d922" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">transient</highlight><highlight class="normal"><sp/><ref refid="db/db4/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_all_guard" kindref="compound">AllGuard</ref><sp/><ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a48e1b3cae91be267d41c7b79b7a9d922" kindref="member">m_guard</ref>;<sp/></highlight><highlight class="comment">//<sp/>cached<sp/>struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193" refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a644581856838a02d0e614323a295e55d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">transient</highlight><highlight class="normal"><sp/>List&lt;Integer&gt;<sp/><ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1a644581856838a02d0e614323a295e55d" kindref="member">m_jumps</ref>;</highlight></codeline>
+<codeline lineno="194" refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1abeb25d855691a5840c6a16547dae026c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">transient</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="df/da0/classorg_1_1xvm_1_1asm_1_1op_1_1_guard_all_1abeb25d855691a5840c6a16547dae026c" kindref="member">m_fDoReturn</ref>;</highlight></codeline>
+<codeline lineno="195"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/op/GuardAll.java"/>
+  </compounddef>
+</doxygen>

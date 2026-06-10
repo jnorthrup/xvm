@@ -1,0 +1,1895 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue" kind="class" language="Java" prot="public">
+    <compoundname>org::xvm::runtime::FiberQueue</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a56fe04785b67fb77bb788cd023a84f6b" prot="private" static="no" mutable="no">
+        <type>final <ref refid="d8/d69/classorg_1_1xvm_1_1runtime_1_1_service_context" kindref="compound">ServiceContext</ref></type>
+        <definition>final ServiceContext org.xvm.runtime.FiberQueue.f_context</definition>
+        <argsstring></argsstring>
+        <name>f_context</name>
+        <qualifiedname>org.xvm.runtime.FiberQueue.f_context</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" line="12" column="34" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" bodystart="12" bodyend="-1"/>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a5b9e8a2036338df3eff282b87b61a78c" compoundref="d1/dfd/_fiber_queue_8java" startline="196" endline="212">org.xvm.runtime.FiberQueue.canResume</referencedby>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1aae3c71ba77bc781b2ca8e5f8d3edf75f" compoundref="d1/dfd/_fiber_queue_8java" startline="163" endline="191">org.xvm.runtime.FiberQueue.checkPriority</referencedby>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1aaf0d32a63cc75edc2d53efc3077bb21a" compoundref="d1/dfd/_fiber_queue_8java" startline="21" endline="23">org.xvm.runtime.FiberQueue.FiberQueue</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a00c75980d5010948951d7a35a2b23141" prot="private" static="no" mutable="no">
+        <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref>[]</type>
+        <definition>Frame [] org.xvm.runtime.FiberQueue.m_aFrame</definition>
+        <argsstring></argsstring>
+        <name>m_aFrame</name>
+        <qualifiedname>org.xvm.runtime.FiberQueue.m_aFrame</qualifiedname>
+        <initializer>= new <ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref>[16]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" line="15" column="19" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" bodystart="15" bodyend="-1"/>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1aae3c71ba77bc781b2ca8e5f8d3edf75f" compoundref="d1/dfd/_fiber_queue_8java" startline="163" endline="191">org.xvm.runtime.FiberQueue.checkPriority</referencedby>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a3ed4443becfb422930dad5003b8198f9" compoundref="d1/dfd/_fiber_queue_8java" startline="299" endline="323">org.xvm.runtime.FiberQueue.compact</referencedby>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1adc6f0dda90e7e10c32de3d704cecac54" compoundref="d1/dfd/_fiber_queue_8java" startline="275" endline="296">org.xvm.runtime.FiberQueue.ensureCapacity</referencedby>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1ac09e7fec907f6b6ec7ad02d5051e227b" compoundref="d1/dfd/_fiber_queue_8java" startline="96" endline="111">org.xvm.runtime.FiberQueue.getAny</referencedby>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a30bc207e79c997f8f17ae5e1532c2c85" compoundref="d1/dfd/_fiber_queue_8java" startline="74" endline="91">org.xvm.runtime.FiberQueue.getReady</referencedby>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a0db5eeb2f72b987cff0778ee4605d7e3" compoundref="d1/dfd/_fiber_queue_8java" startline="226" endline="249">org.xvm.runtime.FiberQueue.isAnyNonConcurrentWaiting</referencedby>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a83856e6297ff2aae6e462014d7c9f10a" compoundref="d1/dfd/_fiber_queue_8java" startline="49" endline="65">org.xvm.runtime.FiberQueue.isReady</referencedby>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a45e45693df38c8734acfb8c40786fc4f" compoundref="d1/dfd/_fiber_queue_8java" startline="251" endline="273">org.xvm.runtime.FiberQueue.remove</referencedby>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1afd94cd8096b563d1d2e1853a3ae7f486" compoundref="d1/dfd/_fiber_queue_8java" startline="116" endline="149">org.xvm.runtime.FiberQueue.reportStatus</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1ae575491bc7443ed73bedaacfaf2b4075" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int org.xvm.runtime.FiberQueue.m_ixHead</definition>
+        <argsstring></argsstring>
+        <name>m_ixHead</name>
+        <qualifiedname>org.xvm.runtime.FiberQueue.m_ixHead</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" line="17" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" bodystart="17" bodyend="-1"/>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a6dd323890d17ddd3ed23a3c6212f99b1" compoundref="d1/dfd/_fiber_queue_8java" startline="25" endline="40">org.xvm.runtime.FiberQueue.add</referencedby>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a3ed4443becfb422930dad5003b8198f9" compoundref="d1/dfd/_fiber_queue_8java" startline="299" endline="323">org.xvm.runtime.FiberQueue.compact</referencedby>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1adc6f0dda90e7e10c32de3d704cecac54" compoundref="d1/dfd/_fiber_queue_8java" startline="275" endline="296">org.xvm.runtime.FiberQueue.ensureCapacity</referencedby>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1ac09e7fec907f6b6ec7ad02d5051e227b" compoundref="d1/dfd/_fiber_queue_8java" startline="96" endline="111">org.xvm.runtime.FiberQueue.getAny</referencedby>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a30bc207e79c997f8f17ae5e1532c2c85" compoundref="d1/dfd/_fiber_queue_8java" startline="74" endline="91">org.xvm.runtime.FiberQueue.getReady</referencedby>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a83856e6297ff2aae6e462014d7c9f10a" compoundref="d1/dfd/_fiber_queue_8java" startline="49" endline="65">org.xvm.runtime.FiberQueue.isReady</referencedby>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a45e45693df38c8734acfb8c40786fc4f" compoundref="d1/dfd/_fiber_queue_8java" startline="251" endline="273">org.xvm.runtime.FiberQueue.remove</referencedby>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1afd94cd8096b563d1d2e1853a3ae7f486" compoundref="d1/dfd/_fiber_queue_8java" startline="116" endline="149">org.xvm.runtime.FiberQueue.reportStatus</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1aa554c6320853cee52210ec1fdd263bc0" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int org.xvm.runtime.FiberQueue.m_ixTail</definition>
+        <argsstring></argsstring>
+        <name>m_ixTail</name>
+        <qualifiedname>org.xvm.runtime.FiberQueue.m_ixTail</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" line="18" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" bodystart="18" bodyend="-1"/>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a6dd323890d17ddd3ed23a3c6212f99b1" compoundref="d1/dfd/_fiber_queue_8java" startline="25" endline="40">org.xvm.runtime.FiberQueue.add</referencedby>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a3ed4443becfb422930dad5003b8198f9" compoundref="d1/dfd/_fiber_queue_8java" startline="299" endline="323">org.xvm.runtime.FiberQueue.compact</referencedby>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1adc6f0dda90e7e10c32de3d704cecac54" compoundref="d1/dfd/_fiber_queue_8java" startline="275" endline="296">org.xvm.runtime.FiberQueue.ensureCapacity</referencedby>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a45e45693df38c8734acfb8c40786fc4f" compoundref="d1/dfd/_fiber_queue_8java" startline="251" endline="273">org.xvm.runtime.FiberQueue.remove</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a8048941641e1a910f39e19d463b2fecb" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int org.xvm.runtime.FiberQueue.m_cSize</definition>
+        <argsstring></argsstring>
+        <name>m_cSize</name>
+        <qualifiedname>org.xvm.runtime.FiberQueue.m_cSize</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" line="19" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" bodystart="19" bodyend="-1"/>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a6dd323890d17ddd3ed23a3c6212f99b1" compoundref="d1/dfd/_fiber_queue_8java" startline="25" endline="40">org.xvm.runtime.FiberQueue.add</referencedby>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1ac09e7fec907f6b6ec7ad02d5051e227b" compoundref="d1/dfd/_fiber_queue_8java" startline="96" endline="111">org.xvm.runtime.FiberQueue.getAny</referencedby>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a30bc207e79c997f8f17ae5e1532c2c85" compoundref="d1/dfd/_fiber_queue_8java" startline="74" endline="91">org.xvm.runtime.FiberQueue.getReady</referencedby>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a962700f6c8a6ad7bbbcc2227db292937" compoundref="d1/dfd/_fiber_queue_8java" startline="42" endline="44">org.xvm.runtime.FiberQueue.isEmpty</referencedby>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a83856e6297ff2aae6e462014d7c9f10a" compoundref="d1/dfd/_fiber_queue_8java" startline="49" endline="65">org.xvm.runtime.FiberQueue.isReady</referencedby>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a45e45693df38c8734acfb8c40786fc4f" compoundref="d1/dfd/_fiber_queue_8java" startline="251" endline="273">org.xvm.runtime.FiberQueue.remove</referencedby>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1afd94cd8096b563d1d2e1853a3ae7f486" compoundref="d1/dfd/_fiber_queue_8java" startline="116" endline="149">org.xvm.runtime.FiberQueue.reportStatus</referencedby>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1adf5931bd87ca8b90390e11b27178cced" compoundref="d1/dfd/_fiber_queue_8java" startline="67" endline="69">org.xvm.runtime.FiberQueue.size</referencedby>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a5073d1b5b116ab861a69449ac2f93d21" compoundref="d1/dfd/_fiber_queue_8java" startline="325" endline="327">org.xvm.runtime.FiberQueue.toString</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1aaf0d32a63cc75edc2d53efc3077bb21a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.xvm.runtime.FiberQueue.FiberQueue</definition>
+        <argsstring>(ServiceContext ctx)</argsstring>
+        <name>FiberQueue</name>
+        <qualifiedname>org.xvm.runtime.FiberQueue.FiberQueue</qualifiedname>
+        <param>
+          <type><ref refid="d8/d69/classorg_1_1xvm_1_1runtime_1_1_service_context" kindref="compound">ServiceContext</ref></type>
+          <declname>ctx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" line="21" column="12" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" bodystart="21" bodyend="23"/>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a56fe04785b67fb77bb788cd023a84f6b" compoundref="d1/dfd/_fiber_queue_8java" startline="12">org.xvm.runtime.FiberQueue.f_context</references>
+      </memberdef>
+      <memberdef kind="function" id="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a6dd323890d17ddd3ed23a3c6212f99b1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.runtime.FiberQueue.add</definition>
+        <argsstring>(Frame frame)</argsstring>
+        <name>add</name>
+        <qualifiedname>org.xvm.runtime.FiberQueue.add</qualifiedname>
+        <param>
+          <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+          <declname>frame</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" line="25" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" bodystart="25" bodyend="40"/>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a3ed4443becfb422930dad5003b8198f9" compoundref="d1/dfd/_fiber_queue_8java" startline="299" endline="323">org.xvm.runtime.FiberQueue.compact</references>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1adc6f0dda90e7e10c32de3d704cecac54" compoundref="d1/dfd/_fiber_queue_8java" startline="275" endline="296">org.xvm.runtime.FiberQueue.ensureCapacity</references>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a8048941641e1a910f39e19d463b2fecb" compoundref="d1/dfd/_fiber_queue_8java" startline="19">org.xvm.runtime.FiberQueue.m_cSize</references>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1ae575491bc7443ed73bedaacfaf2b4075" compoundref="d1/dfd/_fiber_queue_8java" startline="17">org.xvm.runtime.FiberQueue.m_ixHead</references>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1aa554c6320853cee52210ec1fdd263bc0" compoundref="d1/dfd/_fiber_queue_8java" startline="18">org.xvm.runtime.FiberQueue.m_ixTail</references>
+        <referencedby refid="d8/d69/classorg_1_1xvm_1_1runtime_1_1_service_context_1aca45a956fce03bfb5fff9868c99f5ac7" compoundref="d3/d6e/_service_context_8java" startline="458" endline="478">org.xvm.runtime.ServiceContext.nextFiber</referencedby>
+        <referencedby refid="d8/d69/classorg_1_1xvm_1_1runtime_1_1_service_context_1aeb0e0475ec52a1e05e113d5374d1ab67" compoundref="d3/d6e/_service_context_8java" startline="831" endline="870">org.xvm.runtime.ServiceContext.shutdown</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a962700f6c8a6ad7bbbcc2227db292937" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.runtime.FiberQueue.isEmpty</definition>
+        <argsstring>()</argsstring>
+        <name>isEmpty</name>
+        <qualifiedname>org.xvm.runtime.FiberQueue.isEmpty</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" line="42" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" bodystart="42" bodyend="44"/>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a8048941641e1a910f39e19d463b2fecb" compoundref="d1/dfd/_fiber_queue_8java" startline="19">org.xvm.runtime.FiberQueue.m_cSize</references>
+        <referencedby refid="d8/d69/classorg_1_1xvm_1_1runtime_1_1_service_context_1aeb0e0475ec52a1e05e113d5374d1ab67" compoundref="d3/d6e/_service_context_8java" startline="831" endline="870">org.xvm.runtime.ServiceContext.shutdown</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a83856e6297ff2aae6e462014d7c9f10a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.runtime.FiberQueue.isReady</definition>
+        <argsstring>()</argsstring>
+        <name>isReady</name>
+        <qualifiedname>org.xvm.runtime.FiberQueue.isReady</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><javadoccode>true</javadoccode> iff there are fibers which are ready for processing. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" line="49" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" bodystart="49" bodyend="65"/>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1aae3c71ba77bc781b2ca8e5f8d3edf75f" compoundref="d1/dfd/_fiber_queue_8java" startline="163" endline="191">org.xvm.runtime.FiberQueue.checkPriority</references>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a00c75980d5010948951d7a35a2b23141" compoundref="d1/dfd/_fiber_queue_8java" startline="15">org.xvm.runtime.FiberQueue.m_aFrame</references>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a8048941641e1a910f39e19d463b2fecb" compoundref="d1/dfd/_fiber_queue_8java" startline="19">org.xvm.runtime.FiberQueue.m_cSize</references>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1ae575491bc7443ed73bedaacfaf2b4075" compoundref="d1/dfd/_fiber_queue_8java" startline="17">org.xvm.runtime.FiberQueue.m_ixHead</references>
+      </memberdef>
+      <memberdef kind="function" id="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1adf5931bd87ca8b90390e11b27178cced" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.runtime.FiberQueue.size</definition>
+        <argsstring>()</argsstring>
+        <name>size</name>
+        <qualifiedname>org.xvm.runtime.FiberQueue.size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" line="67" column="16" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" bodystart="67" bodyend="69"/>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a8048941641e1a910f39e19d463b2fecb" compoundref="d1/dfd/_fiber_queue_8java" startline="19">org.xvm.runtime.FiberQueue.m_cSize</references>
+      </memberdef>
+      <memberdef kind="function" id="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a30bc207e79c997f8f17ae5e1532c2c85" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+        <definition>Frame org.xvm.runtime.FiberQueue.getReady</definition>
+        <argsstring>()</argsstring>
+        <name>getReady</name>
+        <qualifiedname>org.xvm.runtime.FiberQueue.getReady</qualifiedname>
+        <briefdescription>
+<para>Retrieve the first frame that is ready. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" line="74" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" bodystart="74" bodyend="91"/>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1aae3c71ba77bc781b2ca8e5f8d3edf75f" compoundref="d1/dfd/_fiber_queue_8java" startline="163" endline="191">org.xvm.runtime.FiberQueue.checkPriority</references>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a00c75980d5010948951d7a35a2b23141" compoundref="d1/dfd/_fiber_queue_8java" startline="15">org.xvm.runtime.FiberQueue.m_aFrame</references>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a8048941641e1a910f39e19d463b2fecb" compoundref="d1/dfd/_fiber_queue_8java" startline="19">org.xvm.runtime.FiberQueue.m_cSize</references>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1ae575491bc7443ed73bedaacfaf2b4075" compoundref="d1/dfd/_fiber_queue_8java" startline="17">org.xvm.runtime.FiberQueue.m_ixHead</references>
+        <referencedby refid="d8/d69/classorg_1_1xvm_1_1runtime_1_1_service_context_1aca45a956fce03bfb5fff9868c99f5ac7" compoundref="d3/d6e/_service_context_8java" startline="458" endline="478">org.xvm.runtime.ServiceContext.nextFiber</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1ac09e7fec907f6b6ec7ad02d5051e227b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+        <definition>Frame org.xvm.runtime.FiberQueue.getAny</definition>
+        <argsstring>()</argsstring>
+        <name>getAny</name>
+        <qualifiedname>org.xvm.runtime.FiberQueue.getAny</qualifiedname>
+        <briefdescription>
+<para>Retrieve any available frame (ready or not). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" line="96" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" bodystart="96" bodyend="111"/>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a00c75980d5010948951d7a35a2b23141" compoundref="d1/dfd/_fiber_queue_8java" startline="15">org.xvm.runtime.FiberQueue.m_aFrame</references>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a8048941641e1a910f39e19d463b2fecb" compoundref="d1/dfd/_fiber_queue_8java" startline="19">org.xvm.runtime.FiberQueue.m_cSize</references>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1ae575491bc7443ed73bedaacfaf2b4075" compoundref="d1/dfd/_fiber_queue_8java" startline="17">org.xvm.runtime.FiberQueue.m_ixHead</references>
+        <referencedby refid="d8/d69/classorg_1_1xvm_1_1runtime_1_1_service_context_1aeb0e0475ec52a1e05e113d5374d1ab67" compoundref="d3/d6e/_service_context_8java" startline="831" endline="870">org.xvm.runtime.ServiceContext.shutdown</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1afd94cd8096b563d1d2e1853a3ae7f486" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String org.xvm.runtime.FiberQueue.reportStatus</definition>
+        <argsstring>()</argsstring>
+        <name>reportStatus</name>
+        <qualifiedname>org.xvm.runtime.FiberQueue.reportStatus</qualifiedname>
+        <briefdescription>
+<para>Report on the status of the fiber queue. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Temporary: for debugging only. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" line="116" column="19" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" bodystart="116" bodyend="149"/>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1aae3c71ba77bc781b2ca8e5f8d3edf75f" compoundref="d1/dfd/_fiber_queue_8java" startline="163" endline="191">org.xvm.runtime.FiberQueue.checkPriority</references>
+        <references refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a7419371b163ade87e8962e502c38236e" compoundref="dd/dc6/_frame_8java" startline="67">org.xvm.runtime.Frame.f_context</references>
+        <references refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a336e9c415036291a3d8343ed4cc2f3d0" compoundref="dd/dc6/_frame_8java" startline="66">org.xvm.runtime.Frame.f_fiber</references>
+        <references refid="d4/d87/classorg_1_1xvm_1_1runtime_1_1_fiber_1a42b2010d9d7b19a2f6098a2f78e568d1" compoundref="d4/d61/_fiber_8java" startline="171" endline="173">org.xvm.runtime.Fiber.getStatus</references>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a00c75980d5010948951d7a35a2b23141" compoundref="d1/dfd/_fiber_queue_8java" startline="15">org.xvm.runtime.FiberQueue.m_aFrame</references>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a8048941641e1a910f39e19d463b2fecb" compoundref="d1/dfd/_fiber_queue_8java" startline="19">org.xvm.runtime.FiberQueue.m_cSize</references>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1ae575491bc7443ed73bedaacfaf2b4075" compoundref="d1/dfd/_fiber_queue_8java" startline="17">org.xvm.runtime.FiberQueue.m_ixHead</references>
+      </memberdef>
+      <memberdef kind="function" id="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a5073d1b5b116ab861a69449ac2f93d21" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String org.xvm.runtime.FiberQueue.toString</definition>
+        <argsstring>()</argsstring>
+        <name>toString</name>
+        <qualifiedname>org.xvm.runtime.FiberQueue.toString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" line="325" column="19" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" bodystart="325" bodyend="327"/>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a8048941641e1a910f39e19d463b2fecb" compoundref="d1/dfd/_fiber_queue_8java" startline="19">org.xvm.runtime.FiberQueue.m_cSize</references>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1aae3c71ba77bc781b2ca8e5f8d3edf75f" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.runtime.FiberQueue.checkPriority</definition>
+        <argsstring>(int ix)</argsstring>
+        <name>checkPriority</name>
+        <qualifiedname>org.xvm.runtime.FiberQueue.checkPriority</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>ix</declname>
+        </param>
+        <briefdescription>
+<para>Calculate the priority of the fiber at the specified index. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The return values are: <itemizedlist>
+<listitem>
+<para>[2] running [1] a waiting fiber that is marked as &quot;ready&quot; [0] initial new [-1] not ready [-2] blocked [-3] empty </para>
+</listitem>
+</itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" line="163" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" bodystart="163" bodyend="191"/>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a5b9e8a2036338df3eff282b87b61a78c" compoundref="d1/dfd/_fiber_queue_8java" startline="196" endline="212">org.xvm.runtime.FiberQueue.canResume</references>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a56fe04785b67fb77bb788cd023a84f6b" compoundref="d1/dfd/_fiber_queue_8java" startline="12">org.xvm.runtime.FiberQueue.f_context</references>
+        <references refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a336e9c415036291a3d8343ed4cc2f3d0" compoundref="dd/dc6/_frame_8java" startline="66">org.xvm.runtime.Frame.f_fiber</references>
+        <references refid="d4/d87/classorg_1_1xvm_1_1runtime_1_1_fiber_1a42b2010d9d7b19a2f6098a2f78e568d1" compoundref="d4/d61/_fiber_8java" startline="171" endline="173">org.xvm.runtime.Fiber.getStatus</references>
+        <references refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a4f47dc5fbbe577bafe3f46c1197fdda6" compoundref="dd/dc6/_frame_8java" startline="374" endline="384">org.xvm.runtime.Frame.isNativeStack</references>
+        <references refid="d4/d87/classorg_1_1xvm_1_1runtime_1_1_fiber_1a37986a811795f01e9de2229dfe2eb3dd" compoundref="d4/d61/_fiber_8java" startline="227" endline="229">org.xvm.runtime.Fiber.isReady</references>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a00c75980d5010948951d7a35a2b23141" compoundref="d1/dfd/_fiber_queue_8java" startline="15">org.xvm.runtime.FiberQueue.m_aFrame</references>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a30bc207e79c997f8f17ae5e1532c2c85" compoundref="d1/dfd/_fiber_queue_8java" startline="74" endline="91">org.xvm.runtime.FiberQueue.getReady</referencedby>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a83856e6297ff2aae6e462014d7c9f10a" compoundref="d1/dfd/_fiber_queue_8java" startline="49" endline="65">org.xvm.runtime.FiberQueue.isReady</referencedby>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1afd94cd8096b563d1d2e1853a3ae7f486" compoundref="d1/dfd/_fiber_queue_8java" startline="116" endline="149">org.xvm.runtime.FiberQueue.reportStatus</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a5b9e8a2036338df3eff282b87b61a78c" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.runtime.FiberQueue.canResume</definition>
+        <argsstring>(Fiber fiber)</argsstring>
+        <name>canResume</name>
+        <qualifiedname>org.xvm.runtime.FiberQueue.canResume</qualifiedname>
+        <param>
+          <type><ref refid="d4/d87/classorg_1_1xvm_1_1runtime_1_1_fiber" kindref="compound">Fiber</ref></type>
+          <declname>fiber</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true iff a frame (which is not the synchronization owner) can be started or resumed </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" line="196" column="21" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" bodystart="196" bodyend="212"/>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a56fe04785b67fb77bb788cd023a84f6b" compoundref="d1/dfd/_fiber_queue_8java" startline="12">org.xvm.runtime.FiberQueue.f_context</references>
+        <references refid="d4/d87/classorg_1_1xvm_1_1runtime_1_1_fiber_1ac4345c72e30dccffe00ed514fca4b9fe" compoundref="d4/d61/_fiber_8java" startline="76" endline="78">org.xvm.runtime.Fiber.getCaller</references>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a0db5eeb2f72b987cff0778ee4605d7e3" compoundref="d1/dfd/_fiber_queue_8java" startline="226" endline="249">org.xvm.runtime.FiberQueue.isAnyNonConcurrentWaiting</references>
+        <references refid="d4/d87/classorg_1_1xvm_1_1runtime_1_1_fiber_1a7076e1ef13f1464a9512b53fc33c0068" compoundref="d4/d61/_fiber_8java" startline="139" endline="146">org.xvm.runtime.Fiber.isContinuationOf</references>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1aae3c71ba77bc781b2ca8e5f8d3edf75f" compoundref="d1/dfd/_fiber_queue_8java" startline="163" endline="191">org.xvm.runtime.FiberQueue.checkPriority</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a0db5eeb2f72b987cff0778ee4605d7e3" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.runtime.FiberQueue.isAnyNonConcurrentWaiting</definition>
+        <argsstring>(Fiber fiberCandidate)</argsstring>
+        <name>isAnyNonConcurrentWaiting</name>
+        <qualifiedname>org.xvm.runtime.FiberQueue.isAnyNonConcurrentWaiting</qualifiedname>
+        <param>
+          <type><ref refid="d4/d87/classorg_1_1xvm_1_1runtime_1_1_fiber" kindref="compound">Fiber</ref></type>
+          <declname>fiberCandidate</declname>
+        </param>
+        <briefdescription>
+<para>Check if there is any &quot;waiting&quot; frame that is not concurrent safe with regard to the specified fiber. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Note1: this method should be called only if the service is Concurrent (i.e. frame-dependent) Note2: if this method returns true, it also sets the &quot;blocker&quot; on the evaluating fiber</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fiberCandidate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the fiber that the service is evaluating for execution (either Initial or Waiting)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true iff there are any non-concurrent waiting frames </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" line="226" column="21" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" bodystart="226" bodyend="249"/>
+        <references refid="d4/d87/classorg_1_1xvm_1_1runtime_1_1_fiber_1ac4345c72e30dccffe00ed514fca4b9fe" compoundref="d4/d61/_fiber_8java" startline="76" endline="78">org.xvm.runtime.Fiber.getCaller</references>
+        <references refid="d4/d87/classorg_1_1xvm_1_1runtime_1_1_fiber_1a42b2010d9d7b19a2f6098a2f78e568d1" compoundref="d4/d61/_fiber_8java" startline="171" endline="173">org.xvm.runtime.Fiber.getStatus</references>
+        <references refid="d4/d87/classorg_1_1xvm_1_1runtime_1_1_fiber_1a7076e1ef13f1464a9512b53fc33c0068" compoundref="d4/d61/_fiber_8java" startline="139" endline="146">org.xvm.runtime.Fiber.isContinuationOf</references>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a00c75980d5010948951d7a35a2b23141" compoundref="d1/dfd/_fiber_queue_8java" startline="15">org.xvm.runtime.FiberQueue.m_aFrame</references>
+        <references refid="d4/d87/classorg_1_1xvm_1_1runtime_1_1_fiber_1a49a05275eae10b21d9ac41b23ff77c59" compoundref="d4/d61/_fiber_8java" startline="468" endline="470">org.xvm.runtime.Fiber.setBlocker</references>
+        <references refid="d3/d81/enumorg_1_1xvm_1_1runtime_1_1_fiber_1_1_fiber_status_1a404ecc8f59dd9b5c2e23a421634aa46a" compoundref="d4/d61/_fiber_8java" startline="701">org.xvm.runtime.Fiber.FiberStatus.Waiting</references>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a5b9e8a2036338df3eff282b87b61a78c" compoundref="d1/dfd/_fiber_queue_8java" startline="196" endline="212">org.xvm.runtime.FiberQueue.canResume</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a45e45693df38c8734acfb8c40786fc4f" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+        <definition>Frame org.xvm.runtime.FiberQueue.remove</definition>
+        <argsstring>(int ix)</argsstring>
+        <name>remove</name>
+        <qualifiedname>org.xvm.runtime.FiberQueue.remove</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>ix</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" line="251" column="19" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" bodystart="251" bodyend="273"/>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a00c75980d5010948951d7a35a2b23141" compoundref="d1/dfd/_fiber_queue_8java" startline="15">org.xvm.runtime.FiberQueue.m_aFrame</references>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a8048941641e1a910f39e19d463b2fecb" compoundref="d1/dfd/_fiber_queue_8java" startline="19">org.xvm.runtime.FiberQueue.m_cSize</references>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1ae575491bc7443ed73bedaacfaf2b4075" compoundref="d1/dfd/_fiber_queue_8java" startline="17">org.xvm.runtime.FiberQueue.m_ixHead</references>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1aa554c6320853cee52210ec1fdd263bc0" compoundref="d1/dfd/_fiber_queue_8java" startline="18">org.xvm.runtime.FiberQueue.m_ixTail</references>
+      </memberdef>
+      <memberdef kind="function" id="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1adc6f0dda90e7e10c32de3d704cecac54" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref>[]</type>
+        <definition>Frame[] org.xvm.runtime.FiberQueue.ensureCapacity</definition>
+        <argsstring>(int cCapacity)</argsstring>
+        <name>ensureCapacity</name>
+        <qualifiedname>org.xvm.runtime.FiberQueue.ensureCapacity</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>cCapacity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" line="275" column="19" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" bodystart="275" bodyend="296"/>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a00c75980d5010948951d7a35a2b23141" compoundref="d1/dfd/_fiber_queue_8java" startline="15">org.xvm.runtime.FiberQueue.m_aFrame</references>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1ae575491bc7443ed73bedaacfaf2b4075" compoundref="d1/dfd/_fiber_queue_8java" startline="17">org.xvm.runtime.FiberQueue.m_ixHead</references>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1aa554c6320853cee52210ec1fdd263bc0" compoundref="d1/dfd/_fiber_queue_8java" startline="18">org.xvm.runtime.FiberQueue.m_ixTail</references>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a6dd323890d17ddd3ed23a3c6212f99b1" compoundref="d1/dfd/_fiber_queue_8java" startline="25" endline="40">org.xvm.runtime.FiberQueue.add</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a3ed4443becfb422930dad5003b8198f9" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.runtime.FiberQueue.compact</definition>
+        <argsstring>()</argsstring>
+        <name>compact</name>
+        <qualifiedname>org.xvm.runtime.FiberQueue.compact</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" line="299" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" bodystart="299" bodyend="323"/>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a00c75980d5010948951d7a35a2b23141" compoundref="d1/dfd/_fiber_queue_8java" startline="15">org.xvm.runtime.FiberQueue.m_aFrame</references>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1ae575491bc7443ed73bedaacfaf2b4075" compoundref="d1/dfd/_fiber_queue_8java" startline="17">org.xvm.runtime.FiberQueue.m_ixHead</references>
+        <references refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1aa554c6320853cee52210ec1fdd263bc0" compoundref="d1/dfd/_fiber_queue_8java" startline="18">org.xvm.runtime.FiberQueue.m_ixTail</references>
+        <referencedby refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a6dd323890d17ddd3ed23a3c6212f99b1" compoundref="d1/dfd/_fiber_queue_8java" startline="25" endline="40">org.xvm.runtime.FiberQueue.add</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><computeroutput><ref refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue" kindref="compound">FiberQueue</ref></computeroutput> represents a queue-like data structure holding all pending Fibers and facilitating a quick selection algorithm for the scheduler. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="13">
+        <label>Cloneable</label>
+      </node>
+      <node id="115">
+        <label>Comparable&lt; BreakPoint &gt;</label>
+      </node>
+      <node id="12">
+        <label>Comparable&lt; Constant &gt;</label>
+      </node>
+      <node id="97">
+        <label>Comparable&lt; Fiber &gt;</label>
+      </node>
+      <node id="87">
+        <label>Comparable&lt; PackedInteger &gt;</label>
+      </node>
+      <node id="27">
+        <label>Comparable&lt; Version &gt;</label>
+      </node>
+      <node id="1">
+        <label>org.xvm.runtime.FiberQueue</label>
+        <link refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>f_context</edgelabel>
+        </childnode>
+        <childnode refid="95" relation="usage">
+          <edgelabel>m_aFrame</edgelabel>
+        </childnode>
+      </node>
+      <node id="37">
+        <label>org.xvm.asm.Annotation</label>
+        <link refid="d9/ddb/classorg_1_1xvm_1_1asm_1_1_annotation"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+        <childnode refid="37" relation="usage">
+          <edgelabel>NO_ANNOTATIONS</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>m_aParams</edgelabel>
+          <edgelabel>m_constClass</edgelabel>
+        </childnode>
+      </node>
+      <node id="14">
+        <label>org.xvm.asm.Argument</label>
+        <link refid="dd/da8/interfaceorg_1_1xvm_1_1asm_1_1_argument"/>
+      </node>
+      <node id="34">
+        <label>org.xvm.asm.ClassStructure</label>
+        <link refid="d5/d19/classorg_1_1xvm_1_1asm_1_1_class_structure"/>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+        <childnode refid="35" relation="usage">
+          <edgelabel>m_mapParams</edgelabel>
+        </childnode>
+        <childnode refid="24" relation="usage">
+          <edgelabel>m_constPath</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>m_typeCanonical</edgelabel>
+          <edgelabel>m_typeFormal</edgelabel>
+        </childnode>
+        <childnode refid="36" relation="usage">
+          <edgelabel>m_safety</edgelabel>
+        </childnode>
+        <childnode refid="37" relation="usage">
+          <edgelabel>m_aAnnoClass</edgelabel>
+          <edgelabel>m_aAnnoMixin</edgelabel>
+        </childnode>
+      </node>
+      <node id="15">
+        <label>org.xvm.asm.Component</label>
+        <link refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_component"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+        <childnode refid="16" relation="public-inheritance">
+        </childnode>
+        <childnode refid="13" relation="public-inheritance">
+        </childnode>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>m_sibling</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>m_constId</edgelabel>
+        </childnode>
+        <childnode refid="18" relation="usage">
+          <edgelabel>m_cond</edgelabel>
+        </childnode>
+      </node>
+      <node id="25">
+        <label>org.xvm.asm.Component.Format</label>
+        <link refid="dc/d9c/enumorg_1_1xvm_1_1asm_1_1_component_1_1_format"/>
+        <childnode refid="25" relation="usage">
+          <edgelabel>FORMATS</edgelabel>
+        </childnode>
+      </node>
+      <node id="17">
+        <label>org.xvm.asm.ComponentResolver</label>
+        <link refid="d5/d6c/interfaceorg_1_1xvm_1_1asm_1_1_component_resolver"/>
+      </node>
+      <node id="9">
+        <label>org.xvm.asm.Constant</label>
+        <link refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+        <childnode refid="12" relation="public-inheritance">
+        </childnode>
+        <childnode refid="13" relation="public-inheritance">
+        </childnode>
+        <childnode refid="14" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>NO_CONSTS</edgelabel>
+        </childnode>
+      </node>
+      <node id="30">
+        <label>org.xvm.asm.ConstantPool</label>
+        <link refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>NO_TYPES</edgelabel>
+          <edgelabel>m_typeArray</edgelabel>
+          <edgelabel>m_typeAutoFreezable</edgelabel>
+          <edgelabel>m_typeBinary</edgelabel>
+          <edgelabel>m_typeBit</edgelabel>
+          <edgelabel>m_typeBitArray</edgelabel>
+          <edgelabel>m_typeBoolean</edgelabel>
+          <edgelabel>m_typeByteArray</edgelabel>
+          <edgelabel>m_typeChar</edgelabel>
+          <edgelabel>m_typeClass</edgelabel>
+          <edgelabel>  ...</edgelabel>
+        </childnode>
+        <childnode refid="83" relation="usage">
+          <edgelabel>f_tlolistDeferred</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>m_valEcstasy</edgelabel>
+        </childnode>
+        <childnode refid="84" relation="usage">
+          <edgelabel>m_clzAbstract</edgelabel>
+          <edgelabel>m_clzArray</edgelabel>
+          <edgelabel>m_clzAtomic</edgelabel>
+          <edgelabel>m_clzAuto</edgelabel>
+          <edgelabel>m_clzClass</edgelabel>
+          <edgelabel>m_clzCloseable</edgelabel>
+          <edgelabel>m_clzCollection</edgelabel>
+          <edgelabel>m_clzConcurrent</edgelabel>
+          <edgelabel>m_clzCondTuple</edgelabel>
+          <edgelabel>m_clzConst</edgelabel>
+          <edgelabel>  ...</edgelabel>
+        </childnode>
+        <childnode refid="85" relation="usage">
+          <edgelabel>m_val0</edgelabel>
+        </childnode>
+        <childnode refid="88" relation="usage">
+          <edgelabel>m_valEqual</edgelabel>
+          <edgelabel>m_valFalse</edgelabel>
+          <edgelabel>m_valGreater</edgelabel>
+          <edgelabel>m_valLesser</edgelabel>
+          <edgelabel>m_valNull</edgelabel>
+          <edgelabel>m_valTiesToAway</edgelabel>
+          <edgelabel>m_valTiesToEven</edgelabel>
+          <edgelabel>m_valTowardNegative</edgelabel>
+          <edgelabel>m_valTowardPositive</edgelabel>
+          <edgelabel>m_valTowardZero</edgelabel>
+          <edgelabel>  ...</edgelabel>
+        </childnode>
+        <childnode refid="89" relation="usage">
+          <edgelabel>m_valDefault</edgelabel>
+        </childnode>
+        <childnode refid="43" relation="usage">
+          <edgelabel>m_sigClose</edgelabel>
+          <edgelabel>m_sigCompare</edgelabel>
+          <edgelabel>m_sigEquals</edgelabel>
+          <edgelabel>m_sigHashCode</edgelabel>
+          <edgelabel>m_sigToString</edgelabel>
+          <edgelabel>m_sigValidator</edgelabel>
+        </childnode>
+        <childnode refid="32" relation="usage">
+          <edgelabel>m_infoPlaceholder</edgelabel>
+        </childnode>
+      </node>
+      <node id="11">
+        <label>org.xvm.asm.Constants</label>
+        <link refid="df/df8/interfaceorg_1_1xvm_1_1asm_1_1_constants"/>
+      </node>
+      <node id="80">
+        <label>org.xvm.asm.Constants.Access</label>
+        <link refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access"/>
+        <childnode refid="80" relation="usage">
+          <edgelabel>VALUES</edgelabel>
+        </childnode>
+      </node>
+      <node id="16">
+        <label>org.xvm.asm.Documentable</label>
+        <link refid="d5/d4a/interfaceorg_1_1xvm_1_1asm_1_1_documentable"/>
+      </node>
+      <node id="20">
+        <label>org.xvm.asm.GenericTypeResolver</label>
+        <link refid="d0/d78/interfaceorg_1_1xvm_1_1asm_1_1_generic_type_resolver"/>
+      </node>
+      <node id="4">
+        <label>org.xvm.asm.LinkerContext</label>
+        <link refid="dc/dd3/interfaceorg_1_1xvm_1_1asm_1_1_linker_context"/>
+      </node>
+      <node id="53">
+        <label>org.xvm.asm.MethodStructure</label>
+        <link refid="d4/d90/classorg_1_1xvm_1_1asm_1_1_method_structure"/>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+        <childnode refid="37" relation="usage">
+          <edgelabel>m_aAnnotations</edgelabel>
+        </childnode>
+        <childnode refid="40" relation="usage">
+          <edgelabel>m_idFinally</edgelabel>
+          <edgelabel>m_idSuper</edgelabel>
+        </childnode>
+        <childnode refid="54" relation="usage">
+          <edgelabel>m_aParams</edgelabel>
+          <edgelabel>m_aReturns</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>m_aconstLocal</edgelabel>
+          <edgelabel>m_aconstSuper</edgelabel>
+        </childnode>
+        <childnode refid="60" relation="usage">
+          <edgelabel>m_registry</edgelabel>
+        </childnode>
+        <childnode refid="62" relation="usage">
+          <edgelabel>m_code</edgelabel>
+        </childnode>
+        <childnode refid="58" relation="usage">
+          <edgelabel>m_ast</edgelabel>
+        </childnode>
+        <childnode refid="59" relation="usage">
+          <edgelabel>m_aAstParams</edgelabel>
+        </childnode>
+        <childnode refid="36" relation="usage">
+          <edgelabel>m_safety</edgelabel>
+        </childnode>
+        <childnode refid="53" relation="usage">
+          <edgelabel>m_structFinally</edgelabel>
+        </childnode>
+        <childnode refid="64" relation="usage">
+          <edgelabel>m_source</edgelabel>
+        </childnode>
+      </node>
+      <node id="62">
+        <label>org.xvm.asm.MethodStructure.Code</label>
+        <link refid="da/d56/classorg_1_1xvm_1_1asm_1_1_method_structure_1_1_code"/>
+        <childnode refid="53" relation="usage">
+          <edgelabel>f_method</edgelabel>
+        </childnode>
+        <childnode refid="63" relation="usage">
+          <edgelabel>m_aop</edgelabel>
+        </childnode>
+        <childnode refid="62" relation="usage">
+          <edgelabel>m_hole</edgelabel>
+        </childnode>
+      </node>
+      <node id="36">
+        <label>org.xvm.asm.MethodStructure.ConcurrencySafety</label>
+        <link refid="d1/d0f/enumorg_1_1xvm_1_1asm_1_1_method_structure_1_1_concurrency_safety"/>
+      </node>
+      <node id="64">
+        <label>org.xvm.asm.MethodStructure.Source</label>
+        <link refid="dd/d70/classorg_1_1xvm_1_1asm_1_1_method_structure_1_1_source"/>
+        <childnode refid="13" relation="public-inheritance">
+        </childnode>
+        <childnode refid="21" relation="usage">
+          <edgelabel>m_aconstSrc</edgelabel>
+        </childnode>
+      </node>
+      <node id="63">
+        <label>org.xvm.asm.Op</label>
+        <link refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op"/>
+        <childnode refid="63" relation="usage">
+          <edgelabel>NO_OPS</edgelabel>
+        </childnode>
+      </node>
+      <node id="60">
+        <label>org.xvm.asm.Op.ConstantRegistry</label>
+        <link refid="dd/d3d/classorg_1_1xvm_1_1asm_1_1_op_1_1_constant_registry"/>
+        <childnode refid="61" relation="public-inheritance">
+        </childnode>
+        <childnode refid="53" relation="usage">
+          <edgelabel>f_method</edgelabel>
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>f_pool</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>m_aconst</edgelabel>
+        </childnode>
+        <childnode refid="59" relation="usage">
+          <edgelabel>m_aregParams</edgelabel>
+          <edgelabel>m_aregSpecial</edgelabel>
+        </childnode>
+      </node>
+      <node id="54">
+        <label>org.xvm.asm.Parameter</label>
+        <link refid="d0/d0f/classorg_1_1xvm_1_1asm_1_1_parameter"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+        <childnode refid="13" relation="public-inheritance">
+        </childnode>
+        <childnode refid="54" relation="usage">
+          <edgelabel>NO_PARAMS</edgelabel>
+        </childnode>
+        <childnode refid="37" relation="usage">
+          <edgelabel>m_aAnnotations</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>m_constType</edgelabel>
+        </childnode>
+        <childnode refid="21" relation="usage">
+          <edgelabel>m_constName</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>m_constDefault</edgelabel>
+        </childnode>
+        <childnode refid="55" relation="usage">
+          <edgelabel>m_regDeref</edgelabel>
+        </childnode>
+      </node>
+      <node id="79">
+        <label>org.xvm.asm.PropertyStructure</label>
+        <link refid="df/df0/classorg_1_1xvm_1_1asm_1_1_property_structure"/>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+        <childnode refid="80" relation="usage">
+          <edgelabel>m_accessVar</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>m_type</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>m_constVal</edgelabel>
+        </childnode>
+        <childnode refid="37" relation="usage">
+          <edgelabel>m_aPropAnno</edgelabel>
+          <edgelabel>m_aRefAnno</edgelabel>
+        </childnode>
+      </node>
+      <node id="55">
+        <label>org.xvm.asm.Register</label>
+        <link refid="dc/db3/classorg_1_1xvm_1_1asm_1_1_register"/>
+        <childnode refid="14" relation="public-inheritance">
+        </childnode>
+        <childnode refid="55" relation="usage">
+          <edgelabel>ASYNC</edgelabel>
+          <edgelabel>DEFAULT</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>m_type</edgelabel>
+          <edgelabel>m_typeReg</edgelabel>
+        </childnode>
+        <childnode refid="56" relation="usage">
+          <edgelabel>m_astAlloc</edgelabel>
+        </childnode>
+        <childnode refid="59" relation="usage">
+          <edgelabel>m_astSpecial</edgelabel>
+        </childnode>
+      </node>
+      <node id="26">
+        <label>org.xvm.asm.Version</label>
+        <link refid="d4/de1/classorg_1_1xvm_1_1asm_1_1_version"/>
+        <childnode refid="27" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>org.xvm.asm.XvmStructure</label>
+        <link refid="d7/d57/classorg_1_1xvm_1_1asm_1_1_xvm_structure"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>m_xsParent</edgelabel>
+        </childnode>
+      </node>
+      <node id="58">
+        <label>org.xvm.asm.ast.BinaryAST</label>
+        <link refid="d7/d69/classorg_1_1xvm_1_1asm_1_1ast_1_1_binary_a_s_t"/>
+        <childnode refid="58" relation="usage">
+          <edgelabel>NO_ASTS</edgelabel>
+        </childnode>
+        <childnode refid="57" relation="usage">
+          <edgelabel>NO_EXPRS</edgelabel>
+          <edgelabel>POISON</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>NO_CONSTS</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>NO_TYPES</edgelabel>
+        </childnode>
+        <childnode refid="59" relation="usage">
+          <edgelabel>NO_REGS</edgelabel>
+        </childnode>
+        <childnode refid="56" relation="usage">
+          <edgelabel>NO_ALLOCS</edgelabel>
+        </childnode>
+      </node>
+      <node id="61">
+        <label>org.xvm.asm.ast.BinaryAST.ConstantResolver</label>
+        <link refid="d7/d33/interfaceorg_1_1xvm_1_1asm_1_1ast_1_1_binary_a_s_t_1_1_constant_resolver"/>
+      </node>
+      <node id="57">
+        <label>org.xvm.asm.ast.ExprAST</label>
+        <link refid="d4/de4/classorg_1_1xvm_1_1asm_1_1ast_1_1_expr_a_s_t"/>
+        <childnode refid="58" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="56">
+        <label>org.xvm.asm.ast.RegAllocAST</label>
+        <link refid="d1/dd3/classorg_1_1xvm_1_1asm_1_1ast_1_1_reg_alloc_a_s_t"/>
+        <childnode refid="57" relation="public-inheritance">
+        </childnode>
+        <childnode refid="59" relation="usage">
+          <edgelabel>reg</edgelabel>
+        </childnode>
+      </node>
+      <node id="59">
+        <label>org.xvm.asm.ast.RegisterAST</label>
+        <link refid="d9/dbf/classorg_1_1xvm_1_1asm_1_1ast_1_1_register_a_s_t"/>
+        <childnode refid="57" relation="public-inheritance">
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>refType</edgelabel>
+          <edgelabel>type</edgelabel>
+        </childnode>
+        <childnode refid="21" relation="usage">
+          <edgelabel>name</edgelabel>
+        </childnode>
+      </node>
+      <node id="74">
+        <label>org.xvm.asm.constants.ArrayConstant</label>
+        <link refid="dc/d90/classorg_1_1xvm_1_1asm_1_1constants_1_1_array_constant"/>
+        <childnode refid="22" relation="public-inheritance">
+        </childnode>
+        <childnode refid="25" relation="usage">
+          <edgelabel>f_fmt</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>m_constType</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>m_aconstVal</edgelabel>
+        </childnode>
+      </node>
+      <node id="84">
+        <label>org.xvm.asm.constants.ClassConstant</label>
+        <link refid="df/de8/classorg_1_1xvm_1_1asm_1_1constants_1_1_class_constant"/>
+        <childnode refid="42" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>org.xvm.asm.constants.ConditionalConstant</label>
+        <link refid="da/df0/classorg_1_1xvm_1_1asm_1_1constants_1_1_conditional_constant"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="76">
+        <label>org.xvm.asm.constants.FormalConstant</label>
+        <link refid="d2/dca/classorg_1_1xvm_1_1asm_1_1constants_1_1_formal_constant"/>
+        <childnode refid="42" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="90">
+        <label>org.xvm.asm.constants.FrameDependentConstant</label>
+        <link refid="da/d56/classorg_1_1xvm_1_1asm_1_1constants_1_1_frame_dependent_constant"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>org.xvm.asm.constants.IdentityConstant</label>
+        <link refid="d5/d9c/classorg_1_1xvm_1_1asm_1_1constants_1_1_identity_constant"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>m_component</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>m_canonicalNid</edgelabel>
+        </childnode>
+      </node>
+      <node id="19">
+        <label>org.xvm.asm.constants.IdentityConstant.NestedIdentity</label>
+        <link refid="dc/d87/classorg_1_1xvm_1_1asm_1_1constants_1_1_identity_constant_1_1_nested_identity"/>
+        <childnode refid="20" relation="usage">
+          <edgelabel>m_resolver</edgelabel>
+        </childnode>
+      </node>
+      <node id="85">
+        <label>org.xvm.asm.constants.IntConstant</label>
+        <link refid="d6/d7c/classorg_1_1xvm_1_1asm_1_1constants_1_1_int_constant"/>
+        <childnode refid="22" relation="public-inheritance">
+        </childnode>
+        <childnode refid="25" relation="usage">
+          <edgelabel>m_fmt</edgelabel>
+        </childnode>
+        <childnode refid="86" relation="usage">
+          <edgelabel>m_pint</edgelabel>
+        </childnode>
+      </node>
+      <node id="24">
+        <label>org.xvm.asm.constants.LiteralConstant</label>
+        <link refid="d4/d41/classorg_1_1xvm_1_1asm_1_1constants_1_1_literal_constant"/>
+        <childnode refid="22" relation="public-inheritance">
+        </childnode>
+        <childnode refid="25" relation="usage">
+          <edgelabel>m_fmt</edgelabel>
+        </childnode>
+        <childnode refid="21" relation="usage">
+          <edgelabel>m_constStr</edgelabel>
+        </childnode>
+      </node>
+      <node id="66">
+        <label>org.xvm.asm.constants.MethodBody</label>
+        <link refid="d3/dd6/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_body"/>
+        <childnode refid="66" relation="usage">
+          <edgelabel>NO_BODIES</edgelabel>
+        </childnode>
+        <childnode refid="40" relation="usage">
+          <edgelabel>m_id</edgelabel>
+        </childnode>
+        <childnode refid="43" relation="usage">
+          <edgelabel>m_sig</edgelabel>
+        </childnode>
+        <childnode refid="67" relation="usage">
+          <edgelabel>m_impl</edgelabel>
+        </childnode>
+        <childnode refid="53" relation="usage">
+          <edgelabel>m_structMethod</edgelabel>
+        </childnode>
+        <childnode refid="68" relation="usage">
+          <edgelabel>m_jmd</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>m_typeJmdContainer</edgelabel>
+        </childnode>
+      </node>
+      <node id="67">
+        <label>org.xvm.asm.constants.MethodBody.Implementation</label>
+        <link refid="da/d42/enumorg_1_1xvm_1_1asm_1_1constants_1_1_method_body_1_1_implementation"/>
+      </node>
+      <node id="40">
+        <label>org.xvm.asm.constants.MethodConstant</label>
+        <link refid="d6/d7b/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_constant"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+        <childnode refid="41" relation="usage">
+          <edgelabel>m_constParent</edgelabel>
+        </childnode>
+        <childnode refid="43" relation="usage">
+          <edgelabel>m_constSig</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>m_type</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>org.xvm.asm.constants.ModuleConstant</label>
+        <link refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+        <childnode refid="21" relation="usage">
+          <edgelabel>m_constName</edgelabel>
+        </childnode>
+        <childnode refid="23" relation="usage">
+          <edgelabel>m_constVersion</edgelabel>
+        </childnode>
+      </node>
+      <node id="41">
+        <label>org.xvm.asm.constants.MultiMethodConstant</label>
+        <link refid="df/d2a/classorg_1_1xvm_1_1asm_1_1constants_1_1_multi_method_constant"/>
+        <childnode refid="42" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>org.xvm.asm.constants.NamedConstant</label>
+        <link refid="d8/d85/classorg_1_1xvm_1_1asm_1_1constants_1_1_named_constant"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>m_constParent</edgelabel>
+        </childnode>
+        <childnode refid="21" relation="usage">
+          <edgelabel>m_constName</edgelabel>
+        </childnode>
+      </node>
+      <node id="81">
+        <label>org.xvm.asm.constants.ParamInfo</label>
+        <link refid="d5/da1/classorg_1_1xvm_1_1asm_1_1constants_1_1_param_info"/>
+        <childnode refid="31" relation="usage">
+          <edgelabel>f_typeActual</edgelabel>
+          <edgelabel>f_typeConstraint</edgelabel>
+        </childnode>
+      </node>
+      <node id="78">
+        <label>org.xvm.asm.constants.PropertyBody</label>
+        <link refid="db/d39/classorg_1_1xvm_1_1asm_1_1constants_1_1_property_body"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+        <childnode refid="79" relation="usage">
+          <edgelabel>m_structProp</edgelabel>
+        </childnode>
+        <childnode refid="67" relation="usage">
+          <edgelabel>m_impl</edgelabel>
+        </childnode>
+        <childnode refid="75" relation="usage">
+          <edgelabel>m_constDelegate</edgelabel>
+        </childnode>
+        <childnode refid="81" relation="usage">
+          <edgelabel>m_infoFormal</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>m_type</edgelabel>
+        </childnode>
+        <childnode refid="82" relation="usage">
+          <edgelabel>m_effectGet</edgelabel>
+          <edgelabel>m_effectSet</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>m_constInitVal</edgelabel>
+        </childnode>
+        <childnode refid="40" relation="usage">
+          <edgelabel>m_constInitFunc</edgelabel>
+        </childnode>
+      </node>
+      <node id="82">
+        <label>org.xvm.asm.constants.PropertyBody.Effect</label>
+        <link refid="da/df0/enumorg_1_1xvm_1_1asm_1_1constants_1_1_property_body_1_1_effect"/>
+      </node>
+      <node id="75">
+        <label>org.xvm.asm.constants.PropertyConstant</label>
+        <link refid="dd/ded/classorg_1_1xvm_1_1asm_1_1constants_1_1_property_constant"/>
+        <childnode refid="76" relation="public-inheritance">
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>m_type</edgelabel>
+          <edgelabel>m_typeConstraint</edgelabel>
+        </childnode>
+        <childnode refid="43" relation="usage">
+          <edgelabel>m_constSig</edgelabel>
+        </childnode>
+        <childnode refid="77" relation="usage">
+          <edgelabel>m_info</edgelabel>
+        </childnode>
+      </node>
+      <node id="77">
+        <label>org.xvm.asm.constants.PropertyInfo</label>
+        <link refid="dd/d20/classorg_1_1xvm_1_1asm_1_1constants_1_1_property_info"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+        <childnode refid="78" relation="usage">
+          <edgelabel>m_aBody</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>m_type</edgelabel>
+          <edgelabel>m_typeBaseRef</edgelabel>
+        </childnode>
+        <childnode refid="66" relation="usage">
+          <edgelabel>m_chainGet</edgelabel>
+          <edgelabel>m_chainSet</edgelabel>
+        </childnode>
+        <childnode refid="37" relation="usage">
+          <edgelabel>m_annotations</edgelabel>
+        </childnode>
+        <childnode refid="40" relation="usage">
+          <edgelabel>m_idGetter</edgelabel>
+          <edgelabel>m_idSetter</edgelabel>
+        </childnode>
+        <childnode refid="68" relation="usage">
+          <edgelabel>m_jmdGetter</edgelabel>
+          <edgelabel>m_jmdSetter</edgelabel>
+        </childnode>
+      </node>
+      <node id="44">
+        <label>org.xvm.asm.constants.PseudoConstant</label>
+        <link refid="db/dcb/classorg_1_1xvm_1_1asm_1_1constants_1_1_pseudo_constant"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="89">
+        <label>org.xvm.asm.constants.RegisterConstant</label>
+        <link refid="d3/deb/classorg_1_1xvm_1_1asm_1_1constants_1_1_register_constant"/>
+        <childnode refid="90" relation="public-inheritance">
+        </childnode>
+        <childnode refid="55" relation="usage">
+          <edgelabel>m_reg</edgelabel>
+        </childnode>
+      </node>
+      <node id="43">
+        <label>org.xvm.asm.constants.SignatureConstant</label>
+        <link refid="de/d50/classorg_1_1xvm_1_1asm_1_1constants_1_1_signature_constant"/>
+        <childnode refid="44" relation="public-inheritance">
+        </childnode>
+        <childnode refid="21" relation="usage">
+          <edgelabel>m_constName</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>m_aconstParams</edgelabel>
+          <edgelabel>m_aconstReturns</edgelabel>
+        </childnode>
+        <childnode refid="43" relation="usage">
+          <edgelabel>m_sigPrev</edgelabel>
+        </childnode>
+      </node>
+      <node id="88">
+        <label>org.xvm.asm.constants.SingletonConstant</label>
+        <link refid="dd/d83/classorg_1_1xvm_1_1asm_1_1constants_1_1_singleton_constant"/>
+        <childnode refid="22" relation="public-inheritance">
+        </childnode>
+        <childnode refid="25" relation="usage">
+          <edgelabel>f_fmt</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>m_constClass</edgelabel>
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>m_handle</edgelabel>
+        </childnode>
+      </node>
+      <node id="21">
+        <label>org.xvm.asm.constants.StringConstant</label>
+        <link refid="d0/db5/classorg_1_1xvm_1_1asm_1_1constants_1_1_string_constant"/>
+        <childnode refid="22" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>org.xvm.asm.constants.TypeConstant</label>
+        <link refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>NO_TYPES</edgelabel>
+          <edgelabel>m_typeNormalized</edgelabel>
+        </childnode>
+        <childnode refid="32" relation="usage">
+          <edgelabel>m_typeinfo</edgelabel>
+        </childnode>
+        <childnode refid="45" relation="usage">
+          <edgelabel>m_tloInProgress</edgelabel>
+        </childnode>
+        <childnode refid="46" relation="usage">
+          <edgelabel>m_handle</edgelabel>
+        </childnode>
+      </node>
+      <node id="32">
+        <label>org.xvm.asm.constants.TypeInfo</label>
+        <link refid="dc/db2/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_info"/>
+        <childnode refid="33" relation="usage">
+          <edgelabel>f_progress</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>f_type</edgelabel>
+          <edgelabel>f_typeExtends</edgelabel>
+          <edgelabel>f_typeInto</edgelabel>
+          <edgelabel>f_typeRebases</edgelabel>
+          <edgelabel>m_typeAuto</edgelabel>
+        </childnode>
+        <childnode refid="34" relation="usage">
+          <edgelabel>f_struct</edgelabel>
+        </childnode>
+        <childnode refid="37" relation="usage">
+          <edgelabel>f_aannoClass</edgelabel>
+          <edgelabel>f_aannoMixin</edgelabel>
+        </childnode>
+        <childnode refid="38" relation="usage">
+          <edgelabel>f_listmapClassChain</edgelabel>
+          <edgelabel>f_listmapDefaultChain</edgelabel>
+        </childnode>
+        <childnode refid="39" relation="usage">
+          <edgelabel>f_mapChildren</edgelabel>
+        </childnode>
+        <childnode refid="32" relation="usage">
+          <edgelabel>m_delegates</edgelabel>
+          <edgelabel>m_into</edgelabel>
+        </childnode>
+        <childnode refid="40" relation="usage">
+          <edgelabel>m_methodAuto</edgelabel>
+        </childnode>
+      </node>
+      <node id="33">
+        <label>org.xvm.asm.constants.TypeInfo.Progress</label>
+        <link refid="d5/ded/enumorg_1_1xvm_1_1asm_1_1constants_1_1_type_info_1_1_progress"/>
+      </node>
+      <node id="22">
+        <label>org.xvm.asm.constants.ValueConstant</label>
+        <link refid="db/d57/classorg_1_1xvm_1_1asm_1_1constants_1_1_value_constant"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>org.xvm.asm.constants.VersionConstant</label>
+        <link refid="d0/db9/classorg_1_1xvm_1_1asm_1_1constants_1_1_version_constant"/>
+        <childnode refid="24" relation="public-inheritance">
+        </childnode>
+        <childnode refid="26" relation="usage">
+          <edgelabel>m_ver</edgelabel>
+        </childnode>
+      </node>
+      <node id="71">
+        <label>org.xvm.javajit.JitFlavor</label>
+        <link refid="d4/d87/enumorg_1_1xvm_1_1javajit_1_1_jit_flavor"/>
+        <childnode refid="71" relation="usage">
+          <edgelabel>baseFlavor</edgelabel>
+        </childnode>
+      </node>
+      <node id="68">
+        <label>org.xvm.javajit.JitMethodDesc</label>
+        <link refid="d0/d2b/classorg_1_1xvm_1_1javajit_1_1_jit_method_desc"/>
+        <childnode refid="69" relation="usage">
+          <edgelabel>optimizedParams</edgelabel>
+          <edgelabel>optimizedReturns</edgelabel>
+          <edgelabel>standardParams</edgelabel>
+          <edgelabel>standardReturns</edgelabel>
+        </childnode>
+      </node>
+      <node id="69">
+        <label>org.xvm.javajit.JitParamDesc</label>
+        <link refid="d7/d14/classorg_1_1xvm_1_1javajit_1_1_jit_param_desc"/>
+        <childnode refid="70" relation="public-inheritance">
+        </childnode>
+        <childnode refid="69" relation="usage">
+          <edgelabel>NONE</edgelabel>
+        </childnode>
+      </node>
+      <node id="70">
+        <label>org.xvm.javajit.JitTypeDesc</label>
+        <link refid="d5/d1d/classorg_1_1xvm_1_1javajit_1_1_jit_type_desc"/>
+        <childnode refid="31" relation="usage">
+          <edgelabel>type</edgelabel>
+        </childnode>
+        <childnode refid="71" relation="usage">
+          <edgelabel>flavor</edgelabel>
+        </childnode>
+      </node>
+      <node id="65">
+        <label>org.xvm.runtime.CallChain</label>
+        <link refid="df/db4/classorg_1_1xvm_1_1runtime_1_1_call_chain"/>
+        <childnode refid="66" relation="usage">
+          <edgelabel>f_aMethods</edgelabel>
+        </childnode>
+      </node>
+      <node id="50">
+        <label>org.xvm.runtime.ClassComposition</label>
+        <link refid="da/df7/classorg_1_1xvm_1_1runtime_1_1_class_composition"/>
+        <childnode refid="29" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>f_container</edgelabel>
+        </childnode>
+        <childnode refid="48" relation="usage">
+          <edgelabel>f_template</edgelabel>
+        </childnode>
+        <childnode refid="50" relation="usage">
+          <edgelabel>f_clzInception</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>f_typeInception</edgelabel>
+          <edgelabel>f_typeRevealed</edgelabel>
+          <edgelabel>f_typeStructure</edgelabel>
+        </childnode>
+        <childnode refid="51" relation="usage">
+          <edgelabel>m_ashFieldNames</edgelabel>
+        </childnode>
+        <childnode refid="53" relation="usage">
+          <edgelabel>m_methodInit</edgelabel>
+        </childnode>
+        <childnode refid="65" relation="usage">
+          <edgelabel>NIL_CHAIN</edgelabel>
+        </childnode>
+      </node>
+      <node id="72">
+        <label>org.xvm.runtime.ClassComposition.FieldInfo</label>
+        <link refid="d1/d50/classorg_1_1xvm_1_1runtime_1_1_class_composition_1_1_field_info"/>
+        <childnode refid="31" relation="usage">
+          <edgelabel>f_type</edgelabel>
+        </childnode>
+        <childnode refid="29" relation="usage">
+          <edgelabel>f_clzRef</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>constInit</edgelabel>
+        </childnode>
+      </node>
+      <node id="48">
+        <label>org.xvm.runtime.ClassTemplate</label>
+        <link refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template"/>
+        <childnode refid="49" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>f_container</edgelabel>
+        </childnode>
+        <childnode refid="34" relation="usage">
+          <edgelabel>f_struct</edgelabel>
+          <edgelabel>f_structSuper</edgelabel>
+        </childnode>
+        <childnode refid="48" relation="usage">
+          <edgelabel>m_templateSuper</edgelabel>
+        </childnode>
+        <childnode refid="50" relation="usage">
+          <edgelabel>m_clazzCanonical</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>org.xvm.runtime.ConstHeap</label>
+        <link refid="da/d0f/classorg_1_1xvm_1_1runtime_1_1_const_heap"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>f_container</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>org.xvm.runtime.Container</label>
+        <link refid="d1/df8/classorg_1_1xvm_1_1runtime_1_1_container"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>f_runtime</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>f_heap</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>f_parent</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>f_idModule</edgelabel>
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>m_contextMain</edgelabel>
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>m_hTypeSystem</edgelabel>
+        </childnode>
+      </node>
+      <node id="108">
+        <label>org.xvm.runtime.DebugConsole</label>
+        <link refid="d1/d39/classorg_1_1xvm_1_1runtime_1_1_debug_console"/>
+        <childnode refid="109" relation="public-inheritance">
+        </childnode>
+        <childnode refid="108" relation="usage">
+          <edgelabel>INSTANCE</edgelabel>
+        </childnode>
+        <childnode refid="110" relation="usage">
+          <edgelabel>m_viewMode</edgelabel>
+        </childnode>
+        <childnode refid="95" relation="usage">
+          <edgelabel>m_aFrames</edgelabel>
+          <edgelabel>m_frame</edgelabel>
+          <edgelabel>m_frameFocus</edgelabel>
+        </childnode>
+        <childnode refid="103" relation="usage">
+          <edgelabel>m_hException</edgelabel>
+        </childnode>
+        <childnode refid="111" relation="usage">
+          <edgelabel>m_debugStash</edgelabel>
+        </childnode>
+        <childnode refid="112" relation="usage">
+          <edgelabel>m_aVars</edgelabel>
+        </childnode>
+        <childnode refid="114" relation="usage">
+          <edgelabel>m_aBreaks</edgelabel>
+        </childnode>
+        <childnode refid="116" relation="usage">
+          <edgelabel>m_stepMode</edgelabel>
+        </childnode>
+      </node>
+      <node id="114">
+        <label>org.xvm.runtime.DebugConsole.BreakPoint</label>
+        <link refid="de/d49/classorg_1_1xvm_1_1runtime_1_1_debug_console_1_1_break_point"/>
+        <childnode refid="115" relation="public-inheritance">
+        </childnode>
+        <childnode refid="53" relation="usage">
+          <edgelabel>lambda</edgelabel>
+        </childnode>
+      </node>
+      <node id="111">
+        <label>org.xvm.runtime.DebugConsole.DebugStash</label>
+        <link refid="dc/d22/classorg_1_1xvm_1_1runtime_1_1_debug_console_1_1_debug_stash"/>
+      </node>
+      <node id="116">
+        <label>org.xvm.runtime.DebugConsole.StepMode</label>
+        <link refid="d2/dea/enumorg_1_1xvm_1_1runtime_1_1_debug_console_1_1_step_mode"/>
+      </node>
+      <node id="112">
+        <label>org.xvm.runtime.DebugConsole.VarDisplay</label>
+        <link refid="df/d13/classorg_1_1xvm_1_1runtime_1_1_debug_console_1_1_var_display"/>
+        <childnode refid="28" relation="usage">
+          <edgelabel>hVar</edgelabel>
+        </childnode>
+        <childnode refid="113" relation="usage">
+          <edgelabel>watch</edgelabel>
+        </childnode>
+      </node>
+      <node id="110">
+        <label>org.xvm.runtime.DebugConsole.ViewMode</label>
+        <link refid="d1/d65/enumorg_1_1xvm_1_1runtime_1_1_debug_console_1_1_view_mode"/>
+      </node>
+      <node id="113">
+        <label>org.xvm.runtime.DebugConsole.Watch</label>
+        <link refid="d7/dcb/classorg_1_1xvm_1_1runtime_1_1_debug_console_1_1_watch"/>
+        <childnode refid="28" relation="usage">
+          <edgelabel>hVar</edgelabel>
+        </childnode>
+      </node>
+      <node id="109">
+        <label>org.xvm.runtime.Debugger</label>
+        <link refid="d3/dc6/interfaceorg_1_1xvm_1_1runtime_1_1_debugger"/>
+      </node>
+      <node id="96">
+        <label>org.xvm.runtime.Fiber</label>
+        <link refid="d4/d87/classorg_1_1xvm_1_1runtime_1_1_fiber"/>
+        <childnode refid="97" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>f_context</edgelabel>
+        </childnode>
+        <childnode refid="53" relation="usage">
+          <edgelabel>f_fnCaller</edgelabel>
+        </childnode>
+        <childnode refid="98" relation="usage">
+          <edgelabel>m_status</edgelabel>
+        </childnode>
+        <childnode refid="95" relation="usage">
+          <edgelabel>m_frame</edgelabel>
+          <edgelabel>m_frameBlocker</edgelabel>
+          <edgelabel>m_resume</edgelabel>
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>m_hAsyncSection</edgelabel>
+          <edgelabel>m_hTimeout</edgelabel>
+        </childnode>
+      </node>
+      <node id="98">
+        <label>org.xvm.runtime.Fiber.FiberStatus</label>
+        <link refid="d3/d81/enumorg_1_1xvm_1_1runtime_1_1_fiber_1_1_fiber_status"/>
+      </node>
+      <node id="117">
+        <label>org.xvm.runtime.FiberQueue</label>
+        <link refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>f_context</edgelabel>
+        </childnode>
+        <childnode refid="95" relation="usage">
+          <edgelabel>m_aFrame</edgelabel>
+        </childnode>
+      </node>
+      <node id="95">
+        <label>org.xvm.runtime.Frame</label>
+        <link refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame"/>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+        <childnode refid="96" relation="usage">
+          <edgelabel>f_fiber</edgelabel>
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>f_context</edgelabel>
+        </childnode>
+        <childnode refid="53" relation="usage">
+          <edgelabel>f_function</edgelabel>
+        </childnode>
+        <childnode refid="63" relation="usage">
+          <edgelabel>WAIT_FOR_FUTURE</edgelabel>
+          <edgelabel>WAIT_FOR_IO</edgelabel>
+          <edgelabel>f_aOp</edgelabel>
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>f_ahVar</edgelabel>
+          <edgelabel>f_hTarget</edgelabel>
+          <edgelabel>f_hThis</edgelabel>
+          <edgelabel>m_hStackTop</edgelabel>
+        </childnode>
+        <childnode refid="99" relation="usage">
+          <edgelabel>f_aInfo</edgelabel>
+        </childnode>
+        <childnode refid="95" relation="usage">
+          <edgelabel>f_framePrev</edgelabel>
+          <edgelabel>m_frameNext</edgelabel>
+        </childnode>
+        <childnode refid="102" relation="usage">
+          <edgelabel>m_aGuard</edgelabel>
+        </childnode>
+        <childnode refid="103" relation="usage">
+          <edgelabel>m_hException</edgelabel>
+        </childnode>
+        <childnode refid="104" relation="usage">
+          <edgelabel>m_deferred</edgelabel>
+        </childnode>
+        <childnode refid="105" relation="usage">
+          <edgelabel>m_hfnFinally</edgelabel>
+        </childnode>
+        <childnode refid="107" relation="usage">
+          <edgelabel>m_continuation</edgelabel>
+        </childnode>
+        <childnode refid="65" relation="usage">
+          <edgelabel>m_chain</edgelabel>
+        </childnode>
+        <childnode refid="108" relation="usage">
+          <edgelabel>m_debug</edgelabel>
+        </childnode>
+        <childnode refid="100" relation="usage">
+          <edgelabel>ARRAY_ELEMENT_RESOLVER</edgelabel>
+          <edgelabel>METHOD_RESOLVER</edgelabel>
+          <edgelabel>PROPERTY_RESOLVER</edgelabel>
+          <edgelabel>REF_RESOLVER</edgelabel>
+        </childnode>
+      </node>
+      <node id="107">
+        <label>org.xvm.runtime.Frame.Continuation</label>
+        <link refid="d5/dfd/interfaceorg_1_1xvm_1_1runtime_1_1_frame_1_1_continuation"/>
+      </node>
+      <node id="104">
+        <label>org.xvm.runtime.Frame.DeferredGuardAction</label>
+        <link refid="d7/d9f/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_deferred_guard_action"/>
+      </node>
+      <node id="102">
+        <label>org.xvm.runtime.Frame.Guard</label>
+        <link refid="d0/d8b/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_guard"/>
+      </node>
+      <node id="99">
+        <label>org.xvm.runtime.Frame.VarInfo</label>
+        <link refid="df/d8b/classorg_1_1xvm_1_1runtime_1_1_frame_1_1_var_info"/>
+        <childnode refid="31" relation="usage">
+          <edgelabel>m_type</edgelabel>
+        </childnode>
+        <childnode refid="100" relation="usage">
+          <edgelabel>m_resolver</edgelabel>
+        </childnode>
+        <childnode refid="101" relation="usage">
+          <edgelabel>m_ref</edgelabel>
+        </childnode>
+      </node>
+      <node id="100">
+        <label>org.xvm.runtime.Frame.VarTypeResolver</label>
+        <link refid="db/dde/interfaceorg_1_1xvm_1_1runtime_1_1_frame_1_1_var_type_resolver"/>
+      </node>
+      <node id="28">
+        <label>org.xvm.runtime.ObjectHandle</label>
+        <link refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle"/>
+        <childnode refid="13" relation="public-inheritance">
+        </childnode>
+        <childnode refid="29" relation="usage">
+          <edgelabel>m_clazz</edgelabel>
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>DEFAULT</edgelabel>
+        </childnode>
+      </node>
+      <node id="103">
+        <label>org.xvm.runtime.ObjectHandle.ExceptionHandle</label>
+        <link refid="da/d17/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_exception_handle"/>
+        <childnode refid="92" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="92">
+        <label>org.xvm.runtime.ObjectHandle.GenericHandle</label>
+        <link refid="d3/d56/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_generic_handle"/>
+        <childnode refid="28" relation="public-inheritance">
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>m_aFields</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>m_owner</edgelabel>
+        </childnode>
+      </node>
+      <node id="52">
+        <label>org.xvm.runtime.ObjectHandle.JavaLong</label>
+        <link refid="d5/d22/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_java_long"/>
+        <childnode refid="28" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>org.xvm.runtime.OpSupport</label>
+        <link refid="d5/d35/interfaceorg_1_1xvm_1_1runtime_1_1_op_support"/>
+      </node>
+      <node id="5">
+        <label>org.xvm.runtime.Runtime</label>
+        <link refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime"/>
+      </node>
+      <node id="2">
+        <label>org.xvm.runtime.ServiceContext</label>
+        <link refid="d8/d69/classorg_1_1xvm_1_1runtime_1_1_service_context"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>f_container</edgelabel>
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>f_pool</edgelabel>
+        </childnode>
+        <childnode refid="91" relation="usage">
+          <edgelabel>m_hService</edgelabel>
+        </childnode>
+        <childnode refid="93" relation="usage">
+          <edgelabel>m_hExceptionHandler</edgelabel>
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>m_hSynchronizedSection</edgelabel>
+        </childnode>
+        <childnode refid="95" relation="usage">
+          <edgelabel>m_frameCurrent</edgelabel>
+        </childnode>
+        <childnode refid="117" relation="usage">
+          <edgelabel>f_queueSuspended</edgelabel>
+        </childnode>
+        <childnode refid="118" relation="usage">
+          <edgelabel>m_synchronicity</edgelabel>
+        </childnode>
+        <childnode refid="96" relation="usage">
+          <edgelabel>m_fiberSyncOwner</edgelabel>
+        </childnode>
+        <childnode refid="119" relation="usage">
+          <edgelabel>f_wakeUpScheduler</edgelabel>
+        </childnode>
+      </node>
+      <node id="118">
+        <label>org.xvm.runtime.ServiceContext.Synchronicity</label>
+        <link refid="dc/d52/enumorg_1_1xvm_1_1runtime_1_1_service_context_1_1_synchronicity"/>
+      </node>
+      <node id="119">
+        <label>org.xvm.runtime.ServiceContext.WakeUpScheduler</label>
+        <link refid="d4/dea/classorg_1_1xvm_1_1runtime_1_1_service_context_1_1_wake_up_scheduler"/>
+      </node>
+      <node id="29">
+        <label>org.xvm.runtime.TypeComposition</label>
+        <link refid="db/db9/interfaceorg_1_1xvm_1_1runtime_1_1_type_composition"/>
+      </node>
+      <node id="73">
+        <label>org.xvm.runtime.template.IndexSupport</label>
+        <link refid="d5/dd3/interfaceorg_1_1xvm_1_1runtime_1_1template_1_1_index_support"/>
+      </node>
+      <node id="106">
+        <label>org.xvm.runtime.template._native.reflect.xRTFunction.DelegatingHandle</label>
+        <link refid="d5/d24/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_function_1_1_delegating_handle"/>
+        <childnode refid="93" relation="public-inheritance">
+        </childnode>
+        <childnode refid="93" relation="usage">
+          <edgelabel>m_hDelegate</edgelabel>
+        </childnode>
+      </node>
+      <node id="105">
+        <label>org.xvm.runtime.template._native.reflect.xRTFunction.FullyBoundHandle</label>
+        <link refid="d3/d86/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_function_1_1_fully_bound_handle"/>
+        <childnode refid="106" relation="public-inheritance">
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>f_ahArg</edgelabel>
+        </childnode>
+        <childnode refid="105" relation="usage">
+          <edgelabel>NO_OP</edgelabel>
+          <edgelabel>m_next</edgelabel>
+        </childnode>
+      </node>
+      <node id="93">
+        <label>org.xvm.runtime.template._native.reflect.xRTFunction.FunctionHandle</label>
+        <link refid="da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_function_1_1_function_handle"/>
+        <childnode refid="94" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="94">
+        <label>org.xvm.runtime.template._native.reflect.xRTSignature.SignatureHandle</label>
+        <link refid="d1/d6b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_signature_1_1_signature_handle"/>
+        <childnode refid="92" relation="public-inheritance">
+        </childnode>
+        <childnode refid="40" relation="usage">
+          <edgelabel>f_idMethod</edgelabel>
+        </childnode>
+        <childnode refid="53" relation="usage">
+          <edgelabel>f_method</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>f_type</edgelabel>
+        </childnode>
+        <childnode refid="65" relation="usage">
+          <edgelabel>f_chain</edgelabel>
+        </childnode>
+      </node>
+      <node id="46">
+        <label>org.xvm.runtime.template._native.reflect.xRTType</label>
+        <link refid="d5/daa/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_type"/>
+        <childnode refid="47" relation="public-inheritance">
+        </childnode>
+        <childnode refid="73" relation="public-inheritance">
+        </childnode>
+        <childnode refid="46" relation="usage">
+          <edgelabel>INSTANCE</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>LISTMAP_TYPE</edgelabel>
+          <edgelabel>TYPE_ARRAY_TYPE</edgelabel>
+        </childnode>
+        <childnode refid="74" relation="usage">
+          <edgelabel>EMPTY_TYPE_ARRAY</edgelabel>
+        </childnode>
+        <childnode refid="29" relation="usage">
+          <edgelabel>REGISTER_CLZCOMP</edgelabel>
+        </childnode>
+        <childnode refid="53" relation="usage">
+          <edgelabel>REGISTER_CONSTRUCT</edgelabel>
+        </childnode>
+        <childnode refid="75" relation="usage">
+          <edgelabel>PROP_CALCULATE</edgelabel>
+          <edgelabel>PROP_HASHER</edgelabel>
+        </childnode>
+      </node>
+      <node id="101">
+        <label>org.xvm.runtime.template.reflect.xRef.RefHandle</label>
+        <link refid="de/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1_1_ref_handle"/>
+        <childnode refid="92" relation="public-inheritance">
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>m_hReferent</edgelabel>
+        </childnode>
+        <childnode refid="75" relation="usage">
+          <edgelabel>m_idProp</edgelabel>
+        </childnode>
+        <childnode refid="95" relation="usage">
+          <edgelabel>m_frame</edgelabel>
+        </childnode>
+      </node>
+      <node id="51">
+        <label>org.xvm.runtime.template.text.xString.StringHandle</label>
+        <link refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle"/>
+        <childnode refid="28" relation="public-inheritance">
+        </childnode>
+        <childnode refid="52" relation="usage">
+          <edgelabel>m_hash</edgelabel>
+        </childnode>
+      </node>
+      <node id="47">
+        <label>org.xvm.runtime.template.xConst</label>
+        <link refid="d4/d96/classorg_1_1xvm_1_1runtime_1_1template_1_1x_const"/>
+        <childnode refid="48" relation="public-inheritance">
+        </childnode>
+        <childnode refid="47" relation="usage">
+          <edgelabel>INSTANCE</edgelabel>
+        </childnode>
+        <childnode refid="72" relation="usage">
+          <edgelabel>NO_FIELDS</edgelabel>
+        </childnode>
+        <childnode refid="53" relation="usage">
+          <edgelabel>DATE_CONSTRUCT</edgelabel>
+          <edgelabel>DURATION_CONSTRUCT</edgelabel>
+          <edgelabel>FN_APPEND_TO</edgelabel>
+          <edgelabel>FN_ESTIMATE_LENGTH</edgelabel>
+          <edgelabel>FN_FREEZE</edgelabel>
+          <edgelabel>NIBBLE_CONSTRUCT</edgelabel>
+          <edgelabel>PATH_CONSTRUCT</edgelabel>
+          <edgelabel>RANGE_CONSTRUCT</edgelabel>
+          <edgelabel>TIMEOFDAY_CONSTRUCT</edgelabel>
+          <edgelabel>TIME_CONSTRUCT</edgelabel>
+          <edgelabel>  ...</edgelabel>
+        </childnode>
+        <childnode refid="43" relation="usage">
+          <edgelabel>HASH_SIG</edgelabel>
+        </childnode>
+      </node>
+      <node id="91">
+        <label>org.xvm.runtime.template.xService.ServiceHandle</label>
+        <link refid="d9/dd1/classorg_1_1xvm_1_1runtime_1_1template_1_1x_service_1_1_service_handle"/>
+        <childnode refid="92" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>f_context</edgelabel>
+        </childnode>
+      </node>
+      <node id="39">
+        <label>org.xvm.util.ListMap&lt; String, org.xvm.asm.constants.ChildInfo &gt;</label>
+        <link refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map"/>
+      </node>
+      <node id="38">
+        <label>org.xvm.util.ListMap&lt; org.xvm.asm.constants.IdentityConstant, org.xvm.asm.constants.TypeConstant.Origin &gt;</label>
+        <link refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map"/>
+      </node>
+      <node id="35">
+        <label>org.xvm.util.ListMap&lt; org.xvm.asm.constants.StringConstant, org.xvm.asm.constants.TypeConstant &gt;</label>
+        <link refid="d6/d23/classorg_1_1xvm_1_1util_1_1_list_map"/>
+      </node>
+      <node id="86">
+        <label>org.xvm.util.PackedInteger</label>
+        <link refid="dc/ddc/classorg_1_1xvm_1_1util_1_1_packed_integer"/>
+        <childnode refid="87" relation="public-inheritance">
+        </childnode>
+        <childnode refid="86" relation="usage">
+          <edgelabel>CACHE</edgelabel>
+          <edgelabel>EB</edgelabel>
+          <edgelabel>EI</edgelabel>
+          <edgelabel>GB</edgelabel>
+          <edgelabel>GI</edgelabel>
+          <edgelabel>KB</edgelabel>
+          <edgelabel>KI</edgelabel>
+          <edgelabel>MB</edgelabel>
+          <edgelabel>MI</edgelabel>
+          <edgelabel>NEG_ONE</edgelabel>
+          <edgelabel>  ...</edgelabel>
+        </childnode>
+      </node>
+      <node id="83">
+        <label>org.xvm.util.TransientThreadLocal&lt; List&lt; org.xvm.asm.constants.TypeConstant &gt; &gt;</label>
+        <link refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local"/>
+      </node>
+      <node id="45">
+        <label>org.xvm.util.TransientThreadLocal&lt; Set&lt; org.xvm.asm.constants.TypeConstant &gt; &gt;</label>
+        <link refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" line="11" column="7" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/FiberQueue.java" bodystart="11" bodyend="328"/>
+    <listofallmembers>
+      <member refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a6dd323890d17ddd3ed23a3c6212f99b1" prot="public" virt="non-virtual"><scope>org::xvm::runtime::FiberQueue</scope><name>add</name></member>
+      <member refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a5b9e8a2036338df3eff282b87b61a78c" prot="private" virt="non-virtual"><scope>org::xvm::runtime::FiberQueue</scope><name>canResume</name></member>
+      <member refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1aae3c71ba77bc781b2ca8e5f8d3edf75f" prot="private" virt="non-virtual"><scope>org::xvm::runtime::FiberQueue</scope><name>checkPriority</name></member>
+      <member refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a3ed4443becfb422930dad5003b8198f9" prot="private" virt="non-virtual"><scope>org::xvm::runtime::FiberQueue</scope><name>compact</name></member>
+      <member refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1adc6f0dda90e7e10c32de3d704cecac54" prot="private" virt="non-virtual"><scope>org::xvm::runtime::FiberQueue</scope><name>ensureCapacity</name></member>
+      <member refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a56fe04785b67fb77bb788cd023a84f6b" prot="private" virt="non-virtual"><scope>org::xvm::runtime::FiberQueue</scope><name>f_context</name></member>
+      <member refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1aaf0d32a63cc75edc2d53efc3077bb21a" prot="public" virt="non-virtual"><scope>org::xvm::runtime::FiberQueue</scope><name>FiberQueue</name></member>
+      <member refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1ac09e7fec907f6b6ec7ad02d5051e227b" prot="public" virt="non-virtual"><scope>org::xvm::runtime::FiberQueue</scope><name>getAny</name></member>
+      <member refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a30bc207e79c997f8f17ae5e1532c2c85" prot="public" virt="non-virtual"><scope>org::xvm::runtime::FiberQueue</scope><name>getReady</name></member>
+      <member refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a0db5eeb2f72b987cff0778ee4605d7e3" prot="private" virt="non-virtual"><scope>org::xvm::runtime::FiberQueue</scope><name>isAnyNonConcurrentWaiting</name></member>
+      <member refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a962700f6c8a6ad7bbbcc2227db292937" prot="public" virt="non-virtual"><scope>org::xvm::runtime::FiberQueue</scope><name>isEmpty</name></member>
+      <member refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a83856e6297ff2aae6e462014d7c9f10a" prot="public" virt="non-virtual"><scope>org::xvm::runtime::FiberQueue</scope><name>isReady</name></member>
+      <member refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a00c75980d5010948951d7a35a2b23141" prot="private" virt="non-virtual"><scope>org::xvm::runtime::FiberQueue</scope><name>m_aFrame</name></member>
+      <member refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a8048941641e1a910f39e19d463b2fecb" prot="private" virt="non-virtual"><scope>org::xvm::runtime::FiberQueue</scope><name>m_cSize</name></member>
+      <member refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1ae575491bc7443ed73bedaacfaf2b4075" prot="private" virt="non-virtual"><scope>org::xvm::runtime::FiberQueue</scope><name>m_ixHead</name></member>
+      <member refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1aa554c6320853cee52210ec1fdd263bc0" prot="private" virt="non-virtual"><scope>org::xvm::runtime::FiberQueue</scope><name>m_ixTail</name></member>
+      <member refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a45e45693df38c8734acfb8c40786fc4f" prot="private" virt="non-virtual"><scope>org::xvm::runtime::FiberQueue</scope><name>remove</name></member>
+      <member refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1afd94cd8096b563d1d2e1853a3ae7f486" prot="public" virt="non-virtual"><scope>org::xvm::runtime::FiberQueue</scope><name>reportStatus</name></member>
+      <member refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1adf5931bd87ca8b90390e11b27178cced" prot="public" virt="non-virtual"><scope>org::xvm::runtime::FiberQueue</scope><name>size</name></member>
+      <member refid="db/d5c/classorg_1_1xvm_1_1runtime_1_1_fiber_queue_1a5073d1b5b116ab861a69449ac2f93d21" prot="public" virt="non-virtual"><scope>org::xvm::runtime::FiberQueue</scope><name>toString</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

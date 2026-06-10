@@ -1,0 +1,295 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local" kind="class" language="Java" prot="public">
+    <compoundname>org::xvm::util::TransientThreadLocal</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ThreadLocal&lt; T &gt;</basecompoundref>
+    <templateparamlist>
+      <param>
+        <type>T</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local_1aa63b9e84a07a8d6471419055e7dc2177" prot="private" static="yes" mutable="no">
+        <type>final ThreadLocal&lt; Map&lt; <ref refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local" kindref="compound">TransientThreadLocal</ref>&lt;?&gt;, Object &gt; &gt;</type>
+        <definition>final ThreadLocal&lt;Map&lt;TransientThreadLocal&lt;?&gt;, Object&gt; &gt; org.xvm.util.TransientThreadLocal&lt; T &gt;.TRANSIENT_MAP</definition>
+        <argsstring></argsstring>
+        <name>TRANSIENT_MAP</name>
+        <qualifiedname>org.xvm.util.TransientThreadLocal.TRANSIENT_MAP</qualifiedname>
+        <initializer>= ThreadLocal.withInitial(IdentityHashMap::new)</initializer>
+        <briefdescription>
+<para>The per-thread map of values keyed by the <computeroutput><ref refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local" kindref="compound">TransientThreadLocal</ref></computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/TransientThreadLocal.java" line="138" column="38" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/TransientThreadLocal.java" bodystart="139" bodyend="-1"/>
+        <referencedby refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local_1a4ad86b62b70069d53b1b02536cdd63bf" compoundref="d7/dea/_transient_thread_local_8java" startline="70" endline="82">org.xvm.util.TransientThreadLocal&lt; T &gt;.compute</referencedby>
+        <referencedby refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local_1a962ff218e7dd061d145283acd483c5c0" compoundref="d7/dea/_transient_thread_local_8java" startline="92" endline="105">org.xvm.util.TransientThreadLocal&lt; T &gt;.computeIfAbsent</referencedby>
+        <referencedby refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local_1a2525b16be8ee74c2c325d17084d07831" compoundref="d7/dea/_transient_thread_local_8java" startline="41" endline="50">org.xvm.util.TransientThreadLocal&lt; T &gt;.get</referencedby>
+        <referencedby refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local_1a4594810d35588fac667c9bd989b4160d" compoundref="d7/dea/_transient_thread_local_8java" startline="115" endline="133">org.xvm.util.TransientThreadLocal&lt; T &gt;.push</referencedby>
+        <referencedby refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local_1ab516a92ab2930a69891155cc9dcc995f" compoundref="d7/dea/_transient_thread_local_8java" startline="58" endline="60">org.xvm.util.TransientThreadLocal&lt; T &gt;.remove</referencedby>
+        <referencedby refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local_1a0e81d6e7e56be79a95777861e8ca44c9" compoundref="d7/dea/_transient_thread_local_8java" startline="53" endline="55">org.xvm.util.TransientThreadLocal&lt; T &gt;.set</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local_1ad9e83677125ae1ac8e2c3143e5ff0872" prot="private" static="no" mutable="no">
+        <type>final <ref refid="db/d7d/interfaceorg_1_1xvm_1_1util_1_1_sentry" kindref="compound">Sentry</ref>&lt; T &gt;</type>
+        <definition>final Sentry&lt;T&gt; org.xvm.util.TransientThreadLocal&lt; T &gt;.m_sentryRemove</definition>
+        <argsstring></argsstring>
+        <name>m_sentryRemove</name>
+        <qualifiedname>org.xvm.util.TransientThreadLocal.m_sentryRemove</qualifiedname>
+        <initializer>= this::remove</initializer>
+        <briefdescription>
+<para>A reusable function for invoking this::remove. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/TransientThreadLocal.java" line="144" column="26" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/TransientThreadLocal.java" bodystart="144" bodyend="-1"/>
+        <referencedby refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local_1a4594810d35588fac667c9bd989b4160d" compoundref="d7/dea/_transient_thread_local_8java" startline="115" endline="133">org.xvm.util.TransientThreadLocal&lt; T &gt;.push</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local_1a12f55010400e4041ffe0ae6164c5b7f0" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>static&lt; S &gt; <ref refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local" kindref="compound">TransientThreadLocal</ref>&lt; S &gt;</type>
+        <definition>static&lt; S &gt; TransientThreadLocal&lt; S &gt; org.xvm.util.TransientThreadLocal&lt; T &gt;.withInitial</definition>
+        <argsstring>(Supplier&lt;? extends S &gt; supplier)</argsstring>
+        <name>withInitial</name>
+        <qualifiedname>org.xvm.util.TransientThreadLocal.withInitial</qualifiedname>
+        <param>
+          <type>Supplier&lt;? extends S &gt;</type>
+          <declname>supplier</declname>
+        </param>
+        <briefdescription>
+<para>Creates a thread local variable. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The initial value of the variable is determined by invoking the <javadoccode>get</javadoccode> method on the <javadoccode>Supplier</javadoccode>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>&lt;S&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the type of the thread local&apos;s value </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>supplier</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the supplier to be used to determine the initial value</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a new thread local variable </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/TransientThreadLocal.java" line="30" column="41" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/TransientThreadLocal.java" bodystart="30" bodyend="38"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local_1a2525b16be8ee74c2c325d17084d07831" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T org.xvm.util.TransientThreadLocal&lt; T &gt;.get</definition>
+        <argsstring>()</argsstring>
+        <name>get</name>
+        <qualifiedname>org.xvm.util.TransientThreadLocal.get</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/TransientThreadLocal.java" line="41" column="14" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/TransientThreadLocal.java" bodystart="41" bodyend="50"/>
+        <references refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local_1aa63b9e84a07a8d6471419055e7dc2177" compoundref="d7/dea/_transient_thread_local_8java" startline="139">org.xvm.util.TransientThreadLocal&lt; T &gt;.TRANSIENT_MAP</references>
+      </memberdef>
+      <memberdef kind="function" id="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local_1a0e81d6e7e56be79a95777861e8ca44c9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.util.TransientThreadLocal&lt; T &gt;.set</definition>
+        <argsstring>(T value)</argsstring>
+        <name>set</name>
+        <qualifiedname>org.xvm.util.TransientThreadLocal.set</qualifiedname>
+        <param>
+          <type>T</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/TransientThreadLocal.java" line="53" column="17" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/TransientThreadLocal.java" bodystart="53" bodyend="55"/>
+        <references refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local_1aa63b9e84a07a8d6471419055e7dc2177" compoundref="d7/dea/_transient_thread_local_8java" startline="139">org.xvm.util.TransientThreadLocal&lt; T &gt;.TRANSIENT_MAP</references>
+      </memberdef>
+      <memberdef kind="function" id="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local_1ab516a92ab2930a69891155cc9dcc995f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.util.TransientThreadLocal&lt; T &gt;.remove</definition>
+        <argsstring>()</argsstring>
+        <name>remove</name>
+        <qualifiedname>org.xvm.util.TransientThreadLocal.remove</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/TransientThreadLocal.java" line="58" column="17" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/TransientThreadLocal.java" bodystart="58" bodyend="60"/>
+        <references refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local_1aa63b9e84a07a8d6471419055e7dc2177" compoundref="d7/dea/_transient_thread_local_8java" startline="139">org.xvm.util.TransientThreadLocal&lt; T &gt;.TRANSIENT_MAP</references>
+      </memberdef>
+      <memberdef kind="function" id="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local_1a4ad86b62b70069d53b1b02536cdd63bf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T org.xvm.util.TransientThreadLocal&lt; T &gt;.compute</definition>
+        <argsstring>(Function&lt;? super T, ? extends T &gt; fn)</argsstring>
+        <name>compute</name>
+        <qualifiedname>org.xvm.util.TransientThreadLocal.compute</qualifiedname>
+        <param>
+          <type>Function&lt;? super T, ? extends T &gt;</type>
+          <declname>fn</declname>
+        </param>
+        <briefdescription>
+<para>Apply the specified function to the current value and update to the value returned from the function, removing if <javadoccode>null</javadoccode>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the function to apply</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the new value </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/TransientThreadLocal.java" line="70" column="14" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/TransientThreadLocal.java" bodystart="70" bodyend="82"/>
+        <references refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local_1aa63b9e84a07a8d6471419055e7dc2177" compoundref="d7/dea/_transient_thread_local_8java" startline="139">org.xvm.util.TransientThreadLocal&lt; T &gt;.TRANSIENT_MAP</references>
+      </memberdef>
+      <memberdef kind="function" id="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local_1a962ff218e7dd061d145283acd483c5c0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T org.xvm.util.TransientThreadLocal&lt; T &gt;.computeIfAbsent</definition>
+        <argsstring>(Supplier&lt;? extends T &gt; fn)</argsstring>
+        <name>computeIfAbsent</name>
+        <qualifiedname>org.xvm.util.TransientThreadLocal.computeIfAbsent</qualifiedname>
+        <param>
+          <type>Supplier&lt;? extends T &gt;</type>
+          <declname>fn</declname>
+        </param>
+        <briefdescription>
+<para>Apply the specified function if the current value is non-existent or <javadoccode>null</javadoccode> and update to the value returned from the function, removing if <javadoccode>null</javadoccode>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the function to apply</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the new value </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/TransientThreadLocal.java" line="92" column="14" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/TransientThreadLocal.java" bodystart="92" bodyend="105"/>
+        <references refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local_1aa63b9e84a07a8d6471419055e7dc2177" compoundref="d7/dea/_transient_thread_local_8java" startline="139">org.xvm.util.TransientThreadLocal&lt; T &gt;.TRANSIENT_MAP</references>
+      </memberdef>
+      <memberdef kind="function" id="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local_1a4594810d35588fac667c9bd989b4160d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="db/d7d/interfaceorg_1_1xvm_1_1util_1_1_sentry" kindref="compound">Sentry</ref>&lt; T &gt;</type>
+        <definition>Sentry&lt; T &gt; org.xvm.util.TransientThreadLocal&lt; T &gt;.push</definition>
+        <argsstring>(T value)</argsstring>
+        <name>push</name>
+        <qualifiedname>org.xvm.util.TransientThreadLocal.push</qualifiedname>
+        <param>
+          <type>T</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Update the value to the supplied value, and return an <computeroutput><ref refid="" kindref="compound">AutoCloseable</ref></computeroutput>, which restores the former value when <computeroutput><ref refid="" kindref="compound">closed</ref></computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new value</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a <computeroutput><ref refid="" kindref="compound">AutoCloseable</ref></computeroutput> which when closed will restore the prior value </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/TransientThreadLocal.java" line="115" column="19" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/TransientThreadLocal.java" bodystart="115" bodyend="133"/>
+        <references refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local_1ad9e83677125ae1ac8e2c3143e5ff0872" compoundref="d7/dea/_transient_thread_local_8java" startline="144">org.xvm.util.TransientThreadLocal&lt; T &gt;.m_sentryRemove</references>
+        <references refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local_1aa63b9e84a07a8d6471419055e7dc2177" compoundref="d7/dea/_transient_thread_local_8java" startline="139">org.xvm.util.TransientThreadLocal&lt; T &gt;.TRANSIENT_MAP</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A <computeroutput><ref refid="" kindref="compound">ThreadLocal</ref></computeroutput> variant optimized for short-lived thread-locals. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Essentially, if the reference to the thread-local is not <javadoccode>static</javadoccode>, it will be advantageous to use a <computeroutput><ref refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local" kindref="compound">TransientThreadLocal</ref></computeroutput> rather than a <computeroutput><ref refid="" kindref="compound">ThreadLocal</ref></computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>&lt;T&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value type </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ThreadLocal&lt; T &gt;</label>
+      </node>
+      <node id="1">
+        <label>org.xvm.util.TransientThreadLocal&lt; T &gt;</label>
+        <link refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ThreadLocal&lt; T &gt;</label>
+      </node>
+      <node id="1">
+        <label>org.xvm.util.TransientThreadLocal&lt; T &gt;</label>
+        <link refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/TransientThreadLocal.java" line="19" column="7" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/TransientThreadLocal.java" bodystart="20" bodyend="145"/>
+    <listofallmembers>
+      <member refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local_1a4ad86b62b70069d53b1b02536cdd63bf" prot="public" virt="non-virtual"><scope>org::xvm::util::TransientThreadLocal</scope><name>compute</name></member>
+      <member refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local_1a962ff218e7dd061d145283acd483c5c0" prot="public" virt="non-virtual"><scope>org::xvm::util::TransientThreadLocal</scope><name>computeIfAbsent</name></member>
+      <member refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local_1a2525b16be8ee74c2c325d17084d07831" prot="public" virt="non-virtual"><scope>org::xvm::util::TransientThreadLocal</scope><name>get</name></member>
+      <member refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local_1ad9e83677125ae1ac8e2c3143e5ff0872" prot="private" virt="non-virtual"><scope>org::xvm::util::TransientThreadLocal</scope><name>m_sentryRemove</name></member>
+      <member refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local_1a4594810d35588fac667c9bd989b4160d" prot="public" virt="non-virtual"><scope>org::xvm::util::TransientThreadLocal</scope><name>push</name></member>
+      <member refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local_1ab516a92ab2930a69891155cc9dcc995f" prot="public" virt="non-virtual"><scope>org::xvm::util::TransientThreadLocal</scope><name>remove</name></member>
+      <member refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local_1a0e81d6e7e56be79a95777861e8ca44c9" prot="public" virt="non-virtual"><scope>org::xvm::util::TransientThreadLocal</scope><name>set</name></member>
+      <member refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local_1aa63b9e84a07a8d6471419055e7dc2177" prot="private" virt="non-virtual"><scope>org::xvm::util::TransientThreadLocal</scope><name>TRANSIENT_MAP</name></member>
+      <member refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local_1a12f55010400e4041ffe0ae6164c5b7f0" prot="public" virt="non-virtual"><scope>org::xvm::util::TransientThreadLocal</scope><name>withInitial</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

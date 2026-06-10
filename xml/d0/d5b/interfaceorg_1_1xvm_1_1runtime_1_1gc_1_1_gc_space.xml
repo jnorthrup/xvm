@@ -1,0 +1,437 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space" kind="interface" language="Java" prot="public">
+    <compoundname>org::xvm::runtime::gc::GcSpace</compoundname>
+    <derivedcompoundref refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space" prot="public" virt="non-virtual">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;</derivedcompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a164c8ac1ffb0bbfd1fcbdc6aa17a6b53" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long org.xvm.runtime.gc.GcSpace.NULL</definition>
+        <argsstring></argsstring>
+        <name>NULL</name>
+        <qualifiedname>org.xvm.runtime.gc.GcSpace.NULL</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>The <javadoccode>null</javadoccode> address value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/GcSpace.java" line="94" column="10" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/GcSpace.java" bodystart="94" bodyend="-1"/>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a47cad10609fd917c5b0b4285704da2f6" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="102" endline="121">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.ensure</referencedby>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ae0ddefdba3c3bf49de5d42dc21e7c938" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="278" endline="300">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.handleWeakSweep</referencedby>
+        <referencedby refid="d1/d46/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1_1_root_set_1a4e02b5a92ece80a4005d1ff79c23ac95" compoundref="d6/d0c/_mark_and_sweep_gc_space_tests_8java" startline="37" endline="63">org.xvm.runtime.gc.MarkAndSweepGcSpaceTests.RootSet.retained</referencedby>
+        <referencedby refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1ac22a84a3c9f2a9a1f291491185311448" compoundref="d6/d0c/_mark_and_sweep_gc_space_tests_8java" startline="196" endline="228">org.xvm.runtime.gc.MarkAndSweepGcSpaceTests.shouldClearWeakRefsToUnreachables</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a0ce4b2281a4c8e0ddef98a47c2e5b7d6" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int org.xvm.runtime.gc.GcSpace.WEAK_REFERENT_FIELD</definition>
+        <argsstring></argsstring>
+        <name>WEAK_REFERENT_FIELD</name>
+        <qualifiedname>org.xvm.runtime.gc.GcSpace.WEAK_REFERENT_FIELD</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>For weak-refs the field which contains the referent. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/GcSpace.java" line="99" column="9" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/GcSpace.java" bodystart="99" bodyend="-1"/>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ae0ddefdba3c3bf49de5d42dc21e7c938" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="278" endline="300">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.handleWeakSweep</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1aa731185a64236ea208fe30179eca5af8" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int org.xvm.runtime.gc.GcSpace.WEAK_NOTIFIER_FIELD</definition>
+        <argsstring></argsstring>
+        <name>WEAK_NOTIFIER_FIELD</name>
+        <qualifiedname>org.xvm.runtime.gc.GcSpace.WEAK_NOTIFIER_FIELD</qualifiedname>
+        <initializer>= 1</initializer>
+        <briefdescription>
+<para>For weak-refs the field which contains the notifier. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/GcSpace.java" line="104" column="9" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/GcSpace.java" bodystart="104" bodyend="-1"/>
+        <referencedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ae0ddefdba3c3bf49de5d42dc21e7c938" compoundref="de/dfe/_mark_and_sweep_gc_space_8java" startline="278" endline="300">org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;.handleWeakSweep</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a469b6a1e680045c0a9dd63b4d7401a64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>long</type>
+        <definition>long org.xvm.runtime.gc.GcSpace.allocate</definition>
+        <argsstring>(int cFields)</argsstring>
+        <name>allocate</name>
+        <qualifiedname>org.xvm.runtime.gc.GcSpace.allocate</qualifiedname>
+        <reimplementedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a319c336fa8e86bf902d5deaef0d9ad57">allocate</reimplementedby>
+        <param>
+          <type>int</type>
+          <declname>cFields</declname>
+        </param>
+        <exceptions> throws OutOfMemoryError</exceptions>
+        <briefdescription>
+<para>Allocate an object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cFields</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of fields to be able to store </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the address of the allocated resource </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/GcSpace.java" line="19" column="10"/>
+        <referencedby refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1a32e0c9d5145fac85484587bc2fcdf7a1" compoundref="d6/d0c/_mark_and_sweep_gc_space_tests_8java" startline="67" endline="71">org.xvm.runtime.gc.MarkAndSweepGcSpaceTests.shouldAllocateAndGet</referencedby>
+        <referencedby refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1a85497561f08a0a4b6b358dc2627ab7bf" compoundref="d6/d0c/_mark_and_sweep_gc_space_tests_8java" startline="135" endline="168">org.xvm.runtime.gc.MarkAndSweepGcSpaceTests.shouldAutoCollect</referencedby>
+        <referencedby refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1ac22a84a3c9f2a9a1f291491185311448" compoundref="d6/d0c/_mark_and_sweep_gc_space_tests_8java" startline="196" endline="228">org.xvm.runtime.gc.MarkAndSweepGcSpaceTests.shouldClearWeakRefsToUnreachables</referencedby>
+        <referencedby refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1ae6aa513aec3184d72a454742eb057db6" compoundref="d6/d0c/_mark_and_sweep_gc_space_tests_8java" startline="74" endline="98">org.xvm.runtime.gc.MarkAndSweepGcSpaceTests.shouldCollectUnreachables</referencedby>
+        <referencedby refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1a6e5d39daae7af6220ca05e69cf771a66" compoundref="d6/d0c/_mark_and_sweep_gc_space_tests_8java" startline="101" endline="132">org.xvm.runtime.gc.MarkAndSweepGcSpaceTests.shouldNotCollectDeepReachables</referencedby>
+        <referencedby refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1a247492aac3b3a19f0cb403d01c28f2b7" compoundref="d6/d0c/_mark_and_sweep_gc_space_tests_8java" startline="171" endline="193">org.xvm.runtime.gc.MarkAndSweepGcSpaceTests.shouldOOMEOnHardLimit</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1ae860182a3561085d949bf8b7da9f1ddb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>long</type>
+        <definition>long org.xvm.runtime.gc.GcSpace.allocateWeak</definition>
+        <argsstring>(int cFields)</argsstring>
+        <name>allocateWeak</name>
+        <qualifiedname>org.xvm.runtime.gc.GcSpace.allocateWeak</qualifiedname>
+        <reimplementedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1aa1f0ad83934b939b14ee24e7031dbb6e">allocateWeak</reimplementedby>
+        <param>
+          <type>int</type>
+          <declname>cFields</declname>
+        </param>
+        <exceptions> throws OutOfMemoryError</exceptions>
+        <briefdescription>
+<para>Allocate a weak-ref based object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>As the object is indicated to a &quot;weak&quot; reference, <computeroutput><ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a70228f9d8da3cbf746e9e9a5d79bb2ea" kindref="member">field 0</ref></computeroutput> must be the field which stores the weak referent, and <computeroutput><ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a70228f9d8da3cbf746e9e9a5d79bb2ea" kindref="member">field 1</ref></computeroutput> if it exists is used to store the notifier (if any).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cFields</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of fields to be able to store </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the address of the allocated resource </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/GcSpace.java" line="31" column="10"/>
+        <referencedby refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1ac22a84a3c9f2a9a1f291491185311448" compoundref="d6/d0c/_mark_and_sweep_gc_space_tests_8java" startline="196" endline="228">org.xvm.runtime.gc.MarkAndSweepGcSpaceTests.shouldClearWeakRefsToUnreachables</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a52977baf58485cb20c97bf3749438e96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.runtime.gc.GcSpace.isValid</definition>
+        <argsstring>(long address)</argsstring>
+        <name>isValid</name>
+        <qualifiedname>org.xvm.runtime.gc.GcSpace.isValid</qualifiedname>
+        <reimplementedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a1208e6dc21f743fd564bfa6c1df99d34">isValid</reimplementedby>
+        <param>
+          <type>long</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+<para>Return <javadoccode>true</javadoccode> if the address maps to an object in this <computeroutput><ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space" kindref="compound">GcSpace</ref></computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the address </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><javadoccode>true</javadoccode> if the address maps to an object in this <computeroutput><ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space" kindref="compound">GcSpace</ref></computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/GcSpace.java" line="40" column="13"/>
+        <referencedby refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1a32e0c9d5145fac85484587bc2fcdf7a1" compoundref="d6/d0c/_mark_and_sweep_gc_space_tests_8java" startline="67" endline="71">org.xvm.runtime.gc.MarkAndSweepGcSpaceTests.shouldAllocateAndGet</referencedby>
+        <referencedby refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1a85497561f08a0a4b6b358dc2627ab7bf" compoundref="d6/d0c/_mark_and_sweep_gc_space_tests_8java" startline="135" endline="168">org.xvm.runtime.gc.MarkAndSweepGcSpaceTests.shouldAutoCollect</referencedby>
+        <referencedby refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1ac22a84a3c9f2a9a1f291491185311448" compoundref="d6/d0c/_mark_and_sweep_gc_space_tests_8java" startline="196" endline="228">org.xvm.runtime.gc.MarkAndSweepGcSpaceTests.shouldClearWeakRefsToUnreachables</referencedby>
+        <referencedby refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1ae6aa513aec3184d72a454742eb057db6" compoundref="d6/d0c/_mark_and_sweep_gc_space_tests_8java" startline="74" endline="98">org.xvm.runtime.gc.MarkAndSweepGcSpaceTests.shouldCollectUnreachables</referencedby>
+        <referencedby refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1a6e5d39daae7af6220ca05e69cf771a66" compoundref="d6/d0c/_mark_and_sweep_gc_space_tests_8java" startline="101" endline="132">org.xvm.runtime.gc.MarkAndSweepGcSpaceTests.shouldNotCollectDeepReachables</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a70228f9d8da3cbf746e9e9a5d79bb2ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>long</type>
+        <definition>long org.xvm.runtime.gc.GcSpace.getField</definition>
+        <argsstring>(long address, int index)</argsstring>
+        <name>getField</name>
+        <qualifiedname>org.xvm.runtime.gc.GcSpace.getField</qualifiedname>
+        <reimplementedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a6e8be100b3e88374b499d3d65f9e4608">getField</reimplementedby>
+        <param>
+          <type>long</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <exceptions> throws <ref refid="d6/de2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_seg_fault" kindref="compound">SegFault</ref></exceptions>
+        <briefdescription>
+<para>Get the field value at a given index. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the object address </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the field index</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the field value </para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>SegFault</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if the supplied address does not map to a live object </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/GcSpace.java" line="50" column="10"/>
+        <referencedby refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1ac22a84a3c9f2a9a1f291491185311448" compoundref="d6/d0c/_mark_and_sweep_gc_space_tests_8java" startline="196" endline="228">org.xvm.runtime.gc.MarkAndSweepGcSpaceTests.shouldClearWeakRefsToUnreachables</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1af081dc3f1a888800cef1721393ebcef2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.runtime.gc.GcSpace.setField</definition>
+        <argsstring>(long address, int index, long handle)</argsstring>
+        <name>setField</name>
+        <qualifiedname>org.xvm.runtime.gc.GcSpace.setField</qualifiedname>
+        <reimplementedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a42d978ef90fc819d5cdb04c869f593d0">setField</reimplementedby>
+        <param>
+          <type>long</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>handle</declname>
+        </param>
+        <exceptions> throws <ref refid="d6/de2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_seg_fault" kindref="compound">SegFault</ref></exceptions>
+        <briefdescription>
+<para>Set the field value at a given index. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the object address </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the field index </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value to set </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>SegFault</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if the supplied address does not map to a live object </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/GcSpace.java" line="61" column="10"/>
+        <referencedby refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1a85497561f08a0a4b6b358dc2627ab7bf" compoundref="d6/d0c/_mark_and_sweep_gc_space_tests_8java" startline="135" endline="168">org.xvm.runtime.gc.MarkAndSweepGcSpaceTests.shouldAutoCollect</referencedby>
+        <referencedby refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1ac22a84a3c9f2a9a1f291491185311448" compoundref="d6/d0c/_mark_and_sweep_gc_space_tests_8java" startline="196" endline="228">org.xvm.runtime.gc.MarkAndSweepGcSpaceTests.shouldClearWeakRefsToUnreachables</referencedby>
+        <referencedby refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1a6e5d39daae7af6220ca05e69cf771a66" compoundref="d6/d0c/_mark_and_sweep_gc_space_tests_8java" startline="101" endline="132">org.xvm.runtime.gc.MarkAndSweepGcSpaceTests.shouldNotCollectDeepReachables</referencedby>
+        <referencedby refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1a247492aac3b3a19f0cb403d01c28f2b7" compoundref="d6/d0c/_mark_and_sweep_gc_space_tests_8java" startline="171" endline="193">org.xvm.runtime.gc.MarkAndSweepGcSpaceTests.shouldOOMEOnHardLimit</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1ad4157d3290045f2ba3c983bb2ea29b92" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.runtime.gc.GcSpace.addRoot</definition>
+        <argsstring>(Supplier&lt;? extends LongMuterator &gt; root)</argsstring>
+        <name>addRoot</name>
+        <qualifiedname>org.xvm.runtime.gc.GcSpace.addRoot</qualifiedname>
+        <reimplementedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1abf68b05346ed5cd7223c0ada865672a1">addRoot</reimplementedby>
+        <param>
+          <type>Supplier&lt;? extends <ref refid="d4/d58/interfaceorg_1_1xvm_1_1util_1_1_long_muterator" kindref="compound">LongMuterator</ref> &gt;</type>
+          <declname>root</declname>
+        </param>
+        <briefdescription>
+<para>Add a gc root to this space. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Added roots must ultimately be <computeroutput><ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a6e0c09c03d62d83e7d43a625913be6b0" kindref="member">removed</ref></computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>root</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the root object </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/GcSpace.java" line="72" column="10"/>
+        <referencedby refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1a85497561f08a0a4b6b358dc2627ab7bf" compoundref="d6/d0c/_mark_and_sweep_gc_space_tests_8java" startline="135" endline="168">org.xvm.runtime.gc.MarkAndSweepGcSpaceTests.shouldAutoCollect</referencedby>
+        <referencedby refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1ac22a84a3c9f2a9a1f291491185311448" compoundref="d6/d0c/_mark_and_sweep_gc_space_tests_8java" startline="196" endline="228">org.xvm.runtime.gc.MarkAndSweepGcSpaceTests.shouldClearWeakRefsToUnreachables</referencedby>
+        <referencedby refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1ae6aa513aec3184d72a454742eb057db6" compoundref="d6/d0c/_mark_and_sweep_gc_space_tests_8java" startline="74" endline="98">org.xvm.runtime.gc.MarkAndSweepGcSpaceTests.shouldCollectUnreachables</referencedby>
+        <referencedby refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1a6e5d39daae7af6220ca05e69cf771a66" compoundref="d6/d0c/_mark_and_sweep_gc_space_tests_8java" startline="101" endline="132">org.xvm.runtime.gc.MarkAndSweepGcSpaceTests.shouldNotCollectDeepReachables</referencedby>
+        <referencedby refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1a247492aac3b3a19f0cb403d01c28f2b7" compoundref="d6/d0c/_mark_and_sweep_gc_space_tests_8java" startline="171" endline="193">org.xvm.runtime.gc.MarkAndSweepGcSpaceTests.shouldOOMEOnHardLimit</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a6e0c09c03d62d83e7d43a625913be6b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.runtime.gc.GcSpace.removeRoot</definition>
+        <argsstring>(Supplier&lt;? extends LongMuterator &gt; root)</argsstring>
+        <name>removeRoot</name>
+        <qualifiedname>org.xvm.runtime.gc.GcSpace.removeRoot</qualifiedname>
+        <reimplementedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1adddd139d01f5e2ef73a88790d1780445">removeRoot</reimplementedby>
+        <param>
+          <type>Supplier&lt;? extends <ref refid="d4/d58/interfaceorg_1_1xvm_1_1util_1_1_long_muterator" kindref="compound">LongMuterator</ref> &gt;</type>
+          <declname>root</declname>
+        </param>
+        <briefdescription>
+<para>Remove a gc root from this space. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>root</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the root object </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/GcSpace.java" line="79" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a913d0c95c433bc7cbf05b3345c9f3652" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.runtime.gc.GcSpace.gc</definition>
+        <argsstring>()</argsstring>
+        <name>gc</name>
+        <qualifiedname>org.xvm.runtime.gc.GcSpace.gc</qualifiedname>
+        <reimplementedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1ae090e5ec7999d519d31cc799fa86b615">gc</reimplementedby>
+        <briefdescription>
+<para>Perform a garbage collection cycle in an attempt to reclaim memory. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/GcSpace.java" line="84" column="10"/>
+        <referencedby refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1ac22a84a3c9f2a9a1f291491185311448" compoundref="d6/d0c/_mark_and_sweep_gc_space_tests_8java" startline="196" endline="228">org.xvm.runtime.gc.MarkAndSweepGcSpaceTests.shouldClearWeakRefsToUnreachables</referencedby>
+        <referencedby refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1ae6aa513aec3184d72a454742eb057db6" compoundref="d6/d0c/_mark_and_sweep_gc_space_tests_8java" startline="74" endline="98">org.xvm.runtime.gc.MarkAndSweepGcSpaceTests.shouldCollectUnreachables</referencedby>
+        <referencedby refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1a6e5d39daae7af6220ca05e69cf771a66" compoundref="d6/d0c/_mark_and_sweep_gc_space_tests_8java" startline="101" endline="132">org.xvm.runtime.gc.MarkAndSweepGcSpaceTests.shouldNotCollectDeepReachables</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a7b6aff42bd4b27fd817c0ffe5122cb7d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>long</type>
+        <definition>long org.xvm.runtime.gc.GcSpace.getByteCount</definition>
+        <argsstring>()</argsstring>
+        <name>getByteCount</name>
+        <qualifiedname>org.xvm.runtime.gc.GcSpace.getByteCount</qualifiedname>
+        <reimplementedby refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_1a9e3a25ee65a5b84f878f8a9c42e63e3f">getByteCount</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the amount of memory consumed by objects managed by this <computeroutput><ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space" kindref="compound">GcSpace</ref></computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/GcSpace.java" line="89" column="10"/>
+        <referencedby refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1a85497561f08a0a4b6b358dc2627ab7bf" compoundref="d6/d0c/_mark_and_sweep_gc_space_tests_8java" startline="135" endline="168">org.xvm.runtime.gc.MarkAndSweepGcSpaceTests.shouldAutoCollect</referencedby>
+        <referencedby refid="d4/d28/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space_tests_1a247492aac3b3a19f0cb403d01c28f2b7" compoundref="d6/d0c/_mark_and_sweep_gc_space_tests_8java" startline="171" endline="193">org.xvm.runtime.gc.MarkAndSweepGcSpaceTests.shouldOOMEOnHardLimit</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>An interface describing an automatic memory manager for objects with <javadoccode>long</javadoccode> addresses. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><computeroutput><ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a469b6a1e680045c0a9dd63b4d7401a64" kindref="member">allocated</ref></computeroutput> objects are considered to be garbage once they are not reachable from a <computeroutput><ref refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1ad4157d3290045f2ba3c983bb2ea29b92" kindref="member">root</ref></computeroutput>. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>org.xvm.runtime.gc.GcSpace</label>
+        <link refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space"/>
+      </node>
+      <node id="2">
+        <label>org.xvm.runtime.gc.MarkAndSweepGcSpace&lt; V &gt;</label>
+        <link refid="d0/dc2/classorg_1_1xvm_1_1runtime_1_1gc_1_1_mark_and_sweep_gc_space"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/GcSpace.java" line="12" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/gc/GcSpace.java" bodystart="12" bodyend="105"/>
+    <listofallmembers>
+      <member refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1ad4157d3290045f2ba3c983bb2ea29b92" prot="public" virt="non-virtual"><scope>org::xvm::runtime::gc::GcSpace</scope><name>addRoot</name></member>
+      <member refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a469b6a1e680045c0a9dd63b4d7401a64" prot="public" virt="non-virtual"><scope>org::xvm::runtime::gc::GcSpace</scope><name>allocate</name></member>
+      <member refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1ae860182a3561085d949bf8b7da9f1ddb" prot="public" virt="non-virtual"><scope>org::xvm::runtime::gc::GcSpace</scope><name>allocateWeak</name></member>
+      <member refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a913d0c95c433bc7cbf05b3345c9f3652" prot="public" virt="non-virtual"><scope>org::xvm::runtime::gc::GcSpace</scope><name>gc</name></member>
+      <member refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a7b6aff42bd4b27fd817c0ffe5122cb7d" prot="public" virt="non-virtual"><scope>org::xvm::runtime::gc::GcSpace</scope><name>getByteCount</name></member>
+      <member refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a70228f9d8da3cbf746e9e9a5d79bb2ea" prot="public" virt="non-virtual"><scope>org::xvm::runtime::gc::GcSpace</scope><name>getField</name></member>
+      <member refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a52977baf58485cb20c97bf3749438e96" prot="public" virt="non-virtual"><scope>org::xvm::runtime::gc::GcSpace</scope><name>isValid</name></member>
+      <member refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a164c8ac1ffb0bbfd1fcbdc6aa17a6b53" prot="public" virt="non-virtual"><scope>org::xvm::runtime::gc::GcSpace</scope><name>NULL</name></member>
+      <member refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a6e0c09c03d62d83e7d43a625913be6b0" prot="public" virt="non-virtual"><scope>org::xvm::runtime::gc::GcSpace</scope><name>removeRoot</name></member>
+      <member refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1af081dc3f1a888800cef1721393ebcef2" prot="public" virt="non-virtual"><scope>org::xvm::runtime::gc::GcSpace</scope><name>setField</name></member>
+      <member refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1aa731185a64236ea208fe30179eca5af8" prot="public" virt="non-virtual"><scope>org::xvm::runtime::gc::GcSpace</scope><name>WEAK_NOTIFIER_FIELD</name></member>
+      <member refid="d0/d5b/interfaceorg_1_1xvm_1_1runtime_1_1gc_1_1_gc_space_1a0ce4b2281a4c8e0ddef98a47c2e5b7d6" prot="public" virt="non-virtual"><scope>org::xvm::runtime::gc::GcSpace</scope><name>WEAK_REFERENT_FIELD</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

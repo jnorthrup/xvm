@@ -1,0 +1,11 @@
+var _f_p_number_8java =
+[
+    [ "org.xtclang.ecstasy.numbers.FPNumber", "d0/df0/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_number.html", "d0/df0/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_number" ],
+    [ "org.xtclang.ecstasy.numbers.FPNumber.Rounding", "de/d2c/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_number_1_1_rounding.html", "de/d2c/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_number_1_1_rounding" ],
+    [ "org.xtclang.ecstasy.numbers.FPNumber.Rounding.TiesToEven", "dd/d81/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_number_1_1_rounding_1_1_ties_to_even.html", "dd/d81/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_number_1_1_rounding_1_1_ties_to_even" ],
+    [ "org.xtclang.ecstasy.numbers.FPNumber.Rounding.TiesToAway", "d1/d40/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_number_1_1_rounding_1_1_ties_to_away.html", "d1/d40/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_number_1_1_rounding_1_1_ties_to_away" ],
+    [ "org.xtclang.ecstasy.numbers.FPNumber.Rounding.TowardPositive", "d8/db7/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_number_1_1_rounding_1_1_toward_positive.html", "d8/db7/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_number_1_1_rounding_1_1_toward_positive" ],
+    [ "org.xtclang.ecstasy.numbers.FPNumber.Rounding.TowardZero", "da/dc3/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_number_1_1_rounding_1_1_toward_zero.html", "da/dc3/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_number_1_1_rounding_1_1_toward_zero" ],
+    [ "org.xtclang.ecstasy.numbers.FPNumber.Rounding.TowardNegative", "d1/d7b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_number_1_1_rounding_1_1_toward_negative.html", "d1/d7b/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_number_1_1_rounding_1_1_toward_negative" ],
+    [ "org.xtclang.ecstasy.numbers.FPNumber.eRounding", "d1/d17/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_number_1_1e_rounding.html", "d1/d17/classorg_1_1xtclang_1_1ecstasy_1_1numbers_1_1_f_p_number_1_1e_rounding" ]
+];

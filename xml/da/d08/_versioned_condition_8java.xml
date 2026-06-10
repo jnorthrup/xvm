@@ -1,0 +1,267 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="da/d08/_versioned_condition_8java" kind="file" language="Java">
+    <compoundname>VersionedCondition.java</compoundname>
+    <includes local="no">java.io.DataInput</includes>
+    <includes local="no">java.io.DataOutput</includes>
+    <includes local="no">java.io.IOException</includes>
+    <includes local="no">java.util.Collections</includes>
+    <includes local="no">java.util.Set</includes>
+    <includes local="no">java.util.function.Consumer</includes>
+    <includes local="no">org.xvm.asm.Constant</includes>
+    <includes local="no">org.xvm.asm.ConstantPool</includes>
+    <includes local="no">org.xvm.asm.LinkerContext</includes>
+    <includes local="no">org.xvm.asm.Version</includes>
+    <includes local="no">org.xvm.util.Hash</includes>
+    <includes local="no">org.xvm.util.Handy.readMagnitude</includes>
+    <includes local="no">org.xvm.util.Handy.writeMagnitude</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/constants/VersionedCondition.java</label>
+        <link refid="da/d08/_versioned_condition_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.io.DataInput</label>
+      </node>
+      <node id="3">
+        <label>java.io.DataOutput</label>
+      </node>
+      <node id="4">
+        <label>java.io.IOException</label>
+      </node>
+      <node id="5">
+        <label>java.util.Collections</label>
+      </node>
+      <node id="6">
+        <label>java.util.Set</label>
+      </node>
+      <node id="7">
+        <label>java.util.function.Consumer</label>
+      </node>
+      <node id="8">
+        <label>org.xvm.asm.Constant</label>
+      </node>
+      <node id="9">
+        <label>org.xvm.asm.ConstantPool</label>
+      </node>
+      <node id="10">
+        <label>org.xvm.asm.LinkerContext</label>
+      </node>
+      <node id="11">
+        <label>org.xvm.asm.Version</label>
+      </node>
+      <node id="13">
+        <label>org.xvm.util.Handy.readMagnitude</label>
+      </node>
+      <node id="14">
+        <label>org.xvm.util.Handy.writeMagnitude</label>
+      </node>
+      <node id="12">
+        <label>org.xvm.util.Hash</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition" prot="public">org::xvm::asm::constants::VersionedCondition</innerclass>
+    <innernamespace refid="d3/dcd/namespaceorg_1_1xvm_1_1asm_1_1constants">org::xvm::asm::constants</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.asm.constants;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.DataInput;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.DataOutput;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.IOException;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Collections;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Set;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.function.Consumer;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Constant;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ConstantPool;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.LinkerContext;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Version;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.util.Hash;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.util.Handy.readMagnitude;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.util.Handy.writeMagnitude;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1a120a573461e8097cf5548317427028fa" kindref="member">VersionedCondition</ref></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="da/df0/classorg_1_1xvm_1_1asm_1_1constants_1_1_conditional_constant_1a783beaadcf892cfc3ada43ae7278e8c3" kindref="member">ConditionalConstant</ref><sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>constructors<sp/>--------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1a120a573461e8097cf5548317427028fa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1a120a573461e8097cf5548317427028fa" kindref="member">VersionedCondition</ref>(<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref><sp/>pool,<sp/><ref refid="d0/db9/classorg_1_1xvm_1_1asm_1_1constants_1_1_version_constant" kindref="compound">VersionConstant</ref><sp/>constVer)<sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(pool);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1af3bbc1c98e6748bbfadb44479da740ef" kindref="member">m_constVer</ref><sp/><sp/>=<sp/>constVer;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58" refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1af20b03b04ff75e8dc688c23497da30bb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1af20b03b04ff75e8dc688c23497da30bb" kindref="member">VersionedCondition</ref>(<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref><sp/>pool,<sp/><ref refid="d7/d71/enumorg_1_1xvm_1_1asm_1_1_constant_1_1_format" kindref="compound">Format</ref><sp/>format,<sp/>DataInput<sp/>in)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(pool);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1a829f34e0eb95cbffcebd2afd795045c3" kindref="member">m_iVer</ref><sp/>=<sp/>readMagnitude(in);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="66" refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1a408f07fa5f98021ff97370c1ffee60bf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1a408f07fa5f98021ff97370c1ffee60bf" kindref="member">resolveConstants</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1af3bbc1c98e6748bbfadb44479da740ef" kindref="member">m_constVer</ref><sp/>=<sp/><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1abb94bf2f63ad2caba56a57f1557d1a09" kindref="member">getConstantPool</ref>().<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a73a94e2e0d105c95a3574349a4816baa" kindref="member">getConstant</ref>(<ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1a829f34e0eb95cbffcebd2afd795045c3" kindref="member">m_iVer</ref>,<sp/><ref refid="d0/db9/classorg_1_1xvm_1_1asm_1_1constants_1_1_version_constant" kindref="compound">VersionConstant</ref>.class);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>type-specific<sp/>functionality<sp/>-----------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78" refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1ac53507eb186a6514001a1a64ba1dd0a7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d4/de1/classorg_1_1xvm_1_1asm_1_1_version" kindref="compound">Version</ref><sp/><ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1ac53507eb186a6514001a1a64ba1dd0a7" kindref="member">getVersion</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1af3bbc1c98e6748bbfadb44479da740ef" kindref="member">m_constVer</ref>.getVersion();</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87" refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1ad55ebbd567606a74b02ca37898abea0f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d0/db9/classorg_1_1xvm_1_1asm_1_1constants_1_1_version_constant" kindref="compound">VersionConstant</ref><sp/><ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1ad55ebbd567606a74b02ca37898abea0f" kindref="member">getVersionConstant</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1af3bbc1c98e6748bbfadb44479da740ef" kindref="member">m_constVer</ref>;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>ConditionalConstant<sp/>methods<sp/>-----------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="95" refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1a9d22e61891aaa1e1df4f7d3f3b1e1804" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1a9d22e61891aaa1e1df4f7d3f3b1e1804" kindref="member">evaluate</ref>(<ref refid="dc/dd3/interfaceorg_1_1xvm_1_1asm_1_1_linker_context" kindref="compound">LinkerContext</ref><sp/>ctx)<sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ctx.<ref refid="dc/dd3/interfaceorg_1_1xvm_1_1asm_1_1_linker_context_1aacbc431d2a4e21e2dd9960c68cf74a1a" kindref="member">isVersion</ref>(<ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1af3bbc1c98e6748bbfadb44479da740ef" kindref="member">m_constVer</ref>);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="100" refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1aafbc40961c39eb705a6a166bb7752e76" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1aafbc40961c39eb705a6a166bb7752e76" kindref="member">isTerminal</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="105" refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1a35dddbbedd338e0b7db8cfbcabcfd229" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Set&lt;Version&gt;<sp/><ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1a35dddbbedd338e0b7db8cfbcabcfd229" kindref="member">versions</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Collections.singleton(<ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1af3bbc1c98e6748bbfadb44479da740ef" kindref="member">m_constVer</ref>.getVersion());</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="110" refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1a02de72ef5317f09b11143b3ed16fc995" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="da/df0/classorg_1_1xvm_1_1asm_1_1constants_1_1_conditional_constant_1a783beaadcf892cfc3ada43ae7278e8c3" kindref="member">ConditionalConstant</ref><sp/><ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1a02de72ef5317f09b11143b3ed16fc995" kindref="member">addVersion</ref>(<ref refid="d4/de1/classorg_1_1xvm_1_1asm_1_1_version" kindref="compound">Version</ref><sp/>ver)<sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ver.<ref refid="d4/de1/classorg_1_1xvm_1_1asm_1_1_version_1a6346bb36318f68e6fe67819089c48214" kindref="member">equals</ref>(<ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1ac53507eb186a6514001a1a64ba1dd0a7" kindref="member">getVersion</ref>()))<sp/>{</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref><sp/>pool<sp/>=<sp/><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1abb94bf2f63ad2caba56a57f1557d1a09" kindref="member">getConstantPool</ref>();</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1asm_1_1constants_1_1_any_condition" kindref="compound">AnyCondition</ref>(pool,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>pool.<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1af259879c5f0ef74c32f547629a58acb9" kindref="member">ensureVersionedCondition</ref>(ver));</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="120" refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1aad355ec77118bc3ea61232b6d3d4a3db" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="da/df0/classorg_1_1xvm_1_1asm_1_1constants_1_1_conditional_constant_1a783beaadcf892cfc3ada43ae7278e8c3" kindref="member">ConditionalConstant</ref><sp/><ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1aad355ec77118bc3ea61232b6d3d4a3db" kindref="member">removeVersion</ref>(<ref refid="d4/de1/classorg_1_1xvm_1_1asm_1_1_version" kindref="compound">Version</ref><sp/>ver)<sp/>{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ver.<ref refid="d4/de1/classorg_1_1xvm_1_1asm_1_1_version_1a6346bb36318f68e6fe67819089c48214" kindref="member">equals</ref>(<ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1ac53507eb186a6514001a1a64ba1dd0a7" kindref="member">getVersion</ref>())</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>null</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="127" refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1a918fdd52665297249d27017fb4cb4b7a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d7/d0c/enumorg_1_1xvm_1_1asm_1_1constants_1_1_conditional_constant_1_1_relation" kindref="compound">Relation</ref><sp/><ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1a918fdd52665297249d27017fb4cb4b7a" kindref="member">calcRelation</ref>(<ref refid="da/df0/classorg_1_1xvm_1_1asm_1_1constants_1_1_conditional_constant_1a783beaadcf892cfc3ada43ae7278e8c3" kindref="member">ConditionalConstant</ref><sp/>that)<sp/>{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(that<sp/>instanceof<sp/><ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1a120a573461e8097cf5548317427028fa" kindref="member">VersionedCondition</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/de1/classorg_1_1xvm_1_1asm_1_1_version" kindref="compound">Version</ref><sp/>verThis<sp/>=<sp/>this.<ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1af3bbc1c98e6748bbfadb44479da740ef" kindref="member">m_constVer</ref>.getVersion();</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/de1/classorg_1_1xvm_1_1asm_1_1_version" kindref="compound">Version</ref><sp/>verThat<sp/>=<sp/>((<ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1a120a573461e8097cf5548317427028fa" kindref="member">VersionedCondition</ref>)<sp/>that).<ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1af3bbc1c98e6748bbfadb44479da740ef" kindref="member">m_constVer</ref>.getVersion();</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>verThis.<ref refid="d4/de1/classorg_1_1xvm_1_1asm_1_1_version_1ab70a38dca6456e979ffb66b4d2db9278" kindref="member">isSameAs</ref>(verThat)</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>Relation.EQUIV</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="d7/d0c/enumorg_1_1xvm_1_1asm_1_1constants_1_1_conditional_constant_1_1_relation" kindref="compound">Relation</ref>.<ref refid="d7/d0c/enumorg_1_1xvm_1_1asm_1_1constants_1_1_conditional_constant_1_1_relation_1a250a27a81b03103dc182a7946c5648b6" kindref="member">MUTEX</ref>;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d7/d0c/enumorg_1_1xvm_1_1asm_1_1constants_1_1_conditional_constant_1_1_relation" kindref="compound">Relation</ref>.<ref refid="d7/d0c/enumorg_1_1xvm_1_1asm_1_1constants_1_1_conditional_constant_1_1_relation_1acfc99780e5db9d3482d43a0697a6caf1" kindref="member">INDEP</ref>;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="141" refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1ac86e14494056428734a806f980a45c87" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1ac86e14494056428734a806f980a45c87" kindref="member">isTerminalInfluenceFinessable</ref>(</highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>fInNot,</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Set&lt;ConditionalConstant&gt;<sp/>setSimple,<sp/>Set&lt;ConditionalConstant&gt;<sp/>setComplex)<sp/>{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>versions<sp/>are<sp/>only<sp/>finessed<sp/>when<sp/>they<sp/>are<sp/>in<sp/>simple<sp/>ANDs/ORs;<sp/>no<sp/>attempt<sp/>is<sp/>made<sp/>to</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>finesse<sp/>them<sp/>under<sp/>a<sp/>NOT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>!fInNot<sp/>&amp;&amp;<sp/>super.isTerminalInfluenceFinessable(fInNot,<sp/>setSimple,<sp/>setComplex);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>Constant<sp/>methods<sp/>----------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="152" refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1a402d2bbe5df829096cdc2f415740396b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d7/d71/enumorg_1_1xvm_1_1asm_1_1_constant_1_1_format" kindref="compound">Format</ref><sp/><ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1a402d2bbe5df829096cdc2f415740396b" kindref="member">getFormat</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d7/d71/enumorg_1_1xvm_1_1asm_1_1_constant_1_1_format" kindref="compound">Format</ref>.<ref refid="d7/d71/enumorg_1_1xvm_1_1asm_1_1_constant_1_1_format_1ac00ec5546a16dec7c6ed2d44cc0f060f" kindref="member">ConditionVersioned</ref>;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="157" refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1a73e9f02d1a1b2dfbe77001020c43635a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1a73e9f02d1a1b2dfbe77001020c43635a" kindref="member">forEachUnderlying</ref>(Consumer&lt;Constant&gt;<sp/>visitor)<sp/>{</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>visitor.accept(<ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1af3bbc1c98e6748bbfadb44479da740ef" kindref="member">m_constVer</ref>);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="162" refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1a261ab7603d746f6b8f7093dcb55692cc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1a261ab7603d746f6b8f7093dcb55692cc" kindref="member">compareDetails</ref>(<ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref><sp/>that)<sp/>{</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!(that<sp/>instanceof<sp/><ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1a120a573461e8097cf5548317427028fa" kindref="member">VersionedCondition</ref><sp/>constThat))<sp/>{</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1af3bbc1c98e6748bbfadb44479da740ef" kindref="member">m_constVer</ref>.compareTo(constThat.m_constVer);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="170" refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1a4c28841c5649c086408e60e502e7d71d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1a4c28841c5649c086408e60e502e7d71d" kindref="member">getValueString</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;isVersion(&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1af3bbc1c98e6748bbfadb44479da740ef" kindref="member">m_constVer</ref>.getValueString()<sp/>+<sp/></highlight><highlight class="charliteral">&apos;)&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>XvmStructure<sp/>methods<sp/>------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="178" refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1af8a6e918a3ecd72315ad678d8650eabd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1af8a6e918a3ecd72315ad678d8650eabd" kindref="member">registerConstants</ref>(<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref><sp/>pool)<sp/>{</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1af3bbc1c98e6748bbfadb44479da740ef" kindref="member">m_constVer</ref><sp/>=<sp/>pool.<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a96af322337d3cfdb2a927e0221651113" kindref="member">register</ref>(<ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1af3bbc1c98e6748bbfadb44479da740ef" kindref="member">m_constVer</ref>);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="183" refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1a4f0ffd0656e6b715900187fa3fe9657d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1a4f0ffd0656e6b715900187fa3fe9657d" kindref="member">assemble</ref>(DataOutput<sp/>out)</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>out.writeByte(<ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1a402d2bbe5df829096cdc2f415740396b" kindref="member">getFormat</ref>().ordinal());</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>writeMagnitude(out,<sp/><ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1af3bbc1c98e6748bbfadb44479da740ef" kindref="member">m_constVer</ref>.getPosition());</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>Object<sp/>methods<sp/>------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="193" refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1a6c63531a5ec3c4eac037f0154d94e64d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1a6c63531a5ec3c4eac037f0154d94e64d" kindref="member">computeHashCode</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d1/d1e/classorg_1_1xvm_1_1util_1_1_hash" kindref="compound">Hash</ref>.<ref refid="d1/d1e/classorg_1_1xvm_1_1util_1_1_hash_1a14035f395b9874e8dfa54dd6c142fd6b" kindref="member">of</ref>(<ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1af3bbc1c98e6748bbfadb44479da740ef" kindref="member">m_constVer</ref>);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>fields<sp/>--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203" refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1a829f34e0eb95cbffcebd2afd795045c3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">transient</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1a829f34e0eb95cbffcebd2afd795045c3" kindref="member">m_iVer</ref>;</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="208" refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1af3bbc1c98e6748bbfadb44479da740ef" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="d0/db9/classorg_1_1xvm_1_1asm_1_1constants_1_1_version_constant" kindref="compound">VersionConstant</ref><sp/><ref refid="d4/d43/classorg_1_1xvm_1_1asm_1_1constants_1_1_versioned_condition_1af3bbc1c98e6748bbfadb44479da740ef" kindref="member">m_constVer</ref>;</highlight></codeline>
+<codeline lineno="209"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/constants/VersionedCondition.java"/>
+  </compounddef>
+</doxygen>

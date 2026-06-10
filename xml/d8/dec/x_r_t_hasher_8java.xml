@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d8/dec/x_r_t_hasher_8java" kind="file" language="Java">
+    <compoundname>xRTHasher.java</compoundname>
+    <includes local="no">java.security.MessageDigest</includes>
+    <includes local="no">org.xvm.asm.ClassStructure</includes>
+    <includes local="no">org.xvm.asm.MethodStructure</includes>
+    <includes local="no">org.xvm.runtime.Container</includes>
+    <includes local="no">org.xvm.runtime.Frame</includes>
+    <includes local="no">org.xvm.runtime.ObjectHandle</includes>
+    <includes local="no">org.xvm.runtime.template.xService</includes>
+    <includes local="no">org.xvm.runtime.template.collections.xArray</includes>
+    <includes local="no">org.xvm.runtime.template.collections.xArray.ArrayHandle</includes>
+    <includes local="no">org.xvm.runtime.template.collections.xArray.Mutability</includes>
+    <includes local="no">org.xvm.runtime.template._native.collections.arrays.ByteBasedDelegate.ByteArrayHandle</includes>
+    <includes local="no">org.xvm.runtime.template._native.collections.arrays.xRTUInt8Delegate</includes>
+    <includes local="no">org.xvm.runtime.template._native.crypto.xRTAlgorithms.DigestHandle</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/template/_native/crypto/xRTHasher.java</label>
+        <link refid="d8/dec/x_r_t_hasher_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.security.MessageDigest</label>
+      </node>
+      <node id="3">
+        <label>org.xvm.asm.ClassStructure</label>
+      </node>
+      <node id="4">
+        <label>org.xvm.asm.MethodStructure</label>
+      </node>
+      <node id="5">
+        <label>org.xvm.runtime.Container</label>
+      </node>
+      <node id="6">
+        <label>org.xvm.runtime.Frame</label>
+      </node>
+      <node id="7">
+        <label>org.xvm.runtime.ObjectHandle</label>
+      </node>
+      <node id="12">
+        <label>org.xvm.runtime.template._native.collections.arrays.ByteBasedDelegate.ByteArrayHandle</label>
+      </node>
+      <node id="13">
+        <label>org.xvm.runtime.template._native.collections.arrays.xRTUInt8Delegate</label>
+      </node>
+      <node id="14">
+        <label>org.xvm.runtime.template._native.crypto.xRTAlgorithms.DigestHandle</label>
+      </node>
+      <node id="9">
+        <label>org.xvm.runtime.template.collections.xArray</label>
+      </node>
+      <node id="10">
+        <label>org.xvm.runtime.template.collections.xArray.ArrayHandle</label>
+      </node>
+      <node id="11">
+        <label>org.xvm.runtime.template.collections.xArray.Mutability</label>
+      </node>
+      <node id="8">
+        <label>org.xvm.runtime.template.xService</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="d2/d52/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_hasher" prot="public">org::xvm::runtime::template::_native::crypto::xRTHasher</innerclass>
+    <innernamespace refid="d0/d33/namespaceorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto">org::xvm::runtime::template::_native::crypto</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.runtime.template._native.crypto;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.security.MessageDigest;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ClassStructure;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.MethodStructure;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.Container;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.Frame;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.ObjectHandle;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.template.xService;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.template.collections.xArray;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.template.collections.xArray.ArrayHandle;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.template.collections.xArray.Mutability;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.template._native.collections.arrays.ByteBasedDelegate.ByteArrayHandle;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.template._native.collections.arrays.xRTUInt8Delegate;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.template._native.crypto.xRTAlgorithms.DigestHandle;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="d2/d52/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_hasher" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d2/d52/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_hasher_1aa3f0c6aa420f6aaeaa8836ff28ba3d6d" kindref="member">xRTHasher</ref></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="d7/d9c/classorg_1_1xvm_1_1runtime_1_1template_1_1x_service_1ac2db345af2fec65914587c72fafaaa32" kindref="member">xService</ref><sp/>{</highlight></codeline>
+<codeline lineno="30" refid="d2/d52/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_hasher_1ab1e913ea1cb9cb14976cdae009cac7db" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="d2/d52/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_hasher_1aa3f0c6aa420f6aaeaa8836ff28ba3d6d" kindref="member">xRTHasher</ref><sp/><ref refid="d2/d52/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_hasher_1ab1e913ea1cb9cb14976cdae009cac7db" kindref="member">INSTANCE</ref>;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="d2/d52/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_hasher_1aa3f0c6aa420f6aaeaa8836ff28ba3d6d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d2/d52/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_hasher_1aa3f0c6aa420f6aaeaa8836ff28ba3d6d" kindref="member">xRTHasher</ref>(<ref refid="d1/df8/classorg_1_1xvm_1_1runtime_1_1_container" kindref="compound">Container</ref><sp/>container,<sp/><ref refid="d5/d19/classorg_1_1xvm_1_1asm_1_1_class_structure" kindref="compound">ClassStructure</ref><sp/>structure,<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>fInstance)<sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(container,<sp/>structure,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(fInstance)<sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/d52/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_hasher_1ab1e913ea1cb9cb14976cdae009cac7db" kindref="member">INSTANCE</ref><sp/>=<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="41" refid="d2/d52/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_hasher_1afe31610d59a7c1dc40781e5c7621678c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d2/d52/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_hasher_1afe31610d59a7c1dc40781e5c7621678c" kindref="member">initNative</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1a7e586d681a05732a2d80cb404b58b090" kindref="member">markNativeMethod</ref>(</highlight><highlight class="stringliteral">&quot;digest&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">,<sp/><ref refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1ac88c78004b3334c6a61373cf1e2a895c" kindref="member">BYTES</ref>);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1a9b5740a540f9d9fccebbb3b9ad0507c7" kindref="member">invalidateTypeInfo</ref>();</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="48" refid="d2/d52/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_hasher_1a5bf81d6e062bf3ba9e7a2e8d2d5bab99" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d2/d52/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_hasher_1a5bf81d6e062bf3ba9e7a2e8d2d5bab99" kindref="member">invokeNativeN</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frame,<sp/><ref refid="d4/d90/classorg_1_1xvm_1_1asm_1_1_method_structure" kindref="compound">MethodStructure</ref><sp/>method,<sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hTarget,</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref>[]<sp/>ahArg,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iReturn)<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(method.<ref refid="d4/d90/classorg_1_1xvm_1_1asm_1_1_method_structure_1a8e598a61d59dc853df34536698639815" kindref="member">getName</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;digest&quot;</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d2/d52/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_hasher_1a234345e97bdf412008bceca97c065a56" kindref="member">invokeDigest</ref>(frame,<sp/>(<ref refid="d8/dd7/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_algorithms_1_1_digest_handle" kindref="compound">DigestHandle</ref>)<sp/>ahArg[0],</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(<ref refid="da/ddf/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1_byte_based_delegate_1_1_byte_array_handle" kindref="compound">ByteArrayHandle</ref>)<sp/>((<ref refid="d3/dc7/classorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1x_array_1_1_array_handle" kindref="compound">ArrayHandle</ref>)<sp/>ahArg[1]).m_hDelegate,<sp/>iReturn);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>super.invokeNativeN(frame,<sp/>method,<sp/>hTarget,<sp/>ahArg,<sp/>iReturn);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62" refid="d2/d52/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_hasher_1a234345e97bdf412008bceca97c065a56" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d2/d52/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_hasher_1a234345e97bdf412008bceca97c065a56" kindref="member">invokeDigest</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frame,<sp/><ref refid="d8/dd7/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_algorithms_1_1_digest_handle" kindref="compound">DigestHandle</ref><sp/>hDigest,<sp/><ref refid="da/ddf/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1_byte_based_delegate_1_1_byte_array_handle" kindref="compound">ByteArrayHandle</ref><sp/>haData,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iReturn)<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MessageDigest<sp/>digest<sp/>=<sp/>hDigest.<ref refid="d8/dd7/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_algorithms_1_1_digest_handle_1a3071e239b079ebb1d2eb1063bb2ccd2b" kindref="member">f_digest</ref>;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal">[]<sp/>abData<sp/>=<sp/><ref refid="db/d96/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_u_int8_delegate" kindref="compound">xRTUInt8Delegate</ref>.<ref refid="db/d96/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_u_int8_delegate_1a037097fa85958e4b36690108db351c17" kindref="member">getBytes</ref>(haData);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal">[]<sp/>abSig<sp/>=<sp/>digest.digest(abData);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a288e3c2de804cd868396b461434d9875" kindref="member">assignValue</ref>(iReturn,</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/db7/classorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1x_array" kindref="compound">xArray</ref>.<ref refid="dc/db7/classorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1x_array_1a15ddd180b8e128f4b870607fa086fecc" kindref="member">makeByteArrayHandle</ref>(abSig,<sp/><ref refid="d9/dae/enumorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1x_array_1_1_mutability" kindref="compound">Mutability</ref>.<ref refid="d9/dae/enumorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1x_array_1_1_mutability_1a38a9eefd90a66e9122b3fcf4d6667419" kindref="member">Constant</ref>));</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/template/_native/crypto/xRTHasher.java"/>
+  </compounddef>
+</doxygen>

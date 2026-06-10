@@ -1,0 +1,25 @@
+var classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_function_1_1_function_handle =
+[
+    [ "FunctionHandle", "da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_function_1_1_function_handle.html#ab11d46f71ebcd9bf06737e1a2a3192e8", null ],
+    [ "FunctionHandle", "da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_function_1_1_function_handle.html#a24756d28bc2293d7cc26dfcfc7487dae", null ],
+    [ "FunctionHandle", "da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_function_1_1_function_handle.html#a5ec13b949c06ec4d7e2cd01cf083aa90", null ],
+    [ "FunctionHandle", "da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_function_1_1_function_handle.html#aafbdb891bfd421f6416244a5182765d9", null ],
+    [ "addBoundArguments", "da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_function_1_1_function_handle.html#a5f9b9f10c004342b17be5bfa9bb5864f", null ],
+    [ "bind", "da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_function_1_1_function_handle.html#a0596aa2e90ab7c6065435ada0ba6e9ef", null ],
+    [ "bindArguments", "da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_function_1_1_function_handle.html#a2f48626e4bff9d60e715206914c08b58", null ],
+    [ "bindTarget", "da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_function_1_1_function_handle.html#ab8a59e8e2bd4fc70dbb5ff8e7f99e47e", null ],
+    [ "calculateShift", "da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_function_1_1_function_handle.html#a4abe1ebbca7046e1b679a03253cf2030", null ],
+    [ "call1", "da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_function_1_1_function_handle.html#ae3b5b0899700f2b70052a68fb9dd6c33", null ],
+    [ "call1Impl", "da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_function_1_1_function_handle.html#a91a2d19a3fe2105270c0176e42eb3623", null ],
+    [ "callN", "da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_function_1_1_function_handle.html#ace29ca1a7c2154433a03a9be87874bc9", null ],
+    [ "callNImpl", "da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_function_1_1_function_handle.html#a0dd33fd7a9beea360c30c541feb6db1d", null ],
+    [ "callT", "da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_function_1_1_function_handle.html#a6ed6464c774f93951e28ccce6e5b0571", null ],
+    [ "callTImpl", "da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_function_1_1_function_handle.html#a5d00756a1f503896b969433c983cbd39", null ],
+    [ "checkArgumentsPassThrough", "da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_function_1_1_function_handle.html#ab62d511f4230c6c673567c82decf9c9a", null ],
+    [ "createProxyHandle", "da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_function_1_1_function_handle.html#a13e81ed178007b9d924a4ad335f0acf2", null ],
+    [ "getTarget", "da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_function_1_1_function_handle.html#a27db977914c778e0a1239c79fc2f8888", null ],
+    [ "isPassThrough", "da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_function_1_1_function_handle.html#a4465ae3002c2c9efd3e5986236e518ca", null ],
+    [ "prepareVars", "da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_function_1_1_function_handle.html#a4bfcd2858c636ec0ff4e40b96f41bf80", null ],
+    [ "revealOrigin", "da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_function_1_1_function_handle.html#a8ab6b5eae1dfa582fb30c7f664882454", null ],
+    [ "toString", "da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_function_1_1_function_handle.html#ac067c65683e0d73ff00a43597ec99553", null ]
+];

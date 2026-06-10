@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d7/d9b/x_injector_8java" kind="file" language="Java">
+    <compoundname>xInjector.java</compoundname>
+    <includes local="no">org.xvm.asm.ClassStructure</includes>
+    <includes local="no">org.xvm.asm.MethodStructure</includes>
+    <includes local="no">org.xvm.runtime.Container</includes>
+    <includes local="no">org.xvm.runtime.Frame</includes>
+    <includes local="no">org.xvm.runtime.ObjectHandle</includes>
+    <includes local="no">org.xvm.runtime.template.xException</includes>
+    <includes local="no">org.xvm.runtime.template.xNullable</includes>
+    <includes local="no">org.xvm.runtime.template.xService</includes>
+    <includes local="no">org.xvm.runtime.template.text.xString.StringHandle</includes>
+    <includes local="no">org.xvm.runtime.template._native.reflect.xRTType.TypeHandle</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/template/reflect/xInjector.java</label>
+        <link refid="d7/d9b/x_injector_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>org.xvm.asm.ClassStructure</label>
+      </node>
+      <node id="3">
+        <label>org.xvm.asm.MethodStructure</label>
+      </node>
+      <node id="4">
+        <label>org.xvm.runtime.Container</label>
+      </node>
+      <node id="5">
+        <label>org.xvm.runtime.Frame</label>
+      </node>
+      <node id="6">
+        <label>org.xvm.runtime.ObjectHandle</label>
+      </node>
+      <node id="11">
+        <label>org.xvm.runtime.template._native.reflect.xRTType.TypeHandle</label>
+      </node>
+      <node id="10">
+        <label>org.xvm.runtime.template.text.xString.StringHandle</label>
+      </node>
+      <node id="7">
+        <label>org.xvm.runtime.template.xException</label>
+      </node>
+      <node id="8">
+        <label>org.xvm.runtime.template.xNullable</label>
+      </node>
+      <node id="9">
+        <label>org.xvm.runtime.template.xService</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="d2/dde/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_injector" prot="public">org::xvm::runtime::template::reflect::xInjector</innerclass>
+    <innernamespace refid="d2/d77/namespaceorg_1_1xvm_1_1runtime_1_1template_1_1reflect">org::xvm::runtime::template::reflect</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.runtime.template.reflect;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ClassStructure;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.MethodStructure;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.Container;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.Frame;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.ObjectHandle;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.template.xException;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.template.xNullable;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.template.xService;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.template.text.xString.StringHandle;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.template._native.reflect.xRTType.TypeHandle;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="d2/dde/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_injector" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d2/dde/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_injector_1a17e3d4922db7169930cda18f4d72c3ce" kindref="member">xInjector</ref></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="d7/d9c/classorg_1_1xvm_1_1runtime_1_1template_1_1x_service_1ac2db345af2fec65914587c72fafaaa32" kindref="member">xService</ref><sp/>{</highlight></codeline>
+<codeline lineno="25" refid="d2/dde/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_injector_1a2e2ec5acd8650c47e94d39646735ba37" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="d2/dde/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_injector_1a17e3d4922db7169930cda18f4d72c3ce" kindref="member">xInjector</ref><sp/><ref refid="d2/dde/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_injector_1a2e2ec5acd8650c47e94d39646735ba37" kindref="member">INSTANCE</ref>;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="d2/dde/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_injector_1a17e3d4922db7169930cda18f4d72c3ce" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d2/dde/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_injector_1a17e3d4922db7169930cda18f4d72c3ce" kindref="member">xInjector</ref>(<ref refid="d1/df8/classorg_1_1xvm_1_1runtime_1_1_container" kindref="compound">Container</ref><sp/>container,<sp/><ref refid="d5/d19/classorg_1_1xvm_1_1asm_1_1_class_structure" kindref="compound">ClassStructure</ref><sp/>structure,<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>fInstance)<sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(container,<sp/>structure,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(fInstance)<sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/dde/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_injector_1a2e2ec5acd8650c47e94d39646735ba37" kindref="member">INSTANCE</ref><sp/>=<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="36" refid="d2/dde/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_injector_1a43c84002dc0707eb08c9c580b444a75a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d2/dde/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_injector_1a43c84002dc0707eb08c9c580b444a75a" kindref="member">initNative</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1a7e586d681a05732a2d80cb404b58b090" kindref="member">markNativeMethod</ref>(</highlight><highlight class="stringliteral">&quot;inject&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="d2/dde/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_injector_1a9d5a29be05e0fec15761866137578177" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/><ref refid="d2/dde/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_injector_1a9d5a29be05e0fec15761866137578177" kindref="member">ensureInjector</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frame,<sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hOpts)<sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hInjector<sp/>=<sp/><ref refid="d2/dde/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_injector_1afabcd80d58091a4cfc0934d0ed1936bb" kindref="member">m_hInjector</ref>;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(hInjector<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/dde/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_injector_1afabcd80d58091a4cfc0934d0ed1936bb" kindref="member">m_hInjector</ref><sp/>=<sp/>hInjector<sp/>=<sp/><ref refid="d7/d9c/classorg_1_1xvm_1_1runtime_1_1template_1_1x_service_1a6556e80d665d344b88fbe702db34e9a3" kindref="member">createServiceHandle</ref>(</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1a4e9af20420352578caaa7a30ce602e83" kindref="member">f_container</ref>.createServiceContext(</highlight><highlight class="stringliteral">&quot;Injector&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1a8ca435e94603c6c23d5dd2b2b5abc086" kindref="member">getCanonicalClass</ref>(),<sp/><ref refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1abee965e1fe5c45dcbe4d56c3bb840ed4" kindref="member">getCanonicalType</ref>());</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>hInjector;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="56" refid="d2/dde/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_injector_1ad85d93f1f1043b87fac5f96bbe11d9c3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d2/dde/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_injector_1ad85d93f1f1043b87fac5f96bbe11d9c3" kindref="member">invokeNativeN</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frame,<sp/><ref refid="d4/d90/classorg_1_1xvm_1_1asm_1_1_method_structure" kindref="compound">MethodStructure</ref><sp/>method,<sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hTarget,</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref>[]<sp/>ahArg,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iReturn)<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(method.<ref refid="d4/d90/classorg_1_1xvm_1_1asm_1_1_method_structure_1a8e598a61d59dc853df34536698639815" kindref="member">getName</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;inject&quot;</highlight><highlight class="normal">:<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="df/d41/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_type_1_1_type_handle" kindref="compound">TypeHandle</ref><sp/><sp/><sp/>hType<sp/>=<sp/>(<ref refid="df/d41/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_type_1_1_type_handle" kindref="compound">TypeHandle</ref>)<sp/><sp/><sp/>ahArg[1];</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle" kindref="compound">StringHandle</ref><sp/>hName<sp/>=<sp/>(<ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle" kindref="compound">StringHandle</ref>)<sp/>ahArg[2];</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hOpts<sp/>=<sp/>ahArg[3];</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(hOpts<sp/>==<sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref>.<ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle_1a9da5ccb19bd11cfc4d90c4e564aa3c80" kindref="member">DEFAULT</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hOpts<sp/>=<sp/><ref refid="d2/dc0/classorg_1_1xvm_1_1runtime_1_1template_1_1x_nullable" kindref="compound">xNullable</ref>.<ref refid="d2/dc0/classorg_1_1xvm_1_1runtime_1_1template_1_1x_nullable_1ad186af96be452e69949afd5c707641fb" kindref="member">NULL</ref>;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hValue<sp/>=</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a424eb9fff40b8719a14a61c2cdb40c1b" kindref="member">getInjected</ref>(hName.<ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle_1a9c11bec39c944021e75cc5ba44685ea5" kindref="member">getStringValue</ref>(),<sp/>hType.<ref refid="df/d41/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_type_1_1_type_handle_1aef8b66da6871e75f3e845c6eccfc55a9" kindref="member">getDataType</ref>(),<sp/>hOpts);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>hValue<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1af0bf8b407c9c863fe95276b38ed323d6" kindref="member">raiseException</ref>(<ref refid="d2/d06/classorg_1_1xvm_1_1runtime_1_1template_1_1x_exception" kindref="compound">xException</ref>.<ref refid="d2/d06/classorg_1_1xvm_1_1runtime_1_1template_1_1x_exception_1ae730a73d6f3ef752b41c449474dc3133" kindref="member">unknownInjectable</ref>(frame,</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hType.<ref refid="df/d41/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_type_1_1_type_handle_1aef8b66da6871e75f3e845c6eccfc55a9" kindref="member">getDataType</ref>(),<sp/>hName.<ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle_1a9c11bec39c944021e75cc5ba44685ea5" kindref="member">getStringValue</ref>()))</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1afe93419189c80446b36803afdf7d2778" kindref="member">assignDeferredValue</ref>(iReturn,<sp/>hValue);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>super.invokeNativeN(frame,<sp/>method,<sp/>hTarget,<sp/>ahArg,<sp/>iReturn);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82" refid="d2/dde/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_injector_1afabcd80d58091a4cfc0934d0ed1936bb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/><ref refid="d2/dde/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_injector_1afabcd80d58091a4cfc0934d0ed1936bb" kindref="member">m_hInjector</ref>;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/template/reflect/xInjector.java"/>
+  </compounddef>
+</doxygen>

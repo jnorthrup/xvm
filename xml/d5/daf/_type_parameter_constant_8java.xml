@@ -1,0 +1,342 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d5/daf/_type_parameter_constant_8java" kind="file" language="Java">
+    <compoundname>TypeParameterConstant.java</compoundname>
+    <includes local="no">java.io.DataInput</includes>
+    <includes local="no">java.io.DataOutput</includes>
+    <includes local="no">java.io.IOException</includes>
+    <includes local="no">java.util.Set</includes>
+    <includes local="no">java.util.function.Consumer</includes>
+    <includes local="no">org.xvm.asm.ClassStructure</includes>
+    <includes local="no">org.xvm.asm.Constant</includes>
+    <includes local="no">org.xvm.asm.ConstantPool</includes>
+    <includes local="no">org.xvm.asm.ast.ExprAST</includes>
+    <includes local="no">org.xvm.compiler.ast.Context</includes>
+    <includes local="no">org.xvm.util.Hash</includes>
+    <includes local="no">org.xvm.util.TransientThreadLocal</includes>
+    <includes local="no">org.xvm.util.Handy.readMagnitude</includes>
+    <includes local="no">org.xvm.util.Handy.writePackedLong</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/constants/TypeParameterConstant.java</label>
+        <link refid="d5/daf/_type_parameter_constant_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.io.DataInput</label>
+      </node>
+      <node id="3">
+        <label>java.io.DataOutput</label>
+      </node>
+      <node id="4">
+        <label>java.io.IOException</label>
+      </node>
+      <node id="5">
+        <label>java.util.Set</label>
+      </node>
+      <node id="6">
+        <label>java.util.function.Consumer</label>
+      </node>
+      <node id="7">
+        <label>org.xvm.asm.ClassStructure</label>
+      </node>
+      <node id="8">
+        <label>org.xvm.asm.Constant</label>
+      </node>
+      <node id="9">
+        <label>org.xvm.asm.ConstantPool</label>
+      </node>
+      <node id="10">
+        <label>org.xvm.asm.ast.ExprAST</label>
+      </node>
+      <node id="11">
+        <label>org.xvm.compiler.ast.Context</label>
+      </node>
+      <node id="14">
+        <label>org.xvm.util.Handy.readMagnitude</label>
+      </node>
+      <node id="15">
+        <label>org.xvm.util.Handy.writePackedLong</label>
+      </node>
+      <node id="12">
+        <label>org.xvm.util.Hash</label>
+      </node>
+      <node id="13">
+        <label>org.xvm.util.TransientThreadLocal</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant" prot="public">org::xvm::asm::constants::TypeParameterConstant</innerclass>
+    <innernamespace refid="d3/dcd/namespaceorg_1_1xvm_1_1asm_1_1constants">org::xvm::asm::constants</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.asm.constants;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.DataInput;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.DataOutput;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.IOException;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Set;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.function.Consumer;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ClassStructure;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Constant;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ConstantPool;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ast.ExprAST;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.compiler.ast.Context;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.util.Hash;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.util.TransientThreadLocal;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.util.Handy.readMagnitude;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.util.Handy.writePackedLong;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a5d4b7dfd2d1c1416b7b25fe3f164589e" kindref="member">TypeParameterConstant</ref></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="d2/dca/classorg_1_1xvm_1_1asm_1_1constants_1_1_formal_constant_1ab827109a03b98aada57627638d98bb37" kindref="member">FormalConstant</ref><sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>constructors<sp/>--------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a5d4b7dfd2d1c1416b7b25fe3f164589e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a5d4b7dfd2d1c1416b7b25fe3f164589e" kindref="member">TypeParameterConstant</ref>(<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref><sp/>pool,<sp/><ref refid="d6/d7b/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_constant" kindref="compound">MethodConstant</ref><sp/>constMethod,<sp/>String<sp/>sName,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iReg)<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(pool,<sp/>constMethod,<sp/>sName);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(iReg<sp/>&lt;<sp/>0<sp/>||<sp/>iReg<sp/>&gt;<sp/>0xFF)<sp/>{<sp/><sp/></highlight><highlight class="comment">//<sp/>arbitrary<sp/>limit;<sp/>basically<sp/>just<sp/>a<sp/>sanity<sp/>assertion</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>IllegalArgumentException(</highlight><highlight class="stringliteral">&quot;register<sp/>(&quot;</highlight><highlight class="normal"><sp/>+<sp/>iReg<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;)<sp/>out<sp/>of<sp/>range&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1af4e238cf3e99e790ace0a0b787c84fb3" kindref="member">f_iReg</ref><sp/>=<sp/>iReg;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1ac4b2ea5797199d60221e7a871934116d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1ac4b2ea5797199d60221e7a871934116d" kindref="member">TypeParameterConstant</ref>(<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref><sp/>pool,<sp/><ref refid="d7/d71/enumorg_1_1xvm_1_1asm_1_1_constant_1_1_format" kindref="compound">Format</ref><sp/>format,<sp/>DataInput<sp/>in)</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(pool,<sp/>format,<sp/>in);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1af4e238cf3e99e790ace0a0b787c84fb3" kindref="member">f_iReg</ref><sp/>=<sp/>readMagnitude(in);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>accessors<sp/>-----------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73" refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a4e0ca958268fb1776778aa85ead3938e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d6/d7b/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_constant" kindref="compound">MethodConstant</ref><sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a4e0ca958268fb1776778aa85ead3938e" kindref="member">getMethod</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(<ref refid="d6/d7b/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_constant" kindref="compound">MethodConstant</ref>)<sp/><ref refid="d8/d85/classorg_1_1xvm_1_1asm_1_1constants_1_1_named_constant_1a4855427f62cbeb4d49b27a31f2da8ad1" kindref="member">getParentConstant</ref>();</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80" refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a6f30c9209576025349f084a859841d34" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a6f30c9209576025349f084a859841d34" kindref="member">getRegister</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1af4e238cf3e99e790ace0a0b787c84fb3" kindref="member">f_iReg</ref>;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>FormalConstant<sp/>methods<sp/>----------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="88" refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a30d4d9928f78e33695074d97dc86a129" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a30d4d9928f78e33695074d97dc86a129" kindref="member">getConstraintType</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/>typeConstraint<sp/>=<sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a4837ce65592f5deee9c804da7ac6f2c1" kindref="member">m_typeConstraint</ref>;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(typeConstraint<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>typeConstraint;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>type<sp/>points<sp/>to<sp/>a<sp/>register,<sp/>which<sp/>means<sp/>that<sp/>the<sp/>type<sp/>is<sp/>a<sp/>parameterized<sp/>type;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>type<sp/>of<sp/>the<sp/>register<sp/>will<sp/>be<sp/>&quot;Type&lt;X&gt;&quot;<sp/>or<sp/>a<sp/>formal<sp/>type</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d6/d7b/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_constant" kindref="compound">MethodConstant</ref><sp/>constMethod<sp/>=<sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a4e0ca958268fb1776778aa85ead3938e" kindref="member">getMethod</ref>();</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(constMethod.<ref refid="d6/d7b/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_constant_1af9bcc58b708d18ad87c50a6c9f695b82" kindref="member">isNascent</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1abb94bf2f63ad2caba56a57f1557d1a09" kindref="member">getConstantPool</ref>().<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a461716f3c48fcdeda708036e7c935d54" kindref="member">typeObject</ref>();</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nReg<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a6f30c9209576025349f084a859841d34" kindref="member">getRegister</ref>();</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref>[]<sp/>atypeParams<sp/>=<sp/>constMethod.<ref refid="d6/d7b/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_constant_1aa8cbb125f4e26d13c934f07b1995ad5a" kindref="member">getRawParams</ref>();</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/>atypeParams.length<sp/>&gt;<sp/>nReg;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>typeConstraint<sp/>=<sp/>atypeParams[nReg];</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(typeConstraint.<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a001ba5df6cef7c9dc00a6298cbe616ea" kindref="member">isGenericType</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a4837ce65592f5deee9c804da7ac6f2c1" kindref="member">m_typeConstraint</ref><sp/>=<sp/>typeConstraint;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/>typeConstraint.<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a6fe1fc4cd146b089adae6b8059f3088f" kindref="member">isTypeOfType</ref>()<sp/>&amp;&amp;<sp/>typeConstraint.<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a2bcbac55a61a443daa9b3057cd5c939a" kindref="member">isParamsSpecified</ref>();</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>typeConstraint<sp/>=<sp/>typeConstraint.<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1afd98c1fadcfca518eaf89a680ba802da" kindref="member">getParamType</ref>(0);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(typeConstraint.<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1afd7182affc305a0f4fe4d79d34efcd6b" kindref="member">containsTypeParameter</ref>(</highlight><highlight class="keyword">true</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>retain<sp/>the<sp/>formal<sp/>constraint;<sp/>the<sp/>caller<sp/>may<sp/>need<sp/>to<sp/>call<sp/>&quot;resolveConstraints()&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a4837ce65592f5deee9c804da7ac6f2c1" kindref="member">m_typeConstraint</ref><sp/>=<sp/>typeConstraint;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!typeConstraint.<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a2bcbac55a61a443daa9b3057cd5c939a" kindref="member">isParamsSpecified</ref>()<sp/>&amp;&amp;<sp/>typeConstraint.<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a4adaa05d991b249d52532634dc329969" kindref="member">isExplicitClassIdentity</ref>(</highlight><highlight class="keyword">true</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>create<sp/>a<sp/>normalized<sp/>formal<sp/>type</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref><sp/><sp/><sp/>pool<sp/>=<sp/><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1abb94bf2f63ad2caba56a57f1557d1a09" kindref="member">getConstantPool</ref>();</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d5/d19/classorg_1_1xvm_1_1asm_1_1_class_structure" kindref="compound">ClassStructure</ref><sp/>clz<sp/><sp/>=<sp/>(<ref refid="d5/d19/classorg_1_1xvm_1_1asm_1_1_class_structure" kindref="compound">ClassStructure</ref>)<sp/>typeConstraint.<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a353638d6998559fdf26fd8c684058306" kindref="member">getSingleUnderlyingClass</ref>(</highlight><highlight class="keyword">true</highlight><highlight class="normal">).<ref refid="d5/d9c/classorg_1_1xvm_1_1asm_1_1constants_1_1_identity_constant_1aa29694ab03c70660ac3aec1d3ff48d58" kindref="member">getComponent</ref>();</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(clz.<ref refid="d5/d19/classorg_1_1xvm_1_1asm_1_1_class_structure_1a2cb85433198f28a4b4f11add7f44bb71" kindref="member">isParameterized</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Set&lt;StringConstant&gt;<sp/>setFormalNames<sp/>=<sp/>clz.<ref refid="d5/d19/classorg_1_1xvm_1_1asm_1_1_class_structure_1aeafdb586cb4bcbda30870fd92839c19d" kindref="member">getTypeParams</ref>().keySet();</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref>[]<sp/><sp/><sp/><sp/><sp/><sp/>atypeFormal<sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref>[setFormalNames.size()];</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ix<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="d0/db5/classorg_1_1xvm_1_1asm_1_1constants_1_1_string_constant" kindref="compound">StringConstant</ref><sp/>constName<sp/>:<sp/>setFormalNames)<sp/>{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref><sp/>constant<sp/>=<sp/>pool.<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a503f247433f8f38e6473f4a1ec0c3a57" kindref="member">ensureFormalTypeChildConstant</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>constName.getValue());</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>atypeFormal[ix++]<sp/>=<sp/>constant.<ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1ad90843ab09cd714ace0a9f9a3705a94f" kindref="member">getType</ref>();</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>typeConstraint<sp/>=<sp/>pool.<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a0dc39e1c44e8621af75bd3e6c5f3c6d8" kindref="member">ensureParameterizedTypeConstant</ref>(typeConstraint,<sp/>atypeFormal);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a4837ce65592f5deee9c804da7ac6f2c1" kindref="member">m_typeConstraint</ref><sp/>=<sp/>typeConstraint;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="138" refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1aad91b81650d179377c8893c9046b732f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d4/de4/classorg_1_1xvm_1_1asm_1_1ast_1_1_expr_a_s_t" kindref="compound">ExprAST</ref><sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1aad91b81650d179377c8893c9046b732f" kindref="member">toExprAst</ref>(<ref refid="d1/dc8/classorg_1_1xvm_1_1compiler_1_1ast_1_1_context" kindref="compound">Context</ref><sp/>ctx)<sp/>{</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ctx.<ref refid="d1/dc8/classorg_1_1xvm_1_1compiler_1_1ast_1_1_context_1ab27eed42e3943b1a88b14d7d1002f5a7" kindref="member">getParameter</ref>(<ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a6f30c9209576025349f084a859841d34" kindref="member">getRegister</ref>()).<ref refid="dc/db3/classorg_1_1xvm_1_1asm_1_1_register_1a7605e6864dd4803af396d0058ebc9021" kindref="member">getRegisterAST</ref>();</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>IdentityConstant<sp/>methods<sp/>--------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="146" refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a539fb1b2c0033eed41319015ae1c039d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d5/d9c/classorg_1_1xvm_1_1asm_1_1constants_1_1_identity_constant" kindref="compound">IdentityConstant</ref><sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a539fb1b2c0033eed41319015ae1c039d" kindref="member">replaceParentConstant</ref>(<ref refid="d5/d9c/classorg_1_1xvm_1_1asm_1_1constants_1_1_identity_constant" kindref="compound">IdentityConstant</ref><sp/>idParent)<sp/>{</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a5d4b7dfd2d1c1416b7b25fe3f164589e" kindref="member">TypeParameterConstant</ref>(<ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1abb94bf2f63ad2caba56a57f1557d1a09" kindref="member">getConstantPool</ref>(),<sp/>(<ref refid="d6/d7b/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_constant" kindref="compound">MethodConstant</ref>)<sp/>idParent,<sp/><ref refid="d8/d85/classorg_1_1xvm_1_1asm_1_1constants_1_1_named_constant_1a59822a61800bfec8eb2d2ad4bf76521e" kindref="member">getName</ref>(),</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a6f30c9209576025349f084a859841d34" kindref="member">getRegister</ref>());</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="152" refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1ae36a99eb0918cdd2af89971007e36793" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d5/d9c/classorg_1_1xvm_1_1asm_1_1constants_1_1_identity_constant" kindref="compound">IdentityConstant</ref><sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1ae36a99eb0918cdd2af89971007e36793" kindref="member">appendTrailingSegmentTo</ref>(<ref refid="d5/d9c/classorg_1_1xvm_1_1asm_1_1constants_1_1_identity_constant" kindref="compound">IdentityConstant</ref><sp/>that)<sp/>{</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>that.<ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1abb94bf2f63ad2caba56a57f1557d1a09" kindref="member">getConstantPool</ref>().<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1ae4bd1f143d431ad43a0a8d253c9336aa" kindref="member">ensureRegisterConstant</ref>(</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(<ref refid="d6/d7b/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_constant" kindref="compound">MethodConstant</ref>)<sp/>that,<sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a6f30c9209576025349f084a859841d34" kindref="member">getRegister</ref>(),<sp/><ref refid="d8/d85/classorg_1_1xvm_1_1asm_1_1constants_1_1_named_constant_1a59822a61800bfec8eb2d2ad4bf76521e" kindref="member">getName</ref>());</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>Constant<sp/>methods<sp/>----------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="161" refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a63ff9e4dcdaa7c8223b4d0deb69fb426" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a63ff9e4dcdaa7c8223b4d0deb69fb426" kindref="member">getType</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1abb94bf2f63ad2caba56a57f1557d1a09" kindref="member">getConstantPool</ref>().<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a54a40c220eeb2b1659da9d7f09f5bca8" kindref="member">ensureTerminalTypeConstant</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="166" refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a7d9274143953d1715712c52f2459de54" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d7/d71/enumorg_1_1xvm_1_1asm_1_1_constant_1_1_format" kindref="compound">Format</ref><sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a7d9274143953d1715712c52f2459de54" kindref="member">getFormat</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d7/d71/enumorg_1_1xvm_1_1asm_1_1_constant_1_1_format" kindref="compound">Format</ref>.<ref refid="d7/d71/enumorg_1_1xvm_1_1asm_1_1_constant_1_1_format_1a8efa2f134f7c8bff3af93a9f8f1c038a" kindref="member">TypeParameter</ref>;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="171" refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a26705ca849ba50c3d69f47df13689b9f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a26705ca849ba50c3d69f47df13689b9f" kindref="member">containsUnresolved</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>even<sp/>if<sp/>the<sp/>parent<sp/>method<sp/>is<sp/>unresolved,<sp/>the<sp/>TypeParameter<sp/>is<sp/>not<sp/>the<sp/>reason</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="177" refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1aa46a2a53fd259a1cb6c9955167d30bb4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1aa46a2a53fd259a1cb6c9955167d30bb4" kindref="member">canResolve</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>as<sp/>soon<sp/>as<sp/>the<sp/>containing<sp/>MethodConstant<sp/>knows<sp/>where<sp/>it<sp/>exists<sp/>in<sp/>the<sp/>universe,<sp/>then<sp/>we</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>can<sp/>safely<sp/>resolve<sp/>names</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/d85/classorg_1_1xvm_1_1asm_1_1constants_1_1_named_constant_1a4855427f62cbeb4d49b27a31f2da8ad1" kindref="member">getParentConstant</ref>().<ref refid="d5/d9c/classorg_1_1xvm_1_1asm_1_1constants_1_1_identity_constant_1a47c394d0bcd93d854e1b478c072f2ffd" kindref="member">getParentConstant</ref>().<ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1a2f544b349ea5526593dde180ae34e591" kindref="member">canResolve</ref>();</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="184" refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1ab7327748b2cac14c96f1b35fe44181cb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1ab7327748b2cac14c96f1b35fe44181cb" kindref="member">forEachUnderlying</ref>(Consumer&lt;Constant&gt;<sp/>visitor)<sp/>{</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>method<sp/>constant<sp/>is<sp/>not<sp/>&quot;a<sp/>child&quot;;<sp/>this<sp/>would<sp/>cause<sp/>an<sp/>infinite<sp/>loop</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="189" refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1ae0e4ec5537b9c11a036a9e82673f9fa3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a5d4b7dfd2d1c1416b7b25fe3f164589e" kindref="member">TypeParameterConstant</ref><sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1ae0e4ec5537b9c11a036a9e82673f9fa3" kindref="member">resolveTypedefs</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>There<sp/>is<sp/>a<sp/>circular<sp/>dependency<sp/>that<sp/>involves<sp/>TypeParameterConstant:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>MethodConstant<sp/>-&gt;<sp/>SignatureConstant<sp/>-&gt;<sp/>TerminalTypeConstant<sp/>-&gt;<sp/>TypeParameterConstant<sp/>-&gt;<sp/>MethodConstant</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>To<sp/>break<sp/>the<sp/>circle,<sp/>TypeParameterConstant<sp/>is<sp/>not<sp/>being<sp/>responsible<sp/>for<sp/>resolving<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>corresponding<sp/>MethodConstant;<sp/>instead<sp/>it&apos;s<sp/>the<sp/>MethodConstant&apos;s<sp/>duty<sp/>to<sp/>call<sp/>bindMethod()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>on<sp/>TypeParameterConstant<sp/>(via<sp/>TypeConstant#bindTypeParameters()<sp/>API)<sp/>as<sp/>soon<sp/>as<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>MethodConstant<sp/>is<sp/>resolved<sp/>(see<sp/>MethodConstant#resolveTypedefs()).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="202" refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a7819072e17c0e332203732eb87539c80" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a7819072e17c0e332203732eb87539c80" kindref="member">compareDetails</ref>(<ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref><sp/>obj)<sp/>{</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!(obj<sp/>instanceof<sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a5d4b7dfd2d1c1416b7b25fe3f164589e" kindref="member">TypeParameterConstant</ref><sp/>that))<sp/>{</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nDif<sp/>=<sp/>this.f_iReg<sp/>-<sp/>that.f_iReg;</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nDif<sp/>!=<sp/>0<sp/>||<sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a27d645bda6cde6d8932cd2fdd1376d22" kindref="member">f_tloReEntry</ref>.get()<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nDif;</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>(var<sp/>ignore<sp/>=<sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a27d645bda6cde6d8932cd2fdd1376d22" kindref="member">f_tloReEntry</ref>.push(</highlight><highlight class="keyword">true</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/d85/classorg_1_1xvm_1_1asm_1_1constants_1_1_named_constant_1a4855427f62cbeb4d49b27a31f2da8ad1" kindref="member">getParentConstant</ref>().<ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1ab961afa8629ca1cba86baa7c62c5861e" kindref="member">compareTo</ref>(that.getParentConstant());</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>XvmStructure<sp/>methods<sp/>------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="221" refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1acd1bdc283656489726095ddc64c59773" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1acd1bdc283656489726095ddc64c59773" kindref="member">registerConstants</ref>(<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref><sp/>pool)<sp/>{</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super.registerConstants(pool);</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>invalidate<sp/>cached<sp/>type</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a4837ce65592f5deee9c804da7ac6f2c1" kindref="member">m_typeConstraint</ref><sp/>=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="229" refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1ad6592e28eabecd21c20b111602003444" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1ad6592e28eabecd21c20b111602003444" kindref="member">assemble</ref>(DataOutput<sp/>out)</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super.assemble(out);</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>writePackedLong(out,<sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1af4e238cf3e99e790ace0a0b787c84fb3" kindref="member">f_iReg</ref>);</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="237" refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a830e5eb7796afabbc36b0a0c592a21e4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a830e5eb7796afabbc36b0a0c592a21e4" kindref="member">getDescription</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;method=&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a4e0ca958268fb1776778aa85ead3938e" kindref="member">getMethod</ref>().<ref refid="d6/d7b/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_constant_1a16da7b13ed0ef9a3a864f7400d0e997d" kindref="member">getName</ref>()<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>register=&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1af4e238cf3e99e790ace0a0b787c84fb3" kindref="member">f_iReg</ref>;</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>Object<sp/>methods<sp/>------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight></codeline>
+<codeline lineno="244"><highlight class="normal"></highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="246" refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1af7ff12154be2fd0898b2ddeaec033ef5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1af7ff12154be2fd0898b2ddeaec033ef5" kindref="member">computeHashCode</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d6/d7b/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_constant" kindref="compound">MethodConstant</ref><sp/>idMethod<sp/>=<sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a4e0ca958268fb1776778aa85ead3938e" kindref="member">getMethod</ref>();</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d1/d1e/classorg_1_1xvm_1_1util_1_1_hash" kindref="compound">Hash</ref>.<ref refid="d1/d1e/classorg_1_1xvm_1_1util_1_1_hash_1a14035f395b9874e8dfa54dd6c142fd6b" kindref="member">of</ref>(<ref refid="d8/d85/classorg_1_1xvm_1_1asm_1_1constants_1_1_named_constant_1a59822a61800bfec8eb2d2ad4bf76521e" kindref="member">getName</ref>(),</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d1/d1e/classorg_1_1xvm_1_1util_1_1_hash" kindref="compound">Hash</ref>.<ref refid="d1/d1e/classorg_1_1xvm_1_1util_1_1_hash_1a14035f395b9874e8dfa54dd6c142fd6b" kindref="member">of</ref>(<ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1af4e238cf3e99e790ace0a0b787c84fb3" kindref="member">f_iReg</ref>,</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d1/d1e/classorg_1_1xvm_1_1util_1_1_hash" kindref="compound">Hash</ref>.<ref refid="d1/d1e/classorg_1_1xvm_1_1util_1_1_hash_1a14035f395b9874e8dfa54dd6c142fd6b" kindref="member">of</ref>(idMethod.<ref refid="d6/d7b/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_constant_1a16da7b13ed0ef9a3a864f7400d0e997d" kindref="member">getName</ref>(),</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d1/d1e/classorg_1_1xvm_1_1util_1_1_hash" kindref="compound">Hash</ref>.<ref refid="d1/d1e/classorg_1_1xvm_1_1util_1_1_hash_1a14035f395b9874e8dfa54dd6c142fd6b" kindref="member">of</ref>(idMethod.<ref refid="d6/d7b/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_constant_1ace4241545f2c6eab07b02150011b80b8" kindref="member">getNamespace</ref>()))));</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"></highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>fields<sp/>--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight></codeline>
+<codeline lineno="260" refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1af4e238cf3e99e790ace0a0b787c84fb3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1af4e238cf3e99e790ace0a0b787c84fb3" kindref="member">f_iReg</ref>;</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight></codeline>
+<codeline lineno="265" refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a4837ce65592f5deee9c804da7ac6f2c1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">transient</highlight><highlight class="normal"><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a4837ce65592f5deee9c804da7ac6f2c1" kindref="member">m_typeConstraint</ref>;</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"></highlight></codeline>
+<codeline lineno="267" refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a27d645bda6cde6d8932cd2fdd1376d22" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local" kindref="compound">TransientThreadLocal&lt;Boolean&gt;</ref><sp/><ref refid="d3/d96/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_parameter_constant_1a27d645bda6cde6d8932cd2fdd1376d22" kindref="member">f_tloReEntry</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="df/d35/classorg_1_1xvm_1_1util_1_1_transient_thread_local" kindref="compound">TransientThreadLocal&lt;&gt;</ref>();</highlight></codeline>
+<codeline lineno="268"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/constants/TypeParameterConstant.java"/>
+  </compounddef>
+</doxygen>

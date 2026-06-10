@@ -1,0 +1,1273 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support" kind="interface" language="Java" prot="public">
+    <compoundname>org::xvm::runtime::VarSupport</compoundname>
+    <basecompoundref refid="d5/d35/interfaceorg_1_1xvm_1_1runtime_1_1_op_support" prot="public" virt="non-virtual">org.xvm.runtime.OpSupport</basecompoundref>
+    <derivedcompoundref refid="df/d36/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref" prot="public" virt="non-virtual">org.xvm.runtime.template.reflect.xRef</derivedcompoundref>
+    <derivedcompoundref refid="d1/d6d/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_var" prot="public" virt="non-virtual">org.xvm.runtime.template.reflect.xVar</derivedcompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1adb12cfef97b609656de872056f0f3730" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="de/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1_1_ref_handle" kindref="compound">RefHandle</ref></type>
+        <definition>RefHandle org.xvm.runtime.VarSupport.createRefHandle</definition>
+        <argsstring>(Frame frame, TypeComposition clazz, String sName)</argsstring>
+        <name>createRefHandle</name>
+        <qualifiedname>org.xvm.runtime.VarSupport.createRefHandle</qualifiedname>
+        <reimplementedby refid="d1/d99/classorg_1_1xvm_1_1runtime_1_1template_1_1annotations_1_1x_atomic_1ac6b2b613e22a81c85010c16df0be11d7">createRefHandle</reimplementedby>
+        <reimplementedby refid="dc/dbc/classorg_1_1xvm_1_1runtime_1_1template_1_1annotations_1_1x_atomic_int128_1a67452955e6f274ef4d259e86e75235d0">createRefHandle</reimplementedby>
+        <reimplementedby refid="dd/df3/classorg_1_1xvm_1_1runtime_1_1template_1_1annotations_1_1x_atomic_int_number_1a4fc6b08d3eb51cc58affa8a29dd61e89">createRefHandle</reimplementedby>
+        <reimplementedby refid="d6/d7f/classorg_1_1xvm_1_1runtime_1_1template_1_1annotations_1_1x_future_1ae20b476d540531ab51886cd07f2dc020">createRefHandle</reimplementedby>
+        <reimplementedby refid="d8/d70/classorg_1_1xvm_1_1runtime_1_1template_1_1annotations_1_1x_inject_1a47c2452e728947b6faca4bf5b0e0d2fa">createRefHandle</reimplementedby>
+        <reimplementedby refid="dd/d9e/classorg_1_1xvm_1_1runtime_1_1template_1_1annotations_1_1x_lazy_1ac972d2a61a8c6c9ed99835e7ac355f71">createRefHandle</reimplementedby>
+        <reimplementedby refid="df/d36/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1a5f7028a7e0f68df72f87ff4046e977ba">createRefHandle</reimplementedby>
+        <param>
+          <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="db/db9/interfaceorg_1_1xvm_1_1runtime_1_1_type_composition" kindref="compound">TypeComposition</ref></type>
+          <declname>clazz</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>sName</declname>
+        </param>
+        <briefdescription>
+<para>Create an uninitialized Ref or a Var for the specified referent class. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current frame if a register is created; null for properties </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>clazz</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the referent class </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an optional Ref/Var name</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the uninitialized corresponding <computeroutput><ref refid="de/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1_1_ref_handle" kindref="compound">RefHandle</ref></computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/VarSupport.java" line="25" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1a42e32bc8d42598393e2a23a4f7e6bfed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.runtime.VarSupport.introduceRef</definition>
+        <argsstring>(Frame frame, TypeComposition clazz, String sName, int iReturn)</argsstring>
+        <name>introduceRef</name>
+        <qualifiedname>org.xvm.runtime.VarSupport.introduceRef</qualifiedname>
+        <reimplementedby refid="df/d36/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1ab28136f7ad8d6f88e5d85796eae4ee67">introduceRef</reimplementedby>
+        <param>
+          <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="db/db9/interfaceorg_1_1xvm_1_1runtime_1_1_type_composition" kindref="compound">TypeComposition</ref></type>
+          <declname>clazz</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>sName</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>iReturn</declname>
+        </param>
+        <briefdescription>
+<para>Introduce a Ref or a Var for the specified referent class. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current frame </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>clazz</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the referent class </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an optional Ref/Var name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>iReturn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register to place the handle to</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>one of the <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" kindref="member">Op#R_NEXT</ref></computeroutput>, <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a00e0f1e4447b75bfad17b2a6e21fe44e" kindref="member">Op#R_CALL</ref></computeroutput> or <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a549a5479622c9633613d0c47a886c542" kindref="member">Op#R_EXCEPTION</ref></computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/VarSupport.java" line="37" column="9"/>
+        <referencedby refid="d8/dee/classorg_1_1xvm_1_1runtime_1_1_utils_1a568bde70a2f8dbb91a714edac32adf92" compoundref="d6/d9c/_utils_8java" startline="898" endline="961">org.xvm.runtime.Utils.callPropertyInitializer</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1a398cecbaa490b42eae777c469ec5073a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.runtime.VarSupport.getReferent</definition>
+        <argsstring>(Frame frame, RefHandle hTarget, int iReturn)</argsstring>
+        <name>getReferent</name>
+        <qualifiedname>org.xvm.runtime.VarSupport.getReferent</qualifiedname>
+        <reimplementedby refid="d8/d70/classorg_1_1xvm_1_1runtime_1_1template_1_1annotations_1_1x_inject_1aa08c8b31154677e723465a72d95e25bd">getReferent</reimplementedby>
+        <reimplementedby refid="df/d36/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1a63f684371c9b1522c9af0d5fb8fe5a70">getReferent</reimplementedby>
+        <param>
+          <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="de/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1_1_ref_handle" kindref="compound">RefHandle</ref></type>
+          <declname>hTarget</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>iReturn</declname>
+        </param>
+        <briefdescription>
+<para>Get the Var&apos;s referent. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current frame </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target Var or Ref handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>iReturn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register id to place a result of the operation into</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>one of the <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" kindref="member">Op#R_NEXT</ref></computeroutput>, <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a00e0f1e4447b75bfad17b2a6e21fe44e" kindref="member">Op#R_CALL</ref></computeroutput> or <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a549a5479622c9633613d0c47a886c542" kindref="member">Op#R_EXCEPTION</ref></computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/VarSupport.java" line="51" column="9"/>
+        <referencedby refid="d8/dee/classorg_1_1xvm_1_1runtime_1_1_utils_1a568bde70a2f8dbb91a714edac32adf92" compoundref="d6/d9c/_utils_8java" startline="898" endline="961">org.xvm.runtime.Utils.callPropertyInitializer</referencedby>
+        <referencedby refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a7d0b2d5bcb8b1cde338b2eec63bd4e3d" compoundref="dd/dc6/_frame_8java" startline="1494" endline="1532">org.xvm.runtime.Frame.getArgument</referencedby>
+        <referencedby refid="df/d36/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1a3e2f54ffce9afb7cf98ca4345a2fcf90" compoundref="d3/d59/x_ref_8java" startline="419" endline="458">org.xvm.runtime.template.reflect.xRef.getReferentImpl</referencedby>
+        <referencedby refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1adb72daecf1b9eeafe5725b33d2b552d4" compoundref="dd/dc6/_frame_8java" startline="1180" endline="1228">org.xvm.runtime.Frame.returnValue</referencedby>
+        <referencedby refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a0c164837bb4cf19c441e3c351e8c4686" compoundref="dd/dc6/_frame_8java" startline="1114" endline="1168">org.xvm.runtime.Frame.returnValue</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1afa958da367ea1d65224f4440f5481e24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.runtime.VarSupport.invokeVarPreInc</definition>
+        <argsstring>(Frame frame, RefHandle hTarget, int iReturn)</argsstring>
+        <name>invokeVarPreInc</name>
+        <qualifiedname>org.xvm.runtime.VarSupport.invokeVarPreInc</qualifiedname>
+        <reimplementedby refid="df/d36/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1a10a90b46cddcb7b38584e384dee78e62">invokeVarPreInc</reimplementedby>
+        <reimplementedby refid="d1/d6d/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_var_1a9a09ccadde69cb5e0ff8c45a479fbf6f">invokeVarPreInc</reimplementedby>
+        <param>
+          <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="de/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1_1_ref_handle" kindref="compound">RefHandle</ref></type>
+          <declname>hTarget</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>iReturn</declname>
+        </param>
+        <briefdescription>
+<para>Increment the Var value and retrieve the new value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current frame </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target Var handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>iReturn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register id to place a result of the operation into</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>one of the <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" kindref="member">Op#R_NEXT</ref></computeroutput>, <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a00e0f1e4447b75bfad17b2a6e21fe44e" kindref="member">Op#R_CALL</ref></computeroutput> or <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a549a5479622c9633613d0c47a886c542" kindref="member">Op#R_EXCEPTION</ref></computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/VarSupport.java" line="62" column="9"/>
+        <referencedby refid="dd/d22/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___inc_1aa74bd05e438c168929562eb2ef31c272" compoundref="d5/dee/_i_p___inc_8java" startline="60" endline="62">org.xvm.asm.op.IP_Inc.completeWithVar</referencedby>
+        <referencedby refid="d6/d61/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___pre_inc_1af081767a310e2a67eb240f0214f644f0" compoundref="de/dd1/_i_p___pre_inc_8java" startline="76" endline="78">org.xvm.asm.op.IP_PreInc.completeWithVar</referencedby>
+        <referencedby refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1a84d42206ff33993aa82782083621ec2a" compoundref="d5/d4e/_class_template_8java" startline="1098" endline="1106">org.xvm.runtime.ClassTemplate.invokePreInc</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1a7af8d23e9f0fcde11a6759581b185dd8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.runtime.VarSupport.invokeVarPostInc</definition>
+        <argsstring>(Frame frame, RefHandle hTarget, int iReturn)</argsstring>
+        <name>invokeVarPostInc</name>
+        <qualifiedname>org.xvm.runtime.VarSupport.invokeVarPostInc</qualifiedname>
+        <reimplementedby refid="df/d36/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1aa1328100061d40d79c999758703f05f7">invokeVarPostInc</reimplementedby>
+        <reimplementedby refid="d1/d6d/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_var_1abd863349bf884e86233c8885c31133cc">invokeVarPostInc</reimplementedby>
+        <param>
+          <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="de/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1_1_ref_handle" kindref="compound">RefHandle</ref></type>
+          <declname>hTarget</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>iReturn</declname>
+        </param>
+        <briefdescription>
+<para>Retrieve the Var value and then increment it. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current frame </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target Var handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>iReturn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register id to place a result of the operation into</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>one of the <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" kindref="member">Op#R_NEXT</ref></computeroutput>, <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a00e0f1e4447b75bfad17b2a6e21fe44e" kindref="member">Op#R_CALL</ref></computeroutput> or <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a549a5479622c9633613d0c47a886c542" kindref="member">Op#R_EXCEPTION</ref></computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/VarSupport.java" line="73" column="9"/>
+        <referencedby refid="d4/da7/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___post_inc_1af0742d0e23390386cd5774ec42aa7e40" compoundref="d0/d6b/_i_p___post_inc_8java" startline="83" endline="85">org.xvm.asm.op.IP_PostInc.completeWithVar</referencedby>
+        <referencedby refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1a892b3fe7731e2f97f0ef441334b29d46" compoundref="d5/d4e/_class_template_8java" startline="1118" endline="1126">org.xvm.runtime.ClassTemplate.invokePostInc</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1ab3496a06d43e877c75b5e8435204f690" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.runtime.VarSupport.invokeVarPreDec</definition>
+        <argsstring>(Frame frame, RefHandle hTarget, int iReturn)</argsstring>
+        <name>invokeVarPreDec</name>
+        <qualifiedname>org.xvm.runtime.VarSupport.invokeVarPreDec</qualifiedname>
+        <reimplementedby refid="df/d36/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1a9e3b0b2535145d83804d35221f1f24da">invokeVarPreDec</reimplementedby>
+        <reimplementedby refid="d1/d6d/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_var_1a81b08daa129090915c115ccdcb6f9fe6">invokeVarPreDec</reimplementedby>
+        <param>
+          <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="de/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1_1_ref_handle" kindref="compound">RefHandle</ref></type>
+          <declname>hTarget</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>iReturn</declname>
+        </param>
+        <briefdescription>
+<para>Decrement the Var value and retrieve the new value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current frame </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target Var handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>iReturn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register id to place a result of the operation into</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>one of the <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" kindref="member">Op#R_NEXT</ref></computeroutput>, <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a00e0f1e4447b75bfad17b2a6e21fe44e" kindref="member">Op#R_CALL</ref></computeroutput> or <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a549a5479622c9633613d0c47a886c542" kindref="member">Op#R_EXCEPTION</ref></computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/VarSupport.java" line="84" column="9"/>
+        <referencedby refid="d7/d33/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___dec_1a539c039a61da56ebef64138b93dfef49" compoundref="d9/d25/_i_p___dec_8java" startline="60" endline="62">org.xvm.asm.op.IP_Dec.completeWithVar</referencedby>
+        <referencedby refid="d8/d2c/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___pre_dec_1a92419407066b2f5e825172c3bfb92282" compoundref="d4/d68/_i_p___pre_dec_8java" startline="76" endline="78">org.xvm.asm.op.IP_PreDec.completeWithVar</referencedby>
+        <referencedby refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1a7fe926b9ce8195a158774c877632390f" compoundref="d5/d4e/_class_template_8java" startline="1138" endline="1146">org.xvm.runtime.ClassTemplate.invokePreDec</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1a17724e8c3868cb2913be5e87c98cc2c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.runtime.VarSupport.invokeVarPostDec</definition>
+        <argsstring>(Frame frame, RefHandle hTarget, int iReturn)</argsstring>
+        <name>invokeVarPostDec</name>
+        <qualifiedname>org.xvm.runtime.VarSupport.invokeVarPostDec</qualifiedname>
+        <reimplementedby refid="df/d36/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1a901b508a9f0f89fd11e6213b7ba28fa8">invokeVarPostDec</reimplementedby>
+        <reimplementedby refid="d1/d6d/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_var_1a90f5f2849b9da8b677138c1dd2e70fd7">invokeVarPostDec</reimplementedby>
+        <param>
+          <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="de/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1_1_ref_handle" kindref="compound">RefHandle</ref></type>
+          <declname>hTarget</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>iReturn</declname>
+        </param>
+        <briefdescription>
+<para>Retrieve the Var value and then decrement it. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current frame </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target Var handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>iReturn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the register id to place a result of the operation into</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>one of the <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" kindref="member">Op#R_NEXT</ref></computeroutput>, <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a00e0f1e4447b75bfad17b2a6e21fe44e" kindref="member">Op#R_CALL</ref></computeroutput> or <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a549a5479622c9633613d0c47a886c542" kindref="member">Op#R_EXCEPTION</ref></computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/VarSupport.java" line="95" column="9"/>
+        <referencedby refid="d0/d58/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___post_dec_1a06af9859077e18cf4fe2a02bda02afdc" compoundref="dc/df8/_i_p___post_dec_8java" startline="70" endline="72">org.xvm.asm.op.IP_PostDec.completeWithVar</referencedby>
+        <referencedby refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1a3c2428e2525898a727e296e121e40f28" compoundref="d5/d4e/_class_template_8java" startline="1158" endline="1166">org.xvm.runtime.ClassTemplate.invokePostDec</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1a0d693c5a66a10ceb76fb6951aefe6040" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.runtime.VarSupport.setReferent</definition>
+        <argsstring>(Frame frame, RefHandle hTarget, ObjectHandle hValue)</argsstring>
+        <name>setReferent</name>
+        <qualifiedname>org.xvm.runtime.VarSupport.setReferent</qualifiedname>
+        <reimplementedby refid="df/d36/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1ab2da2cc15e00c6a27e03cfd9476e22ff">setReferent</reimplementedby>
+        <reimplementedby refid="d1/d6d/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_var_1aa78d5e2099b48b5d5a5b2c81edcfe289">setReferent</reimplementedby>
+        <param>
+          <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="de/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1_1_ref_handle" kindref="compound">RefHandle</ref></type>
+          <declname>hTarget</declname>
+        </param>
+        <param>
+          <type><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref></type>
+          <declname>hValue</declname>
+        </param>
+        <briefdescription>
+<para>Set the Var&apos;s referent. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current frame </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target Var handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new value</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>one of the <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" kindref="member">Op#R_NEXT</ref></computeroutput>, <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a00e0f1e4447b75bfad17b2a6e21fe44e" kindref="member">Op#R_CALL</ref></computeroutput> or <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a549a5479622c9633613d0c47a886c542" kindref="member">Op#R_EXCEPTION</ref></computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/VarSupport.java" line="109" column="9"/>
+        <referencedby refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a288e3c2de804cd868396b461434d9875" compoundref="dd/dc6/_frame_8java" startline="800" endline="853">org.xvm.runtime.Frame.assignValue</referencedby>
+        <referencedby refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1adb72daecf1b9eeafe5725b33d2b552d4" compoundref="dd/dc6/_frame_8java" startline="1180" endline="1228">org.xvm.runtime.Frame.returnValue</referencedby>
+        <referencedby refid="d1/d6d/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_var_1aba120364e8801ef6ef68381941b8f337" compoundref="dc/dff/x_var_8java" startline="115" endline="158">org.xvm.runtime.template.reflect.xVar.setReferentImpl</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1a4b791b16399b60aa04c83928260f9f78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.runtime.VarSupport.invokeVarAdd</definition>
+        <argsstring>(Frame frame, RefHandle hTarget, ObjectHandle hArg)</argsstring>
+        <name>invokeVarAdd</name>
+        <qualifiedname>org.xvm.runtime.VarSupport.invokeVarAdd</qualifiedname>
+        <reimplementedby refid="df/d36/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1aa7dfa290e92ba16f199debc50b7937eb">invokeVarAdd</reimplementedby>
+        <reimplementedby refid="d1/d6d/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_var_1ae938a62ecf722639f69bf46682f0e84d">invokeVarAdd</reimplementedby>
+        <param>
+          <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="de/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1_1_ref_handle" kindref="compound">RefHandle</ref></type>
+          <declname>hTarget</declname>
+        </param>
+        <param>
+          <type><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref></type>
+          <declname>hArg</declname>
+        </param>
+        <briefdescription>
+<para>Perform an &quot;add&quot; operation on the Var. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current frame </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target Var handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hArg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the argument handle </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>one of the <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" kindref="member">Op#R_NEXT</ref></computeroutput>, <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a00e0f1e4447b75bfad17b2a6e21fe44e" kindref="member">Op#R_CALL</ref></computeroutput> or <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a549a5479622c9633613d0c47a886c542" kindref="member">Op#R_EXCEPTION</ref></computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/VarSupport.java" line="119" column="9"/>
+        <referencedby refid="d1/d37/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___add_1a03483663aa9e8bf99b77dd0878fa63cb" compoundref="db/d85/_i_p___add_8java" startline="65" endline="67">org.xvm.asm.op.IP_Add.completeWithVar</referencedby>
+        <referencedby refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1adfb53a99bdf34e89f28bae0e66b1dc53" compoundref="d5/d4e/_class_template_8java" startline="1178" endline="1187">org.xvm.runtime.ClassTemplate.invokePropertyAdd</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1a92eaefb35199d4ab829249da6ad34264" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.runtime.VarSupport.invokeVarSub</definition>
+        <argsstring>(Frame frame, RefHandle hTarget, ObjectHandle hArg)</argsstring>
+        <name>invokeVarSub</name>
+        <qualifiedname>org.xvm.runtime.VarSupport.invokeVarSub</qualifiedname>
+        <reimplementedby refid="df/d36/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1a083992c276f80e5eeda1f89d0118e5db">invokeVarSub</reimplementedby>
+        <reimplementedby refid="d1/d6d/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_var_1abd2235c1e835b4af97717406cc927f09">invokeVarSub</reimplementedby>
+        <param>
+          <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="de/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1_1_ref_handle" kindref="compound">RefHandle</ref></type>
+          <declname>hTarget</declname>
+        </param>
+        <param>
+          <type><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref></type>
+          <declname>hArg</declname>
+        </param>
+        <briefdescription>
+<para>Perform a &quot;subtract&quot; operation on the Var. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current frame </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target Var handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hArg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the argument handle </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>one of the <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" kindref="member">Op#R_NEXT</ref></computeroutput>, <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a00e0f1e4447b75bfad17b2a6e21fe44e" kindref="member">Op#R_CALL</ref></computeroutput> or <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a549a5479622c9633613d0c47a886c542" kindref="member">Op#R_EXCEPTION</ref></computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/VarSupport.java" line="129" column="9"/>
+        <referencedby refid="df/d3e/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___sub_1aedafc563be1aa0435d42b4c7e4f9eb8c" compoundref="d7/ddd/_i_p___sub_8java" startline="64" endline="66">org.xvm.asm.op.IP_Sub.completeWithVar</referencedby>
+        <referencedby refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1a60c660b0b20e0ef2619ada22e1b4236e" compoundref="d5/d4e/_class_template_8java" startline="1199" endline="1208">org.xvm.runtime.ClassTemplate.invokePropertySub</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1aef4fa7836c5a270473cc6d10ea243fac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.runtime.VarSupport.invokeVarMul</definition>
+        <argsstring>(Frame frame, RefHandle hTarget, ObjectHandle hArg)</argsstring>
+        <name>invokeVarMul</name>
+        <qualifiedname>org.xvm.runtime.VarSupport.invokeVarMul</qualifiedname>
+        <reimplementedby refid="df/d36/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1a9bbd93406d9c3ddde81569cfa574a481">invokeVarMul</reimplementedby>
+        <reimplementedby refid="d1/d6d/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_var_1a8a77d50b0e27b35f77fa762279130af4">invokeVarMul</reimplementedby>
+        <param>
+          <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="de/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1_1_ref_handle" kindref="compound">RefHandle</ref></type>
+          <declname>hTarget</declname>
+        </param>
+        <param>
+          <type><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref></type>
+          <declname>hArg</declname>
+        </param>
+        <briefdescription>
+<para>Perform a &quot;multiply&quot; operation on the Var. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current frame </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target Var handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hArg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the argument handle</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>one of the <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" kindref="member">Op#R_NEXT</ref></computeroutput>, <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a00e0f1e4447b75bfad17b2a6e21fe44e" kindref="member">Op#R_CALL</ref></computeroutput> or <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a549a5479622c9633613d0c47a886c542" kindref="member">Op#R_EXCEPTION</ref></computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/VarSupport.java" line="140" column="9"/>
+        <referencedby refid="d7/db6/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___mul_1af7634064ef8c1775f8e25d784530a4db" compoundref="d9/d69/_i_p___mul_8java" startline="64" endline="66">org.xvm.asm.op.IP_Mul.completeWithVar</referencedby>
+        <referencedby refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1aa96c3435ccb2a340dc454b9592f4480f" compoundref="d5/d4e/_class_template_8java" startline="1220" endline="1229">org.xvm.runtime.ClassTemplate.invokePropertyMul</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1a0664745ba77b172634925138f55b524c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.runtime.VarSupport.invokeVarDiv</definition>
+        <argsstring>(Frame frame, RefHandle hTarget, ObjectHandle hArg)</argsstring>
+        <name>invokeVarDiv</name>
+        <qualifiedname>org.xvm.runtime.VarSupport.invokeVarDiv</qualifiedname>
+        <reimplementedby refid="df/d36/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1abd1af44693cf3d6ea696ffcc1f427db7">invokeVarDiv</reimplementedby>
+        <reimplementedby refid="d1/d6d/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_var_1ab723c754e5215b69f0981e561f844649">invokeVarDiv</reimplementedby>
+        <param>
+          <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="de/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1_1_ref_handle" kindref="compound">RefHandle</ref></type>
+          <declname>hTarget</declname>
+        </param>
+        <param>
+          <type><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref></type>
+          <declname>hArg</declname>
+        </param>
+        <briefdescription>
+<para>Perform a &quot;divide&quot; operation on the Var. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current frame </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target Var handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hArg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the argument handle</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>one of the <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" kindref="member">Op#R_NEXT</ref></computeroutput>, <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a00e0f1e4447b75bfad17b2a6e21fe44e" kindref="member">Op#R_CALL</ref></computeroutput> or <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a549a5479622c9633613d0c47a886c542" kindref="member">Op#R_EXCEPTION</ref></computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/VarSupport.java" line="151" column="9"/>
+        <referencedby refid="d2/ded/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___div_1a9b7e5d412e1eb4522a887e62bbc6d6ab" compoundref="d8/da1/_i_p___div_8java" startline="64" endline="66">org.xvm.asm.op.IP_Div.completeWithVar</referencedby>
+        <referencedby refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1a298c33a5f89dc28471ae727766897fb2" compoundref="d5/d4e/_class_template_8java" startline="1241" endline="1250">org.xvm.runtime.ClassTemplate.invokePropertyDiv</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1a58e74eb0a7f398849d1e5597e8854cf2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.runtime.VarSupport.invokeVarMod</definition>
+        <argsstring>(Frame frame, RefHandle hTarget, ObjectHandle hArg)</argsstring>
+        <name>invokeVarMod</name>
+        <qualifiedname>org.xvm.runtime.VarSupport.invokeVarMod</qualifiedname>
+        <reimplementedby refid="df/d36/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1ac6a21de6cb233968c812788022cb2f64">invokeVarMod</reimplementedby>
+        <reimplementedby refid="d1/d6d/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_var_1ae75fee23f57727a900127ac208d294a3">invokeVarMod</reimplementedby>
+        <param>
+          <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="de/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1_1_ref_handle" kindref="compound">RefHandle</ref></type>
+          <declname>hTarget</declname>
+        </param>
+        <param>
+          <type><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref></type>
+          <declname>hArg</declname>
+        </param>
+        <briefdescription>
+<para>Perform a &quot;modulo&quot; operation on the Var. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current frame </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target Var handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hArg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the argument handle</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>one of the <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" kindref="member">Op#R_NEXT</ref></computeroutput>, <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a00e0f1e4447b75bfad17b2a6e21fe44e" kindref="member">Op#R_CALL</ref></computeroutput> or <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a549a5479622c9633613d0c47a886c542" kindref="member">Op#R_EXCEPTION</ref></computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/VarSupport.java" line="162" column="9"/>
+        <referencedby refid="d3/d1c/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___mod_1aad07108ed1b98ed585dda1c8734750da" compoundref="d2/d2c/_i_p___mod_8java" startline="64" endline="66">org.xvm.asm.op.IP_Mod.completeWithVar</referencedby>
+        <referencedby refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1acb105fb123f518b573697706d179197b" compoundref="d5/d4e/_class_template_8java" startline="1262" endline="1271">org.xvm.runtime.ClassTemplate.invokePropertyMod</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1a49b8ea89852e12aed22d12dbb9217ddf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.runtime.VarSupport.invokeVarShl</definition>
+        <argsstring>(Frame frame, RefHandle hTarget, ObjectHandle hArg)</argsstring>
+        <name>invokeVarShl</name>
+        <qualifiedname>org.xvm.runtime.VarSupport.invokeVarShl</qualifiedname>
+        <reimplementedby refid="df/d36/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1a4e56cf11478e15834fe0a2c09c3b97cd">invokeVarShl</reimplementedby>
+        <reimplementedby refid="d1/d6d/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_var_1ace3d054d37d3e8229ff09a30af47d1cc">invokeVarShl</reimplementedby>
+        <param>
+          <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="de/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1_1_ref_handle" kindref="compound">RefHandle</ref></type>
+          <declname>hTarget</declname>
+        </param>
+        <param>
+          <type><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref></type>
+          <declname>hArg</declname>
+        </param>
+        <briefdescription>
+<para>Perform a &quot;shift-left&quot; operation on the Var. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current frame </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target Var handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hArg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the argument handle</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>one of the <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" kindref="member">Op#R_NEXT</ref></computeroutput>, <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a00e0f1e4447b75bfad17b2a6e21fe44e" kindref="member">Op#R_CALL</ref></computeroutput> or <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a549a5479622c9633613d0c47a886c542" kindref="member">Op#R_EXCEPTION</ref></computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/VarSupport.java" line="173" column="9"/>
+        <referencedby refid="d6/d4c/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___shl_1ae95ab148c115fa50023dcc743dfc6906" compoundref="d5/dbc/_i_p___shl_8java" startline="65" endline="67">org.xvm.asm.op.IP_Shl.completeWithVar</referencedby>
+        <referencedby refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1a5129eac369c9776866e937645dc7a36e" compoundref="d5/d4e/_class_template_8java" startline="1283" endline="1292">org.xvm.runtime.ClassTemplate.invokePropertyShl</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1a8fc4b39c7a93cc66aa5e91830728d30c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.runtime.VarSupport.invokeVarShr</definition>
+        <argsstring>(Frame frame, RefHandle hTarget, ObjectHandle hArg)</argsstring>
+        <name>invokeVarShr</name>
+        <qualifiedname>org.xvm.runtime.VarSupport.invokeVarShr</qualifiedname>
+        <reimplementedby refid="df/d36/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1ab446c9855f0c2dd7cf2488eba2182fe2">invokeVarShr</reimplementedby>
+        <reimplementedby refid="d1/d6d/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_var_1ae8b92c797bec9a3e32b15530472bd163">invokeVarShr</reimplementedby>
+        <param>
+          <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="de/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1_1_ref_handle" kindref="compound">RefHandle</ref></type>
+          <declname>hTarget</declname>
+        </param>
+        <param>
+          <type><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref></type>
+          <declname>hArg</declname>
+        </param>
+        <briefdescription>
+<para>Perform a &quot;shift-right&quot; operation on the Var. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current frame </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target Var handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hArg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the argument handle</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>one of the <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" kindref="member">Op#R_NEXT</ref></computeroutput>, <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a00e0f1e4447b75bfad17b2a6e21fe44e" kindref="member">Op#R_CALL</ref></computeroutput> or <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a549a5479622c9633613d0c47a886c542" kindref="member">Op#R_EXCEPTION</ref></computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/VarSupport.java" line="184" column="9"/>
+        <referencedby refid="d2/db0/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___shr_1a423ddf33a0df5d2e93251328bf14743f" compoundref="d0/d1e/_i_p___shr_8java" startline="64" endline="66">org.xvm.asm.op.IP_Shr.completeWithVar</referencedby>
+        <referencedby refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1a591490902803c4c1705cdcfc54aed058" compoundref="d5/d4e/_class_template_8java" startline="1304" endline="1313">org.xvm.runtime.ClassTemplate.invokePropertyShr</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1aa0bc6fd30b72e2a9913a1e3f540ecda8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.runtime.VarSupport.invokeVarShrAll</definition>
+        <argsstring>(Frame frame, RefHandle hTarget, ObjectHandle hArg)</argsstring>
+        <name>invokeVarShrAll</name>
+        <qualifiedname>org.xvm.runtime.VarSupport.invokeVarShrAll</qualifiedname>
+        <reimplementedby refid="df/d36/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1a5ea42434780e0bbb1c91192a3bc900ba">invokeVarShrAll</reimplementedby>
+        <reimplementedby refid="d1/d6d/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_var_1a892815273d8547c54764586907ca741b">invokeVarShrAll</reimplementedby>
+        <param>
+          <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="de/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1_1_ref_handle" kindref="compound">RefHandle</ref></type>
+          <declname>hTarget</declname>
+        </param>
+        <param>
+          <type><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref></type>
+          <declname>hArg</declname>
+        </param>
+        <briefdescription>
+<para>Perform an &quot;unsigned shift right&quot; operation on the Var. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current frame </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target Var handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hArg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the argument handle</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>one of the <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" kindref="member">Op#R_NEXT</ref></computeroutput>, <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a00e0f1e4447b75bfad17b2a6e21fe44e" kindref="member">Op#R_CALL</ref></computeroutput> or <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a549a5479622c9633613d0c47a886c542" kindref="member">Op#R_EXCEPTION</ref></computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/VarSupport.java" line="195" column="9"/>
+        <referencedby refid="d8/dcc/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___shr_all_1a630959d68579acdae86466ed2c553acf" compoundref="d6/d9f/_i_p___shr_all_8java" startline="63" endline="65">org.xvm.asm.op.IP_ShrAll.completeWithVar</referencedby>
+        <referencedby refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1a37dcc43c691bee69a90ae9fe5ffbde0d" compoundref="d5/d4e/_class_template_8java" startline="1325" endline="1334">org.xvm.runtime.ClassTemplate.invokePropertyShrAll</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1af4a4348e91dd4e815fd7e73ceeab0dae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.runtime.VarSupport.invokeVarAnd</definition>
+        <argsstring>(Frame frame, RefHandle hTarget, ObjectHandle hArg)</argsstring>
+        <name>invokeVarAnd</name>
+        <qualifiedname>org.xvm.runtime.VarSupport.invokeVarAnd</qualifiedname>
+        <reimplementedby refid="df/d36/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1a5ab1bf4f50c6dc72a2cf2d67ccb837ad">invokeVarAnd</reimplementedby>
+        <reimplementedby refid="d1/d6d/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_var_1ab5ee1ee9c5f46aa8b27f7f7dc8171b62">invokeVarAnd</reimplementedby>
+        <param>
+          <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="de/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1_1_ref_handle" kindref="compound">RefHandle</ref></type>
+          <declname>hTarget</declname>
+        </param>
+        <param>
+          <type><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref></type>
+          <declname>hArg</declname>
+        </param>
+        <briefdescription>
+<para>Perform an &quot;and&quot; operation on the Var. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current frame </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target Var handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hArg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the argument handle</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>one of the <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" kindref="member">Op#R_NEXT</ref></computeroutput>, <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a00e0f1e4447b75bfad17b2a6e21fe44e" kindref="member">Op#R_CALL</ref></computeroutput> or <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a549a5479622c9633613d0c47a886c542" kindref="member">Op#R_EXCEPTION</ref></computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/VarSupport.java" line="206" column="9"/>
+        <referencedby refid="df/d9b/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___and_1a0c6cc69e421ecf95ccf23951b8a18b85" compoundref="d2/d62/_i_p___and_8java" startline="64" endline="66">org.xvm.asm.op.IP_And.completeWithVar</referencedby>
+        <referencedby refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1af8a51602530782d0823cedd6d1cfed02" compoundref="d5/d4e/_class_template_8java" startline="1346" endline="1355">org.xvm.runtime.ClassTemplate.invokePropertyAnd</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1a06eced66ae153da2384828c931236777" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.runtime.VarSupport.invokeVarOr</definition>
+        <argsstring>(Frame frame, RefHandle hTarget, ObjectHandle hArg)</argsstring>
+        <name>invokeVarOr</name>
+        <qualifiedname>org.xvm.runtime.VarSupport.invokeVarOr</qualifiedname>
+        <reimplementedby refid="df/d36/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1a667dc737754169a6f8721b169310c49c">invokeVarOr</reimplementedby>
+        <reimplementedby refid="d1/d6d/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_var_1a7909ce5adaea01f730df075d5436a821">invokeVarOr</reimplementedby>
+        <param>
+          <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="de/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1_1_ref_handle" kindref="compound">RefHandle</ref></type>
+          <declname>hTarget</declname>
+        </param>
+        <param>
+          <type><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref></type>
+          <declname>hArg</declname>
+        </param>
+        <briefdescription>
+<para>Perform an &quot;or&quot; operation on the Var. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current frame </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target Var handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hArg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the argument handle</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>one of the <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" kindref="member">Op#R_NEXT</ref></computeroutput>, <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a00e0f1e4447b75bfad17b2a6e21fe44e" kindref="member">Op#R_CALL</ref></computeroutput> or <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a549a5479622c9633613d0c47a886c542" kindref="member">Op#R_EXCEPTION</ref></computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/VarSupport.java" line="217" column="9"/>
+        <referencedby refid="d6/d1c/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___or_1acc5710931bb87e0ce9d331d8700abab3" compoundref="d3/d55/_i_p___or_8java" startline="64" endline="66">org.xvm.asm.op.IP_Or.completeWithVar</referencedby>
+        <referencedby refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1a049493111de4bee841acdc013fbf9906" compoundref="d5/d4e/_class_template_8java" startline="1367" endline="1376">org.xvm.runtime.ClassTemplate.invokePropertyOr</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1af6f8cd2d5fdd841de57f1aaa0ee5ce4b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.runtime.VarSupport.invokeVarXor</definition>
+        <argsstring>(Frame frame, RefHandle hTarget, ObjectHandle hArg)</argsstring>
+        <name>invokeVarXor</name>
+        <qualifiedname>org.xvm.runtime.VarSupport.invokeVarXor</qualifiedname>
+        <reimplementedby refid="df/d36/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1aeb690933b5628e65fc172b75b8cff925">invokeVarXor</reimplementedby>
+        <reimplementedby refid="d1/d6d/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_var_1a27c5b2fe1877484e154b50dd8f0a0eb0">invokeVarXor</reimplementedby>
+        <param>
+          <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="de/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref_1_1_ref_handle" kindref="compound">RefHandle</ref></type>
+          <declname>hTarget</declname>
+        </param>
+        <param>
+          <type><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref></type>
+          <declname>hArg</declname>
+        </param>
+        <briefdescription>
+<para>Perform an &quot;exclusive or&quot; operation on the Var. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current frame </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hTarget</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target Var handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hArg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the argument handle</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>one of the <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" kindref="member">Op#R_NEXT</ref></computeroutput>, <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a00e0f1e4447b75bfad17b2a6e21fe44e" kindref="member">Op#R_CALL</ref></computeroutput> or <computeroutput><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a549a5479622c9633613d0c47a886c542" kindref="member">Op#R_EXCEPTION</ref></computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/VarSupport.java" line="228" column="9"/>
+        <referencedby refid="db/db6/classorg_1_1xvm_1_1asm_1_1op_1_1_i_p___xor_1a1189592355e5d9acc2958feb3783675c" compoundref="d0/d6f/_i_p___xor_8java" startline="64" endline="66">org.xvm.asm.op.IP_Xor.completeWithVar</referencedby>
+        <referencedby refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1a16a522f26026d08415f718120a8923a9" compoundref="d5/d4e/_class_template_8java" startline="1388" endline="1397">org.xvm.runtime.ClassTemplate.invokePropertyXor</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><computeroutput><ref refid="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support" kindref="compound">VarSupport</ref></computeroutput> represents a run-time facet of a Var. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>org.xvm.runtime.VarSupport</label>
+        <link refid="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>org.xvm.runtime.OpSupport</label>
+        <link refid="d5/d35/interfaceorg_1_1xvm_1_1runtime_1_1_op_support"/>
+      </node>
+      <node id="6">
+        <label>org.xvm.runtime.template.annotations.xAtomic</label>
+        <link refid="d1/d99/classorg_1_1xvm_1_1runtime_1_1template_1_1annotations_1_1x_atomic"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>org.xvm.runtime.template.annotations.xAtomicInt128</label>
+        <link refid="dc/dbc/classorg_1_1xvm_1_1runtime_1_1template_1_1annotations_1_1x_atomic_int128"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>org.xvm.runtime.template.annotations.xAtomicIntNumber</label>
+        <link refid="dd/df3/classorg_1_1xvm_1_1runtime_1_1template_1_1annotations_1_1x_atomic_int_number"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>org.xvm.runtime.template.annotations.xFuture</label>
+        <link refid="d6/d7f/classorg_1_1xvm_1_1runtime_1_1template_1_1annotations_1_1x_future"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>org.xvm.runtime.template.annotations.xInject</label>
+        <link refid="d8/d70/classorg_1_1xvm_1_1runtime_1_1template_1_1annotations_1_1x_inject"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>org.xvm.runtime.template.annotations.xLazy</label>
+        <link refid="dd/d9e/classorg_1_1xvm_1_1runtime_1_1template_1_1annotations_1_1x_lazy"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>org.xvm.runtime.template.reflect.xRef</label>
+        <link refid="df/d36/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_ref"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>org.xvm.runtime.template.reflect.xVar</label>
+        <link refid="d1/d6d/classorg_1_1xvm_1_1runtime_1_1template_1_1reflect_1_1x_var"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>org.xvm.runtime.VarSupport</label>
+        <link refid="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>org.xvm.runtime.OpSupport</label>
+        <link refid="d5/d35/interfaceorg_1_1xvm_1_1runtime_1_1_op_support"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/VarSupport.java" line="12" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/VarSupport.java" bodystart="13" bodyend="229"/>
+    <listofallmembers>
+      <member refid="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1adb12cfef97b609656de872056f0f3730" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>createRefHandle</name></member>
+      <member refid="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1a398cecbaa490b42eae777c469ec5073a" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>getReferent</name></member>
+      <member refid="d5/d35/interfaceorg_1_1xvm_1_1runtime_1_1_op_support_1ab079fbb5bb3394a71cc8fdf443252391" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>getTemplate</name></member>
+      <member refid="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1a42e32bc8d42598393e2a23a4f7e6bfed" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>introduceRef</name></member>
+      <member refid="d5/d35/interfaceorg_1_1xvm_1_1runtime_1_1_op_support_1a3c8bd9273ba74619b47ef10080eca6f8" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>invokeAdd</name></member>
+      <member refid="d5/d35/interfaceorg_1_1xvm_1_1runtime_1_1_op_support_1a99f0977c57d33a81171264cfd2474fd3" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>invokeAnd</name></member>
+      <member refid="d5/d35/interfaceorg_1_1xvm_1_1runtime_1_1_op_support_1ab7b0f541ab5e7328692812ad4f38aa34" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>invokeCompl</name></member>
+      <member refid="d5/d35/interfaceorg_1_1xvm_1_1runtime_1_1_op_support_1afa01a22eff0cc7f2f113613201bd62a2" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>invokeDiv</name></member>
+      <member refid="d5/d35/interfaceorg_1_1xvm_1_1runtime_1_1_op_support_1ae8be308b1e693cae2577f510057a1287" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>invokeDivRem</name></member>
+      <member refid="d5/d35/interfaceorg_1_1xvm_1_1runtime_1_1_op_support_1a0889e747009ad5e58438403c84d4d8ae" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>invokeERangeE</name></member>
+      <member refid="d5/d35/interfaceorg_1_1xvm_1_1runtime_1_1_op_support_1a19268b8b41c9b2b5d6975842936b89d7" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>invokeERangeI</name></member>
+      <member refid="d5/d35/interfaceorg_1_1xvm_1_1runtime_1_1_op_support_1ad86ad7a27e5ad9acea2cb943670c2bed" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>invokeIRangeE</name></member>
+      <member refid="d5/d35/interfaceorg_1_1xvm_1_1runtime_1_1_op_support_1adf7b8bad09277abd216feb39121f9706" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>invokeIRangeI</name></member>
+      <member refid="d5/d35/interfaceorg_1_1xvm_1_1runtime_1_1_op_support_1ac17b8a42f3f3583a0ede748d10afd9a2" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>invokeMod</name></member>
+      <member refid="d5/d35/interfaceorg_1_1xvm_1_1runtime_1_1_op_support_1a3183b760bf9d1aed8fe97e630a13ca59" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>invokeMul</name></member>
+      <member refid="d5/d35/interfaceorg_1_1xvm_1_1runtime_1_1_op_support_1aa2aaa69e54ca79f362edf35e0156fa6f" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>invokeNeg</name></member>
+      <member refid="d5/d35/interfaceorg_1_1xvm_1_1runtime_1_1_op_support_1a588643790e55115e3a47a2404fec4754" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>invokeNext</name></member>
+      <member refid="d5/d35/interfaceorg_1_1xvm_1_1runtime_1_1_op_support_1a1de2f7f32c50cb572e3d180adfdef27f" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>invokeOr</name></member>
+      <member refid="d5/d35/interfaceorg_1_1xvm_1_1runtime_1_1_op_support_1af5f199ab8e213439299c8a4f0749b7e5" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>invokePrev</name></member>
+      <member refid="d5/d35/interfaceorg_1_1xvm_1_1runtime_1_1_op_support_1a75f9ed799f33f31628658b12041c8782" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>invokeShl</name></member>
+      <member refid="d5/d35/interfaceorg_1_1xvm_1_1runtime_1_1_op_support_1a10ff5172cec7c58d7decf7aa50b39c6a" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>invokeShr</name></member>
+      <member refid="d5/d35/interfaceorg_1_1xvm_1_1runtime_1_1_op_support_1a462449748f63f1f598fdca447c97a773" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>invokeShrAll</name></member>
+      <member refid="d5/d35/interfaceorg_1_1xvm_1_1runtime_1_1_op_support_1ae9cc1b54983fac9ae2dd0ad57ff72e06" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>invokeSub</name></member>
+      <member refid="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1a4b791b16399b60aa04c83928260f9f78" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>invokeVarAdd</name></member>
+      <member refid="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1af4a4348e91dd4e815fd7e73ceeab0dae" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>invokeVarAnd</name></member>
+      <member refid="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1a0664745ba77b172634925138f55b524c" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>invokeVarDiv</name></member>
+      <member refid="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1a58e74eb0a7f398849d1e5597e8854cf2" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>invokeVarMod</name></member>
+      <member refid="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1aef4fa7836c5a270473cc6d10ea243fac" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>invokeVarMul</name></member>
+      <member refid="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1a06eced66ae153da2384828c931236777" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>invokeVarOr</name></member>
+      <member refid="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1a17724e8c3868cb2913be5e87c98cc2c7" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>invokeVarPostDec</name></member>
+      <member refid="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1a7af8d23e9f0fcde11a6759581b185dd8" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>invokeVarPostInc</name></member>
+      <member refid="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1ab3496a06d43e877c75b5e8435204f690" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>invokeVarPreDec</name></member>
+      <member refid="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1afa958da367ea1d65224f4440f5481e24" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>invokeVarPreInc</name></member>
+      <member refid="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1a49b8ea89852e12aed22d12dbb9217ddf" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>invokeVarShl</name></member>
+      <member refid="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1a8fc4b39c7a93cc66aa5e91830728d30c" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>invokeVarShr</name></member>
+      <member refid="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1aa0bc6fd30b72e2a9913a1e3f540ecda8" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>invokeVarShrAll</name></member>
+      <member refid="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1a92eaefb35199d4ab829249da6ad34264" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>invokeVarSub</name></member>
+      <member refid="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1af6f8cd2d5fdd841de57f1aaa0ee5ce4b" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>invokeVarXor</name></member>
+      <member refid="d5/d35/interfaceorg_1_1xvm_1_1runtime_1_1_op_support_1a1196ec864c92b020d8a7c280f7668f4e" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>invokeXor</name></member>
+      <member refid="d8/d65/interfaceorg_1_1xvm_1_1runtime_1_1_var_support_1a0d693c5a66a10ceb76fb6951aefe6040" prot="public" virt="non-virtual"><scope>org::xvm::runtime::VarSupport</scope><name>setReferent</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

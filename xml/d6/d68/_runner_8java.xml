@@ -1,0 +1,512 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d6/d68/_runner_8java" kind="file" language="Java">
+    <compoundname>Runner.java</compoundname>
+    <includes local="no">java.io.File</includes>
+    <includes local="no">java.io.FileInputStream</includes>
+    <includes local="no">java.io.IOException</includes>
+    <includes local="no">java.util.LinkedHashSet</includes>
+    <includes local="no">java.util.List</includes>
+    <includes local="no">java.util.Set</includes>
+    <includes local="no">java.util.stream.Collectors</includes>
+    <includes local="no">org.xvm.api.Connector</includes>
+    <includes local="no">org.xvm.api.InterpreterConnector</includes>
+    <includes local="no">org.xvm.asm.ConstantPool</includes>
+    <includes local="no">org.xvm.asm.ErrorListener</includes>
+    <includes local="no">org.xvm.asm.FileStructure</includes>
+    <includes local="no">org.xvm.asm.MethodStructure</includes>
+    <includes local="no">org.xvm.asm.ModuleRepository</includes>
+    <includes local="no">org.xvm.asm.ModuleStructure</includes>
+    <includes local="no">org.xvm.asm.constants.TypeConstant</includes>
+    <includes local="no">org.xvm.javajit.JitConnector</includes>
+    <includes local="no">org.xvm.tool.LauncherOptions.CompilerOptions</includes>
+    <includes local="no">org.xvm.tool.LauncherOptions.RunnerOptions</includes>
+    <includes local="no">org.xvm.util.Handy</includes>
+    <includes local="no">org.xvm.tool.ModuleInfo.isExplicitCompiledFile</includes>
+    <includes local="no">org.xvm.tool.ModuleInfo.isExplicitEcstasyFile</includes>
+    <includes local="no">org.xvm.util.Handy.checkReadable</includes>
+    <includes local="no">org.xvm.util.Handy.isPathed</includes>
+    <includes local="no">org.xvm.util.Handy.quoted</includes>
+    <includes local="no">org.xvm.util.Severity.ERROR</includes>
+    <includes local="no">org.xvm.util.Severity.FATAL</includes>
+    <includes local="no">org.xvm.util.Severity.INFO</includes>
+    <includes local="no">org.xvm.util.Severity.WARNING</includes>
+    <includes local="no">java.util.Objects.requireNonNull</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Runner.java</label>
+        <link refid="d6/d68/_runner_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.io.File</label>
+      </node>
+      <node id="3">
+        <label>java.io.FileInputStream</label>
+      </node>
+      <node id="4">
+        <label>java.io.IOException</label>
+      </node>
+      <node id="5">
+        <label>java.util.LinkedHashSet</label>
+      </node>
+      <node id="6">
+        <label>java.util.List</label>
+      </node>
+      <node id="31">
+        <label>java.util.Objects.requireNonNull</label>
+      </node>
+      <node id="7">
+        <label>java.util.Set</label>
+      </node>
+      <node id="8">
+        <label>java.util.stream.Collectors</label>
+      </node>
+      <node id="9">
+        <label>org.xvm.api.Connector</label>
+      </node>
+      <node id="10">
+        <label>org.xvm.api.InterpreterConnector</label>
+      </node>
+      <node id="11">
+        <label>org.xvm.asm.ConstantPool</label>
+      </node>
+      <node id="12">
+        <label>org.xvm.asm.ErrorListener</label>
+      </node>
+      <node id="13">
+        <label>org.xvm.asm.FileStructure</label>
+      </node>
+      <node id="14">
+        <label>org.xvm.asm.MethodStructure</label>
+      </node>
+      <node id="15">
+        <label>org.xvm.asm.ModuleRepository</label>
+      </node>
+      <node id="16">
+        <label>org.xvm.asm.ModuleStructure</label>
+      </node>
+      <node id="17">
+        <label>org.xvm.asm.constants.TypeConstant</label>
+      </node>
+      <node id="18">
+        <label>org.xvm.javajit.JitConnector</label>
+      </node>
+      <node id="19">
+        <label>org.xvm.tool.LauncherOptions.CompilerOptions</label>
+      </node>
+      <node id="20">
+        <label>org.xvm.tool.LauncherOptions.RunnerOptions</label>
+      </node>
+      <node id="22">
+        <label>org.xvm.tool.ModuleInfo.isExplicitCompiledFile</label>
+      </node>
+      <node id="23">
+        <label>org.xvm.tool.ModuleInfo.isExplicitEcstasyFile</label>
+      </node>
+      <node id="21">
+        <label>org.xvm.util.Handy</label>
+      </node>
+      <node id="24">
+        <label>org.xvm.util.Handy.checkReadable</label>
+      </node>
+      <node id="25">
+        <label>org.xvm.util.Handy.isPathed</label>
+      </node>
+      <node id="26">
+        <label>org.xvm.util.Handy.quoted</label>
+      </node>
+      <node id="27">
+        <label>org.xvm.util.Severity.ERROR</label>
+      </node>
+      <node id="28">
+        <label>org.xvm.util.Severity.FATAL</label>
+      </node>
+      <node id="29">
+        <label>org.xvm.util.Severity.INFO</label>
+      </node>
+      <node id="30">
+        <label>org.xvm.util.Severity.WARNING</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="db/d34/classorg_1_1xvm_1_1tool_1_1_runner" prot="public">org::xvm::tool::Runner</innerclass>
+    <innernamespace refid="d1/d15/namespaceorg_1_1xvm_1_1tool">org::xvm::tool</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.tool;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.File;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.FileInputStream;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.IOException;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.LinkedHashSet;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Set;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.stream.Collectors;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.api.Connector;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.api.InterpreterConnector;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ConstantPool;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ErrorListener;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.FileStructure;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.MethodStructure;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ModuleRepository;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ModuleStructure;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.constants.TypeConstant;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.javajit.JitConnector;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.tool.LauncherOptions.CompilerOptions;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.tool.LauncherOptions.RunnerOptions;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.util.Handy;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.tool.ModuleInfo.isExplicitCompiledFile;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.tool.ModuleInfo.isExplicitEcstasyFile;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.util.Handy.checkReadable;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.util.Handy.isPathed;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.util.Handy.quoted;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.util.Severity.ERROR;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.util.Severity.FATAL;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.util.Severity.INFO;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.util.Severity.WARNING;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>java.util.Objects.requireNonNull;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="db/d34/classorg_1_1xvm_1_1tool_1_1_runner" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="db/d34/classorg_1_1xvm_1_1tool_1_1_runner_1af506f7b2a65eba2d9be0bfac0402f77c" kindref="member">Runner</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a86ccf19d3e54386b912e7b57a8884ca7" kindref="member">Launcher</ref>&lt;RunnerOptions&gt;<sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="db/d34/classorg_1_1xvm_1_1tool_1_1_runner_1af506f7b2a65eba2d9be0bfac0402f77c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="db/d34/classorg_1_1xvm_1_1tool_1_1_runner_1af506f7b2a65eba2d9be0bfac0402f77c" kindref="member">Runner</ref>(<ref refid="dc/d4c/classorg_1_1xvm_1_1tool_1_1_launcher_options_1_1_runner_options" kindref="compound">RunnerOptions</ref><sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4246d1c2d0eba48001e5869b6847093e" kindref="member">options</ref>,<sp/><ref refid="dd/dbc/interfaceorg_1_1xvm_1_1tool_1_1_console" kindref="compound">Console</ref><sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a692712e6d64096ec796059f6d5c3c8f9" kindref="member">console</ref>,<sp/><ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref><sp/>errListener)<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(<ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4246d1c2d0eba48001e5869b6847093e" kindref="member">options</ref>,<sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a692712e6d64096ec796059f6d5c3c8f9" kindref="member">console</ref>,<sp/>errListener);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69" refid="db/d34/classorg_1_1xvm_1_1tool_1_1_runner_1a70c032f49d03db6a1e232590fef9b1be" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="db/d34/classorg_1_1xvm_1_1tool_1_1_runner_1a70c032f49d03db6a1e232590fef9b1be" kindref="member">main</ref>(String[]<sp/>asArg)<sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a86ccf19d3e54386b912e7b57a8884ca7" kindref="member">Launcher</ref>.main(<ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a66f4a3ce92d5c42309a08c2474770ac2" kindref="member">insertCommand</ref>(<ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a24de6aff5f778b771f93721270a4d6a7" kindref="member">CMD_RUN</ref>,<sp/>asArg));</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>Also<sp/>support<sp/>process<sp/>calls<sp/>with<sp/>an<sp/>overriding<sp/>options<sp/>object<sp/>as<sp/>parameter.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="75" refid="db/d34/classorg_1_1xvm_1_1tool_1_1_runner_1a02fbb7a330ba8a4a3d0e6eddeeaf8d4d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="db/d34/classorg_1_1xvm_1_1tool_1_1_runner_1a02fbb7a330ba8a4a3d0e6eddeeaf8d4d" kindref="member">process</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>repository<sp/>setup</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>opts<sp/>=<sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4246d1c2d0eba48001e5869b6847093e" kindref="member">options</ref>();</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>repo<sp/>=<sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a7923b63ac491f720ae0a7a48c9bd3bce" kindref="member">configureLibraryRepo</ref>(opts.getModulePath());</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a18fe47639618f2e83c7379bc82288b94" kindref="member">checkErrors</ref>(</highlight><highlight class="stringliteral">&quot;repository<sp/>setup&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(opts.showVersion())<sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a79f6f3c856d7a70d81e15324e1c8fca8" kindref="member">showSystemVersion</ref>(repo);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>optFileSpec<sp/>=<sp/>opts.getTarget();</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(optFileSpec.isEmpty())<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(opts.showVersion())<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a87be608c1cd45c0ad74456eabb01dc32" kindref="member">displayHelp</ref>();</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>File<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fileSpec<sp/><sp/><sp/>=<sp/>optFileSpec.get();</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>filePath<sp/><sp/><sp/>=<sp/>fileSpec.getPath();</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>File<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fileBin<sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>binExists<sp/><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/d13/classorg_1_1xvm_1_1asm_1_1_module_structure" kindref="compound">ModuleStructure</ref><sp/>module<sp/><sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>binLocDesc;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(isExplicitCompiledFile(filePath)<sp/>&amp;&amp;<sp/>fileSpec.exists()<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(opts.isCompileDisabled()<sp/>||<sp/>isPathed(filePath)))<sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>caller<sp/>has<sp/>explicitly<sp/>specified<sp/>the<sp/>exact<sp/>.xtc<sp/>file<sp/>and/or</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fileBin<sp/><sp/><sp/><sp/>=<sp/>fileSpec;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>binExists<sp/><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>binLocDesc<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;the<sp/>specified<sp/>target<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>filePath;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!isPathed(filePath)<sp/>&amp;&amp;<sp/>!isExplicitEcstasyFile(filePath)<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(module<sp/>=<sp/>repo.loadModule(filePath))<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>use<sp/>the<sp/>module<sp/>we<sp/>found<sp/>in<sp/>the<sp/>repo</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>binLocDesc<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;the<sp/>repository&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>outFile<sp/>=<sp/>opts.getOutputFile();</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="da/d7c/classorg_1_1xvm_1_1tool_1_1_module_info" kindref="compound">ModuleInfo</ref><sp/>info;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="da/d7c/classorg_1_1xvm_1_1tool_1_1_module_info" kindref="compound">ModuleInfo</ref>(fileSpec,<sp/>opts.mayDeduceLocations(),<sp/>outFile.orElse(</highlight><highlight class="keyword">null</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(RuntimeException<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab4ca08939471989b8e0d164da0b9ace1" kindref="member">log</ref>(ERROR,<sp/>e,<sp/></highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>identify<sp/>the<sp/>module<sp/>for:<sp/>{}&quot;</highlight><highlight class="normal">,<sp/>fileSpec);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a18fe47639618f2e83c7379bc82288b94" kindref="member">checkErrors</ref>(</highlight><highlight class="stringliteral">&quot;module<sp/>identification&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a18fe47639618f2e83c7379bc82288b94" kindref="member">checkErrors</ref>(</highlight><highlight class="stringliteral">&quot;module<sp/>identification&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fileBin<sp/><sp/><sp/>=<sp/>requireNonNull(info).getBinaryFile();</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>binExists<sp/>=<sp/>fileBin<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>fileBin.exists();</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>fCompile<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!binExists)<sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>qualName<sp/>=<sp/>info.<ref refid="da/d7c/classorg_1_1xvm_1_1tool_1_1_module_info_1a179b151a8ac9cfc676d5d44e9dba1c14" kindref="member">getQualifiedModuleName</ref>();</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>module<sp/>=<sp/>repo.loadModule(qualName);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(module<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>File<sp/>fileSrc<sp/>=<sp/>info.<ref refid="da/d7c/classorg_1_1xvm_1_1tool_1_1_module_info_1a14d6f4ee687bf4fb5e9a47b63e5745a2" kindref="member">getSourceFile</ref>();</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(fileSrc<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>fileSrc.exists()<sp/>&amp;&amp;<sp/>!opts.isCompileDisabled())<sp/>{</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab4ca08939471989b8e0d164da0b9ace1" kindref="member">log</ref>(INFO,<sp/></highlight><highlight class="stringliteral">&quot;The<sp/>compiled<sp/>module<sp/>{}<sp/>is<sp/>missing;<sp/>attempting<sp/>to<sp/>compile<sp/>it<sp/>from<sp/>{}<sp/>...&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>quoted(info.<ref refid="da/d7c/classorg_1_1xvm_1_1tool_1_1_module_info_1a179b151a8ac9cfc676d5d44e9dba1c14" kindref="member">getQualifiedModuleName</ref>()),<sp/>info.<ref refid="da/d7c/classorg_1_1xvm_1_1tool_1_1_module_info_1a14d6f4ee687bf4fb5e9a47b63e5745a2" kindref="member">getSourceFile</ref>());</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fCompile<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>possibles<sp/>=<sp/><ref refid="db/d34/classorg_1_1xvm_1_1tool_1_1_runner_1a443074d6b708f3423d4614f57edeeba1" kindref="member">resolvePossibleTargets</ref>(qualName,<sp/>repo);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(possibles.isEmpty())<sp/>{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab4ca08939471989b8e0d164da0b9ace1" kindref="member">log</ref>(ERROR,<sp/></highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>locate<sp/>the<sp/>module<sp/>for:<sp/>{}&quot;</highlight><highlight class="normal">,<sp/>fileSpec);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>suggestions<sp/>=<sp/>possibles.stream()</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.map(<ref refid="d9/da5/classorg_1_1xvm_1_1util_1_1_handy_1ae655e808fe54170d7fd15043cf6ee5f3" kindref="member">Handy::quoted</ref>)</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.collect(Collectors.joining(</highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab4ca08939471989b8e0d164da0b9ace1" kindref="member">log</ref>(ERROR,<sp/></highlight><highlight class="stringliteral">&quot;Unable<sp/>to<sp/>locate<sp/>the<sp/>module<sp/>for<sp/>{};<sp/>did<sp/>you<sp/>mean<sp/>{}?&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fileSpec,<sp/>suggestions);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>binExists<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(binExists<sp/>&amp;&amp;<sp/>!opts.isCompileDisabled()<sp/>&amp;&amp;<sp/>info.<ref refid="da/d7c/classorg_1_1xvm_1_1tool_1_1_module_info_1a14d6f4ee687bf4fb5e9a47b63e5745a2" kindref="member">getSourceFile</ref>()<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;&amp;<sp/>info.<ref refid="da/d7c/classorg_1_1xvm_1_1tool_1_1_module_info_1a14d6f4ee687bf4fb5e9a47b63e5745a2" kindref="member">getSourceFile</ref>().exists()<sp/>&amp;&amp;<sp/>!info.<ref refid="da/d7c/classorg_1_1xvm_1_1tool_1_1_module_info_1a90c8b558a6458b24ed8dcd004dbd7d40" kindref="member">isUpToDate</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab4ca08939471989b8e0d164da0b9ace1" kindref="member">log</ref>(INFO,<sp/></highlight><highlight class="stringliteral">&quot;The<sp/>compiled<sp/>module<sp/>{}<sp/>is<sp/>out-of-date;<sp/>recompiling<sp/>...&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>quoted(info.<ref refid="da/d7c/classorg_1_1xvm_1_1tool_1_1_module_info_1a179b151a8ac9cfc676d5d44e9dba1c14" kindref="member">getQualifiedModuleName</ref>()));</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fCompile<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a18fe47639618f2e83c7379bc82288b94" kindref="member">checkErrors</ref>(</highlight><highlight class="stringliteral">&quot;module<sp/>location&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(fCompile)<sp/>{</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Build<sp/>CompilerOptions<sp/>programmatically<sp/>using<sp/>fluent<sp/>API</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>NOTE<sp/>that<sp/>we<sp/>can<sp/>only<sp/>forward<sp/>compiler<sp/>options<sp/>from<sp/>the<sp/>runner<sp/>command<sp/>line,<sp/>i.e.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>options<sp/>shared<sp/>by<sp/>both.<sp/>This<sp/>means<sp/>that<sp/>we<sp/>put<sp/>deduce<sp/>and<sp/>verbose<sp/>in<sp/>there,<sp/>but<sp/>if<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>old<sp/>compile<sp/>was<sp/>done<sp/>with<sp/>e.g.<sp/>strict,<sp/>we<sp/>have<sp/>no<sp/>way<sp/>to<sp/>pass<sp/>that,<sp/>even<sp/>though<sp/>that<sp/>would</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>be<sp/>consistent.<sp/>This<sp/>feels<sp/>a<sp/>bit<sp/>brittle.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>builder<sp/>=<sp/><ref refid="dd/d51/classorg_1_1xvm_1_1tool_1_1_launcher_options_1_1_compiler_options" kindref="compound">CompilerOptions</ref>.<ref refid="dd/d51/classorg_1_1xvm_1_1tool_1_1_launcher_options_1_1_compiler_options_1a687f6d77af3ba5b0ddc7c4c83ffcca0e" kindref="member">builder</ref>()</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.<ref refid="d6/d98/classorg_1_1xvm_1_1tool_1_1_launcher_options_1_1_compiler_options_1_1_builder_1a32b4df5653515c3cfb3e1b4e2c95905f" kindref="member">addInputFile</ref>(fileSpec)</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.<ref refid="d2/d2d/classorg_1_1xvm_1_1tool_1_1_launcher_options_1_1_abstract_builder_1a231bd8fd832e91fbfabba9813cb4d837" kindref="member">addModulePath</ref>(opts.getModulePath())</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.enableDeduction(opts.mayDeduceLocations())</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.enableVerbose(opts.isVerbose());</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>outFile.ifPresent(builder::setOutputLocation);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>exitCode<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d9/d15/classorg_1_1xvm_1_1tool_1_1_compiler" kindref="compound">Compiler</ref>(builder.build(),<sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a32506679dbf436fda288d92f32bcc128" kindref="member">m_console</ref>,<sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1af0236b951cf910b679da12e2e6d53823" kindref="member">m_errors</ref>).<ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a82885a928db87cc0bca2140179c4c217" kindref="member">run</ref>();</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(exitCode<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab4ca08939471989b8e0d164da0b9ace1" kindref="member">log</ref>(ERROR,<sp/></highlight><highlight class="stringliteral">&quot;Runner<sp/>invoked<sp/>compilation<sp/>failed<sp/>with<sp/>exit<sp/>code<sp/>{}&quot;</highlight><highlight class="normal">,<sp/>exitCode);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a18fe47639618f2e83c7379bc82288b94" kindref="member">checkErrors</ref>(</highlight><highlight class="stringliteral">&quot;compilation&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="da/d7c/classorg_1_1xvm_1_1tool_1_1_module_info" kindref="compound">ModuleInfo</ref>(fileSpec,<sp/>opts.mayDeduceLocations(),<sp/>outFile.orElse(</highlight><highlight class="keyword">null</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fileBin<sp/><sp/><sp/>=<sp/>info.<ref refid="da/d7c/classorg_1_1xvm_1_1tool_1_1_module_info_1a47ca4735cd7e84c3101d982b0eeb070f" kindref="member">getBinaryFile</ref>();</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>binExists<sp/>=<sp/>fileBin<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>fileBin.exists();</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>repo<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a7923b63ac491f720ae0a7a48c9bd3bce" kindref="member">configureLibraryRepo</ref>(opts.getModulePath());</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>module<sp/><sp/><sp/><sp/>=<sp/>repo.loadModule(info.<ref refid="da/d7c/classorg_1_1xvm_1_1tool_1_1_module_info_1a179b151a8ac9cfc676d5d44e9dba1c14" kindref="member">getQualifiedModuleName</ref>());</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>binLocDesc<sp/>=<sp/>info.<ref refid="da/d7c/classorg_1_1xvm_1_1tool_1_1_module_info_1a47ca4735cd7e84c3101d982b0eeb070f" kindref="member">getBinaryFile</ref>().getPath();</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>check<sp/>if<sp/>the<sp/>compiled<sp/>module<sp/>file<sp/>name<sp/>was<sp/>specified</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(module<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>binExists)<sp/>{</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(checkReadable(fileBin))<sp/>{</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>(var<sp/>in<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>FileInputStream(fileBin))<sp/>{</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">=<sp/>new<sp/><ref refid="db/d63/classorg_1_1xvm_1_1asm_1_1_file_structure" kindref="compound">FileStructure</ref>(in);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>module<sp/>=<sp/>struct.getModule();</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(IOException<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab4ca08939471989b8e0d164da0b9ace1" kindref="member">log</ref>(FATAL,<sp/>e,<sp/></highlight><highlight class="stringliteral">&quot;I/O<sp/>exception<sp/>reading<sp/>module<sp/>file:<sp/>{}&quot;</highlight><highlight class="normal">,<sp/>fileBin);</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;<sp/><sp/></highlight><highlight class="comment">//<sp/>Unreachable<sp/>-<sp/>log(FATAL)<sp/>throws</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(module<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab4ca08939471989b8e0d164da0b9ace1" kindref="member">log</ref>(ERROR,<sp/></highlight><highlight class="stringliteral">&quot;Missing<sp/>module<sp/>for<sp/>{}&quot;</highlight><highlight class="normal">,<sp/>fileSpec);</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a18fe47639618f2e83c7379bc82288b94" kindref="member">checkErrors</ref>(</highlight><highlight class="stringliteral">&quot;module<sp/>loading&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>repo.storeModule(module);</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(IOException<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab4ca08939471989b8e0d164da0b9ace1" kindref="member">log</ref>(FATAL,<sp/>e,<sp/></highlight><highlight class="stringliteral">&quot;I/O<sp/>exception<sp/>storing<sp/>module<sp/>file:<sp/>{}&quot;</highlight><highlight class="normal">,<sp/>fileSpec);</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;<sp/><sp/></highlight><highlight class="comment">//<sp/>Unreachable<sp/>-<sp/>log(FATAL)<sp/>throws</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a18fe47639618f2e83c7379bc82288b94" kindref="member">checkErrors</ref>(</highlight><highlight class="stringliteral">&quot;module<sp/>storage&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>sName<sp/>=<sp/>requireNonNull(module).getName();</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(sName.equals(module.<ref refid="d2/d13/classorg_1_1xvm_1_1asm_1_1_module_structure_1a21eaedd8d23569b945443fc73dd930b0" kindref="member">getSimpleName</ref>()))<sp/>{</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>quote<sp/>the<sp/>&quot;simpleName&quot;<sp/>to<sp/>visually<sp/>differentiate<sp/>it<sp/>(there<sp/>is<sp/>no<sp/>qualified<sp/>name)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sName<sp/>=<sp/>quoted(sName);</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab4ca08939471989b8e0d164da0b9ace1" kindref="member">log</ref>(INFO,<sp/></highlight><highlight class="stringliteral">&quot;Executing<sp/>{}<sp/>from<sp/>{}&quot;</highlight><highlight class="normal">,<sp/>sName,<sp/>binLocDesc);</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="df/de5/classorg_1_1xvm_1_1api_1_1_connector" kindref="compound">Connector</ref><sp/>connector<sp/>=<sp/><ref refid="db/d34/classorg_1_1xvm_1_1tool_1_1_runner_1a7b740b1aa30e32c889a9ba494c7832ea" kindref="member">createConnector</ref>(repo,<sp/>module);</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref><sp/>pool<sp/>=<sp/>connector.<ref refid="df/de5/classorg_1_1xvm_1_1api_1_1_connector_1a58a680d27272b5d71b2e3aafa42465de" kindref="member">getConstantPool</ref>();</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>(var<sp/>_<sp/>=<sp/><ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref>.<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1aecb1570b2597db8d0a21ea8ef53966a0" kindref="member">withPool</ref>(pool))<sp/>{</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>sMethod<sp/><sp/><sp/><sp/>=<sp/>opts.getMethodName();</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>setMethods<sp/>=<sp/>connector.<ref refid="df/de5/classorg_1_1xvm_1_1api_1_1_connector_1a4fd31095c6b531ec74035b4687337baf" kindref="member">findMethods</ref>(sMethod);</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(setMethods.size()<sp/>!=<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab4ca08939471989b8e0d164da0b9ace1" kindref="member">log</ref>(ERROR,<sp/></highlight><highlight class="stringliteral">&quot;{}<sp/>method<sp/>{}<sp/>in<sp/>module<sp/>{}&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>setMethods.isEmpty()<sp/>?<sp/></highlight><highlight class="stringliteral">&quot;Missing&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;Ambiguous&quot;</highlight><highlight class="normal">,<sp/>quoted(sMethod),<sp/>sName);</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a18fe47639618f2e83c7379bc82288b94" kindref="member">checkErrors</ref>(</highlight><highlight class="stringliteral">&quot;method<sp/>lookup&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>args<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>opts.getMethodArgs();</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>method<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>setMethods.iterator().next();</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>typeStrings<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>pool.<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a8f2843effe042c044d9892c326e09f2f" kindref="member">ensureArrayType</ref>(pool.<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1aa25d16487042f9d19eb31550059be26a" kindref="member">typeString</ref>());</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>validationResult<sp/>=<sp/><ref refid="db/d34/classorg_1_1xvm_1_1tool_1_1_runner_1ad97636ea63812a8c2e18d94d19c47094" kindref="member">validateMethodArgs</ref>(sMethod,<sp/>method,<sp/>args,<sp/>typeStrings);</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(validationResult<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a18fe47639618f2e83c7379bc82288b94" kindref="member">checkErrors</ref>(</highlight><highlight class="stringliteral">&quot;method<sp/>argument<sp/>validation&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>connector.<ref refid="df/de5/classorg_1_1xvm_1_1api_1_1_connector_1a8fdcb2b950f19f263bee762e220172d1" kindref="member">invoke0</ref>(method,<sp/>args);</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>connector.<ref refid="df/de5/classorg_1_1xvm_1_1api_1_1_connector_1ab08c1c113f76d814b7c5634b5c5de747" kindref="member">join</ref>();</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(InterruptedException<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab4ca08939471989b8e0d164da0b9ace1" kindref="member">log</ref>(WARNING,<sp/>e,<sp/></highlight><highlight class="stringliteral">&quot;Interrupted<sp/>while<sp/>waiting<sp/>for<sp/>method<sp/>{}&quot;</highlight><highlight class="normal">,<sp/>quoted(sName));</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(LauncherException<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>e;</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(Exception<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>e.printStackTrace(System.err);</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab4ca08939471989b8e0d164da0b9ace1" kindref="member">log</ref>(FATAL,<sp/>e,<sp/></highlight><highlight class="stringliteral">&quot;Unhandled<sp/>exception&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;<sp/><sp/></highlight><highlight class="comment">//<sp/>Unreachable<sp/>-<sp/>log(FATAL)<sp/>throws</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"></highlight></codeline>
+<codeline lineno="260" refid="db/d34/classorg_1_1xvm_1_1tool_1_1_runner_1ad97636ea63812a8c2e18d94d19c47094" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="db/d34/classorg_1_1xvm_1_1tool_1_1_runner_1ad97636ea63812a8c2e18d94d19c47094" kindref="member">validateMethodArgs</ref>(String<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sMethod,</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/d90/classorg_1_1xvm_1_1asm_1_1_method_structure" kindref="compound">MethodStructure</ref><sp/>method,</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;String&gt;<sp/><sp/><sp/><sp/>asArg,</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/><sp/><sp/><sp/>typeStrings)<sp/>{</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>requiredCount<sp/>=<sp/>method.<ref refid="d4/d90/classorg_1_1xvm_1_1asm_1_1_method_structure_1a88a427d94b9663e8f757966e1e501ae2" kindref="member">getRequiredParamCount</ref>();</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>totalCount<sp/><sp/><sp/><sp/>=<sp/>method.<ref refid="d4/d90/classorg_1_1xvm_1_1asm_1_1_method_structure_1a13bcee9ddbc2711c0c48f58cc911903b" kindref="member">getParamCount</ref>();</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"></highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Only<sp/>methods<sp/>with<sp/>0<sp/>or<sp/>1<sp/>required<sp/>parameters<sp/>are<sp/>supported</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(requiredCount<sp/>&gt;<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab4ca08939471989b8e0d164da0b9ace1" kindref="member">log</ref>(ERROR,<sp/></highlight><highlight class="stringliteral">&quot;Unsupported<sp/>method<sp/>arguments<sp/>{}&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>quoted(method.<ref refid="d4/d90/classorg_1_1xvm_1_1asm_1_1_method_structure_1a64d87444ee04ff85367117e98672d02e" kindref="member">getIdentityConstant</ref>().<ref refid="d6/d7b/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_constant_1a0ad1df0808a7189a129a3ce66d3e3d39" kindref="member">getSignature</ref>().<ref refid="de/d50/classorg_1_1xvm_1_1asm_1_1constants_1_1_signature_constant_1ad4d63c91d0229614fca8aa3e3bd6cf91" kindref="member">getValueString</ref>()));</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"></highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Warn<sp/>if<sp/>args<sp/>provided<sp/>but<sp/>method<sp/>takes<sp/>no<sp/>parameters</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!asArg.isEmpty()<sp/>&amp;&amp;<sp/>totalCount<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab4ca08939471989b8e0d164da0b9ace1" kindref="member">log</ref>(WARNING,<sp/></highlight><highlight class="stringliteral">&quot;Method<sp/>{}<sp/>does<sp/>not<sp/>take<sp/>any<sp/>parameters;<sp/>ignoring<sp/>the<sp/>specified<sp/>arguments&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>quoted(sMethod));</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"></highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Validate<sp/>parameter<sp/>type<sp/>when<sp/>args<sp/>will<sp/>be<sp/>passed:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>required<sp/>param<sp/>exists<sp/>(requiredCount<sp/>==<sp/>1),<sp/>or</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>args<sp/>provided<sp/>and<sp/>method<sp/>can<sp/>accept<sp/>them</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>willPassArgs<sp/>=<sp/>requiredCount<sp/>&gt;<sp/>0<sp/>||<sp/>(!asArg.isEmpty()<sp/>&amp;&amp;<sp/>totalCount<sp/>&gt;<sp/>0);</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(willPassArgs)<sp/>{</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>typeArg<sp/>=<sp/>method.<ref refid="d4/d90/classorg_1_1xvm_1_1asm_1_1_method_structure_1acbbe3e42714eb4e77c24ac2c381b456f" kindref="member">getParam</ref>(0).<ref refid="d0/d0f/classorg_1_1xvm_1_1asm_1_1_parameter_1a6f681eb0290414503f5419a1ddaa5b35" kindref="member">getType</ref>();</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!typeStrings.<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a035b845286f8916eecff045edccdca71" kindref="member">isA</ref>(typeArg))<sp/>{</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab4ca08939471989b8e0d164da0b9ace1" kindref="member">log</ref>(ERROR,<sp/></highlight><highlight class="stringliteral">&quot;Unsupported<sp/>argument<sp/>type<sp/>{}<sp/>for<sp/>method<sp/>{}&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>quoted(typeArg.getValueString()),<sp/>quoted(sMethod));</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"></highlight></codeline>
+<codeline lineno="299" refid="db/d34/classorg_1_1xvm_1_1tool_1_1_runner_1a443074d6b708f3423d4614f57edeeba1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>Set&lt;String&gt;<sp/><ref refid="db/d34/classorg_1_1xvm_1_1tool_1_1_runner_1a443074d6b708f3423d4614f57edeeba1" kindref="member">resolvePossibleTargets</ref>(String<sp/>qualName,<sp/><ref refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository" kindref="compound">ModuleRepository</ref><sp/>repo)<sp/>{</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(qualName.indexOf(</highlight><highlight class="charliteral">&apos;.&apos;</highlight><highlight class="normal">)<sp/>&gt;=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Set.of();</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>repo.<ref refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository_1a307ae03d3c321714a32f04470d227f84" kindref="member">getModuleNames</ref>().stream()</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.filter(name<sp/>-&gt;<sp/>name.startsWith(qualName<sp/>+<sp/></highlight><highlight class="charliteral">&apos;.&apos;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.collect(Collectors.toCollection(LinkedHashSet::new));</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"></highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="309" refid="db/d34/classorg_1_1xvm_1_1tool_1_1_runner_1ab4c9579df289458ec18a3be2c7448e9a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="db/d34/classorg_1_1xvm_1_1tool_1_1_runner_1ab4c9579df289458ec18a3be2c7448e9a" kindref="member">desc</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="stringliteral">&quot;</highlight></codeline>
+<codeline lineno="311"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Ecstasy<sp/>runner:</highlight></codeline>
+<codeline lineno="312"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="313"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Executes<sp/>an<sp/>Ecstasy<sp/>module,<sp/>compiling<sp/>it<sp/>first<sp/>if<sp/>necessary.</highlight></codeline>
+<codeline lineno="314"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="315"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Also<sp/>supports:</highlight></codeline>
+<codeline lineno="316"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;filename&gt;,<sp/>&lt;filename&gt;.x,<sp/>or<sp/>&lt;filename&gt;.xtc&quot;</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"></highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>connector<sp/>creation<sp/>--------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="320"><highlight class="normal"></highlight></codeline>
+<codeline lineno="329" refid="db/d34/classorg_1_1xvm_1_1tool_1_1_runner_1a7b740b1aa30e32c889a9ba494c7832ea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/><ref refid="df/de5/classorg_1_1xvm_1_1api_1_1_connector" kindref="compound">Connector</ref><sp/><ref refid="db/d34/classorg_1_1xvm_1_1tool_1_1_runner_1a7b740b1aa30e32c889a9ba494c7832ea" kindref="member">createConnector</ref>(<ref refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository" kindref="compound">ModuleRepository</ref><sp/>repo,<sp/><ref refid="d2/d13/classorg_1_1xvm_1_1asm_1_1_module_structure" kindref="compound">ModuleStructure</ref><sp/>module)<sp/>{</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d4c/classorg_1_1xvm_1_1tool_1_1_launcher_options_1_1_runner_options" kindref="compound">RunnerOptions</ref><sp/>opts<sp/>=<sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1a4246d1c2d0eba48001e5869b6847093e" kindref="member">options</ref>();</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"></highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="df/de5/classorg_1_1xvm_1_1api_1_1_connector" kindref="compound">Connector</ref><sp/>connector<sp/>=<sp/><ref refid="db/d34/classorg_1_1xvm_1_1tool_1_1_runner_1ab89819b6af0a449e5b7df89f8c5e4790" kindref="member">createBaseConnector</ref>(repo,<sp/>opts.<ref refid="dc/d4c/classorg_1_1xvm_1_1tool_1_1_launcher_options_1_1_runner_options_1a5dedbe196cb194893dc023fee76cbc9a" kindref="member">isJit</ref>());</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>connector.<ref refid="df/de5/classorg_1_1xvm_1_1api_1_1_connector_1a6b1d201d0300368b3b25dead2922d263" kindref="member">loadModule</ref>(module.<ref refid="d2/d13/classorg_1_1xvm_1_1asm_1_1_module_structure_1ad34a20388f6bec0546cef63c48fbc433" kindref="member">getName</ref>());</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>connector.<ref refid="df/de5/classorg_1_1xvm_1_1api_1_1_connector_1a5800fa234c246c354c2440ad8db19ead" kindref="member">start</ref>(opts.<ref refid="dc/d4c/classorg_1_1xvm_1_1tool_1_1_launcher_options_1_1_runner_options_1a6f0fbe6321c0a795dac3b9baaccc3bf2" kindref="member">getInjections</ref>());</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>connector;</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"></highlight></codeline>
+<codeline lineno="346" refid="db/d34/classorg_1_1xvm_1_1tool_1_1_runner_1ab89819b6af0a449e5b7df89f8c5e4790" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/><ref refid="df/de5/classorg_1_1xvm_1_1api_1_1_connector" kindref="compound">Connector</ref><sp/><ref refid="db/d34/classorg_1_1xvm_1_1tool_1_1_runner_1ab89819b6af0a449e5b7df89f8c5e4790" kindref="member">createBaseConnector</ref>(<ref refid="d5/d58/interfaceorg_1_1xvm_1_1asm_1_1_module_repository" kindref="compound">ModuleRepository</ref><sp/>repo,<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>isJit)<sp/>{</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>isJit<sp/>?<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="da/d82/classorg_1_1xvm_1_1javajit_1_1_jit_connector" kindref="compound">JitConnector</ref>(repo)<sp/>:<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d8/d84/classorg_1_1xvm_1_1api_1_1_interpreter_connector" kindref="compound">InterpreterConnector</ref>(repo);</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"></highlight></codeline>
+<codeline lineno="350"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="351" refid="db/d34/classorg_1_1xvm_1_1tool_1_1_runner_1a6b388d45f0e6b86f3fe04ebc9f5aa98c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="db/d34/classorg_1_1xvm_1_1tool_1_1_runner_1a6b388d45f0e6b86f3fe04ebc9f5aa98c" kindref="member">validateOptions</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Validate<sp/>the<sp/>-L<sp/>path<sp/>of<sp/>file(s)/dir(s)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="353"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/dfd/classorg_1_1xvm_1_1tool_1_1_launcher_1ab479a062d01e16853ae4b9a84bf14205" kindref="member">validateModulePath</ref>();</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="355"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/tool/Runner.java"/>
+  </compounddef>
+</doxygen>

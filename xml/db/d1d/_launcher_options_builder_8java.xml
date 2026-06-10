@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="db/d1d/_launcher_options_builder_8java" kind="file" language="Java">
+    <compoundname>LauncherOptionsBuilder.java</compoundname>
+    <includes local="no">java.io.File</includes>
+    <includes local="no">java.nio.file.Path</includes>
+    <includes local="no">java.util.List</includes>
+    <includes local="no">java.nio.file.Files.isDirectory</includes>
+    <includes local="no">org.xtclang.plugin.internal.DefaultXtcRunModule.DEFAULT_METHOD_NAME</includes>
+    <includes local="no">org.xtclang.plugin.tasks.XtcTestTask</includes>
+    <includes local="no">org.xvm.tool.LauncherOptions.CompilerOptions</includes>
+    <includes local="no">org.xvm.tool.LauncherOptions.RunnerOptions</includes>
+    <includes local="no">org.xvm.tool.LauncherOptions.TestRunnerOptions</includes>
+    <includes local="no">org.xtclang.plugin.tasks.XtcCompileTask</includes>
+    <includes local="no">org.xtclang.plugin.tasks.XtcRunTask</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/launchers/LauncherOptionsBuilder.java</label>
+        <link refid="db/d1d/_launcher_options_builder_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.io.File</label>
+      </node>
+      <node id="5">
+        <label>java.nio.file.Files.isDirectory</label>
+      </node>
+      <node id="3">
+        <label>java.nio.file.Path</label>
+      </node>
+      <node id="4">
+        <label>java.util.List</label>
+      </node>
+      <node id="6">
+        <label>org.xtclang.plugin.internal.DefaultXtcRunModule.DEFAULT_METHOD_NAME</label>
+      </node>
+      <node id="11">
+        <label>org.xtclang.plugin.tasks.XtcCompileTask</label>
+      </node>
+      <node id="12">
+        <label>org.xtclang.plugin.tasks.XtcRunTask</label>
+      </node>
+      <node id="7">
+        <label>org.xtclang.plugin.tasks.XtcTestTask</label>
+      </node>
+      <node id="8">
+        <label>org.xvm.tool.LauncherOptions.CompilerOptions</label>
+      </node>
+      <node id="9">
+        <label>org.xvm.tool.LauncherOptions.RunnerOptions</label>
+      </node>
+      <node id="10">
+        <label>org.xvm.tool.LauncherOptions.TestRunnerOptions</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="d5/dff/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_launcher_options_builder" prot="public">org::xtclang::plugin::launchers::LauncherOptionsBuilder</innerclass>
+    <innernamespace refid="d6/dfa/namespaceorg_1_1xtclang_1_1plugin_1_1launchers">org::xtclang::plugin::launchers</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xtclang.plugin.launchers;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.File;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.nio.file.Path;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>java.nio.file.Files.isDirectory;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xtclang.plugin.internal.DefaultXtcRunModule.DEFAULT_METHOD_NAME;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xtclang.plugin.tasks.XtcTestTask;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.tool.LauncherOptions.CompilerOptions;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.tool.LauncherOptions.RunnerOptions;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.tool.LauncherOptions.TestRunnerOptions;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xtclang.plugin.tasks.XtcCompileTask;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xtclang.plugin.tasks.XtcRunTask;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="d5/dff/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_launcher_options_builder" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d5/dff/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_launcher_options_builder_1af9203825179ea838696b41c4258610a6" kindref="member">LauncherOptionsBuilder</ref><sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="d5/dff/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_launcher_options_builder_1a00dd987e14a67e9b05f98a5cac4db4ea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="de/d68/enumorg_1_1xtclang_1_1plugin_1_1launchers_1_1_execution_mode" kindref="compound">ExecutionMode</ref><sp/><ref refid="d5/dff/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_launcher_options_builder_1a00dd987e14a67e9b05f98a5cac4db4ea" kindref="member">mode</ref>;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="d5/dff/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_launcher_options_builder_1af9203825179ea838696b41c4258610a6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d5/dff/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_launcher_options_builder_1af9203825179ea838696b41c4258610a6" kindref="member">LauncherOptionsBuilder</ref>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="de/d68/enumorg_1_1xtclang_1_1plugin_1_1launchers_1_1_execution_mode" kindref="compound">ExecutionMode</ref><sp/><ref refid="d5/dff/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_launcher_options_builder_1a00dd987e14a67e9b05f98a5cac4db4ea" kindref="member">mode</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.mode<sp/>=<sp/><ref refid="d5/dff/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_launcher_options_builder_1a00dd987e14a67e9b05f98a5cac4db4ea" kindref="member">mode</ref>;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="d5/dff/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_launcher_options_builder_1a5b3fb8d10f3ca3b33bc3a0d9f097fb08" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d5/dff/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_launcher_options_builder_1a5b3fb8d10f3ca3b33bc3a0d9f097fb08" kindref="member">useAbsolutePaths</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d5/dff/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_launcher_options_builder_1a00dd987e14a67e9b05f98a5cac4db4ea" kindref="member">mode</ref><sp/>==<sp/><ref refid="de/d68/enumorg_1_1xtclang_1_1plugin_1_1launchers_1_1_execution_mode" kindref="compound">ExecutionMode</ref>.<ref refid="de/d68/enumorg_1_1xtclang_1_1plugin_1_1launchers_1_1_execution_mode_1abd5c43f5d1d5034341bd7518cab528ee" kindref="member">DIRECT</ref>;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="d5/dff/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_launcher_options_builder_1a7bf84644584de5bd42eeab95c8bfd9cf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="dd/d51/classorg_1_1xvm_1_1tool_1_1_launcher_options_1_1_compiler_options" kindref="compound">CompilerOptions</ref><sp/><ref refid="d5/dff/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_launcher_options_builder_1a7bf84644584de5bd42eeab95c8bfd9cf" kindref="member">buildCompilerOptions</ref>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task" kindref="compound">XtcCompileTask</ref><sp/>task)<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Path<sp/>projectDir<sp/><sp/>=<sp/>task.<ref refid="d6/d70/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_launcher_task_1af30f7cd88627b438797eb6c5fbdae26f" kindref="member">getProjectDirectory</ref>().get().getAsFile().toPath();</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Path<sp/>outputDir<sp/><sp/><sp/>=<sp/>task.<ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1ab190b74156087310744c79a8385a9265" kindref="member">getOutputDirectoryInternal</ref>().getAsFile().toPath();</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Path<sp/>resourceDir<sp/>=<sp/>task.<ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1ac6b41840cf40accd13a1eb779c5b5787" kindref="member">getResourceDirectoryInternal</ref>().getAsFile().toPath();</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>var<sp/>builder<sp/>=<sp/><ref refid="dd/d51/classorg_1_1xvm_1_1tool_1_1_launcher_options_1_1_compiler_options" kindref="compound">CompilerOptions</ref>.<ref refid="dd/d51/classorg_1_1xvm_1_1tool_1_1_launcher_options_1_1_compiler_options_1a687f6d77af3ba5b0ddc7c4c83ffcca0e" kindref="member">builder</ref>()</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.<ref refid="d6/d98/classorg_1_1xvm_1_1tool_1_1_launcher_options_1_1_compiler_options_1_1_builder_1aa3ef69b526d9df4d0f52b1f49c1f5b6d" kindref="member">forceRebuild</ref>(task.<ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1ac1bca642aca7ebbd5f7a498445b22beb" kindref="member">getRebuild</ref>().get())</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.<ref refid="d2/d2d/classorg_1_1xvm_1_1tool_1_1_launcher_options_1_1_abstract_builder_1a72551d7332ecf1ae9410e1f69b507ee6" kindref="member">enableShowVersion</ref>(task.<ref refid="d6/d70/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_launcher_task_1a45f6e39af1159d091fd9d9375f57d37e" kindref="member">getShowVersion</ref>().get())</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.enableVerbose(task.<ref refid="d6/d70/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_launcher_task_1a9c1b5a624b5bd05965616b04e513302b" kindref="member">getVerbose</ref>().get())</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.disableWarnings(task.<ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1af550a301a327bec3eb8f5c6d2e753597" kindref="member">getDisableWarnings</ref>().get())</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.enableStrictMode(task.<ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a31e8845be38ded63586ca916e7f83b52" kindref="member">getStrict</ref>().get())</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.qualifyOutputNames(task.<ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a8e22e2b204a028cdcd7f64112dcb615d" kindref="member">getQualifiedOutputName</ref>().get())</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.setOutputLocation(<ref refid="d5/dff/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_launcher_options_builder_1a5b3fb8d10f3ca3b33bc3a0d9f097fb08" kindref="member">useAbsolutePaths</ref>()<sp/>?<sp/>outputDir.toString()<sp/>:<sp/>projectDir.relativize(outputDir).toString());</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(isDirectory(resourceDir))<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>builder.addResourceLocation(<ref refid="d5/dff/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_launcher_options_builder_1a5b3fb8d10f3ca3b33bc3a0d9f097fb08" kindref="member">useAbsolutePaths</ref>()<sp/>?<sp/>resourceDir.toString()<sp/>:<sp/>projectDir.relativize(resourceDir).toString());</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Add<sp/>module<sp/>paths</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>var<sp/>modulePath<sp/>:<sp/>task.<ref refid="d6/d70/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_launcher_task_1a3312e0ef71f0ed1253b56ea61cae135a" kindref="member">resolveFullModulePath</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>builder.addModulePath(<ref refid="d5/dff/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_launcher_options_builder_1a5b3fb8d10f3ca3b33bc3a0d9f097fb08" kindref="member">useAbsolutePaths</ref>()<sp/>?<sp/>modulePath.getAbsolutePath()<sp/>:<sp/>projectDir.relativize(modulePath.toPath()).toString());</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>module<sp/>version<sp/>if<sp/>specified</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>String<sp/>moduleVersion<sp/>=<sp/>task.<ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a96cdd63668153c7e7fe77059afb1e32f" kindref="member">resolveXtcVersion</ref>();</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(moduleVersion<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>builder.setModuleVersion(<ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task" kindref="compound">XtcCompileTask</ref>.<ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1a8c7e70868cd2301554e0264abb9d72b5" kindref="member">semanticVersion</ref>(moduleVersion));</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Add<sp/>source<sp/>files</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>File<sp/>sourceFile<sp/>:<sp/>task.<ref refid="d8/dd5/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_compile_task_1af2337724d2cbe392a2fc64eb5151ce26" kindref="member">resolveXtcSourceFiles</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>builder.addInputFile(<ref refid="d5/dff/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_launcher_options_builder_1a5b3fb8d10f3ca3b33bc3a0d9f097fb08" kindref="member">useAbsolutePaths</ref>()<sp/>?<sp/>sourceFile.getAbsolutePath()<sp/>:<sp/>projectDir.relativize(sourceFile.toPath()).toString());</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>builder.build();</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84" refid="d5/dff/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_launcher_options_builder_1a10852d625cb7f6f464cdd401fa048427" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="dc/d4c/classorg_1_1xvm_1_1tool_1_1_launcher_options_1_1_runner_options" kindref="compound">RunnerOptions</ref><sp/><ref refid="d5/dff/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_launcher_options_builder_1a10852d625cb7f6f464cdd401fa048427" kindref="member">buildRunnerOptions</ref>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="d9/d8d/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_run_task" kindref="compound">XtcRunTask</ref><sp/>task,<sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>String<sp/>moduleName,<sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>List&lt;String&gt;<sp/>moduleArgs)<sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>var<sp/>projectDir<sp/>=<sp/>task.<ref refid="d6/d70/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_launcher_task_1af30f7cd88627b438797eb6c5fbdae26f" kindref="member">getProjectDirectory</ref>().get().getAsFile().toPath();</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>var<sp/>methodName<sp/>=<sp/>task.<ref refid="d9/d8d/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_run_task_1a794c4d80e1047705d447005c15df3fc8" kindref="member">getMethodName</ref>().getOrElse(DEFAULT_METHOD_NAME);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/>!methodName.isEmpty();</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>flags</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>var<sp/>builder<sp/>=<sp/><ref refid="dc/d4c/classorg_1_1xvm_1_1tool_1_1_launcher_options_1_1_runner_options" kindref="compound">RunnerOptions</ref>.<ref refid="dc/d4c/classorg_1_1xvm_1_1tool_1_1_launcher_options_1_1_runner_options_1ad9742362a636b215e955ffa34ecb50cb" kindref="member">builder</ref>()</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.<ref refid="d2/d2d/classorg_1_1xvm_1_1tool_1_1_launcher_options_1_1_abstract_builder_1a72551d7332ecf1ae9410e1f69b507ee6" kindref="member">enableShowVersion</ref>(task.<ref refid="d6/d70/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_launcher_task_1a45f6e39af1159d091fd9d9375f57d37e" kindref="member">getShowVersion</ref>().get())</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.enableVerbose(task.<ref refid="d6/d70/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_launcher_task_1a9c1b5a624b5bd05965616b04e513302b" kindref="member">getVerbose</ref>().get())</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.setMethodName(methodName)</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.setTarget(moduleName,<sp/>moduleArgs)</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.noRecompile();<sp/></highlight><highlight class="comment">//<sp/>--no-recompile,<sp/>note<sp/>there<sp/>is<sp/>confusion<sp/>with<sp/>--rebuild<sp/>in<sp/>the<sp/>compiler<sp/>and<sp/>this</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Add<sp/>module<sp/>paths</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>var<sp/>modulePath<sp/>:<sp/>task.<ref refid="d6/d70/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_launcher_task_1a3312e0ef71f0ed1253b56ea61cae135a" kindref="member">resolveFullModulePath</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>builder.addModulePath(<ref refid="d5/dff/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_launcher_options_builder_1a5b3fb8d10f3ca3b33bc3a0d9f097fb08" kindref="member">useAbsolutePaths</ref>()<sp/>?<sp/>modulePath.getAbsolutePath()<sp/>:<sp/>projectDir.relativize(modulePath.toPath()).toString());</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>builder.build();</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112" refid="d5/dff/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_launcher_options_builder_1a224f0307fdaab71fbaca575a6321adb5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d2/d6e/classorg_1_1xvm_1_1tool_1_1_launcher_options_1_1_test_runner_options" kindref="compound">TestRunnerOptions</ref><sp/><ref refid="d5/dff/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_launcher_options_builder_1a224f0307fdaab71fbaca575a6321adb5" kindref="member">buildTestRunnerOptions</ref>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="d1/d8a/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_test_task" kindref="compound">XtcTestTask</ref><sp/>task,<sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>String<sp/>moduleName,</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>List&lt;String&gt;<sp/>moduleArgs)<sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>var<sp/>projectDir<sp/>=<sp/>task.<ref refid="d6/d70/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_launcher_task_1af30f7cd88627b438797eb6c5fbdae26f" kindref="member">getProjectDirectory</ref>().get().getAsFile().toPath();</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>var<sp/>outputDir<sp/><sp/>=<sp/>task.<ref refid="d1/d8a/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_test_task_1a8335329103de55d3640e1a5343452cac" kindref="member">getOutputDirectory</ref>();</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>var<sp/>methodName<sp/>=<sp/>task.<ref refid="d9/d8d/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_run_task_1a794c4d80e1047705d447005c15df3fc8" kindref="member">getMethodName</ref>().getOrElse(DEFAULT_METHOD_NAME);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/>!methodName.isEmpty();</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>flags<sp/>-<sp/>same<sp/>as<sp/>runner<sp/>options</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Use<sp/>explicit<sp/>type<sp/>to<sp/>ensure<sp/>we<sp/>get<sp/>TestRunnerOptions.Builder</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="d5/d7a/classorg_1_1xvm_1_1tool_1_1_launcher_options_1_1_test_runner_options_1_1_builder" kindref="compound">TestRunnerOptions.Builder</ref><sp/>builder<sp/>=<sp/><ref refid="d2/d6e/classorg_1_1xvm_1_1tool_1_1_launcher_options_1_1_test_runner_options" kindref="compound">TestRunnerOptions</ref>.<ref refid="d2/d6e/classorg_1_1xvm_1_1tool_1_1_launcher_options_1_1_test_runner_options_1aa584da4549537f529dd795aa8dd719a0" kindref="member">builder</ref>()</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.setXUnitOutputDirectory(outputDir.get().getAsFile().getAbsolutePath());</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>builder.enableShowVersion(task.<ref refid="d6/d70/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_launcher_task_1a45f6e39af1159d091fd9d9375f57d37e" kindref="member">getShowVersion</ref>().get())</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.enableVerbose(task.<ref refid="d6/d70/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_launcher_task_1a9c1b5a624b5bd05965616b04e513302b" kindref="member">getVerbose</ref>().get())</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.setTarget(moduleName,<sp/>moduleArgs)</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.noRecompile();</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Add<sp/>module<sp/>paths</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>var<sp/>modulePath<sp/>:<sp/>task.<ref refid="d6/d70/classorg_1_1xtclang_1_1plugin_1_1tasks_1_1_xtc_launcher_task_1a3312e0ef71f0ed1253b56ea61cae135a" kindref="member">resolveFullModulePath</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>builder.addModulePath(<ref refid="d5/dff/classorg_1_1xtclang_1_1plugin_1_1launchers_1_1_launcher_options_builder_1a5b3fb8d10f3ca3b33bc3a0d9f097fb08" kindref="member">useAbsolutePaths</ref>()<sp/>?<sp/>modulePath.getAbsolutePath()<sp/>:<sp/>projectDir.relativize(modulePath.toPath()).toString());</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>builder.build();</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/plugin/src/main/java/org/xtclang/plugin/launchers/LauncherOptionsBuilder.java"/>
+  </compounddef>
+</doxygen>

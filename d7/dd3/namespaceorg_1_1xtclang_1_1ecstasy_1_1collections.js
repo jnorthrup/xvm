@@ -1,0 +1,28 @@
+var namespaceorg_1_1xtclang_1_1ecstasy_1_1collections =
+[
+    [ "ArrayᐸBitᐳ", "d8/dac/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_bit_xE1_x90_xB3.html", "d8/dac/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_bit_xE1_x90_xB3" ],
+    [ "ArrayᐸBooleanᐳ", "d6/d8a/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_boolean_xE1_x90_xB3.html", "d6/d8a/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_boolean_xE1_x90_xB3" ],
+    [ "ArrayᐸCharᐳ", "dc/d3a/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_char_xE1_x90_xB3.html", "dc/d3a/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_char_xE1_x90_xB3" ],
+    [ "ArrayᐸDec128ᐳ", "d2/d64/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_dec128_xE1_x90_xB3.html", "d2/d64/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_dec128_xE1_x90_xB3" ],
+    [ "ArrayᐸDec32ᐳ", "d9/d58/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_dec32_xE1_x90_xB3.html", "d9/d58/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_dec32_xE1_x90_xB3" ],
+    [ "ArrayᐸDec64ᐳ", "d7/d6e/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_dec64_xE1_x90_xB3.html", "d7/d6e/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_dec64_xE1_x90_xB3" ],
+    [ "ArrayᐸFloat32ᐳ", "d7/de6/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_float32_xE1_x90_xB3.html", "d7/de6/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_float32_xE1_x90_xB3" ],
+    [ "ArrayᐸFloat64ᐳ", "da/df4/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_float64_xE1_x90_xB3.html", "da/df4/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_float64_xE1_x90_xB3" ],
+    [ "ArrayᐸInt128ᐳ", "dd/da5/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_int128_xE1_x90_xB3.html", "dd/da5/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_int128_xE1_x90_xB3" ],
+    [ "ArrayᐸInt16ᐳ", "dd/d4e/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_int16_xE1_x90_xB3.html", "dd/d4e/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_int16_xE1_x90_xB3" ],
+    [ "ArrayᐸInt32ᐳ", "d6/d8c/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_int32_xE1_x90_xB3.html", "d6/d8c/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_int32_xE1_x90_xB3" ],
+    [ "ArrayᐸInt64ᐳ", "d0/d1f/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_int64_xE1_x90_xB3.html", "d0/d1f/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_int64_xE1_x90_xB3" ],
+    [ "ArrayᐸInt8ᐳ", "d4/d8e/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_int8_xE1_x90_xB3.html", "d4/d8e/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_int8_xE1_x90_xB3" ],
+    [ "ArrayᐸNibbleᐳ", "d9/df4/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_nibble_xE1_x90_xB3.html", "d9/df4/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_nibble_xE1_x90_xB3" ],
+    [ "ArrayᐸObjectᐳ", "d0/d0b/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_object_xE1_x90_xB3.html", "d0/d0b/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_object_xE1_x90_xB3" ],
+    [ "ArrayᐸUInt128ᐳ", "d4/d1e/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_u_int128_xE1_x90_xB3.html", "d4/d1e/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_u_int128_xE1_x90_xB3" ],
+    [ "ArrayᐸUInt16ᐳ", "da/d7d/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_u_int16_xE1_x90_xB3.html", "da/d7d/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_u_int16_xE1_x90_xB3" ],
+    [ "ArrayᐸUInt32ᐳ", "d5/d44/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_u_int32_xE1_x90_xB3.html", "d5/d44/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_u_int32_xE1_x90_xB3" ],
+    [ "ArrayᐸUInt64ᐳ", "de/d10/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_u_int64_xE1_x90_xB3.html", "de/d10/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_u_int64_xE1_x90_xB3" ],
+    [ "ArrayᐸUInt8ᐳ", "d5/d20/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_u_int8_xE1_x90_xB3.html", "d5/d20/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_u_int8_xE1_x90_xB3" ],
+    [ "Array", "d7/d3b/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array.html", "d7/d3b/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array" ],
+    [ "Hashable", "d7/df4/interfaceorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_hashable.html", null ],
+    [ "HashCollector", "d3/dc9/interfaceorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_hash_collector.html", "d3/dc9/interfaceorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_hash_collector" ],
+    [ "nLongBasedArray", "d0/d75/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1n_long_based_array.html", "d0/d75/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1n_long_based_array" ],
+    [ "Tuple", "d7/dce/interfaceorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_tuple.html", null ]
+];

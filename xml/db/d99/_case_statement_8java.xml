@@ -1,0 +1,233 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="db/d99/_case_statement_8java" kind="file" language="Java">
+    <compoundname>CaseStatement.java</compoundname>
+    <includes local="no">java.util.Arrays</includes>
+    <includes local="no">java.util.List</includes>
+    <includes local="no">java.lang.reflect.Field</includes>
+    <includes local="no">org.xvm.asm.Constant</includes>
+    <includes local="no">org.xvm.asm.Constant.Format</includes>
+    <includes local="no">org.xvm.asm.ErrorListener</includes>
+    <includes local="no">org.xvm.asm.MethodStructure.Code</includes>
+    <includes local="no">org.xvm.asm.constants.ArrayConstant</includes>
+    <includes local="no">org.xvm.asm.constants.MatchAnyConstant</includes>
+    <includes local="no">org.xvm.asm.op.Label</includes>
+    <includes local="no">org.xvm.compiler.Token</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/CaseStatement.java</label>
+        <link refid="db/d99/_case_statement_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>java.lang.reflect.Field</label>
+      </node>
+      <node id="2">
+        <label>java.util.Arrays</label>
+      </node>
+      <node id="3">
+        <label>java.util.List</label>
+      </node>
+      <node id="5">
+        <label>org.xvm.asm.Constant</label>
+      </node>
+      <node id="6">
+        <label>org.xvm.asm.Constant.Format</label>
+      </node>
+      <node id="7">
+        <label>org.xvm.asm.ErrorListener</label>
+      </node>
+      <node id="8">
+        <label>org.xvm.asm.MethodStructure.Code</label>
+      </node>
+      <node id="9">
+        <label>org.xvm.asm.constants.ArrayConstant</label>
+      </node>
+      <node id="10">
+        <label>org.xvm.asm.constants.MatchAnyConstant</label>
+      </node>
+      <node id="11">
+        <label>org.xvm.asm.op.Label</label>
+      </node>
+      <node id="12">
+        <label>org.xvm.compiler.Token</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement" prot="public">org::xvm::compiler::ast::CaseStatement</innerclass>
+    <innernamespace refid="d2/df8/namespaceorg_1_1xvm_1_1compiler_1_1ast">org::xvm::compiler::ast</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.compiler.ast;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Arrays;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.reflect.Field;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Constant;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Constant.Format;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ErrorListener;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.MethodStructure.Code;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.constants.ArrayConstant;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.constants.MatchAnyConstant;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.op.Label;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.compiler.Token;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1ae0f42e3cceb0728c6cadd5de79bb9add" kindref="member">CaseStatement</ref></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="d9/d11/classorg_1_1xvm_1_1compiler_1_1ast_1_1_statement" kindref="compound">Statement</ref><sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>constructors<sp/>--------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1ae0f42e3cceb0728c6cadd5de79bb9add" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1ae0f42e3cceb0728c6cadd5de79bb9add" kindref="member">CaseStatement</ref>(<ref refid="db/db5/classorg_1_1xvm_1_1compiler_1_1_token" kindref="compound">Token</ref><sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a03d8496a458c7268b039423542b2f762" kindref="member">keyword</ref>,<sp/>List&lt;Expression&gt;<sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a939896a54314f1d6b4aadd72a407adb3" kindref="member">exprs</ref>,<sp/><ref refid="db/db5/classorg_1_1xvm_1_1compiler_1_1_token" kindref="compound">Token</ref><sp/>tokColon)<sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.keyword<sp/>=<sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a03d8496a458c7268b039423542b2f762" kindref="member">keyword</ref>;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.exprs<sp/><sp/><sp/>=<sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a939896a54314f1d6b4aadd72a407adb3" kindref="member">exprs</ref>;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.lEndPos<sp/>=<sp/>tokColon.<ref refid="db/db5/classorg_1_1xvm_1_1compiler_1_1_token_1a1cb8a54437f4fc1d61fbdd5ca1c2abab" kindref="member">getEndPosition</ref>();</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>accessors<sp/>-----------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1aca0b7e34ed8d26d232332239a4cbf1a5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1aca0b7e34ed8d26d232332239a4cbf1a5" kindref="member">isDefault</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a939896a54314f1d6b4aadd72a407adb3" kindref="member">exprs</ref><sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a26ccf1996e3790c316e01b20ecc68845" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>List&lt;Expression&gt;<sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a26ccf1996e3790c316e01b20ecc68845" kindref="member">getExpressions</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a939896a54314f1d6b4aadd72a407adb3" kindref="member">exprs</ref>;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1af701d427c8375fd12778300b7a42d31f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1af701d427c8375fd12778300b7a42d31f" kindref="member">getExpressionCount</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a939896a54314f1d6b4aadd72a407adb3" kindref="member">exprs</ref><sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>?<sp/>0<sp/>:<sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a939896a54314f1d6b4aadd72a407adb3" kindref="member">exprs</ref>.size();</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64" refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1aa48c0742460ca966a31e234bfbbf1a1c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label" kindref="compound">Label</ref><sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1aa48c0742460ca966a31e234bfbbf1a1c" kindref="member">getLabel</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1ace10bd49037aa2e4697dd13a5fe7905f" kindref="member">m_label</ref>;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1adb8a8063271fcc7146c4b73d5a169aef" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1adb8a8063271fcc7146c4b73d5a169aef" kindref="member">setLabel</ref>(<ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label" kindref="compound">Label</ref><sp/>label)<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1ace10bd49037aa2e4697dd13a5fe7905f" kindref="member">m_label</ref><sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1ace10bd49037aa2e4697dd13a5fe7905f" kindref="member">m_label</ref><sp/>=<sp/>label;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="77" refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1ad5a84df66883417870847d8726018272" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1ad5a84df66883417870847d8726018272" kindref="member">getStartPosition</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a03d8496a458c7268b039423542b2f762" kindref="member">keyword</ref>.getStartPosition();</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="82" refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a5d012dfeac8de87370fe980e3d66d79d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a5d012dfeac8de87370fe980e3d66d79d" kindref="member">getEndPosition</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1ae10deff57f0328fcd6a642f611a82383" kindref="member">lEndPos</ref>;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="87" refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a81173b5ea92c25fa6a2833dd72fa1225" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>Field[]<sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a81173b5ea92c25fa6a2833dd72fa1225" kindref="member">getChildFields</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a4ccba33589787c0c6c85306971f0a15d" kindref="member">CHILD_FIELDS</ref>;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>compilation<sp/>---------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="95" refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a03c7e7df049c4b4a93f5256526447979" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/><ref refid="d9/d11/classorg_1_1xvm_1_1compiler_1_1ast_1_1_statement" kindref="compound">Statement</ref><sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a03c7e7df049c4b4a93f5256526447979" kindref="member">validateImpl</ref>(<ref refid="d1/dc8/classorg_1_1xvm_1_1compiler_1_1ast_1_1_context" kindref="compound">Context</ref><sp/>ctx,<sp/><ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref><sp/>errs)<sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>case<sp/>statement<sp/>is<sp/>a<sp/>marker;<sp/>it&apos;s<sp/>just<sp/>data,<sp/>not<sp/>an<sp/>actual<sp/>compilable<sp/>AST<sp/>node</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>IllegalStateException();</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="101" refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a5c0dec193d0f43317dea3269a6d7bb23" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a5c0dec193d0f43317dea3269a6d7bb23" kindref="member">emit</ref>(<ref refid="d1/dc8/classorg_1_1xvm_1_1compiler_1_1ast_1_1_context" kindref="compound">Context</ref><sp/>ctx,<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>fReachable,<sp/><ref refid="da/d56/classorg_1_1xvm_1_1asm_1_1_method_structure_1_1_code" kindref="compound">Code</ref><sp/>code,<sp/><ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref><sp/>errs)<sp/>{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>case<sp/>statement<sp/>is<sp/>a<sp/>marker;<sp/>it&apos;s<sp/>just<sp/>data,<sp/>not<sp/>an<sp/>actual<sp/>compilable<sp/>AST<sp/>node</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>IllegalStateException();</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114" refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a9b7d8f0a67e4a6f81a18b3d303835eaa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a9b7d8f0a67e4a6f81a18b3d303835eaa" kindref="member">collectConstants</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iCase,<sp/><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref>[]<sp/>aconstCase)<sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a939896a54314f1d6b4aadd72a407adb3" kindref="member">exprs</ref><sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>this<sp/>is<sp/>the<sp/>&quot;default:&quot;<sp/>statement</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>aconstCase[++iCase]<sp/>=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(Expression<sp/>expr<sp/>:<sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a939896a54314f1d6b4aadd72a407adb3" kindref="member">exprs</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref><sp/>constVal<sp/>=<sp/>expr.toConstant();</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(constVal<sp/>instanceof<sp/><ref refid="d9/d40/classorg_1_1xvm_1_1asm_1_1constants_1_1_match_any_constant" kindref="compound">MatchAnyConstant</ref></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>||<sp/>constVal<sp/>instanceof<sp/><ref refid="dc/d90/classorg_1_1xvm_1_1asm_1_1constants_1_1_array_constant" kindref="compound">ArrayConstant</ref><sp/>tup</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;&amp;<sp/>tup.<ref refid="dc/d90/classorg_1_1xvm_1_1asm_1_1constants_1_1_array_constant_1ad0b4d6c4309f1e95181817002ebf2d9a" kindref="member">getFormat</ref>()<sp/>==<sp/><ref refid="dc/d9c/enumorg_1_1xvm_1_1asm_1_1_component_1_1_format" kindref="compound">Format</ref>.Tuple</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;&amp;<sp/>Arrays.stream(tup.getValue()).allMatch(c<sp/>-&gt;<sp/>c<sp/>instanceof<sp/><ref refid="d9/d40/classorg_1_1xvm_1_1asm_1_1constants_1_1_match_any_constant" kindref="compound">MatchAnyConstant</ref>))<sp/>{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>aconstCase[++iCase]<sp/>=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>aconstCase[++iCase]<sp/>=<sp/>constVal;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>iCase;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>debugging<sp/>assistance<sp/>------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="138" refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1adfcd094b01253699be3c61b1f69c49d9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1adfcd094b01253699be3c61b1f69c49d9" kindref="member">toString</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>StringBuilder<sp/>sb<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>StringBuilder();</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sb.append(<ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a03d8496a458c7268b039423542b2f762" kindref="member">keyword</ref>.getId().TEXT);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a939896a54314f1d6b4aadd72a407adb3" kindref="member">exprs</ref><sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sb.append(</highlight><highlight class="charliteral">&apos;<sp/>&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.append(<ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a939896a54314f1d6b4aadd72a407adb3" kindref="member">exprs</ref>.get(0));</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>1,<sp/>c<sp/>=<sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a939896a54314f1d6b4aadd72a407adb3" kindref="member">exprs</ref>.size();<sp/>i<sp/>&lt;<sp/>c;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sb.append(</highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.append(<ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a939896a54314f1d6b4aadd72a407adb3" kindref="member">exprs</ref>.get(i));</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sb.append(</highlight><highlight class="charliteral">&apos;:&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>sb.toString();</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="159" refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a0639548f6eec84a0d54563717f79227f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a0639548f6eec84a0d54563717f79227f" kindref="member">getDumpDesc</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1adfcd094b01253699be3c61b1f69c49d9" kindref="member">toString</ref>();</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>fields<sp/>--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166" refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a03d8496a458c7268b039423542b2f762" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/><ref refid="db/db5/classorg_1_1xvm_1_1compiler_1_1_token" kindref="compound">Token</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a03d8496a458c7268b039423542b2f762" kindref="member">keyword</ref>;</highlight></codeline>
+<codeline lineno="167" refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a939896a54314f1d6b4aadd72a407adb3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>List&lt;Expression&gt;<sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a939896a54314f1d6b4aadd72a407adb3" kindref="member">exprs</ref>;</highlight></codeline>
+<codeline lineno="168" refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1ae10deff57f0328fcd6a642f611a82383" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1ae10deff57f0328fcd6a642f611a82383" kindref="member">lEndPos</ref>;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170" refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1ace10bd49037aa2e4697dd13a5fe7905f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">transient</highlight><highlight class="normal"><sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label" kindref="compound">Label</ref><sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1ace10bd49037aa2e4697dd13a5fe7905f" kindref="member">m_label</ref>;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172" refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a4ccba33589787c0c6c85306971f0a15d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Field[]<sp/><ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1a4ccba33589787c0c6c85306971f0a15d" kindref="member">CHILD_FIELDS</ref><sp/>=<sp/><ref refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1a29ef30aa438679da7d9ca753ffdd2228" kindref="member">fieldsForNames</ref>(<ref refid="da/dac/classorg_1_1xvm_1_1compiler_1_1ast_1_1_case_statement_1ae0f42e3cceb0728c6cadd5de79bb9add" kindref="member">CaseStatement</ref>.class,<sp/></highlight><highlight class="stringliteral">&quot;exprs&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/CaseStatement.java"/>
+  </compounddef>
+</doxygen>

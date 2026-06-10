@@ -1,0 +1,242 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d5/d27/x_o_s_directory_8java" kind="file" language="Java">
+    <compoundname>xOSDirectory.java</compoundname>
+    <includes local="no">java.io.File</includes>
+    <includes local="no">java.io.IOException</includes>
+    <includes local="no">java.nio.file.FileVisitResult</includes>
+    <includes local="no">java.nio.file.Files</includes>
+    <includes local="no">java.nio.file.Path</includes>
+    <includes local="no">java.nio.file.SimpleFileVisitor</includes>
+    <includes local="no">java.nio.file.attribute.BasicFileAttributes</includes>
+    <includes local="no">org.xvm.asm.ClassStructure</includes>
+    <includes local="no">org.xvm.asm.Constants</includes>
+    <includes local="no">org.xvm.asm.MethodStructure</includes>
+    <includes local="no">org.xvm.asm.Op</includes>
+    <includes local="no">org.xvm.runtime.Container</includes>
+    <includes local="no">org.xvm.runtime.Frame</includes>
+    <includes local="no">org.xvm.runtime.ObjectHandle</includes>
+    <includes local="no">org.xvm.runtime.TypeComposition</includes>
+    <includes local="no">org.xvm.runtime.Utils</includes>
+    <includes local="no">org.xvm.runtime.template.xBoolean</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/template/_native/fs/xOSDirectory.java</label>
+        <link refid="d5/d27/x_o_s_directory_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.io.File</label>
+      </node>
+      <node id="3">
+        <label>java.io.IOException</label>
+      </node>
+      <node id="4">
+        <label>java.nio.file.FileVisitResult</label>
+      </node>
+      <node id="5">
+        <label>java.nio.file.Files</label>
+      </node>
+      <node id="6">
+        <label>java.nio.file.Path</label>
+      </node>
+      <node id="7">
+        <label>java.nio.file.SimpleFileVisitor</label>
+      </node>
+      <node id="8">
+        <label>java.nio.file.attribute.BasicFileAttributes</label>
+      </node>
+      <node id="9">
+        <label>org.xvm.asm.ClassStructure</label>
+      </node>
+      <node id="10">
+        <label>org.xvm.asm.Constants</label>
+      </node>
+      <node id="11">
+        <label>org.xvm.asm.MethodStructure</label>
+      </node>
+      <node id="12">
+        <label>org.xvm.asm.Op</label>
+      </node>
+      <node id="13">
+        <label>org.xvm.runtime.Container</label>
+      </node>
+      <node id="14">
+        <label>org.xvm.runtime.Frame</label>
+      </node>
+      <node id="15">
+        <label>org.xvm.runtime.ObjectHandle</label>
+      </node>
+      <node id="16">
+        <label>org.xvm.runtime.TypeComposition</label>
+      </node>
+      <node id="17">
+        <label>org.xvm.runtime.Utils</label>
+      </node>
+      <node id="18">
+        <label>org.xvm.runtime.template.xBoolean</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="d1/dd0/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_directory" prot="public">org::xvm::runtime::template::_native::fs::xOSDirectory</innerclass>
+    <innernamespace refid="d5/d30/namespaceorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs">org::xvm::runtime::template::_native::fs</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.runtime.template._native.fs;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.File;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.IOException;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.nio.file.FileVisitResult;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.nio.file.Files;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.nio.file.Path;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.nio.file.SimpleFileVisitor;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.nio.file.attribute.BasicFileAttributes;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ClassStructure;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Constants;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.MethodStructure;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Op;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.Container;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.Frame;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.ObjectHandle;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.TypeComposition;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.Utils;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.template.xBoolean;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="d1/dd0/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_directory" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d1/dd0/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_directory_1ad010dc13f77898a14bff501f69baecf0" kindref="member">xOSDirectory</ref></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="d4/d67/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file_node_1af2ef519ab1d34424ec90b666298411ca" kindref="member">xOSFileNode</ref><sp/>{</highlight></codeline>
+<codeline lineno="33" refid="d1/dd0/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_directory_1a1c7d3c78f5df21fceac228c65e74debf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="d1/dd0/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_directory_1ad010dc13f77898a14bff501f69baecf0" kindref="member">xOSDirectory</ref><sp/><ref refid="d1/dd0/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_directory_1a1c7d3c78f5df21fceac228c65e74debf" kindref="member">INSTANCE</ref>;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="d1/dd0/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_directory_1ad010dc13f77898a14bff501f69baecf0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d1/dd0/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_directory_1ad010dc13f77898a14bff501f69baecf0" kindref="member">xOSDirectory</ref>(<ref refid="d1/df8/classorg_1_1xvm_1_1runtime_1_1_container" kindref="compound">Container</ref><sp/>container,<sp/><ref refid="d5/d19/classorg_1_1xvm_1_1asm_1_1_class_structure" kindref="compound">ClassStructure</ref><sp/>structure,<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>fInstance)<sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(container,<sp/>structure,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(fInstance)<sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d1/dd0/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_directory_1a1c7d3c78f5df21fceac228c65e74debf" kindref="member">INSTANCE</ref><sp/>=<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="44" refid="d1/dd0/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_directory_1a3dcb54f18998d8764385efa84087ddaa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d1/dd0/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_directory_1a3dcb54f18998d8764385efa84087ddaa" kindref="member">initNative</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1a7e586d681a05732a2d80cb404b58b090" kindref="member">markNativeMethod</ref>(</highlight><highlight class="stringliteral">&quot;deleteRecursively&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1a7e586d681a05732a2d80cb404b58b090" kindref="member">markNativeMethod</ref>(</highlight><highlight class="stringliteral">&quot;watchRecursively&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1a9b5740a540f9d9fccebbb3b9ad0507c7" kindref="member">invalidateTypeInfo</ref>();</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d1/dd0/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_directory_1a161e32fdccc46cb663fe400858cb978a" kindref="member">s_constructor</ref><sp/>=<sp/><ref refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1a2f3db7630880166c5014ef5471305bbf" kindref="member">getStructure</ref>().<ref refid="d5/d19/classorg_1_1xvm_1_1asm_1_1_class_structure_1a33befd6e4fb4f14d53b4cc0a3ff1d1d9" kindref="member">findConstructor</ref>();</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="54" refid="d1/dd0/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_directory_1ac153af5d120039594a7dbc1f5adabedc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d1/dd0/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_directory_1ac153af5d120039594a7dbc1f5adabedc" kindref="member">invokeNative1</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frame,<sp/><ref refid="d4/d90/classorg_1_1xvm_1_1asm_1_1_method_structure" kindref="compound">MethodStructure</ref><sp/>method,<sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hTarget,</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hArg,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iReturn)<sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="da/d19/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file_node_1_1_node_handle" kindref="compound">NodeHandle</ref><sp/>hNode<sp/>=<sp/>(<ref refid="da/d19/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file_node_1_1_node_handle" kindref="compound">NodeHandle</ref>)<sp/>hTarget;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(method.<ref refid="d4/d90/classorg_1_1xvm_1_1asm_1_1_method_structure_1a8e598a61d59dc853df34536698639815" kindref="member">getName</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;watchRecursively&quot;</highlight><highlight class="normal">:<sp/><sp/></highlight><highlight class="comment">//<sp/>(FileWatcher)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO<sp/>GG</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>UnsupportedOperationException(</highlight><highlight class="stringliteral">&quot;watchRecursively&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>super.invokeNative1(frame,<sp/>method,<sp/>hTarget,<sp/>hArg,<sp/>iReturn);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="68" refid="d1/dd0/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_directory_1ade3c223a6baeece9c276b5e4a15d6509" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d1/dd0/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_directory_1ade3c223a6baeece9c276b5e4a15d6509" kindref="member">invokeNativeN</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frame,<sp/><ref refid="d4/d90/classorg_1_1xvm_1_1asm_1_1_method_structure" kindref="compound">MethodStructure</ref><sp/>method,<sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hTarget,</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref>[]<sp/>ahArg,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iReturn)<sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="da/d19/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file_node_1_1_node_handle" kindref="compound">NodeHandle</ref><sp/>hNode<sp/>=<sp/>(<ref refid="da/d19/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file_node_1_1_node_handle" kindref="compound">NodeHandle</ref>)<sp/>hTarget;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(method.<ref refid="d4/d90/classorg_1_1xvm_1_1asm_1_1_method_structure_1a8e598a61d59dc853df34536698639815" kindref="member">getName</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;deleteRecursively&quot;</highlight><highlight class="normal">:<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Path<sp/>pathDir<sp/>=<sp/>hNode.<ref refid="da/d19/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file_node_1_1_node_handle_1a28ccebf87d170a3ef17f26115ed13121" kindref="member">f_path</ref>;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>File<sp/>file<sp/><sp/><sp/><sp/>=<sp/>pathDir.toFile();</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!file.isDirectory())<sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a288e3c2de804cd868396b461434d9875" kindref="member">assignValue</ref>(iReturn,<sp/><ref refid="d3/db7/classorg_1_1xvm_1_1runtime_1_1template_1_1x_boolean" kindref="compound">xBoolean</ref>.<ref refid="d3/db7/classorg_1_1xvm_1_1runtime_1_1template_1_1x_boolean_1a3648c2c21a722c149cd1d2d8bf09fd43" kindref="member">FALSE</ref>);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Files.walkFileTree(pathDir,</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>SimpleFileVisitor&lt;&gt;()<sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>FileVisitResult<sp/>visitFile(Path<sp/>file,<sp/>BasicFileAttributes<sp/>attrs)</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Files.delete(file);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>FileVisitResult.CONTINUE;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>FileVisitResult<sp/>postVisitDirectory(Path<sp/>dir,<sp/>IOException<sp/>exc)</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Files.delete(dir);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>FileVisitResult.CONTINUE;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a288e3c2de804cd868396b461434d9875" kindref="member">assignValue</ref>(iReturn,<sp/><ref refid="d3/db7/classorg_1_1xvm_1_1runtime_1_1template_1_1x_boolean" kindref="compound">xBoolean</ref>.<ref refid="d3/db7/classorg_1_1xvm_1_1runtime_1_1template_1_1x_boolean_1a2597c8e2c00827d390d60f8ca3ea66e1" kindref="member">TRUE</ref>);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(IOException<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d4/d67/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file_node_1ab00f74032f1121cbea024925cf2916c5" kindref="member">raisePathException</ref>(frame,<sp/>e,<sp/>hNode.<ref refid="da/d19/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file_node_1_1_node_handle_1a28ccebf87d170a3ef17f26115ed13121" kindref="member">f_path</ref>);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>super.invokeNativeN(frame,<sp/>method,<sp/>hTarget,<sp/>ahArg,<sp/>iReturn);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117" refid="d1/dd0/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_directory_1a58096bc013be2c141b9b5ab0cf3d957b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d1/dd0/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_directory_1a58096bc013be2c141b9b5ab0cf3d957b" kindref="member">createHandle</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frame,<sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hOSStore,<sp/>Path<sp/>path,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iReturn)<sp/>{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="db/db9/interfaceorg_1_1xvm_1_1runtime_1_1_type_composition" kindref="compound">TypeComposition</ref><sp/>clz<sp/>=<sp/><ref refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1aa0af17b2b5208a62733696fe646b0765" kindref="member">ensureClass</ref>(frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a7419371b163ade87e8962e502c38236e" kindref="member">f_context</ref>.<ref refid="d8/d69/classorg_1_1xvm_1_1runtime_1_1_service_context_1aa4ce9f5c6ea680ef7e3aef858bacae23" kindref="member">f_container</ref>,</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1abee965e1fe5c45dcbe4d56c3bb840ed4" kindref="member">getCanonicalType</ref>(),<sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1ae3030b18f186a2d66c8a9ee63768686b" kindref="member">poolContext</ref>().<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1abf669d04ec794f4f5521b3fdf1358929" kindref="member">typeDirectory</ref>());</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="da/d19/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file_node_1_1_node_handle" kindref="compound">NodeHandle</ref><sp/><sp/><sp/><sp/><sp/>hStruct<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="da/d19/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file_node_1_1_node_handle" kindref="compound">NodeHandle</ref>(clz.<ref refid="db/db9/interfaceorg_1_1xvm_1_1runtime_1_1_type_composition_1affb3921ca6555f34b4f84370ff1a907c" kindref="member">ensureAccess</ref>(<ref refid="df/df8/interfaceorg_1_1xvm_1_1asm_1_1_constants" kindref="compound">Constants</ref>.<ref refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access" kindref="compound">Access</ref>.<ref refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access_1a783559b9b9d63cc14747794132b4e37f" kindref="member">STRUCT</ref>),</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>path.toAbsolutePath(),<sp/>hOSStore);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref>[]<sp/>ahVar<sp/><sp/><sp/>=<sp/><ref refid="d8/dee/classorg_1_1xvm_1_1runtime_1_1_utils" kindref="compound">Utils</ref>.<ref refid="d8/dee/classorg_1_1xvm_1_1runtime_1_1_utils_1a69c9179f4c307e811a368a85c7c3b7bc" kindref="member">ensureSize</ref>(<ref refid="d8/dee/classorg_1_1xvm_1_1runtime_1_1_utils" kindref="compound">Utils</ref>.<ref refid="d8/dee/classorg_1_1xvm_1_1runtime_1_1_utils_1aded48cc82c8bdd76f1249cedf0c301cb" kindref="member">OBJECTS_NONE</ref>,<sp/><ref refid="d1/dd0/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_directory_1a161e32fdccc46cb663fe400858cb978a" kindref="member">s_constructor</ref>.getMaxVars());</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1ab7a8ca97a1594f28022c9ad8774f5fda" kindref="member">proceedConstruction</ref>(frame,<sp/><ref refid="d1/dd0/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_directory_1a161e32fdccc46cb663fe400858cb978a" kindref="member">s_constructor</ref>,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/>hStruct,<sp/>ahVar,<sp/>iReturn);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>constants<sp/>-----------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131" refid="d1/dd0/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_directory_1a161e32fdccc46cb663fe400858cb978a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="d4/d90/classorg_1_1xvm_1_1asm_1_1_method_structure" kindref="compound">MethodStructure</ref><sp/><ref refid="d1/dd0/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_directory_1a161e32fdccc46cb663fe400858cb978a" kindref="member">s_constructor</ref>;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/template/_native/fs/xOSDirectory.java"/>
+  </compounddef>
+</doxygen>

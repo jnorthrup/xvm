@@ -1,0 +1,28 @@
+var classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_object_xE1_x90_xB3 =
+[
+    [ "ArrayᐸObjectᐳ", "d0/d0b/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_object_xE1_x90_xB3.html#a6c653cc13499a45f01cf9629c22988cd", null ],
+    [ "$delegate", "d0/d0b/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_object_xE1_x90_xB3.html#a32838f35982842e1d17fac4937d2dcd0", null ],
+    [ "$delete", "d0/d0b/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_object_xE1_x90_xB3.html#a8c23cef4287a4a8ff14d10f9ba370630", null ],
+    [ "$growHuge", "d0/d0b/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_object_xE1_x90_xB3.html#a5e09b470286e444a7e229ddee1901aeb", null ],
+    [ "$growInPlace", "d0/d0b/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_object_xE1_x90_xB3.html#a502266f3773e5f36db54d14f4e12db40", null ],
+    [ "$insert", "d0/d0b/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_object_xE1_x90_xB3.html#a1aba273fb1cedcc983135b6ac470625c", null ],
+    [ "$new$1$p", "d0/d0b/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_object_xE1_x90_xB3.html#a8a7058749e5dd83f7fe6d28ad848926e", null ],
+    [ "$new$2", "d0/d0b/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_object_xE1_x90_xB3.html#aeb60995dfa8aa5353d386384981608be", null ],
+    [ "$new$3", "d0/d0b/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_object_xE1_x90_xB3.html#a7d08e4ddfedcb7bc747acce430cd1a21", null ],
+    [ "$new$p", "d0/d0b/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_object_xE1_x90_xB3.html#aed64c6b3762506d7e70933358da03d28", null ],
+    [ "$shrinkToSize", "d0/d0b/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_object_xE1_x90_xB3.html#ae742d503e2af782222c84819c5175247", null ],
+    [ "$storage", "d0/d0b/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_object_xE1_x90_xB3.html#a43946e6fd46cef577f1106467cdb83e4", null ],
+    [ "$xvmType", "d0/d0b/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_object_xE1_x90_xB3.html#a6133a08be5362150369a799e5a71328a", null ],
+    [ "add", "d0/d0b/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_object_xE1_x90_xB3.html#a6d3aa1cca452e83fa4e34aa5b3fc1c74", null ],
+    [ "capacity$get$p", "d0/d0b/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_object_xE1_x90_xB3.html#aea64e53dbff102d588741adfa75b3ef4", null ],
+    [ "clear", "d0/d0b/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_object_xE1_x90_xB3.html#ada4e97146172e06c80fe3aec0e834934", null ],
+    [ "delete$p", "d0/d0b/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_object_xE1_x90_xB3.html#ae0fee38b2bd8e5ee5fe799aa35e59dad", null ],
+    [ "deleteAll", "d0/d0b/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_object_xE1_x90_xB3.html#a7f72bfbe90238ff273adf06d7eca9692", null ],
+    [ "getElement$p", "d0/d0b/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_object_xE1_x90_xB3.html#a219f7a0ff52073b0e0ff0ac459920a43", null ],
+    [ "setElement$p", "d0/d0b/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_object_xE1_x90_xB3.html#abb55bc7252a26c06589e02ef2ea1280a", null ],
+    [ "size$get$p", "d0/d0b/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_object_xE1_x90_xB3.html#ac76814dfb7aba5458ad66769b756a34b", null ],
+    [ "slice$p", "d0/d0b/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_object_xE1_x90_xB3.html#aeb1811bf088700f50a1a2ef7f6b3d26d", null ],
+    [ "toString", "d0/d0b/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_object_xE1_x90_xB3.html#a74b70c1b1d8334704df6a5822535993c", null ],
+    [ "$delegate", "d0/d0b/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_object_xE1_x90_xB3.html#a122817ea43ecc27c37cc1f9228031c68", null ],
+    [ "$storage", "d0/d0b/classorg_1_1xtclang_1_1ecstasy_1_1collections_1_1_array_xE1_x90_xB8_object_xE1_x90_xB3.html#a37e8f9b7158321cba7e2cc6372bcaed2", null ]
+];

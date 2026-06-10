@@ -1,0 +1,246 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference" kind="class" language="Java" prot="public">
+    <compoundname>org::xvm::util::CooperativelyCleanableReference</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">WeakReference&lt; V &gt;</basecompoundref>
+    <templateparamlist>
+      <param>
+        <type>V</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a64e0f59ae1714e10a783d363e8ba7ff8" prot="private" static="yes" mutable="no">
+        <type>final Logger</type>
+        <definition>final Logger org.xvm.util.CooperativelyCleanableReference&lt; V &gt;.LOGGER</definition>
+        <argsstring></argsstring>
+        <name>LOGGER</name>
+        <qualifiedname>org.xvm.util.CooperativelyCleanableReference.LOGGER</qualifiedname>
+        <initializer>= Logger.getLogger(CooperativelyCleanableReference.class.getName())</initializer>
+        <briefdescription>
+<para>Our logger. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/CooperativelyCleanableReference.java" line="46" column="33" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/CooperativelyCleanableReference.java" bodystart="46" bodyend="-1"/>
+        <referencedby refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a1b589932bc9eeda8200fd9c98d95d0de" compoundref="d4/d8e/_cooperatively_cleanable_reference_8java" startline="88" endline="119">org.xvm.util.CooperativelyCleanableReference&lt; V &gt;.clean</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a3879e5c86aa2db8d78b1bca69d49245e" prot="private" static="yes" mutable="no">
+        <type>final ReferenceQueue&lt; Object &gt;[]</type>
+        <definition>final ReferenceQueue&lt;Object&gt; [] org.xvm.util.CooperativelyCleanableReference&lt; V &gt;.QUEUE</definition>
+        <argsstring></argsstring>
+        <name>QUEUE</name>
+        <qualifiedname>org.xvm.util.CooperativelyCleanableReference.QUEUE</qualifiedname>
+        <initializer>                                  = new ReferenceQueue[
+Integer.highestOneBit(Runtime.getRuntime().availableProcessors() &lt;&lt; 1)]</initializer>
+        <briefdescription>
+<para>Queues of unreachable references with unreachable referents. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/CooperativelyCleanableReference.java" line="52" column="41" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/CooperativelyCleanableReference.java" bodystart="52" bodyend="-1"/>
+        <referencedby refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a06cfe19e88a058911a76e1b8c180b355">org.xvm.util.CooperativelyCleanableReference&lt; V &gt;.[static initializer]</referencedby>
+        <referencedby refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a7096c64a903c5138a537f5b40e2a762f" compoundref="d4/d8e/_cooperatively_cleanable_reference_8java" startline="77" endline="81">org.xvm.util.CooperativelyCleanableReference&lt; V &gt;.CooperativelyCleanableReference</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1adc390c3d86cc536a1b7d359b20c16c5e" prot="private" static="yes" mutable="no">
+        <type>final Set&lt; <ref refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a7096c64a903c5138a537f5b40e2a762f" kindref="member">CooperativelyCleanableReference</ref>&lt;?&gt; &gt;</type>
+        <definition>final Set&lt;CooperativelyCleanableReference&lt;?&gt; &gt; org.xvm.util.CooperativelyCleanableReference&lt; V &gt;.KEEP_ALIVE</definition>
+        <argsstring></argsstring>
+        <name>KEEP_ALIVE</name>
+        <qualifiedname>org.xvm.util.CooperativelyCleanableReference.KEEP_ALIVE</qualifiedname>
+        <initializer>= ConcurrentHashMap.newKeySet()</initializer>
+        <briefdescription>
+<para>A set of refs which have yet to be cleaned, this ensures the refs don&apos;t get GC&apos;d before their referent is cleaned. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/CooperativelyCleanableReference.java" line="64" column="30" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/CooperativelyCleanableReference.java" bodystart="64" bodyend="-1"/>
+        <referencedby refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a1b589932bc9eeda8200fd9c98d95d0de" compoundref="d4/d8e/_cooperatively_cleanable_reference_8java" startline="88" endline="119">org.xvm.util.CooperativelyCleanableReference&lt; V &gt;.clean</referencedby>
+        <referencedby refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a7096c64a903c5138a537f5b40e2a762f" compoundref="d4/d8e/_cooperatively_cleanable_reference_8java" startline="77" endline="81">org.xvm.util.CooperativelyCleanableReference&lt; V &gt;.CooperativelyCleanableReference</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a7eff3fc7e3fed2bfdc4709c51c7f42f2" prot="private" static="no" mutable="no">
+        <type>final AutoCloseable</type>
+        <definition>final AutoCloseable org.xvm.util.CooperativelyCleanableReference&lt; V &gt;.cleaner</definition>
+        <argsstring></argsstring>
+        <name>cleaner</name>
+        <qualifiedname>org.xvm.util.CooperativelyCleanableReference.cleaner</qualifiedname>
+        <briefdescription>
+<para>The cleanup function to run once the referent is unreachable. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/CooperativelyCleanableReference.java" line="69" column="33" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/CooperativelyCleanableReference.java" bodystart="69" bodyend="-1"/>
+        <referencedby refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a1b589932bc9eeda8200fd9c98d95d0de" compoundref="d4/d8e/_cooperatively_cleanable_reference_8java" startline="88" endline="119">org.xvm.util.CooperativelyCleanableReference&lt; V &gt;.clean</referencedby>
+        <referencedby refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a7096c64a903c5138a537f5b40e2a762f" compoundref="d4/d8e/_cooperatively_cleanable_reference_8java" startline="77" endline="81">org.xvm.util.CooperativelyCleanableReference&lt; V &gt;.CooperativelyCleanableReference</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="package-static-func">
+      <memberdef kind="function" id="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a06cfe19e88a058911a76e1b8c180b355" prot="package" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.xvm.util.CooperativelyCleanableReference&lt; V &gt;.[static initializer]</definition>
+        <argsstring></argsstring>
+        <name>[static initializer]</name>
+        <qualifiedname>org.xvm.util.CooperativelyCleanableReference.[static initializer]</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/CooperativelyCleanableReference.java" line="52" column="41"/>
+        <references refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a3879e5c86aa2db8d78b1bca69d49245e" compoundref="d4/d8e/_cooperatively_cleanable_reference_8java" startline="52">org.xvm.util.CooperativelyCleanableReference&lt; V &gt;.QUEUE</references>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a7096c64a903c5138a537f5b40e2a762f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.xvm.util.CooperativelyCleanableReference&lt; V &gt;.CooperativelyCleanableReference</definition>
+        <argsstring>(V referent, AutoCloseable cleaner)</argsstring>
+        <name>CooperativelyCleanableReference</name>
+        <qualifiedname>org.xvm.util.CooperativelyCleanableReference.CooperativelyCleanableReference</qualifiedname>
+        <param>
+          <type>V</type>
+          <declname>referent</declname>
+        </param>
+        <param>
+          <type>AutoCloseable</type>
+          <declname>cleaner</declname>
+        </param>
+        <briefdescription>
+<para>Construct a <computeroutput><ref refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference" kindref="compound">CooperativelyCleanableReference</ref></computeroutput> for a given referent. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>referent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the referent to manage </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cleaner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the function to run once the referent is unreachable, this function must not reference the referent </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/CooperativelyCleanableReference.java" line="77" column="12" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/CooperativelyCleanableReference.java" bodystart="77" bodyend="81"/>
+        <references refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a1b589932bc9eeda8200fd9c98d95d0de" compoundref="d4/d8e/_cooperatively_cleanable_reference_8java" startline="88" endline="119">org.xvm.util.CooperativelyCleanableReference&lt; V &gt;.clean</references>
+        <references refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a7eff3fc7e3fed2bfdc4709c51c7f42f2" compoundref="d4/d8e/_cooperatively_cleanable_reference_8java" startline="69">org.xvm.util.CooperativelyCleanableReference&lt; V &gt;.cleaner</references>
+        <references refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1adc390c3d86cc536a1b7d359b20c16c5e" compoundref="d4/d8e/_cooperatively_cleanable_reference_8java" startline="64">org.xvm.util.CooperativelyCleanableReference&lt; V &gt;.KEEP_ALIVE</references>
+        <references refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a3879e5c86aa2db8d78b1bca69d49245e" compoundref="d4/d8e/_cooperatively_cleanable_reference_8java" startline="52">org.xvm.util.CooperativelyCleanableReference&lt; V &gt;.QUEUE</references>
+        <referencedby refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a1b589932bc9eeda8200fd9c98d95d0de" compoundref="d4/d8e/_cooperatively_cleanable_reference_8java" startline="88" endline="119">org.xvm.util.CooperativelyCleanableReference&lt; V &gt;.clean</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a1b589932bc9eeda8200fd9c98d95d0de" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ReferenceQueue&lt; Object &gt;</type>
+        <definition>static ReferenceQueue&lt; Object &gt; org.xvm.util.CooperativelyCleanableReference&lt; V &gt;.clean</definition>
+        <argsstring>(ReferenceQueue&lt; Object &gt; queue)</argsstring>
+        <name>clean</name>
+        <qualifiedname>org.xvm.util.CooperativelyCleanableReference.clean</qualifiedname>
+        <param>
+          <type>ReferenceQueue&lt; Object &gt;</type>
+          <declname>queue</declname>
+        </param>
+        <briefdescription>
+<para>Perform cleanup for at least some unreachable referents in the specified queue. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the queue </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/CooperativelyCleanableReference.java" line="88" column="35" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/CooperativelyCleanableReference.java" bodystart="88" bodyend="119"/>
+        <references refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a7eff3fc7e3fed2bfdc4709c51c7f42f2" compoundref="d4/d8e/_cooperatively_cleanable_reference_8java" startline="69">org.xvm.util.CooperativelyCleanableReference&lt; V &gt;.cleaner</references>
+        <references refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a7096c64a903c5138a537f5b40e2a762f" compoundref="d4/d8e/_cooperatively_cleanable_reference_8java" startline="77" endline="81">org.xvm.util.CooperativelyCleanableReference&lt; V &gt;.CooperativelyCleanableReference</references>
+        <references refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1adc390c3d86cc536a1b7d359b20c16c5e" compoundref="d4/d8e/_cooperatively_cleanable_reference_8java" startline="64">org.xvm.util.CooperativelyCleanableReference&lt; V &gt;.KEEP_ALIVE</references>
+        <references refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a64e0f59ae1714e10a783d363e8ba7ff8" compoundref="d4/d8e/_cooperatively_cleanable_reference_8java" startline="46">org.xvm.util.CooperativelyCleanableReference&lt; V &gt;.LOGGER</references>
+        <referencedby refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a7096c64a903c5138a537f5b40e2a762f" compoundref="d4/d8e/_cooperatively_cleanable_reference_8java" startline="77" endline="81">org.xvm.util.CooperativelyCleanableReference&lt; V &gt;.CooperativelyCleanableReference</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A <computeroutput><ref refid="" kindref="compound">WeakReference</ref></computeroutput> coupled with an <computeroutput><ref refid="" kindref="compound">AutoCloseable</ref></computeroutput> &quot;cleaning&quot; function which is automatically invoked some time after the referent becomes unreachable. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This allows for <javadoccode>finalizer</javadoccode> like functionality without the need to manually manage as <computeroutput><ref refid="" kindref="compound">ReferenceQueue</ref></computeroutput>.</para>
+<para>For example if we wanted to track how many instances of a particular type of class are currently allocated: <preformatted><javadoccode>
+
+class CountableObject {
+  private static final AtomicLong COUNT = new AtomicLong();
+  private static final AutoCloseable DECR_COUNT = COUNT::decrementAndGet;
+
+  public CountableObject() {
+      COUNT.incrementAndGet(); // track the allocation
+      new CooperativeCleanableReference(this, DECR_COUNT); // track the eventual deallocation
+  }
+
+  public static long getInstanceCount() {
+      return COUNT.get();
+  }
+}
+</javadoccode></preformatted></para>
+<para>Note the cleaning is &quot;cooperative&quot; and performed on some subsequent creation of another <computeroutput><ref refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference" kindref="compound">CooperativelyCleanableReference</ref></computeroutput> instance. If the cleanup operation is non-trivial then it should dispatch itself into a thread-pool to avoid holding the cooperative thread for an extended period.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>&lt;V&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the referent type </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>WeakReference&lt; V &gt;</label>
+      </node>
+      <node id="1">
+        <label>org.xvm.util.CooperativelyCleanableReference&lt; V &gt;</label>
+        <link refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>WeakReference&lt; V &gt;</label>
+      </node>
+      <node id="1">
+        <label>org.xvm.util.CooperativelyCleanableReference&lt; V &gt;</label>
+        <link refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/CooperativelyCleanableReference.java" line="42" column="7" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/CooperativelyCleanableReference.java" bodystart="42" bodyend="120"/>
+    <listofallmembers>
+      <member refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a06cfe19e88a058911a76e1b8c180b355" prot="package" virt="non-virtual"><scope>org::xvm::util::CooperativelyCleanableReference</scope><name>[static initializer]</name></member>
+      <member refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a1b589932bc9eeda8200fd9c98d95d0de" prot="private" virt="non-virtual"><scope>org::xvm::util::CooperativelyCleanableReference</scope><name>clean</name></member>
+      <member refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a7eff3fc7e3fed2bfdc4709c51c7f42f2" prot="private" virt="non-virtual"><scope>org::xvm::util::CooperativelyCleanableReference</scope><name>cleaner</name></member>
+      <member refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a7096c64a903c5138a537f5b40e2a762f" prot="public" virt="non-virtual"><scope>org::xvm::util::CooperativelyCleanableReference</scope><name>CooperativelyCleanableReference</name></member>
+      <member refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1adc390c3d86cc536a1b7d359b20c16c5e" prot="private" virt="non-virtual"><scope>org::xvm::util::CooperativelyCleanableReference</scope><name>KEEP_ALIVE</name></member>
+      <member refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a64e0f59ae1714e10a783d363e8ba7ff8" prot="private" virt="non-virtual"><scope>org::xvm::util::CooperativelyCleanableReference</scope><name>LOGGER</name></member>
+      <member refid="d6/d86/classorg_1_1xvm_1_1util_1_1_cooperatively_cleanable_reference_1a3879e5c86aa2db8d78b1bca69d49245e" prot="private" virt="non-virtual"><scope>org::xvm::util::CooperativelyCleanableReference</scope><name>QUEUE</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

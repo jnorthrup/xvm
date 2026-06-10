@@ -1,0 +1,412 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d7/d6a/_access_type_constant_8java" kind="file" language="Java">
+    <compoundname>AccessTypeConstant.java</compoundname>
+    <includes local="no">java.io.DataInput</includes>
+    <includes local="no">java.io.DataOutput</includes>
+    <includes local="no">java.io.IOException</includes>
+    <includes local="no">java.util.List</includes>
+    <includes local="no">java.util.Set</includes>
+    <includes local="no">java.util.function.Consumer</includes>
+    <includes local="no">org.xvm.asm.ComponentResolver.ResolutionCollector</includes>
+    <includes local="no">org.xvm.asm.ComponentResolver.ResolutionResult</includes>
+    <includes local="no">org.xvm.asm.Constant</includes>
+    <includes local="no">org.xvm.asm.ConstantPool</includes>
+    <includes local="no">org.xvm.asm.ErrorListener</includes>
+    <includes local="no">org.xvm.javajit.TypeSystem</includes>
+    <includes local="no">org.xvm.util.Hash</includes>
+    <includes local="no">org.xvm.util.Severity</includes>
+    <includes local="no">org.xvm.util.Handy.readIndex</includes>
+    <includes local="no">org.xvm.util.Handy.writeMagnitude</includes>
+    <includes local="no">org.xvm.util.Handy.writePackedLong</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/constants/AccessTypeConstant.java</label>
+        <link refid="d7/d6a/_access_type_constant_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.io.DataInput</label>
+      </node>
+      <node id="3">
+        <label>java.io.DataOutput</label>
+      </node>
+      <node id="4">
+        <label>java.io.IOException</label>
+      </node>
+      <node id="5">
+        <label>java.util.List</label>
+      </node>
+      <node id="6">
+        <label>java.util.Set</label>
+      </node>
+      <node id="7">
+        <label>java.util.function.Consumer</label>
+      </node>
+      <node id="8">
+        <label>org.xvm.asm.ComponentResolver.ResolutionCollector</label>
+      </node>
+      <node id="9">
+        <label>org.xvm.asm.ComponentResolver.ResolutionResult</label>
+      </node>
+      <node id="10">
+        <label>org.xvm.asm.Constant</label>
+      </node>
+      <node id="11">
+        <label>org.xvm.asm.ConstantPool</label>
+      </node>
+      <node id="12">
+        <label>org.xvm.asm.ErrorListener</label>
+      </node>
+      <node id="13">
+        <label>org.xvm.javajit.TypeSystem</label>
+      </node>
+      <node id="16">
+        <label>org.xvm.util.Handy.readIndex</label>
+      </node>
+      <node id="17">
+        <label>org.xvm.util.Handy.writeMagnitude</label>
+      </node>
+      <node id="18">
+        <label>org.xvm.util.Handy.writePackedLong</label>
+      </node>
+      <node id="14">
+        <label>org.xvm.util.Hash</label>
+      </node>
+      <node id="15">
+        <label>org.xvm.util.Severity</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant" prot="public">org::xvm::asm::constants::AccessTypeConstant</innerclass>
+    <innernamespace refid="d3/dcd/namespaceorg_1_1xvm_1_1asm_1_1constants">org::xvm::asm::constants</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.asm.constants;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.DataInput;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.DataOutput;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.IOException;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Set;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.function.Consumer;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ComponentResolver.ResolutionCollector;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ComponentResolver.ResolutionResult;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Constant;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ConstantPool;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ErrorListener;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.javajit.TypeSystem;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.util.Hash;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.util.Severity;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.util.Handy.readIndex;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.util.Handy.writeMagnitude;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.util.Handy.writePackedLong;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1ab00fbfe4a205037168d9105e97616eb6" kindref="member">AccessTypeConstant</ref></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a23240778e0a7cde7c10ce379be4ddae7" kindref="member">TypeConstant</ref><sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>constructors<sp/>--------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1ab00fbfe4a205037168d9105e97616eb6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1ab00fbfe4a205037168d9105e97616eb6" kindref="member">AccessTypeConstant</ref>(<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref><sp/>pool,<sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a23240778e0a7cde7c10ce379be4ddae7" kindref="member">TypeConstant</ref><sp/>constType,<sp/><ref refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access" kindref="compound">Access</ref><sp/>access)<sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(pool);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(constType<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>IllegalArgumentException(</highlight><highlight class="stringliteral">&quot;type<sp/>is<sp/>required&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(access<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>IllegalArgumentException(</highlight><highlight class="stringliteral">&quot;access<sp/>is<sp/>required&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(constType.<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a25127a0b1e9474337f2e4d85572d75cd" kindref="member">isAccessSpecified</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>IllegalArgumentException(</highlight><highlight class="stringliteral">&quot;type<sp/>access<sp/>is<sp/>already<sp/>specified&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!constType.<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a89c0fd91491747b5b883885ff2dc8beb" kindref="member">isSingleDefiningConstant</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>IllegalArgumentException(</highlight><highlight class="stringliteral">&quot;access<sp/>cannot<sp/>be<sp/>specified<sp/>for<sp/>a<sp/>relational<sp/>type&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a4cf87bce6b7d27a61f3891b711f2602b" kindref="member">m_constType</ref><sp/>=<sp/>constType;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a9e7c010bfa3e16425df12b05b0a8a2fc" kindref="member">m_access</ref><sp/><sp/><sp/><sp/>=<sp/>access;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72" refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1aa980acdeb51bee238ad8dcf73b2cfff9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1aa980acdeb51bee238ad8dcf73b2cfff9" kindref="member">AccessTypeConstant</ref>(<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref><sp/>pool,<sp/><ref refid="d7/d71/enumorg_1_1xvm_1_1asm_1_1_constant_1_1_format" kindref="compound">Format</ref><sp/>format,<sp/>DataInput<sp/>in)</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(pool);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a9453b044d38cd7044eccccefa75f670f" kindref="member">m_iType</ref><sp/><sp/>=<sp/>readIndex(in);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a9e7c010bfa3e16425df12b05b0a8a2fc" kindref="member">m_access</ref><sp/>=<sp/><ref refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access" kindref="compound">Access</ref>.<ref refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access_1a1cd6e218e37d3f03cc67c33648dd3e80" kindref="member">valueOf</ref>(readIndex(in));</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="81" refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a35f4a52bc8e80d17a76e6c3fbb8aae5a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a35f4a52bc8e80d17a76e6c3fbb8aae5a" kindref="member">resolveConstants</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a4cf87bce6b7d27a61f3891b711f2602b" kindref="member">m_constType</ref><sp/>=<sp/><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1abb94bf2f63ad2caba56a57f1557d1a09" kindref="member">getConstantPool</ref>().<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a73a94e2e0d105c95a3574349a4816baa" kindref="member">getConstant</ref>(<ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a9453b044d38cd7044eccccefa75f670f" kindref="member">m_iType</ref>,<sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a23240778e0a7cde7c10ce379be4ddae7" kindref="member">TypeConstant</ref>.class);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>TypeConstant<sp/>methods<sp/>------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="89" refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a6981ce5094cbf7f4f686b47d35107842" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a6981ce5094cbf7f4f686b47d35107842" kindref="member">isModifyingType</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="94" refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1af1118a3350275db1dae7ef1fa1e4c4a1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a23240778e0a7cde7c10ce379be4ddae7" kindref="member">TypeConstant</ref><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1af1118a3350275db1dae7ef1fa1e4c4a1" kindref="member">getUnderlyingType</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a4cf87bce6b7d27a61f3891b711f2602b" kindref="member">m_constType</ref>;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="99" refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1acfa31dc4788994e1975012150fdd318c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1acfa31dc4788994e1975012150fdd318c" kindref="member">isImmutable</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>by<sp/>default,<sp/>the<sp/>struct<sp/>access<sp/>for<sp/>a<sp/>type<sp/>is<sp/>a<sp/>mutable<sp/>structure<sp/>that<sp/>is<sp/>used<sp/>to<sp/>construct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>an<sp/>object<sp/>of<sp/>the<sp/>corresponding<sp/>class<sp/>type</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a9e7c010bfa3e16425df12b05b0a8a2fc" kindref="member">m_access</ref><sp/>==<sp/><ref refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access" kindref="compound">Access</ref>.<ref refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access_1a783559b9b9d63cc14747794132b4e37f" kindref="member">STRUCT</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>super.isImmutable();</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="110" refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1ab0c3ce6acea7d9c63a206196ebf7029e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1ab0c3ce6acea7d9c63a206196ebf7029e" kindref="member">isAccessSpecified</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="115" refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1aa257dff6b30bf6cca816fe0e13424d45" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access" kindref="compound">Access</ref><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1aa257dff6b30bf6cca816fe0e13424d45" kindref="member">getAccess</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a9e7c010bfa3e16425df12b05b0a8a2fc" kindref="member">m_access</ref>;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="120" refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a72059c5540d09b60cf45bba8b5944a01" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a72059c5540d09b60cf45bba8b5944a01" kindref="member">isAccessModifiable</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="125" refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a47397ff52a1dda385499470e4dc26dc5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a23240778e0a7cde7c10ce379be4ddae7" kindref="member">TypeConstant</ref><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a47397ff52a1dda385499470e4dc26dc5" kindref="member">removeAccess</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a4cf87bce6b7d27a61f3891b711f2602b" kindref="member">m_constType</ref>;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="130" refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a19e7f965be50b78b4ffb4ea5fc645fac" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a23240778e0a7cde7c10ce379be4ddae7" kindref="member">TypeConstant</ref><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a19e7f965be50b78b4ffb4ea5fc645fac" kindref="member">ensureAccess</ref>(<ref refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access" kindref="compound">Access</ref><sp/>access)<sp/>{</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>access<sp/>==<sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a9e7c010bfa3e16425df12b05b0a8a2fc" kindref="member">m_access</ref></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>this</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1abb94bf2f63ad2caba56a57f1557d1a09" kindref="member">getConstantPool</ref>().<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a9f130f418f6768ab968c2f6894693bdf" kindref="member">ensureAccessTypeConstant</ref>(<ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a4cf87bce6b7d27a61f3891b711f2602b" kindref="member">m_constType</ref>,<sp/>access);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="137" refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a9daf2c2507b24933e5928a4df5f39b67" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a9daf2c2507b24933e5928a4df5f39b67" kindref="member">isNullable</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/>!<ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a4cf87bce6b7d27a61f3891b711f2602b" kindref="member">m_constType</ref>.isNullable();</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="143" refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1abbe6ffd12ad54ce1b2b65aa9cb958a14" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a23240778e0a7cde7c10ce379be4ddae7" kindref="member">TypeConstant</ref><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1abbe6ffd12ad54ce1b2b65aa9cb958a14" kindref="member">cloneSingle</ref>(<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref><sp/>pool,<sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a23240778e0a7cde7c10ce379be4ddae7" kindref="member">TypeConstant</ref><sp/><ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>pool.<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a9f130f418f6768ab968c2f6894693bdf" kindref="member">ensureAccessTypeConstant</ref>(<ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref>,<sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a9e7c010bfa3e16425df12b05b0a8a2fc" kindref="member">m_access</ref>);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="148" refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1ab71b4236dd7a5f102d62d99c97fa0da2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d4/d98/enumorg_1_1xvm_1_1asm_1_1_component_resolver_1_1_resolution_result" kindref="compound">ResolutionResult</ref><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1ab71b4236dd7a5f102d62d99c97fa0da2" kindref="member">resolveContributedName</ref>(</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>sName,<sp/><ref refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access" kindref="compound">Access</ref><sp/>access,<sp/><ref refid="d6/d7b/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_constant" kindref="compound">MethodConstant</ref><sp/>idMethod,<sp/><ref refid="d0/dfb/interfaceorg_1_1xvm_1_1asm_1_1_component_resolver_1_1_resolution_collector" kindref="compound">ResolutionCollector</ref><sp/>collector)<sp/>{</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>access<sp/>=<sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a9e7c010bfa3e16425df12b05b0a8a2fc" kindref="member">m_access</ref><sp/>==<sp/><ref refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access_1a783559b9b9d63cc14747794132b4e37f" kindref="member">Access.STRUCT</ref><sp/>||<sp/>access<sp/>==<sp/><ref refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access_1a783559b9b9d63cc14747794132b4e37f" kindref="member">Access.STRUCT</ref></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/><ref refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access_1a84a72f3810804fc51923e6a8c9f6dbd5" kindref="member">Access.PRIVATE</ref></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a9e7c010bfa3e16425df12b05b0a8a2fc" kindref="member">m_access</ref>.minOf(access);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>super.resolveContributedName(sName,<sp/>access,<sp/>idMethod,<sp/>collector);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>TypeInfo<sp/>support<sp/>----------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="160" refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a978b324fc02e9d2bcfa37c22a7e62d19" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/><ref refid="dc/db2/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_info" kindref="compound">TypeInfo</ref><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a978b324fc02e9d2bcfa37c22a7e62d19" kindref="member">buildTypeInfo</ref>(<ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref><sp/>errs)<sp/>{</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>since<sp/>the<sp/>immutable<sp/>modifier<sp/>is<sp/>not<sp/>allowed,<sp/>it<sp/>can<sp/>be<sp/>assumed<sp/>that<sp/>the<sp/>first</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TypeConstant<sp/>in<sp/>the<sp/>chain<sp/>is<sp/>the<sp/>access<sp/>type<sp/>constant</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access" kindref="compound">Access</ref><sp/>access<sp/>=<sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a9e7c010bfa3e16425df12b05b0a8a2fc" kindref="member">m_access</ref>;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(access<sp/>==<sp/><ref refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access" kindref="compound">Access</ref>.<ref refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access_1a9b9da042570910b72fa8d1d86a224c94" kindref="member">PUBLIC</ref><sp/>||<sp/>access<sp/>==<sp/><ref refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access" kindref="compound">Access</ref>.<ref refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access_1a295d4d615d3d40d784778f6cd5517ec2" kindref="member">PROTECTED</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/db2/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_info" kindref="compound">TypeInfo</ref><sp/>info<sp/>=<sp/><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1abb94bf2f63ad2caba56a57f1557d1a09" kindref="member">getConstantPool</ref>().<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a9f130f418f6768ab968c2f6894693bdf" kindref="member">ensureAccessTypeConstant</ref>(</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1af1118a3350275db1dae7ef1fa1e4c4a1" kindref="member">getUnderlyingType</ref>(),<sp/><ref refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access" kindref="compound">Access</ref>.<ref refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access_1a84a72f3810804fc51923e6a8c9f6dbd5" kindref="member">PRIVATE</ref>).<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a5af0ac952bc59a082384b1c7f5f7ddaf" kindref="member">ensureTypeInfoInternal</ref>(errs);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>info<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>null</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>info.<ref refid="dc/db2/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_info_1afea3afec6d65b4c7beaf7f4fa63d5fae" kindref="member">limitAccess</ref>(access);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>&quot;immutable&quot;<sp/>modifier<sp/>does<sp/>not<sp/>affect<sp/>the<sp/>TypeInfo</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a4cf87bce6b7d27a61f3891b711f2602b" kindref="member">m_constType</ref><sp/>instanceof<sp/><ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant" kindref="compound">ImmutableTypeConstant</ref><sp/>typeUnder</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>typeUnder.<ref refid="dd/d79/classorg_1_1xvm_1_1asm_1_1constants_1_1_immutable_type_constant_1a2c392fca6742024d74ec96e35660cbe5" kindref="member">getUnderlyingType</ref>().<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a40a2cb008e52a6deca1ccb7894e6b433" kindref="member">ensureAccess</ref>(<ref refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access" kindref="compound">Access</ref>.<ref refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access_1a84a72f3810804fc51923e6a8c9f6dbd5" kindref="member">PRIVATE</ref>).<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a594b5d911397f55c86a6987f95a95e94" kindref="member">ensureTypeInfo</ref>(errs)</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>super.buildTypeInfo(errs);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="179" refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a7cfd7160946b2005a2b5c0df78a7ab76" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a7cfd7160946b2005a2b5c0df78a7ab76" kindref="member">invalidateTypeInfo</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super.invalidateTypeInfo();</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>clear<sp/>the<sp/>TypeInfo<sp/>for<sp/>the<sp/>base<sp/>and<sp/>PRIVATE<sp/>types</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1af1118a3350275db1dae7ef1fa1e4c4a1" kindref="member">getUnderlyingType</ref>().<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a7e5e5c4e4c6ac722df91cc9ff78fad27" kindref="member">clearTypeInfo</ref>();</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1aa257dff6b30bf6cca816fe0e13424d45" kindref="member">getAccess</ref>()<sp/>!=<sp/><ref refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access" kindref="compound">Access</ref>.<ref refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access_1a84a72f3810804fc51923e6a8c9f6dbd5" kindref="member">PRIVATE</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1abb94bf2f63ad2caba56a57f1557d1a09" kindref="member">getConstantPool</ref>().<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a9f130f418f6768ab968c2f6894693bdf" kindref="member">ensureAccessTypeConstant</ref>(</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1af1118a3350275db1dae7ef1fa1e4c4a1" kindref="member">getUnderlyingType</ref>(),<sp/><ref refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access" kindref="compound">Access</ref>.<ref refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access_1a84a72f3810804fc51923e6a8c9f6dbd5" kindref="member">PRIVATE</ref>).<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a7e5e5c4e4c6ac722df91cc9ff78fad27" kindref="member">clearTypeInfo</ref>();</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>type<sp/>comparison<sp/>support<sp/>---------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="194" refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a79e74954c3d8dd9b3fb8d0fbd88e8b6b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>Set&lt;SignatureConstant&gt;<sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a79e74954c3d8dd9b3fb8d0fbd88e8b6b" kindref="member">isInterfaceAssignableFrom</ref>(<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a23240778e0a7cde7c10ce379be4ddae7" kindref="member">TypeConstant</ref><sp/>typeRight,<sp/><ref refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access" kindref="compound">Access</ref><sp/>accessLeft,</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;TypeConstant&gt;<sp/>listLeft)<sp/>{</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>super.isInterfaceAssignableFrom(typeRight,<sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a9e7c010bfa3e16425df12b05b0a8a2fc" kindref="member">m_access</ref>,<sp/>listLeft);</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="200" refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1ab36dacd8a74411e3df28a4162d7202fa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="dc/d64/enumorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1_1_usage" kindref="compound">Usage</ref><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1ab36dacd8a74411e3df28a4162d7202fa" kindref="member">checkConsumption</ref>(String<sp/>sTypeName,<sp/><ref refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access" kindref="compound">Access</ref><sp/>access,<sp/>List&lt;TypeConstant&gt;<sp/>listParams)<sp/>{</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>super.checkConsumption(sTypeName,<sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a9e7c010bfa3e16425df12b05b0a8a2fc" kindref="member">m_access</ref>,<sp/>listParams);</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="205" refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a4ee08a651c21a2d25bd67e97903500cc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="dc/d64/enumorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1_1_usage" kindref="compound">Usage</ref><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a4ee08a651c21a2d25bd67e97903500cc" kindref="member">checkProduction</ref>(String<sp/>sTypeName,<sp/><ref refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access" kindref="compound">Access</ref><sp/>access,<sp/>List&lt;TypeConstant&gt;<sp/>listParams)<sp/>{</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>super.checkProduction(sTypeName,<sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a9e7c010bfa3e16425df12b05b0a8a2fc" kindref="member">m_access</ref>,<sp/>listParams);</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>JIT<sp/>support<sp/>---------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="213" refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a74cc098742a9c8109ced6700fa3bf396" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a74cc098742a9c8109ced6700fa3bf396" kindref="member">ensureJitClassName</ref>(<ref refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" kindref="compound">TypeSystem</ref><sp/>ts)<sp/>{</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a4cf87bce6b7d27a61f3891b711f2602b" kindref="member">m_constType</ref>.ensureJitClassName(ts);</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>Constant<sp/>methods<sp/>----------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="221" refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a8a6abf73dca564a16ba9909fe08ab92c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d7/d71/enumorg_1_1xvm_1_1asm_1_1_constant_1_1_format" kindref="compound">Format</ref><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a8a6abf73dca564a16ba9909fe08ab92c" kindref="member">getFormat</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d7/d71/enumorg_1_1xvm_1_1asm_1_1_constant_1_1_format" kindref="compound">Format</ref>.<ref refid="d7/d71/enumorg_1_1xvm_1_1asm_1_1_constant_1_1_format_1a8377cbe0e098b2dc1e210110babef3fa" kindref="member">AccessType</ref>;</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="226" refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1af824561aeeec206e0f6783ecb781a908" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1af824561aeeec206e0f6783ecb781a908" kindref="member">containsUnresolved</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>!<ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1ae0631978fa01dca3e3b13ddeb110e254" kindref="member">isHashCached</ref>()<sp/>&amp;&amp;<sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a4cf87bce6b7d27a61f3891b711f2602b" kindref="member">m_constType</ref>.containsUnresolved();</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="231" refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1aaff68e328bf15932f243c9c42cf23025" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1aaff68e328bf15932f243c9c42cf23025" kindref="member">forEachUnderlying</ref>(Consumer&lt;Constant&gt;<sp/>visitor)<sp/>{</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>visitor.accept(<ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a4cf87bce6b7d27a61f3891b711f2602b" kindref="member">m_constType</ref>);</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"></highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="236" refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1aaab2604d3e4f9e227dbbfed3c3a303ea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>Object<sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1aaab2604d3e4f9e227dbbfed3c3a303ea" kindref="member">getLocator</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a9e7c010bfa3e16425df12b05b0a8a2fc" kindref="member">m_access</ref><sp/>==<sp/><ref refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access_1a9b9da042570910b72fa8d1d86a224c94" kindref="member">Access.PUBLIC</ref></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a4cf87bce6b7d27a61f3891b711f2602b" kindref="member">m_constType</ref></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="243" refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a7076a4336a009847aaed70eec6d94b60" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a7076a4336a009847aaed70eec6d94b60" kindref="member">compareDetails</ref>(<ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref><sp/>obj)<sp/>{</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!(obj<sp/>instanceof<sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1ab00fbfe4a205037168d9105e97616eb6" kindref="member">AccessTypeConstant</ref><sp/>that))<sp/>{</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n<sp/>=<sp/>this.<ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a4cf87bce6b7d27a61f3891b711f2602b" kindref="member">m_constType</ref>.compareTo(that.m_constType);</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(n<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n<sp/>=<sp/>this.<ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a9e7c010bfa3e16425df12b05b0a8a2fc" kindref="member">m_access</ref>.compareTo(that.m_access);</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>n;</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="255" refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a6834a546a0b720f064cbb831f9593b64" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a6834a546a0b720f064cbb831f9593b64" kindref="member">getValueString</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a4cf87bce6b7d27a61f3891b711f2602b" kindref="member">m_constType</ref>.getValueString()<sp/>+<sp/></highlight><highlight class="charliteral">&apos;:&apos;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a9e7c010bfa3e16425df12b05b0a8a2fc" kindref="member">m_access</ref>.KEYWORD;</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"></highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>XvmStructure<sp/>methods<sp/>------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="263" refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a7ed309a45f8f90c1cf1c9f40488975cc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a7ed309a45f8f90c1cf1c9f40488975cc" kindref="member">registerConstants</ref>(<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref><sp/>pool)<sp/>{</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a4cf87bce6b7d27a61f3891b711f2602b" kindref="member">m_constType</ref><sp/>=<sp/>pool.<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a96af322337d3cfdb2a927e0221651113" kindref="member">register</ref>(<ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a4cf87bce6b7d27a61f3891b711f2602b" kindref="member">m_constType</ref>);</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"></highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="268" refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1ad3b4be0e1377593cc1bc97c5aa05fcb3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1ad3b4be0e1377593cc1bc97c5aa05fcb3" kindref="member">assemble</ref>(DataOutput<sp/>out)</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>out.writeByte(<ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a8a6abf73dca564a16ba9909fe08ab92c" kindref="member">getFormat</ref>().ordinal());</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>writeMagnitude(out,<sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a4cf87bce6b7d27a61f3891b711f2602b" kindref="member">m_constType</ref>.getPosition());</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>writePackedLong(out,<sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a9e7c010bfa3e16425df12b05b0a8a2fc" kindref="member">m_access</ref>.ordinal());</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"></highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="276" refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1aa859ca20fe7889e7324175afdf00e0c1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1aa859ca20fe7889e7324175afdf00e0c1" kindref="member">validate</ref>(<ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref><sp/>errs)<sp/>{</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1adee7de37b7ee6bb1e5fd2cb2b51917da" kindref="member">isValidated</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>an<sp/>access<sp/>type<sp/>constant<sp/>can<sp/>modify<sp/>an<sp/>annotated,<sp/>a<sp/>parameterized,<sp/>or<sp/>a<sp/>terminal<sp/>type</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>constant<sp/>that<sp/>refers<sp/>to<sp/>a<sp/>class/interface</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a23240778e0a7cde7c10ce379be4ddae7" kindref="member">TypeConstant</ref><sp/><ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref><sp/>=<sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a4cf87bce6b7d27a61f3891b711f2602b" kindref="member">m_constType</ref>.resolveTypedefs();</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!(<ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref><sp/>instanceof<sp/><ref refid="d0/dd9/classorg_1_1xvm_1_1asm_1_1constants_1_1_property_class_type_constant" kindref="compound">PropertyClassTypeConstant</ref><sp/>||<sp/><ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref>.isExplicitClassIdentity(</highlight><highlight class="keyword">true</highlight><highlight class="normal">)))<sp/>{</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d57/classorg_1_1xvm_1_1asm_1_1_xvm_structure_1aef9bafec30978481b0b85752101acb28" kindref="member">log</ref>(errs,<sp/><ref refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity" kindref="compound">Severity</ref>.<ref refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity_1a470906cb0c737a6d70b2d9ff265ab9fd" kindref="member">ERROR</ref>,<sp/><ref refid="df/df8/interfaceorg_1_1xvm_1_1asm_1_1_constants_1a89e0f96ee9384818c8b1697d5e34b211" kindref="member">VE_ACCESS_TYPE_ILLEGAL</ref>,<sp/><ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref>.getValueString());</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"></highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>super.validate(errs);</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"></highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"></highlight></codeline>
+<codeline lineno="292"><highlight class="normal"></highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>Object<sp/>methods<sp/>------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="294"><highlight class="normal"></highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="296" refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a8018a4f151a97595b5689b25739cc39e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a8018a4f151a97595b5689b25739cc39e" kindref="member">computeHashCode</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d1/d1e/classorg_1_1xvm_1_1util_1_1_hash" kindref="compound">Hash</ref>.<ref refid="d1/d1e/classorg_1_1xvm_1_1util_1_1_hash_1a14035f395b9874e8dfa54dd6c142fd6b" kindref="member">of</ref>(<ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a4cf87bce6b7d27a61f3891b711f2602b" kindref="member">m_constType</ref>,</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d1/d1e/classorg_1_1xvm_1_1util_1_1_hash" kindref="compound">Hash</ref>.<ref refid="d1/d1e/classorg_1_1xvm_1_1util_1_1_hash_1a14035f395b9874e8dfa54dd6c142fd6b" kindref="member">of</ref>(<ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a9e7c010bfa3e16425df12b05b0a8a2fc" kindref="member">m_access</ref>));</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"></highlight></codeline>
+<codeline lineno="301"><highlight class="normal"></highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>fields<sp/>--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="303"><highlight class="normal"></highlight></codeline>
+<codeline lineno="307" refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a9453b044d38cd7044eccccefa75f670f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">transient</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a9453b044d38cd7044eccccefa75f670f" kindref="member">m_iType</ref>;</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"></highlight></codeline>
+<codeline lineno="312" refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a4cf87bce6b7d27a61f3891b711f2602b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a23240778e0a7cde7c10ce379be4ddae7" kindref="member">TypeConstant</ref><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a4cf87bce6b7d27a61f3891b711f2602b" kindref="member">m_constType</ref>;</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"></highlight></codeline>
+<codeline lineno="317" refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a9e7c010bfa3e16425df12b05b0a8a2fc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="dd/d46/enumorg_1_1xvm_1_1asm_1_1_constants_1_1_access" kindref="compound">Access</ref><sp/><ref refid="d4/d8b/classorg_1_1xvm_1_1asm_1_1constants_1_1_access_type_constant_1a9e7c010bfa3e16425df12b05b0a8a2fc" kindref="member">m_access</ref>;</highlight></codeline>
+<codeline lineno="318"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/constants/AccessTypeConstant.java"/>
+  </compounddef>
+</doxygen>

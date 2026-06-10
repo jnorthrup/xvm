@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d0/dbc/_ctx_8java" kind="file" language="Java">
+    <compoundname>Ctx.java</compoundname>
+    <includes local="no">java.lang.constant.ClassDesc</includes>
+    <includes local="no">java.lang.constant.MethodTypeDesc</includes>
+    <includes local="no">java.util.function.Function</includes>
+    <includes local="no">org.xvm.asm.Constant</includes>
+    <includes local="no">org.xvm.asm.constants.TypeConstant</includes>
+    <includes local="no">org.xvm.util.ByteHashCollector</includes>
+    <includes local="no">java.lang.constant.ConstantDescs.CD_int</includes>
+    <includes local="no">java.lang.constant.ConstantDescs.CD_void</includes>
+    <includes local="no">org.xvm.javajit.Builder.CD_JavaObject</includes>
+    <includes local="no">org.xvm.javajit.Builder.CD_JavaString</includes>
+    <includes local="no">org.xvm.javajit.Builder.CD_TypeConstant</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Ctx.java</label>
+        <link refid="d0/dbc/_ctx_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.lang.constant.ClassDesc</label>
+      </node>
+      <node id="8">
+        <label>java.lang.constant.ConstantDescs.CD_int</label>
+      </node>
+      <node id="9">
+        <label>java.lang.constant.ConstantDescs.CD_void</label>
+      </node>
+      <node id="3">
+        <label>java.lang.constant.MethodTypeDesc</label>
+      </node>
+      <node id="4">
+        <label>java.util.function.Function</label>
+      </node>
+      <node id="5">
+        <label>org.xvm.asm.Constant</label>
+      </node>
+      <node id="6">
+        <label>org.xvm.asm.constants.TypeConstant</label>
+      </node>
+      <node id="10">
+        <label>org.xvm.javajit.Builder.CD_JavaObject</label>
+      </node>
+      <node id="11">
+        <label>org.xvm.javajit.Builder.CD_JavaString</label>
+      </node>
+      <node id="12">
+        <label>org.xvm.javajit.Builder.CD_TypeConstant</label>
+      </node>
+      <node id="7">
+        <label>org.xvm.util.ByteHashCollector</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx" prot="public">org::xvm::javajit::Ctx</innerclass>
+    <innerclass refid="dd/d63/classorg_1_1xvm_1_1javajit_1_1_ctx_1_1_ctor_ctx" prot="public">org::xvm::javajit::Ctx::CtorCtx</innerclass>
+    <innernamespace refid="dc/d1b/namespaceorg_1_1xvm_1_1javajit">org::xvm::javajit</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.javajit;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.constant.ClassDesc;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.constant.MethodTypeDesc;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.function.Function;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Constant;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.constants.TypeConstant;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.util.ByteHashCollector;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>java.lang.constant.ConstantDescs.CD_int;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>java.lang.constant.ConstantDescs.CD_void;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.javajit.Builder.CD_JavaObject;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.javajit.Builder.CD_JavaString;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.javajit.Builder.CD_TypeConstant;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1ae35b636683035501ad6d2db84dd39845" kindref="member">Ctx</ref><sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>constructors<sp/>--------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1ae35b636683035501ad6d2db84dd39845" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1ae35b636683035501ad6d2db84dd39845" kindref="member">Ctx</ref>(<ref refid="d0/d5f/classorg_1_1xvm_1_1javajit_1_1_xvm" kindref="compound">Xvm</ref><sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a7bebb579f7f96a2264e953b03cb11522" kindref="member">xvm</ref>,<sp/><ref refid="d7/d78/classorg_1_1xvm_1_1javajit_1_1_container" kindref="compound">Container</ref><sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a99b7cf723747ba7ba483ee0863225e5e" kindref="member">container</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.xvm<sp/>=<sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a7bebb579f7f96a2264e953b03cb11522" kindref="member">xvm</ref>;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.container<sp/>=<sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a99b7cf723747ba7ba483ee0863225e5e" kindref="member">container</ref>;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>fields<sp/>--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a7bebb579f7f96a2264e953b03cb11522" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="d0/d5f/classorg_1_1xvm_1_1javajit_1_1_xvm" kindref="compound">Xvm</ref><sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a7bebb579f7f96a2264e953b03cb11522" kindref="member">xvm</ref>;</highlight></codeline>
+<codeline lineno="37" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a99b7cf723747ba7ba483ee0863225e5e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/><ref refid="d7/d78/classorg_1_1xvm_1_1javajit_1_1_container" kindref="compound">Container</ref><sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a99b7cf723747ba7ba483ee0863225e5e" kindref="member">container</ref>;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>xSvc<sp/>service;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>etc.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>public<sp/>int<sp/>depth;<sp/><sp/><sp/><sp/>//<sp/>call<sp/>depth</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>public<sp/>int<sp/>ra;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>public<sp/>int<sp/>ca;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>fields<sp/>to<sp/>hold<sp/>additional<sp/>return<sp/>values</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1ac3316119500dced5a14230c1df3f3de7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1ac3316119500dced5a14230c1df3f3de7" kindref="member">i0</ref>;<sp/></highlight><highlight class="comment">//<sp/>hottest<sp/>at<sp/>top</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1aefadd9205225fe1c6b8566ac7d606d11" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1aefadd9205225fe1c6b8566ac7d606d11" kindref="member">i1</ref>;</highlight></codeline>
+<codeline lineno="47" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a274c8654eec72d3e7b8d6d2117328966" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Object<sp/><sp/><sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a274c8654eec72d3e7b8d6d2117328966" kindref="member">o0</ref>;<sp/></highlight><highlight class="comment">//<sp/>unpredictable<sp/>reference<sp/>byte<sp/>size,<sp/>so<sp/>double<sp/>refs<sp/>up<sp/>for<sp/>64-bit<sp/>alignment</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a177a3c2d7eab9f0954dd3fa781a93678" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Object<sp/><sp/><sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a177a3c2d7eab9f0954dd3fa781a93678" kindref="member">o1</ref>;</highlight></codeline>
+<codeline lineno="49" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a1af35394235e63863f1382edc1569657" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a1af35394235e63863f1382edc1569657" kindref="member">i2</ref>;</highlight></codeline>
+<codeline lineno="50" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a3ee8b2cf78b2babc9da184e45147e10b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a3ee8b2cf78b2babc9da184e45147e10b" kindref="member">i3</ref>;</highlight></codeline>
+<codeline lineno="51" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a720620acf873b7eea90760cc6bf488b9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Object<sp/><sp/><sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a720620acf873b7eea90760cc6bf488b9" kindref="member">o2</ref>;</highlight></codeline>
+<codeline lineno="52" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a7b54171569749bc05211059f08da14e8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Object<sp/><sp/><sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a7b54171569749bc05211059f08da14e8" kindref="member">o3</ref>;</highlight></codeline>
+<codeline lineno="53" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a668f41b0f5d3a20d944ef46727f8749a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a668f41b0f5d3a20d944ef46727f8749a" kindref="member">i4</ref>;</highlight></codeline>
+<codeline lineno="54" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1ad85083d4304399c68a79d5a4df05aadb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1ad85083d4304399c68a79d5a4df05aadb" kindref="member">i5</ref>;</highlight></codeline>
+<codeline lineno="55" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a7d6a7b182699caea4da46d09641a049e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Object<sp/><sp/><sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a7d6a7b182699caea4da46d09641a049e" kindref="member">o4</ref>;</highlight></codeline>
+<codeline lineno="56" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a6f1e0a6177af70589387e0eef7505b4b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Object<sp/><sp/><sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a6f1e0a6177af70589387e0eef7505b4b" kindref="member">o5</ref>;</highlight></codeline>
+<codeline lineno="57" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1adba2691261d649927e2fe0a2112cecde" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1adba2691261d649927e2fe0a2112cecde" kindref="member">i6</ref>;</highlight></codeline>
+<codeline lineno="58" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1ae529ce01e042430ae66ba9762e171bbd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1ae529ce01e042430ae66ba9762e171bbd" kindref="member">i7</ref>;</highlight></codeline>
+<codeline lineno="59" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a4b1be79431a0a42d1a078794abe16b7d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Object<sp/><sp/><sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a4b1be79431a0a42d1a078794abe16b7d" kindref="member">o6</ref>;</highlight></codeline>
+<codeline lineno="60" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a5efd4ade80f3166277d3c90d1777d47f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Object<sp/><sp/><sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a5efd4ade80f3166277d3c90d1777d47f" kindref="member">o7</ref>;</highlight></codeline>
+<codeline lineno="61" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1ae082ff26a2a5a5aeb21afe7edba74c43" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal">[]<sp/><sp/><sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1ae082ff26a2a5a5aeb21afe7edba74c43" kindref="member">iN</ref>;</highlight></codeline>
+<codeline lineno="62" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a439a7c8c617b7c9b5c790a1d82c46054" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Object[]<sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a439a7c8c617b7c9b5c790a1d82c46054" kindref="member">oN</ref>;<sp/></highlight><highlight class="comment">//<sp/>coldest<sp/>at<sp/>the<sp/>bottom<sp/>(no<sp/>fields<sp/>should<sp/>be<sp/>declared<sp/>below<sp/>this<sp/>point!)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>memory<sp/>accounting<sp/>---------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1ac2a8ef8c2443bda707021bd223c19be1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>ScopedValue&lt;Ctx&gt;<sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1ac2a8ef8c2443bda707021bd223c19be1" kindref="member">Current</ref><sp/>=<sp/>ScopedValue.newInstance();</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1ad50b75f1e4fff92676e4dde475f0b1ac" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1ae35b636683035501ad6d2db84dd39845" kindref="member">Ctx</ref><sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">()<sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1ac2a8ef8c2443bda707021bd223c19be1" kindref="member">Current</ref>.get();</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>memory<sp/>accounting<sp/>---------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a4b148f5ae409bcd01962da1b33b20642" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a4b148f5ae409bcd01962da1b33b20642" kindref="member">alloc</ref>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>size)<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a6d3e5d2f355c5874146ed11b6cbaffbc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a6d3e5d2f355c5874146ed11b6cbaffbc" kindref="member">allocated</ref>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>size)<sp/>{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a944840674e3950ce080763f30d323395" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a944840674e3950ce080763f30d323395" kindref="member">realloc</ref>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>oldSize,<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>newSize)<sp/>{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1ac68891f08b8f2e4c4b46174fecaadec4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1ac68891f08b8f2e4c4b46174fecaadec4" kindref="member">free</ref>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>size)<sp/>{</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>Constructor<sp/>support<sp/>-------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1aa3bc86464be4639b5fd538a8725bcf04" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="dd/d63/classorg_1_1xvm_1_1javajit_1_1_ctx_1_1_ctor_ctx" kindref="compound">CtorCtx</ref><sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1aa3bc86464be4639b5fd538a8725bcf04" kindref="member">ctorCtx</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="dd/d63/classorg_1_1xvm_1_1javajit_1_1_ctx_1_1_ctor_ctx" kindref="compound">CtorCtx</ref>();</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138" refid="dd/d63/classorg_1_1xvm_1_1javajit_1_1_ctx_1_1_ctor_ctx" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="dd/d63/classorg_1_1xvm_1_1javajit_1_1_ctx_1_1_ctor_ctx" kindref="compound">CtorCtx</ref><sp/>{</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO<sp/>CP:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>Container<sp/>and<sp/>Service<sp/>support<sp/>---------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a01d1984c786aa1706ebe95e4a6652012" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref><sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a01d1984c786aa1706ebe95e4a6652012" kindref="member">getConstant</ref>(String<sp/>className,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>index)<sp/>{</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/de5/classorg_1_1xvm_1_1javajit_1_1_module_loader" kindref="compound">ModuleLoader</ref><sp/>loader;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(index<sp/>&lt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>loader<sp/>=<sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a99b7cf723747ba7ba483ee0863225e5e" kindref="member">container</ref>.xvm.nativeTypeSystem.findOwnerLoader(className);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>index<sp/>=<sp/>-index;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>loader<sp/>=<sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a99b7cf723747ba7ba483ee0863225e5e" kindref="member">container</ref>.typeSystem.findOwnerLoader(className);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>loader.<ref refid="d3/de5/classorg_1_1xvm_1_1javajit_1_1_module_loader_1a4a78d28901e23da14b090fa5a1b8dbbc" kindref="member">module</ref>.<ref refid="d7/d57/classorg_1_1xvm_1_1asm_1_1_xvm_structure_1acbdfa66204a5c352b0153ba99abec74e" kindref="member">getConstantPool</ref>().<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a73a94e2e0d105c95a3574349a4816baa" kindref="member">getConstant</ref>(index);</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a2433938f1202ce6530d16977a6c63e32" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Object<sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a2433938f1202ce6530d16977a6c63e32" kindref="member">inject</ref>(<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/>resourceType,<sp/>String<sp/>resourceName,<sp/>Object<sp/>opts)<sp/>{</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Function<sp/>supplier<sp/>=<sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a99b7cf723747ba7ba483ee0863225e5e" kindref="member">container</ref>.injector.supplierOf(resourceType,<sp/>resourceName);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>supplier<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>?<sp/>null<sp/>:<sp/>supplier.apply(opts);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a24567ab70fcb17f1e688e63b300fa593" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d4/d87/interfaceorg_1_1xvm_1_1util_1_1_byte_hash_collector" kindref="compound">ByteHashCollector</ref><sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a24567ab70fcb17f1e688e63b300fa593" kindref="member">createHashCollector</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO<sp/>make<sp/>the<sp/>seed<sp/>configurable<sp/>and<sp/>pass<sp/>to<sp/>the<sp/>constructor?</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d4/d87/interfaceorg_1_1xvm_1_1util_1_1_byte_hash_collector" kindref="compound">ByteHashCollector</ref>.<ref refid="d3/d0f/classorg_1_1xvm_1_1util_1_1_byte_hash_collector_1_1_simple" kindref="compound">Simple</ref>();</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>debugging<sp/>support<sp/>---------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a8b0094e736b3561a784df6ae036f362f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a8b0094e736b3561a784df6ae036f362f" kindref="member">log</ref>(java.lang.String<sp/>message)<sp/>{</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>System.err.println(message);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>Ctx<sp/>method<sp/>descriptors<sp/>----------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a6eae0b576a924c8ca6f45543ca65d721" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>MethodTypeDesc<sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1a6eae0b576a924c8ca6f45543ca65d721" kindref="member">MD_log</ref><sp/>=<sp/>MethodTypeDesc.of(CD_void,<sp/>CD_JavaString);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1ab8f6f8f449379351e02b97aea6fe3a98" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>MethodTypeDesc<sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1ab8f6f8f449379351e02b97aea6fe3a98" kindref="member">MD_getConstant</ref><sp/>=<sp/>MethodTypeDesc.of(</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ClassDesc.of(<ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref>.class.getName()),<sp/>CD_JavaString,<sp/>CD_int);</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186" refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1ad39059d5b04205c6ed8f8e00e605c0a3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>MethodTypeDesc<sp/><ref refid="dd/dcf/classorg_1_1xvm_1_1javajit_1_1_ctx_1ad39059d5b04205c6ed8f8e00e605c0a3" kindref="member">MD_inject</ref><sp/>=<sp/>MethodTypeDesc.of(</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CD_JavaObject,<sp/>CD_TypeConstant,<sp/>CD_JavaString,<sp/>CD_JavaObject);</highlight></codeline>
+<codeline lineno="188"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/javajit/Ctx.java"/>
+  </compounddef>
+</doxygen>

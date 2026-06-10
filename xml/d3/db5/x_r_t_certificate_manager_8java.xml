@@ -1,0 +1,747 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d3/db5/x_r_t_certificate_manager_8java" kind="file" language="Java">
+    <compoundname>xRTCertificateManager.java</compoundname>
+    <includes local="no">java.io.File</includes>
+    <includes local="no">java.io.FileInputStream</includes>
+    <includes local="no">java.io.FileWriter</includes>
+    <includes local="no">java.io.IOException</includes>
+    <includes local="no">java.nio.file.Path</includes>
+    <includes local="no">java.security.GeneralSecurityException</includes>
+    <includes local="no">java.security.Key</includes>
+    <includes local="no">java.security.KeyPair</includes>
+    <includes local="no">java.security.KeyStore</includes>
+    <includes local="no">java.security.PrivateKey</includes>
+    <includes local="no">java.security.cert.Certificate</includes>
+    <includes local="no">java.security.cert.X509Certificate</includes>
+    <includes local="no">java.time.Duration</includes>
+    <includes local="no">java.util.List</includes>
+    <includes local="no">java.util.concurrent.Callable</includes>
+    <includes local="no">java.util.concurrent.CompletableFuture</includes>
+    <includes local="no">java.util.concurrent.ExecutionException</includes>
+    <includes local="no">org.bouncycastle.operator.OperatorCreationException</includes>
+    <includes local="no">org.shredzone.acme4j.Account</includes>
+    <includes local="no">org.shredzone.acme4j.AccountBuilder</includes>
+    <includes local="no">org.shredzone.acme4j.Authorization</includes>
+    <includes local="no">org.shredzone.acme4j.Order</includes>
+    <includes local="no">org.shredzone.acme4j.Session</includes>
+    <includes local="no">org.shredzone.acme4j.Status</includes>
+    <includes local="no">org.shredzone.acme4j.challenge.Http01Challenge</includes>
+    <includes local="no">org.shredzone.acme4j.exception.AcmeException</includes>
+    <includes local="no">org.shredzone.acme4j.util.CSRBuilder</includes>
+    <includes local="no">org.shredzone.acme4j.util.KeyPairUtils</includes>
+    <includes local="no">org.xvm.asm.ClassStructure</includes>
+    <includes local="no">org.xvm.asm.ConstantPool</includes>
+    <includes local="no">org.xvm.asm.MethodStructure</includes>
+    <includes local="no">org.xvm.asm.Op</includes>
+    <includes local="no">org.xvm.asm.constants.TypeConstant</includes>
+    <includes local="no">org.xvm.runtime.ClassComposition</includes>
+    <includes local="no">org.xvm.runtime.Container</includes>
+    <includes local="no">org.xvm.runtime.Frame</includes>
+    <includes local="no">org.xvm.runtime.ObjectHandle</includes>
+    <includes local="no">org.xvm.runtime.ObjectHandle.ExceptionHandle</includes>
+    <includes local="no">org.xvm.runtime.template.xException</includes>
+    <includes local="no">org.xvm.runtime.template.xService</includes>
+    <includes local="no">org.xvm.runtime.template.collections.xArray</includes>
+    <includes local="no">org.xvm.runtime.template.collections.xArray.ArrayHandle</includes>
+    <includes local="no">org.xvm.runtime.template.collections.xArray.Mutability</includes>
+    <includes local="no">org.xvm.runtime.template.text.xString</includes>
+    <includes local="no">org.xvm.runtime.template.text.xString.StringHandle</includes>
+    <includes local="no">org.xvm.runtime.template._native.crypto.xRTKeyStore.KeyStoreHandle</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/template/_native/crypto/xRTCertificateManager.java</label>
+        <link refid="d3/db5/x_r_t_certificate_manager_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.io.File</label>
+      </node>
+      <node id="3">
+        <label>java.io.FileInputStream</label>
+      </node>
+      <node id="4">
+        <label>java.io.FileWriter</label>
+      </node>
+      <node id="5">
+        <label>java.io.IOException</label>
+      </node>
+      <node id="6">
+        <label>java.nio.file.Path</label>
+      </node>
+      <node id="7">
+        <label>java.security.GeneralSecurityException</label>
+      </node>
+      <node id="8">
+        <label>java.security.Key</label>
+      </node>
+      <node id="9">
+        <label>java.security.KeyPair</label>
+      </node>
+      <node id="10">
+        <label>java.security.KeyStore</label>
+      </node>
+      <node id="11">
+        <label>java.security.PrivateKey</label>
+      </node>
+      <node id="12">
+        <label>java.security.cert.Certificate</label>
+      </node>
+      <node id="13">
+        <label>java.security.cert.X509Certificate</label>
+      </node>
+      <node id="14">
+        <label>java.time.Duration</label>
+      </node>
+      <node id="15">
+        <label>java.util.List</label>
+      </node>
+      <node id="16">
+        <label>java.util.concurrent.Callable</label>
+      </node>
+      <node id="17">
+        <label>java.util.concurrent.CompletableFuture</label>
+      </node>
+      <node id="18">
+        <label>java.util.concurrent.ExecutionException</label>
+      </node>
+      <node id="19">
+        <label>org.bouncycastle.operator.OperatorCreationException</label>
+      </node>
+      <node id="20">
+        <label>org.shredzone.acme4j.Account</label>
+      </node>
+      <node id="21">
+        <label>org.shredzone.acme4j.AccountBuilder</label>
+      </node>
+      <node id="22">
+        <label>org.shredzone.acme4j.Authorization</label>
+      </node>
+      <node id="23">
+        <label>org.shredzone.acme4j.Order</label>
+      </node>
+      <node id="24">
+        <label>org.shredzone.acme4j.Session</label>
+      </node>
+      <node id="25">
+        <label>org.shredzone.acme4j.Status</label>
+      </node>
+      <node id="26">
+        <label>org.shredzone.acme4j.challenge.Http01Challenge</label>
+      </node>
+      <node id="27">
+        <label>org.shredzone.acme4j.exception.AcmeException</label>
+      </node>
+      <node id="28">
+        <label>org.shredzone.acme4j.util.CSRBuilder</label>
+      </node>
+      <node id="29">
+        <label>org.shredzone.acme4j.util.KeyPairUtils</label>
+      </node>
+      <node id="30">
+        <label>org.xvm.asm.ClassStructure</label>
+      </node>
+      <node id="31">
+        <label>org.xvm.asm.ConstantPool</label>
+      </node>
+      <node id="32">
+        <label>org.xvm.asm.MethodStructure</label>
+      </node>
+      <node id="33">
+        <label>org.xvm.asm.Op</label>
+      </node>
+      <node id="34">
+        <label>org.xvm.asm.constants.TypeConstant</label>
+      </node>
+      <node id="35">
+        <label>org.xvm.runtime.ClassComposition</label>
+      </node>
+      <node id="36">
+        <label>org.xvm.runtime.Container</label>
+      </node>
+      <node id="37">
+        <label>org.xvm.runtime.Frame</label>
+      </node>
+      <node id="38">
+        <label>org.xvm.runtime.ObjectHandle</label>
+      </node>
+      <node id="39">
+        <label>org.xvm.runtime.ObjectHandle.ExceptionHandle</label>
+      </node>
+      <node id="47">
+        <label>org.xvm.runtime.template._native.crypto.xRTKeyStore.KeyStoreHandle</label>
+      </node>
+      <node id="42">
+        <label>org.xvm.runtime.template.collections.xArray</label>
+      </node>
+      <node id="43">
+        <label>org.xvm.runtime.template.collections.xArray.ArrayHandle</label>
+      </node>
+      <node id="44">
+        <label>org.xvm.runtime.template.collections.xArray.Mutability</label>
+      </node>
+      <node id="45">
+        <label>org.xvm.runtime.template.text.xString</label>
+      </node>
+      <node id="46">
+        <label>org.xvm.runtime.template.text.xString.StringHandle</label>
+      </node>
+      <node id="40">
+        <label>org.xvm.runtime.template.xException</label>
+      </node>
+      <node id="41">
+        <label>org.xvm.runtime.template.xService</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager" prot="public">org::xvm::runtime::template::_native::crypto::xRTCertificateManager</innerclass>
+    <innernamespace refid="d0/d33/namespaceorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto">org::xvm::runtime::template::_native::crypto</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.runtime.template._native.crypto;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.File;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.FileInputStream;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.FileWriter;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.IOException;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.nio.file.Path;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.security.GeneralSecurityException;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.security.Key;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.security.KeyPair;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.security.KeyStore;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.security.PrivateKey;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.security.cert.Certificate;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.security.cert.X509Certificate;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.time.Duration;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.concurrent.Callable;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.concurrent.CompletableFuture;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.concurrent.ExecutionException;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.bouncycastle.operator.OperatorCreationException;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.shredzone.acme4j.Account;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.shredzone.acme4j.AccountBuilder;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.shredzone.acme4j.Authorization;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.shredzone.acme4j.Order;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.shredzone.acme4j.Session;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.shredzone.acme4j.Status;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.shredzone.acme4j.challenge.Http01Challenge;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.shredzone.acme4j.exception.AcmeException;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.shredzone.acme4j.util.CSRBuilder;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.shredzone.acme4j.util.KeyPairUtils;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ClassStructure;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ConstantPool;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.MethodStructure;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Op;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.constants.TypeConstant;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.ClassComposition;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.Container;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.Frame;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.ObjectHandle;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.ObjectHandle.ExceptionHandle;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.template.xException;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.template.xService;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.template.collections.xArray;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.template.collections.xArray.ArrayHandle;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.template.collections.xArray.Mutability;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.template.text.xString;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.template.text.xString.StringHandle;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.template._native.crypto.xRTKeyStore.KeyStoreHandle;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73" refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a583e964dbd25f4224a9d91df57c40ac7" kindref="member">xRTCertificateManager</ref></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="d7/d9c/classorg_1_1xvm_1_1runtime_1_1template_1_1x_service_1ac2db345af2fec65914587c72fafaaa32" kindref="member">xService</ref><sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1abe926fac57c9d2892c6f91db99ba258d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a583e964dbd25f4224a9d91df57c40ac7" kindref="member">xRTCertificateManager</ref><sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1abe926fac57c9d2892c6f91db99ba258d" kindref="member">INSTANCE</ref>;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78" refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a583e964dbd25f4224a9d91df57c40ac7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a583e964dbd25f4224a9d91df57c40ac7" kindref="member">xRTCertificateManager</ref>(<ref refid="d1/df8/classorg_1_1xvm_1_1runtime_1_1_container" kindref="compound">Container</ref><sp/>container,<sp/><ref refid="d5/d19/classorg_1_1xvm_1_1asm_1_1_class_structure" kindref="compound">ClassStructure</ref><sp/>structure,<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>fInstance)<sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(container,<sp/>structure,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(fInstance)<sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1abe926fac57c9d2892c6f91db99ba258d" kindref="member">INSTANCE</ref><sp/>=<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="87" refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1acd37d146c6334527ee47cd20886a4f94" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1acd37d146c6334527ee47cd20886a4f94" kindref="member">initNative</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1a7e586d681a05732a2d80cb404b58b090" kindref="member">markNativeMethod</ref>(</highlight><highlight class="stringliteral">&quot;keystoreForImpl&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1a7e586d681a05732a2d80cb404b58b090" kindref="member">markNativeMethod</ref>(</highlight><highlight class="stringliteral">&quot;encryptKeyStoreImpl&quot;</highlight><highlight class="normal"><sp/><sp/><sp/>,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1a7e586d681a05732a2d80cb404b58b090" kindref="member">markNativeMethod</ref>(</highlight><highlight class="stringliteral">&quot;createCertificateImpl&quot;</highlight><highlight class="normal"><sp/>,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1a7e586d681a05732a2d80cb404b58b090" kindref="member">markNativeMethod</ref>(</highlight><highlight class="stringliteral">&quot;revokeCertificateImpl&quot;</highlight><highlight class="normal"><sp/>,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1a7e586d681a05732a2d80cb404b58b090" kindref="member">markNativeMethod</ref>(</highlight><highlight class="stringliteral">&quot;createSymmetricKeyImpl&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1a7e586d681a05732a2d80cb404b58b090" kindref="member">markNativeMethod</ref>(</highlight><highlight class="stringliteral">&quot;createPasswordImpl&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1a7e586d681a05732a2d80cb404b58b090" kindref="member">markNativeMethod</ref>(</highlight><highlight class="stringliteral">&quot;extractKeyImpl&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1a9b5740a540f9d9fccebbb3b9ad0507c7" kindref="member">invalidateTypeInfo</ref>();</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="100" refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1abe561a4c0fa58f0f2d581f730a61038a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1abe561a4c0fa58f0f2d581f730a61038a" kindref="member">getCanonicalType</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/><ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref><sp/>=<sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1abf170513c74c6f8e916962865bb5aa58" kindref="member">m_typeCanonical</ref>;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref><sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref><sp/><ref refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1ac679c8691254b6de4726de11f66314b7" kindref="member">pool</ref><sp/>=<sp/><ref refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1ac679c8691254b6de4726de11f66314b7" kindref="member">pool</ref>();</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1abf170513c74c6f8e916962865bb5aa58" kindref="member">m_typeCanonical</ref><sp/>=<sp/><ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref><sp/>=<sp/><ref refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1ac679c8691254b6de4726de11f66314b7" kindref="member">pool</ref>.ensureTerminalTypeConstant(</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1ac679c8691254b6de4726de11f66314b7" kindref="member">pool</ref>.ensureClassConstant(<ref refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1ac679c8691254b6de4726de11f66314b7" kindref="member">pool</ref>.ensureModuleConstant(</highlight><highlight class="stringliteral">&quot;crypto.xtclang.org&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;CertificateManager&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref>;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114" refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1acaae1b335bb923ac54d563913fda2cdf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1acaae1b335bb923ac54d563913fda2cdf" kindref="member">ensureManager</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frame,<sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hOpts)<sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle" kindref="compound">StringHandle</ref><sp/><sp/><sp/><sp/><sp/>hProvider<sp/>=<sp/>hOpts<sp/>instanceof<sp/><ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle" kindref="compound">StringHandle</ref><sp/>hS<sp/>?<sp/>hS<sp/>:<sp/><ref refid="d9/d25/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string" kindref="compound">xString</ref>.<ref refid="d9/d25/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1ac21a2af7df2e32044d0b326993e4f7e6" kindref="member">makeHandle</ref>(</highlight><highlight class="stringliteral">&quot;self&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="da/df7/classorg_1_1xvm_1_1runtime_1_1_class_composition" kindref="compound">ClassComposition</ref><sp/>clz<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><ref refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1a8ca435e94603c6c23d5dd2b2b5abc086" kindref="member">getCanonicalClass</ref>();</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d9/dd1/classorg_1_1xvm_1_1runtime_1_1template_1_1x_service_1_1_service_handle" kindref="compound">ServiceHandle</ref><sp/><sp/><sp/><sp/>hMgr<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><ref refid="d7/d9c/classorg_1_1xvm_1_1runtime_1_1template_1_1x_service_1a6556e80d665d344b88fbe702db34e9a3" kindref="member">createServiceHandle</ref>(</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template_1a4e9af20420352578caaa7a30ce602e83" kindref="member">f_container</ref>.createServiceContext(</highlight><highlight class="stringliteral">&quot;CertificateManager&quot;</highlight><highlight class="normal">),<sp/>clz,<sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1abe561a4c0fa58f0f2d581f730a61038a" kindref="member">getCanonicalType</ref>());</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hMgr.<ref refid="d3/d56/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_generic_handle_1a1913db092e157023bb080ff4b0f18e23" kindref="member">setField</ref>(0,<sp/>hProvider);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>hMgr;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="124" refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a2f2505369b9a54f7c89e6485203314a6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a2f2505369b9a54f7c89e6485203314a6" kindref="member">invokeNativeN</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frame,<sp/><ref refid="d4/d90/classorg_1_1xvm_1_1asm_1_1_method_structure" kindref="compound">MethodStructure</ref><sp/>method,<sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hTarget,</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref>[]<sp/>ahArg,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iReturn)<sp/>{</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(method.<ref refid="d4/d90/classorg_1_1xvm_1_1asm_1_1_method_structure_1a8e598a61d59dc853df34536698639815" kindref="member">getName</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;keystoreForImpl&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-&gt;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a61285f99ba43ea34e289202e3838f779" kindref="member">invokeKeystoreFor</ref>(frame,<sp/>ahArg,<sp/>iReturn);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;encryptKeyStoreImpl&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/>-&gt;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a5c34229ca4ce5355577cc5a7ba3176c9" kindref="member">invokeAsIOTask</ref>(frame,<sp/>()<sp/><sp/>-&gt;<sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a975a990528cd90f6941a9cb0cdcbb6f5" kindref="member">invokeEncryptKeystore</ref>(frame,<sp/>ahArg));</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;createCertificateImpl&quot;</highlight><highlight class="normal"><sp/><sp/>-&gt;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a5c34229ca4ce5355577cc5a7ba3176c9" kindref="member">invokeAsIOTask</ref>(frame,<sp/>()<sp/><sp/>-&gt;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a951c603dde2ee3208b1798e882cd0f95" kindref="member">invokeCreateCertificate</ref>(frame,<sp/>(<ref refid="d9/dd1/classorg_1_1xvm_1_1runtime_1_1template_1_1x_service_1_1_service_handle" kindref="compound">ServiceHandle</ref>)<sp/>hTarget,<sp/>ahArg));</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;revokeCertificateImpl&quot;</highlight><highlight class="normal"><sp/><sp/>-&gt;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a5c34229ca4ce5355577cc5a7ba3176c9" kindref="member">invokeAsIOTask</ref>(frame,<sp/>()<sp/><sp/>-&gt;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a5810cbec2006401a02082d00fa545933" kindref="member">invokeRevokeCertificate</ref>(frame,<sp/>(<ref refid="d9/dd1/classorg_1_1xvm_1_1runtime_1_1template_1_1x_service_1_1_service_handle" kindref="compound">ServiceHandle</ref>)<sp/>hTarget,<sp/>ahArg));</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;createSymmetricKeyImpl&quot;</highlight><highlight class="normal"><sp/>-&gt;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a5c34229ca4ce5355577cc5a7ba3176c9" kindref="member">invokeAsIOTask</ref>(frame,<sp/>()<sp/><sp/>-&gt;<sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a532186bdb9f218f4bab459743165b233" kindref="member">invokeCreateSymmetricKey</ref>(frame,<sp/>ahArg));</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;createPasswordImpl&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>-&gt;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a5c34229ca4ce5355577cc5a7ba3176c9" kindref="member">invokeAsIOTask</ref>(frame,<sp/>()<sp/><sp/>-&gt;<sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1ae98a6aa7ce886d3ade3174e585197db6" kindref="member">invokeCreatePassword</ref>(frame,<sp/>ahArg));</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;extractKeyImpl&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-&gt;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1ad7bcb432d1d1aaf64989aefa47413b1e" kindref="member">invokeExtractKey</ref>(frame,<sp/>ahArg,<sp/>iReturn);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal"><sp/>-&gt;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super.invokeNativeN(frame,<sp/>method,<sp/>hTarget,<sp/>ahArg,<sp/>iReturn);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148" refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a5c34229ca4ce5355577cc5a7ba3176c9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a5c34229ca4ce5355577cc5a7ba3176c9" kindref="member">invokeAsIOTask</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frame,<sp/>Callable&lt;ExceptionHandle&gt;<sp/>task)<sp/>{</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CompletableFuture&lt;ExceptionHandle&gt;<sp/>cfResult<sp/>=<sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a7419371b163ade87e8962e502c38236e" kindref="member">f_context</ref>.<ref refid="d8/d69/classorg_1_1xvm_1_1runtime_1_1_service_context_1aa4ce9f5c6ea680ef7e3aef858bacae23" kindref="member">f_container</ref>.<ref refid="d1/df8/classorg_1_1xvm_1_1runtime_1_1_container_1ad91d624309b010e5bb80016c1a169ac8" kindref="member">scheduleIO</ref>(task);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d5/dfd/interfaceorg_1_1xvm_1_1runtime_1_1_frame_1_1_continuation" kindref="compound">Frame.Continuation</ref><sp/>continuation<sp/>=<sp/>frameCaller<sp/>-&gt;<sp/>{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="da/d17/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_exception_handle" kindref="compound">ExceptionHandle</ref><sp/>hFailure<sp/>=<sp/>cfResult.get();</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>hFailure<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>?<sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" kindref="member">Op.R_NEXT</ref><sp/>:<sp/>frameCaller.raiseException(hFailure);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(InterruptedException<sp/>|<sp/>ExecutionException<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>we<sp/>temporarily<sp/>print<sp/>the<sp/>stack<sp/>trace<sp/>for<sp/>unhandled<sp/>exceptions<sp/>here;<sp/>remove</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>e.printStackTrace();</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>frameCaller.raiseException(</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/d06/classorg_1_1xvm_1_1runtime_1_1template_1_1x_exception" kindref="compound">xException</ref>.<ref refid="d2/d06/classorg_1_1xvm_1_1runtime_1_1template_1_1x_exception_1acf521b6953f476b96d1eaba8a3e82767" kindref="member">makeObscure</ref>(frame,<sp/></highlight><highlight class="stringliteral">&quot;Unexpected<sp/>execution<sp/>failure<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>e.getMessage()));</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a3c6ce249c193430fbf53386d3876d5cb" kindref="member">waitForIO</ref>(cfResult,<sp/>continuation);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>certificate<sp/>creation<sp/>------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197" refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a951c603dde2ee3208b1798e882cd0f95" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="da/d17/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_exception_handle" kindref="compound">ExceptionHandle</ref><sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a951c603dde2ee3208b1798e882cd0f95" kindref="member">invokeCreateCertificate</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frame,<sp/><ref refid="d9/dd1/classorg_1_1xvm_1_1runtime_1_1template_1_1x_service_1_1_service_handle" kindref="compound">ServiceHandle</ref><sp/>hMgr,</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref>[]<sp/>ahArg)<sp/>{</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle" kindref="compound">StringHandle</ref><sp/>hStorePath<sp/><sp/>=<sp/>(<ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle" kindref="compound">StringHandle</ref>)<sp/>ahArg[0];</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle" kindref="compound">StringHandle</ref><sp/>hPwd<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><ref refid="df/d29/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_key_store" kindref="compound">xRTKeyStore</ref>.<ref refid="df/d29/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_key_store_1a0fec3c97c6d4edc2e080cce4a8c8b076" kindref="member">getPassword</ref>(frame,<sp/>ahArg[1]);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/><sp/><sp/><sp/><sp/><sp/><sp/>sName<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>((<ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle" kindref="compound">StringHandle</ref>)<sp/>ahArg[2]).getStringValue();</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/><sp/><sp/><sp/><sp/><sp/><sp/>sDName<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>((<ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle" kindref="compound">StringHandle</ref>)<sp/>ahArg[3]).getStringValue();</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/><sp/><sp/><sp/><sp/><sp/><sp/>sProvider<sp/><sp/><sp/>=<sp/>((<ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle" kindref="compound">StringHandle</ref>)<sp/>hMgr.<ref refid="d3/d56/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_generic_handle_1a22316d2edc0e2256ebc1c9365dec770a" kindref="member">getField</ref>(0)).<ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle_1a9c11bec39c944021e75cc5ba44685ea5" kindref="member">getStringValue</ref>();</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/><sp/><sp/><sp/><sp/><sp/><sp/>sStorePath<sp/><sp/>=<sp/>hStorePath.<ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle_1a9c11bec39c944021e75cc5ba44685ea5" kindref="member">getStringValue</ref>();</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">[]<sp/><sp/><sp/><sp/><sp/><sp/><sp/>achPwd<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>hPwd.<ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle_1af3269bda65c571ad2ce92580c22de87d" kindref="member">getValue</ref>();</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d1/d31/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1_key_store_operations" kindref="compound">KeyStoreOperations</ref>.<ref refid="d1/d31/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1_key_store_operations_1a2df08c250d77c52ab3dffc5eadaf4eb7" kindref="member">deleteKeyStoreEntry</ref>(sStorePath,<sp/>achPwd,<sp/>sName);</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(sProvider)<sp/>{</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;self&quot;</highlight><highlight class="normal"><sp/>-&gt;<sp/>{</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d1/d31/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1_key_store_operations" kindref="compound">KeyStoreOperations</ref>.<ref refid="d1/d31/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1_key_store_operations_1a73f23a7c7562800204ac32a6241e836b" kindref="member">createSelfSignedCertificate</ref>(sStorePath,<sp/>achPwd,<sp/>sName,<sp/>sDName);</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>yield<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;certbot-staging&quot;</highlight><highlight class="normal"><sp/>-&gt;<sp/>{</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1abae3d180b5b3b8a9507f0b10b085bc09" kindref="member">createCertificateWithAcme</ref>(sStorePath,<sp/>achPwd,<sp/>sName,<sp/>sDName,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/>hStorePath);</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>yield<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;certbot&quot;</highlight><highlight class="normal"><sp/>-&gt;<sp/>{</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1abae3d180b5b3b8a9507f0b10b085bc09" kindref="member">createCertificateWithAcme</ref>(sStorePath,<sp/>achPwd,<sp/>sName,<sp/>sDName,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/>hStorePath);</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>yield<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal"><sp/>-&gt;<sp/><ref refid="d2/d06/classorg_1_1xvm_1_1runtime_1_1template_1_1x_exception" kindref="compound">xException</ref>.<ref refid="d2/d06/classorg_1_1xvm_1_1runtime_1_1template_1_1x_exception_1adeece1df205415e674d5e0b97a9d4ac8" kindref="member">makeHandle</ref>(frame,</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Unsupported<sp/>certificate<sp/>provider:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>sProvider);</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(AcmeException<sp/>|<sp/>OperatorCreationException<sp/>|<sp/>GeneralSecurityException<sp/>|</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>IOException<sp/>|<sp/>InterruptedException<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d2/d06/classorg_1_1xvm_1_1runtime_1_1template_1_1x_exception" kindref="compound">xException</ref>.<ref refid="d2/d06/classorg_1_1xvm_1_1runtime_1_1template_1_1x_exception_1ab088b10b5c7da574608a573e7403cfa0" kindref="member">obscureIoException</ref>(frame,<sp/>e.getMessage());</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight></codeline>
+<codeline lineno="245" refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1abae3d180b5b3b8a9507f0b10b085bc09" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1abae3d180b5b3b8a9507f0b10b085bc09" kindref="member">createCertificateWithAcme</ref>(String<sp/>sStorePath,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">[]<sp/>achPwd,<sp/>String<sp/>sName,<sp/>String<sp/>sDName,</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>fStaging,<sp/><ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle" kindref="compound">StringHandle</ref><sp/>hStorePath)</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>AcmeException,<sp/>GeneralSecurityException,<sp/>IOException,<sp/>InterruptedException<sp/>{</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ofDomain<sp/>=<sp/>sDName.indexOf(</highlight><highlight class="stringliteral">&quot;CN=&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/>ofDomain<sp/>&gt;=<sp/>0;</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>sDomain<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>sDName.substring(ofDomain<sp/>+<sp/>3);</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>File<sp/><sp/><sp/>dirChallenge<sp/>=<sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a2de3d1eb84d85643a46f7b2d97d153d3" kindref="member">getChallengePath</ref>(hStorePath);</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!dirChallenge.exists()<sp/>&amp;&amp;<sp/>!dirChallenge.mkdir()<sp/>||<sp/>!dirChallenge.isDirectory())<sp/>{</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>IOException(</highlight><highlight class="stringliteral">&quot;Cannot<sp/>create<sp/>directory:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>dirChallenge.getAbsolutePath());</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>KeyPair<sp/>domainKeyPair<sp/><sp/>=<sp/>KeyPairUtils.createKeyPair(2048);</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>KeyPair<sp/>accountKeyPair<sp/>=<sp/>KeyPairUtils.createKeyPair(2048);</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Session<sp/>session<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Session(<ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a5f823b3c8a0efd9c3fd8d9c0a8269387" kindref="member">acmeServerUri</ref>(fStaging));</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Account<sp/>acmeAccount<sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>AccountBuilder()</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.agreeToTermsOfService()</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.useKeyPair(accountKeyPair)</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.create(session);</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Order<sp/>acmeOrder<sp/>=<sp/>acmeAccount.newOrder().domain(sDomain).create();</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"></highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a2238fee852171ab8c411f5f4fc24bb94" kindref="member">processHttpChallenges</ref>(acmeOrder.getAuthorizations(),<sp/>dirChallenge,<sp/>sDomain);</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"></highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CSRBuilder<sp/>csrBuilder<sp/>=<sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a8e638aa021177b9e3837d226282c55d3" kindref="member">buildCSR</ref>(sDName,<sp/>sDomain);</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>csrBuilder.sign(domainKeyPair);</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>acmeOrder.execute(csrBuilder.getEncoded());</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"></highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Status<sp/>orderStatus<sp/>=<sp/>acmeOrder.waitForCompletion(<ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a11166f648f0196406006ecbb316d9762" kindref="member">ACME_TIMEOUT</ref>);</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(orderStatus<sp/>!=<sp/>Status.VALID)<sp/>{</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>AcmeException(</highlight><highlight class="stringliteral">&quot;Certificate<sp/>order<sp/>failed<sp/>for<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>sDomain</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>(status:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>orderStatus<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;)&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"></highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;X509Certificate&gt;<sp/>certChain<sp/>=<sp/>acmeOrder.getCertificate().getCertificateChain();</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"></highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>KeyStore<sp/>keyStore<sp/>=<sp/><ref refid="d1/d31/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1_key_store_operations" kindref="compound">KeyStoreOperations</ref>.<ref refid="d1/d31/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1_key_store_operations_1a31ca3cf1141320ae063c2ca235bd1969" kindref="member">loadOrCreateKeyStore</ref>(sStorePath,<sp/>achPwd);</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>keyStore.setKeyEntry(sName,<sp/>domainKeyPair.getPrivate(),<sp/>achPwd,</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>certChain.toArray(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Certificate[0]));</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d1/d31/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1_key_store_operations" kindref="compound">KeyStoreOperations</ref>.<ref refid="d1/d31/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1_key_store_operations_1ab81d5727580dad91f19f195e48ff128a" kindref="member">saveKeyStore</ref>(keyStore,<sp/>sStorePath,<sp/>achPwd);</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"></highlight></codeline>
+<codeline lineno="295" refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a2238fee852171ab8c411f5f4fc24bb94" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a2238fee852171ab8c411f5f4fc24bb94" kindref="member">processHttpChallenges</ref>(List&lt;Authorization&gt;<sp/>authorizations,</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>File<sp/>dirChallenge,<sp/>String<sp/>sDomain)</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>AcmeException,<sp/>IOException,<sp/>InterruptedException<sp/>{</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(Authorization<sp/>auth<sp/>:<sp/>authorizations)<sp/>{</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(auth.getStatus()<sp/>!=<sp/>Status.PENDING)<sp/>{</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"></highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Http01Challenge<sp/>challenge<sp/>=<sp/>auth.findChallenge(Http01Challenge.class)</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.orElseThrow(()<sp/>-&gt;<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>AcmeException(</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;No<sp/>HTTP-01<sp/>challenge<sp/>available<sp/>for<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>sDomain));</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"></highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>File<sp/>challengeDir<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>File(dirChallenge,</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;.well-known&quot;</highlight><highlight class="normal"><sp/>+<sp/>File.separator<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;acme-challenge&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!challengeDir.exists()<sp/>&amp;&amp;<sp/>!challengeDir.mkdirs())<sp/>{</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>IOException(</highlight><highlight class="stringliteral">&quot;Cannot<sp/>create<sp/>challenge<sp/>directory:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>challengeDir);</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"></highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>File<sp/>challengeFile<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>File(challengeDir,<sp/>challenge.getToken());</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>(var<sp/>writer<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>FileWriter(challengeFile))<sp/>{</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>writer.write(challenge.getAuthorization());</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"></highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>challenge.trigger();</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Status<sp/>authStatus<sp/>=<sp/>auth.waitForCompletion(<ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a11166f648f0196406006ecbb316d9762" kindref="member">ACME_TIMEOUT</ref>);</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(authStatus<sp/>!=<sp/>Status.VALID)<sp/>{</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>AcmeException(</highlight><highlight class="stringliteral">&quot;Challenge<sp/>failed<sp/>for<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>sDomain</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>(status:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>authStatus<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;)&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">finally</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>challengeFile.delete();</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"></highlight></codeline>
+<codeline lineno="334" refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a8e638aa021177b9e3837d226282c55d3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>CSRBuilder<sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a8e638aa021177b9e3837d226282c55d3" kindref="member">buildCSR</ref>(String<sp/>sDName,<sp/>String<sp/>sDomain)<sp/>{</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>csrBuilder<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>CSRBuilder();</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>csrBuilder.addDomain(sDomain);</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"></highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(var<sp/>sPart<sp/>:<sp/>sDName.split(</highlight><highlight class="stringliteral">&quot;,&quot;</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>kv<sp/><sp/><sp/><sp/>=<sp/>sPart.trim().split(</highlight><highlight class="stringliteral">&quot;=&quot;</highlight><highlight class="normal">,<sp/>2);</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>key<sp/><sp/><sp/>=<sp/>kv[0];</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>value<sp/>=<sp/>kv.length<sp/>&gt;<sp/>1<sp/>?<sp/>kv[1]<sp/>:<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"></highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(key)<sp/>{</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-&gt;<sp/>csrBuilder.setCountry(value);</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;ST&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;S&quot;</highlight><highlight class="normal"><sp/>-&gt;<sp/>csrBuilder.setState(value);</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;L&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-&gt;<sp/>csrBuilder.setLocality(value);</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;O&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-&gt;<sp/>csrBuilder.setOrganization(value);</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;OU&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>-&gt;<sp/>csrBuilder.setOrganizationalUnit(value);</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-&gt;<sp/>{}<sp/></highlight><highlight class="comment">//<sp/>CN<sp/>handled<sp/>separately,<sp/>ignore<sp/>unknown</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="350"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>csrBuilder;</highlight></codeline>
+<codeline lineno="353"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"></highlight></codeline>
+<codeline lineno="355"><highlight class="normal"></highlight></codeline>
+<codeline lineno="356"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>certificate<sp/>revocation<sp/>----------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="357"><highlight class="normal"></highlight></codeline>
+<codeline lineno="372" refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a5810cbec2006401a02082d00fa545933" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="da/d17/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_exception_handle" kindref="compound">ExceptionHandle</ref><sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a5810cbec2006401a02082d00fa545933" kindref="member">invokeRevokeCertificate</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frame,<sp/><ref refid="d9/dd1/classorg_1_1xvm_1_1runtime_1_1template_1_1x_service_1_1_service_handle" kindref="compound">ServiceHandle</ref><sp/>hMgr,</highlight></codeline>
+<codeline lineno="373"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref>[]<sp/>ahArg)<sp/>{</highlight></codeline>
+<codeline lineno="374"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>sPath<sp/><sp/><sp/><sp/><sp/>=<sp/>((<ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle" kindref="compound">StringHandle</ref>)<sp/>ahArg[0]).getStringValue();</highlight></codeline>
+<codeline lineno="375"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">[]<sp/>achPwd<sp/><sp/><sp/><sp/>=<sp/><ref refid="df/d29/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_key_store" kindref="compound">xRTKeyStore</ref>.<ref refid="df/d29/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_key_store_1a0fec3c97c6d4edc2e080cce4a8c8b076" kindref="member">getPassword</ref>(frame,<sp/>ahArg[1]).<ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle_1af3269bda65c571ad2ce92580c22de87d" kindref="member">getValue</ref>();</highlight></codeline>
+<codeline lineno="376"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>sName<sp/><sp/><sp/><sp/><sp/>=<sp/>((<ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle" kindref="compound">StringHandle</ref>)<sp/>ahArg[2]).getStringValue();</highlight></codeline>
+<codeline lineno="377"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>sProvider<sp/>=<sp/>((<ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle" kindref="compound">StringHandle</ref>)<sp/>hMgr.<ref refid="d3/d56/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_generic_handle_1a22316d2edc0e2256ebc1c9365dec770a" kindref="member">getField</ref>(0)).getStringValue();</highlight></codeline>
+<codeline lineno="378"><highlight class="normal"></highlight></codeline>
+<codeline lineno="379"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="380"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(sProvider)<sp/>{</highlight></codeline>
+<codeline lineno="381"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;self&quot;</highlight><highlight class="normal"><sp/>-&gt;<sp/>{}</highlight></codeline>
+<codeline lineno="382"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;certbot-staging&quot;</highlight><highlight class="normal"><sp/>-&gt;<sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a1ca1b52d5cef56a63a276d66e415fb2d" kindref="member">revokeWithAcme</ref>(sPath,<sp/>achPwd,<sp/>sName,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="383"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;certbot&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-&gt;<sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a1ca1b52d5cef56a63a276d66e415fb2d" kindref="member">revokeWithAcme</ref>(sPath,<sp/>achPwd,<sp/>sName,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="384"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal"><sp/>-&gt;<sp/>{</highlight></codeline>
+<codeline lineno="385"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d2/d06/classorg_1_1xvm_1_1runtime_1_1template_1_1x_exception" kindref="compound">xException</ref>.<ref refid="d2/d06/classorg_1_1xvm_1_1runtime_1_1template_1_1x_exception_1adeece1df205415e674d5e0b97a9d4ac8" kindref="member">makeHandle</ref>(frame,</highlight></codeline>
+<codeline lineno="386"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Unsupported<sp/>certificate<sp/>provider:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>sProvider);</highlight></codeline>
+<codeline lineno="387"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="388"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="389"><highlight class="normal"></highlight></codeline>
+<codeline lineno="390"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d1/d31/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1_key_store_operations" kindref="compound">KeyStoreOperations</ref>.<ref refid="d1/d31/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1_key_store_operations_1a2df08c250d77c52ab3dffc5eadaf4eb7" kindref="member">deleteKeyStoreEntry</ref>(sPath,<sp/>achPwd,<sp/>sName);</highlight></codeline>
+<codeline lineno="391"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="392"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(AcmeException<sp/>|<sp/>GeneralSecurityException<sp/>|<sp/>IOException<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="393"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d2/d06/classorg_1_1xvm_1_1runtime_1_1template_1_1x_exception" kindref="compound">xException</ref>.<ref refid="d2/d06/classorg_1_1xvm_1_1runtime_1_1template_1_1x_exception_1ab088b10b5c7da574608a573e7403cfa0" kindref="member">obscureIoException</ref>(frame,<sp/>e.getMessage());</highlight></codeline>
+<codeline lineno="394"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="395"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="396"><highlight class="normal"></highlight></codeline>
+<codeline lineno="407" refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a1ca1b52d5cef56a63a276d66e415fb2d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a1ca1b52d5cef56a63a276d66e415fb2d" kindref="member">revokeWithAcme</ref>(String<sp/>sStorePath,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">[]<sp/>achPwd,<sp/>String<sp/>sName,<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>fStaging)</highlight></codeline>
+<codeline lineno="408"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>AcmeException,<sp/>GeneralSecurityException,<sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="409"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>KeyStore<sp/><sp/><sp/><sp/>keyStore<sp/>=<sp/><ref refid="d1/d31/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1_key_store_operations" kindref="compound">KeyStoreOperations</ref>.<ref refid="d1/d31/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1_key_store_operations_1a31ca3cf1141320ae063c2ca235bd1969" kindref="member">loadOrCreateKeyStore</ref>(sStorePath,<sp/>achPwd);</highlight></codeline>
+<codeline lineno="410"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Certificate<sp/>cert<sp/><sp/><sp/><sp/><sp/>=<sp/>keyStore.getCertificate(sName);</highlight></codeline>
+<codeline lineno="411"><highlight class="normal"></highlight></codeline>
+<codeline lineno="412"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cert<sp/>instanceof<sp/>X509Certificate<sp/>x509Cert)<sp/>{</highlight></codeline>
+<codeline lineno="413"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Key<sp/>privateKey<sp/>=<sp/>keyStore.getKey(sName,<sp/>achPwd);</highlight></codeline>
+<codeline lineno="414"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(privateKey<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="415"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>AcmeException(</highlight><highlight class="stringliteral">&quot;Cannot<sp/>revoke<sp/>certificate<sp/>&apos;&quot;</highlight><highlight class="normal"><sp/>+<sp/>sName</highlight></codeline>
+<codeline lineno="416"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&apos;:<sp/>private<sp/>key<sp/>not<sp/>found<sp/>in<sp/>keystore&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="417"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="418"><highlight class="normal"></highlight></codeline>
+<codeline lineno="419"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>KeyPair<sp/>domainKeyPair<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>KeyPair(x509Cert.getPublicKey(),<sp/>(PrivateKey)<sp/>privateKey);</highlight></codeline>
+<codeline lineno="420"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Session<sp/>session<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Session(<ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a5f823b3c8a0efd9c3fd8d9c0a8269387" kindref="member">acmeServerUri</ref>(fStaging));</highlight></codeline>
+<codeline lineno="421"><highlight class="normal"></highlight></codeline>
+<codeline lineno="422"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>org.shredzone.acme4j.Certificate.revoke(session,<sp/>domainKeyPair,<sp/>x509Cert,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="423"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="424"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="425"><highlight class="normal"></highlight></codeline>
+<codeline lineno="426"><highlight class="normal"></highlight></codeline>
+<codeline lineno="427"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>symmetric<sp/>key<sp/>&amp;<sp/>password<sp/>management<sp/>---------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="428"><highlight class="normal"></highlight></codeline>
+<codeline lineno="443" refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a532186bdb9f218f4bab459743165b233" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="da/d17/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_exception_handle" kindref="compound">ExceptionHandle</ref><sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a532186bdb9f218f4bab459743165b233" kindref="member">invokeCreateSymmetricKey</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frame,<sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref>[]<sp/>ahArg)<sp/>{</highlight></codeline>
+<codeline lineno="444"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>sPath<sp/><sp/>=<sp/>((<ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle" kindref="compound">StringHandle</ref>)<sp/>ahArg[0]).getStringValue();</highlight></codeline>
+<codeline lineno="445"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">[]<sp/>achPwd<sp/>=<sp/><ref refid="df/d29/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_key_store" kindref="compound">xRTKeyStore</ref>.<ref refid="df/d29/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_key_store_1a0fec3c97c6d4edc2e080cce4a8c8b076" kindref="member">getPassword</ref>(frame,<sp/>ahArg[1]).<ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle_1af3269bda65c571ad2ce92580c22de87d" kindref="member">getValue</ref>();</highlight></codeline>
+<codeline lineno="446"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>sName<sp/><sp/>=<sp/>((<ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle" kindref="compound">StringHandle</ref>)<sp/>ahArg[2]).getStringValue();</highlight></codeline>
+<codeline lineno="447"><highlight class="normal"></highlight></codeline>
+<codeline lineno="448"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="449"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d1/d31/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1_key_store_operations" kindref="compound">KeyStoreOperations</ref>.<ref refid="d1/d31/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1_key_store_operations_1ad82beb73de0a36a3adf78bc6dde8799e" kindref="member">createSymmetricKey</ref>(sPath,<sp/>achPwd,<sp/>sName);</highlight></codeline>
+<codeline lineno="450"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="451"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(GeneralSecurityException<sp/>|<sp/>IOException<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="452"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d2/d06/classorg_1_1xvm_1_1runtime_1_1template_1_1x_exception" kindref="compound">xException</ref>.<ref refid="d2/d06/classorg_1_1xvm_1_1runtime_1_1template_1_1x_exception_1ab088b10b5c7da574608a573e7403cfa0" kindref="member">obscureIoException</ref>(frame,<sp/>e.getMessage());</highlight></codeline>
+<codeline lineno="453"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="454"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="455"><highlight class="normal"></highlight></codeline>
+<codeline lineno="470" refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1ae98a6aa7ce886d3ade3174e585197db6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="da/d17/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_exception_handle" kindref="compound">ExceptionHandle</ref><sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1ae98a6aa7ce886d3ade3174e585197db6" kindref="member">invokeCreatePassword</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frame,<sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref>[]<sp/>ahArg)<sp/>{</highlight></codeline>
+<codeline lineno="471"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>sPath<sp/><sp/><sp/><sp/><sp/>=<sp/>((<ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle" kindref="compound">StringHandle</ref>)<sp/>ahArg[0]).getStringValue();</highlight></codeline>
+<codeline lineno="472"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">[]<sp/>achPwd<sp/><sp/><sp/><sp/>=<sp/><ref refid="df/d29/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_key_store" kindref="compound">xRTKeyStore</ref>.<ref refid="df/d29/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_key_store_1a0fec3c97c6d4edc2e080cce4a8c8b076" kindref="member">getPassword</ref>(frame,<sp/>ahArg[1]).<ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle_1af3269bda65c571ad2ce92580c22de87d" kindref="member">getValue</ref>();</highlight></codeline>
+<codeline lineno="473"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>sName<sp/><sp/><sp/><sp/><sp/>=<sp/>((<ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle" kindref="compound">StringHandle</ref>)<sp/>ahArg[2]).getStringValue();</highlight></codeline>
+<codeline lineno="474"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>sPwdValue<sp/>=<sp/>((<ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle" kindref="compound">StringHandle</ref>)<sp/>ahArg[3]).getStringValue();</highlight></codeline>
+<codeline lineno="475"><highlight class="normal"></highlight></codeline>
+<codeline lineno="476"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="477"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d1/d31/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1_key_store_operations" kindref="compound">KeyStoreOperations</ref>.<ref refid="d1/d31/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1_key_store_operations_1a65a257b8e60532e659423e98c7b407ed" kindref="member">createPassword</ref>(sPath,<sp/>achPwd,<sp/>sName,<sp/>sPwdValue);</highlight></codeline>
+<codeline lineno="478"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="479"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(GeneralSecurityException<sp/>|<sp/>IOException<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="480"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d2/d06/classorg_1_1xvm_1_1runtime_1_1template_1_1x_exception" kindref="compound">xException</ref>.<ref refid="d2/d06/classorg_1_1xvm_1_1runtime_1_1template_1_1x_exception_1ab088b10b5c7da574608a573e7403cfa0" kindref="member">obscureIoException</ref>(frame,<sp/>e.getMessage());</highlight></codeline>
+<codeline lineno="481"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="482"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="483"><highlight class="normal"></highlight></codeline>
+<codeline lineno="484"><highlight class="normal"></highlight></codeline>
+<codeline lineno="485"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>key<sp/>extraction<sp/>&amp;<sp/>password<sp/>change<sp/>------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="486"><highlight class="normal"></highlight></codeline>
+<codeline lineno="491" refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1ad7bcb432d1d1aaf64989aefa47413b1e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1ad7bcb432d1d1aaf64989aefa47413b1e" kindref="member">invokeExtractKey</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frame,<sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref>[]<sp/>ahArg,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iReturn)<sp/>{</highlight></codeline>
+<codeline lineno="492"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hPathOrStore<sp/>=<sp/>ahArg[0];</highlight></codeline>
+<codeline lineno="493"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle" kindref="compound">StringHandle</ref><sp/>hPwd<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><ref refid="df/d29/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_key_store" kindref="compound">xRTKeyStore</ref>.<ref refid="df/d29/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_key_store_1a0fec3c97c6d4edc2e080cce4a8c8b076" kindref="member">getPassword</ref>(frame,<sp/>ahArg[1]);</highlight></codeline>
+<codeline lineno="494"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle" kindref="compound">StringHandle</ref><sp/>hName<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>(<ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle" kindref="compound">StringHandle</ref>)<sp/>ahArg[2];</highlight></codeline>
+<codeline lineno="495"><highlight class="normal"></highlight></codeline>
+<codeline lineno="496"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CompletableFuture&lt;Key&gt;<sp/>cfResult<sp/>=<sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a7419371b163ade87e8962e502c38236e" kindref="member">f_context</ref>.<ref refid="d8/d69/classorg_1_1xvm_1_1runtime_1_1_service_context_1aa4ce9f5c6ea680ef7e3aef858bacae23" kindref="member">f_container</ref>.<ref refid="d1/df8/classorg_1_1xvm_1_1runtime_1_1_container_1ad91d624309b010e5bb80016c1a169ac8" kindref="member">scheduleIO</ref>(</highlight></codeline>
+<codeline lineno="497"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>()<sp/>-&gt;<sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1ac311d0139f0bd73c004d4b0e0a28064f" kindref="member">loadKey</ref>(hPathOrStore,<sp/>hPwd,<sp/>hName));</highlight></codeline>
+<codeline lineno="498"><highlight class="normal"></highlight></codeline>
+<codeline lineno="499"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d5/dfd/interfaceorg_1_1xvm_1_1runtime_1_1_frame_1_1_continuation" kindref="compound">Frame.Continuation</ref><sp/>continuation<sp/>=<sp/>frameCaller<sp/>-&gt;<sp/>{</highlight></codeline>
+<codeline lineno="500"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="501"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Key<sp/>key<sp/>=<sp/>cfResult.get();</highlight></codeline>
+<codeline lineno="502"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>key<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="503"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>frameCaller.raiseException(<ref refid="d2/d06/classorg_1_1xvm_1_1runtime_1_1template_1_1x_exception" kindref="compound">xException</ref>.<ref refid="d2/d06/classorg_1_1xvm_1_1runtime_1_1template_1_1x_exception_1af4e075d2dae2de723997424c24c734df" kindref="member">ioException</ref>(frameCaller,</highlight></codeline>
+<codeline lineno="504"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Invalid<sp/>or<sp/>inaccessible<sp/>key<sp/>\&quot;&quot;</highlight><highlight class="normal"><sp/>+<sp/>hName.<ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle_1a9c11bec39c944021e75cc5ba44685ea5" kindref="member">getStringValue</ref>()<sp/>+<sp/></highlight><highlight class="charliteral">&apos;&quot;&apos;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="505"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>frameCaller.assignValue(iReturn,</highlight></codeline>
+<codeline lineno="506"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/db7/classorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1x_array" kindref="compound">xArray</ref>.<ref refid="dc/db7/classorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1x_array_1a15ddd180b8e128f4b870607fa086fecc" kindref="member">makeByteArrayHandle</ref>(key.getEncoded(),<sp/><ref refid="d9/dae/enumorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1x_array_1_1_mutability" kindref="compound">Mutability</ref>.<ref refid="d9/dae/enumorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1x_array_1_1_mutability_1a38a9eefd90a66e9122b3fcf4d6667419" kindref="member">Constant</ref>));</highlight></codeline>
+<codeline lineno="507"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(InterruptedException<sp/>|<sp/>ExecutionException<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="508"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>we<sp/>temporarily<sp/>print<sp/>the<sp/>stack<sp/>trace<sp/>for<sp/>unhandled<sp/>exceptions<sp/>here;<sp/>remove</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="509"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>e.printStackTrace();</highlight></codeline>
+<codeline lineno="510"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>frameCaller.raiseException(</highlight></codeline>
+<codeline lineno="511"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/d06/classorg_1_1xvm_1_1runtime_1_1template_1_1x_exception" kindref="compound">xException</ref>.<ref refid="d2/d06/classorg_1_1xvm_1_1runtime_1_1template_1_1x_exception_1acf521b6953f476b96d1eaba8a3e82767" kindref="member">makeObscure</ref>(frame,<sp/></highlight><highlight class="stringliteral">&quot;Unexpected<sp/>execution<sp/>failure<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>e));</highlight></codeline>
+<codeline lineno="512"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="513"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="514"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1a3c6ce249c193430fbf53386d3876d5cb" kindref="member">waitForIO</ref>(cfResult,<sp/>continuation);</highlight></codeline>
+<codeline lineno="515"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="516"><highlight class="normal"></highlight></codeline>
+<codeline lineno="517" refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1ac311d0139f0bd73c004d4b0e0a28064f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>Key<sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1ac311d0139f0bd73c004d4b0e0a28064f" kindref="member">loadKey</ref>(<ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hPathOrStore,<sp/><ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle" kindref="compound">StringHandle</ref><sp/>hPwd,<sp/><ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle" kindref="compound">StringHandle</ref><sp/>hName)</highlight></codeline>
+<codeline lineno="518"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>GeneralSecurityException,<sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="519"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">[]<sp/>achPwd<sp/>=<sp/>hPwd.getValue();</highlight></codeline>
+<codeline lineno="520"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>sKey<sp/><sp/><sp/>=<sp/>hName.getStringValue();</highlight></codeline>
+<codeline lineno="521"><highlight class="normal"></highlight></codeline>
+<codeline lineno="522"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>KeyStore<sp/>keyStore;</highlight></codeline>
+<codeline lineno="523"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(hPathOrStore<sp/>instanceof<sp/><ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle" kindref="compound">StringHandle</ref><sp/>hPath)<sp/>{</highlight></codeline>
+<codeline lineno="524"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>keyStore<sp/>=<sp/>KeyStore.getInstance(</highlight><highlight class="stringliteral">&quot;PKCS12&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="525"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>keyStore.load(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>FileInputStream(hPath.getStringValue()),<sp/>achPwd);</highlight></codeline>
+<codeline lineno="526"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="527"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>keyStore<sp/>=<sp/>((<ref refid="d1/dff/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_key_store_1_1_key_store_handle" kindref="compound">KeyStoreHandle</ref>)<sp/>hPathOrStore).f_keyStore;</highlight></codeline>
+<codeline lineno="528"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="529"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>keyStore.getKey(sKey,<sp/>achPwd);</highlight></codeline>
+<codeline lineno="530"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="531"><highlight class="normal"></highlight></codeline>
+<codeline lineno="536" refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a61285f99ba43ea34e289202e3838f779" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a61285f99ba43ea34e289202e3838f779" kindref="member">invokeKeystoreFor</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frame,<sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref>[]<sp/>ahArg,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iReturn)<sp/>{</highlight></codeline>
+<codeline lineno="537"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dc7/classorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1x_array_1_1_array_handle" kindref="compound">ArrayHandle</ref><sp/><sp/>hContent<sp/><sp/>=<sp/>(<ref refid="d3/dc7/classorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1x_array_1_1_array_handle" kindref="compound">ArrayHandle</ref>)<sp/>ahArg[0];</highlight></codeline>
+<codeline lineno="538"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle" kindref="compound">StringHandle</ref><sp/>hPwd<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><ref refid="df/d29/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_key_store" kindref="compound">xRTKeyStore</ref>.<ref refid="df/d29/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_key_store_1a0fec3c97c6d4edc2e080cce4a8c8b076" kindref="member">getPassword</ref>(frame,<sp/>ahArg[1]);</highlight></codeline>
+<codeline lineno="539"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hKeyStore<sp/>=<sp/><ref refid="df/d29/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_key_store" kindref="compound">xRTKeyStore</ref>.<ref refid="df/d29/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_key_store_1ad49fcb707147281522ce1735a22e1fb5" kindref="member">INSTANCE</ref>.<ref refid="df/d29/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_key_store_1a6bc9a4c91a951d3d4e6848c5f8f3ac69" kindref="member">ensureKeyStore</ref>(frame,<sp/>hContent,<sp/>hPwd);</highlight></codeline>
+<codeline lineno="540"><highlight class="normal"></highlight></codeline>
+<codeline lineno="541"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1afe93419189c80446b36803afdf7d2778" kindref="member">assignDeferredValue</ref>(iReturn,<sp/>hKeyStore);</highlight></codeline>
+<codeline lineno="542"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="543"><highlight class="normal"></highlight></codeline>
+<codeline lineno="552" refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a975a990528cd90f6941a9cb0cdcbb6f5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="da/d17/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_exception_handle" kindref="compound">ExceptionHandle</ref><sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a975a990528cd90f6941a9cb0cdcbb6f5" kindref="member">invokeEncryptKeystore</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frame,<sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref>[]<sp/>ahArg)<sp/>{</highlight></codeline>
+<codeline lineno="553"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>sPath<sp/><sp/><sp/><sp/><sp/>=<sp/>((<ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle" kindref="compound">StringHandle</ref>)<sp/>ahArg[0]).getStringValue();</highlight></codeline>
+<codeline lineno="554"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">[]<sp/>achPwd<sp/><sp/><sp/><sp/>=<sp/><ref refid="df/d29/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_key_store" kindref="compound">xRTKeyStore</ref>.<ref refid="df/d29/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_key_store_1a0fec3c97c6d4edc2e080cce4a8c8b076" kindref="member">getPassword</ref>(frame,<sp/>ahArg[1]).<ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle_1af3269bda65c571ad2ce92580c22de87d" kindref="member">getValue</ref>();</highlight></codeline>
+<codeline lineno="555"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">[]<sp/>achPwdNew<sp/>=<sp/>((<ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle" kindref="compound">StringHandle</ref>)<sp/>ahArg[2]).getValue();</highlight></codeline>
+<codeline lineno="556"><highlight class="normal"></highlight></codeline>
+<codeline lineno="557"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="558"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d1/d31/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1_key_store_operations" kindref="compound">KeyStoreOperations</ref>.<ref refid="d1/d31/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1_key_store_operations_1a3c538bf0bdd9f013e30c9f22efc26388" kindref="member">changeStorePassword</ref>(sPath,<sp/>achPwd,<sp/>achPwdNew);</highlight></codeline>
+<codeline lineno="559"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="560"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(Exception<sp/>e)<sp/>{<sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>tighten<sp/>to<sp/>GeneralSecurityException<sp/>|<sp/>IOException</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="561"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d2/d06/classorg_1_1xvm_1_1runtime_1_1template_1_1x_exception" kindref="compound">xException</ref>.<ref refid="d2/d06/classorg_1_1xvm_1_1runtime_1_1template_1_1x_exception_1ab088b10b5c7da574608a573e7403cfa0" kindref="member">obscureIoException</ref>(frame,<sp/>e.getMessage());</highlight></codeline>
+<codeline lineno="562"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="563"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="564"><highlight class="normal"></highlight></codeline>
+<codeline lineno="565"><highlight class="normal"></highlight></codeline>
+<codeline lineno="566"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>helper<sp/>methods<sp/>------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="567"><highlight class="normal"></highlight></codeline>
+<codeline lineno="568" refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a5f823b3c8a0efd9c3fd8d9c0a8269387" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>String<sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a5f823b3c8a0efd9c3fd8d9c0a8269387" kindref="member">acmeServerUri</ref>(</highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>fStaging)<sp/>{</highlight></codeline>
+<codeline lineno="569"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>fStaging<sp/>?<sp/></highlight><highlight class="stringliteral">&quot;acme://letsencrypt.org/staging&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;acme://letsencrypt.org&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="570"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="571"><highlight class="normal"></highlight></codeline>
+<codeline lineno="572" refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a2de3d1eb84d85643a46f7b2d97d153d3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>File<sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a2de3d1eb84d85643a46f7b2d97d153d3" kindref="member">getChallengePath</ref>(<ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle" kindref="compound">StringHandle</ref><sp/>hPath)<sp/>{</highlight></codeline>
+<codeline lineno="573"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>File(Path.of(hPath.<ref refid="de/d34/classorg_1_1xvm_1_1runtime_1_1template_1_1text_1_1x_string_1_1_string_handle_1a9c11bec39c944021e75cc5ba44685ea5" kindref="member">getStringValue</ref>()).toFile().getParentFile(),<sp/></highlight><highlight class="stringliteral">&quot;.challenge&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="574"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="575"><highlight class="normal"></highlight></codeline>
+<codeline lineno="576"><highlight class="normal"></highlight></codeline>
+<codeline lineno="577"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>data<sp/>fields<sp/>and<sp/>constants<sp/>-------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="578"><highlight class="normal"></highlight></codeline>
+<codeline lineno="579" refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a11166f648f0196406006ecbb316d9762" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Duration<sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1a11166f648f0196406006ecbb316d9762" kindref="member">ACME_TIMEOUT</ref><sp/>=<sp/>Duration.ofMinutes(2);</highlight></codeline>
+<codeline lineno="580"><highlight class="normal"></highlight></codeline>
+<codeline lineno="581" refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1abf170513c74c6f8e916962865bb5aa58" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/><ref refid="d7/d60/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1crypto_1_1x_r_t_certificate_manager_1abf170513c74c6f8e916962865bb5aa58" kindref="member">m_typeCanonical</ref>;</highlight></codeline>
+<codeline lineno="582"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/template/_native/crypto/xRTCertificateManager.java"/>
+  </compounddef>
+</doxygen>

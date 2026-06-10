@@ -1,0 +1,340 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d3/de8/_prefix_expression_8java" kind="file" language="Java">
+    <compoundname>PrefixExpression.java</compoundname>
+    <includes local="no">java.lang.reflect.Field</includes>
+    <includes local="no">java.util.Set</includes>
+    <includes local="no">org.xvm.asm.Argument</includes>
+    <includes local="no">org.xvm.asm.ErrorListener</includes>
+    <includes local="no">org.xvm.asm.ast.ExprAST</includes>
+    <includes local="no">org.xvm.asm.ast.UnaryOpExprAST</includes>
+    <includes local="no">org.xvm.asm.ast.UnaryOpExprAST.Operator</includes>
+    <includes local="no">org.xvm.asm.constants.ConditionalConstant</includes>
+    <includes local="no">org.xvm.asm.constants.MethodConstant</includes>
+    <includes local="no">org.xvm.asm.constants.MethodInfo</includes>
+    <includes local="no">org.xvm.asm.constants.SignatureConstant</includes>
+    <includes local="no">org.xvm.asm.constants.TypeConstant</includes>
+    <includes local="no">org.xvm.asm.constants.TypeInfo</includes>
+    <includes local="no">org.xvm.compiler.Compiler</includes>
+    <includes local="no">org.xvm.compiler.Token</includes>
+    <includes local="no">org.xvm.util.Severity</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/PrefixExpression.java</label>
+        <link refid="d3/de8/_prefix_expression_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.lang.reflect.Field</label>
+      </node>
+      <node id="3">
+        <label>java.util.Set</label>
+      </node>
+      <node id="4">
+        <label>org.xvm.asm.Argument</label>
+      </node>
+      <node id="5">
+        <label>org.xvm.asm.ErrorListener</label>
+      </node>
+      <node id="6">
+        <label>org.xvm.asm.ast.ExprAST</label>
+      </node>
+      <node id="7">
+        <label>org.xvm.asm.ast.UnaryOpExprAST</label>
+      </node>
+      <node id="8">
+        <label>org.xvm.asm.ast.UnaryOpExprAST.Operator</label>
+      </node>
+      <node id="9">
+        <label>org.xvm.asm.constants.ConditionalConstant</label>
+      </node>
+      <node id="10">
+        <label>org.xvm.asm.constants.MethodConstant</label>
+      </node>
+      <node id="11">
+        <label>org.xvm.asm.constants.MethodInfo</label>
+      </node>
+      <node id="12">
+        <label>org.xvm.asm.constants.SignatureConstant</label>
+      </node>
+      <node id="13">
+        <label>org.xvm.asm.constants.TypeConstant</label>
+      </node>
+      <node id="14">
+        <label>org.xvm.asm.constants.TypeInfo</label>
+      </node>
+      <node id="15">
+        <label>org.xvm.compiler.Compiler</label>
+      </node>
+      <node id="16">
+        <label>org.xvm.compiler.Token</label>
+      </node>
+      <node id="17">
+        <label>org.xvm.util.Severity</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression" prot="public">org::xvm::compiler::ast::PrefixExpression</innerclass>
+    <innernamespace refid="d2/df8/namespaceorg_1_1xvm_1_1compiler_1_1ast">org::xvm::compiler::ast</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.compiler.ast;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.reflect.Field;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Set;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Argument;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ErrorListener;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ast.ExprAST;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ast.UnaryOpExprAST;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ast.UnaryOpExprAST.Operator;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.constants.ConditionalConstant;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.constants.MethodConstant;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.constants.MethodInfo;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.constants.SignatureConstant;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.constants.TypeConstant;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.constants.TypeInfo;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.compiler.Compiler;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.compiler.Token;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.util.Severity;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">abstract</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1a489ac392ffd5d0a349633fa137d47fbf" kindref="member">PrefixExpression</ref></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/>Expression<sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>constructors<sp/>--------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1a489ac392ffd5d0a349633fa137d47fbf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1a489ac392ffd5d0a349633fa137d47fbf" kindref="member">PrefixExpression</ref>(<ref refid="db/db5/classorg_1_1xvm_1_1compiler_1_1_token" kindref="compound">Token</ref><sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1adbe98fa78fab97c18a7f56bffaabb7e6" kindref="member">operator</ref>,<sp/>Expression<sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1af8ebda4e4afe63f5e70287463ee988fb" kindref="member">expr</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.operator<sp/>=<sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1adbe98fa78fab97c18a7f56bffaabb7e6" kindref="member">operator</ref>;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.expr<sp/><sp/><sp/><sp/><sp/>=<sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1af8ebda4e4afe63f5e70287463ee988fb" kindref="member">expr</ref>;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>accessors<sp/>-----------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="44" refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1ab124ea4f2e7262a010886c8b8f132d78" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1ab124ea4f2e7262a010886c8b8f132d78" kindref="member">validateCondition</ref>(<ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref><sp/>errs)<sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1adbe98fa78fab97c18a7f56bffaabb7e6" kindref="member">operator</ref>.getId()<sp/>==<sp/><ref refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a03eff6ec5fd4d78784d108528623e4dc" kindref="member">Token.Id.NOT</ref></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1af8ebda4e4afe63f5e70287463ee988fb" kindref="member">expr</ref>.validateCondition(errs)</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>super.validateCondition(errs);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="51" refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1a907fbf025509488ac45d98c71e3a06d5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="da/df0/classorg_1_1xvm_1_1asm_1_1constants_1_1_conditional_constant" kindref="compound">ConditionalConstant</ref><sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1a907fbf025509488ac45d98c71e3a06d5" kindref="member">toConditionalConstant</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1adbe98fa78fab97c18a7f56bffaabb7e6" kindref="member">operator</ref>.getId()<sp/>==<sp/><ref refid="d0/dd8/enumorg_1_1xvm_1_1compiler_1_1_token_1_1_id_1a03eff6ec5fd4d78784d108528623e4dc" kindref="member">Token.Id.NOT</ref></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1af8ebda4e4afe63f5e70287463ee988fb" kindref="member">expr</ref>.toConditionalConstant().negate()</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>super.toConditionalConstant();</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="58" refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1a90755812ed491fef7fb46f2e0f69c590" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1a90755812ed491fef7fb46f2e0f69c590" kindref="member">getStartPosition</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1adbe98fa78fab97c18a7f56bffaabb7e6" kindref="member">operator</ref>.getStartPosition();</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="63" refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1a4e03dc946078a2fc6308b0c4aa70c332" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1a4e03dc946078a2fc6308b0c4aa70c332" kindref="member">getEndPosition</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1af8ebda4e4afe63f5e70287463ee988fb" kindref="member">expr</ref>.getEndPosition();</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="68" refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1a18d86f264796f97710589a5df6186c75" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>Field[]<sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1a18d86f264796f97710589a5df6186c75" kindref="member">getChildFields</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1ac0562adda209eb0a036caddc1a5de749" kindref="member">CHILD_FIELDS</ref>;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>helpers<sp/>-------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90" refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1a11f1e05b2d700a47fb4b435aeb7addbe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1a11f1e05b2d700a47fb4b435aeb7addbe" kindref="member">findBestOp</ref>(<ref refid="d1/dc8/classorg_1_1xvm_1_1compiler_1_1ast_1_1_context" kindref="compound">Context</ref><sp/>ctx,<sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/>typeRequired,</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/>typeRight,<sp/>String<sp/>sMethod,<sp/>String<sp/>sOp,<sp/><ref refid="d1/d49/interfaceorg_1_1xvm_1_1asm_1_1_error_listener" kindref="compound">ErrorListener</ref><sp/>errs)<sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Expression<sp/>exprRight<sp/>=<sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1af8ebda4e4afe63f5e70287463ee988fb" kindref="member">expr</ref>.validate(ctx,<sp/>typeRight,<sp/>errs);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(exprRight<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d6/d7b/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_constant" kindref="compound">MethodConstant</ref><sp/>idBest<sp/>=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1af8ebda4e4afe63f5e70287463ee988fb" kindref="member">expr</ref><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>exprRight;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>typeRight<sp/>=<sp/>exprRight.getType();</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/db2/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_info" kindref="compound">TypeInfo</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>infoRight<sp/><sp/>=<sp/>typeRight.<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1a594b5d911397f55c86a6987f95a95e94" kindref="member">ensureTypeInfo</ref>(errs);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Set&lt;MethodConstant&gt;<sp/>setOps<sp/><sp/><sp/><sp/><sp/>=<sp/>infoRight.<ref refid="dc/db2/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_info_1a8116e94a7409ed050cdb1db0bdae9764" kindref="member">findOpMethods</ref>(sMethod,<sp/>sOp,<sp/>0);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fAmbiguous<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="d6/d7b/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_constant" kindref="compound">MethodConstant</ref><sp/>idMethod<sp/>:<sp/>setOps)<sp/>{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(typeRequired<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>!<ref refid="d2/df8/namespaceorg_1_1xvm_1_1compiler_1_1ast_1a1fcd233595317500d6a8ecd7c3ce4615" kindref="member">isAssignable</ref>(ctx,<sp/>idMethod.getSignature().getRawReturns()[0],<sp/>typeRequired))<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(idBest<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>idBest<sp/>=<sp/>idMethod;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d83/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_info" kindref="compound">MethodInfo</ref><sp/>infoMethod<sp/>=<sp/>infoRight.<ref refid="dc/db2/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_info_1a8c3fcc15664be5606719c91479376ba1" kindref="member">getMethodById</ref>(idMethod);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d83/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_info" kindref="compound">MethodInfo</ref><sp/>infoBest<sp/><sp/><sp/>=<sp/>infoRight.<ref refid="dc/db2/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_info_1a8c3fcc15664be5606719c91479376ba1" kindref="member">getMethodById</ref>(idBest);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(infoMethod.<ref refid="d3/d83/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_info_1af338044dd52747f7f207f196b6907675" kindref="member">getIdentity</ref>().<ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1ac5a8183f37a6096526f35f136b18a5bd" kindref="member">equals</ref>(infoBest.<ref refid="d3/d83/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_info_1af338044dd52747f7f207f196b6907675" kindref="member">getIdentity</ref>()))<sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/d50/classorg_1_1xvm_1_1asm_1_1constants_1_1_signature_constant" kindref="compound">SignatureConstant</ref><sp/>sigNew<sp/><sp/>=<sp/>infoMethod.<ref refid="d3/d83/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_info_1adf20227de1de112782363a5bb3f1b6f8" kindref="member">getSignature</ref>();</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/d50/classorg_1_1xvm_1_1asm_1_1constants_1_1_signature_constant" kindref="compound">SignatureConstant</ref><sp/>sigBest<sp/>=<sp/>infoBest.<ref refid="d3/d83/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_info_1adf20227de1de112782363a5bb3f1b6f8" kindref="member">getSignature</ref>();</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>fNewBetter<sp/>=<sp/>sigNew.<ref refid="de/d50/classorg_1_1xvm_1_1asm_1_1constants_1_1_signature_constant_1a1a280659bbf13305cdd42951a09c6d94" kindref="member">isSubstitutableFor</ref>(sigBest,<sp/>typeRight);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>fOldBetter<sp/>=<sp/>sigBest.<ref refid="de/d50/classorg_1_1xvm_1_1asm_1_1constants_1_1_signature_constant_1a1a280659bbf13305cdd42951a09c6d94" kindref="member">isSubstitutableFor</ref>(sigNew,<sp/>typeRight);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(fOldBetter<sp/>^<sp/>fNewBetter)<sp/>{</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(fNewBetter)<sp/>{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>idBest<sp/>=<sp/>idMethod;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>note:<sp/>theoretically<sp/>could<sp/>still<sp/>be<sp/>one<sp/>better<sp/>than<sp/>either<sp/>of<sp/>these<sp/>two,<sp/>but</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>for<sp/>now,<sp/>just<sp/>assume<sp/>it&apos;s<sp/>an<sp/>error<sp/>at<sp/>this<sp/>point</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fAmbiguous<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(idBest<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(fAmbiguous)<sp/>{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>log(errs,<sp/><ref refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity" kindref="compound">Severity</ref>.<ref refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity_1a470906cb0c737a6d70b2d9ff265ab9fd" kindref="member">ERROR</ref>,<sp/><ref refid="d3/d97/classorg_1_1xvm_1_1compiler_1_1_compiler" kindref="compound">Compiler</ref>.<ref refid="d3/d97/classorg_1_1xvm_1_1compiler_1_1_compiler_1a6ddd669ae375762e8c21ed0f0528ddbb" kindref="member">AMBIGUOUS_OPERATOR_SIGNATURE</ref>,</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1adbe98fa78fab97c18a7f56bffaabb7e6" kindref="member">operator</ref>.getValueText(),<sp/>typeRight.<ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1a6c31fef7d5d3cfcc485b7b73819f4b94" kindref="member">getValueString</ref>());</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>log(errs,<sp/><ref refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity" kindref="compound">Severity</ref>.<ref refid="db/db5/enumorg_1_1xvm_1_1util_1_1_severity_1a470906cb0c737a6d70b2d9ff265ab9fd" kindref="member">ERROR</ref>,<sp/><ref refid="d3/d97/classorg_1_1xvm_1_1compiler_1_1_compiler" kindref="compound">Compiler</ref>.<ref refid="d3/d97/classorg_1_1xvm_1_1compiler_1_1_compiler_1a076d257bed971bad829adf0d5dfa5984" kindref="member">MISSING_OPERATOR</ref>,</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1adbe98fa78fab97c18a7f56bffaabb7e6" kindref="member">operator</ref>.getValueText(),<sp/>typeRight.<ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1a6c31fef7d5d3cfcc485b7b73819f4b94" kindref="member">getValueString</ref>());</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>idBest.<ref refid="d6/d7b/classorg_1_1xvm_1_1asm_1_1constants_1_1_method_constant_1a0ad1df0808a7189a129a3ce66d3e3d39" kindref="member">getSignature</ref>().<ref refid="de/d50/classorg_1_1xvm_1_1asm_1_1constants_1_1_signature_constant_1acf7dee6e89d1e6162595f901bc5c9f94" kindref="member">getRawReturns</ref>()[0].<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant_1aec7fe1e053f9cdf5e9091df4095f858c" kindref="member">removeAutoNarrowing</ref>();</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>Expression<sp/>compilation<sp/>----------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="156" refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1a7179a69a2ed9f40b3264902773db4e64" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1a7179a69a2ed9f40b3264902773db4e64" kindref="member">isTraceworthy</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="161" refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1ae149f5cef81a1415b6feb5b71ad4b6f8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1ae149f5cef81a1415b6feb5b71ad4b6f8" kindref="member">isCompletable</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1af8ebda4e4afe63f5e70287463ee988fb" kindref="member">expr</ref>.isCompletable();</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="166" refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1accdc36969dd1ed1cc5a3ce6f1ab0321a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1accdc36969dd1ed1cc5a3ce6f1ab0321a" kindref="member">isShortCircuiting</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1af8ebda4e4afe63f5e70287463ee988fb" kindref="member">expr</ref>.isShortCircuiting();</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="171" refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1a9e28e40b36e0b92f47a1f14dc1a0cda8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d4/de4/classorg_1_1xvm_1_1asm_1_1ast_1_1_expr_a_s_t" kindref="compound">ExprAST</ref><sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1a9e28e40b36e0b92f47a1f14dc1a0cda8" kindref="member">getExprAST</ref>(<ref refid="d1/dc8/classorg_1_1xvm_1_1compiler_1_1ast_1_1_context" kindref="compound">Context</ref><sp/>ctx)<sp/>{</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d7/db0/enumorg_1_1xvm_1_1asm_1_1ast_1_1_assign_a_s_t_1_1_operator" kindref="compound">Operator</ref><sp/>op;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(<ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1adbe98fa78fab97c18a7f56bffaabb7e6" kindref="member">operator</ref>.getId())<sp/>{</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>NOT:</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>op<sp/>=<sp/><ref refid="d7/db0/enumorg_1_1xvm_1_1asm_1_1ast_1_1_assign_a_s_t_1_1_operator" kindref="compound">Operator</ref>.Not;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>ADD:</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1af8ebda4e4afe63f5e70287463ee988fb" kindref="member">expr</ref>.getExprAST(ctx);<sp/></highlight><highlight class="comment">//<sp/>unary<sp/>&quot;+&quot;<sp/>is<sp/>a<sp/>no-op</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>SUB:</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>op<sp/>=<sp/><ref refid="d7/db0/enumorg_1_1xvm_1_1asm_1_1ast_1_1_assign_a_s_t_1_1_operator" kindref="compound">Operator</ref>.Minus;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>BIT_NOT:</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>op<sp/>=<sp/><ref refid="d7/db0/enumorg_1_1xvm_1_1asm_1_1ast_1_1_assign_a_s_t_1_1_operator" kindref="compound">Operator</ref>.Compl;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>INC:</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>op<sp/>=<sp/><ref refid="d7/db0/enumorg_1_1xvm_1_1asm_1_1ast_1_1_assign_a_s_t_1_1_operator" kindref="compound">Operator</ref>.PreInc;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>DEC:</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>op<sp/>=<sp/><ref refid="d7/db0/enumorg_1_1xvm_1_1asm_1_1ast_1_1_assign_a_s_t_1_1_operator" kindref="compound">Operator</ref>.PreDec;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>UnsupportedOperationException(<ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1adbe98fa78fab97c18a7f56bffaabb7e6" kindref="member">operator</ref>.getValueText());</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d6/d46/classorg_1_1xvm_1_1asm_1_1ast_1_1_unary_op_expr_a_s_t" kindref="compound">UnaryOpExprAST</ref>(<ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1af8ebda4e4afe63f5e70287463ee988fb" kindref="member">expr</ref>.getExprAST(ctx),<sp/>op,<sp/><ref refid="d2/df8/namespaceorg_1_1xvm_1_1compiler_1_1ast_1a8ec6f0d264401cff204451ccba9bf3cd" kindref="member">getType</ref>());</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="200" refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1af0e3b7883ebf306bd604f71a7ea0ad9e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/><ref refid="d2/d77/enumorg_1_1xvm_1_1compiler_1_1ast_1_1_side_effect" kindref="compound">SideEffect</ref><sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1af0e3b7883ebf306bd604f71a7ea0ad9e" kindref="member">mightAffect</ref>(Expression<sp/>exprLeft,<sp/><ref refid="dd/da8/interfaceorg_1_1xvm_1_1asm_1_1_argument" kindref="compound">Argument</ref><sp/>arg)<sp/>{</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1af8ebda4e4afe63f5e70287463ee988fb" kindref="member">expr</ref>.mightAffect(exprLeft,<sp/>arg);</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>debugging<sp/>assistance<sp/>------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="208" refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1a84fa4e62618f9197a48dddac594256be" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1a84fa4e62618f9197a48dddac594256be" kindref="member">toString</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>StringBuilder<sp/>sb<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>StringBuilder();</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>fPre<sp/>=<sp/>!(</highlight><highlight class="keyword">this</highlight><highlight class="normal"><sp/>instanceof<sp/><ref refid="d2/d11/classorg_1_1xvm_1_1compiler_1_1ast_1_1_sequential_assign_expression" kindref="compound">SequentialAssignExpression</ref><sp/>exprSeq)<sp/>||<sp/>exprSeq.isPre();</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(fPre)<sp/>{</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sb.append(<ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1adbe98fa78fab97c18a7f56bffaabb7e6" kindref="member">operator</ref>.getId().TEXT);</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1af8ebda4e4afe63f5e70287463ee988fb" kindref="member">expr</ref><sp/>instanceof<sp/><ref refid="d3/dcb/classorg_1_1xvm_1_1compiler_1_1ast_1_1_name_expression" kindref="compound">NameExpression</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sb.append(<ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1af8ebda4e4afe63f5e70287463ee988fb" kindref="member">expr</ref>);</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sb.append(</highlight><highlight class="charliteral">&apos;(&apos;</highlight><highlight class="normal">).append(<ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1af8ebda4e4afe63f5e70287463ee988fb" kindref="member">expr</ref>).append(</highlight><highlight class="charliteral">&apos;)&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!fPre)<sp/>{</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sb.append(<ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1adbe98fa78fab97c18a7f56bffaabb7e6" kindref="member">operator</ref>.getId().TEXT);</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>sb.toString();</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="230" refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1ab048c8ed489cad206a79cb1e4c09128c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1ab048c8ed489cad206a79cb1e4c09128c" kindref="member">getDumpDesc</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1a84fa4e62618f9197a48dddac594256be" kindref="member">toString</ref>();</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"></highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>fields<sp/>--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight></codeline>
+<codeline lineno="237" refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1adbe98fa78fab97c18a7f56bffaabb7e6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/><ref refid="db/db5/classorg_1_1xvm_1_1compiler_1_1_token" kindref="compound">Token</ref><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1adbe98fa78fab97c18a7f56bffaabb7e6" kindref="member">operator</ref>;</highlight></codeline>
+<codeline lineno="238" refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1af8ebda4e4afe63f5e70287463ee988fb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>Expression<sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1af8ebda4e4afe63f5e70287463ee988fb" kindref="member">expr</ref>;</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight></codeline>
+<codeline lineno="240" refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1ac0562adda209eb0a036caddc1a5de749" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>Field[]<sp/><ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1ac0562adda209eb0a036caddc1a5de749" kindref="member">CHILD_FIELDS</ref><sp/>=<sp/>fieldsForNames(<ref refid="d5/dcf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_prefix_expression_1a489ac392ffd5d0a349633fa137d47fbf" kindref="member">PrefixExpression</ref>.class,<sp/></highlight><highlight class="stringliteral">&quot;expr&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="241"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/PrefixExpression.java"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,178 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d1/db6/x_r_t_view_8java" kind="file" language="Java">
+    <compoundname>xRTView.java</compoundname>
+    <includes local="no">org.xvm.asm.ClassStructure</includes>
+    <includes local="no">org.xvm.asm.Op</includes>
+    <includes local="no">org.xvm.asm.constants.TypeConstant</includes>
+    <includes local="no">org.xvm.runtime.ClassTemplate</includes>
+    <includes local="no">org.xvm.runtime.Container</includes>
+    <includes local="no">org.xvm.runtime.Frame</includes>
+    <includes local="no">org.xvm.runtime.ObjectHandle</includes>
+    <includes local="no">org.xvm.runtime.ObjectHandle.JavaLong</includes>
+    <includes local="no">org.xvm.runtime.TypeComposition</includes>
+    <includes local="no">org.xvm.runtime.template.xException</includes>
+    <includes local="no">org.xvm.runtime.template.collections.xArray.Mutability</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/template/_native/collections/arrays/xRTView.java</label>
+        <link refid="d1/db6/x_r_t_view_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>org.xvm.asm.ClassStructure</label>
+      </node>
+      <node id="3">
+        <label>org.xvm.asm.Op</label>
+      </node>
+      <node id="4">
+        <label>org.xvm.asm.constants.TypeConstant</label>
+      </node>
+      <node id="5">
+        <label>org.xvm.runtime.ClassTemplate</label>
+      </node>
+      <node id="6">
+        <label>org.xvm.runtime.Container</label>
+      </node>
+      <node id="7">
+        <label>org.xvm.runtime.Frame</label>
+      </node>
+      <node id="8">
+        <label>org.xvm.runtime.ObjectHandle</label>
+      </node>
+      <node id="9">
+        <label>org.xvm.runtime.ObjectHandle.JavaLong</label>
+      </node>
+      <node id="10">
+        <label>org.xvm.runtime.TypeComposition</label>
+      </node>
+      <node id="12">
+        <label>org.xvm.runtime.template.collections.xArray.Mutability</label>
+      </node>
+      <node id="11">
+        <label>org.xvm.runtime.template.xException</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="d7/d49/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view" prot="public">org::xvm::runtime::template::_native::collections::arrays::xRTView</innerclass>
+    <innerclass refid="da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_1_1_view_handle" prot="protected">org::xvm::runtime::template::_native::collections::arrays::xRTView::ViewHandle</innerclass>
+    <innernamespace refid="d5/de5/namespaceorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays">org::xvm::runtime::template::_native::collections::arrays</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.runtime.template._native.collections.arrays;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ClassStructure;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Op;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.constants.TypeConstant;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.ClassTemplate;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.Container;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.Frame;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.ObjectHandle;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.ObjectHandle.JavaLong;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.TypeComposition;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.template.xException;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.runtime.template.collections.xArray.Mutability;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="d7/d49/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">abstract</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d7/d49/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_1a0dc36c0258a8579913eacf4cc0749540" kindref="member">xRTView</ref></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="db/dbb/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_delegate_1a8d59938dcd3630be6a37f2732ecc0b91" kindref="member">xRTDelegate</ref><sp/>{</highlight></codeline>
+<codeline lineno="26" refid="d7/d49/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_1a0dc36c0258a8579913eacf4cc0749540" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/><ref refid="d7/d49/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_1a0dc36c0258a8579913eacf4cc0749540" kindref="member">xRTView</ref>(<ref refid="d1/df8/classorg_1_1xvm_1_1runtime_1_1_container" kindref="compound">Container</ref><sp/>container,<sp/><ref refid="d5/d19/classorg_1_1xvm_1_1asm_1_1_class_structure" kindref="compound">ClassStructure</ref><sp/>structure)<sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(container,<sp/>structure,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="31" refid="d7/d49/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_1a1ceb1eaa4ebd4f8f5b652f197556ec21" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="dc/d3c/classorg_1_1xvm_1_1runtime_1_1_class_template" kindref="compound">ClassTemplate</ref><sp/><ref refid="d7/d49/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_1a1ceb1eaa4ebd4f8f5b652f197556ec21" kindref="member">getTemplate</ref>(<ref refid="d2/d58/classorg_1_1xvm_1_1asm_1_1constants_1_1_type_constant" kindref="compound">TypeConstant</ref><sp/><ref refid="d8/d55/namespaceorg_1_1xvm_1_1type" kindref="compound">type</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>RTDelegate<sp/>API<sp/>------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="39" refid="d7/d49/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_1a736a038c2c3fb78b928a463d58c5160f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d7/d49/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_1a736a038c2c3fb78b928a463d58c5160f" kindref="member">getPropertyCapacity</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frame,<sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hTarget,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iReturn)<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="db/dbb/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_delegate_1a475e34f2a20d27314168d87c25d71036" kindref="member">getPropertySize</ref>(frame,<sp/>hTarget,<sp/>iReturn);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="44" refid="d7/d49/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_1a0c6ca214324c0fe4f5d0dabc626482de" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d7/d49/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_1a0c6ca214324c0fe4f5d0dabc626482de" kindref="member">setPropertyCapacity</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frame,<sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hTarget,<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>nCapacity)<sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d6/d79/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_delegate_1_1_delegate_handle" kindref="compound">DelegateHandle</ref><sp/>hView<sp/>=<sp/>(<ref refid="d6/d79/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_delegate_1_1_delegate_handle" kindref="compound">DelegateHandle</ref>)<sp/>hTarget;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nCapacity<sp/>==<sp/>hView.m_cSize</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" kindref="member">Op.R_NEXT</ref></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1af0bf8b407c9c863fe95276b38ed323d6" kindref="member">raiseException</ref>(<ref refid="d2/d06/classorg_1_1xvm_1_1runtime_1_1template_1_1x_exception" kindref="compound">xException</ref>.<ref refid="d2/d06/classorg_1_1xvm_1_1runtime_1_1template_1_1x_exception_1adb7a3cda673a5635b036f0ccc8af4404" kindref="member">readOnly</ref>(frame,<sp/>hView.<ref refid="d6/d79/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_delegate_1_1_delegate_handle_1a5138a2db2024d50130ac373c230da530" kindref="member">getMutability</ref>()));</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="53" refid="d7/d49/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_1a6a3c4117cc4894d545615c14da601b19" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d7/d49/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_1a6a3c4117cc4894d545615c14da601b19" kindref="member">invokeInsertElement</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frame,<sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hTarget,</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d5/d22/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_java_long" kindref="compound">JavaLong</ref><sp/>hIndex,<sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hValue,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iReturn)<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1af0bf8b407c9c863fe95276b38ed323d6" kindref="member">raiseException</ref>(</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/d06/classorg_1_1xvm_1_1runtime_1_1template_1_1x_exception" kindref="compound">xException</ref>.<ref refid="d2/d06/classorg_1_1xvm_1_1runtime_1_1template_1_1x_exception_1adb7a3cda673a5635b036f0ccc8af4404" kindref="member">readOnly</ref>(frame,<sp/>((<ref refid="d6/d79/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_delegate_1_1_delegate_handle" kindref="compound">DelegateHandle</ref>)<sp/>hTarget).getMutability()));</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="60" refid="d7/d49/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_1aa52e5e3e5f85701669e5cb052ea7e5d6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d7/d49/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_1aa52e5e3e5f85701669e5cb052ea7e5d6" kindref="member">invokeDeleteElement</ref>(<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref><sp/>frame,<sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hTarget,<sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hValue,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iReturn)<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>frame.<ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame_1af0bf8b407c9c863fe95276b38ed323d6" kindref="member">raiseException</ref>(</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/d06/classorg_1_1xvm_1_1runtime_1_1template_1_1x_exception" kindref="compound">xException</ref>.<ref refid="d2/d06/classorg_1_1xvm_1_1runtime_1_1template_1_1x_exception_1adb7a3cda673a5635b036f0ccc8af4404" kindref="member">readOnly</ref>(frame,<sp/>((<ref refid="d6/d79/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_delegate_1_1_delegate_handle" kindref="compound">DelegateHandle</ref>)<sp/>hTarget).getMutability()));</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="66" refid="d7/d49/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_1a4408a69b70e57db1c3265fc21d91ebe2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d6/d79/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_delegate_1_1_delegate_handle" kindref="compound">DelegateHandle</ref><sp/><ref refid="d7/d49/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_1a4408a69b70e57db1c3265fc21d91ebe2" kindref="member">fill</ref>(<ref refid="d6/d79/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_delegate_1_1_delegate_handle" kindref="compound">DelegateHandle</ref><sp/>hTarget,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cSize,<sp/><ref refid="d3/dc3/classorg_1_1xvm_1_1runtime_1_1_object_handle" kindref="compound">ObjectHandle</ref><sp/>hValue)<sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="71" refid="d7/d49/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_1ab991eaf634081c7841ef56ea4803d440" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d6/d79/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_delegate_1_1_delegate_handle" kindref="compound">DelegateHandle</ref><sp/><ref refid="d7/d49/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_1ab991eaf634081c7841ef56ea4803d440" kindref="member">deleteRange</ref>(<ref refid="d6/d79/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_delegate_1_1_delegate_handle" kindref="compound">DelegateHandle</ref><sp/>hTarget,<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>ofStart,<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>cSize)<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>handle<sp/>--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81" refid="da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_1_1_view_handle" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">abstract</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_1_1_view_handle_1a8bb02d7f28c7a70f4f194c8b7214fb55" kindref="member">ViewHandle</ref></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="d6/d79/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_delegate_1_1_delegate_handle_1a13dce12220db19c0f1f4b620fc46662b" kindref="member">DelegateHandle</ref><sp/>{</highlight></codeline>
+<codeline lineno="83" refid="da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_1_1_view_handle_1a8bb02d7f28c7a70f4f194c8b7214fb55" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/><ref refid="da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_1_1_view_handle_1a8bb02d7f28c7a70f4f194c8b7214fb55" kindref="member">ViewHandle</ref>(<ref refid="db/db9/interfaceorg_1_1xvm_1_1runtime_1_1_type_composition" kindref="compound">TypeComposition</ref><sp/>clazz,<sp/><ref refid="d9/dae/enumorg_1_1xvm_1_1runtime_1_1template_1_1collections_1_1x_array_1_1_mutability" kindref="compound">Mutability</ref><sp/>mutability)<sp/>{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(clazz,<sp/>mutability);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87" refid="da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_1_1_view_handle_1af21928ae30995fc8a12ae74927ef506e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">abstract</highlight><highlight class="normal"><sp/><ref refid="d6/d79/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_delegate_1_1_delegate_handle_1a13dce12220db19c0f1f4b620fc46662b" kindref="member">DelegateHandle</ref><sp/><ref refid="da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_1_1_view_handle_1af21928ae30995fc8a12ae74927ef506e" kindref="member">getSource</ref>();</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92" refid="da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_1_1_view_handle_1af9eb47531d34a4d0d588fed2ddcbc203" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d6/d79/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_delegate_1_1_delegate_handle_1a13dce12220db19c0f1f4b620fc46662b" kindref="member">DelegateHandle</ref><sp/><ref refid="da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_1_1_view_handle_1af9eb47531d34a4d0d588fed2ddcbc203" kindref="member">unwrapSource</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d6/d79/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_delegate_1_1_delegate_handle_1a13dce12220db19c0f1f4b620fc46662b" kindref="member">DelegateHandle</ref><sp/>hSource<sp/>=<sp/><ref refid="da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_1_1_view_handle_1af21928ae30995fc8a12ae74927ef506e" kindref="member">getSource</ref>();</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>hSource<sp/>instanceof<sp/><ref refid="da/d68/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1collections_1_1arrays_1_1x_r_t_view_1_1_view_handle_1a8bb02d7f28c7a70f4f194c8b7214fb55" kindref="member">ViewHandle</ref><sp/>hView</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>hView.unwrapSource()</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>hSource;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/template/_native/collections/arrays/xRTView.java"/>
+  </compounddef>
+</doxygen>

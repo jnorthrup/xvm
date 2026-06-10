@@ -1,0 +1,392 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="dc/dac/_module_constant_8java" kind="file" language="Java">
+    <compoundname>ModuleConstant.java</compoundname>
+    <includes local="no">java.io.DataInput</includes>
+    <includes local="no">java.io.DataOutput</includes>
+    <includes local="no">java.io.IOException</includes>
+    <includes local="no">java.util.ArrayList</includes>
+    <includes local="no">java.util.List</includes>
+    <includes local="no">java.util.function.Consumer</includes>
+    <includes local="no">org.xvm.asm.Component</includes>
+    <includes local="no">org.xvm.asm.Constant</includes>
+    <includes local="no">org.xvm.asm.ConstantPool</includes>
+    <includes local="no">org.xvm.asm.ModuleStructure</includes>
+    <includes local="no">org.xvm.asm.Version</includes>
+    <includes local="no">org.xvm.javajit.Builder</includes>
+    <includes local="no">org.xvm.javajit.TypeSystem</includes>
+    <includes local="no">org.xvm.util.Hash</includes>
+    <includes local="no">org.xvm.util.Handy.readIndex</includes>
+    <includes local="no">org.xvm.util.Handy.readMagnitude</includes>
+    <includes local="no">org.xvm.util.Handy.writeMagnitude</includes>
+    <includes local="no">org.xvm.util.Handy.writePackedLong</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/constants/ModuleConstant.java</label>
+        <link refid="dc/dac/_module_constant_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.io.DataInput</label>
+      </node>
+      <node id="3">
+        <label>java.io.DataOutput</label>
+      </node>
+      <node id="4">
+        <label>java.io.IOException</label>
+      </node>
+      <node id="5">
+        <label>java.util.ArrayList</label>
+      </node>
+      <node id="6">
+        <label>java.util.List</label>
+      </node>
+      <node id="7">
+        <label>java.util.function.Consumer</label>
+      </node>
+      <node id="8">
+        <label>org.xvm.asm.Component</label>
+      </node>
+      <node id="9">
+        <label>org.xvm.asm.Constant</label>
+      </node>
+      <node id="10">
+        <label>org.xvm.asm.ConstantPool</label>
+      </node>
+      <node id="11">
+        <label>org.xvm.asm.ModuleStructure</label>
+      </node>
+      <node id="12">
+        <label>org.xvm.asm.Version</label>
+      </node>
+      <node id="13">
+        <label>org.xvm.javajit.Builder</label>
+      </node>
+      <node id="14">
+        <label>org.xvm.javajit.TypeSystem</label>
+      </node>
+      <node id="16">
+        <label>org.xvm.util.Handy.readIndex</label>
+      </node>
+      <node id="17">
+        <label>org.xvm.util.Handy.readMagnitude</label>
+      </node>
+      <node id="18">
+        <label>org.xvm.util.Handy.writeMagnitude</label>
+      </node>
+      <node id="19">
+        <label>org.xvm.util.Handy.writePackedLong</label>
+      </node>
+      <node id="15">
+        <label>org.xvm.util.Hash</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant" prot="public">org::xvm::asm::constants::ModuleConstant</innerclass>
+    <innernamespace refid="d3/dcd/namespaceorg_1_1xvm_1_1asm_1_1constants">org::xvm::asm::constants</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.asm.constants;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.DataInput;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.DataOutput;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.IOException;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.ArrayList;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.List;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.function.Consumer;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Component;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Constant;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ConstantPool;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.ModuleStructure;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Version;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.javajit.Builder;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.javajit.TypeSystem;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.util.Hash;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.util.Handy.readIndex;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.util.Handy.readMagnitude;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.util.Handy.writeMagnitude;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>org.xvm.util.Handy.writePackedLong;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a7e789d352a79852b633d4d0f2da9e10a" kindref="member">ModuleConstant</ref></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="d5/d9c/classorg_1_1xvm_1_1asm_1_1constants_1_1_identity_constant_1a093239951bd9f9123d333460b5b4d21b" kindref="member">IdentityConstant</ref><sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>constructors<sp/>--------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a7e789d352a79852b633d4d0f2da9e10a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a7e789d352a79852b633d4d0f2da9e10a" kindref="member">ModuleConstant</ref>(<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref><sp/>pool,<sp/>String<sp/>sName)<sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">(pool,<sp/>sName,<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a1776745ec4f7295aadb0aa1af9734985" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a1776745ec4f7295aadb0aa1af9734985" kindref="member">ModuleConstant</ref>(<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref><sp/>pool,<sp/>String<sp/>sName,<sp/><ref refid="d4/de1/classorg_1_1xvm_1_1asm_1_1_version" kindref="compound">Version</ref><sp/>version)<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(pool);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a75bd445e688f145959ba1029fb7503c7" kindref="member">m_constName</ref><sp/><sp/><sp/><sp/>=<sp/>pool.<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a4ada6dfa868073d069b2e55deaf5ee95" kindref="member">ensureStringConstant</ref>(sName);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a6553fd17e72750a1e8d58356ec090213" kindref="member">m_constVersion</ref><sp/>=<sp/>version<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>?<sp/>null<sp/>:<sp/>pool.<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a85c6816686f834abbc6264acc4adc927" kindref="member">ensureVersionConstant</ref>(version);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a66d2020c6e3a125873f3abaffceb1a5c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a66d2020c6e3a125873f3abaffceb1a5c" kindref="member">ModuleConstant</ref>(<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref><sp/>pool,<sp/><ref refid="d7/d71/enumorg_1_1xvm_1_1asm_1_1_constant_1_1_format" kindref="compound">Format</ref><sp/>format,<sp/>DataInput<sp/>in)</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super(pool);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1add0668451bcd2a09987b2cc685bdeaf7" kindref="member">m_iName</ref><sp/><sp/><sp/><sp/>=<sp/>readMagnitude(in);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a7843417b6926ef5e69bf2ac146ea8b00" kindref="member">m_iVersion</ref><sp/>=<sp/>readIndex(in);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="82" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a55e725225a3c4c187094b625447d707b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a55e725225a3c4c187094b625447d707b" kindref="member">resolveConstants</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref><sp/>pool<sp/>=<sp/><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1abb94bf2f63ad2caba56a57f1557d1a09" kindref="member">getConstantPool</ref>();</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a75bd445e688f145959ba1029fb7503c7" kindref="member">m_constName</ref><sp/><sp/><sp/><sp/>=<sp/>pool.<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a73a94e2e0d105c95a3574349a4816baa" kindref="member">getConstant</ref>(<ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1add0668451bcd2a09987b2cc685bdeaf7" kindref="member">m_iName</ref>,<sp/><ref refid="d0/db5/classorg_1_1xvm_1_1asm_1_1constants_1_1_string_constant" kindref="compound">StringConstant</ref>.class);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a6553fd17e72750a1e8d58356ec090213" kindref="member">m_constVersion</ref><sp/>=<sp/>pool.<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a73a94e2e0d105c95a3574349a4816baa" kindref="member">getConstant</ref>(<ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a7843417b6926ef5e69bf2ac146ea8b00" kindref="member">m_iVersion</ref>,<sp/><ref refid="d0/db9/classorg_1_1xvm_1_1asm_1_1constants_1_1_version_constant" kindref="compound">VersionConstant</ref>.class);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>type-specific<sp/>functionality<sp/>-----------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a8d70b1d6e9f13ca87019abbdd94904bd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a8d70b1d6e9f13ca87019abbdd94904bd" kindref="member">getUnqualifiedName</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>sName<sp/>=<sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1aab7b85f1eddd38affade03f735ce0676" kindref="member">getName</ref>();</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ofDot<sp/>=<sp/>sName.indexOf(</highlight><highlight class="charliteral">&apos;.&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ofDot<sp/>&lt;<sp/>0<sp/>?<sp/>sName<sp/>:<sp/>sName.substring(0,<sp/>ofDot);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a3189fe65176033d7cf7f388c7c26c671" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a3189fe65176033d7cf7f388c7c26c671" kindref="member">getDomainName</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>sName<sp/>=<sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1aab7b85f1eddd38affade03f735ce0676" kindref="member">getName</ref>();</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ofDot<sp/>=<sp/>sName.indexOf(</highlight><highlight class="charliteral">&apos;.&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ofDot<sp/>&lt;<sp/>0<sp/>?<sp/>null<sp/>:<sp/>sName.substring(ofDot<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1aca25ca310cbbcd1e88531176f3a3fcf3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d4/de1/classorg_1_1xvm_1_1asm_1_1_version" kindref="compound">Version</ref><sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1aca25ca310cbbcd1e88531176f3a3fcf3" kindref="member">getVersion</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d0/db9/classorg_1_1xvm_1_1asm_1_1constants_1_1_version_constant" kindref="compound">VersionConstant</ref><sp/>constVersion<sp/>=<sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a6553fd17e72750a1e8d58356ec090213" kindref="member">m_constVersion</ref>;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>constVersion<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>?<sp/>null<sp/>:<sp/>constVersion.<ref refid="d0/db9/classorg_1_1xvm_1_1asm_1_1constants_1_1_version_constant_1aa05cd2cb27ebf1b3098fb496261939c3" kindref="member">getVersion</ref>();</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a35f2e31e0c05d597d7196ce4f31b9945" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a35f2e31e0c05d597d7196ce4f31b9945" kindref="member">isEcstasyModule</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1aab7b85f1eddd38affade03f735ce0676" kindref="member">getName</ref>().equals(<ref refid="df/df8/interfaceorg_1_1xvm_1_1asm_1_1_constants_1a5c723975e6ee6cc43db173f3c7d10c8f" kindref="member">ECSTASY_MODULE</ref>);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1ab782a3e968b246ab44731b2c3d1ab46a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1ab782a3e968b246ab44731b2c3d1ab46a" kindref="member">isCoreModule</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>sName<sp/>=<sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1aab7b85f1eddd38affade03f735ce0676" kindref="member">getName</ref>();</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>sName.equals(<ref refid="df/df8/interfaceorg_1_1xvm_1_1asm_1_1_constants_1a5c723975e6ee6cc43db173f3c7d10c8f" kindref="member">ECSTASY_MODULE</ref>)</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>||<sp/>sName.equals(<ref refid="df/df8/interfaceorg_1_1xvm_1_1asm_1_1_constants_1a25394c2b8f60c1f8835ec0d7008af15e" kindref="member">TURTLE_MODULE</ref>)</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>||<sp/>sName.equals(<ref refid="df/df8/interfaceorg_1_1xvm_1_1asm_1_1_constants_1aebab86ec8a8a5890cdcc9d2ea7dbdeba" kindref="member">NATIVE_MODULE</ref>);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>IdentityConstant<sp/>methods<sp/>--------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="150" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a20fcbddef2e1adf04a22ba2d15e2e96b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d5/d9c/classorg_1_1xvm_1_1asm_1_1constants_1_1_identity_constant_1a093239951bd9f9123d333460b5b4d21b" kindref="member">IdentityConstant</ref><sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a20fcbddef2e1adf04a22ba2d15e2e96b" kindref="member">getParentConstant</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="155" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a21df329952eec444d8c41354892b38fb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d5/d9c/classorg_1_1xvm_1_1asm_1_1constants_1_1_identity_constant_1a093239951bd9f9123d333460b5b4d21b" kindref="member">IdentityConstant</ref><sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a21df329952eec444d8c41354892b38fb" kindref="member">replaceParentConstant</ref>(<ref refid="d5/d9c/classorg_1_1xvm_1_1asm_1_1constants_1_1_identity_constant_1a093239951bd9f9123d333460b5b4d21b" kindref="member">IdentityConstant</ref><sp/>idParent)<sp/>{</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="168" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1aab7b85f1eddd38affade03f735ce0676" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1aab7b85f1eddd38affade03f735ce0676" kindref="member">getName</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a75bd445e688f145959ba1029fb7503c7" kindref="member">m_constName</ref>.getValue();</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="173" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a7976739e067f91ece1ffed8e814564d8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a7e789d352a79852b633d4d0f2da9e10a" kindref="member">ModuleConstant</ref><sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a7976739e067f91ece1ffed8e814564d8" kindref="member">getModuleConstant</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="178" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1aac43812a1bd38a34b9b956826fbe70b4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>List&lt;IdentityConstant&gt;<sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1aac43812a1bd38a34b9b956826fbe70b4" kindref="member">getPath</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;IdentityConstant&gt;<sp/>list<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ArrayList&lt;&gt;();</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>list.add(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>list;</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="185" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a4f9db33a908d0b2a7d5560c42c575af0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d9/de7/classorg_1_1xvm_1_1asm_1_1_component" kindref="compound">Component</ref><sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a4f9db33a908d0b2a7d5560c42c575af0" kindref="member">getComponent</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/d13/classorg_1_1xvm_1_1asm_1_1_module_structure" kindref="compound">ModuleStructure</ref><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">=<sp/><ref refid="d7/d57/classorg_1_1xvm_1_1asm_1_1_xvm_structure_1ad67f43adaecd58f5cf705112c9fefe63" kindref="member">getFileStructure</ref>().getModule(this);</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(struct<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d2/d13/classorg_1_1xvm_1_1asm_1_1_module_structure" kindref="compound">ModuleStructure</ref><sp/>structOrigin<sp/>=<sp/>struct.<ref refid="d2/d13/classorg_1_1xvm_1_1asm_1_1_module_structure_1a608f28062608e22f13a6bcbdcad63737" kindref="member">getFingerprintOrigin</ref>();</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>structOrigin<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>struct</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>structOrigin;</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="198" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a4453de3134d8c1a45efbf0b8e5ae2106" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a4453de3134d8c1a45efbf0b8e5ae2106" kindref="member">getPathString</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="203" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1afd3b85b86f03939ded5cfe33fdffeaa1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>StringBuilder<sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1afd3b85b86f03939ded5cfe33fdffeaa1" kindref="member">buildPath</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>StringBuilder();</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="208" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1abd01e5d2d2acfa06fab608edca361482" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1abd01e5d2d2acfa06fab608edca361482" kindref="member">trailingPathEquals</ref>(<ref refid="d5/d9c/classorg_1_1xvm_1_1asm_1_1constants_1_1_identity_constant_1a093239951bd9f9123d333460b5b4d21b" kindref="member">IdentityConstant</ref><sp/>that,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cSegments)<sp/>{</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d5/d9c/classorg_1_1xvm_1_1asm_1_1constants_1_1_identity_constant_1aecc294d096f395cec2e69bcb58c91cea" kindref="member">trailingSegmentEquals</ref>(that);</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="213" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1ab193784d29280cbcd59c046105798031" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d5/d9c/classorg_1_1xvm_1_1asm_1_1constants_1_1_identity_constant_1a093239951bd9f9123d333460b5b4d21b" kindref="member">IdentityConstant</ref><sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1ab193784d29280cbcd59c046105798031" kindref="member">appendTrailingSegmentTo</ref>(<ref refid="d5/d9c/classorg_1_1xvm_1_1asm_1_1constants_1_1_identity_constant_1a093239951bd9f9123d333460b5b4d21b" kindref="member">IdentityConstant</ref><sp/>that)<sp/>{</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>IllegalStateException(this.<ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1aef436e7d9c373b9bb4f42dcfe3f175e8" kindref="member">toString</ref>());</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="218" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a44264f321bbd433d79f1c5db60712403" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a44264f321bbd433d79f1c5db60712403" kindref="member">getNestedName</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>JIT<sp/>support<sp/>---------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="226" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1aa662da4f6e6bc2171b39707987fa7154" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1aa662da4f6e6bc2171b39707987fa7154" kindref="member">getJitName</ref>(<ref refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" kindref="compound">TypeSystem</ref><sp/>ts)<sp/>{</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder" kindref="compound">Builder</ref>.<ref refid="d8/de6/classorg_1_1xvm_1_1javajit_1_1_builder_1aa047b5005aef322342ee880ea7f1e53c" kindref="member">MODULE</ref>;</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="231" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a42ca11cb0fd9bc9ce716db8df35e5509" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/>StringBuilder<sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a42ca11cb0fd9bc9ce716db8df35e5509" kindref="member">buildJitName</ref>(<ref refid="d9/d60/classorg_1_1xvm_1_1javajit_1_1_type_system" kindref="compound">TypeSystem</ref><sp/>ts)<sp/>{</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>StringBuilder();</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"></highlight></codeline>
+<codeline lineno="235"><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>Constant<sp/>methods<sp/>----------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="239" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1af60bf1362ef2aa4d449b38d76ee091cc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d7/d71/enumorg_1_1xvm_1_1asm_1_1_constant_1_1_format" kindref="compound">Format</ref><sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1af60bf1362ef2aa4d449b38d76ee091cc" kindref="member">getFormat</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d7/d71/enumorg_1_1xvm_1_1asm_1_1_constant_1_1_format" kindref="compound">Format</ref>.<ref refid="d7/d71/enumorg_1_1xvm_1_1asm_1_1_constant_1_1_format_1ac13650eeb8e0164133344c1f7ad74d9f" kindref="member">Module</ref>;</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="244" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1ad06e96112e4ff516b96773dd13f96f7f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1ad06e96112e4ff516b96773dd13f96f7f" kindref="member">isClass</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="249" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1aea8df0771608dd99cbf1127cb9ae7eea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1aea8df0771608dd99cbf1127cb9ae7eea" kindref="member">forEachUnderlying</ref>(Consumer&lt;Constant&gt;<sp/>visitor)<sp/>{</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>visitor.accept(<ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a75bd445e688f145959ba1029fb7503c7" kindref="member">m_constName</ref>);</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="254" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1ae6eb5ec4bd864d50dead851bc1be579c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1ae6eb5ec4bd864d50dead851bc1be579c" kindref="member">compareDetails</ref>(<ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref><sp/>that)<sp/>{</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!(that<sp/>instanceof<sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a7e789d352a79852b633d4d0f2da9e10a" kindref="member">ModuleConstant</ref><sp/>idThat))<sp/>{</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"></highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n<sp/>=<sp/>this.<ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a75bd445e688f145959ba1029fb7503c7" kindref="member">m_constName</ref>.compareTo(idThat.m_constName);</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(n<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>n;</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this.m_constVersion<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>idThat.m_constVersion<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>0</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>-1</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>idThat.m_constVersion<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>1</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>this.<ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a6553fd17e72750a1e8d58356ec090213" kindref="member">m_constVersion</ref>.compareDetails(idThat.m_constVersion);</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"></highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="274" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a6b1d38b51695dead5ee3d7eb12bf77ed" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a6b1d38b51695dead5ee3d7eb12bf77ed" kindref="member">getValueString</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>StringBuilder<sp/>sb<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>StringBuilder();</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sb.append(<ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a75bd445e688f145959ba1029fb7503c7" kindref="member">m_constName</ref>.getValue());</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a6553fd17e72750a1e8d58356ec090213" kindref="member">m_constVersion</ref><sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sb.append(</highlight><highlight class="stringliteral">&quot;<sp/>v:&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.append(<ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a6553fd17e72750a1e8d58356ec090213" kindref="member">m_constVersion</ref>.getVersion());</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>sb.toString();</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"></highlight></codeline>
+<codeline lineno="284"><highlight class="normal"></highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>XvmStructure<sp/>methods<sp/>------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="286"><highlight class="normal"></highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="288" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1af53107cea5286db45597e9c7cab722a1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1af53107cea5286db45597e9c7cab722a1" kindref="member">registerConstants</ref>(<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref><sp/>pool)<sp/>{</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a75bd445e688f145959ba1029fb7503c7" kindref="member">m_constName</ref><sp/><sp/><sp/><sp/>=<sp/>pool.<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a96af322337d3cfdb2a927e0221651113" kindref="member">register</ref>(<ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a75bd445e688f145959ba1029fb7503c7" kindref="member">m_constName</ref>);</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a6553fd17e72750a1e8d58356ec090213" kindref="member">m_constVersion</ref><sp/>=<sp/>pool.<ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool_1a96af322337d3cfdb2a927e0221651113" kindref="member">register</ref>(<ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a6553fd17e72750a1e8d58356ec090213" kindref="member">m_constVersion</ref>);</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"></highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="294" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a49b84403a062772ceab21197423d77fc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a49b84403a062772ceab21197423d77fc" kindref="member">assemble</ref>(DataOutput<sp/>out)</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>IOException<sp/>{</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>out.writeByte(<ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1af60bf1362ef2aa4d449b38d76ee091cc" kindref="member">getFormat</ref>().ordinal());</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>writeMagnitude(out,<sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a75bd445e688f145959ba1029fb7503c7" kindref="member">m_constName</ref>.getPosition());</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>writePackedLong(out,<sp/><ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant" kindref="compound">Constant</ref>.<ref refid="d3/dba/classorg_1_1xvm_1_1asm_1_1_constant_1aa02aef3580917355f7e639ded65f340a" kindref="member">indexOf</ref>(<ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a6553fd17e72750a1e8d58356ec090213" kindref="member">m_constVersion</ref>));</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"></highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="302" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a64ce2e0e6da0eb1d186c377f2c9e6c66" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a64ce2e0e6da0eb1d186c377f2c9e6c66" kindref="member">getDescription</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;module=&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a6b1d38b51695dead5ee3d7eb12bf77ed" kindref="member">getValueString</ref>();</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"></highlight></codeline>
+<codeline lineno="306"><highlight class="normal"></highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>Object<sp/>methods<sp/>------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="308"><highlight class="normal"></highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="310" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1ad48d0f561a7c240fc2fb12b1e14111ca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1ad48d0f561a7c240fc2fb12b1e14111ca" kindref="member">computeHashCode</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d1/d1e/classorg_1_1xvm_1_1util_1_1_hash" kindref="compound">Hash</ref>.<ref refid="d1/d1e/classorg_1_1xvm_1_1util_1_1_hash_1a14035f395b9874e8dfa54dd6c142fd6b" kindref="member">of</ref>(<ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a75bd445e688f145959ba1029fb7503c7" kindref="member">m_constName</ref>,</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d1/d1e/classorg_1_1xvm_1_1util_1_1_hash" kindref="compound">Hash</ref>.<ref refid="d1/d1e/classorg_1_1xvm_1_1util_1_1_hash_1a14035f395b9874e8dfa54dd6c142fd6b" kindref="member">of</ref>(<ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a6553fd17e72750a1e8d58356ec090213" kindref="member">m_constVersion</ref>));</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"></highlight></codeline>
+<codeline lineno="315"><highlight class="normal"></highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>fields<sp/>--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="317"><highlight class="normal"></highlight></codeline>
+<codeline lineno="321" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1add0668451bcd2a09987b2cc685bdeaf7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1add0668451bcd2a09987b2cc685bdeaf7" kindref="member">m_iName</ref>;</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"></highlight></codeline>
+<codeline lineno="326" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a7843417b6926ef5e69bf2ac146ea8b00" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a7843417b6926ef5e69bf2ac146ea8b00" kindref="member">m_iVersion</ref>;</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"></highlight></codeline>
+<codeline lineno="331" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a75bd445e688f145959ba1029fb7503c7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="d0/db5/classorg_1_1xvm_1_1asm_1_1constants_1_1_string_constant" kindref="compound">StringConstant</ref><sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a75bd445e688f145959ba1029fb7503c7" kindref="member">m_constName</ref>;</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"></highlight></codeline>
+<codeline lineno="336" refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a6553fd17e72750a1e8d58356ec090213" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="d0/db9/classorg_1_1xvm_1_1asm_1_1constants_1_1_version_constant" kindref="compound">VersionConstant</ref><sp/><ref refid="d6/d4e/classorg_1_1xvm_1_1asm_1_1constants_1_1_module_constant_1a6553fd17e72750a1e8d58356ec090213" kindref="member">m_constVersion</ref>;</highlight></codeline>
+<codeline lineno="337"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/constants/ModuleConstant.java"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,199 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d3/dc6/interfaceorg_1_1xvm_1_1runtime_1_1_debugger" kind="interface" language="Java" prot="public">
+    <compoundname>org::xvm::runtime::Debugger</compoundname>
+    <derivedcompoundref refid="d1/d39/classorg_1_1xvm_1_1runtime_1_1_debug_console" prot="public" virt="non-virtual">org.xvm.runtime.DebugConsole</derivedcompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d3/dc6/interfaceorg_1_1xvm_1_1runtime_1_1_debugger_1a545ca453e43c0be4f282624b3a439f50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.runtime.Debugger.activate</definition>
+        <argsstring>(Frame ctx, int iPC)</argsstring>
+        <name>activate</name>
+        <qualifiedname>org.xvm.runtime.Debugger.activate</qualifiedname>
+        <reimplementedby refid="d1/d39/classorg_1_1xvm_1_1runtime_1_1_debug_console_1afc92ff0a436a03a6108811b26f899474">activate</reimplementedby>
+        <param>
+          <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>iPC</declname>
+        </param>
+        <briefdescription>
+<para>Activate the debugger. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current frame </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>iPC</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current PC</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the iPC for the next op or any of the Op.R_* values </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Debugger.java" line="15" column="9"/>
+        <referencedby refid="db/d50/classorg_1_1xvm_1_1asm_1_1op_1_1_assert_1af8be251f00a04803301c277390884983" compoundref="d2/d67/_assert_8java" startline="120" endline="150">org.xvm.asm.op.Assert.complete</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d3/dc6/interfaceorg_1_1xvm_1_1runtime_1_1_debugger_1aff675c0797b1be269123e00ce4a3ccc9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.runtime.Debugger.checkBreakPoint</definition>
+        <argsstring>(Frame frame, int iPC)</argsstring>
+        <name>checkBreakPoint</name>
+        <qualifiedname>org.xvm.runtime.Debugger.checkBreakPoint</qualifiedname>
+        <reimplementedby refid="d1/d39/classorg_1_1xvm_1_1runtime_1_1_debug_console_1a86e3d9fd4c0ebf908bd59a94e392355c">checkBreakPoint</reimplementedby>
+        <param>
+          <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>iPC</declname>
+        </param>
+        <briefdescription>
+<para>Check for a breakpoint at the specified frame and program counter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current frame </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>iPC</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current PC</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the iPC for the next op or any of the Op.R_* values </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Debugger.java" line="25" column="9"/>
+        <referencedby refid="d8/d69/classorg_1_1xvm_1_1runtime_1_1_service_context_1aac62ff27e77868b604168180267a7d6f" compoundref="d3/d6e/_service_context_8java" startline="508" endline="730">org.xvm.runtime.ServiceContext.execute</referencedby>
+        <referencedby refid="d8/d69/classorg_1_1xvm_1_1runtime_1_1_service_context_1a38fb7702eeb3aa897466f9a91fe2faff" compoundref="d3/d6e/_service_context_8java" startline="735" endline="763">org.xvm.runtime.ServiceContext.insertBreakPointOp</referencedby>
+        <referencedby refid="d9/da3/classorg_1_1xvm_1_1asm_1_1op_1_1_nop_1a2c8810326fc9771aa59f5f57ec61d9a7" compoundref="df/da5/_nop_8java" startline="83" endline="87">org.xvm.asm.op.Nop.process</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d3/dc6/interfaceorg_1_1xvm_1_1runtime_1_1_debugger_1a0ed9f753d45e137f1ee4e9012ca26755" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.runtime.Debugger.onReturn</definition>
+        <argsstring>(Frame frame)</argsstring>
+        <name>onReturn</name>
+        <qualifiedname>org.xvm.runtime.Debugger.onReturn</qualifiedname>
+        <reimplementedby refid="d1/d39/classorg_1_1xvm_1_1runtime_1_1_debug_console_1a0efd9fe94f06dedc19ca0a712d27c033">onReturn</reimplementedby>
+        <param>
+          <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+          <declname>frame</declname>
+        </param>
+        <briefdescription>
+<para>Inform the debugger that a frame is being exited. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the frame that exits </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Debugger.java" line="32" column="10"/>
+        <referencedby refid="d8/d69/classorg_1_1xvm_1_1runtime_1_1_service_context_1aac62ff27e77868b604168180267a7d6f" compoundref="d3/d6e/_service_context_8java" startline="508" endline="730">org.xvm.runtime.ServiceContext.execute</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d3/dc6/interfaceorg_1_1xvm_1_1runtime_1_1_debugger_1a6033375bf7b61706d10a6aba17b372e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int org.xvm.runtime.Debugger.checkBreakPoint</definition>
+        <argsstring>(Frame frame, ObjectHandle.ExceptionHandle hEx)</argsstring>
+        <name>checkBreakPoint</name>
+        <qualifiedname>org.xvm.runtime.Debugger.checkBreakPoint</qualifiedname>
+        <param>
+          <type><ref refid="d0/dc0/classorg_1_1xvm_1_1runtime_1_1_frame" kindref="compound">Frame</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="da/d17/classorg_1_1xvm_1_1runtime_1_1_object_handle_1_1_exception_handle" kindref="compound">ObjectHandle.ExceptionHandle</ref></type>
+          <declname>hEx</declname>
+        </param>
+        <briefdescription>
+<para>Check for a breakpoint for the specified exception. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current frame </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hEx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the exception handler</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a00e0f1e4447b75bfad17b2a6e21fe44e" kindref="member">Op.R_CALL</ref> if the debugger made a natural call, <ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a549a5479622c9633613d0c47a886c542" kindref="member">Op.R_EXCEPTION</ref> if the exception needs to be processed naturally ano longer has to be stopped at, or <ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a65882e171c245c9f848e5a9a0a10e483" kindref="member">Op.R_NEXT</ref> if this exception needs to be continued to be traced (until caught) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Debugger.java" line="44" column="9"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="d3/dc6/interfaceorg_1_1xvm_1_1runtime_1_1_debugger" kindref="compound">Debugger</ref> interface. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>org.xvm.runtime.Debugger</label>
+        <link refid="d3/dc6/interfaceorg_1_1xvm_1_1runtime_1_1_debugger"/>
+      </node>
+      <node id="2">
+        <label>org.xvm.runtime.DebugConsole</label>
+        <link refid="d1/d39/classorg_1_1xvm_1_1runtime_1_1_debug_console"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Debugger.java" line="6" column="18" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Debugger.java" bodystart="6" bodyend="45"/>
+    <listofallmembers>
+      <member refid="d3/dc6/interfaceorg_1_1xvm_1_1runtime_1_1_debugger_1a545ca453e43c0be4f282624b3a439f50" prot="public" virt="non-virtual"><scope>org::xvm::runtime::Debugger</scope><name>activate</name></member>
+      <member refid="d3/dc6/interfaceorg_1_1xvm_1_1runtime_1_1_debugger_1aff675c0797b1be269123e00ce4a3ccc9" prot="public" virt="non-virtual"><scope>org::xvm::runtime::Debugger</scope><name>checkBreakPoint</name></member>
+      <member refid="d3/dc6/interfaceorg_1_1xvm_1_1runtime_1_1_debugger_1a6033375bf7b61706d10a6aba17b372e4" prot="public" virt="non-virtual"><scope>org::xvm::runtime::Debugger</scope><name>checkBreakPoint</name></member>
+      <member refid="d3/dc6/interfaceorg_1_1xvm_1_1runtime_1_1_debugger_1a0ed9f753d45e137f1ee4e9012ca26755" prot="public" virt="non-virtual"><scope>org::xvm::runtime::Debugger</scope><name>onReturn</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

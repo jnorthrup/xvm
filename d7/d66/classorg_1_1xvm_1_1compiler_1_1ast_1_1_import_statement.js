@@ -1,0 +1,28 @@
+var classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement =
+[
+    [ "ImportStatement", "d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement.html#a014428de157c3f16e1fc76e22fd7dea5", null ],
+    [ "ImportStatement", "d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement.html#a18c2e39aed3d7f5e6f09f5050f5adff4", null ],
+    [ "emit", "d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement.html#a7de3ededf3cc37694e51ab9beada709d", null ],
+    [ "getAliasName", "d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement.html#a0cd5b2904417e47c878a51e15548e065", null ],
+    [ "getChildFields", "d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement.html#a05284d03e1528dddbf18ea7a21dc5743", null ],
+    [ "getEndPosition", "d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement.html#a0e0c0bec12f311b8bdafe89a4e3b6923", null ],
+    [ "getNameResolver", "d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement.html#abcce7d553544ada22e3d94f85a5478a6", null ],
+    [ "getQualifiedName", "d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement.html#ae5394aaa485c4fee8bf8147c5f80e59c", null ],
+    [ "getQualifiedNameLength", "d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement.html#adcacf7eb5da86cc06d3bba57cd7249d4", null ],
+    [ "getQualifiedNamePart", "d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement.html#ac7470d781a0032e5846551ad15f649cf", null ],
+    [ "getQualifiedNameString", "d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement.html#a4c44d218ce7580499f7b2a6c2c3d56c2", null ],
+    [ "getStartPosition", "d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement.html#a02558a8fba4a8f5f01aaa61afa17f148", null ],
+    [ "isWildcard", "d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement.html#a469bb96e95486d2bfc1d00158a20363a", null ],
+    [ "registerStructures", "d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement.html#ad03fbaa63de48d79516461b2516fc731", null ],
+    [ "resolveNames", "d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement.html#a15f9f3177e4ea8b835568cafc93e4d57", null ],
+    [ "toString", "d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement.html#a1b75e6812e5c8187b126906376501415", null ],
+    [ "validateImpl", "d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement.html#a13518b1a6d48835e0bfc5cd845627e25", null ],
+    [ "alias", "d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement.html#aca3cb8e77d78fc973c4f02a8081010d3", null ],
+    [ "CHILD_FIELDS", "d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement.html#a7837255f7bbd77cbd06d0636355639e1", null ],
+    [ "cond", "d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement.html#a8ef1711f4f731833bc4fdeee342936af", null ],
+    [ "keyword", "d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement.html#a254adb53f194067b0d929ca44c6665b0", null ],
+    [ "m_fImportRegistered", "d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement.html#ab33b85a5c3392e72624de343a53daf6d", null ],
+    [ "m_resolver", "d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement.html#a102eb2ded1b9b56a2f76bc087f071686", null ],
+    [ "qualifiedName", "d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement.html#aa3f496f535e7af9431610684e7708542", null ],
+    [ "star", "d7/d66/classorg_1_1xvm_1_1compiler_1_1ast_1_1_import_statement.html#a8fa25d57676d7732539a8ae3bde2802d", null ]
+];

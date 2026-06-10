@@ -1,0 +1,26 @@
+var classorg_1_1xvm_1_1asm_1_1_file_repository =
+[
+    [ "FileRepository", "d1/dfc/classorg_1_1xvm_1_1asm_1_1_file_repository.html#aa1b301406fe2bd4e0a61656534b2e6f4", null ],
+    [ "checkCache", "d1/dfc/classorg_1_1xvm_1_1asm_1_1_file_repository.html#af1d94fe2b9aad65c161e494a5ae23efe", null ],
+    [ "ensureModule", "d1/dfc/classorg_1_1xvm_1_1asm_1_1_file_repository.html#a9d8241656def2532293db551a1ccff24", null ],
+    [ "equals", "d1/dfc/classorg_1_1xvm_1_1asm_1_1_file_repository.html#af6fcc6d2d2193d208d30824264820a4b", null ],
+    [ "getAvailableVersions", "d1/dfc/classorg_1_1xvm_1_1asm_1_1_file_repository.html#a79ee6107f1a4c4626e583becb50f87a2", null ],
+    [ "getFile", "d1/dfc/classorg_1_1xvm_1_1asm_1_1_file_repository.html#ad3cd3748b7a1e760ac5c3c8ca7e6fd1a", null ],
+    [ "getModuleNames", "d1/dfc/classorg_1_1xvm_1_1asm_1_1_file_repository.html#ab3e99a40358c1dfe80e40daab9556cad", null ],
+    [ "hashCode", "d1/dfc/classorg_1_1xvm_1_1asm_1_1_file_repository.html#a37c8103e032a90d5317c0d7a57f07463", null ],
+    [ "isCacheValid", "d1/dfc/classorg_1_1xvm_1_1asm_1_1_file_repository.html#a381dc2849ef43068328b13e28daadb8a", null ],
+    [ "isReadOnly", "d1/dfc/classorg_1_1xvm_1_1asm_1_1_file_repository.html#ab8dc4328265f80d223247bde4a9c464a", null ],
+    [ "loadModule", "d1/dfc/classorg_1_1xvm_1_1asm_1_1_file_repository.html#af198aef0d6741a875616789a72029943", null ],
+    [ "storeModule", "d1/dfc/classorg_1_1xvm_1_1asm_1_1_file_repository.html#a0a44299a2ad96fc60ac3aa291047a1b3", null ],
+    [ "toString", "d1/dfc/classorg_1_1xvm_1_1asm_1_1_file_repository.html#a16e704c08cad1ae3ee2c31c747614264", null ],
+    [ "tryLoad", "d1/dfc/classorg_1_1xvm_1_1asm_1_1_file_repository.html#ad2b2d1b829dde2ec409bcd88335f478f", null ],
+    [ "err", "d1/dfc/classorg_1_1xvm_1_1asm_1_1_file_repository.html#aa71766e0872947d15b0cd167de201fba", null ],
+    [ "file", "d1/dfc/classorg_1_1xvm_1_1asm_1_1_file_repository.html#a98ff0c2ddea71f11fe38a71ddd7338f9", null ],
+    [ "fRO", "d1/dfc/classorg_1_1xvm_1_1asm_1_1_file_repository.html#af2ccbb12f55cb75e1a040d4ab8fd754c", null ],
+    [ "lastScan", "d1/dfc/classorg_1_1xvm_1_1asm_1_1_file_repository.html#aa20dc144aa653fe4e5c306b064bd6c69", null ],
+    [ "module", "d1/dfc/classorg_1_1xvm_1_1asm_1_1_file_repository.html#a1284b037fc2611243813f93f53263ed9", null ],
+    [ "name", "d1/dfc/classorg_1_1xvm_1_1asm_1_1_file_repository.html#a1c3320a445d61babe6b44f8cd4687a72", null ],
+    [ "size", "d1/dfc/classorg_1_1xvm_1_1asm_1_1_file_repository.html#a19297c4958831d61e85dd834be94f792", null ],
+    [ "timestamp", "d1/dfc/classorg_1_1xvm_1_1asm_1_1_file_repository.html#afa730cd9736984220e98eed75bdead25", null ],
+    [ "versions", "d1/dfc/classorg_1_1xvm_1_1asm_1_1_file_repository.html#a398573fc212235fec24425c1a8b09420", null ]
+];

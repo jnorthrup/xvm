@@ -1,0 +1,25 @@
+var classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file =
+[
+    [ "ReadOption", "d5/d5f/enumorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file_1_1_read_option.html", "d5/d5f/enumorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file_1_1_read_option" ],
+    [ "WriteOption", "d3/d03/enumorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file_1_1_write_option.html", "d3/d03/enumorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file_1_1_write_option" ],
+    [ "xOSFile", "d5/d3b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file.html#a901abcfcbdada24076758bd5a0218a68", null ],
+    [ "createHandle", "d5/d3b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file.html#afa830ed898d5d337640041d8651cf989", null ],
+    [ "getPropertyContents", "d5/d3b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file.html#accbe715ed65c31846afc59ca7e4b2323", null ],
+    [ "initNative", "d5/d3b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file.html#a4b72a2ef763e56c2463a378fe336c52a", null ],
+    [ "invokeAppendBytes", "d5/d3b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file.html#a1371e13381bae77fd19fcdf5752da19c", null ],
+    [ "invokeAppendFile", "d5/d3b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file.html#a9108020d18b9b8d16121fc56e3003c86", null ],
+    [ "invokeNative1", "d5/d3b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file.html#abbd0ec2e6569ce804df559ce738fc792", null ],
+    [ "invokeNativeGet", "d5/d3b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file.html#ad668e95fe365c17ed16aa811bb3ce76c", null ],
+    [ "invokeNativeN", "d5/d3b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file.html#a005221b4afc345edf0ceec3316264eae", null ],
+    [ "invokeNativeSet", "d5/d3b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file.html#a7f04eeaecd5459756a22297a046d7f48", null ],
+    [ "invokeOpen", "d5/d3b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file.html#a5f45c027a3cc9c5c26877986f11c2f53", null ],
+    [ "invokeReadImpl", "d5/d3b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file.html#a101b47519b4b7bc861bf3e09ae428b07", null ],
+    [ "invokeTruncateImpl", "d5/d3b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file.html#a92114fd0ac775b8c2447c45bcc138d36", null ],
+    [ "setPropertyContents", "d5/d3b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file.html#acfd473d7b6418fdc092a07216ccd36e0", null ],
+    [ "INSTANCE", "d5/d3b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file.html#ac660988f97e31c5fab83e0ef97525038", null ],
+    [ "NO_ACCESS", "d5/d3b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file.html#adf4e624672aa325b27c380a7f6ad9cc4", null ],
+    [ "READ_ONLY", "d5/d3b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file.html#a5f33e8f17e7e6c2076fe221adbe6902c", null ],
+    [ "READ_WRITE", "d5/d3b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file.html#a2bef51e791f82d82bdd7d2e1dfc8fd6b", null ],
+    [ "s_constructor", "d5/d3b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file.html#a4173c4db3ba836dd3f62b14fecc1a980", null ],
+    [ "WRITE_ONLY", "d5/d3b/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1fs_1_1x_o_s_file.html#ade9836da71c105a6c3f3e96fb012f56b", null ]
+];

@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d6/d1a/interfaceorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1_1_child_iterator" kind="interface" language="Java" prot="public">
+    <compoundname>org::xvm::compiler::ast::AstNode::ChildIterator</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Iterable&lt; AstNode &gt;</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">Iterator&lt; AstNode &gt;</basecompoundref>
+    <derivedcompoundref refid="d7/d3a/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1_1_child_iterator_impl" prot="public" virt="non-virtual">org.xvm.compiler.ast.AstNode.ChildIteratorImpl</derivedcompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="d6/d1a/interfaceorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1_1_child_iterator_1a1b19d4e22b7c0383ba93d8b8af68327d" prot="public" static="no" mutable="no">
+        <type><ref refid="d6/d1a/interfaceorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1_1_child_iterator" kindref="compound">ChildIterator</ref></type>
+        <definition>ChildIterator org.xvm.compiler.ast.AstNode.ChildIterator.EMPTY</definition>
+        <argsstring></argsstring>
+        <name>EMPTY</name>
+        <qualifiedname>org.xvm.compiler.ast.AstNode.ChildIterator.EMPTY</qualifiedname>
+        <initializer>                    = new <ref refid="d6/d1a/interfaceorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1_1_child_iterator" kindref="compound">ChildIterator</ref>() {
+    @Override
+    public boolean hasNext() {
+        return false;
+    }
+
+    @Override
+    public <ref refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node" kindref="compound">AstNode</ref> next() {
+        throw new NoSuchElementException();
+    }
+}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/AstNode.java" line="1938" column="23" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/AstNode.java" bodystart="1938" bodyend="1948"/>
+        <referencedby refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1acd1a36ebb4f90e33ef02cc53cd1b71cd" compoundref="db/d57/_ast_node_8java" startline="138" endline="141">org.xvm.compiler.ast.AstNode.children</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d6/d1a/interfaceorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1_1_child_iterator_1a722c994eebd7f2475e0d30a9f68becdb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default Iterator&lt; <ref refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node" kindref="compound">AstNode</ref> &gt;</type>
+        <definition>default Iterator&lt; AstNode &gt; org.xvm.compiler.ast.AstNode.ChildIterator.iterator</definition>
+        <argsstring>()</argsstring>
+        <name>iterator</name>
+        <qualifiedname>org.xvm.compiler.ast.AstNode.ChildIterator.iterator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/AstNode.java" line="1924" column="26" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/AstNode.java" bodystart="1924" bodyend="1926"/>
+      </memberdef>
+      <memberdef kind="function" id="d6/d1a/interfaceorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1_1_child_iterator_1aa1c8ba388b77aab99980058a317cb9b4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>default void</type>
+        <definition>default void org.xvm.compiler.ast.AstNode.ChildIterator.replaceWith</definition>
+        <argsstring>(AstNode nodeNew)</argsstring>
+        <name>replaceWith</name>
+        <qualifiedname>org.xvm.compiler.ast.AstNode.ChildIterator.replaceWith</qualifiedname>
+        <reimplementedby refid="d7/d3a/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1_1_child_iterator_impl_1a1a9a21c6a732ccccead97031e3c0d9c6">replaceWith</reimplementedby>
+        <param>
+          <type><ref refid="de/dbf/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node" kindref="compound">AstNode</ref></type>
+          <declname>nodeNew</declname>
+        </param>
+        <briefdescription>
+<para>Replace the most recently returned node with the specified new node. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nodeNew</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the node to use as a replacement for the node most recently returned from the <computeroutput><ref refid="" kindref="compound">next()</ref></computeroutput> method </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/AstNode.java" line="1934" column="22" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/AstNode.java" bodystart="1934" bodyend="1936"/>
+        <referencedby refid="da/d31/classorg_1_1xvm_1_1compiler_1_1ast_1_1_stage_mgr_1a85e52fb2cae3ea26068e338fd3d31200" compoundref="d0/d41/_stage_mgr_8java" startline="265" endline="278">org.xvm.compiler.ast.StageMgr.replaceSelf</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Represents an Iterator that can also replace the most recently iterated element. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Iterable&lt; AstNode &gt;</label>
+      </node>
+      <node id="3">
+        <label>Iterator&lt; AstNode &gt;</label>
+      </node>
+      <node id="1">
+        <label>org.xvm.compiler.ast.AstNode.ChildIterator</label>
+        <link refid="d6/d1a/interfaceorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1_1_child_iterator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>org.xvm.compiler.ast.AstNode.ChildIteratorImpl</label>
+        <link refid="d7/d3a/classorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1_1_child_iterator_impl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Iterable&lt; AstNode &gt;</label>
+      </node>
+      <node id="3">
+        <label>Iterator&lt; AstNode &gt;</label>
+      </node>
+      <node id="1">
+        <label>org.xvm.compiler.ast.AstNode.ChildIterator</label>
+        <link refid="d6/d1a/interfaceorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1_1_child_iterator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>EMPTY</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>org.xvm.compiler.ast.AstNode.ChildIterator</label>
+        <link refid="d6/d1a/interfaceorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1_1_child_iterator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>EMPTY</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/AstNode.java" line="1921" column="22" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/compiler/ast/AstNode.java" bodystart="1922" bodyend="1949"/>
+    <listofallmembers>
+      <member refid="d6/d1a/interfaceorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1_1_child_iterator_1a1b19d4e22b7c0383ba93d8b8af68327d" prot="public" virt="non-virtual"><scope>org::xvm::compiler::ast::AstNode::ChildIterator</scope><name>EMPTY</name></member>
+      <member refid="d6/d1a/interfaceorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1_1_child_iterator_1a722c994eebd7f2475e0d30a9f68becdb" prot="public" virt="non-virtual"><scope>org::xvm::compiler::ast::AstNode::ChildIterator</scope><name>iterator</name></member>
+      <member refid="d6/d1a/interfaceorg_1_1xvm_1_1compiler_1_1ast_1_1_ast_node_1_1_child_iterator_1aa1c8ba388b77aab99980058a317cb9b4" prot="public" virt="non-virtual"><scope>org::xvm::compiler::ast::AstNode::ChildIterator</scope><name>replaceWith</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

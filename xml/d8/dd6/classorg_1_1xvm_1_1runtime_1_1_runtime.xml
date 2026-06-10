@@ -1,0 +1,393 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime" kind="class" language="Java" prot="public">
+    <compoundname>org::xvm::runtime::Runtime</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1aeca84620cac19b8680c18827757387d0" prot="public" static="no" mutable="no">
+        <type>final ThreadPoolExecutor</type>
+        <definition>final ThreadPoolExecutor org.xvm.runtime.Runtime.f_executorXVM</definition>
+        <argsstring></argsstring>
+        <name>f_executorXVM</name>
+        <qualifiedname>org.xvm.runtime.Runtime.f_executorXVM</qualifiedname>
+        <briefdescription>
+<para>The executor for XVM services. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" line="138" column="37" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" bodystart="138" bodyend="-1"/>
+        <referencedby refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a7f5d36149c863403931e18a87a282608" compoundref="d6/df5/_runtime_8java" startline="118" endline="122">org.xvm.runtime.Runtime.isIdle</referencedby>
+        <referencedby refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ac98c7ffdc616aa4e98161b792c4c1d87" compoundref="d6/df5/_runtime_8java" startline="24" endline="52">org.xvm.runtime.Runtime.Runtime</referencedby>
+        <referencedby refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a7355b633e9b6fcb6ddbe3d0d05c5f638" compoundref="d6/df5/_runtime_8java" startline="113" endline="116">org.xvm.runtime.Runtime.shutdownXVM</referencedby>
+        <referencedby refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a276060f5d0262fffbb388a01366909f8" compoundref="d6/df5/_runtime_8java" startline="92" endline="95">org.xvm.runtime.Runtime.submitService</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a2e20b1ce6fba656df2fa086d2be4751c" prot="public" static="no" mutable="no">
+        <type>final ThreadPoolExecutor</type>
+        <definition>final ThreadPoolExecutor org.xvm.runtime.Runtime.f_executorIO</definition>
+        <argsstring></argsstring>
+        <name>f_executorIO</name>
+        <qualifiedname>org.xvm.runtime.Runtime.f_executorIO</qualifiedname>
+        <briefdescription>
+<para>The executor for XVM services. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" line="143" column="37" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" bodystart="143" bodyend="-1"/>
+        <referencedby refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ac98c7ffdc616aa4e98161b792c4c1d87" compoundref="d6/df5/_runtime_8java" startline="24" endline="52">org.xvm.runtime.Runtime.Runtime</referencedby>
+        <referencedby refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a7355b633e9b6fcb6ddbe3d0d05c5f638" compoundref="d6/df5/_runtime_8java" startline="113" endline="116">org.xvm.runtime.Runtime.shutdownXVM</referencedby>
+        <referencedby refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a5850fcb5c3803f10dcab6f3ab684efa3" compoundref="d6/df5/_runtime_8java" startline="102" endline="104">org.xvm.runtime.Runtime.submitIO</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ab7ec2f65a4290d18a3ed28692eb52aca" prot="private" static="no" mutable="no">
+        <type>final Map&lt; <ref refid="d1/df8/classorg_1_1xvm_1_1runtime_1_1_container" kindref="compound">Container</ref>, Object &gt;</type>
+        <definition>final Map&lt;Container, Object&gt; org.xvm.runtime.Runtime.f_containers</definition>
+        <argsstring></argsstring>
+        <name>f_containers</name>
+        <qualifiedname>org.xvm.runtime.Runtime.f_containers</qualifiedname>
+        <initializer>= new WeakHashMap&lt;&gt;()</initializer>
+        <briefdescription>
+<para>The set of containers (stored as a Map with no values); used only for debugging. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" line="148" column="23" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" bodystart="148" bodyend="-1"/>
+        <referencedby refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ac20b59781d2fc471d6cb28cc5430144f" compoundref="d6/df5/_runtime_8java" startline="69" endline="73">org.xvm.runtime.Runtime.containers</referencedby>
+        <referencedby refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a1ad6d2948e760a16c0f47f6cf29d7098" compoundref="d6/df5/_runtime_8java" startline="78" endline="85">org.xvm.runtime.Runtime.findContainer</referencedby>
+        <referencedby refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a9175ef4d41bc3970a945589915cecb8d" compoundref="d6/df5/_runtime_8java" startline="60" endline="64">org.xvm.runtime.Runtime.registerContainer</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ad8e1d93ea0a777fef17fcce21eb84479" prot="private" static="no" mutable="no">
+        <type>volatile long</type>
+        <definition>volatile long org.xvm.runtime.Runtime.m_lastXvmSubmitNanos</definition>
+        <argsstring></argsstring>
+        <name>m_lastXvmSubmitNanos</name>
+        <qualifiedname>org.xvm.runtime.Runtime.m_lastXvmSubmitNanos</qualifiedname>
+        <briefdescription>
+<para>The time at which the last service task was submitted. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" line="158" column="27" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" bodystart="158" bodyend="-1"/>
+        <referencedby refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a7f5d36149c863403931e18a87a282608" compoundref="d6/df5/_runtime_8java" startline="118" endline="122">org.xvm.runtime.Runtime.isIdle</referencedby>
+        <referencedby refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a276060f5d0262fffbb388a01366909f8" compoundref="d6/df5/_runtime_8java" startline="92" endline="95">org.xvm.runtime.Runtime.submitService</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a352ae4666d7b7b9e134991366b4cff8d" prot="private" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean org.xvm.runtime.Runtime.m_fDebugger</definition>
+        <argsstring></argsstring>
+        <name>m_fDebugger</name>
+        <qualifiedname>org.xvm.runtime.Runtime.m_fDebugger</qualifiedname>
+        <briefdescription>
+<para>The &quot;debugger is active&quot; flag. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" line="163" column="21" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" bodystart="163" bodyend="-1"/>
+        <referencedby refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a70c7b854ab274a5542eb790dcb0f4ba0" compoundref="d6/df5/_runtime_8java" startline="124" endline="126">org.xvm.runtime.Runtime.isDebuggerActive</referencedby>
+        <referencedby refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a348314e041c9aed47100d4a0d5533490" compoundref="d6/df5/_runtime_8java" startline="128" endline="130">org.xvm.runtime.Runtime.setDebuggerActive</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a1db6b19c2ca7fd70a974e4a0b5aaca6e" prot="protected" static="no" mutable="no">
+        <type>final AtomicLong</type>
+        <definition>final AtomicLong org.xvm.runtime.Runtime.f_idProducer</definition>
+        <argsstring></argsstring>
+        <name>f_idProducer</name>
+        <qualifiedname>org.xvm.runtime.Runtime.f_idProducer</qualifiedname>
+        <initializer>= new AtomicLong()</initializer>
+        <briefdescription>
+<para>A unique id producer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" line="153" column="32" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" bodystart="153" bodyend="-1"/>
+        <referencedby refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ad94180c06d188c08c1f604dee9bf6d11" compoundref="d6/df5/_runtime_8java" startline="109" endline="111">org.xvm.runtime.Runtime.makeUniqueId</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ac98c7ffdc616aa4e98161b792c4c1d87" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>org.xvm.runtime.Runtime.Runtime</definition>
+        <argsstring>()</argsstring>
+        <name>Runtime</name>
+        <qualifiedname>org.xvm.runtime.Runtime.Runtime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" line="24" column="12" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" bodystart="24" bodyend="52"/>
+        <references refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a2e20b1ce6fba656df2fa086d2be4751c" compoundref="d6/df5/_runtime_8java" startline="143">org.xvm.runtime.Runtime.f_executorIO</references>
+        <references refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1aeca84620cac19b8680c18827757387d0" compoundref="d6/df5/_runtime_8java" startline="138">org.xvm.runtime.Runtime.f_executorXVM</references>
+      </memberdef>
+      <memberdef kind="function" id="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a266593b2fc56d14b319aee064b2e8a91" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.runtime.Runtime.start</definition>
+        <argsstring>()</argsstring>
+        <name>start</name>
+        <qualifiedname>org.xvm.runtime.Runtime.start</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" line="54" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" bodystart="54" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a9175ef4d41bc3970a945589915cecb8d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.runtime.Runtime.registerContainer</definition>
+        <argsstring>(Container container)</argsstring>
+        <name>registerContainer</name>
+        <qualifiedname>org.xvm.runtime.Runtime.registerContainer</qualifiedname>
+        <param>
+          <type><ref refid="d1/df8/classorg_1_1xvm_1_1runtime_1_1_container" kindref="compound">Container</ref></type>
+          <declname>container</declname>
+        </param>
+        <briefdescription>
+<para>Register the specified container (used only for debugging). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" line="60" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" bodystart="60" bodyend="64"/>
+        <references refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ab7ec2f65a4290d18a3ed28692eb52aca" compoundref="d6/df5/_runtime_8java" startline="148">org.xvm.runtime.Runtime.f_containers</references>
+      </memberdef>
+      <memberdef kind="function" id="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ac20b59781d2fc471d6cb28cc5430144f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Set&lt; <ref refid="d1/df8/classorg_1_1xvm_1_1runtime_1_1_container" kindref="compound">Container</ref> &gt;</type>
+        <definition>Set&lt; Container &gt; org.xvm.runtime.Runtime.containers</definition>
+        <argsstring>()</argsstring>
+        <name>containers</name>
+        <qualifiedname>org.xvm.runtime.Runtime.containers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>a set of <ref refid="d1/df8/classorg_1_1xvm_1_1runtime_1_1_container" kindref="compound">Container</ref> objects (used only for debugging) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" line="69" column="16" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" bodystart="69" bodyend="73"/>
+        <references refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ab7ec2f65a4290d18a3ed28692eb52aca" compoundref="d6/df5/_runtime_8java" startline="148">org.xvm.runtime.Runtime.f_containers</references>
+      </memberdef>
+      <memberdef kind="function" id="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a1ad6d2948e760a16c0f47f6cf29d7098" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="d1/df8/classorg_1_1xvm_1_1runtime_1_1_container" kindref="compound">Container</ref></type>
+        <definition>Container org.xvm.runtime.Runtime.findContainer</definition>
+        <argsstring>(ConstantPool pool)</argsstring>
+        <name>findContainer</name>
+        <qualifiedname>org.xvm.runtime.Runtime.findContainer</qualifiedname>
+        <param>
+          <type><ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref></type>
+          <declname>pool</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>a container that uses the specified <ref refid="d8/de1/classorg_1_1xvm_1_1asm_1_1_constant_pool" kindref="compound">ConstantPool</ref>; null if not found </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" line="78" column="22" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" bodystart="78" bodyend="85"/>
+        <references refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ab7ec2f65a4290d18a3ed28692eb52aca" compoundref="d6/df5/_runtime_8java" startline="148">org.xvm.runtime.Runtime.f_containers</references>
+        <referencedby refid="d5/daa/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_type_1a2c0f8e6330fbde808ae9f111f8e220a0" compoundref="de/d9f/x_r_t_type_8java" startline="544" endline="579">org.xvm.runtime.template._native.reflect.xRTType.getForeignChildTypes</referencedby>
+        <referencedby refid="d5/daa/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_type_1a8f46b433ddc063b88ce5f83b3dfdcb69" compoundref="de/d9f/x_r_t_type_8java" startline="603" endline="640">org.xvm.runtime.template._native.reflect.xRTType.getForeignConstants</referencedby>
+        <referencedby refid="d5/daa/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_type_1a1c0776aba8d9c041e456d976203b6b98" compoundref="de/d9f/x_r_t_type_8java" startline="736" endline="773">org.xvm.runtime.template._native.reflect.xRTType.getForeignConstructors</referencedby>
+        <referencedby refid="d5/daa/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_type_1a44be7b34568b4c76a4e2661f7b55d929" compoundref="de/d9f/x_r_t_type_8java" startline="825" endline="862">org.xvm.runtime.template._native.reflect.xRTType.getForeignFunctions</referencedby>
+        <referencedby refid="d5/daa/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_type_1a7e787b1781f8768563433845af0f1c8a" compoundref="de/d9f/x_r_t_type_8java" startline="895" endline="932">org.xvm.runtime.template._native.reflect.xRTType.getForeignMethods</referencedby>
+        <referencedby refid="d5/daa/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_type_1a260b1352f3229519dd285a403b6b6b48" compoundref="de/d9f/x_r_t_type_8java" startline="957" endline="994">org.xvm.runtime.template._native.reflect.xRTType.getForeignProperties</referencedby>
+        <referencedby refid="d5/daa/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_type_1ac943d0fa475021ab27d98e764dcfbc4e" compoundref="de/d9f/x_r_t_type_8java" startline="1055" endline="1092">org.xvm.runtime.template._native.reflect.xRTType.getForeignUnderlyingTypes</referencedby>
+        <referencedby refid="d5/daa/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1reflect_1_1x_r_t_type_1ab9180cf0140cc51e51be759fa6645080" compoundref="de/d9f/x_r_t_type_8java" startline="1202" endline="1223">org.xvm.runtime.template._native.reflect.xRTType.invokeForeignAnnotated</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ad94180c06d188c08c1f604dee9bf6d11" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long org.xvm.runtime.Runtime.makeUniqueId</definition>
+        <argsstring>()</argsstring>
+        <name>makeUniqueId</name>
+        <qualifiedname>org.xvm.runtime.Runtime.makeUniqueId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>a unique id </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" line="109" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" bodystart="109" bodyend="111"/>
+        <references refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a1db6b19c2ca7fd70a974e4a0b5aaca6e" compoundref="d6/df5/_runtime_8java" startline="153">org.xvm.runtime.Runtime.f_idProducer</references>
+        <referencedby refid="d3/d26/classorg_1_1xvm_1_1runtime_1_1_weak_callback_1abb17012d5d24053dd0e82528186b7e35" compoundref="d2/d4b/_weak_callback_8java" startline="19" endline="24">org.xvm.runtime.WeakCallback.WeakCallback</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a7355b633e9b6fcb6ddbe3d0d05c5f638" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.runtime.Runtime.shutdownXVM</definition>
+        <argsstring>()</argsstring>
+        <name>shutdownXVM</name>
+        <qualifiedname>org.xvm.runtime.Runtime.shutdownXVM</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" line="113" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" bodystart="113" bodyend="116"/>
+        <references refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a2e20b1ce6fba656df2fa086d2be4751c" compoundref="d6/df5/_runtime_8java" startline="143">org.xvm.runtime.Runtime.f_executorIO</references>
+        <references refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1aeca84620cac19b8680c18827757387d0" compoundref="d6/df5/_runtime_8java" startline="138">org.xvm.runtime.Runtime.f_executorXVM</references>
+      </memberdef>
+      <memberdef kind="function" id="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a7f5d36149c863403931e18a87a282608" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.runtime.Runtime.isIdle</definition>
+        <argsstring>()</argsstring>
+        <name>isIdle</name>
+        <qualifiedname>org.xvm.runtime.Runtime.isIdle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" line="118" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" bodystart="118" bodyend="122"/>
+        <references refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1aeca84620cac19b8680c18827757387d0" compoundref="d6/df5/_runtime_8java" startline="138">org.xvm.runtime.Runtime.f_executorXVM</references>
+        <references refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ad8e1d93ea0a777fef17fcce21eb84479" compoundref="d6/df5/_runtime_8java" startline="158">org.xvm.runtime.Runtime.m_lastXvmSubmitNanos</references>
+      </memberdef>
+      <memberdef kind="function" id="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a70c7b854ab274a5542eb790dcb0f4ba0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean org.xvm.runtime.Runtime.isDebuggerActive</definition>
+        <argsstring>()</argsstring>
+        <name>isDebuggerActive</name>
+        <qualifiedname>org.xvm.runtime.Runtime.isDebuggerActive</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" line="124" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" bodystart="124" bodyend="126"/>
+        <references refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a352ae4666d7b7b9e134991366b4cff8d" compoundref="d6/df5/_runtime_8java" startline="163">org.xvm.runtime.Runtime.m_fDebugger</references>
+      </memberdef>
+      <memberdef kind="function" id="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a348314e041c9aed47100d4a0d5533490" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.runtime.Runtime.setDebuggerActive</definition>
+        <argsstring>(boolean fActive)</argsstring>
+        <name>setDebuggerActive</name>
+        <qualifiedname>org.xvm.runtime.Runtime.setDebuggerActive</qualifiedname>
+        <param>
+          <type>boolean</type>
+          <declname>fActive</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" line="128" column="17" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" bodystart="128" bodyend="130"/>
+        <references refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a352ae4666d7b7b9e134991366b4cff8d" compoundref="d6/df5/_runtime_8java" startline="163">org.xvm.runtime.Runtime.m_fDebugger</references>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a276060f5d0262fffbb388a01366909f8" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.runtime.Runtime.submitService</definition>
+        <argsstring>(Runnable task)</argsstring>
+        <name>submitService</name>
+        <qualifiedname>org.xvm.runtime.Runtime.submitService</qualifiedname>
+        <param>
+          <type>Runnable</type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Submit <ref refid="d8/d69/classorg_1_1xvm_1_1runtime_1_1_service_context" kindref="compound">ServiceContext</ref> work for eventual processing by the runtime. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the task to process </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" line="92" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" bodystart="92" bodyend="95"/>
+        <references refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1aeca84620cac19b8680c18827757387d0" compoundref="d6/df5/_runtime_8java" startline="138">org.xvm.runtime.Runtime.f_executorXVM</references>
+        <references refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ad8e1d93ea0a777fef17fcce21eb84479" compoundref="d6/df5/_runtime_8java" startline="158">org.xvm.runtime.Runtime.m_lastXvmSubmitNanos</references>
+      </memberdef>
+      <memberdef kind="function" id="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a5850fcb5c3803f10dcab6f3ab684efa3" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void org.xvm.runtime.Runtime.submitIO</definition>
+        <argsstring>(Runnable task)</argsstring>
+        <name>submitIO</name>
+        <qualifiedname>org.xvm.runtime.Runtime.submitIO</qualifiedname>
+        <param>
+          <type>Runnable</type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Submit IO work for eventual processing by the runtime. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the task to process </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" line="102" column="20" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" bodystart="102" bodyend="104"/>
+        <references refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a2e20b1ce6fba656df2fa086d2be4751c" compoundref="d6/df5/_runtime_8java" startline="143">org.xvm.runtime.Runtime.f_executorIO</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>The runtime. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" line="23" column="7" bodyfile="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/runtime/Runtime.java" bodystart="23" bodyend="164"/>
+    <listofallmembers>
+      <member refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ac20b59781d2fc471d6cb28cc5430144f" prot="public" virt="non-virtual"><scope>org::xvm::runtime::Runtime</scope><name>containers</name></member>
+      <member refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ab7ec2f65a4290d18a3ed28692eb52aca" prot="private" virt="non-virtual"><scope>org::xvm::runtime::Runtime</scope><name>f_containers</name></member>
+      <member refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a2e20b1ce6fba656df2fa086d2be4751c" prot="public" virt="non-virtual"><scope>org::xvm::runtime::Runtime</scope><name>f_executorIO</name></member>
+      <member refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1aeca84620cac19b8680c18827757387d0" prot="public" virt="non-virtual"><scope>org::xvm::runtime::Runtime</scope><name>f_executorXVM</name></member>
+      <member refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a1db6b19c2ca7fd70a974e4a0b5aaca6e" prot="protected" virt="non-virtual"><scope>org::xvm::runtime::Runtime</scope><name>f_idProducer</name></member>
+      <member refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a1ad6d2948e760a16c0f47f6cf29d7098" prot="public" virt="non-virtual"><scope>org::xvm::runtime::Runtime</scope><name>findContainer</name></member>
+      <member refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a70c7b854ab274a5542eb790dcb0f4ba0" prot="public" virt="non-virtual"><scope>org::xvm::runtime::Runtime</scope><name>isDebuggerActive</name></member>
+      <member refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a7f5d36149c863403931e18a87a282608" prot="public" virt="non-virtual"><scope>org::xvm::runtime::Runtime</scope><name>isIdle</name></member>
+      <member refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a352ae4666d7b7b9e134991366b4cff8d" prot="private" virt="non-virtual"><scope>org::xvm::runtime::Runtime</scope><name>m_fDebugger</name></member>
+      <member refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ad8e1d93ea0a777fef17fcce21eb84479" prot="private" virt="non-virtual"><scope>org::xvm::runtime::Runtime</scope><name>m_lastXvmSubmitNanos</name></member>
+      <member refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ad94180c06d188c08c1f604dee9bf6d11" prot="public" virt="non-virtual"><scope>org::xvm::runtime::Runtime</scope><name>makeUniqueId</name></member>
+      <member refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a9175ef4d41bc3970a945589915cecb8d" prot="public" virt="non-virtual"><scope>org::xvm::runtime::Runtime</scope><name>registerContainer</name></member>
+      <member refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1ac98c7ffdc616aa4e98161b792c4c1d87" prot="public" virt="non-virtual"><scope>org::xvm::runtime::Runtime</scope><name>Runtime</name></member>
+      <member refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a348314e041c9aed47100d4a0d5533490" prot="public" virt="non-virtual"><scope>org::xvm::runtime::Runtime</scope><name>setDebuggerActive</name></member>
+      <member refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a7355b633e9b6fcb6ddbe3d0d05c5f638" prot="public" virt="non-virtual"><scope>org::xvm::runtime::Runtime</scope><name>shutdownXVM</name></member>
+      <member refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a266593b2fc56d14b319aee064b2e8a91" prot="public" virt="non-virtual"><scope>org::xvm::runtime::Runtime</scope><name>start</name></member>
+      <member refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a5850fcb5c3803f10dcab6f3ab684efa3" prot="protected" virt="non-virtual"><scope>org::xvm::runtime::Runtime</scope><name>submitIO</name></member>
+      <member refid="d8/dd6/classorg_1_1xvm_1_1runtime_1_1_runtime_1a276060f5d0262fffbb388a01366909f8" prot="protected" virt="non-virtual"><scope>org::xvm::runtime::Runtime</scope><name>submitService</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

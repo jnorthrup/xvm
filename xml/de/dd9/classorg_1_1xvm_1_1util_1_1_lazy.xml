@@ -1,0 +1,661 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy" kind="class" language="Java" prot="public" abstract="yes">
+    <compoundname>org::xvm::util::Lazy</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Supplier&lt; T &gt;</basecompoundref>
+    <derivedcompoundref refid="de/df4/classorg_1_1xvm_1_1util_1_1_lazy_1_1_resolved" prot="public" virt="non-virtual">org.xvm.util.Lazy&lt; T &gt;.Resolved&lt; T &gt;</derivedcompoundref>
+    <derivedcompoundref refid="d1/dc3/classorg_1_1xvm_1_1util_1_1_lazy_1_1_thread_safe_lazy" prot="public" virt="non-virtual">org.xvm.util.Lazy&lt; T &gt;.ThreadSafeLazy&lt; T &gt;</derivedcompoundref>
+    <derivedcompoundref refid="d8/d28/classorg_1_1xvm_1_1util_1_1_lazy_1_1_unsynchronized_lazy" prot="public" virt="non-virtual">org.xvm.util.Lazy&lt; T &gt;.UnsynchronizedLazy&lt; T &gt;</derivedcompoundref>
+    <innerclass refid="d1/dc3/classorg_1_1xvm_1_1util_1_1_lazy_1_1_thread_safe_lazy" prot="private">org::xvm::util::Lazy::ThreadSafeLazy</innerclass>
+    <innerclass refid="d8/d28/classorg_1_1xvm_1_1util_1_1_lazy_1_1_unsynchronized_lazy" prot="private">org::xvm::util::Lazy::UnsynchronizedLazy</innerclass>
+    <innerclass refid="de/df4/classorg_1_1xvm_1_1util_1_1_lazy_1_1_resolved" prot="private">org::xvm::util::Lazy::Resolved</innerclass>
+    <innerclass refid="d0/dbb/classorg_1_1xvm_1_1util_1_1_lazy_1_1_expiring_supplier" prot="private">org::xvm::util::Lazy::ExpiringSupplier</innerclass>
+    <templateparamlist>
+      <param>
+        <type>T</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1afe8dc8420811f35950f0b1c922c05121" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>static&lt; T &gt; <ref refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy" kindref="compound">Lazy</ref>&lt; T &gt;</type>
+        <definition>static&lt; T &gt; Lazy&lt; T &gt; org.xvm.util.Lazy&lt; T &gt;.of</definition>
+        <argsstring>(Supplier&lt; T &gt; supplier)</argsstring>
+        <name>of</name>
+        <qualifiedname>org.xvm.util.Lazy.of</qualifiedname>
+        <param>
+          <type>Supplier&lt; T &gt;</type>
+          <declname>supplier</declname>
+        </param>
+        <briefdescription>
+<para>Creates a thread-safe lazy value that computes on first access. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The supplier is called at most once, even under concurrent access.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>supplier</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the supplier to compute the value (called at most once) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>&lt;T&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the type of the value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a lazy holder for the value </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/Lazy.java" line="75" column="25" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/Lazy.java" bodystart="75" bodyend="77"/>
+        <referencedby refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1a0ed2db0c67e75057708857ea7c3db2cc" compoundref="de/da7/_lazy_8java" startline="232" endline="234">org.xvm.util.Lazy&lt; T &gt;.map</referencedby>
+        <referencedby refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1a1665cf1638204d74f726541bcf746a7d" compoundref="de/da7/_lazy_8java" startline="141" endline="144">org.xvm.util.Lazy&lt; T &gt;.ofNullable</referencedby>
+        <referencedby refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1aef692bdd59e6127f86a2c1bb1596778d" compoundref="de/da7/_lazy_8java" startline="155" endline="157">org.xvm.util.Lazy&lt; T &gt;.ofOptional</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1af58f232a16eb0a6a2f4db62212eac9c8" compoundref="d1/d9a/_lazy_test_8java" startline="26" endline="43">org.xvm.util.LazyTest.testLazyOf</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1a7defb615fe11e325f53506435a9fc8e7" compoundref="d1/d9a/_lazy_test_8java" startline="46" endline="55">org.xvm.util.LazyTest.testLazyOfNull</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1a05f49c0c88cee9c99c9492987985c80d" compoundref="d1/d9a/_lazy_test_8java" startline="120" endline="127">org.xvm.util.LazyTest.testMap</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1a83a5b071934a4fd4356d627f99c78312" compoundref="d1/d9a/_lazy_test_8java" startline="207" endline="215">org.xvm.util.LazyTest.testNullSupplierThrows</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1ae379c15bdc306fb7ad0df82b7e09585b" compoundref="d1/d9a/_lazy_test_8java" startline="107" endline="117">org.xvm.util.LazyTest.testOrElse</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1a49ab736566d24893fea9353a45572803" compoundref="d1/d9a/_lazy_test_8java" startline="130" endline="133">org.xvm.util.LazyTest.testSupplierInterface</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1a86d866958d61d589e98da591582c6c93" compoundref="d1/d9a/_lazy_test_8java" startline="136" endline="172">org.xvm.util.LazyTest.testThreadSafety</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1a3ef092d7643a2add198db442c5c8f508" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>static&lt; T &gt; <ref refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy" kindref="compound">Lazy</ref>&lt; T &gt;</type>
+        <definition>static&lt; T &gt; Lazy&lt; T &gt; org.xvm.util.Lazy&lt; T &gt;.ofUnsynchronized</definition>
+        <argsstring>(Supplier&lt; T &gt; supplier)</argsstring>
+        <name>ofUnsynchronized</name>
+        <qualifiedname>org.xvm.util.Lazy.ofUnsynchronized</qualifiedname>
+        <param>
+          <type>Supplier&lt; T &gt;</type>
+          <declname>supplier</declname>
+        </param>
+        <briefdescription>
+<para>Creates a non-thread-safe lazy value for single-threaded use. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Faster than <computeroutput><ref refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1afe8dc8420811f35950f0b1c922c05121" kindref="member">of</ref></computeroutput> but not safe for concurrent access.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>supplier</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the supplier to compute the value </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>&lt;T&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the type of the value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a lazy holder for the value </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/Lazy.java" line="88" column="25" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/Lazy.java" bodystart="88" bodyend="90"/>
+        <references refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1a3ef092d7643a2add198db442c5c8f508" compoundref="de/da7/_lazy_8java" startline="88" endline="90">org.xvm.util.Lazy&lt; T &gt;.ofUnsynchronized</references>
+        <referencedby refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1a3ef092d7643a2add198db442c5c8f508" compoundref="de/da7/_lazy_8java" startline="88" endline="90">org.xvm.util.Lazy&lt; T &gt;.ofUnsynchronized</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1a5ea74b1d2f34aa76fd5225d33bff5eb8" compoundref="d1/d9a/_lazy_test_8java" startline="74" endline="89">org.xvm.util.LazyTest.testLazyOfUnsynchronized</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1a83a5b071934a4fd4356d627f99c78312" compoundref="d1/d9a/_lazy_test_8java" startline="207" endline="215">org.xvm.util.LazyTest.testNullSupplierThrows</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1a9c324c9ad5052298679df99a2cf22459" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>static&lt; T &gt; <ref refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy" kindref="compound">Lazy</ref>&lt; T &gt;</type>
+        <definition>static&lt; T &gt; Lazy&lt; T &gt; org.xvm.util.Lazy&lt; T &gt;.ofValue</definition>
+        <argsstring>(T value)</argsstring>
+        <name>ofValue</name>
+        <qualifiedname>org.xvm.util.Lazy.ofValue</qualifiedname>
+        <param>
+          <type>T</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Creates a lazy value that is already computed (useful for testing or constants). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the pre-computed value </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>&lt;T&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the type of the value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a lazy holder containing the value </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/Lazy.java" line="100" column="25" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/Lazy.java" bodystart="100" bodyend="102"/>
+        <references refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1a9c324c9ad5052298679df99a2cf22459" compoundref="de/da7/_lazy_8java" startline="100" endline="102">org.xvm.util.Lazy&lt; T &gt;.ofValue</references>
+        <referencedby refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1a9c324c9ad5052298679df99a2cf22459" compoundref="de/da7/_lazy_8java" startline="100" endline="102">org.xvm.util.Lazy&lt; T &gt;.ofValue</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1a2fe55288e8270a7dfa36cfff4edfd2e2" compoundref="d1/d9a/_lazy_test_8java" startline="58" endline="63">org.xvm.util.LazyTest.testLazyOfValue</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1a122e0701684faad6357fffbd7cc8c193" compoundref="d1/d9a/_lazy_test_8java" startline="66" endline="71">org.xvm.util.LazyTest.testLazyOfValueNull</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1a1665cf1638204d74f726541bcf746a7d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>static&lt; T &gt; <ref refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy" kindref="compound">Lazy</ref>&lt; Optional&lt; T &gt; &gt;</type>
+        <definition>static&lt; T &gt; Lazy&lt; Optional&lt; T &gt; &gt; org.xvm.util.Lazy&lt; T &gt;.ofNullable</definition>
+        <argsstring>(Supplier&lt; T &gt; supplier)</argsstring>
+        <name>ofNullable</name>
+        <qualifiedname>org.xvm.util.Lazy.ofNullable</qualifiedname>
+        <param>
+          <type>Supplier&lt; T &gt;</type>
+          <declname>supplier</declname>
+        </param>
+        <briefdescription>
+<para>Creates a thread-safe lazy Optional that wraps nullable supplier results. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Use this instead of sentinel values (like 0L or -1) to represent &quot;no value&quot;.</para>
+<para>The supplier may return null, which will be wrapped as <javadoccode>Optional.empty()</javadoccode>. Non-null values are wrapped as <javadoccode>Optional.of(value)</javadoccode>.</para>
+<para><heading level="3">Example - replacing sentinel value patterns:</heading>
+</para>
+<para><preformatted><javadoccode>
+// Before (using 0L as sentinel - bad because 0L could be valid):
+private long timestamp;
+public long getTimestamp() {
+    if (timestamp == 0L) {
+        File f = getFile();
+        if (f != null &amp;&amp; f.exists()) {
+            timestamp = f.lastModified();
+        }
+    }
+    return timestamp;
+}
+
+// After (proper separation of &quot;not computed&quot; vs &quot;no value&quot;):
+private final Lazy&lt;Optional&lt;Long&gt;&gt; timestamp = Lazy.ofNullable(() -&gt; {
+    File f = getFile();
+    return f != null &amp;&amp; f.exists() ? f.lastModified() : null;
+});
+
+public Optional&lt;Long&gt; getTimestamp() {
+    return timestamp.get();
+}
+</javadoccode></preformatted></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>supplier</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the supplier that may return null (null becomes Optional.empty()) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>&lt;T&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the type of the value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a lazy holder for the Optional value </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/Lazy.java" line="141" column="25" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/Lazy.java" bodystart="141" bodyend="144"/>
+        <references refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1afe8dc8420811f35950f0b1c922c05121" compoundref="de/da7/_lazy_8java" startline="75" endline="77">org.xvm.util.Lazy&lt; T &gt;.of</references>
+        <references refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1a1665cf1638204d74f726541bcf746a7d" compoundref="de/da7/_lazy_8java" startline="141" endline="144">org.xvm.util.Lazy&lt; T &gt;.ofNullable</references>
+        <referencedby refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1a1665cf1638204d74f726541bcf746a7d" compoundref="de/da7/_lazy_8java" startline="141" endline="144">org.xvm.util.Lazy&lt; T &gt;.ofNullable</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1aa2a41484e5f3a74c7e0c7c0bed2eb700" compoundref="d1/d9a/_lazy_test_8java" startline="92" endline="98">org.xvm.util.LazyTest.testLazyOfNullable</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1a83a5b071934a4fd4356d627f99c78312" compoundref="d1/d9a/_lazy_test_8java" startline="207" endline="215">org.xvm.util.LazyTest.testNullSupplierThrows</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1aef692bdd59e6127f86a2c1bb1596778d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>static&lt; T &gt; <ref refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy" kindref="compound">Lazy</ref>&lt; Optional&lt; T &gt; &gt;</type>
+        <definition>static&lt; T &gt; Lazy&lt; Optional&lt; T &gt; &gt; org.xvm.util.Lazy&lt; T &gt;.ofOptional</definition>
+        <argsstring>(Supplier&lt; Optional&lt; T &gt; &gt; supplier)</argsstring>
+        <name>ofOptional</name>
+        <qualifiedname>org.xvm.util.Lazy.ofOptional</qualifiedname>
+        <param>
+          <type>Supplier&lt; Optional&lt; T &gt; &gt;</type>
+          <declname>supplier</declname>
+        </param>
+        <briefdescription>
+<para>Creates a thread-safe lazy Optional from a supplier that already returns Optional. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Use this when your computation naturally returns Optional.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>supplier</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the supplier returning an Optional </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>&lt;T&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the type of the value inside the Optional </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a lazy holder for the Optional value </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/Lazy.java" line="155" column="25" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/Lazy.java" bodystart="155" bodyend="157"/>
+        <references refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1afe8dc8420811f35950f0b1c922c05121" compoundref="de/da7/_lazy_8java" startline="75" endline="77">org.xvm.util.Lazy&lt; T &gt;.of</references>
+        <references refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1aef692bdd59e6127f86a2c1bb1596778d" compoundref="de/da7/_lazy_8java" startline="155" endline="157">org.xvm.util.Lazy&lt; T &gt;.ofOptional</references>
+        <referencedby refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1aef692bdd59e6127f86a2c1bb1596778d" compoundref="de/da7/_lazy_8java" startline="155" endline="157">org.xvm.util.Lazy&lt; T &gt;.ofOptional</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1ab8c837ceeb3f7eef1b398f6ed046b02e" compoundref="d1/d9a/_lazy_test_8java" startline="101" endline="104">org.xvm.util.LazyTest.testLazyOfOptional</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1a83a5b071934a4fd4356d627f99c78312" compoundref="d1/d9a/_lazy_test_8java" startline="207" endline="215">org.xvm.util.LazyTest.testNullSupplierThrows</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1a2e4c58116e9ab8819fa328f3c8b39607" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>static&lt; T &gt; Supplier&lt; T &gt;</type>
+        <definition>static&lt; T &gt; Supplier&lt; T &gt; org.xvm.util.Lazy&lt; T &gt;.ofExpiring</definition>
+        <argsstring>(Supplier&lt; T &gt; supplier, long duration, TimeUnit unit)</argsstring>
+        <name>ofExpiring</name>
+        <qualifiedname>org.xvm.util.Lazy.ofExpiring</qualifiedname>
+        <param>
+          <type>Supplier&lt; T &gt;</type>
+          <declname>supplier</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>duration</declname>
+        </param>
+        <param>
+          <type>TimeUnit</type>
+          <declname>unit</declname>
+        </param>
+        <briefdescription>
+<para>Creates a supplier that caches the result for a specified duration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>After the duration expires, the next call will recompute the value.</para>
+<para>This is useful for values that should be refreshed periodically, such as configuration or external resource state.</para>
+<para>Note: This returns a <javadoccode>Supplier&lt;T&gt;</javadoccode> rather than <javadoccode>Lazy&lt;T&gt;</javadoccode> because the value can be recomputed multiple times.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>supplier</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the supplier whose result should be cached </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>duration</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the length of time to cache </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>unit</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the time unit of the duration </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>&lt;T&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the type of the supplied value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a time-limited memoizing supplier </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/Lazy.java" line="176" column="29" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/Lazy.java" bodystart="176" bodyend="183"/>
+        <references refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1a2e4c58116e9ab8819fa328f3c8b39607" compoundref="de/da7/_lazy_8java" startline="176" endline="183">org.xvm.util.Lazy&lt; T &gt;.ofExpiring</references>
+        <referencedby refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1a2e4c58116e9ab8819fa328f3c8b39607" compoundref="de/da7/_lazy_8java" startline="176" endline="183">org.xvm.util.Lazy&lt; T &gt;.ofExpiring</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1a83a5b071934a4fd4356d627f99c78312" compoundref="d1/d9a/_lazy_test_8java" startline="207" endline="215">org.xvm.util.LazyTest.testNullSupplierThrows</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1af3bc3eb0c750ea6df187823365a7365e" compoundref="d1/d9a/_lazy_test_8java" startline="175" endline="186">org.xvm.util.LazyTest.testOfExpiringBasic</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1aefcdbf3c812224e5e364e3d45848bcaa" compoundref="d1/d9a/_lazy_test_8java" startline="189" endline="194">org.xvm.util.LazyTest.testOfExpiringInvalidDuration</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1ab317b5866d3e41a93ad997d30377e472" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>static&lt; T &gt; Supplier&lt; T &gt;</type>
+        <definition>static&lt; T &gt; Supplier&lt; T &gt; org.xvm.util.Lazy&lt; T &gt;.synchronizedSupplier</definition>
+        <argsstring>(Supplier&lt; T &gt; supplier)</argsstring>
+        <name>synchronizedSupplier</name>
+        <qualifiedname>org.xvm.util.Lazy.synchronizedSupplier</qualifiedname>
+        <param>
+          <type>Supplier&lt; T &gt;</type>
+          <declname>supplier</declname>
+        </param>
+        <briefdescription>
+<para>Synchronizes access to the given supplier, ensuring that only one thread can call <computeroutput><ref refid="" kindref="compound">Supplier#get()</ref></computeroutput> at a time. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Note: This does NOT memoize the result. Use <computeroutput><ref refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1afe8dc8420811f35950f0b1c922c05121" kindref="member">of</ref></computeroutput> for caching.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>supplier</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the supplier to synchronize </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>&lt;T&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the type of the supplied value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a synchronized supplier </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/Lazy.java" line="196" column="29" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/Lazy.java" bodystart="196" bodyend="198"/>
+        <references refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1ab317b5866d3e41a93ad997d30377e472" compoundref="de/da7/_lazy_8java" startline="196" endline="198">org.xvm.util.Lazy&lt; T &gt;.synchronizedSupplier</references>
+        <referencedby refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1ab317b5866d3e41a93ad997d30377e472" compoundref="de/da7/_lazy_8java" startline="196" endline="198">org.xvm.util.Lazy&lt; T &gt;.synchronizedSupplier</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1a83a5b071934a4fd4356d627f99c78312" compoundref="d1/d9a/_lazy_test_8java" startline="207" endline="215">org.xvm.util.LazyTest.testNullSupplierThrows</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1a2ce00f31516c3df679f87e71049d9776" compoundref="d1/d9a/_lazy_test_8java" startline="197" endline="204">org.xvm.util.LazyTest.testSynchronizedSupplier</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1af96ce36f45f1275ed3db9116d56eabf8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>abstract T</type>
+        <definition>abstract T org.xvm.util.Lazy&lt; T &gt;.get</definition>
+        <argsstring>()</argsstring>
+        <name>get</name>
+        <qualifiedname>org.xvm.util.Lazy.get</qualifiedname>
+        <reimplementedby refid="de/df4/classorg_1_1xvm_1_1util_1_1_lazy_1_1_resolved_1a792c1debb7fdd5dd52135da3739db4a9">get</reimplementedby>
+        <reimplementedby refid="d1/dc3/classorg_1_1xvm_1_1util_1_1_lazy_1_1_thread_safe_lazy_1ae90e5b4ce1046a78b90b28be2aa10231">get</reimplementedby>
+        <reimplementedby refid="d8/d28/classorg_1_1xvm_1_1util_1_1_lazy_1_1_unsynchronized_lazy_1a05065bdcd6337b6516baaec371cfa657">get</reimplementedby>
+        <briefdescription>
+<para>Gets the lazily computed value, computing it if necessary. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the value </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/Lazy.java" line="206" column="23"/>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1af58f232a16eb0a6a2f4db62212eac9c8" compoundref="d1/d9a/_lazy_test_8java" startline="26" endline="43">org.xvm.util.LazyTest.testLazyOf</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1a7defb615fe11e325f53506435a9fc8e7" compoundref="d1/d9a/_lazy_test_8java" startline="46" endline="55">org.xvm.util.LazyTest.testLazyOfNull</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1aa2a41484e5f3a74c7e0c7c0bed2eb700" compoundref="d1/d9a/_lazy_test_8java" startline="92" endline="98">org.xvm.util.LazyTest.testLazyOfNullable</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1ab8c837ceeb3f7eef1b398f6ed046b02e" compoundref="d1/d9a/_lazy_test_8java" startline="101" endline="104">org.xvm.util.LazyTest.testLazyOfOptional</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1a5ea74b1d2f34aa76fd5225d33bff5eb8" compoundref="d1/d9a/_lazy_test_8java" startline="74" endline="89">org.xvm.util.LazyTest.testLazyOfUnsynchronized</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1a2fe55288e8270a7dfa36cfff4edfd2e2" compoundref="d1/d9a/_lazy_test_8java" startline="58" endline="63">org.xvm.util.LazyTest.testLazyOfValue</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1a122e0701684faad6357fffbd7cc8c193" compoundref="d1/d9a/_lazy_test_8java" startline="66" endline="71">org.xvm.util.LazyTest.testLazyOfValueNull</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1a05f49c0c88cee9c99c9492987985c80d" compoundref="d1/d9a/_lazy_test_8java" startline="120" endline="127">org.xvm.util.LazyTest.testMap</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1ae379c15bdc306fb7ad0df82b7e09585b" compoundref="d1/d9a/_lazy_test_8java" startline="107" endline="117">org.xvm.util.LazyTest.testOrElse</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1a86d866958d61d589e98da591582c6c93" compoundref="d1/d9a/_lazy_test_8java" startline="136" endline="172">org.xvm.util.LazyTest.testThreadSafety</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1a1bee0ae6edaac3f3b65665a70d8aadad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>abstract boolean</type>
+        <definition>abstract boolean org.xvm.util.Lazy&lt; T &gt;.isComputed</definition>
+        <argsstring>()</argsstring>
+        <name>isComputed</name>
+        <qualifiedname>org.xvm.util.Lazy.isComputed</qualifiedname>
+        <reimplementedby refid="de/df4/classorg_1_1xvm_1_1util_1_1_lazy_1_1_resolved_1a9f0e6af74e113f6e8609d78f92dc3715">isComputed</reimplementedby>
+        <reimplementedby refid="d1/dc3/classorg_1_1xvm_1_1util_1_1_lazy_1_1_thread_safe_lazy_1a045896afa1a236656c55ab930e80916a">isComputed</reimplementedby>
+        <reimplementedby refid="d8/d28/classorg_1_1xvm_1_1util_1_1_lazy_1_1_unsynchronized_lazy_1a210b1ac5040ca27afa2bbfcbb6f87cdf">isComputed</reimplementedby>
+        <briefdescription>
+<para>Returns true if the value has been computed. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true if already computed, false if still deferred </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/Lazy.java" line="213" column="29"/>
+        <referencedby refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1a3750835ce3082b593674acf487687140" compoundref="de/da7/_lazy_8java" startline="221" endline="223">org.xvm.util.Lazy&lt; T &gt;.orElse</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1af58f232a16eb0a6a2f4db62212eac9c8" compoundref="d1/d9a/_lazy_test_8java" startline="26" endline="43">org.xvm.util.LazyTest.testLazyOf</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1a7defb615fe11e325f53506435a9fc8e7" compoundref="d1/d9a/_lazy_test_8java" startline="46" endline="55">org.xvm.util.LazyTest.testLazyOfNull</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1a5ea74b1d2f34aa76fd5225d33bff5eb8" compoundref="d1/d9a/_lazy_test_8java" startline="74" endline="89">org.xvm.util.LazyTest.testLazyOfUnsynchronized</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1a2fe55288e8270a7dfa36cfff4edfd2e2" compoundref="d1/d9a/_lazy_test_8java" startline="58" endline="63">org.xvm.util.LazyTest.testLazyOfValue</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1a122e0701684faad6357fffbd7cc8c193" compoundref="d1/d9a/_lazy_test_8java" startline="66" endline="71">org.xvm.util.LazyTest.testLazyOfValueNull</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1a05f49c0c88cee9c99c9492987985c80d" compoundref="d1/d9a/_lazy_test_8java" startline="120" endline="127">org.xvm.util.LazyTest.testMap</referencedby>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1ae379c15bdc306fb7ad0df82b7e09585b" compoundref="d1/d9a/_lazy_test_8java" startline="107" endline="117">org.xvm.util.LazyTest.testOrElse</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1a3750835ce3082b593674acf487687140" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T org.xvm.util.Lazy&lt; T &gt;.orElse</definition>
+        <argsstring>(T defaultValue)</argsstring>
+        <name>orElse</name>
+        <qualifiedname>org.xvm.util.Lazy.orElse</qualifiedname>
+        <param>
+          <type>T</type>
+          <declname>defaultValue</declname>
+        </param>
+        <briefdescription>
+<para>If computed, returns the value; otherwise returns the default. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>defaultValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value to return if not yet computed </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the computed value or the default </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/Lazy.java" line="221" column="14" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/Lazy.java" bodystart="221" bodyend="223"/>
+        <references refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1a1bee0ae6edaac3f3b65665a70d8aadad">org.xvm.util.Lazy&lt; T &gt;.isComputed</references>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1ae379c15bdc306fb7ad0df82b7e09585b" compoundref="d1/d9a/_lazy_test_8java" startline="107" endline="117">org.xvm.util.LazyTest.testOrElse</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="package-func">
+      <memberdef kind="function" id="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1a0ed2db0c67e75057708857ea7c3db2cc" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>public&lt; U &gt; <ref refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy" kindref="compound">Lazy</ref>&lt; U &gt;</type>
+        <definition>public&lt; U &gt; Lazy&lt; U &gt; org.xvm.util.Lazy&lt; T &gt;.map</definition>
+        <argsstring>(Function&lt;? super T, ? extends U &gt; mapper)</argsstring>
+        <name>map</name>
+        <qualifiedname>org.xvm.util.Lazy.map</qualifiedname>
+        <param>
+          <type>Function&lt;? super T, ? extends U &gt;</type>
+          <declname>mapper</declname>
+        </param>
+        <briefdescription>
+<para>Maps the lazy value to another type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mapper</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the mapping function </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>&lt;U&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the result type </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a new <ref refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy" kindref="compound">Lazy</ref> that maps this value </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/Lazy.java" line="232" column="18" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/Lazy.java" bodystart="232" bodyend="234"/>
+        <references refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1afe8dc8420811f35950f0b1c922c05121" compoundref="de/da7/_lazy_8java" startline="75" endline="77">org.xvm.util.Lazy&lt; T &gt;.of</references>
+        <referencedby refid="d6/d4d/classorg_1_1xvm_1_1util_1_1_lazy_test_1a05f49c0c88cee9c99c9492987985c80d" compoundref="d1/d9a/_lazy_test_8java" startline="120" endline="127">org.xvm.util.LazyTest.testMap</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1a7307c73b0d384048a238aeee322c00b5" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>record</type>
+        <definition>record org.xvm.util.Lazy&lt; T &gt;.SynchronizedSupplier&lt; T &gt;</definition>
+        <argsstring>(Supplier&lt; T &gt; delegate) implements Supplier&lt; T &gt;</argsstring>
+        <name>SynchronizedSupplier&lt; T &gt;</name>
+        <qualifiedname>org.xvm.util.Lazy.SynchronizedSupplier&lt; T &gt;</qualifiedname>
+        <param>
+          <type>Supplier&lt; T &gt;</type>
+          <declname>delegate</declname>
+        </param>
+        <briefdescription>
+<para>Simple synchronized wrapper around a supplier. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/Lazy.java" line="372" column="13" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/Lazy.java" bodystart="372" bodyend="382"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Guava-style lazy value holders for thread-safe deferred initialization. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Use these instead of &quot;if (field == null) { field = compute(); }&quot; patterns.</para>
+<para>Since <javadoccode>Lazy&lt;T&gt;</javadoccode> implements <javadoccode>Supplier&lt;T&gt;</javadoccode>, it can be used anywhere a supplier is expected. Additional methods like <computeroutput><ref refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1a1bee0ae6edaac3f3b65665a70d8aadad" kindref="member">isComputed()</ref></computeroutput>, <computeroutput><ref refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1a3750835ce3082b593674acf487687140" kindref="member">orElse</ref></computeroutput>, and <computeroutput><ref refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1a0ed2db0c67e75057708857ea7c3db2cc" kindref="member">map</ref></computeroutput> provide a richer API for working with lazy values.</para>
+<para><heading level="3">Real-world example from ClassStructure.collectAnnotations():</heading>
+</para>
+<para><preformatted><javadoccode>
+// Before (mutable, manual caching):
+private transient Annotation[] m_aAnnoClass;
+
+public Annotation[] getClassAnnotations() {
+    Annotation[] annos = m_aAnnoClass;
+    if (annos == null) {
+        List&lt;Annotation&gt; listAnnos = new ArrayList&lt;&gt;();
+        for (Contribution contrib : getContributionsAsList()) {
+            if (contrib.getComposition() == Composition.Annotation) {
+                listAnnos.add(contrib.getAnnotation());
+            }
+        }
+        annos = listAnnos.toArray(Annotation.NO_ANNOTATIONS);
+        m_aAnnoClass = annos;
+    }
+    return annos;
+}
+
+// After (final, thread-safe, with additional API):
+private final Lazy&lt;Annotation[]&gt; classAnnotations = Lazy.of(() -&gt; {
+    List&lt;Annotation&gt; listAnnos = new ArrayList&lt;&gt;();
+    for (Contribution contrib : getContributionsAsList()) {
+        if (contrib.getComposition() == Composition.Annotation) {
+            listAnnos.add(contrib.getAnnotation());
+        }
+    }
+    return listAnnos.toArray(Annotation.NO_ANNOTATIONS);
+});
+
+public Annotation[] getClassAnnotations() {
+    return classAnnotations.get();
+}
+
+// Bonus: can check if computed without triggering computation
+public boolean hasComputedAnnotations() {
+    return classAnnotations.isComputed();
+}
+</javadoccode></preformatted></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>&lt;T&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the type of the lazily computed value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Supplier&lt; T &gt;</label>
+      </node>
+      <node id="1">
+        <label>org.xvm.util.Lazy&lt; T &gt;</label>
+        <link refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>org.xvm.util.Lazy&lt; T &gt;.Resolved&lt; T &gt;</label>
+        <link refid="de/df4/classorg_1_1xvm_1_1util_1_1_lazy_1_1_resolved"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>org.xvm.util.Lazy&lt; T &gt;.ThreadSafeLazy&lt; T &gt;</label>
+        <link refid="d1/dc3/classorg_1_1xvm_1_1util_1_1_lazy_1_1_thread_safe_lazy"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>org.xvm.util.Lazy&lt; T &gt;.UnsynchronizedLazy&lt; T &gt;</label>
+        <link refid="d8/d28/classorg_1_1xvm_1_1util_1_1_lazy_1_1_unsynchronized_lazy"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Supplier&lt; T &gt;</label>
+      </node>
+      <node id="1">
+        <label>org.xvm.util.Lazy&lt; T &gt;</label>
+        <link refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/Lazy.java" line="65" column="17" bodyfile="/Users/jim/work/xvm/javatools_utils/src/main/java/org/xvm/util/Lazy.java" bodystart="65" bodyend="383"/>
+    <listofallmembers>
+      <member refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1af96ce36f45f1275ed3db9116d56eabf8" prot="public" virt="non-virtual"><scope>org::xvm::util::Lazy</scope><name>get</name></member>
+      <member refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1a1bee0ae6edaac3f3b65665a70d8aadad" prot="public" virt="non-virtual"><scope>org::xvm::util::Lazy</scope><name>isComputed</name></member>
+      <member refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1a0ed2db0c67e75057708857ea7c3db2cc" prot="package" virt="non-virtual"><scope>org::xvm::util::Lazy</scope><name>map</name></member>
+      <member refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1afe8dc8420811f35950f0b1c922c05121" prot="public" virt="non-virtual"><scope>org::xvm::util::Lazy</scope><name>of</name></member>
+      <member refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1a2e4c58116e9ab8819fa328f3c8b39607" prot="public" virt="non-virtual"><scope>org::xvm::util::Lazy</scope><name>ofExpiring</name></member>
+      <member refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1a1665cf1638204d74f726541bcf746a7d" prot="public" virt="non-virtual"><scope>org::xvm::util::Lazy</scope><name>ofNullable</name></member>
+      <member refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1aef692bdd59e6127f86a2c1bb1596778d" prot="public" virt="non-virtual"><scope>org::xvm::util::Lazy</scope><name>ofOptional</name></member>
+      <member refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1a3ef092d7643a2add198db442c5c8f508" prot="public" virt="non-virtual"><scope>org::xvm::util::Lazy</scope><name>ofUnsynchronized</name></member>
+      <member refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1a9c324c9ad5052298679df99a2cf22459" prot="public" virt="non-virtual"><scope>org::xvm::util::Lazy</scope><name>ofValue</name></member>
+      <member refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1a3750835ce3082b593674acf487687140" prot="public" virt="non-virtual"><scope>org::xvm::util::Lazy</scope><name>orElse</name></member>
+      <member refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1ab317b5866d3e41a93ad997d30377e472" prot="public" virt="non-virtual"><scope>org::xvm::util::Lazy</scope><name>synchronizedSupplier</name></member>
+      <member refid="de/dd9/classorg_1_1xvm_1_1util_1_1_lazy_1a7307c73b0d384048a238aeee322c00b5" prot="private" virt="non-virtual"><scope>org::xvm::util::Lazy</scope><name>SynchronizedSupplier&lt; T &gt;</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

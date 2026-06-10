@@ -1,0 +1,7 @@
+var x_nanos_timer_8java =
+[
+    [ "org.xvm.runtime.template._native.temporal.xNanosTimer", "d3/d32/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1temporal_1_1x_nanos_timer.html", "d3/d32/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1temporal_1_1x_nanos_timer" ],
+    [ "org.xvm.runtime.template._native.temporal.xNanosTimer.TimerHandle", "dc/d4c/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1temporal_1_1x_nanos_timer_1_1_timer_handle.html", "dc/d4c/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1temporal_1_1x_nanos_timer_1_1_timer_handle" ],
+    [ "org.xvm.runtime.template._native.temporal.xNanosTimer.TimerHandle.Alarm", "de/de7/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1temporal_1_1x_nanos_timer_1_1_timer_handle_1_1_alarm.html", "de/de7/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1temporal_1_1x_nanos_timer_1_1_timer_handle_1_1_alarm" ],
+    [ "org.xvm.runtime.template._native.temporal.xNanosTimer.TimerHandle.Alarm.Trigger", "d9/db1/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1temporal_1_1x_nanos_timer_1_1_timer_handle_1_1_alarm_1_1_trigger.html", "d9/db1/classorg_1_1xvm_1_1runtime_1_1template_1_1__native_1_1temporal_1_1x_nanos_timer_1_1_timer_handle_1_1_alarm_1_1_trigger" ]
+];

@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.17.0" xml:lang="en-US">
+  <compounddef id="d6/d8b/_label_8java" kind="file" language="Java">
+    <compoundname>Label.java</compoundname>
+    <includes local="no">java.lang.classfile.CodeBuilder</includes>
+    <includes local="no">java.util.HashMap</includes>
+    <includes local="no">java.util.Map</includes>
+    <includes local="no">org.xvm.asm.Op</includes>
+    <includes local="no">org.xvm.asm.Register</includes>
+    <includes local="no">org.xvm.compiler.ast.Context</includes>
+    <includes local="no">org.xvm.javajit.BuildContext</includes>
+    <includes local="no">org.xvm.javajit.BuildContext.ActionChain</includes>
+    <includes local="no">org.xvm.javajit.BuildContext.OpAction</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/op/Label.java</label>
+        <link refid="d6/d8b/_label_8java"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>java.lang.classfile.CodeBuilder</label>
+      </node>
+      <node id="3">
+        <label>java.util.HashMap</label>
+      </node>
+      <node id="4">
+        <label>java.util.Map</label>
+      </node>
+      <node id="5">
+        <label>org.xvm.asm.Op</label>
+      </node>
+      <node id="6">
+        <label>org.xvm.asm.Register</label>
+      </node>
+      <node id="7">
+        <label>org.xvm.compiler.ast.Context</label>
+      </node>
+      <node id="8">
+        <label>org.xvm.javajit.BuildContext</label>
+      </node>
+      <node id="9">
+        <label>org.xvm.javajit.BuildContext.ActionChain</label>
+      </node>
+      <node id="10">
+        <label>org.xvm.javajit.BuildContext.OpAction</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label" prot="public">org::xvm::asm::op::Label</innerclass>
+    <innernamespace refid="d5/d78/namespaceorg_1_1xvm_1_1asm_1_1op">org::xvm::asm::op</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">org.xvm.asm.op;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.lang.classfile.CodeBuilder;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.HashMap;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.util.Map;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Op;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.asm.Register;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.compiler.ast.Context;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.javajit.BuildContext;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.javajit.BuildContext.ActionChain;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.xvm.javajit.BuildContext.OpAction;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1ad8ad6d8015ceb15a5139c08e222c939e" kindref="member">Label</ref></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op" kindref="compound">Op</ref>.<ref refid="db/d53/classorg_1_1xvm_1_1asm_1_1_op_1_1_prefix" kindref="compound">Prefix</ref><sp/>{</highlight></codeline>
+<codeline lineno="28" refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1ad8ad6d8015ceb15a5139c08e222c939e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1ad8ad6d8015ceb15a5139c08e222c939e" kindref="member">Label</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>counter)<sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">(String.valueOf(counter));</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a0dd3876255d59483e16ee553444f7646" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a0dd3876255d59483e16ee553444f7646" kindref="member">Label</ref>(String<sp/>sName)<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a427b6655fcd6af98c38ef6437c5f673c" kindref="member">f_sName</ref><sp/>=<sp/>sName;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1acb514565f3467fd506b08aaf00d424b6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1acb514565f3467fd506b08aaf00d424b6" kindref="member">getName</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a427b6655fcd6af98c38ef6437c5f673c" kindref="member">f_sName</ref>;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a3b90b32c53062d631454d01350d132f0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a3b90b32c53062d631454d01350d132f0" kindref="member">addRestore</ref>(String<sp/>sName,<sp/><ref refid="dc/db3/classorg_1_1xvm_1_1asm_1_1_register" kindref="compound">Register</ref><sp/>reg)<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Map&lt;String,<sp/>Register&gt;<sp/>map<sp/>=<sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a66edd6f9317d1665d091f8b3b5c24afc" kindref="member">m_mapRestore</ref>;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(map<sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a66edd6f9317d1665d091f8b3b5c24afc" kindref="member">m_mapRestore</ref><sp/>=<sp/>map<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>HashMap&lt;&gt;();</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>map.putIfAbsent(sName,<sp/>reg);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a69748e7674ccb1f1e28a2c5bc64b8ae9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a69748e7674ccb1f1e28a2c5bc64b8ae9" kindref="member">restoreNarrowed</ref>(<ref refid="d1/dc8/classorg_1_1xvm_1_1compiler_1_1ast_1_1_context" kindref="compound">Context</ref><sp/>context)<sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Map&lt;String,<sp/>Register&gt;<sp/>map<sp/>=<sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a66edd6f9317d1665d091f8b3b5c24afc" kindref="member">m_mapRestore</ref>;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(map<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(Map.Entry&lt;String,<sp/><ref refid="dc/db3/classorg_1_1xvm_1_1asm_1_1_register" kindref="compound">Register</ref>&gt;<sp/>entry<sp/>:<sp/>map.entrySet())<sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>context.<ref refid="d1/dc8/classorg_1_1xvm_1_1compiler_1_1ast_1_1_context_1a72b74a0110b97b5d246696968e5aed79" kindref="member">restoreArgument</ref>(entry.getKey(),<sp/>entry.getValue());</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="77" refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a74216c5ab1c0cac3bde2151dcaa3532c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>String<sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a74216c5ab1c0cac3bde2151dcaa3532c" kindref="member">toString</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>StringBuilder<sp/>sb<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>StringBuilder();</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sb.append(<ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a427b6655fcd6af98c38ef6437c5f673c" kindref="member">f_sName</ref>)</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.append(</highlight><highlight class="stringliteral">&quot;:<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op" kindref="compound">Op</ref><sp/><ref refid="d5/d78/namespaceorg_1_1xvm_1_1asm_1_1op" kindref="compound">op</ref><sp/>=<sp/><ref refid="db/d53/classorg_1_1xvm_1_1asm_1_1_op_1_1_prefix_1a48e0f6a2c7d7b4c7997d54b2f2204dc3" kindref="member">getNextOp</ref>();</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d5/d78/namespaceorg_1_1xvm_1_1asm_1_1op" kindref="compound">op</ref><sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sb.append(<ref refid="d5/d78/namespaceorg_1_1xvm_1_1asm_1_1op" kindref="compound">op</ref>);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>sb.toString();</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>JIT<sp/>support<sp/>------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="94" refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a8668cf786c97fd72627538c7d7566502" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a8668cf786c97fd72627538c7d7566502" kindref="member">computeTypes</ref>(<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref><sp/>bctx)<sp/>{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="db/d53/classorg_1_1xvm_1_1asm_1_1_op_1_1_prefix_1a48e0f6a2c7d7b4c7997d54b2f2204dc3" kindref="member">getNextOp</ref>().<ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1ac816ec16b9c26738b0e05b539c7ae7f5" kindref="member">computeTypes</ref>(bctx);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="99" refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a68ab3239e525543535bffd62e50f9eb3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a68ab3239e525543535bffd62e50f9eb3" kindref="member">build</ref>(<ref refid="d2/dc1/classorg_1_1xvm_1_1javajit_1_1_build_context" kindref="compound">BuildContext</ref><sp/>bctx,<sp/>CodeBuilder<sp/>code)<sp/>{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>there<sp/>is<sp/>a<sp/>possibility<sp/>that<sp/>the<sp/>label<sp/>was<sp/>only<sp/>used<sp/>by<sp/>the<sp/>&quot;dead&quot;<sp/>code<sp/>that<sp/>has<sp/>been</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>eliminated</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a7a5db4471ad478042e16f38d02f2ddd0" kindref="member">m_label</ref><sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code.labelBinding(<ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a7a5db4471ad478042e16f38d02f2ddd0" kindref="member">m_label</ref>);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>it&apos;s<sp/>important<sp/>to<sp/>call<sp/>the<sp/>action<sp/>only<sp/>after<sp/>the<sp/>label<sp/>is<sp/>set</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a88b2282b066af936bc5de6db27f16b83" kindref="member">m_action</ref><sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>skipTo<sp/>=<sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a88b2282b066af936bc5de6db27f16b83" kindref="member">m_action</ref>.prepare();</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(skipTo<sp/>!=<sp/>-1)<sp/>{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>skipTo;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="db/d53/classorg_1_1xvm_1_1asm_1_1_op_1_1_prefix_1a48e0f6a2c7d7b4c7997d54b2f2204dc3" kindref="member">getNextOp</ref>().<ref refid="dd/d26/classorg_1_1xvm_1_1asm_1_1_op_1a7bc8aff3d88f086d06cfe4047cf5e3ff" kindref="member">build</ref>(bctx,<sp/>code);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119" refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a0c6746b06d026b2529e3c312438b5c06" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a0c6746b06d026b2529e3c312438b5c06" kindref="member">setLabel</ref>(java.lang.classfile.Label<sp/>label)<sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert<sp/>label<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a7a5db4471ad478042e16f38d02f2ddd0" kindref="member">m_label</ref><sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a7a5db4471ad478042e16f38d02f2ddd0" kindref="member">m_label</ref><sp/>=<sp/>label;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127" refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1aac0d0de497053dbd08b277f300ded037" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>java.lang.classfile.Label<sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1aac0d0de497053dbd08b277f300ded037" kindref="member">getLabel</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a7a5db4471ad478042e16f38d02f2ddd0" kindref="member">m_label</ref>;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134" refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a0325b0053d24ed02e06b40d4df9b8841" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a0325b0053d24ed02e06b40d4df9b8841" kindref="member">setAction</ref>(<ref refid="d6/d0c/interfaceorg_1_1xvm_1_1javajit_1_1_build_context_1_1_op_action" kindref="compound">OpAction</ref><sp/>action)<sp/>{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a88b2282b066af936bc5de6db27f16b83" kindref="member">m_action</ref><sp/>==<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a88b2282b066af936bc5de6db27f16b83" kindref="member">m_action</ref><sp/>=<sp/>action;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a88b2282b066af936bc5de6db27f16b83" kindref="member">m_action</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>ActionChain(<ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a88b2282b066af936bc5de6db27f16b83" kindref="member">m_action</ref>,<sp/>action);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145" refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a355e511fe9fd2bb4c612cffa4809d9b2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a355e511fe9fd2bb4c612cffa4809d9b2" kindref="member">clear</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a7a5db4471ad478042e16f38d02f2ddd0" kindref="member">m_label</ref><sp/><sp/>=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a88b2282b066af936bc5de6db27f16b83" kindref="member">m_action</ref><sp/>=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>-----<sp/>fields<sp/>-----------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155" refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a7a5db4471ad478042e16f38d02f2ddd0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>java.lang.classfile.Label<sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a7a5db4471ad478042e16f38d02f2ddd0" kindref="member">m_label</ref>;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160" refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a88b2282b066af936bc5de6db27f16b83" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="d6/d0c/interfaceorg_1_1xvm_1_1javajit_1_1_build_context_1_1_op_action" kindref="compound">OpAction</ref><sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a88b2282b066af936bc5de6db27f16b83" kindref="member">m_action</ref>;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166" refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a427b6655fcd6af98c38ef6437c5f673c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">transient</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>String<sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a427b6655fcd6af98c38ef6437c5f673c" kindref="member">f_sName</ref>;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171" refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a66edd6f9317d1665d091f8b3b5c24afc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">transient</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Map&lt;String,<sp/>Register&gt;<sp/><ref refid="dc/d64/classorg_1_1xvm_1_1asm_1_1op_1_1_label_1a66edd6f9317d1665d091f8b3b5c24afc" kindref="member">m_mapRestore</ref>;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jim/work/xvm/javatools/src/main/java/org/xvm/asm/op/Label.java"/>
+  </compounddef>
+</doxygen>
