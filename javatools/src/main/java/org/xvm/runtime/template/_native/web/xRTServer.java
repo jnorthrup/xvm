@@ -737,7 +737,7 @@ public class xRTServer
                 // goes directly against the IP address (e.g. "https://129.168.1.30:8081/nginx")
                 RouteInfo route = sHost == null
                         ? f_hServer.getRouter().getDirectRoute()
-                        : f_hServer.getRouter().getRoute(sHost);
+                        : f_hServer.getRouter().mapRoutes.get(sHost);
                 if (route == null) {
                     // TODO: REMOVE
                     System.err.println(Handy.logTime() + " Trace: Handshake with unknown host: " + sHost);
@@ -809,21 +809,6 @@ public class xRTServer
         private ObjectHandle m_hBinding;
         private RouteInfo    m_routeDirect;
 
-        protected RouteInfo getRoute(String sHost) {
-            RouteInfo route = mapRoutes.get(sHost);
-            if (route == null) {
-                int of = -1;
-                while ((of = sHost.indexOf('.', of + 1)) > 0) {
-                    String sWildcard = "*" + sHost.substring(of);
-                    route = mapRoutes.get(sWildcard);
-                    if (route != null) {
-                        break;
-                    }
-                }
-            }
-            return route;
-        }
-
         @Override
         public void handle(HttpExchange exchange)
                 throws IOException {
@@ -831,7 +816,7 @@ public class xRTServer
             String    sName = extractHostName(sHost);
             int       nPort = extractHostPort(sHost, exchange);
             boolean   fTls  = exchange instanceof HttpsExchange;
-            RouteInfo route = getRoute(sName);
+            RouteInfo route = mapRoutes.get(sName);
             if (route == null || nPort != (fTls ? route.nHttpsPort : route.nHttpPort)) {
                 System.err.println(Handy.logTime() + " Trace: Request for unregistered route: "
                     + (fTls ? "https://" : "http://") + sHost + exchange.getRequestURI() + " from "

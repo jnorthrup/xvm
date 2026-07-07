@@ -1,0 +1,11 @@
+To add "full internet reverse proxy capabilities to the xenia x xtc codebase", we should focus on the Ecstasy `.x` files within `lib_xenia`.
+
+The user wants to emulate Nginx paradigms directly within the XVM/Xenia codebase (`lib_xenia/src/main/x/xenia/`), allowing the system to handle multiple domains, wildcard certs, and proxy traffic natively.
+
+Looking at `lib_xenia/src/main/x/xenia/HttpServer.x`, we have:
+1. `addRoute` which maps a `HostInfo|String` to a `Handler` and sets TLS keys.
+2. `ProxyCheck` which verifies if an IP is a trusted reverse proxy.
+
+We need to add a way for the `HttpServer` (and thus `HttpHandler`) to *act* as a reverse proxy itself. A reverse proxy is essentially a handler that forwards an incoming request to another server (upstream) and pipes the response back.
+
+We can add a `ReverseProxy` interface or handler implementation in `lib_xenia`.
