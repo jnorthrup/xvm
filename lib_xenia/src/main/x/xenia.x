@@ -87,43 +87,6 @@ module xenia.xtclang.org {
     static HostInfo DefaultBind = new HostInfo(IPAddress.IPv4Any);
 
     /**
-     * Create and start an HTTP/HTTPS reverse proxy server mapping domains to upstream URIs.
-     *
-     * @param proxyMap   a map of domain names (including wildcards) to upstream URIs
-     * @param keystore   (optional) the keystore containing the certificates for the domains
-     *                   (including wildcard certs)
-     * @param binding    (optional) the HostInfo for server binding
-     *
-     * @return a function that allows to shutdown the server
-     */
-    function void () createReverseProxy(Map<String, String> proxyMap,
-                                        KeyStore?           keystore       = Null,
-                                        HostInfo?           binding        = Null,
-                                        HttpServer.ProxyCheck isTrustedProxy = HttpServer.NoTrustedProxies
-                                       ) {
-        @Inject HttpServer server;
-        binding ?:= DefaultBind;
-        try {
-            server.bind(binding, isTrustedProxy);
-
-            for ((String domain, String upstream) : proxyMap) {
-                import xenia.ProxyHandler;
-                ProxyHandler handler = new ProxyHandler(upstream);
-                // When adding the route, the server uses SNI to match the domain to the correct cert
-                // from the provided keystore. Wildcard domains are matched by the underlying router.
-                server.addRoute(domain, handler, keystore);
-            }
-
-            return () -> {
-                server.close();
-            };
-        } catch (Exception e) {
-            server.close(e);
-            throw e;
-        }
-    }
-
-    /**
      * Create and start an HTTP/HTTPS server for the specified web application. If a `keystore` is
      * not specified, a temporary one will be created with a self-signed certificate.
      *
