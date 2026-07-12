@@ -9,6 +9,17 @@ import com.sun.net.httpserver.HttpsExchange;
 import com.sun.net.httpserver.HttpsParameters;
 import com.sun.net.httpserver.HttpsServer;
 
+
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.List;
+import java.util.Map;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.concurrent.ForkJoinPool;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -109,6 +120,7 @@ public class xRTServer
         markNativeMethod("replaceRouteImpl", null, BOOLEAN);
         markNativeMethod("setHeaders"      , null, VOID);
         markNativeMethod("setBodyBytes"    , null, VOID);
+        markNativeMethod("proxyPass"       , null, VOID);
         markNativeMethod("closeImpl"       , VOID, VOID);
 
         markNativeMethod("getReceivedAtAddress",   null, null);
@@ -196,6 +208,12 @@ public class xRTServer
         case "setBodyBytes":
             return frame.f_context == hServer.f_context
                     ? invokeSetBodyBytes(frame, ahArg)
+                    : xRTFunction.makeAsyncNativeHandle(method).
+                            call1(frame, hServer, ahArg, iReturn);
+
+        case "proxyPass":
+            return frame.f_context == hServer.f_context
+                    ? invokeProxyPass(frame, ahArg)
                     : xRTFunction.makeAsyncNativeHandle(method).
                             call1(frame, hServer, ahArg, iReturn);
 
@@ -615,6 +633,82 @@ public class xRTServer
     }
 
 
+
+    private static final HttpClient proxyClient = HttpClient.newBuilder()
+            .followRedirects(HttpClient.Redirect.NEVER)
+            .build();
+
+    private int invokeProxyPass(Frame frame, ObjectHandle[] ahArg) {
+        HttpExchange exchange = ((HttpContextHandle) ahArg[0]).f_exchange;
+        String sTargetUri = ((StringHandle) ahArg[1]).getStringValue();
+
+        try {
+            String targetUri = sTargetUri + exchange.getRequestURI().toString();
+            String method = exchange.getRequestMethod().toUpperCase();
+
+            HttpRequest.BodyPublisher bodyPublisher;
+            if (method.equals("GET") || method.equals("HEAD") || method.equals("DELETE") || method.equals("OPTIONS") || method.equals("TRACE")) {
+                bodyPublisher = HttpRequest.BodyPublishers.noBody();
+            } else {
+                bodyPublisher = HttpRequest.BodyPublishers.ofInputStream(() -> exchange.getRequestBody());
+            }
+
+            HttpRequest.Builder reqBuilder = HttpRequest.newBuilder()
+                    .uri(URI.create(targetUri))
+                    .method(method, bodyPublisher);
+
+            for (Map.Entry<String, List<String>> header : exchange.getRequestHeaders().entrySet()) {
+                String key = header.getKey();
+                if (key.equalsIgnoreCase("Host") || key.equalsIgnoreCase("Connection") || key.equalsIgnoreCase("Content-Length") || key.equalsIgnoreCase("Expect") || key.equalsIgnoreCase("Upgrade")) continue;
+                for (String val : header.getValue()) {
+                    reqBuilder.header(key, val);
+                }
+            }
+
+            proxyClient.sendAsync(reqBuilder.build(), HttpResponse.BodyHandlers.ofInputStream()).whenComplete((response, err) -> {
+                if (err != null) {
+                    try {
+                        exchange.sendResponseHeaders(502, -1);
+                        exchange.close();
+                    } catch (IOException ignore) {}
+                } else {
+                    try {
+                        Headers respHeaders = exchange.getResponseHeaders();
+                        for (Map.Entry<String, List<String>> header : response.headers().map().entrySet()) {
+                            String key = header.getKey();
+                            if (key.equalsIgnoreCase("Transfer-Encoding") || key.equalsIgnoreCase("Content-Length") || key.equalsIgnoreCase("Connection")) continue;
+                            for (String val : header.getValue()) {
+                                respHeaders.add(key, val);
+                            }
+                        }
+
+                        long contentLength = response.headers().firstValueAsLong("Content-Length").orElse(-1L);
+                        exchange.sendResponseHeaders(response.statusCode(), contentLength == -1 ? 0 : contentLength);
+
+                        // Hand off the blocking I/O transfer to the common pool to avoid starving XVM async threads
+                        ForkJoinPool.commonPool().execute(() -> {
+                            try (InputStream is = response.body(); OutputStream os = exchange.getResponseBody()) {
+                                is.transferTo(os);
+                            } catch (Exception ignore) {
+                            } finally {
+                                exchange.close();
+                            }
+                        });
+                    } catch (IOException ex) {
+                        exchange.close();
+                    }
+                }
+            });
+            return Op.R_NEXT;
+        } catch (Exception ex) {
+            try {
+                exchange.sendResponseHeaders(502, -1);
+                exchange.close();
+            } catch (Exception ignore) {}
+            return Op.R_NEXT;
+        }
+    }
+
     // ----- helper methods ------------------------------------------------------------------------
 
     protected static String extractHostName(String sHost) {
@@ -737,7 +831,7 @@ public class xRTServer
                 // goes directly against the IP address (e.g. "https://129.168.1.30:8081/nginx")
                 RouteInfo route = sHost == null
                         ? f_hServer.getRouter().getDirectRoute()
-                        : f_hServer.getRouter().mapRoutes.get(sHost);
+                        : f_hServer.getRouter().getRoute(sHost);
                 if (route == null) {
                     // TODO: REMOVE
                     System.err.println(Handy.logTime() + " Trace: Handshake with unknown host: " + sHost);
@@ -809,6 +903,21 @@ public class xRTServer
         private ObjectHandle m_hBinding;
         private RouteInfo    m_routeDirect;
 
+        protected RouteInfo getRoute(String sHost) {
+            RouteInfo route = mapRoutes.get(sHost);
+            if (route == null && sHost != null) {
+                int of = -1;
+                while ((of = sHost.indexOf('.', of + 1)) > 0) {
+                    String sWildcard = "*" + sHost.substring(of);
+                    route = mapRoutes.get(sWildcard);
+                    if (route != null) {
+                        break;
+                    }
+                }
+            }
+            return route;
+        }
+
         @Override
         public void handle(HttpExchange exchange)
                 throws IOException {
@@ -816,7 +925,7 @@ public class xRTServer
             String    sName = extractHostName(sHost);
             int       nPort = extractHostPort(sHost, exchange);
             boolean   fTls  = exchange instanceof HttpsExchange;
-            RouteInfo route = mapRoutes.get(sName);
+            RouteInfo route = getRoute(sName);
             if (route == null || nPort != (fTls ? route.nHttpsPort : route.nHttpPort)) {
                 System.err.println(Handy.logTime() + " Trace: Request for unregistered route: "
                     + (fTls ? "https://" : "http://") + sHost + exchange.getRequestURI() + " from "

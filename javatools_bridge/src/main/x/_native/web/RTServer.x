@@ -233,6 +233,8 @@ service RTServer
     void setHeaders(RequestContext context, Int status, String[] headerNames, String[] headerValues,
                     Int responseLength)                                                              = TODO("Native");
     void setBodyBytes(RequestContext context, Byte[] bytes, Boolean final)                           = TODO("Native");
+    @Override
+    void proxyPass(RequestContext context, String targetUri)                                         = TODO("Native");
     private void closeImpl()                                                                         = TODO("Native");
 
     // ----- internal classes ----------------------------------------------------------------------
@@ -272,6 +274,7 @@ service RTServer
         void bind(HostInfo binding, ProxyCheck reverseProxy=NoTrustedProxies);
         Boolean unbind(HostInfo binding);
         @RO Map<HostInfo, ProxyCheck> bindings;
+        void proxyPass(RequestContext context, String targetUri);
 
         void addRoute(HostInfo|String route, Handler handler, KeyStore? keystore = Null,
                       String? tlsKey = Null, String? cookieKey = Null);

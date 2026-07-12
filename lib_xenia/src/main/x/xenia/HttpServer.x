@@ -377,5 +377,17 @@ interface HttpServer
          *                    does **not** indicate a successful response to a client
          */
         void streamBodyBytes(BinaryInput source);
+
+        /**
+         * Instruct the server to act as a reverse proxy, heavily utilizing the native implementation
+         * to forward the request directly to the upstream URI with full cipher integration.
+         *
+         * @param targetUri  the upstream URI to proxy to
+         */
+        void proxyPass(String targetUri) {
+            // Default implementation throws if not natively supported
+            throw new Unsupported();
+        }
+
     }
 }

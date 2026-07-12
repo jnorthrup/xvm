@@ -87,6 +87,40 @@ module xenia.xtclang.org {
     static HostInfo DefaultBind = new HostInfo(IPAddress.IPv4Any);
 
     /**
+     * Create and start an HTTP/HTTPS reverse proxy server based on ProxyConfig.
+     * This structurally supports full reverse proxy capabilities including wildcard domains,
+     * UNIX sockets, and high-performance routing.
+     *
+     * @param config   the ProxyConfig mapping domains to upstreams
+     * @param binding  (optional) the HostInfo for server binding
+     *
+     * @return a function that allows to shutdown the server
+     */
+    function void () createReverseProxy(xenia.ProxyConfig config,
+                                        HostInfo?         binding        = Null,
+                                        HttpServer.ProxyCheck isTrustedProxy = HttpServer.NoTrustedProxies
+                                       ) {
+        @Inject HttpServer server;
+        binding ?:= DefaultBind;
+        try {
+            server.bind(binding, isTrustedProxy);
+
+            for ((HostInfo|String route, xenia.ProxyConfig.Upstream upstream) : config.routes) {
+                xenia.ProxyHandler handler = new xenia.ProxyHandler(upstream);
+                server.addRoute(route, handler, config.defaultKeyStore);
+            }
+
+            return () -> {
+                server.close();
+            };
+        } catch (Exception e) {
+            server.close(e);
+            throw e;
+        }
+    }
+
+
+    /**
      * Create and start an HTTP/HTTPS server for the specified web application. If a `keystore` is
      * not specified, a temporary one will be created with a self-signed certificate.
      *
