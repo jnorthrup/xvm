@@ -70,28 +70,6 @@ service RTServer
     }
 
     @Override
-    void addProxyRoute(HostInfo|String route, String targetUri, KeyStore? keystore = Null, String? tlsKey = Null) {
-        String hostName;
-        if (route.is(String)) {
-            hostName = route;
-            route    = new HostInfo(route);
-        } else {
-            hostName = route.host.toString();
-        }
-
-        UInt16 httpPort  = route.httpPort;
-        UInt16 httpsPort = route.httpsPort;
-
-        addProxyRouteImpl(hostName, httpPort, httpsPort, targetUri, keystore, tlsKey);
-
-        routes = routes.put(route, new Handler() {
-            @Override void handle(RequestInfo request) {}
-            @Override void close(Exception? e = Null) {}
-        });
-        assert routes.is(immutable);
-    }
-
-    @Override
     void addRoute(HostInfo|String route, Handler handler, KeyStore? keystore = Null,
                   String? tlsKey = Null, String? cookieKey = Null) {
 
@@ -242,8 +220,6 @@ service RTServer
     private void bindImpl(HostInfo binding, String bindAddr, UInt16 httpPort, UInt16 httpsPort)      = TODO("Native");
     private void addRouteImpl(String hostName, UInt16 httpPort, UInt16 httpsPort,
                               HandlerWrapper wrapper, KeyStore? keystore, String? tlsKey)            = TODO("Native");
-    private void addProxyRouteImpl(String hostName, UInt16 httpPort, UInt16 httpsPort,
-                                   String targetUri, KeyStore? keystore, String? tlsKey)             = TODO("Native");
     private Boolean replaceRouteImpl(String hostName, HandlerWrapper wrapper)                        = TODO("Native");
     private void removeRouteImpl(String hostName)                                                    = TODO("Native");
     (Byte[], UInt16) getReceivedAtAddress(RequestContext context)                                    = TODO("Native");
@@ -257,6 +233,8 @@ service RTServer
     void setHeaders(RequestContext context, Int status, String[] headerNames, String[] headerValues,
                     Int responseLength)                                                              = TODO("Native");
     void setBodyBytes(RequestContext context, Byte[] bytes, Boolean final)                           = TODO("Native");
+    @Override
+    void proxyPass(RequestContext context, String targetUri)                                         = TODO("Native");
     private void closeImpl()                                                                         = TODO("Native");
 
     // ----- internal classes ----------------------------------------------------------------------
@@ -296,8 +274,8 @@ service RTServer
         void bind(HostInfo binding, ProxyCheck reverseProxy=NoTrustedProxies);
         Boolean unbind(HostInfo binding);
         @RO Map<HostInfo, ProxyCheck> bindings;
+        void proxyPass(RequestContext context, String targetUri);
 
-        void addProxyRoute(HostInfo|String route, String targetUri, KeyStore? keystore = Null, String? tlsKey = Null);
         void addRoute(HostInfo|String route, Handler handler, KeyStore? keystore = Null,
                       String? tlsKey = Null, String? cookieKey = Null);
         Boolean replaceRoute(HostInfo|String route, Handler handler);

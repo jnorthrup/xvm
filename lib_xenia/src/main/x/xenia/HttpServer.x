@@ -98,23 +98,6 @@ interface HttpServer
                    String? tlsKey = Null, String? cookieKey = Null);
 
     /**
-     * Add a host route for this server that acts as a reverse proxy, forwarding requests to the target.
-     *
-     * @param route      the HostInfo for request routing
-     * @param targetUri  the upstream URI to proxy to
-     * @param keystore   (optional) the KeyStore to use for https certificates
-     * @param tlsKey     (optional) the name of the key pair in the keystore to use for https
-     */
-    void addProxyRoute(HostInfo|String route, String targetUri, KeyStore? keystore = Null, String? tlsKey = Null) {
-        // default empty handler as native handles proxying
-        addRoute(route, new Handler() {
-            @Override void handle(RequestInfo request) {}
-            @Override void close(Exception? e = Null) {}
-        }, keystore, tlsKey);
-    }
-
-
-    /**
      * Update an existing route such that it will now route to the specified `Handler`. The purpose
      * of this method is to (as much as possible) atomically update a route, instead of removing and
      * adding it, such that minimal interruption (if any) to service will occur.
@@ -394,5 +377,17 @@ interface HttpServer
          *                    does **not** indicate a successful response to a client
          */
         void streamBodyBytes(BinaryInput source);
+
+        /**
+         * Instruct the server to act as a reverse proxy, heavily utilizing the native implementation
+         * to forward the request directly to the upstream URI with full cipher integration.
+         *
+         * @param targetUri  the upstream URI to proxy to
+         */
+        void proxyPass(String targetUri) {
+            // Default implementation throws if not natively supported
+            throw new Unsupported();
+        }
+
     }
 }
